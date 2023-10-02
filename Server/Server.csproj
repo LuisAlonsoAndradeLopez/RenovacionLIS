@@ -52,9 +52,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\Contracts.csproj">
+    <ProjectReference Include="..\Contracts\ServiceContracts.csproj">
       <Project>{747B4BEF-4D50-4DB9-8964-70C18B801332}</Project>
-      <Name>Contracts</Name>
+      <Name>ServiceContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

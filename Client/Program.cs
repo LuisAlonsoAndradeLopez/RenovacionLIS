@@ -14,12 +14,11 @@ namespace Client
             Console.ReadLine();
             var uri = "net.tcp://localhost:4345/ProductService";
             NetTcpBinding binding = new NetTcpBinding(SecurityMode.None);
-            var channel = new ChannelFactory<IProductService>(binding);
+            var channel = new ChannelFactory<IPlayer>(binding);
             var endpoint = new EndpointAddress(uri);
             var proxy = channel.CreateChannel(endpoint);
             proxy?.GetStrings().ToList().ForEach(p => Console.WriteLine(p));
             Console.ReadLine();
-            
         }
     }
 }

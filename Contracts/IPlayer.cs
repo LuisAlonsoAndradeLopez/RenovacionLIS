@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Contracts
 {
     [ServiceContract]
-    public interface IProductService
+    public interface IPlayer
     {
         [OperationContract]
         string[] GetStrings();
