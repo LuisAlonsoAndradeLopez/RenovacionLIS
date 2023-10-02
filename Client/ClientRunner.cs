@@ -6,7 +6,7 @@ using Contracts;
 
 namespace Client
 {
-    internal class Program
+    internal class ClientRunner
     {
         static void Main(string[] args)
         {

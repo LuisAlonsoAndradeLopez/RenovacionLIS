@@ -8,14 +8,14 @@ using Contracts;
 
 namespace Server
 {
-    internal class Program
+    internal class ServerRunner
     {
         static void Main(string[] args)
         {
             var uris = new Uri[1];
             string addr = "net.tcp://localhost:4345/ProductService";
             uris[0] = new Uri(addr);
-            IPlayer player = new ProductService();
+            IPlayer player = new IPlayer();
             ServiceHost host = new ServiceHost(player, uris);
             var binding = new NetTcpBinding(SecurityMode.None);
             host.AddServiceEndpoint(typeof(IPlayer), binding, "");

@@ -1,6 +1,0 @@
-C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Contracts\bin\Debug\Contracts.dll
-C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Contracts\bin\Debug\Contracts.pdb
-C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Contracts\obj\Debug\Contracts.csproj.AssemblyReference.cache
-C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Contracts\obj\Debug\Contracts.csproj.CoreCompileInputs.cache
-C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Contracts\obj\Debug\Contracts.dll
-C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Contracts\obj\Debug\Contracts.pdb

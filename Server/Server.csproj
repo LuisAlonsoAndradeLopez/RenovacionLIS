@@ -44,16 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductService.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="ServerRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\ServiceContracts.csproj">
-      <Project>{747B4BEF-4D50-4DB9-8964-70C18B801332}</Project>
+    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
+      <Project>{2B221193-BE53-4A3C-9C98-778BAF83EDC5}</Project>
       <Name>ServiceContracts</Name>
     </ProjectReference>
   </ItemGroup>

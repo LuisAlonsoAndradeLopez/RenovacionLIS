@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{747B4BEF-4D50-4DB9-8964-70C18B801332}</ProjectGuid>
+    <ProjectGuid>{2B221193-BE53-4A3C-9C98-778BAF83EDC5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ServiceContracts</RootNamespace>
@@ -42,8 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICrucigram.cs" />
     <Compile Include="IPlayer.cs" />
+    <Compile Include="ILevel.cs" />
+    <Compile Include="IProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IWord.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

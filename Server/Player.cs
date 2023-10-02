@@ -9,7 +9,7 @@ using Contracts;
 namespace Server
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class ProductService : IPlayer
+    public class Player : IPlayer
     {
         public string[] GetStrings()
         {
