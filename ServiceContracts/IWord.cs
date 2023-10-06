@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DataContracts
 {
     [ServiceContract]
-    public class IWord
+    public interface IWord
     {
         [OperationContract]
         string[] GetStrings();

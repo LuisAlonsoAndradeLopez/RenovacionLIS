@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DataContracts
 {
     [ServiceContract]
-    public class ILevel
+    public interface ILevel
     {
         [OperationContract]
         string[] GetStrings();

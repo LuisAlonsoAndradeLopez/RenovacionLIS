@@ -11,7 +11,7 @@ using DataContracts;
 namespace DataContracts
 {
     [ServiceContract]
-    public class IProfile
+    public interface IProfile
     {
         [OperationContract]
         string[] GetStrings();

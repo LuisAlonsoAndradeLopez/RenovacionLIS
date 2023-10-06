@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DataContracts
 {
     [ServiceContract]
-    public class ICrucigram
+    public interface ICrucigram
     {
         [OperationContract]
         string[] GetStrings();
