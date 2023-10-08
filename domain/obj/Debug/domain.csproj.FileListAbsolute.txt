@@ -1,0 +1,12 @@
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\domain.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\domain.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\obj\Debug\domain.csproj.AssemblyReference.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\obj\Debug\domain.csproj.CoreCompileInputs.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\obj\Debug\domain.csproj.CopyComplete
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\obj\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\domain\obj\Debug\domain.pdb

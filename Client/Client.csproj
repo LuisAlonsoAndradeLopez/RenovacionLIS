@@ -62,9 +62,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
-      <Project>{2B221193-BE53-4A3C-9C98-778BAF83EDC5}</Project>
-      <Name>ServiceContracts</Name>
+    <ProjectReference Include="..\DatabaseManager\DatabaseManager.csproj">
+      <Project>{6CA6F835-3B75-4B52-B94B-43375BF02650}</Project>
+      <Name>DatabaseManager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

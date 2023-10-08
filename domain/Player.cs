@@ -18,7 +18,7 @@ namespace domain
 
         public string NickName { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public int BirthDay { get; set; }
 

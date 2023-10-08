@@ -11,22 +11,37 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class Players
     {
+        [DataMember]
         public long IDPlayer { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string FirstSurname { get; set; }
+        [DataMember]
         public string SecondSurname { get; set; }
+        [DataMember]
         public string NickName { get; set; }
+        [DataMember]
         public System.DateTime BirthDate { get; set; }
+        [DataMember]
         public Nullable<int> BirthDay { get; set; }
+        [DataMember]
         public string BirthMonth { get; set; }
+        [DataMember]
         public Nullable<int> BirthYear { get; set; }
+        [DataMember]
         public string MainEmail { get; set; }
+        [DataMember]
         public string AlternateEmail { get; set; }
+        [DataMember]
         public string Password { get; set; }
-    
+
+        [DataMember]
         public virtual Profiles Profiles { get; set; }
     }
 }

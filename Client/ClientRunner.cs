@@ -17,7 +17,7 @@ namespace Client
             var channel = new ChannelFactory<IPlayer>(binding);
             var endpoint = new EndpointAddress(uri);
             var proxy = channel.CreateChannel(endpoint);
-            proxy?.GetStrings().ToList().ForEach(p => Console.WriteLine(p));
+            proxy?.GetPlayers().ToList().ForEach(p => Console.WriteLine(p));
             Console.ReadLine();
         }
     }

@@ -11,7 +11,7 @@ namespace domain
     {
         public int IDProfile { get; set; }
 
-        public FileAccess ProfilePicture { get; set; }
+        public string ProfilePicture { get; set; }
 
         public int Coins { get; set; }
 

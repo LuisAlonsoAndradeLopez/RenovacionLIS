@@ -22,6 +22,6 @@ namespace DataContracts
         public int Coins { get; set; }
 
         [DataMember]
-        public Player Player { get; set; }
+        public DataPlayer Player { get; set; }
     }
 }

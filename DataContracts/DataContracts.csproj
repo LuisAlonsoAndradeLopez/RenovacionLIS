@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Crucigram.cs" />
     <Compile Include="Level.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="DataPlayer.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Word.cs" />

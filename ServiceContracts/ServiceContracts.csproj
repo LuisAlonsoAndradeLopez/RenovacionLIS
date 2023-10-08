@@ -52,16 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICrucigram.cs" />
-    <Compile Include="IPlayer.cs" />
-    <Compile Include="ILevel.cs" />
-    <Compile Include="IProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IWord.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseManager\DatabaseManager.csproj">
+      <Project>{6CA6F835-3B75-4B52-B94B-43375BF02650}</Project>
+      <Name>DatabaseManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataContracts\DataContracts.csproj">
+      <Project>{27EFF5F5-DD2B-4D68-98EB-E7A2C58D814F}</Project>
+      <Name>DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\domain\domain.csproj">
+      <Project>{1F083135-139B-42BA-91E9-B8D96CFD7D3E}</Project>
+      <Name>domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

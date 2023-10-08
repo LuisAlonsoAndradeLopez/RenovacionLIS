@@ -1,0 +1,12 @@
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\DatabaseManager.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\DatabaseManager.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\DatabaseManager.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\obj\Debug\DatabaseManager.csproj.AssemblyReference.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\obj\Debug\DatabaseManager.csproj.CoreCompileInputs.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\obj\Debug\DatabaseManager.csproj.CopyComplete
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\obj\Debug\DatabaseManager.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\obj\Debug\DatabaseManager.pdb
