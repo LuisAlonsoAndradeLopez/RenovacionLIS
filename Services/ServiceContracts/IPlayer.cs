@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager;
 
-namespace ServiceContracts
+namespace Services.ServiceContracts
 {
     [ServiceContract]
     public interface IPlayer

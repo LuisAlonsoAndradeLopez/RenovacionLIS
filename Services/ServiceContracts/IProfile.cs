@@ -6,9 +6,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using DataContracts;
 
-namespace ServiceContracts
+namespace Services.ServiceContracts
 {
     [ServiceContract]
     public interface IProfile

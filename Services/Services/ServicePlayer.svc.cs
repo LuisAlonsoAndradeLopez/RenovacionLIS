@@ -5,11 +5,11 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager;
-using ServiceContracts;
+using Services.ServiceContracts;
 
 namespace Services.Services
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServicePlayer : IPlayer
     {
         int IPlayer.AddPlayer(Players playersTable)

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="47887cf7-5574-4f64-8243-0e7b8800acf4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55887/Services/ServicePlayer.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicePlayer.xsd" MetadataType="Schema" ID="74feb060-f392-470a-b4a8-6e80098d9644" SourceId="1" SourceUrl="http://localhost:55887/Services/ServicePlayer.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicePlayer1.xsd" MetadataType="Schema" ID="c992868a-ca2f-43df-a59c-0ba221b6d389" SourceId="1" SourceUrl="http://localhost:55887/Services/ServicePlayer.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicePlayer2.xsd" MetadataType="Schema" ID="9d7d3d0b-8c7b-4f03-9085-c67487cff632" SourceId="1" SourceUrl="http://localhost:55887/Services/ServicePlayer.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicePlayer.disco" MetadataType="Disco" ID="74f2db62-a1e3-44d5-95a7-afe56e8c5552" SourceId="1" SourceUrl="http://localhost:55887/Services/ServicePlayer.svc?disco" />
+    <MetadataFile FileName="ServicePlayer3.xsd" MetadataType="Schema" ID="8bafa7e8-bbb0-456a-9138-c6c5b8200fc9" SourceId="1" SourceUrl="http://localhost:55887/Services/ServicePlayer.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicePlayer.wsdl" MetadataType="Wsdl" ID="21ea316a-b7cb-4179-a891-2d85a4f6aa18" SourceId="1" SourceUrl="http://localhost:55887/Services/ServicePlayer.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

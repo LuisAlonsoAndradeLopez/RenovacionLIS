@@ -47,7 +47,7 @@
     <Property Name="FirstSurname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SecondSurname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="NickName" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="true" />
     <Property Name="BirthDay" Type="int" Nullable="true" />
     <Property Name="BirthMonth" Type="nvarchar(max)" Nullable="true" />
     <Property Name="BirthYear" Type="int" Nullable="true" />

@@ -10,5 +10,3 @@ C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Server\obj\Debug\
 C:\Users\wmike\OneDrive\Documentos\Tecnologias\Renovación LIS\Server\obj\Debug\Server.pdb
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.csproj.AssemblyReference.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.exe
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.pdb

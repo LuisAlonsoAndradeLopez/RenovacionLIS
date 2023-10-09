@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/06/2023 00:20:12
+-- Date Created: 10/08/2023 19:29:22
 -- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,56 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ProfilesPlayers]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfilesSet] DROP CONSTRAINT [FK_ProfilesPlayers];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CrucigramsWords_Crucigrams]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CrucigramsWords] DROP CONSTRAINT [FK_CrucigramsWords_Crucigrams];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CrucigramsWords_Words]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CrucigramsWords] DROP CONSTRAINT [FK_CrucigramsWords_Words];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfilesCrucigrams_Profiles]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfilesCrucigrams] DROP CONSTRAINT [FK_ProfilesCrucigrams_Profiles];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfilesCrucigrams_Crucigrams]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfilesCrucigrams] DROP CONSTRAINT [FK_ProfilesCrucigrams_Crucigrams];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CrucigramsLevels_Crucigrams]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CrucigramsLevels] DROP CONSTRAINT [FK_CrucigramsLevels_Crucigrams];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CrucigramsLevels_Levels]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CrucigramsLevels] DROP CONSTRAINT [FK_CrucigramsLevels_Levels];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[PlayersSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PlayersSet];
+GO
+IF OBJECT_ID(N'[dbo].[ProfilesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProfilesSet];
+GO
+IF OBJECT_ID(N'[dbo].[CrucigramsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CrucigramsSet];
+GO
+IF OBJECT_ID(N'[dbo].[LevelsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LevelsSet];
+GO
+IF OBJECT_ID(N'[dbo].[WordsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[WordsSet];
+GO
+IF OBJECT_ID(N'[dbo].[CrucigramsWords]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CrucigramsWords];
+GO
+IF OBJECT_ID(N'[dbo].[ProfilesCrucigrams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProfilesCrucigrams];
+GO
+IF OBJECT_ID(N'[dbo].[CrucigramsLevels]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CrucigramsLevels];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -34,7 +79,7 @@ CREATE TABLE [dbo].[PlayersSet] (
     [FirstSurname] nvarchar(max)  NULL,
     [SecondSurname] nvarchar(max)  NULL,
     [NickName] nvarchar(max)  NULL,
-    [BirthDate] datetime  NOT NULL,
+    [BirthDate] datetime  NULL,
     [BirthDay] int  NULL,
     [BirthMonth] nvarchar(max)  NULL,
     [BirthYear] int  NULL,

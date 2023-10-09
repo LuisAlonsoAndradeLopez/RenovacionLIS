@@ -77,26 +77,23 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\Service1.svc" />
     <Content Include="Services\ServiceCrucigram.svc" />
     <Content Include="Services\ServiceLevel.svc" />
     <Content Include="Services\ServicePlayer.svc" />
     <Content Include="Services\ServiceProfile.svc" />
     <Content Include="Services\ServiceWord.svc" />
+    <Content Include="Servisudo.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IServisudo.cs" />
+    <Compile Include="MyModule1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContracts\ICrucigram.cs" />
     <Compile Include="ServiceContracts\ILevel.cs" />
     <Compile Include="ServiceContracts\IPlayer.cs" />
     <Compile Include="ServiceContracts\IProfile.cs" />
     <Compile Include="ServiceContracts\IWord.cs" />
-    <Compile Include="MyModule1.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IService1.cs" />
-    <Compile Include="Services\Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
     <Compile Include="Services\ServiceCrucigram.svc.cs">
       <DependentUpon>ServiceCrucigram.svc</DependentUpon>
     </Compile>
@@ -111,6 +108,9 @@
     </Compile>
     <Compile Include="Services\ServiceWord.svc.cs">
       <DependentUpon>ServiceWord.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Servisudo.svc.cs">
+      <DependentUpon>Servisudo.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +130,9 @@
       <Project>{6CA6F835-3B75-4B52-B94B-43375BF02650}</Project>
       <Name>DatabaseManager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

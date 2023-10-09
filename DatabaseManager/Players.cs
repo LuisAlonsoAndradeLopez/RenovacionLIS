@@ -27,7 +27,7 @@ namespace DatabaseManager
         [DataMember]
         public string NickName { get; set; }
         [DataMember]
-        public System.DateTime BirthDate { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
         [DataMember]
         public Nullable<int> BirthDay { get; set; }
         [DataMember]

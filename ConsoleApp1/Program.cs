@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            ServicePlayerReference.PlayerClient client = new ServicePlayerReference.PlayerClient();
+            ServicePlayerReference.Players playersTable = new ServicePlayerReference.Players();
+
+            playersTable.Name = "Test";
+
+            client.AddPlayer(new ServicePlayerReference.Players());
         }
     }
 }

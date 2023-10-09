@@ -52,7 +52,7 @@
     <Property Name="FirstSurname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SecondSurname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="NickName" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="true" />
     <Property Name="BirthDay" Type="int" Nullable="true" />
     <Property Name="BirthMonth" Type="nvarchar(max)" Nullable="true" />
     <Property Name="BirthYear" Type="int" Nullable="true" />
@@ -231,17 +231,17 @@
             <PropertyRef Name="IDPlayer" />
           </Key>
           <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="true" />
-          <Property Name="FirstSurname" Type="String" Nullable="true" />
-          <Property Name="SecondSurname" Type="String" Nullable="true" />
-          <Property Name="NickName" Type="String" Nullable="true" />
-          <Property Name="BirthDate" Type="DateTime" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FirstSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SecondSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NickName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="true" Precision="3" />
           <Property Name="BirthDay" Type="Int32" Nullable="true" />
-          <Property Name="BirthMonth" Type="String" Nullable="true" />
+          <Property Name="BirthMonth" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="BirthYear" Type="Int32" Nullable="true" />
-          <Property Name="MainEmail" Type="String" Nullable="true" />
-          <Property Name="AlternateEmail" Type="String" Nullable="true" />
-          <Property Name="Password" Type="String" Nullable="true" />
+          <Property Name="MainEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AlternateEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
         </EntityType>
         <EntityType Name="Profiles">
@@ -249,7 +249,7 @@
             <PropertyRef Name="IDProfile" />
           </Key>
           <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProfilePicture" Type="String" Nullable="true" />
+          <Property Name="ProfilePicture" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Coins" Type="Int64" Nullable="true" />
           <NavigationProperty Name="Players" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
           <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.ProfilesCrucigrams" FromRole="Profiles" ToRole="Crucigrams" />
@@ -273,16 +273,16 @@
           </Key>
           <Property Name="IDLevel" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.CrucigramsLevels" FromRole="Levels" ToRole="Crucigrams" />
-          <Property Name="LevelName" Type="String" Nullable="true" />
-          <Property Name="Difficulty" Type="String" Nullable="true" />
+          <Property Name="LevelName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Difficulty" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="Words">
           <Key>
             <PropertyRef Name="IDWord" />
           </Key>
           <Property Name="IDWord" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Word" Type="String" Nullable="true" />
-          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="Word" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.CrucigramsWords" FromRole="Words" ToRole="Crucigrams" />
         </EntityType>
         <Association Name="CrucigramsWords">

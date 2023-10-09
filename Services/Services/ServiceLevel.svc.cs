@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Services.ServiceContracts;
 
 namespace Services.Services
 {
@@ -13,6 +14,11 @@ namespace Services.Services
     {
         public void DoWork()
         {
+        }
+
+        public string[] GetStrings()
+        {
+            throw new NotImplementedException();
         }
     }
 }
