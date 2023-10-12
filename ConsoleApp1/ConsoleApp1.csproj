@@ -58,19 +58,19 @@
     <None Include="Connected Services\ServicePlayerReference\ConsoleApp1.ServicePlayerReference.Players.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServicePlayerReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServicePlayerReference\ServicePlayer.wsdl" />
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -79,7 +79,7 @@
     <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer.disco" />
+    <None Include="Connected Services\ServicePlayerReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServicePlayerReference\configuration91.svcinfo" />

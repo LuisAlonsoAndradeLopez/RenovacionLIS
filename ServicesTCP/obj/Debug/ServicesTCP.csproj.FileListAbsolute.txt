@@ -1,0 +1,14 @@
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\ServicesTCP.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\ServicesTCP.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\DatabaseManager.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\DatabaseManager.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\DatabaseManager.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\ServicesTCP.csproj.AssemblyReference.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\ServicesTCP.csproj.CoreCompileInputs.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\ServicesTCP.csproj.CopyComplete
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\ServicesTCP.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\ServicesTCP.pdb
