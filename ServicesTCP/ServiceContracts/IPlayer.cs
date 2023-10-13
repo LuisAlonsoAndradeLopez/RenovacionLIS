@@ -13,12 +13,18 @@ namespace ServicesTCP.ServiceContracts
     public interface IPlayer
     {
         [OperationContract]
-        int AddPlayer(Players playersTable);
+        int AddPlayer(Players player);
+
+        [OperationContract]
+        int ModifyPlayer(Players modifiedPlayer);
 
         [OperationContract]
         List<Players> GetPlayers();
 
         [OperationContract]
-        string[] GetPlayerByID(int ID);
+        Players GetPlayerByID(int ID);
+
+        [OperationContract]
+        List<Players> GetSpecifiedPlayers(string name);
     }
 }

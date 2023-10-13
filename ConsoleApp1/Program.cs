@@ -11,12 +11,12 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             ServicePlayerReference.PlayerClient client = new ServicePlayerReference.PlayerClient();
-            ServicePlayerReference.Players playersTable = new ServicePlayerReference.Players();
+            //ServicePlayerReference.Players playersTable = new ServicePlayerReference.Players();
 
-            playersTable.Name = "Test";
-            Console.WriteLine();
 
-            client.AddPlayer(new ServicePlayerReference.Players());
+            Console.WriteLine(client.GetPlayers());
+
+            //client.AddPlayer(new ServicePlayerReference.Players());
 
             Console.WriteLine("Exito");
             Console.ReadLine();
