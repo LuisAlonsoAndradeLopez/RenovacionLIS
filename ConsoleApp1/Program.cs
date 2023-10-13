@@ -14,8 +14,12 @@ namespace ConsoleApp1
             ServicePlayerReference.Players playersTable = new ServicePlayerReference.Players();
 
             playersTable.Name = "Test";
+            Console.WriteLine();
 
             client.AddPlayer(new ServicePlayerReference.Players());
+
+            Console.WriteLine("Exito");
+            Console.ReadLine();
         }
     }
 }

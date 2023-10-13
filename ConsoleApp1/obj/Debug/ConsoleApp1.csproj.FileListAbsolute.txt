@@ -5,3 +5,8 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\obj\Debug\Console
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CopyComplete

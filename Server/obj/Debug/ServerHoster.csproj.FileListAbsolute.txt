@@ -15,3 +15,4 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\ServerHoster
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\ServerHoster.csproj.CopyComplete
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.exe
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\ServicesTCP.dll.config
