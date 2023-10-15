@@ -266,6 +266,9 @@ namespace ConsoleApp1.ServicePlayerReference {
         private long IDProfileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ConsoleApp1.ServicePlayerReference.Players PlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProfilePictureField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -305,6 +308,19 @@ namespace ConsoleApp1.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public ConsoleApp1.ServicePlayerReference.Players Players {
+            get {
+                return this.PlayersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
+                    this.PlayersField = value;
+                    this.RaisePropertyChanged("Players");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ProfilePicture {
             get {
                 return this.ProfilePictureField;
@@ -328,14 +344,20 @@ namespace ConsoleApp1.ServicePlayerReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePlayerReference.IPlayer")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePlayerReference.IPlayer", CallbackContract=typeof(ConsoleApp1.ServicePlayerReference.IPlayerCallback))]
     public interface IPlayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        int AddPlayer(ConsoleApp1.ServicePlayerReference.Players playersTable);
+        int AddPlayer(ConsoleApp1.ServicePlayerReference.Players player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players playersTable);
+        System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
+        int ModifyPlayer(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
+        System.Threading.Tasks.Task<int> ModifyPlayerAsync(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
         ConsoleApp1.ServicePlayerReference.Players[] GetPlayers();
@@ -344,10 +366,23 @@ namespace ConsoleApp1.ServicePlayerReference {
         System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players[]> GetPlayersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        string[] GetPlayerByID(int ID);
+        ConsoleApp1.ServicePlayerReference.Players GetPlayerByID(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        System.Threading.Tasks.Task<string[]> GetPlayerByIDAsync(int ID);
+        System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players> GetPlayerByIDAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
+        ConsoleApp1.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
+        System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IPlayerCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPlayer/Response")]
+        void Response([System.ServiceModel.MessageParameterAttribute(Name="response")] string response1);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -356,33 +391,42 @@ namespace ConsoleApp1.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlayerClient : System.ServiceModel.ClientBase<ConsoleApp1.ServicePlayerReference.IPlayer>, ConsoleApp1.ServicePlayerReference.IPlayer {
+    public partial class PlayerClient : System.ServiceModel.DuplexClientBase<ConsoleApp1.ServicePlayerReference.IPlayer>, ConsoleApp1.ServicePlayerReference.IPlayer {
         
-        public PlayerClient() {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public PlayerClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public PlayerClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public PlayerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public PlayerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+
+        public int AddPlayer(ConsoleApp1.ServicePlayerReference.Players player) {
+            return base.Channel.AddPlayer(player);
         }
         
-        public int AddPlayer(ConsoleApp1.ServicePlayerReference.Players playersTable) {
-            return base.Channel.AddPlayer(playersTable);
+        public System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players player) {
+            return base.Channel.AddPlayerAsync(player);
         }
         
-        public System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players playersTable) {
-            return base.Channel.AddPlayerAsync(playersTable);
+        public int ModifyPlayer(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer) {
+            return base.Channel.ModifyPlayer(modifiedPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<int> ModifyPlayerAsync(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer) {
+            return base.Channel.ModifyPlayerAsync(modifiedPlayer);
         }
         
         public ConsoleApp1.ServicePlayerReference.Players[] GetPlayers() {
@@ -393,12 +437,20 @@ namespace ConsoleApp1.ServicePlayerReference {
             return base.Channel.GetPlayersAsync();
         }
         
-        public string[] GetPlayerByID(int ID) {
+        public ConsoleApp1.ServicePlayerReference.Players GetPlayerByID(int ID) {
             return base.Channel.GetPlayerByID(ID);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetPlayerByIDAsync(int ID) {
+        public System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players> GetPlayerByIDAsync(int ID) {
             return base.Channel.GetPlayerByIDAsync(ID);
+        }
+        
+        public ConsoleApp1.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name) {
+            return base.Channel.GetSpecifiedPlayers(name);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name) {
+            return base.Channel.GetSpecifiedPlayersAsync(name);
         }
     }
 }

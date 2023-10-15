@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +12,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            ServicePlayerReference.PlayerClient client = new ServicePlayerReference.PlayerClient();
+
+            InstanceContext context = new InstanceContext(new CallbackHandler());
+
+            ServicePlayerReference.PlayerClient client = new ServicePlayerReference.PlayerClient(context);
+            //System.ServiceModel.InstanceContext callbackInstance = new System.ServiceModel.InstanceContext();
             //ServicePlayerReference.Players playersTable = new ServicePlayerReference.Players();
 
 
@@ -19,7 +25,16 @@ namespace ConsoleApp1
             //client.AddPlayer(new ServicePlayerReference.Players());
 
             Console.WriteLine("Exito");
+            new CallbackHandler().Response("Meeeeeee");
             Console.ReadLine();
+        }
+    }
+
+    class CallbackHandler : ServicePlayerReference.IPlayerCallback
+    {
+        public void Response(String response)
+        {
+            Console.WriteLine(response);
         }
     }
 }

@@ -9,22 +9,29 @@ using DatabaseManager;
 
 namespace ServicesTCP.ServiceContracts
 {
-    [ServiceContract(Name = "IPlayer")]
+    [ServiceContract(CallbackContract = typeof(IPlayerCallback))]
     public interface IPlayer
     {
-        [OperationContract]
+        [OperationContract (Name = "AddPlayer")]
         int AddPlayer(Players player);
 
-        [OperationContract]
+        [OperationContract (Name = "ModifyPlayer")]
         int ModifyPlayer(Players modifiedPlayer);
 
-        [OperationContract]
+        [OperationContract (Name = "GetPlayers")]
         List<Players> GetPlayers();
 
-        [OperationContract]
+        [OperationContract (Name = "GetPlayerByID")]
         Players GetPlayerByID(int ID);
 
-        [OperationContract]
+        [OperationContract (Name = "GetSpecifiedPlayers")]
         List<Players> GetSpecifiedPlayers(string name);
+    }
+
+    //[ServiceContract(CallbackContract = typeof(IPlayerCallback))]
+    public interface IPlayerCallback
+    {
+        [OperationContract (Name = "Response", IsOneWay = true)]
+        void Response(String response);
     }
 }
