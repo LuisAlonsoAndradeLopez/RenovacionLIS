@@ -28,10 +28,9 @@ namespace ServicesTCP.ServiceContracts
         List<Players> GetSpecifiedPlayers(string name);
     }
 
-    //[ServiceContract(CallbackContract = typeof(IPlayerCallback))]
     public interface IPlayerCallback
     {
-        [OperationContract (Name = "Response", IsOneWay = true)]
+        [OperationContract (IsOneWay = true, Name = "Response")]
         void Response(String response);
     }
 }

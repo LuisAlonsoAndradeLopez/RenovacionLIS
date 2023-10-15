@@ -20,16 +20,17 @@ namespace ConsoleApp1
             //ServicePlayerReference.Players playersTable = new ServicePlayerReference.Players();
 
 
-            Console.WriteLine(client.GetPlayers());
+            //Console.WriteLine(client.GetPlayers());
 
-            //client.AddPlayer(new ServicePlayerReference.Players());
+            client.AddPlayer(new ServicePlayerReference.Players());
 
             Console.WriteLine("Exito");
-            new CallbackHandler().Response("Meeeeeee");
+            //new CallbackHandler().Response("Meeeeeee");
             Console.ReadLine();
         }
     }
 
+    [CallbackBehavior (UseSynchronizationContext = false)]
     class CallbackHandler : ServicePlayerReference.IPlayerCallback
     {
         public void Response(String response)

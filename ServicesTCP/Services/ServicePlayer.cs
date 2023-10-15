@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DatabaseManager;
 using ServicesTCP.ServiceContracts;
@@ -27,8 +28,9 @@ namespace ServicesTCP.Services
                 generatedID = (int)player.IDPlayer;
                 String message = "Usuario Wardado Exitosamente";
                 IPlayerCallback callback = OperationContext.Current.GetCallbackChannel<IPlayerCallback>();
+                Thread.Sleep(50);
                 callback.Response(message);
-                Console.WriteLine(generatedID);
+                //Console.WriteLine(generatedID);
             }
             catch (Exception ex)
             {
