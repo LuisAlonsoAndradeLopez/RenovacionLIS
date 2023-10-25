@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="PlayersSet" EntityType="DatabaseModel.Store.PlayersSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilesSet" EntityType="DatabaseModel.Store.ProfilesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CrucigramsSet" EntityType="DatabaseModel.Store.CrucigramsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LevelsSet" EntityType="DatabaseModel.Store.LevelsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WordsSet" EntityType="DatabaseModel.Store.WordsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CrucigramsWords" EntityType="DatabaseModel.Store.CrucigramsWords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilesCrucigrams" EntityType="DatabaseModel.Store.ProfilesCrucigrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CrucigramsLevels" EntityType="DatabaseModel.Store.CrucigramsLevels" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProfilesPlayers" Association="DatabaseModel.Store.ProfilesPlayers">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="Players" EntitySet="PlayersSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsWords_Crucigrams" Association="DatabaseModel.Store.FK_CrucigramsWords_Crucigrams">
+      <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+      <End Role="CrucigramsWords" EntitySet="CrucigramsWords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsWords_Words" Association="DatabaseModel.Store.FK_CrucigramsWords_Words">
+      <End Role="Words" EntitySet="WordsSet" />
+      <End Role="CrucigramsWords" EntitySet="CrucigramsWords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesCrucigrams_Profiles" Association="DatabaseModel.Store.FK_ProfilesCrucigrams_Profiles">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="ProfilesCrucigrams" EntitySet="ProfilesCrucigrams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesCrucigrams_Crucigrams" Association="DatabaseModel.Store.FK_ProfilesCrucigrams_Crucigrams">
+      <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+      <End Role="ProfilesCrucigrams" EntitySet="ProfilesCrucigrams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsLevels_Crucigrams" Association="DatabaseModel.Store.FK_CrucigramsLevels_Crucigrams">
+      <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+      <End Role="CrucigramsLevels" EntitySet="CrucigramsLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsLevels_Levels" Association="DatabaseModel.Store.FK_CrucigramsLevels_Levels">
+      <End Role="Levels" EntitySet="LevelsSet" />
+      <End Role="CrucigramsLevels" EntitySet="CrucigramsLevels" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PlayersSet">
+    <Key>
+      <PropertyRef Name="IDPlayer" />
+    </Key>
+    <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FirstSurname" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecondSurname" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="NickName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BirthDate" Type="datetime" Nullable="true" />
+    <Property Name="BirthDay" Type="int" Nullable="true" />
+    <Property Name="BirthMonth" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BirthYear" Type="int" Nullable="true" />
+    <Property Name="MainEmail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AlternateEmail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ProfilesSet">
+    <Key>
+      <PropertyRef Name="IDProfile" />
+    </Key>
+    <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfilePicture" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Coins" Type="bigint" Nullable="true" />
+    <Property Name="Players_IDPlayer" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrucigramsSet">
+    <Key>
+      <PropertyRef Name="IDCrucigram" />
+    </Key>
+    <Property Name="IDCrucigram" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LevelsSet">
+    <Key>
+      <PropertyRef Name="IDLevel" />
+    </Key>
+    <Property Name="IDLevel" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LevelName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Difficulty" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="WordsSet">
+    <Key>
+      <PropertyRef Name="IDWord" />
+    </Key>
+    <Property Name="IDWord" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Word" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CrucigramsWords">
+    <Key>
+      <PropertyRef Name="Crucigrams_IDCrucigram" />
+      <PropertyRef Name="Words_IDWord" />
+    </Key>
+    <Property Name="Crucigrams_IDCrucigram" Type="bigint" Nullable="false" />
+    <Property Name="Words_IDWord" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilesCrucigrams">
+    <Key>
+      <PropertyRef Name="Profiles_IDProfile" />
+      <PropertyRef Name="Crucigrams_IDCrucigram" />
+    </Key>
+    <Property Name="Profiles_IDProfile" Type="bigint" Nullable="false" />
+    <Property Name="Crucigrams_IDCrucigram" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrucigramsLevels">
+    <Key>
+      <PropertyRef Name="Crucigrams_IDCrucigram" />
+      <PropertyRef Name="Levels_IDLevel" />
+    </Key>
+    <Property Name="Crucigrams_IDCrucigram" Type="bigint" Nullable="false" />
+    <Property Name="Levels_IDLevel" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="ProfilesPlayers">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="*" />
+    <End Role="Players" Type="DatabaseModel.Store.PlayersSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="IDPlayer" />
+      </Principal>
+      <Dependent Role="Profiles">
+        <PropertyRef Name="Players_IDPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsWords_Crucigrams">
+    <End Role="Crucigrams" Type="DatabaseModel.Store.CrucigramsSet" Multiplicity="1" />
+    <End Role="CrucigramsWords" Type="DatabaseModel.Store.CrucigramsWords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crucigrams">
+        <PropertyRef Name="IDCrucigram" />
+      </Principal>
+      <Dependent Role="CrucigramsWords">
+        <PropertyRef Name="Crucigrams_IDCrucigram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsWords_Words">
+    <End Role="CrucigramsWords" Type="DatabaseModel.Store.CrucigramsWords" Multiplicity="*" />
+    <End Role="Words" Type="DatabaseModel.Store.WordsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Words">
+        <PropertyRef Name="IDWord" />
+      </Principal>
+      <Dependent Role="CrucigramsWords">
+        <PropertyRef Name="Words_IDWord" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesCrucigrams_Profiles">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="1" />
+    <End Role="ProfilesCrucigrams" Type="DatabaseModel.Store.ProfilesCrucigrams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="ProfilesCrucigrams">
+        <PropertyRef Name="Profiles_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesCrucigrams_Crucigrams">
+    <End Role="ProfilesCrucigrams" Type="DatabaseModel.Store.ProfilesCrucigrams" Multiplicity="*" />
+    <End Role="Crucigrams" Type="DatabaseModel.Store.CrucigramsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Crucigrams">
+        <PropertyRef Name="IDCrucigram" />
+      </Principal>
+      <Dependent Role="ProfilesCrucigrams">
+        <PropertyRef Name="Crucigrams_IDCrucigram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsLevels_Crucigrams">
+    <End Role="Crucigrams" Type="DatabaseModel.Store.CrucigramsSet" Multiplicity="1" />
+    <End Role="CrucigramsLevels" Type="DatabaseModel.Store.CrucigramsLevels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crucigrams">
+        <PropertyRef Name="IDCrucigram" />
+      </Principal>
+      <Dependent Role="CrucigramsLevels">
+        <PropertyRef Name="Crucigrams_IDCrucigram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsLevels_Levels">
+    <End Role="CrucigramsLevels" Type="DatabaseModel.Store.CrucigramsLevels" Multiplicity="*" />
+    <End Role="Levels" Type="DatabaseModel.Store.LevelsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Levels">
+        <PropertyRef Name="IDLevel" />
+      </Principal>
+      <Dependent Role="CrucigramsLevels">
+        <PropertyRef Name="Levels_IDLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DatabaseModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PlayersSet" EntityType="DatabaseModel.Players" />
+          <EntitySet Name="ProfilesSet" EntityType="DatabaseModel.Profiles" />
+          <AssociationSet Name="ProfilesPlayers" Association="DatabaseModel.ProfilesPlayers">
+            <End Role="Profiles" EntitySet="ProfilesSet" />
+            <End Role="Players" EntitySet="PlayersSet" />
+          </AssociationSet>
+          <EntitySet Name="CrucigramsSet" EntityType="DatabaseModel.Crucigrams" />
+          <EntitySet Name="LevelsSet" EntityType="DatabaseModel.Levels" />
+          <EntitySet Name="WordsSet" EntityType="DatabaseModel.Words" />
+          <AssociationSet Name="CrucigramsWords" Association="DatabaseModel.CrucigramsWords">
+            <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+            <End Role="Words" EntitySet="WordsSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfilesCrucigrams" Association="DatabaseModel.ProfilesCrucigrams">
+            <End Role="Profiles" EntitySet="ProfilesSet" />
+            <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+          </AssociationSet>
+          <AssociationSet Name="CrucigramsLevels" Association="DatabaseModel.CrucigramsLevels">
+            <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+            <End Role="Levels" EntitySet="LevelsSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="IDPlayer" />
+          </Key>
+          <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FirstSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SecondSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NickName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="BirthDay" Type="Int32" Nullable="true" />
+          <Property Name="BirthMonth" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BirthYear" Type="Int32" Nullable="true" />
+          <Property Name="MainEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AlternateEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="IDProfile" />
+          </Key>
+          <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfilePicture" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Coins" Type="Int64" Nullable="true" />
+          <NavigationProperty Name="Players" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
+          <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.ProfilesCrucigrams" FromRole="Profiles" ToRole="Crucigrams" />
+        </EntityType>
+        <Association Name="ProfilesPlayers">
+          <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
+          <End Type="DatabaseModel.Players" Role="Players" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Crucigrams">
+          <Key>
+            <PropertyRef Name="IDCrucigram" />
+          </Key>
+          <Property Name="IDCrucigram" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Words" Relationship="DatabaseModel.CrucigramsWords" FromRole="Crucigrams" ToRole="Words" />
+          <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesCrucigrams" FromRole="Crucigrams" ToRole="Profiles" />
+          <NavigationProperty Name="Levels" Relationship="DatabaseModel.CrucigramsLevels" FromRole="Crucigrams" ToRole="Levels" />
+        </EntityType>
+        <EntityType Name="Levels">
+          <Key>
+            <PropertyRef Name="IDLevel" />
+          </Key>
+          <Property Name="IDLevel" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.CrucigramsLevels" FromRole="Levels" ToRole="Crucigrams" />
+          <Property Name="LevelName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Difficulty" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Words">
+          <Key>
+            <PropertyRef Name="IDWord" />
+          </Key>
+          <Property Name="IDWord" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Word" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.CrucigramsWords" FromRole="Words" ToRole="Crucigrams" />
+        </EntityType>
+        <Association Name="CrucigramsWords">
+          <End Type="DatabaseModel.Crucigrams" Role="Crucigrams" Multiplicity="*" />
+          <End Type="DatabaseModel.Words" Role="Words" Multiplicity="*" />
+        </Association>
+        <Association Name="ProfilesCrucigrams">
+          <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="*" />
+          <End Type="DatabaseModel.Crucigrams" Role="Crucigrams" Multiplicity="*" />
+        </Association>
+        <Association Name="CrucigramsLevels">
+          <End Type="DatabaseModel.Crucigrams" Role="Crucigrams" Multiplicity="*" />
+          <End Type="DatabaseModel.Levels" Role="Levels" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseModelContainer">
+    <EntitySetMapping Name="PlayersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Players)">
+        <MappingFragment StoreEntitySet="PlayersSet">
+          <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstSurname" ColumnName="FirstSurname" />
+          <ScalarProperty Name="SecondSurname" ColumnName="SecondSurname" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="MainEmail" ColumnName="MainEmail" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfilesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Profiles)">
+        <MappingFragment StoreEntitySet="ProfilesSet">
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrucigramsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Crucigrams)">
+        <MappingFragment StoreEntitySet="CrucigramsSet">
+          <ScalarProperty Name="IDCrucigram" ColumnName="IDCrucigram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevelsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Levels)">
+        <MappingFragment StoreEntitySet="LevelsSet">
+          <ScalarProperty Name="IDLevel" ColumnName="IDLevel" />
+          <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+          <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WordsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Words)">
+        <MappingFragment StoreEntitySet="WordsSet">
+          <ScalarProperty Name="IDWord" ColumnName="IDWord" />
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProfilesPlayers" TypeName="DatabaseModel.ProfilesPlayers" StoreEntitySet="ProfilesSet">
+      <EndProperty Name="Players">
+        <ScalarProperty Name="IDPlayer" ColumnName="Players_IDPlayer" />
+      </EndProperty>
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CrucigramsWords" TypeName="DatabaseModel.CrucigramsWords" StoreEntitySet="CrucigramsWords">
+      <EndProperty Name="Crucigrams">
+        <ScalarProperty Name="IDCrucigram" ColumnName="Crucigrams_IDCrucigram" />
+      </EndProperty>
+      <EndProperty Name="Words">
+        <ScalarProperty Name="IDWord" ColumnName="Words_IDWord" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfilesCrucigrams" TypeName="DatabaseModel.ProfilesCrucigrams" StoreEntitySet="ProfilesCrucigrams">
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="Profiles_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="Crucigrams">
+        <ScalarProperty Name="IDCrucigram" ColumnName="Crucigrams_IDCrucigram" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CrucigramsLevels" TypeName="DatabaseModel.CrucigramsLevels" StoreEntitySet="CrucigramsLevels">
+      <EndProperty Name="Crucigrams">
+        <ScalarProperty Name="IDCrucigram" ColumnName="Crucigrams_IDCrucigram" />
+      </EndProperty>
+      <EndProperty Name="Levels">
+        <ScalarProperty Name="IDLevel" ColumnName="Levels_IDLevel" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

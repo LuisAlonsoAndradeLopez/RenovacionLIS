@@ -1,0 +1,130 @@
+﻿<Page x:Class="Renovación_LIS_Client.View.MenuView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Renovación_LIS_Client.View"
+      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="MenuView">
+
+    <Grid>
+        <Grid>
+            <Image Source="/images/menuImage.png" Stretch="Fill"/>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="700"/>
+
+                </Grid.ColumnDefinitions>
+
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Menu"
+                    Grid.Column="0"
+                    Margin="0,0,0,10"
+                    FontFamily="{StaticResource K2DBold}" 
+                    FontSize="50"
+                    Foreground="White"
+                    HorizontalAlignment="Center"/>
+
+                    <Button Content="Play"
+                    Foreground="White"
+                    FontSize="25"
+                    FontFamily="{StaticResource K2DRegular}"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalAlignment="Left"
+                    Margin="20,80,0,0"
+                    Style="{StaticResource underlineButton}"/>
+
+                    <Button Content="Profile"
+                    Foreground="White"
+                    FontSize="25"
+                    FontFamily="{StaticResource K2DRegular}"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    HorizontalAlignment="Left"
+                    Margin="20,20,0,0"
+                    Style="{StaticResource underlineButton}"/>
+
+                    <Button Content="Friends"
+                            Foreground="White"
+                            FontSize="25"
+                            FontFamily="{StaticResource K2DRegular}"
+                            Grid.Column="0"
+                            Grid.Row="4"
+                            HorizontalAlignment="Left"
+                            Margin="20,20,0,0"
+                            Style="{StaticResource underlineButton}"/>
+
+                    <Button Content="Configuration"
+                            Foreground="White"
+                            FontSize="25"
+                            FontFamily="{StaticResource K2DRegular}"
+                            Grid.Column="0"
+                            Grid.Row="5"
+                            HorizontalAlignment="Left"
+                            Margin="20,20,0,0"
+                            Style="{StaticResource underlineButton}"/>
+
+                    <Button Content="Quit"
+                            Foreground="White"
+                            FontSize="25"
+                            FontFamily="{StaticResource K2DRegular}"
+                            Grid.Column="0"
+                            Grid.Row="6"
+                            HorizontalAlignment="Left"
+                            Margin="20,20,0,0"
+                            Style="{StaticResource underlineButton}"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </Grid>
+
+
+
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

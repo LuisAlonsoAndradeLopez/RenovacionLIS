@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "8zMBM/H+1P6IWwNopU+V1pXCLtWCvSgcbLpp9rzxbZJXSwGtm2u/XmwQmUEAeB42gLcSYk0LfPlr+TSacKNfng==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\wmike\\OneDrive\\Documentos\\Tecnologias\\Renovación LIS\\Renovación LIS\\Renovación LIS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wmike\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\wmike\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\wmike\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\wmike\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.22\\microsoft.netcore.app.host.win-x64.6.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

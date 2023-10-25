@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <FontFamily x:Key="K2DBold"> /Fonts/K2D-Bold.ttf#K2D</FontFamily>
+
+    <FontFamily x:Key="K2DRegular"> /Fonts/K2D-Regular.tff#K2D</FontFamily>
+</ResourceDictionary>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseModelContainer">
+    <EntitySetMapping Name="PlayersSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Players)">
+        <MappingFragment StoreEntitySet="PlayersSet">
+          <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstSurname" ColumnName="FirstSurname" />
+          <ScalarProperty Name="SecondSurname" ColumnName="SecondSurname" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="MainEmail" ColumnName="MainEmail" />
+          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfilesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Profiles)">
+        <MappingFragment StoreEntitySet="ProfilesSet">
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrucigramsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Crucigrams)">
+        <MappingFragment StoreEntitySet="CrucigramsSet">
+          <ScalarProperty Name="IDCrucigram" ColumnName="IDCrucigram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevelsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Levels)">
+        <MappingFragment StoreEntitySet="LevelsSet">
+          <ScalarProperty Name="IDLevel" ColumnName="IDLevel" />
+          <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+          <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WordsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Words)">
+        <MappingFragment StoreEntitySet="WordsSet">
+          <ScalarProperty Name="IDWord" ColumnName="IDWord" />
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProfilesPlayers" TypeName="DatabaseModel.ProfilesPlayers" StoreEntitySet="ProfilesSet">
+      <EndProperty Name="Players">
+        <ScalarProperty Name="IDPlayer" ColumnName="Players_IDPlayer" />
+      </EndProperty>
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CrucigramsWords" TypeName="DatabaseModel.CrucigramsWords" StoreEntitySet="CrucigramsWords">
+      <EndProperty Name="Crucigrams">
+        <ScalarProperty Name="IDCrucigram" ColumnName="Crucigrams_IDCrucigram" />
+      </EndProperty>
+      <EndProperty Name="Words">
+        <ScalarProperty Name="IDWord" ColumnName="Words_IDWord" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfilesCrucigrams" TypeName="DatabaseModel.ProfilesCrucigrams" StoreEntitySet="ProfilesCrucigrams">
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="Profiles_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="Crucigrams">
+        <ScalarProperty Name="IDCrucigram" ColumnName="Crucigrams_IDCrucigram" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CrucigramsLevels" TypeName="DatabaseModel.CrucigramsLevels" StoreEntitySet="CrucigramsLevels">
+      <EndProperty Name="Crucigrams">
+        <ScalarProperty Name="IDCrucigram" ColumnName="Crucigrams_IDCrucigram" />
+      </EndProperty>
+      <EndProperty Name="Levels">
+        <ScalarProperty Name="IDLevel" ColumnName="Levels_IDLevel" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
