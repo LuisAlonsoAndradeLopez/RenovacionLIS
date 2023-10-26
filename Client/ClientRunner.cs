@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Linq;
 using System.ServiceModel;
-using Contracts;
+//using Contracts;
 
 namespace Client
 {
@@ -10,7 +10,7 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Presiona una tecla para empezar");
+            /*Console.WriteLine("Presiona una tecla para empezar");
             Console.ReadLine();
             var uri = "net.tcp://localhost:4345/ProductService";
             NetTcpBinding binding = new NetTcpBinding(SecurityMode.None);
@@ -18,7 +18,7 @@ namespace Client
             var endpoint = new EndpointAddress(uri);
             var proxy = channel.CreateChannel(endpoint);
             proxy?.GetPlayers().ToList().ForEach(p => Console.WriteLine(p));
-            Console.ReadLine();
+            Console.ReadLine();*/
         }
     }
 }

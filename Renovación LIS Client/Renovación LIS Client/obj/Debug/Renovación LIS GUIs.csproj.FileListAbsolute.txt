@@ -13,3 +13,35 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CoreCompileInputs.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.exe
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\ButtonStyles.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\Fonts.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\FrameStyle.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\LabelStyle.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\TextBoxStyles.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LoginView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\App.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_MarkupCompile.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_MarkupCompile.lref
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.exe
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\App.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\bin\Debug\es\Renovación LIS Client.resources.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LoginView.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.g.resources
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación_LIS_Client.Properties.Resources.resources
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación_LIS_Client.Properties.Resources.es.resources
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.GenerateResource.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\es\Renovación LIS Client.resources.dll
