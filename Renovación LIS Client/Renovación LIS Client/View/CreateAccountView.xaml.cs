@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.ServiceModel;
 //using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -30,11 +32,11 @@ namespace Renovación_LIS_Client.View
 
         private void CreateAccount(object sender, RoutedEventArgs e)
         {
-            /*string Name = GetName.Text;
+            string Name = GetName.Text;
             string LastName = GetLastName.Text;
             string Email = GetEmail.Text;
             string Nickname = GetNickName.Text;
-            int BirthDay = int.Parse(GetBirthday.Text);
+            string BirthDate = GetBirthday.Text;
 
             SecureString securePassword = GetPassword.SecurePassword;
             string Password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
@@ -45,24 +47,21 @@ namespace Renovación_LIS_Client.View
             Players players = new Players();
             players.Name = Name;
             players.FirstSurname = LastName;
-            players.MainEmail = Email;
+            players.Email = Email;
             players.NickName = Nickname;
-            players.BirthDay = BirthDay;
+            players.BirthDate = DateTime.Now;
             players.Password = Password; 
             
             try
             {
-                InstanceContext context = new InstanceContext(new CallbackHandler());
-
-                ServicePlayerReference.PlayerClient client = new ServicePlayerReference.PlayerClient(context);
-
-                client.AddPlayer( players);
+                ServicePlayerReference.PlayerClient client = new ServicePlayerReference.PlayerClient();
+                client.AddPlayer(players);
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
 
-            }*/
+            }
             
 
         }

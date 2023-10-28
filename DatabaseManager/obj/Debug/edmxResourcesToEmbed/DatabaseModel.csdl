@@ -30,14 +30,9 @@
     <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="FirstSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="SecondSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="NickName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="BirthDate" Type="DateTime" Nullable="true" Precision="3" />
-    <Property Name="BirthDay" Type="Int32" Nullable="true" />
-    <Property Name="BirthMonth" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="BirthYear" Type="Int32" Nullable="true" />
-    <Property Name="MainEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="AlternateEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Password" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
   </EntityType>

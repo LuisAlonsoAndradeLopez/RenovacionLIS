@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -12,7 +13,7 @@ using ServicesTCP.ServiceContracts;
 namespace ServicesTCP.Services
 {
     //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, Name = "ServicePlayer")]
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServicePlayer : IPlayer
     {
         int IPlayer.AddPlayer(Players player)
@@ -26,10 +27,10 @@ namespace ServicesTCP.Services
                 databaseModelContainer.PlayersSet.Add(player);
                 databaseModelContainer.SaveChanges();
                 generatedID = (int)player.IDPlayer;
-                String message = "Usuario Wardado Exitosamente";
-                IPlayerCallback callback = OperationContext.Current.GetCallbackChannel<IPlayerCallback>();
-                Thread.Sleep(50);
-                callback.Response(message);
+                //String message = "Usuario Wardado Exitosamente";
+                //IPlayerCallback callback = OperationContext.Current.GetCallbackChannel<IPlayerCallback>();
+                //Thread.Sleep(50);
+                //callback.Response(message);
                 //Console.WriteLine(generatedID);
             }
             catch (Exception ex)
@@ -108,6 +109,30 @@ namespace ServicesTCP.Services
                     databaseModelContainer.SaveChanges();
                     generatedID = (int)playerToModify.IDPlayer;
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return generatedID;
+        }
+
+        int IPlayer.ModifyPasswordByEmail(String originalEmail, String newPassword)
+        {
+            int generatedID = 0;
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                Players playerToModify = databaseModelContainer.PlayersSet.FirstOrDefault(e => e.Email == originalEmail);
+
+                if (playerToModify != null)
+                {
+                    playerToModify.Password = newPassword;
+                }
+
+                databaseModelContainer.SaveChanges();
             }
             catch (Exception ex)
             {

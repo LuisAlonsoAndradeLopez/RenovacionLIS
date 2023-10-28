@@ -11,7 +11,9 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class Profiles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +21,15 @@ namespace DatabaseManager
         {
             this.Crucigrams = new HashSet<Crucigrams>();
         }
-    
+
+        [DataMember]
         public long IDProfile { get; set; }
+        [DataMember]
         public string ProfilePicture { get; set; }
+        [DataMember]
         public Nullable<long> Coins { get; set; }
-    
+
+        [DataMember]
         public virtual Players Players { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crucigrams> Crucigrams { get; set; }

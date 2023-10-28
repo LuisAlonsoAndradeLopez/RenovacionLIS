@@ -10,14 +10,12 @@ using DatabaseManager;
 
 namespace ServicesTCP.ServiceContracts
 {
-    [ServiceContract(CallbackContract = typeof(IPlayerCallback))]
+    //[ServiceContract(CallbackContract = typeof(IPlayerCallback))]
+    [ServiceContract]
     public interface IPlayer
     {
         [OperationContract (Name = "AddPlayer")]
         int AddPlayer(Players player);
-
-        [OperationContract (Name = "ModifyPlayer")]
-        int ModifyPlayer(Players modifiedPlayer);
 
         [OperationContract (Name = "GetPlayers")]
         List<Players> GetPlayers();
@@ -27,6 +25,12 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract (Name = "GetSpecifiedPlayers")]
         List<Players> GetSpecifiedPlayers(string name);
+
+        [OperationContract(Name = "ModifyPlayer")]
+        int ModifyPlayer(Players modifiedPlayer);
+
+        [OperationContract(Name = "ModifyPasswordByEmail")]
+        int ModifyPasswordByEmail(String originalEmail, String newPassword);
 
         [OperationContract(Name = "TheEmailIsAlreadyRegisted")]
         bool TheEmailIsAlreadyRegisted(String emailToSearch);
