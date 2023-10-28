@@ -8,11 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/arrowdown.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/createaccountimage.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gamelogo.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/loginimage.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/menuimage.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/startpageimage.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/changepasswordimage.png")]
 
 

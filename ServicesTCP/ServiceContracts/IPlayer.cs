@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -26,6 +27,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract (Name = "GetSpecifiedPlayers")]
         List<Players> GetSpecifiedPlayers(string name);
+
+        [OperationContract(Name = "TheEmailIsAlreadyRegisted")]
+        bool TheEmailIsAlreadyRegisted(String emailToSearch);
     }
 
     public interface IPlayerCallback

@@ -19,7 +19,6 @@ namespace ConsoleApp1
             string pathPartToDelete = "ConsoleApp1\\bin\\Debug\\";
 
             string completePath = incompletePath.Replace(pathPartToDelete, "");
-            Console.WriteLine(completePath);
 
             SoundPlayer mainMenuSong = new SoundPlayer(completePath);
             mainMenuSong.PlaySync();

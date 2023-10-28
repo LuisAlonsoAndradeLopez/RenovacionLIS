@@ -100,17 +100,11 @@ namespace ServicesTCP.Services
                 Players playerToModify = databaseModelContainer.PlayersSet.Find(modifiedPlayer.IDPlayer);
                 if(playerToModify != null)
                 {
-                    playerToModify.AlternateEmail = modifiedPlayer.AlternateEmail;
                     playerToModify.BirthDate = modifiedPlayer.BirthDate;
-                    playerToModify.BirthDay = modifiedPlayer.BirthDay;
-                    playerToModify.BirthDate = modifiedPlayer.BirthDate;
-                    playerToModify.BirthMonth = modifiedPlayer.BirthMonth;
-                    playerToModify.BirthYear = modifiedPlayer.BirthYear;
                     playerToModify.FirstSurname = modifiedPlayer.FirstSurname;
-                    playerToModify.MainEmail = modifiedPlayer.MainEmail;
+                    playerToModify.Email = modifiedPlayer.Email;
                     playerToModify.Name = modifiedPlayer.Name;
                     playerToModify.NickName = modifiedPlayer.NickName;
-                    playerToModify.SecondSurname = modifiedPlayer.SecondSurname;
                     databaseModelContainer.SaveChanges();
                     generatedID = (int)playerToModify.IDPlayer;
                 }
@@ -121,6 +115,20 @@ namespace ServicesTCP.Services
             }
 
             return generatedID;
+        }
+
+        bool IPlayer.TheEmailIsAlreadyRegisted(String emailToSearch)
+        {
+            DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+            List<String> emails = databaseModelContainer.PlayersSet.Select(row => row.Email).ToList();
+            foreach (String email in emails)
+            {
+                if (email == emailToSearch)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

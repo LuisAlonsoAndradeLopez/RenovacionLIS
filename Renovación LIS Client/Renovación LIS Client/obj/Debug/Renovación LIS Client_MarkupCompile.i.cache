@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\App.xaml
-10-2047249162
+11640391209
 
-11-2093993678
+12-1174035721
 13-1310406943
-Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\CreateAccountView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\StartView.xaml;
+Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\CreateAccountView.xaml;View\ForgotPassword.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\StartView.xaml;
 
-True
+False
 

@@ -80,7 +80,7 @@
                         <Label Background="White"
                                Height="1"
                                />
-                        
+
                         <Grid Margin="20">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
@@ -88,23 +88,26 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{x:Static p:Resources.ForgotPassword}"
-                                       Style="{StaticResource TransparentLabel}"/>
+                            <TextBlock x:Name="ForgotPasswordButton"
+                                       Text="{x:Static p:Resources.ForgotPassword}"
+                                       Style="{StaticResource TransparentLabel}"
+                                       Grid.Column="1"
+                                       MouseLeftButtonDown="OpenForgotPasswordPage" Margin="0,0,250,0"/>
 
                             <TextBlock x:Name="SignUpButton"
                                        Text="{x:Static p:Resources.NotregisterYet}"
                                        Style="{StaticResource TransparentLabel}"
-                                       Grid.Column="2"
-                                       MouseLeftButtonDown="OpenSignUpPage"/>
+                                       Grid.Column="1"
+                                       MouseLeftButtonDown="OpenSignUpPage" Margin="428,1,0,-1"/>
 
 
                         </Grid>
                     </StackPanel>
                 </Grid>
 
-                
+
             </Border>
         </Grid>
-       
+
     </Grid>
 </Page>

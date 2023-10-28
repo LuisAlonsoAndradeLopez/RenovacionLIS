@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/08/2023 19:29:22
+-- Date Created: 10/27/2023 23:12:51
 -- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -77,14 +77,9 @@ CREATE TABLE [dbo].[PlayersSet] (
     [IDPlayer] bigint IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NULL,
     [FirstSurname] nvarchar(max)  NULL,
-    [SecondSurname] nvarchar(max)  NULL,
     [NickName] nvarchar(max)  NULL,
     [BirthDate] datetime  NULL,
-    [BirthDay] int  NULL,
-    [BirthMonth] nvarchar(max)  NULL,
-    [BirthYear] int  NULL,
-    [MainEmail] nvarchar(max)  NULL,
-    [AlternateEmail] nvarchar(max)  NULL,
+    [Email] nvarchar(max)  NULL,
     [Password] nvarchar(max)  NULL
 );
 GO

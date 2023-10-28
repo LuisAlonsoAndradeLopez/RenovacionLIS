@@ -25,6 +25,12 @@ namespace Renovación_LIS_Client.View
             InitializeComponent();
         }
 
+        private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ForgotPassword());
+        }
+
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);

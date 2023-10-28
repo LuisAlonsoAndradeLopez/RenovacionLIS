@@ -11,9 +11,7 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract]
+    
     public partial class Crucigrams
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +21,7 @@ namespace DatabaseManager
             this.Profiles = new HashSet<Profiles>();
             this.Levels = new HashSet<Levels>();
         }
-
-        [DataMember]
+    
         public long IDCrucigram { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
