@@ -161,7 +161,7 @@
                              Height="45"
                              Margin="20,0"/>
 
-                    <Button Content="create account" 
+                    <Button Content="Crear Cuenta" 
                             Style="{StaticResource NormalButtom}"
                             Grid.Row="9"
                             Height="45"

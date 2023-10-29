@@ -64,3 +64,5 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\es\Renovación LIS Client.resources.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.baml

@@ -69,7 +69,8 @@
                     Grid.Row="3"
                     HorizontalAlignment="Left"
                     Margin="20,20,0,0"
-                    Style="{StaticResource underlineButton}"/>
+                    Style="{StaticResource underlineButton}"
+                    MouseLeftButtonDown="ProfileButton" Click="ProfileButton"/>
 
                     <Button Content="Friends"
                             Foreground="White"
@@ -99,7 +100,9 @@
                             Grid.Row="6"
                             HorizontalAlignment="Left"
                             Margin="20,20,0,0"
-                            Style="{StaticResource underlineButton}"/>
+                            Style="{StaticResource underlineButton}"
+                            MouseLeftButtonDown="QuitButton"
+                            Click="QuitButton"/>
 
 
 

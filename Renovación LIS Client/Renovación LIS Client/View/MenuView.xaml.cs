@@ -24,5 +24,17 @@ namespace Renovación_LIS_Client.View
         {
             InitializeComponent();
         }
+
+        private void ProfileButton(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ModifyProfileView());
+        }
+
+        private void QuitButton(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LoginView());
+        }
     }
 }
