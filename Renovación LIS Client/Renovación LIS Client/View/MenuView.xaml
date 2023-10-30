@@ -50,7 +50,7 @@
                     FontFamily="{StaticResource K2DBold}" 
                     FontSize="50"
                     Foreground="White"
-                    HorizontalAlignment="Left" Width="430" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1"/>
+                    HorizontalAlignment="Left" Width="1158" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1"/>
 
                     <Button Content="Play"
                     Foreground="White"

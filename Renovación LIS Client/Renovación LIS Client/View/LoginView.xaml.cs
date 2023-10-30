@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using domain;
 using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
@@ -48,16 +49,16 @@ namespace Renovación_LIS_Client.View
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
 
                 PlayerClient client = new PlayerClient();
-                Players players = client.GetPlayerByNickname(NicknameTextField.Text);
-
-                if (players != null)
+                Player player = client.GetPlayerByNickname(NicknameTextField.Text);
+                
+                if (player != null)
                 {
-                    string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(players.Password));
+                    string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(player.Password));
 
                     if (BCrypt.Net.BCrypt.Verify(password, storedHash))
                     {
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new MenuView(players));
+                        navigationService.Navigate(new MenuView(player));
                     }
                     else
                     {
@@ -68,7 +69,6 @@ namespace Renovación_LIS_Client.View
                 {
                     MessageBox.Show("El nickname introducido no existe", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
             }
             else
             {

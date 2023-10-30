@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager;
+using domain;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -27,7 +28,7 @@ namespace ServicesTCP.ServiceContracts
         List<Players> GetSpecifiedPlayers(string name);
 
         [OperationContract(Name = "GetPlayerByNickname")]
-        Players GetPlayerByNickname(String nickname);
+        Player GetPlayerByNickname(String nickname);
 
         [OperationContract(Name = "ModifyPlayer")]
         int ModifyPlayer(Players modifiedPlayer);

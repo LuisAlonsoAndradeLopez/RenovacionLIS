@@ -58,7 +58,11 @@ namespace Renovación_LIS_Client.View
                 PlayerClient client = new PlayerClient();
                 SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
                 string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
-                client.ModifyPasswordByEmail(EmailTextField.Text, newPassword);
+
+                string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
+                
+                client.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
                 MessageBox.Show("Contraseña cambiada exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new LoginView());
@@ -96,7 +100,7 @@ namespace Renovación_LIS_Client.View
                         MailMessage mail = new MailMessage();
                         mail.From = new MailAddress("renovacionlis230@gmail.com");
                         mail.To.Add(new MailAddress(EmailTextField.Text));
-                        mail.Subject = "Wele a obo";
+                        mail.Subject = "Codigazo para cambiar la contraseña";
                         mail.Body = "Introduce este codigazo para cambiar la contraseña: " + verificationCode;
 
                         try

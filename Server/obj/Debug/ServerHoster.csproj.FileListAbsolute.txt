@@ -16,3 +16,6 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\ServerHoster
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.exe
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\obj\Debug\Server.pdb
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\ServicesTCP.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\domain.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\domain.dll.config

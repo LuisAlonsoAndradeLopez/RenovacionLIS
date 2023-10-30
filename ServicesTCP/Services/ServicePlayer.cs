@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DatabaseManager;
+using domain;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -74,14 +75,25 @@ namespace ServicesTCP.Services
             return player;
         }
 
-        Players IPlayer.GetPlayerByNickname(string nickname)
+        Player IPlayer.GetPlayerByNickname(string nickname)
         {
-            Players player = null;
+            Player player = new Player();
+            Players players = new Players();
 
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                player = databaseModelContainer.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
+                players = databaseModelContainer.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
+
+                player.IDPlayer = players.IDPlayer;
+                player.Name = players.Name;
+                player.FirstSurname = players.FirstSurname;
+                player.Email = players.Email;
+                player.NickName = players.NickName;
+                player.BirthDate = players.BirthDate;
+                player.Password = players.Password;
+                //player.Profile = players.Profiles;
+
             }
             catch (Exception ex)
             {

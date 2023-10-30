@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using domain;
 using Microsoft.Win32;
 using Renovación_LIS_Client.ServicePlayerReference;
 using MessageBox = System.Windows.MessageBox;
@@ -27,10 +28,12 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ModifyProfileView : Page
     {
-        Players loggedPlayer;
+        Player loggedPlayer = new Player();
 
-        public ModifyProfileView(Players loggedPlayer)
+        public ModifyProfileView(Player loggedPlayer)
         {
+            InitializeComponent();
+
             this.loggedPlayer = loggedPlayer;
 
             NamesTextBox.Text = loggedPlayer.Name;
@@ -38,8 +41,6 @@ namespace Renovación_LIS_Client.View
             EmailTextBox.Text = loggedPlayer.Email;
             NicknameTextBox.Text = loggedPlayer.NickName;
             BirthDayDatePicker.SelectedDate = loggedPlayer.BirthDate;
-
-            InitializeComponent();
         }
 
         private void CancelButton(object sender, RoutedEventArgs e)
@@ -52,20 +53,36 @@ namespace Renovación_LIS_Client.View
         {
             if(invalidValuesInTextFieldsTextGenerator() == "")
             {
-                Players players = new Players();
-                players.Name = NamesTextBox.Text;
-                players.FirstSurname = SurnamesTextBox.Text;
-                players.Email = EmailTextBox.Text;
-                players.NickName = NicknameTextBox.Text;
-                players.BirthDate = BirthDayDatePicker.SelectedDate;
-
                 PlayerClient client = new PlayerClient();
-                client.ModifyPlayer(players);
 
-                MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                if (!client.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
+                {
+                    if (!client.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text))
+                    {
+                        Players players = new Players();
+                        players.IDPlayer = loggedPlayer.IDPlayer;
+                        players.Name = NamesTextBox.Text;
+                        players.FirstSurname = SurnamesTextBox.Text;
+                        players.Email = EmailTextBox.Text;
+                        players.NickName = NicknameTextBox.Text;
+                        players.BirthDate = BirthDayDatePicker.SelectedDate;
 
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new MenuView(loggedPlayer));
+                        client.ModifyPlayer(players);
+
+                        MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+
+                        NavigationService navigationService = NavigationService.GetNavigationService(this);
+                        navigationService.Navigate(new MenuView(loggedPlayer));
+                    }
+                    else
+                    {
+                        MessageBox.Show("El nickname ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El correo electrónico ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {

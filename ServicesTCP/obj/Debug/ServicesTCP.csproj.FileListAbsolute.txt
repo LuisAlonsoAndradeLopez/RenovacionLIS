@@ -23,3 +23,6 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\System.
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\System.Memory.xml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\domain.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\domain.dll.config

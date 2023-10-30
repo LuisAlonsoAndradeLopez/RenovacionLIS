@@ -292,10 +292,10 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
-        Renovación_LIS_Client.ServicePlayerReference.Players GetPlayerByNickname(string nickname);
+        domain.Player GetPlayerByNickname(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players> GetPlayerByNicknameAsync(string nickname);
+        System.Threading.Tasks.Task<domain.Player> GetPlayerByNicknameAsync(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
         int ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
@@ -381,11 +381,11 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             return base.Channel.GetSpecifiedPlayersAsync(name);
         }
         
-        public Renovación_LIS_Client.ServicePlayerReference.Players GetPlayerByNickname(string nickname) {
+        public domain.Player GetPlayerByNickname(string nickname) {
             return base.Channel.GetPlayerByNickname(nickname);
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players> GetPlayerByNicknameAsync(string nickname) {
+        public System.Threading.Tasks.Task<domain.Player> GetPlayerByNicknameAsync(string nickname) {
             return base.Channel.GetPlayerByNicknameAsync(nickname);
         }
         
