@@ -55,10 +55,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPlayerByNickname">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nickname" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlayerByNicknameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="GetPlayerByNicknameResult" nillable="true" type="q5:Players" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ModifyPlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="modifiedPlayer" nillable="true" type="q5:Players" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="modifiedPlayer" nillable="true" type="q6:Players" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -95,6 +109,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="TheEmailIsAlreadyRegistedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheNicknameIsAlreadyRegisted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nicknameToSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheNicknameIsAlreadyRegistedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TheNicknameIsAlreadyRegistedResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

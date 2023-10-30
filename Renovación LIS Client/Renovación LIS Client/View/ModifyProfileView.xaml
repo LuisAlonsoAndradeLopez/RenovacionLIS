@@ -35,7 +35,7 @@
                     TextAlignment="Left"
                     Margin="25,45,0,0"/>
 
-                    <Image Width="200" Height="200"/>
+                    <Image Width="200" Height="200" Name="ProfilePictureImage"/>
 
                     <StackPanel Width="240">
                         <Button Content="Seleccionar Imágen" 
@@ -46,7 +46,8 @@
                         Margin="25,20,0,0" Click="SelectImageButton" Background="Red"/>
 
                         <TextBlock TextWrapping="Wrap" Text=""
-                        Margin="10,20,0,0" Foreground="White" Height="92"/>
+                        Margin="10,20,0,0" Foreground="White" Height="92"
+                        Name="ImageRouteTextBlock"/>
                     </StackPanel>
 
                 </StackPanel>
@@ -59,7 +60,7 @@
                         Foreground="White"
                         Margin="25,15,0,0"/>
 
-                        <TextBox x:Name="NamesTextField"
+                        <TextBox x:Name="NamesTextBox"
                         Style="{StaticResource BorderTextBox}"
                         Height="37"
                         Width="308"
@@ -74,7 +75,7 @@
                         Foreground="White"
                         Margin="15,15,0,0"/>
 
-                        <TextBox x:Name="SurnamesTextField"
+                        <TextBox x:Name="SurnamesTextBox"
                         Style="{StaticResource BorderTextBox}"
                         Height="37"
                         Width="308"
@@ -105,7 +106,7 @@
                         Foreground="White"
                         Margin="25,15,0,0"/>
 
-                        <TextBox x:Name="NicknameTextField"
+                        <TextBox x:Name="NicknameTextBox"
                         Style="{StaticResource BorderTextBox}"
                         Height="37"
                         Width="308"

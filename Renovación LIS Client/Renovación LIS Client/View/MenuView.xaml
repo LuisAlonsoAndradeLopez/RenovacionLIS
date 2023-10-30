@@ -43,13 +43,14 @@
 
                     </Grid.RowDefinitions>
 
-                    <Label Content="Menu"
+                    <Label Content="Hola de nuevo "
+                    Name="WelcomeBackLabel"
                     Grid.Column="0"
-                    Margin="0,0,0,10"
+                    Margin="10,10,0,83"
                     FontFamily="{StaticResource K2DBold}" 
                     FontSize="50"
                     Foreground="White"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Left" Width="430" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1"/>
 
                     <Button Content="Play"
                     Foreground="White"
@@ -58,8 +59,8 @@
                     Grid.Column="0"
                     Grid.Row="2"
                     HorizontalAlignment="Left"
-                    Margin="20,80,0,0"
-                    Style="{StaticResource underlineButton}"/>
+                    Margin="20,82,0,50"
+                    Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
 
                     <Button Content="Profile"
                     Foreground="White"
@@ -77,20 +78,20 @@
                             FontSize="25"
                             FontFamily="{StaticResource K2DRegular}"
                             Grid.Column="0"
-                            Grid.Row="4"
+                            Grid.Row="3"
                             HorizontalAlignment="Left"
-                            Margin="20,20,0,0"
-                            Style="{StaticResource underlineButton}"/>
+                            Margin="20,106,0,22"
+                            Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
 
                     <Button Content="Configuration"
                             Foreground="White"
                             FontSize="25"
                             FontFamily="{StaticResource K2DRegular}"
                             Grid.Column="0"
-                            Grid.Row="5"
+                            Grid.Row="4"
                             HorizontalAlignment="Left"
-                            Margin="20,20,0,0"
-                            Style="{StaticResource underlineButton}"/>
+                            Margin="20,62,0,12"
+                            Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
 
                     <Button Content="Quit"
                             Foreground="White"

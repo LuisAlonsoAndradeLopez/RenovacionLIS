@@ -291,6 +291,12 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
         System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
+        Renovación_LIS_Client.ServicePlayerReference.Players GetPlayerByNickname(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
+        System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players> GetPlayerByNicknameAsync(string nickname);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
         int ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
         
@@ -308,6 +314,12 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegisted", ReplyAction="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegistedResponse")]
         System.Threading.Tasks.Task<bool> TheEmailIsAlreadyRegistedAsync(string emailToSearch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegisted", ReplyAction="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegistedResponse")]
+        bool TheNicknameIsAlreadyRegisted(string nicknameToSearch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegisted", ReplyAction="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegistedResponse")]
+        System.Threading.Tasks.Task<bool> TheNicknameIsAlreadyRegistedAsync(string nicknameToSearch);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -369,6 +381,14 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             return base.Channel.GetSpecifiedPlayersAsync(name);
         }
         
+        public Renovación_LIS_Client.ServicePlayerReference.Players GetPlayerByNickname(string nickname) {
+            return base.Channel.GetPlayerByNickname(nickname);
+        }
+        
+        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players> GetPlayerByNicknameAsync(string nickname) {
+            return base.Channel.GetPlayerByNicknameAsync(nickname);
+        }
+        
         public int ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
             return base.Channel.ModifyPlayer(modifiedPlayer);
         }
@@ -391,6 +411,14 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         
         public System.Threading.Tasks.Task<bool> TheEmailIsAlreadyRegistedAsync(string emailToSearch) {
             return base.Channel.TheEmailIsAlreadyRegistedAsync(emailToSearch);
+        }
+        
+        public bool TheNicknameIsAlreadyRegisted(string nicknameToSearch) {
+            return base.Channel.TheNicknameIsAlreadyRegisted(nicknameToSearch);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TheNicknameIsAlreadyRegistedAsync(string nicknameToSearch) {
+            return base.Channel.TheNicknameIsAlreadyRegistedAsync(nicknameToSearch);
         }
     }
 }

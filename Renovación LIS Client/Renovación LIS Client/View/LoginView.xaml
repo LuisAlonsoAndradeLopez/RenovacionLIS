@@ -52,7 +52,8 @@
 
                         <TextBox Height="45" 
                                  Width="538"
-                                 Style="{StaticResource TextBoxLine}"/>
+                                 Style="{StaticResource TextBoxLine}"
+                                 Name="NicknameTextField"/>
 
                         <Label Content="{x:Static p:Resources.Password}" 
                                Margin="0,15,0,10"
@@ -63,7 +64,8 @@
                         <PasswordBox Height="45" 
                                  Width="538"
                                  Margin="0,0,0,60"
-                                 Style="{StaticResource PasswordBoxLine}"/>
+                                 Style="{StaticResource PasswordBoxLine}"
+                                 Name="PasswordPasswordBox"/>
 
                         <Button x:Name="LogInButton" 
                                 Content="{x:Static p:Resources.LogIn}" 

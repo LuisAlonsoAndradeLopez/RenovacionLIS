@@ -41,6 +41,22 @@ namespace ServicesTCP.Services
             return generatedID;
         }
 
+        List<Players> IPlayer.GetPlayers()
+        {
+            List<Players> players = null;
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                players = databaseModelContainer.PlayersSet.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return players;
+        }
+
         Players IPlayer.GetPlayerByID(int ID)
         {
             Players player = null;
@@ -58,20 +74,21 @@ namespace ServicesTCP.Services
             return player;
         }
 
-        List<Players> IPlayer.GetPlayers()
+        Players IPlayer.GetPlayerByNickname(string nickname)
         {
-            List<Players> players = null;
+            Players player = null;
 
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                players = databaseModelContainer.PlayersSet.ToList();
+                player = databaseModelContainer.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            return players;
+
+            return player;
         }
 
         List<Players> IPlayer.GetSpecifiedPlayers(string name)
@@ -149,6 +166,20 @@ namespace ServicesTCP.Services
             foreach (String email in emails)
             {
                 if (email == emailToSearch)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool IPlayer.TheNicknameIsAlreadyRegisted(String nicknameToSearch)
+        {
+            DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+            List<String> nicknames = databaseModelContainer.PlayersSet.Select(row => row.NickName).ToList();
+            foreach (String nickname in nicknames)
+            {
+                if (nickname == nicknameToSearch)
                 {
                     return true;
                 }

@@ -66,3 +66,14 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CopyComplete

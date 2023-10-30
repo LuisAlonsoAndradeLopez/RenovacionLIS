@@ -43,6 +43,12 @@
   <wsdl:message name="IPlayer_GetSpecifiedPlayers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSpecifiedPlayersResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlayer_GetPlayerByNickname_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerByNickname" />
+  </wsdl:message>
+  <wsdl:message name="IPlayer_GetPlayerByNickname_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerByNicknameResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlayer_ModifyPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:ModifyPlayer" />
   </wsdl:message>
@@ -61,6 +67,12 @@
   <wsdl:message name="IPlayer_TheEmailIsAlreadyRegisted_OutputMessage">
     <wsdl:part name="parameters" element="tns:TheEmailIsAlreadyRegistedResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlayer_TheNicknameIsAlreadyRegisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:TheNicknameIsAlreadyRegisted" />
+  </wsdl:message>
+  <wsdl:message name="IPlayer_TheNicknameIsAlreadyRegisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TheNicknameIsAlreadyRegistedResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPlayer">
     <wsdl:operation name="AddPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayer/AddPlayer" message="tns:IPlayer_AddPlayer_InputMessage" />
@@ -78,6 +90,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers" message="tns:IPlayer_GetSpecifiedPlayers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse" message="tns:IPlayer_GetSpecifiedPlayers_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPlayerByNickname">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayer/GetPlayerByNickname" message="tns:IPlayer_GetPlayerByNickname_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse" message="tns:IPlayer_GetPlayerByNickname_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ModifyPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayer/ModifyPlayer" message="tns:IPlayer_ModifyPlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayer/ModifyPlayerResponse" message="tns:IPlayer_ModifyPlayer_OutputMessage" />
@@ -89,6 +105,10 @@
     <wsdl:operation name="TheEmailIsAlreadyRegisted">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegisted" message="tns:IPlayer_TheEmailIsAlreadyRegisted_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegistedResponse" message="tns:IPlayer_TheEmailIsAlreadyRegisted_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TheNicknameIsAlreadyRegisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegisted" message="tns:IPlayer_TheNicknameIsAlreadyRegisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegistedResponse" message="tns:IPlayer_TheNicknameIsAlreadyRegisted_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IPlayer" type="tns:IPlayer">
@@ -130,6 +150,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPlayerByNickname">
+      <soap12:operation soapAction="http://tempuri.org/IPlayer/GetPlayerByNickname" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ModifyPlayer">
       <soap12:operation soapAction="http://tempuri.org/IPlayer/ModifyPlayer" style="document" />
       <wsdl:input>
@@ -150,6 +179,15 @@
     </wsdl:operation>
     <wsdl:operation name="TheEmailIsAlreadyRegisted">
       <soap12:operation soapAction="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegisted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TheNicknameIsAlreadyRegisted">
+      <soap12:operation soapAction="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegisted" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

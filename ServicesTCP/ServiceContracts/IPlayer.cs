@@ -26,6 +26,9 @@ namespace ServicesTCP.ServiceContracts
         [OperationContract (Name = "GetSpecifiedPlayers")]
         List<Players> GetSpecifiedPlayers(string name);
 
+        [OperationContract(Name = "GetPlayerByNickname")]
+        Players GetPlayerByNickname(String nickname);
+
         [OperationContract(Name = "ModifyPlayer")]
         int ModifyPlayer(Players modifiedPlayer);
 
@@ -34,6 +37,8 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(Name = "TheEmailIsAlreadyRegisted")]
         bool TheEmailIsAlreadyRegisted(String emailToSearch);
+        [OperationContract(Name = "TheNicknameIsAlreadyRegisted")]
+        bool TheNicknameIsAlreadyRegisted(String nicknameToSearch);
     }
 
     public interface IPlayerCallback
