@@ -7,14 +7,9 @@
           <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="FirstSurname" ColumnName="FirstSurname" />
-          <ScalarProperty Name="SecondSurname" ColumnName="SecondSurname" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
-          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
-          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
-          <ScalarProperty Name="MainEmail" ColumnName="MainEmail" />
-          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>

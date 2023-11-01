@@ -28,7 +28,8 @@ namespace DatabaseManager
         public string ProfilePicture { get; set; }
         [DataMember]
         public Nullable<long> Coins { get; set; }
-    
+
+        [DataMember]
         public virtual Players Players { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crucigrams> Crucigrams { get; set; }

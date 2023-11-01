@@ -26,7 +26,7 @@ namespace ConsoleApp1.ServicePlayerReference {
         private string AlternateEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime BirthDateField;
+        private System.Nullable<System.DateTime> BirthDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> BirthDayField;
@@ -85,7 +85,7 @@ namespace ConsoleApp1.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime BirthDate {
+        public System.Nullable<System.DateTime> BirthDate {
             get {
                 return this.BirthDateField;
             }
@@ -263,9 +263,6 @@ namespace ConsoleApp1.ServicePlayerReference {
         private System.Nullable<long> CoinsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApp1.ServicePlayerReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IDProfileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -293,19 +290,6 @@ namespace ConsoleApp1.ServicePlayerReference {
                 if ((this.CoinsField.Equals(value) != true)) {
                     this.CoinsField = value;
                     this.RaisePropertyChanged("Coins");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApp1.ServicePlayerReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
                 }
             }
         }
@@ -359,294 +343,21 @@ namespace ConsoleApp1.ServicePlayerReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Crucigrams", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Crucigrams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDCrucigramField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApp1.ServicePlayerReference.Levels[] LevelsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApp1.ServicePlayerReference.Profiles[] ProfilesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApp1.ServicePlayerReference.Words[] WordsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDCrucigram {
-            get {
-                return this.IDCrucigramField;
-            }
-            set {
-                if ((this.IDCrucigramField.Equals(value) != true)) {
-                    this.IDCrucigramField = value;
-                    this.RaisePropertyChanged("IDCrucigram");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApp1.ServicePlayerReference.Levels[] Levels {
-            get {
-                return this.LevelsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelsField, value) != true)) {
-                    this.LevelsField = value;
-                    this.RaisePropertyChanged("Levels");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApp1.ServicePlayerReference.Profiles[] Profiles {
-            get {
-                return this.ProfilesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
-                    this.ProfilesField = value;
-                    this.RaisePropertyChanged("Profiles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApp1.ServicePlayerReference.Words[] Words {
-            get {
-                return this.WordsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WordsField, value) != true)) {
-                    this.WordsField = value;
-                    this.RaisePropertyChanged("Words");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Levels", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Levels : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApp1.ServicePlayerReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DifficultyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDLevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LevelNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApp1.ServicePlayerReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Difficulty {
-            get {
-                return this.DifficultyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DifficultyField, value) != true)) {
-                    this.DifficultyField = value;
-                    this.RaisePropertyChanged("Difficulty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDLevel {
-            get {
-                return this.IDLevelField;
-            }
-            set {
-                if ((this.IDLevelField.Equals(value) != true)) {
-                    this.IDLevelField = value;
-                    this.RaisePropertyChanged("IDLevel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LevelName {
-            get {
-                return this.LevelNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelNameField, value) != true)) {
-                    this.LevelNameField = value;
-                    this.RaisePropertyChanged("LevelName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Words", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Words : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleApp1.ServicePlayerReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDWordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string WordField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleApp1.ServicePlayerReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDWord {
-            get {
-                return this.IDWordField;
-            }
-            set {
-                if ((this.IDWordField.Equals(value) != true)) {
-                    this.IDWordField = value;
-                    this.RaisePropertyChanged("IDWord");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Word {
-            get {
-                return this.WordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WordField, value) != true)) {
-                    this.WordField = value;
-                    this.RaisePropertyChanged("Word");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePlayerReference.IPlayer")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePlayerReference.IPlayer", CallbackContract=typeof(ConsoleApp1.ServicePlayerReference.IPlayerCallback))]
     public interface IPlayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        int AddPlayer(ConsoleApp1.ServicePlayerReference.Players playersTable);
+        int AddPlayer(ConsoleApp1.ServicePlayerReference.Players player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players playersTable);
+        System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
+        int ModifyPlayer(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
+        System.Threading.Tasks.Task<int> ModifyPlayerAsync(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
         ConsoleApp1.ServicePlayerReference.Players[] GetPlayers();
@@ -655,10 +366,23 @@ namespace ConsoleApp1.ServicePlayerReference {
         System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players[]> GetPlayersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        string[] GetPlayerByID(int ID);
+        ConsoleApp1.ServicePlayerReference.Players GetPlayerByID(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        System.Threading.Tasks.Task<string[]> GetPlayerByIDAsync(int ID);
+        System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players> GetPlayerByIDAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
+        ConsoleApp1.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
+        System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IPlayerCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPlayer/Response")]
+        void Response([System.ServiceModel.MessageParameterAttribute(Name="response")] string response1);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -667,33 +391,42 @@ namespace ConsoleApp1.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlayerClient : System.ServiceModel.ClientBase<ConsoleApp1.ServicePlayerReference.IPlayer>, ConsoleApp1.ServicePlayerReference.IPlayer {
+    public partial class PlayerClient : System.ServiceModel.DuplexClientBase<ConsoleApp1.ServicePlayerReference.IPlayer>, ConsoleApp1.ServicePlayerReference.IPlayer {
         
-        public PlayerClient() {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public PlayerClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public PlayerClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public PlayerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public PlayerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public PlayerClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+
+        public int AddPlayer(ConsoleApp1.ServicePlayerReference.Players player) {
+            return base.Channel.AddPlayer(player);
         }
         
-        public int AddPlayer(ConsoleApp1.ServicePlayerReference.Players playersTable) {
-            return base.Channel.AddPlayer(playersTable);
+        public System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players player) {
+            return base.Channel.AddPlayerAsync(player);
         }
         
-        public System.Threading.Tasks.Task<int> AddPlayerAsync(ConsoleApp1.ServicePlayerReference.Players playersTable) {
-            return base.Channel.AddPlayerAsync(playersTable);
+        public int ModifyPlayer(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer) {
+            return base.Channel.ModifyPlayer(modifiedPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<int> ModifyPlayerAsync(ConsoleApp1.ServicePlayerReference.Players modifiedPlayer) {
+            return base.Channel.ModifyPlayerAsync(modifiedPlayer);
         }
         
         public ConsoleApp1.ServicePlayerReference.Players[] GetPlayers() {
@@ -704,12 +437,20 @@ namespace ConsoleApp1.ServicePlayerReference {
             return base.Channel.GetPlayersAsync();
         }
         
-        public string[] GetPlayerByID(int ID) {
+        public ConsoleApp1.ServicePlayerReference.Players GetPlayerByID(int ID) {
             return base.Channel.GetPlayerByID(ID);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetPlayerByIDAsync(int ID) {
+        public System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players> GetPlayerByIDAsync(int ID) {
             return base.Channel.GetPlayerByIDAsync(ID);
+        }
+        
+        public ConsoleApp1.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name) {
+            return base.Channel.GetSpecifiedPlayers(name);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleApp1.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name) {
+            return base.Channel.GetSpecifiedPlayersAsync(name);
         }
     }
 }

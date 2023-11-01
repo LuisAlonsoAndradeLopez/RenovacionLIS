@@ -13,7 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lang", "..\lang\lang.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "enums", "..\enums\enums.csproj", "{7D71CAB5-9BDD-4657-B6D8-D50FD905E9E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "domain", "..\domain\domain.csproj", "{1F083135-139B-42BA-91E9-B8D96CFD7D3E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{8871CB4B-B351-4F08-AECB-43241975C972}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "songs", "songs", "{5C663C74-848B-4358-B8BE-70564A47BC0C}"
+	ProjectSection(SolutionItems) = preProject
+		..\resources\songs\Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav = ..\resources\songs\Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "soundeffects", "soundeffects", "{A0A2FC62-95B0-49AE-941F-A38DEE195722}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{1F083135-139B-42BA-91E9-B8D96CFD7D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +57,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C663C74-848B-4358-B8BE-70564A47BC0C} = {8871CB4B-B351-4F08-AECB-43241975C972}
+		{A0A2FC62-95B0-49AE-941F-A38DEE195722} = {8871CB4B-B351-4F08-AECB-43241975C972}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09CA7D7D-787C-4652-96FA-6AA744E3C9A5}

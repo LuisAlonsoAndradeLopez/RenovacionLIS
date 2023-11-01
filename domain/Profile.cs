@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +13,17 @@ namespace domain
     {
         public int IDProfile { get; set; }
 
-        public string ProfilePicture { get; set; }
+        public byte[] ProfilePicture { get; set; }
 
         public int Coins { get; set; }
 
         public Player Player { get; set; }
+    }
+
+    [DataContract]
+    public partial class ImageData
+    {
+        [DataMember]
+        public byte[] ImageBytes { get; set; }
     }
 }

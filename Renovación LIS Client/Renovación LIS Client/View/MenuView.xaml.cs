@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using domain;
+using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -20,9 +22,26 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
-        public MenuView()
+        Player loggedPlayer = new Player();
+
+        public MenuView(Player loggedPlayer)
         {
             InitializeComponent();
+            this.loggedPlayer = loggedPlayer;
+            WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedPlayer.NickName + "!";
+            
+        }
+
+        private void ProfileButton(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ModifyProfileView(loggedPlayer));
+        }
+
+        private void QuitButton(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LoginView());
         }
     }
 }

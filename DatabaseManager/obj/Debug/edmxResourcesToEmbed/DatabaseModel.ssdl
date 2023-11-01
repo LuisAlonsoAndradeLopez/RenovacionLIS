@@ -45,14 +45,9 @@
     <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
     <Property Name="FirstSurname" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SecondSurname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="NickName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="BirthDate" Type="datetime" Nullable="true" />
-    <Property Name="BirthDay" Type="int" Nullable="true" />
-    <Property Name="BirthMonth" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="BirthYear" Type="int" Nullable="true" />
-    <Property Name="MainEmail" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="AlternateEmail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="ProfilesSet">

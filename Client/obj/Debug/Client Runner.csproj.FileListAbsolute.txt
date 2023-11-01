@@ -1,5 +1,5 @@
-C:\Users\wmike\OneDrive\Documentos\RenovaciÃ³n LIS\Client\obj\Debug\Client Runner.csproj.AssemblyReference.cache
-C:\Users\wmike\OneDrive\Documentos\RenovaciÃ³n LIS\Client\obj\Debug\Client Runner.csproj.CoreCompileInputs.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.AssemblyReference.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.CoreCompileInputs.cache
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\Client.exe.config
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\Client.exe
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\Client.pdb

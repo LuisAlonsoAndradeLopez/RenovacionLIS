@@ -50,14 +50,9 @@
     <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
     <Property Name="FirstSurname" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SecondSurname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="NickName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="BirthDate" Type="datetime" Nullable="true" />
-    <Property Name="BirthDay" Type="int" Nullable="true" />
-    <Property Name="BirthMonth" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="BirthYear" Type="int" Nullable="true" />
-    <Property Name="MainEmail" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="AlternateEmail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="ProfilesSet">
@@ -233,14 +228,9 @@
           <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="FirstSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="SecondSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="NickName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="BirthDate" Type="DateTime" Nullable="true" Precision="3" />
-          <Property Name="BirthDay" Type="Int32" Nullable="true" />
-          <Property Name="BirthMonth" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="BirthYear" Type="Int32" Nullable="true" />
-          <Property Name="MainEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="AlternateEmail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
         </EntityType>
@@ -309,14 +299,9 @@
           <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="FirstSurname" ColumnName="FirstSurname" />
-          <ScalarProperty Name="SecondSurname" ColumnName="SecondSurname" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
-          <ScalarProperty Name="BirthMonth" ColumnName="BirthMonth" />
-          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
-          <ScalarProperty Name="MainEmail" ColumnName="MainEmail" />
-          <ScalarProperty Name="AlternateEmail" ColumnName="AlternateEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>

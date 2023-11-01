@@ -1,7 +1,0 @@
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\bin\WcfService1.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\bin\WcfService1.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\bin\WcfService1.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\obj\Debug\WcfService1.csproj.AssemblyReference.cache
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\obj\Debug\WcfService1.csproj.CoreCompileInputs.cache
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\obj\Debug\WcfService1.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\WcfService1\obj\Debug\WcfService1.pdb

@@ -11,6 +11,7 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     [DataContract]
@@ -23,21 +24,11 @@ namespace DatabaseManager
         [DataMember]
         public string FirstSurname { get; set; }
         [DataMember]
-        public string SecondSurname { get; set; }
-        [DataMember]
         public string NickName { get; set; }
         [DataMember]
         public Nullable<System.DateTime> BirthDate { get; set; }
         [DataMember]
-        public Nullable<int> BirthDay { get; set; }
-        [DataMember]
-        public string BirthMonth { get; set; }
-        [DataMember]
-        public Nullable<int> BirthYear { get; set; }
-        [DataMember]
-        public string MainEmail { get; set; }
-        [DataMember]
-        public string AlternateEmail { get; set; }
+        public string Email { get; set; }
         [DataMember]
         public string Password { get; set; }
 

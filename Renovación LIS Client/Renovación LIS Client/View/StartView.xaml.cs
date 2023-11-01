@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Renovación_LIS_Client.View
 {
@@ -21,8 +23,19 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class StartView : Page
     {
+        
         public StartView()
         {
+            string incompletePath = Path.GetFullPath("resources\\songs\\Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav");
+            string pathPartToDelete = "Renovación LIS Client\\Renovación LIS Client\\bin\\Debug\\";
+            Console.WriteLine(incompletePath);
+            Console.ReadLine();
+
+            string completePath = incompletePath.Replace(pathPartToDelete, "");
+
+            SoundPlayer mainMenuSong = new SoundPlayer(completePath);
+            mainMenuSong.Play();
+
             InitializeComponent();
             ChangeLanguageLabel();
         }
