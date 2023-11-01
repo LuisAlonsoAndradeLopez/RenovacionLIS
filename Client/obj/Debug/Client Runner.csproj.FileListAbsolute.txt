@@ -1,2 +1,0 @@
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.AssemblyReference.cache
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.CoreCompileInputs.cache

@@ -58,14 +58,23 @@ namespace ServicesTCP.Services
             return players;
         }
 
-        Players IPlayer.GetPlayerByID(int ID)
+        Player IPlayer.GetPlayerByID(int ID)
         {
-            Players player = null;
+            Player player = new Player();
+            Players players = new Players();
 
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                player = (Players)databaseModelContainer.PlayersSet.Where(e => e.IDPlayer == ID);
+                players = databaseModelContainer.PlayersSet.Where(e => e.IDPlayer == ID).FirstOrDefault();
+
+                player.IDPlayer = players.IDPlayer;
+                player.Name = players.Name;
+                player.FirstSurname = players.FirstSurname;
+                player.Email = players.Email;
+                player.NickName = players.NickName;
+                player.BirthDate = players.BirthDate;
+                player.Password = players.Password;
             }
             catch (Exception ex)
             {

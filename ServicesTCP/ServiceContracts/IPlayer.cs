@@ -22,7 +22,7 @@ namespace ServicesTCP.ServiceContracts
         List<Players> GetPlayers();
 
         [OperationContract (Name = "GetPlayerByID")]
-        Players GetPlayerByID(int ID);
+        Player GetPlayerByID(int ID);
 
         [OperationContract (Name = "GetSpecifiedPlayers")]
         List<Players> GetSpecifiedPlayers(string name);
@@ -38,6 +38,7 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(Name = "TheEmailIsAlreadyRegisted")]
         bool TheEmailIsAlreadyRegisted(String emailToSearch);
+
         [OperationContract(Name = "TheNicknameIsAlreadyRegisted")]
         bool TheNicknameIsAlreadyRegisted(String nicknameToSearch);
     }

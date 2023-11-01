@@ -280,10 +280,10 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetPlayersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        Renovación_LIS_Client.ServicePlayerReference.Players GetPlayerByID(int ID);
+        domain.Player GetPlayerByID(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players> GetPlayerByIDAsync(int ID);
+        System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
         Renovación_LIS_Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
@@ -365,11 +365,11 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             return base.Channel.GetPlayersAsync();
         }
         
-        public Renovación_LIS_Client.ServicePlayerReference.Players GetPlayerByID(int ID) {
+        public domain.Player GetPlayerByID(int ID) {
             return base.Channel.GetPlayerByID(ID);
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players> GetPlayerByIDAsync(int ID) {
+        public System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(int ID) {
             return base.Channel.GetPlayerByIDAsync(ID);
         }
         

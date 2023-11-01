@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using domain;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -13,6 +14,6 @@ namespace ServicesTCP.ServiceContracts
     public interface IProfile
     {
         [OperationContract]
-        string[] GetStrings();
+        void UploadImage(ImageData imageData);
     }
 }

@@ -55,9 +55,9 @@ namespace Renovación_LIS_Client.View
             {
                 PlayerClient client = new PlayerClient();
 
-                if (!client.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
+                if (!client.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedPlayer.Email)
                 {
-                    if (!client.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text))
+                    if (!client.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedPlayer.NickName)
                     {
                         Players players = new Players();
                         players.IDPlayer = loggedPlayer.IDPlayer;
@@ -71,6 +71,8 @@ namespace Renovación_LIS_Client.View
 
                         MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
 
+                        loggedPlayer = client.GetPlayerByID((int)loggedPlayer.IDPlayer);
+                        
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
                         navigationService.Navigate(new MenuView(loggedPlayer));
                     }

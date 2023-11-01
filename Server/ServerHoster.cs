@@ -8,12 +8,15 @@ namespace ServerHoster
     {
         static void Main(string[] args)
         {
-            using (ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer)))
-            {
-                servicePlayerHost.Open();
-                Console.WriteLine("ServicePlayerHost started!!!");
-                Console.ReadLine();
-            }
+            ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer));
+            servicePlayerHost.Open();
+            Console.WriteLine("ServicePlayerHost started!!!");
+            
+            ServiceHost serviceProfileHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceProfile));
+            serviceProfileHost.Open();
+            Console.WriteLine("ServiceProfileHost started!!!");
+
+            Console.ReadLine();
         }
     }
 }

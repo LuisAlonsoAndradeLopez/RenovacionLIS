@@ -46,7 +46,7 @@
                     <Label Content="Hola de nuevo "
                     Name="WelcomeBackLabel"
                     Grid.Column="0"
-                    Margin="10,10,0,83"
+                    Margin="0,10,0,83"
                     FontFamily="{StaticResource K2DBold}" 
                     FontSize="50"
                     Foreground="White"
