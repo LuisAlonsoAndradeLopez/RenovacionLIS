@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\App.xaml
-10-2047249162
+122125086310
 
-11-2093993678
+13-1500704574
 13-1310406943
-Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\CreateAccountView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\StartView.xaml;
+Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\AnimationView.xaml;View\CreateAccountView.xaml;View\LevelView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\StartView.xaml;
 
 True
 

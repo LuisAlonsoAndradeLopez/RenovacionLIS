@@ -1,2 +1,14 @@
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.AssemblyReference.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\Client.exe.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\Client.exe
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\Client.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\EntityFramework.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\EntityFramework.xml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\obj\Debug\Client Runner.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\obj\Debug\Client Runner.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\obj\Debug\Client Runner.csproj.CopyComplete
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\obj\Debug\Client.exe
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Client\obj\Debug\Client.pdb
