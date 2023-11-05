@@ -20,6 +20,10 @@ namespace DatabaseManager
         public Profiles()
         {
             this.Crucigrams = new HashSet<Crucigrams>();
+            this.FriendRequests = new HashSet<FriendRequests>();
+            this.Profiles1 = new HashSet<Profiles>();
+            this.Profiles2 = new HashSet<Profiles>();
+            this.FriendRequests1 = new HashSet<FriendRequests>();
         }
 
         [DataMember]
@@ -31,7 +35,25 @@ namespace DatabaseManager
 
         [DataMember]
         public virtual Players Players { get; set; }
+
+        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crucigrams> Crucigrams { get; set; }
+
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FriendRequests> FriendRequests { get; set; }
+
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profiles> Profiles1 { get; set; }
+
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profiles> Profiles2 { get; set; }
+
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FriendRequests> FriendRequests1 { get; set; }
     }
 }

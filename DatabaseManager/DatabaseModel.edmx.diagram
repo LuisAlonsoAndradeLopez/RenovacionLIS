@@ -4,17 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a8814c607b30404ba26844c83054d272" Name="Diagram1" ZoomLevel="71" >
-        <EntityTypeShape EntityType="DatabaseModel.Players" Width="1.5" PointX="0.875" PointY="1.25" />
-        <EntityTypeShape EntityType="DatabaseModel.Profiles" Width="1.5" PointX="4.75" PointY="1.625" />
+      <Diagram DiagramId="a8814c607b30404ba26844c83054d272" Name="Diagram1" ZoomLevel="100" >
+        <EntityTypeShape EntityType="DatabaseModel.Players" Width="1.5" PointX="6.625" PointY="6.5" />
+        <EntityTypeShape EntityType="DatabaseModel.Profiles" Width="1.5" PointX="10.625" PointY="6.75" />
         <AssociationConnector Association="DatabaseModel.ProfilesPlayers" />
-        <EntityTypeShape EntityType="DatabaseModel.Crucigrams" Width="1.5" PointX="9.625" PointY="1.5" />
-        <EntityTypeShape EntityType="DatabaseModel.Levels" Width="1.5" PointX="9.625" PointY="4.75" />
-        <EntityTypeShape EntityType="DatabaseModel.Words" Width="1.5" PointX="12.625" PointY="2.5" />
+        <EntityTypeShape EntityType="DatabaseModel.Crucigrams" Width="1.5" PointX="15.5" PointY="6.625" />
+        <EntityTypeShape EntityType="DatabaseModel.Levels" Width="1.5" PointX="15.5" PointY="9.875" />
+        <EntityTypeShape EntityType="DatabaseModel.Words" Width="1.5" PointX="18.5" PointY="7.625" />
         <AssociationConnector Association="DatabaseModel.CrucigramsWords" />
         <AssociationConnector Association="DatabaseModel.ProfilesCrucigrams" ManuallyRouted="false" >
         </AssociationConnector>
         <AssociationConnector Association="DatabaseModel.CrucigramsLevels" />
+        <EntityTypeShape EntityType="DatabaseModel.FriendRequests" Width="1.5" PointX="10.625" PointY="10.375" />
+        <AssociationConnector Association="DatabaseModel.ProfilesFriendRequests" />
+        <AssociationConnector Association="DatabaseModel.ProfilesProfiles" />
+        <AssociationConnector Association="DatabaseModel.ProfilesFriendRequests1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

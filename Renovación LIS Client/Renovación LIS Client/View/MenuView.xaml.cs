@@ -32,6 +32,12 @@ namespace Renovación_LIS_Client.View
             
         }
 
+        private void FriendsButton(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new FriendsView(loggedPlayer));
+        }
+
         private void ProfileButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -43,5 +49,6 @@ namespace Renovación_LIS_Client.View
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView());
         }
+
     }
 }

@@ -22,6 +22,19 @@
       <End Role="Crucigrams" EntitySet="CrucigramsSet" />
       <End Role="Levels" EntitySet="LevelsSet" />
     </AssociationSet>
+    <EntitySet Name="FriendRequestsSet" EntityType="DatabaseModel.FriendRequests" />
+    <AssociationSet Name="ProfilesFriendRequests" Association="DatabaseModel.ProfilesFriendRequests">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="FriendRequests" EntitySet="FriendRequestsSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfilesProfiles" Association="DatabaseModel.ProfilesProfiles">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="Profiles1" EntitySet="ProfilesSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfilesFriendRequests1" Association="DatabaseModel.ProfilesFriendRequests1">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="FriendRequests" EntitySet="FriendRequestsSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Players">
     <Key>
@@ -45,6 +58,10 @@
     <Property Name="Coins" Type="Int64" Nullable="true" />
     <NavigationProperty Name="Players" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
     <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.ProfilesCrucigrams" FromRole="Profiles" ToRole="Crucigrams" />
+    <NavigationProperty Name="FriendRequests" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="Profiles" ToRole="FriendRequests" />
+    <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesProfiles" FromRole="Profiles" ToRole="Profiles1" />
+    <NavigationProperty Name="Profiles2" Relationship="DatabaseModel.ProfilesProfiles" FromRole="Profiles1" ToRole="Profiles" />
+    <NavigationProperty Name="FriendRequests1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="Profiles" ToRole="FriendRequests" />
   </EntityType>
   <Association Name="ProfilesPlayers">
     <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
@@ -88,5 +105,28 @@
   <Association Name="CrucigramsLevels">
     <End Type="DatabaseModel.Crucigrams" Role="Crucigrams" Multiplicity="*" />
     <End Type="DatabaseModel.Levels" Role="Levels" Multiplicity="*" />
+  </Association>
+  <EntityType Name="FriendRequests">
+    <Key>
+      <PropertyRef Name="IDFriendRequest" />
+    </Key>
+    <Property Name="IDFriendRequest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" Nullable="true" />
+    <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
+    <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="true" />
+    <Property Name="Status" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="ProfilesFriendRequests">
+    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
+    <End Type="DatabaseModel.FriendRequests" Role="FriendRequests" Multiplicity="*" />
+  </Association>
+  <Association Name="ProfilesProfiles">
+    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="*" />
+    <End Type="DatabaseModel.Profiles" Role="Profiles1" Multiplicity="*" />
+  </Association>
+  <Association Name="ProfilesFriendRequests1">
+    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
+    <End Type="DatabaseModel.FriendRequests" Role="FriendRequests" Multiplicity="*" />
   </Association>
 </Schema>

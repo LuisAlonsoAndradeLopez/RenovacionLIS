@@ -64,8 +64,11 @@ namespace Renovación_LIS_Client.View
                             catch (Exception ex)
                             {
                                 Console.WriteLine(ex.StackTrace);
-
                             }
+
+                            MessageBox.Show("Cuenta creada con éxito", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                            NavigationService navigationService = NavigationService.GetNavigationService(this);
+                            navigationService.Navigate(new LoginView());
                         }
                         else
                         {

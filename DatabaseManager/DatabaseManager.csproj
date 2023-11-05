@@ -68,6 +68,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FriendRequests.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Levels.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>

@@ -11,7 +11,6 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     [DataContract]
@@ -31,7 +30,7 @@ namespace DatabaseManager
         public string Email { get; set; }
         [DataMember]
         public string Password { get; set; }
-
+        
         [DataMember]
         public virtual Profiles Profiles { get; set; }
     }

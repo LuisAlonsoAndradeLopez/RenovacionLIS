@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContracts\IFriendRequest.cs" />
     <Compile Include="ServiceContracts\ICrucigram.cs" />
     <Compile Include="ServiceContracts\ILevel.cs" />
     <Compile Include="ServiceContracts\IPlayer.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="ServiceContracts\IWord.cs" />
     <Compile Include="Services\ServiceCrucigram.cs" />
     <Compile Include="Services\ServiceLevel.cs" />
+    <Compile Include="Services\ServiceFriendRequest.cs" />
     <Compile Include="Services\ServicePlayer.cs" />
     <Compile Include="Services\ServiceProfile.cs" />
     <Compile Include="Services\ServiceWord.cs" />

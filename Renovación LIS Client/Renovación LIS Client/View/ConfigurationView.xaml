@@ -36,7 +36,7 @@
                             Foreground="White"
                             HorizontalAlignment="Center" FontSize="48"/>
 
-                        <ComboBox/>
+                        <ComboBox Width="913"/>
 
                     </StackPanel>
 

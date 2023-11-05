@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/27/2023 23:12:51
+-- Date Created: 11/05/2023 00:38:30
 -- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -38,6 +38,18 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_CrucigramsLevels_Levels]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CrucigramsLevels] DROP CONSTRAINT [FK_CrucigramsLevels_Levels];
 GO
+IF OBJECT_ID(N'[dbo].[FK_ProfilesFriendRequests]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FriendRequestsSet] DROP CONSTRAINT [FK_ProfilesFriendRequests];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfilesProfiles_Profiles]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfilesProfiles] DROP CONSTRAINT [FK_ProfilesProfiles_Profiles];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfilesProfiles_Profiles1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfilesProfiles] DROP CONSTRAINT [FK_ProfilesProfiles_Profiles1];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfilesFriendRequests1]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FriendRequestsSet] DROP CONSTRAINT [FK_ProfilesFriendRequests1];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -58,6 +70,9 @@ GO
 IF OBJECT_ID(N'[dbo].[WordsSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[WordsSet];
 GO
+IF OBJECT_ID(N'[dbo].[FriendRequestsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FriendRequestsSet];
+GO
 IF OBJECT_ID(N'[dbo].[CrucigramsWords]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CrucigramsWords];
 GO
@@ -66,6 +81,9 @@ IF OBJECT_ID(N'[dbo].[ProfilesCrucigrams]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[CrucigramsLevels]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CrucigramsLevels];
+GO
+IF OBJECT_ID(N'[dbo].[ProfilesProfiles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProfilesProfiles];
 GO
 
 -- --------------------------------------------------
@@ -115,6 +133,17 @@ CREATE TABLE [dbo].[WordsSet] (
 );
 GO
 
+-- Creating table 'FriendRequestsSet'
+CREATE TABLE [dbo].[FriendRequestsSet] (
+    [IDFriendRequest] int IDENTITY(1,1) NOT NULL,
+    [Message] nvarchar(max)  NULL,
+    [CreationDate] datetime  NULL,
+    [Status] nvarchar(max)  NULL,
+    [Profiles_IDProfile] bigint  NOT NULL,
+    [Profiles1_IDProfile] bigint  NOT NULL
+);
+GO
+
 -- Creating table 'CrucigramsWords'
 CREATE TABLE [dbo].[CrucigramsWords] (
     [Crucigrams_IDCrucigram] bigint  NOT NULL,
@@ -133,6 +162,13 @@ GO
 CREATE TABLE [dbo].[CrucigramsLevels] (
     [Crucigrams_IDCrucigram] bigint  NOT NULL,
     [Levels_IDLevel] bigint  NOT NULL
+);
+GO
+
+-- Creating table 'ProfilesProfiles'
+CREATE TABLE [dbo].[ProfilesProfiles] (
+    [Profiles2_IDProfile] bigint  NOT NULL,
+    [Profiles1_IDProfile] bigint  NOT NULL
 );
 GO
 
@@ -170,6 +206,12 @@ ADD CONSTRAINT [PK_WordsSet]
     PRIMARY KEY CLUSTERED ([IDWord] ASC);
 GO
 
+-- Creating primary key on [IDFriendRequest] in table 'FriendRequestsSet'
+ALTER TABLE [dbo].[FriendRequestsSet]
+ADD CONSTRAINT [PK_FriendRequestsSet]
+    PRIMARY KEY CLUSTERED ([IDFriendRequest] ASC);
+GO
+
 -- Creating primary key on [Crucigrams_IDCrucigram], [Words_IDWord] in table 'CrucigramsWords'
 ALTER TABLE [dbo].[CrucigramsWords]
 ADD CONSTRAINT [PK_CrucigramsWords]
@@ -186,6 +228,12 @@ GO
 ALTER TABLE [dbo].[CrucigramsLevels]
 ADD CONSTRAINT [PK_CrucigramsLevels]
     PRIMARY KEY CLUSTERED ([Crucigrams_IDCrucigram], [Levels_IDLevel] ASC);
+GO
+
+-- Creating primary key on [Profiles2_IDProfile], [Profiles1_IDProfile] in table 'ProfilesProfiles'
+ALTER TABLE [dbo].[ProfilesProfiles]
+ADD CONSTRAINT [PK_ProfilesProfiles]
+    PRIMARY KEY CLUSTERED ([Profiles2_IDProfile], [Profiles1_IDProfile] ASC);
 GO
 
 -- --------------------------------------------------
@@ -277,6 +325,60 @@ GO
 CREATE INDEX [IX_FK_CrucigramsLevels_Levels]
 ON [dbo].[CrucigramsLevels]
     ([Levels_IDLevel]);
+GO
+
+-- Creating foreign key on [Profiles_IDProfile] in table 'FriendRequestsSet'
+ALTER TABLE [dbo].[FriendRequestsSet]
+ADD CONSTRAINT [FK_ProfilesFriendRequests]
+    FOREIGN KEY ([Profiles_IDProfile])
+    REFERENCES [dbo].[ProfilesSet]
+        ([IDProfile])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfilesFriendRequests'
+CREATE INDEX [IX_FK_ProfilesFriendRequests]
+ON [dbo].[FriendRequestsSet]
+    ([Profiles_IDProfile]);
+GO
+
+-- Creating foreign key on [Profiles2_IDProfile] in table 'ProfilesProfiles'
+ALTER TABLE [dbo].[ProfilesProfiles]
+ADD CONSTRAINT [FK_ProfilesProfiles_Profiles]
+    FOREIGN KEY ([Profiles2_IDProfile])
+    REFERENCES [dbo].[ProfilesSet]
+        ([IDProfile])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Profiles1_IDProfile] in table 'ProfilesProfiles'
+ALTER TABLE [dbo].[ProfilesProfiles]
+ADD CONSTRAINT [FK_ProfilesProfiles_Profiles1]
+    FOREIGN KEY ([Profiles1_IDProfile])
+    REFERENCES [dbo].[ProfilesSet]
+        ([IDProfile])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfilesProfiles_Profiles1'
+CREATE INDEX [IX_FK_ProfilesProfiles_Profiles1]
+ON [dbo].[ProfilesProfiles]
+    ([Profiles1_IDProfile]);
+GO
+
+-- Creating foreign key on [Profiles1_IDProfile] in table 'FriendRequestsSet'
+ALTER TABLE [dbo].[FriendRequestsSet]
+ADD CONSTRAINT [FK_ProfilesFriendRequests1]
+    FOREIGN KEY ([Profiles1_IDProfile])
+    REFERENCES [dbo].[ProfilesSet]
+        ([IDProfile])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfilesFriendRequests1'
+CREATE INDEX [IX_FK_ProfilesFriendRequests1]
+ON [dbo].[FriendRequestsSet]
+    ([Profiles1_IDProfile]);
 GO
 
 -- --------------------------------------------------

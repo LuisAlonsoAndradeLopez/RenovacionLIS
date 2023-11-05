@@ -10,5 +10,249 @@
 
     <Grid>
         <Image Source="/images/friendsImage.png" VerticalAlignment="Center"/>
+
+        <Border Margin="40,56,619,56" Visibility="Visible" 
+            Name="FriendsBorder"
+            Grid.Column="0"
+            CornerRadius="20">
+
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="0.8"/>
+            </Border.Background>
+
+            <StackPanel>
+                <Label Content="Amigazos"
+                    FontFamily="{StaticResource K2DBold}"
+                    Foreground="White"
+                    FontSize="50"
+                    Margin="30,0,0,0"/>
+
+                <Label Background="White"
+                    Margin="0 0 0 15"
+                    Height="2" Width="479"/>
+
+                <ScrollViewer Height="382">
+                    <StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="32" Height="32"
+                                Margin="30,0,0,0"
+                                Source="/images/OnlineSymbol.png"/>
+
+                            <Label Content="En Linea"
+                                FontFamily="{StaticResource K2DBold}"
+                                Foreground="White"
+                                FontSize="20"
+                                HorizontalContentAlignment="Left"
+                                Margin="5,0,0,0"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel Name="OnlineFriendsStackPanel">
+                            <Border Height="55" Margin="25,10,25,0" CornerRadius="20" Background="Black">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        FontFamily="{StaticResource K2DBold}"
+                                        Foreground="White"
+                                        Margin="15,0,0,0" Width="173" TextWrapping="Wrap"
+                                        FontSize="14" VerticalAlignment="Center"
+                                        Text="Pene"/>
+
+                                    <TextBlock
+                                        FontFamily="{StaticResource K2DBold}"
+                                        Foreground="White"
+                                        Margin="15,0,0,0" Width="161" TextWrapping="Wrap"
+                                        FontSize="14" VerticalAlignment="Center"
+                                        Text="Fecha: 22/05/2023"/>
+
+                                    <Button Content="Detalles" 
+                                        Style="{StaticResource NormalButtom}"
+                                        Height="35"
+                                        Width="59"
+                                        Background="#FF195388"
+                                        Margin="15,0,0,0"     
+                                        FontSize="13"
+                                        Click="CancelButton"/>
+                                </StackPanel>
+
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="27.5" Height="27.5"
+                                Margin="32.5,0,0,0"
+                                Source="/images/OfflineSymbol.png"/>
+
+                            <Label Content="Fuera de Linea"
+                                FontFamily="{StaticResource K2DBold}"
+                                Foreground="White"
+                                HorizontalAlignment="Left"
+                                FontSize="20"
+                                Margin="8,0,0,0"/>
+                        </StackPanel>
+
+
+                        <StackPanel Name="OfflineFriendsStackPanel">
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button Content="Invitar Amigazo" 
+                        Style="{StaticResource NormalButtom}"
+                        Height="54"
+                        Width="129"
+                        Margin="15,0,0,0" Click="InviteFriendButton"
+                        Background="#FF195388"/>
+
+                    <Button Content="Ver Invitaciones de Amigos" 
+                        Style="{StaticResource NormalButtom}"
+                        Height="56"
+                        Width="202"
+                        Margin="20,0,0,0" Click="SeeFriendsRequestButton"/>
+
+                    <Button Content="Salir" 
+                        Style="{StaticResource NormalButtom}"
+                        Height="56"
+                        Width="127"
+                        Background="Black"
+                        Margin="20,0,0,0" Click="ExitButton"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <Border Margin="40,113,619,114" Visibility="Hidden" 
+            Name="SendFriendRequestBorder"
+            Grid.Column="0"
+            CornerRadius="20">
+
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="0.8"/>
+            </Border.Background>
+
+            <StackPanel Background="Black">
+                <Label Content="Mandar invitación a Amigazazo"
+                    FontFamily="{StaticResource K2DBold}"
+                    Foreground="White"
+                    FontSize="30"
+                    Margin="30,0,0,0"/>
+
+                <Label Background="White"
+                    Margin="0 0 0 15"
+                    Height="2" Width="479"/>
+
+                <StackPanel Background="Black">
+                    <Label Content="Nickname del Amigazazo"
+                        FontFamily="{StaticResource K2DBold}"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        Margin="30,0,0,0"/>
+
+                    <TextBox
+                        Margin="30,0,0,0"
+                        x:Name="NamesTextBox"
+                        Style="{StaticResource BorderTextBox}" Width="471"
+                        HorizontalAlignment="Left" SelectionBrush="White"/>
+
+                    <Label Content="Mensaje"
+                        FontFamily="{StaticResource K2DBold}"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        Margin="30,10,0,0"/>
+
+                    <RichTextBox 
+                        Margin="30,0,0,0"
+                        x:Name="MessageRichTextBox"
+                        Width="472"
+                        HorizontalAlignment="Left" Background="Transparent" Foreground="White" OpacityMask="White" Height="157" Padding="6,3,6,3" MinWidth="0" FontSize="20" SelectionBrush="White" CaretBrush="White"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                        <Button Content="Mandar Invitación a Amigo" 
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="202"
+                            Margin="60,0,0,0"
+                            Click="SendFriendsRequestButton"/>
+
+                        <Button Content="Salir" 
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="127"
+                            Background="Black"
+                            Margin="80,0,0,0"                                
+                            Click="CancelButton"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Margin="40,56,619,56" Visibility="Hidden" 
+            Name="FriendsRequestsBorder"
+            Grid.Column="0"
+            CornerRadius="20">
+
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="0.8"/>
+            </Border.Background>
+
+            <StackPanel>
+                <Label Content="Invitaciones de Amigos"
+                    FontFamily="{StaticResource K2DBold}"
+                    Foreground="White"
+                    FontSize="42"
+                    Margin="30,0,0,0"/>
+
+                <Label Background="White"
+                    Margin="0 0 0 15"
+                    Height="2" Width="479"/>
+
+                <ScrollViewer Height="382">
+                    <StackPanel>
+                        <Label Content="Recibidas"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            FontSize="20"
+                            HorizontalContentAlignment="Left"
+                            Margin="30,0,0,0"/>
+
+                        <StackPanel Name="ReceivedFriendsRequestsStackPanel">
+
+                        </StackPanel>
+
+                        <Label Content="Mandadas"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            FontSize="20"
+                            HorizontalContentAlignment="Left"
+                            Margin="30,0,0,0"/>
+
+                        <StackPanel Name="SentFriendsRequestsStackPanel">
+
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button Content="Atrás" 
+                        Style="{StaticResource NormalButtom}"
+                        Height="56"
+                        Width="127"
+                        Background="Black"
+                        Margin="220,0,0,0" Click="BackButton"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
     </Grid>
 </Page>

@@ -68,13 +68,21 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 players = databaseModelContainer.PlayersSet.Where(e => e.IDPlayer == ID).FirstOrDefault();
 
-                player.IDPlayer = players.IDPlayer;
-                player.Name = players.Name;
-                player.FirstSurname = players.FirstSurname;
-                player.Email = players.Email;
-                player.NickName = players.NickName;
-                player.BirthDate = players.BirthDate;
-                player.Password = players.Password;
+                if(players != null)
+                {
+                    player.IDPlayer = players.IDPlayer;
+                    player.Name = players.Name;
+                    player.FirstSurname = players.FirstSurname;
+                    player.Email = players.Email;
+                    player.NickName = players.NickName;
+                    player.BirthDate = players.BirthDate;
+                    player.Password = players.Password;
+                }
+                else
+                {
+                    player = null;
+                }
+
             }
             catch (Exception ex)
             {
@@ -94,14 +102,21 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 players = databaseModelContainer.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
 
-                player.IDPlayer = players.IDPlayer;
-                player.Name = players.Name;
-                player.FirstSurname = players.FirstSurname;
-                player.Email = players.Email;
-                player.NickName = players.NickName;
-                player.BirthDate = players.BirthDate;
-                player.Password = players.Password;
-                //player.Profile = players.Profiles;
+                if(players != null)
+                {
+                    player.IDPlayer = players.IDPlayer;
+                    player.Name = players.Name;
+                    player.FirstSurname = players.FirstSurname;
+                    player.Email = players.Email;
+                    player.NickName = players.NickName;
+                    player.BirthDate = players.BirthDate;
+                    player.Password = players.Password;
+                    //player.Profile = players.Profiles;
+                }
+                else
+                {
+                    player = null;
+                }
 
             }
             catch (Exception ex)

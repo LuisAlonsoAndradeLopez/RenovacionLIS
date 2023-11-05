@@ -8,6 +8,10 @@ namespace ServerHoster
     {
         static void Main(string[] args)
         {
+            ServiceHost serviceFriendRequestHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceFriendRequest));
+            serviceFriendRequestHost.Open();
+            Console.WriteLine("ServiceFriendRequestHost started!!!");
+
             ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer));
             servicePlayerHost.Open();
             Console.WriteLine("ServicePlayerHost started!!!");

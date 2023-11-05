@@ -48,6 +48,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FriendRequestsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.FriendRequests)">
+        <MappingFragment StoreEntitySet="FriendRequestsSet">
+          <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="ProfilesPlayers" TypeName="DatabaseModel.ProfilesPlayers" StoreEntitySet="ProfilesSet">
       <EndProperty Name="Players">
         <ScalarProperty Name="IDPlayer" ColumnName="Players_IDPlayer" />
@@ -78,6 +88,30 @@
       </EndProperty>
       <EndProperty Name="Levels">
         <ScalarProperty Name="IDLevel" ColumnName="Levels_IDLevel" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfilesFriendRequests" TypeName="DatabaseModel.ProfilesFriendRequests" StoreEntitySet="FriendRequestsSet">
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="Profiles_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="FriendRequests">
+        <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfilesProfiles" TypeName="DatabaseModel.ProfilesProfiles" StoreEntitySet="ProfilesProfiles">
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="Profiles2_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="Profiles1">
+        <ScalarProperty Name="IDProfile" ColumnName="Profiles1_IDProfile" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfilesFriendRequests1" TypeName="DatabaseModel.ProfilesFriendRequests1" StoreEntitySet="FriendRequestsSet">
+      <EndProperty Name="Profiles">
+        <ScalarProperty Name="IDProfile" ColumnName="Profiles1_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="FriendRequests">
+        <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

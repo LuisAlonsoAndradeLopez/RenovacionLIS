@@ -10,125 +10,69 @@
       Title="MenuView">
 
     <Grid>
-        <Grid>
-            <Image Source="/images/menuImage.png" Stretch="Fill"/>
+        <Image Source="/images/menuImage.png" Stretch="Fill"/>
 
-            <Grid>
+        <StackPanel>
+            <Label Content="Hola de nuevo "
+                Name="WelcomeBackLabel"
+                Margin="50,30,0,0"
+                FontFamily="{StaticResource K2DBold}" 
+                FontSize="50"
+                Foreground="White"
+                HorizontalAlignment="Left" Width="1097"/>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="700"/>
+            <Button Content="Jugar"
+                Foreground="White"
+                FontSize="40"
+                FontFamily="{StaticResource K2DRegular}"
+                HorizontalAlignment="Left"
+                Margin="30,40,0,0"
+                Style="{StaticResource underlineButton}"/>
 
-                </Grid.ColumnDefinitions>
+            <Button Content="Perfil"
+                Foreground="White"
+                FontSize="40"
+                FontFamily="{StaticResource K2DRegular}"
+                Grid.Column="0"
+                Grid.Row="3"
+                HorizontalAlignment="Left"
+                Margin="30,40,0,0"
+                Style="{StaticResource underlineButton}"
+                MouseLeftButtonDown="ProfileButton" Click="ProfileButton"/>
 
+            <Button Content="Amigazazos"
+                Foreground="White"
+                FontSize="40"
+                FontFamily="{StaticResource K2DRegular}"
+                Grid.Column="0"
+                Grid.Row="3"
+                HorizontalAlignment="Left"
+                Margin="30,40,0,0"
+                Style="{StaticResource underlineButton}" Grid.RowSpan="2"
+                MouseLeftButtonDown="FriendsButton"
+                Click="FriendsButton"/>
 
+            <Button Content="Configuración"
+                Foreground="White"
+                FontSize="40"
+                FontFamily="{StaticResource K2DRegular}"
+                Grid.Column="0"
+                Grid.Row="4"
+                HorizontalAlignment="Left"
+                Margin="30,40,0,0"
+                Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
-
-                    </Grid.RowDefinitions>
-
-                    <Label Content="Hola de nuevo "
-                    Name="WelcomeBackLabel"
-                    Grid.Column="0"
-                    Margin="0,10,0,83"
-                    FontFamily="{StaticResource K2DBold}" 
-                    FontSize="50"
-                    Foreground="White"
-                    HorizontalAlignment="Left" Width="1158" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1"/>
-
-                    <Button Content="Play"
-                    Foreground="White"
-                    FontSize="25"
-                    FontFamily="{StaticResource K2DRegular}"
-                    Grid.Column="0"
-                    Grid.Row="2"
-                    HorizontalAlignment="Left"
-                    Margin="20,82,0,50"
-                    Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
-
-                    <Button Content="Profile"
-                    Foreground="White"
-                    FontSize="25"
-                    FontFamily="{StaticResource K2DRegular}"
-                    Grid.Column="0"
-                    Grid.Row="3"
-                    HorizontalAlignment="Left"
-                    Margin="20,20,0,0"
-                    Style="{StaticResource underlineButton}"
-                    MouseLeftButtonDown="ProfileButton" Click="ProfileButton"/>
-
-                    <Button Content="Friends"
-                            Foreground="White"
-                            FontSize="25"
-                            FontFamily="{StaticResource K2DRegular}"
-                            Grid.Column="0"
-                            Grid.Row="3"
-                            HorizontalAlignment="Left"
-                            Margin="20,106,0,22"
-                            Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
-
-                    <Button Content="Configuration"
-                            Foreground="White"
-                            FontSize="25"
-                            FontFamily="{StaticResource K2DRegular}"
-                            Grid.Column="0"
-                            Grid.Row="4"
-                            HorizontalAlignment="Left"
-                            Margin="20,62,0,12"
-                            Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
-
-                    <Button Content="Quit"
-                            Foreground="White"
-                            FontSize="25"
-                            FontFamily="{StaticResource K2DRegular}"
-                            Grid.Column="0"
-                            Grid.Row="6"
-                            HorizontalAlignment="Left"
-                            Margin="20,20,0,0"
-                            Style="{StaticResource underlineButton}"
-                            MouseLeftButtonDown="QuitButton"
-                            Click="QuitButton"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </Grid>
-
-
-
-
-            </Grid>
-        </Grid>
+            <Button Content="Salir"
+                Foreground="White"
+                FontSize="40"
+                FontFamily="{StaticResource K2DRegular}"
+                Grid.Column="0"
+                Grid.Row="6"
+                HorizontalAlignment="Left"
+                Margin="30,40,0,0"
+                Style="{StaticResource underlineButton}"
+                MouseLeftButtonDown="QuitButton"
+                Click="QuitButton"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -30,5 +30,6 @@ namespace DatabaseManager
         public virtual DbSet<Crucigrams> CrucigramsSet { get; set; }
         public virtual DbSet<Levels> LevelsSet { get; set; }
         public virtual DbSet<Words> WordsSet { get; set; }
+        public virtual DbSet<FriendRequests> FriendRequestsSet { get; set; }
     }
 }
