@@ -77,9 +77,26 @@
                                 </StackPanel>
 
                             </Border>
+
+                            <Border Height="55" Margin="25,10,25,0" CornerRadius="20" Background="Black">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="42"
+                                           Height="42"
+                                           Name="FriendProfilePictureImage"
+                                           Margin="30,0,0,0"/>
+                                    <TextBlock
+                                        FontFamily="{StaticResource K2DBold}"
+                                        Foreground="White"
+                                        Margin="15,0,0,0" Width="250" TextWrapping="Wrap"
+                                        FontSize="14" VerticalAlignment="Center"
+                                        Text="Pene"/>
+
+                                </StackPanel>
+
+                            </Border>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                             <Image Width="27.5" Height="27.5"
                                 Margin="32.5,0,0,0"
                                 Source="/images/OfflineSymbol.png"/>
@@ -253,6 +270,96 @@
 
             </StackPanel>
         </Border>
-        <!--#endregion-->
+
+        <Border Margin="40,113,619,114" Visibility="Hidden" 
+            Name="FriendRequestDetailsBorder"
+            Grid.Column="0"
+            CornerRadius="20">
+
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="0.8"/>
+            </Border.Background>
+
+            <StackPanel Background="Black" Margin="0,-26,0,-27">
+                <Label Content="Detalles de ia Invitación"
+                    FontFamily="{StaticResource K2DBold}"
+                    Foreground="White"
+                    FontSize="30"
+                    Margin="30,0,0,0"/>
+
+                <Label Background="White"
+                    Margin="0 0 0 15"
+                    Height="2" Width="479"/>
+
+                <StackPanel Background="Black">
+                    <Label Content="Nickname del Amigazazo"
+                        FontFamily="{StaticResource K2DBold}"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        Margin="30,0,0,0"/>
+
+                    <Label
+                        Margin="30,0,0,0"
+                        x:Name="NicknameLabel"
+                        Width="471"
+                        HorizontalAlignment="Left"
+                        Height="26"/>
+
+                    <Label Content="Fecha de Creación"
+                        FontFamily="{StaticResource K2DBold}"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        Margin="30,0,0,0"/>
+
+                    <Label
+                        Margin="30,0,0,0"
+                        x:Name="CreationDateLabel"
+                        Width="471"
+                        HorizontalAlignment="Left"
+                        Height="26"/>
+
+                    <Label Content="Mensaje"
+                        FontFamily="{StaticResource K2DBold}"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        Margin="30,10,0,0"/>
+
+                    <TextBlock 
+                        Margin="30,0,0,0"
+                        x:Name="MessageTextBlock"
+                        Width="472"
+                        HorizontalAlignment="Left"
+                        Background="Transparent"
+                        Foreground="White"
+                        OpacityMask="White"
+                        Height="157"
+                        Padding="6,3,6,3"
+                        MinWidth="0"
+                        FontSize="20"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                        <Button Content="Mandar Invitación a Amigo" 
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="202"
+                            Margin="60,0,0,0"
+                            Click="SendFriendsRequestButton"/>
+
+                        <Button Content="Salir" 
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="127"
+                            Background="Black"
+                            Margin="80,0,0,0"                                
+                            Click="CancelButton"/>
+                        
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
     </Grid>
 </Page>

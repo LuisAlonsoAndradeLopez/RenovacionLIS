@@ -250,6 +250,7 @@
     <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.Player.datasource" />
+    <None Include="Properties\DataSources\domain.Profile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -19,6 +19,18 @@
       <xsd:import schemaLocation="http://localhost:8090/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/domain" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IProfile_GetFriends_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriends" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_GetFriends_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_GetImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImage" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_GetImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageResponse" />
+  </wsdl:message>
   <wsdl:message name="IProfile_UploadImage_InputMessage">
     <wsdl:part name="parameters" element="tns:UploadImage" />
   </wsdl:message>
@@ -26,6 +38,14 @@
     <wsdl:part name="parameters" element="tns:UploadImageResponse" />
   </wsdl:message>
   <wsdl:portType name="IProfile">
+    <wsdl:operation name="GetFriends">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetFriends" message="tns:IProfile_GetFriends_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/GetFriendsResponse" message="tns:IProfile_GetFriends_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetImage" message="tns:IProfile_GetImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/GetImageResponse" message="tns:IProfile_GetImage_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UploadImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/UploadImage" message="tns:IProfile_UploadImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProfile/UploadImageResponse" message="tns:IProfile_UploadImage_OutputMessage" />
@@ -34,6 +54,24 @@
   <wsdl:binding name="NetTcpBinding_IProfile" type="tns:IProfile">
     <wsp:PolicyReference URI="#NetTcpBinding_IProfile_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetFriends">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/GetFriends" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/GetImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UploadImage">
       <soap12:operation soapAction="http://tempuri.org/IProfile/UploadImage" style="document" />
       <wsdl:input>

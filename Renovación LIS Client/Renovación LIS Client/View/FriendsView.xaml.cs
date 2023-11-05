@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
+using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -29,7 +31,7 @@ namespace Renovación_LIS_Client.View
             InitializeComponent();
             this.loggedPlayer = loggedPlayer;
 
-
+            ShowUpdatedFriendsList();
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
@@ -40,6 +42,9 @@ namespace Renovación_LIS_Client.View
 
         private void DetailsButton(object sender, RoutedEventArgs e)
         {
+            FriendsRequestsBorder.Visibility = Visibility.Hidden;
+            FriendRequestDetailsBorder.Visibility = Visibility.Visible;
+
             // Your code to handle the button click event goes here
             //MessageBox.Show("Dynamic button was clicked!");
         }
@@ -61,6 +66,7 @@ namespace Renovación_LIS_Client.View
             FriendsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
 
+            /*
             FriendRequestClient friendRequestClient = new FriendRequestClient();
             foreach (FriendRequests friendRequests in friendRequestClient.GetFriendsRequestsByProfile1ID((int)loggedPlayer.IDPlayer))
             {
@@ -175,19 +181,12 @@ namespace Renovación_LIS_Client.View
                 sentFriendRequestBorder.Child = textAndButtonsStackPanel;
 
                 SentFriendsRequestsStackPanel.Children.Add(sentFriendRequestBorder);
-            }
+            }*/
 
         }
 
         private void SendFriendsRequestButton(object sender, RoutedEventArgs e)
         {
-            
-            Button dynamicButton = new Button
-            {
-                Content = "Click Me",
-                // Set other properties
-            };
-            OnlineFriendsStackPanel.Children.Add(dynamicButton);
             
         }
 
@@ -195,6 +194,62 @@ namespace Renovación_LIS_Client.View
         {
             FriendsBorder.Visibility = Visibility.Visible;
             SendFriendRequestBorder.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowUpdatedFriendsList()
+        {
+            /*
+            ProfileClient profileClient = new ProfileClient();
+            foreach (Profile profile in profileClient.GetFriends((int)loggedPlayer.IDPlayer))
+            {
+                Border friendBorder = new Border
+                {
+                    Height = 55,
+                    Margin = new Thickness(25, 10, 25, 0),
+                    CornerRadius = new CornerRadius(20),
+                    Background = new SolidColorBrush(Colors.Black)
+                };
+
+                StackPanel textAndButtonsStackPanel = new StackPanel
+                {
+                    Orientation = Orientation.Horizontal
+                };
+
+                Image friendProfileImage = new Image
+                {
+                    Width = 42,
+                    Height = 42,
+                    Margin = new Thickness(30, 0, 0, 0),
+                    //Source = 
+                };
+
+                TextBlock nicknameTextBlock = new TextBlock
+                {
+                    Foreground = new SolidColorBrush(Colors.White),
+                    Margin = new Thickness(15, 0, 0, 0),
+                    Width = 250,
+                    TextWrapping = TextWrapping.Wrap,
+                    FontSize = 14,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Text = profile.Player.NickName
+                };
+
+                textAndButtonsStackPanel.Children.Add(friendProfileImage);
+                textAndButtonsStackPanel.Children.Add(nicknameTextBlock);
+
+                friendBorder.Child = textAndButtonsStackPanel;
+
+                if (amigo Conectado)
+                {
+                    OnlineFriendsStackPanel.Children.Add(friendBorder);
+                }
+
+                if (amigo desconectado)
+                {
+                    OfflineFriendsStackPanel.Children.Add(friendBorder);
+                }
+                
+            }*/
         }
     }
 }

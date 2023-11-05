@@ -14,6 +14,12 @@ namespace ServicesTCP.ServiceContracts
     public interface IProfile
     {
         [OperationContract]
-        void UploadImage(ImageData imageData);
+        List<Profile> GetFriends(int profileID);
+
+        [OperationContract]
+        byte[] GetImage(string fileName);
+
+        [OperationContract]
+        bool UploadImage(string fileName, byte[] imageData);
     }
 }

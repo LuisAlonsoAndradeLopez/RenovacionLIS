@@ -19,11 +19,4 @@ namespace domain
 
         public Player Player { get; set; }
     }
-
-    [DataContract]
-    public partial class ImageData
-    {
-        [DataMember]
-        public byte[] ImageBytes { get; set; }
-    }
 }

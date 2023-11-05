@@ -112,10 +112,10 @@ namespace Renovación_LIS_Client.View
 
             string finalText = "";
 
-            string namesPattern = "^[A-Za-z\\s.'-]{2,50}$";
-            string surnamesPattern = "^[A-Za-z\\s.'-]{2,50}$";
+            string namesPattern = "^[A-Za-z\\s'-]{2,50}$";
+            string surnamesPattern = "^[A-Za-z\\s'-]{2,50}$";
             string emailPattern = "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+";
-            string nickNamePattern = "^[A-Za-z\\s.'-]{2,50}$";
+            string nickNamePattern = "^[A-Za-z\\s'-]{2,50}$";
             string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
             string confirmPasswordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
 

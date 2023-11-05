@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -14,10 +15,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using domain;
 using Microsoft.Win32;
 using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileReference;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
 
@@ -41,6 +42,29 @@ namespace Renovación_LIS_Client.View
             EmailTextBox.Text = loggedPlayer.Email;
             NicknameTextBox.Text = loggedPlayer.NickName;
             BirthDayDatePicker.SelectedDate = loggedPlayer.BirthDate;
+
+            byte[] imageData = GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions();
+
+            if (imageData != null)
+            {
+                try
+                {
+                    BitmapImage imageSource = new BitmapImage();
+                    imageSource.BeginInit();
+                    imageSource.StreamSource = new MemoryStream(imageData);
+                    imageSource.EndInit();
+
+                    ProfilePictureImage.Source = imageSource;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            else
+            {
+                ImageRouteTextBlock.Text = "";
+            }
         }
 
         private void CancelButton(object sender, RoutedEventArgs e)
@@ -53,11 +77,12 @@ namespace Renovación_LIS_Client.View
         {
             if(invalidValuesInTextFieldsTextGenerator() == "")
             {
-                PlayerClient client = new PlayerClient();
+                PlayerClient playerClient = new PlayerClient();
+                ProfileClient profileClient = new ProfileClient();
 
-                if (!client.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedPlayer.Email)
+                if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedPlayer.Email)
                 {
-                    if (!client.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedPlayer.NickName)
+                    if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedPlayer.NickName)
                     {
                         Players players = new Players();
                         players.IDPlayer = loggedPlayer.IDPlayer;
@@ -67,11 +92,28 @@ namespace Renovación_LIS_Client.View
                         players.NickName = NicknameTextBox.Text;
                         players.BirthDate = BirthDayDatePicker.SelectedDate;
 
-                        client.ModifyPlayer(players);
+                        playerClient.ModifyPlayer(players);
+
+                        if (ImageRouteTextBlock.Text != "")
+                        {
+                            byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
+                            string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
+                            string fileName = loggedPlayer.NickName + fileExtension;
+
+                            if (imageData.Length <= 51200)
+                            {
+                                profileClient.UploadImage(fileName, imageData);
+                            }
+                            else
+                            {
+                                MessageBox.Show("El archivo no debe de pesar más de 50 KB", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return;
+                            }
+                        }
 
                         MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
 
-                        loggedPlayer = client.GetPlayerByID((int)loggedPlayer.IDPlayer);
+                        loggedPlayer = playerClient.GetPlayerByID((int)loggedPlayer.IDPlayer);
                         
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
                         navigationService.Navigate(new MenuView(loggedPlayer));
@@ -95,7 +137,7 @@ namespace Renovación_LIS_Client.View
         private void SelectImageButton(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.jpg, *.png, *.gif, *.bmp)|*.jpg;*.png;*.gif;*.bmp|All Files (*.*)|*.*";
+            openFileDialog.Filter = "Image Files (*.jpg, *.png, *jpeg)|*.jpg;*.png;*.jpeg";
             openFileDialog.Title = "Select an Image";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -112,10 +154,10 @@ namespace Renovación_LIS_Client.View
 
             string finalText = "";
 
-            string namesPattern = "^[A-Za-z\\s.'-]{2,50}$";
-            string surnamesPattern = "^[A-Za-z\\s.'-]{2,50}$";
+            string namesPattern = "^[A-Za-z\\s'-]{2,50}$";
+            string surnamesPattern = "^[A-Za-z\\s'-]{2,50}$";
             string emailPattern = "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+";
-            string nickNamePattern = "^[A-Za-z\\s.'-]{2,50}$";
+            string nickNamePattern = "^[A-Za-z\\s'-]{2,50}$";
 
             Regex namesRegex = new Regex(namesPattern);
             Regex surnamesRegex = new Regex(surnamesPattern);
@@ -185,6 +227,27 @@ namespace Renovación_LIS_Client.View
             }
 
             return finalText;
+        }
+
+        private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions()
+        {
+            ProfileClient profileClient = new ProfileClient();
+            string fileName = loggedPlayer.NickName + ".png";
+            byte[] imageData = profileClient.GetImage(fileName);
+
+            if(imageData == null)
+            {
+                fileName = loggedPlayer.NickName + ".jpg";
+                imageData = profileClient.GetImage(fileName);
+            }
+
+            if (imageData == null)
+            {
+                fileName = loggedPlayer.NickName + ".jpeg";
+                imageData = profileClient.GetImage(fileName);
+            }
+
+            return imageData;
         }
     }
 }

@@ -15,11 +15,23 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileReference.IProfile")]
     public interface IProfile {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/UploadImage", ReplyAction="http://tempuri.org/IProfile/UploadImageResponse")]
-        void UploadImage(domain.ImageData imageData);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetFriends", ReplyAction="http://tempuri.org/IProfile/GetFriendsResponse")]
+        domain.Profile[] GetFriends(int profileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetFriends", ReplyAction="http://tempuri.org/IProfile/GetFriendsResponse")]
+        System.Threading.Tasks.Task<domain.Profile[]> GetFriendsAsync(int profileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetImage", ReplyAction="http://tempuri.org/IProfile/GetImageResponse")]
+        byte[] GetImage(string fileName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetImage", ReplyAction="http://tempuri.org/IProfile/GetImageResponse")]
+        System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/UploadImage", ReplyAction="http://tempuri.org/IProfile/UploadImageResponse")]
-        System.Threading.Tasks.Task UploadImageAsync(domain.ImageData imageData);
+        bool UploadImage(string fileName, byte[] imageData);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/UploadImage", ReplyAction="http://tempuri.org/IProfile/UploadImageResponse")]
+        System.Threading.Tasks.Task<bool> UploadImageAsync(string fileName, byte[] imageData);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +61,28 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
                 base(binding, remoteAddress) {
         }
         
-        public void UploadImage(domain.ImageData imageData) {
-            base.Channel.UploadImage(imageData);
+        public domain.Profile[] GetFriends(int profileID) {
+            return base.Channel.GetFriends(profileID);
         }
         
-        public System.Threading.Tasks.Task UploadImageAsync(domain.ImageData imageData) {
-            return base.Channel.UploadImageAsync(imageData);
+        public System.Threading.Tasks.Task<domain.Profile[]> GetFriendsAsync(int profileID) {
+            return base.Channel.GetFriendsAsync(profileID);
+        }
+        
+        public byte[] GetImage(string fileName) {
+            return base.Channel.GetImage(fileName);
+        }
+        
+        public System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName) {
+            return base.Channel.GetImageAsync(fileName);
+        }
+        
+        public bool UploadImage(string fileName, byte[] imageData) {
+            return base.Channel.UploadImage(fileName, imageData);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UploadImageAsync(string fileName, byte[] imageData) {
+            return base.Channel.UploadImageAsync(fileName, imageData);
         }
     }
 }
