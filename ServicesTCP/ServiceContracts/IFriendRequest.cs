@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager;
+using domain;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -20,6 +21,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         List<FriendRequests> GetFriendsRequestsByProfile1ID(int ID);
+
+        [OperationContract]
+        FriendRequest GetFriendRequestByID(int IDFriendRequest);
     }
 
 }

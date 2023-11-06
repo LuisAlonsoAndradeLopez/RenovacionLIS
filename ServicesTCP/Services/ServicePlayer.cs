@@ -71,8 +71,8 @@ namespace ServicesTCP.Services
                 if(players != null)
                 {
                     player.IDPlayer = players.IDPlayer;
-                    player.Name = players.Name;
-                    player.FirstSurname = players.FirstSurname;
+                    player.Names = players.Names;
+                    player.Surnames = players.Surnames;
                     player.Email = players.Email;
                     player.NickName = players.NickName;
                     player.BirthDate = players.BirthDate;
@@ -105,8 +105,8 @@ namespace ServicesTCP.Services
                 if(players != null)
                 {
                     player.IDPlayer = players.IDPlayer;
-                    player.Name = players.Name;
-                    player.FirstSurname = players.FirstSurname;
+                    player.Names = players.Names;
+                    player.Surnames = players.Surnames;
                     player.Email = players.Email;
                     player.NickName = players.NickName;
                     player.BirthDate = players.BirthDate;
@@ -134,7 +134,7 @@ namespace ServicesTCP.Services
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                players = databaseModelContainer.PlayersSet.Where(e => e.Name.Contains(name)).ToList();
+                players = databaseModelContainer.PlayersSet.Where(e => e.Names.Contains(name)).ToList();
             }
             catch (Exception ex)
             {
@@ -155,9 +155,9 @@ namespace ServicesTCP.Services
                 if(playerToModify != null)
                 {
                     playerToModify.BirthDate = modifiedPlayer.BirthDate;
-                    playerToModify.FirstSurname = modifiedPlayer.FirstSurname;
+                    playerToModify.Surnames = modifiedPlayer.Surnames;
                     playerToModify.Email = modifiedPlayer.Email;
-                    playerToModify.Name = modifiedPlayer.Name;
+                    playerToModify.Names = modifiedPlayer.Names;
                     playerToModify.NickName = modifiedPlayer.NickName;
                     databaseModelContainer.SaveChanges();
                     generatedID = (int)playerToModify.IDPlayer;

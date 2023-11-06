@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
+using DomainStatuses;
 using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -22,30 +24,32 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
-        Player loggedPlayer = new Player();
+        Profile loggedProfile = new Profile();
 
-        public MenuView(Player loggedPlayer)
+        public MenuView(Profile loggedProfile)
         {
             InitializeComponent();
-            this.loggedPlayer = loggedPlayer;
-            WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedPlayer.NickName + "!";
-            
+            this.loggedProfile = loggedProfile;
+            WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedProfile.Player.NickName + "!";
         }
 
         private void FriendsButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(loggedPlayer));
+            navigationService.Navigate(new FriendsView(loggedProfile));
         }
 
         private void ProfileButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ModifyProfileView(loggedPlayer));
+            navigationService.Navigate(new ModifyProfileView(loggedProfile));
         }
 
         private void QuitButton(object sender, RoutedEventArgs e)
         {
+            ProfileClient profileClient = new ProfileClient();
+            profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView());
         }

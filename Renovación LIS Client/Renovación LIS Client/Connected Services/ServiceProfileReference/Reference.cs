@@ -9,11 +9,759 @@
 //------------------------------------------------------------------------------
 
 namespace Renovación_LIS_Client.ServiceProfileReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class Profiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> CoinsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Crucigrams[] CrucigramsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.FriendRequests[] FriendRequestsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.FriendRequests[] FriendRequests1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDProfileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Players PlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Profiles[] Profiles1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Profiles[] Profiles2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Coins {
+            get {
+                return this.CoinsField;
+            }
+            set {
+                if ((this.CoinsField.Equals(value) != true)) {
+                    this.CoinsField = value;
+                    this.RaisePropertyChanged("Coins");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Crucigrams[] Crucigrams {
+            get {
+                return this.CrucigramsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
+                    this.CrucigramsField = value;
+                    this.RaisePropertyChanged("Crucigrams");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.FriendRequests[] FriendRequests {
+            get {
+                return this.FriendRequestsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FriendRequestsField, value) != true)) {
+                    this.FriendRequestsField = value;
+                    this.RaisePropertyChanged("FriendRequests");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.FriendRequests[] FriendRequests1 {
+            get {
+                return this.FriendRequests1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FriendRequests1Field, value) != true)) {
+                    this.FriendRequests1Field = value;
+                    this.RaisePropertyChanged("FriendRequests1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDProfile {
+            get {
+                return this.IDProfileField;
+            }
+            set {
+                if ((this.IDProfileField.Equals(value) != true)) {
+                    this.IDProfileField = value;
+                    this.RaisePropertyChanged("IDProfile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LoginStatus {
+            get {
+                return this.LoginStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginStatusField, value) != true)) {
+                    this.LoginStatusField = value;
+                    this.RaisePropertyChanged("LoginStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Players Players {
+            get {
+                return this.PlayersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
+                    this.PlayersField = value;
+                    this.RaisePropertyChanged("Players");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Profiles[] Profiles1 {
+            get {
+                return this.Profiles1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Profiles[] Profiles2 {
+            get {
+                return this.Profiles2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Profiles2Field, value) != true)) {
+                    this.Profiles2Field = value;
+                    this.RaisePropertyChanged("Profiles2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class Players : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime BirthDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDPlayerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NickNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Profiles ProfilesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnamesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime BirthDate {
+            get {
+                return this.BirthDateField;
+            }
+            set {
+                if ((this.BirthDateField.Equals(value) != true)) {
+                    this.BirthDateField = value;
+                    this.RaisePropertyChanged("BirthDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDPlayer {
+            get {
+                return this.IDPlayerField;
+            }
+            set {
+                if ((this.IDPlayerField.Equals(value) != true)) {
+                    this.IDPlayerField = value;
+                    this.RaisePropertyChanged("IDPlayer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Names {
+            get {
+                return this.NamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
+                    this.NamesField = value;
+                    this.RaisePropertyChanged("Names");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NickName {
+            get {
+                return this.NickNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NickNameField, value) != true)) {
+                    this.NickNameField = value;
+                    this.RaisePropertyChanged("NickName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Profiles Profiles {
+            get {
+                return this.ProfilesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surnames {
+            get {
+                return this.SurnamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnamesField, value) != true)) {
+                    this.SurnamesField = value;
+                    this.RaisePropertyChanged("Surnames");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Crucigrams", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class Crucigrams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDCrucigramField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Levels[] LevelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Profiles[] ProfilesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Words[] WordsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDCrucigram {
+            get {
+                return this.IDCrucigramField;
+            }
+            set {
+                if ((this.IDCrucigramField.Equals(value) != true)) {
+                    this.IDCrucigramField = value;
+                    this.RaisePropertyChanged("IDCrucigram");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Levels[] Levels {
+            get {
+                return this.LevelsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LevelsField, value) != true)) {
+                    this.LevelsField = value;
+                    this.RaisePropertyChanged("Levels");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Profiles[] Profiles {
+            get {
+                return this.ProfilesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Words[] Words {
+            get {
+                return this.WordsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WordsField, value) != true)) {
+                    this.WordsField = value;
+                    this.RaisePropertyChanged("Words");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class FriendRequests : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDFriendRequestField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Profiles ProfilesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Profiles Profiles1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationDate {
+            get {
+                return this.CreationDateField;
+            }
+            set {
+                if ((this.CreationDateField.Equals(value) != true)) {
+                    this.CreationDateField = value;
+                    this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDFriendRequest {
+            get {
+                return this.IDFriendRequestField;
+            }
+            set {
+                if ((this.IDFriendRequestField.Equals(value) != true)) {
+                    this.IDFriendRequestField = value;
+                    this.RaisePropertyChanged("IDFriendRequest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Profiles Profiles {
+            get {
+                return this.ProfilesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Profiles Profiles1 {
+            get {
+                return this.Profiles1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Levels", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class Levels : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Crucigrams[] CrucigramsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DifficultyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDLevelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LevelNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Crucigrams[] Crucigrams {
+            get {
+                return this.CrucigramsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
+                    this.CrucigramsField = value;
+                    this.RaisePropertyChanged("Crucigrams");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Difficulty {
+            get {
+                return this.DifficultyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DifficultyField, value) != true)) {
+                    this.DifficultyField = value;
+                    this.RaisePropertyChanged("Difficulty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDLevel {
+            get {
+                return this.IDLevelField;
+            }
+            set {
+                if ((this.IDLevelField.Equals(value) != true)) {
+                    this.IDLevelField = value;
+                    this.RaisePropertyChanged("IDLevel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LevelName {
+            get {
+                return this.LevelNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LevelNameField, value) != true)) {
+                    this.LevelNameField = value;
+                    this.RaisePropertyChanged("LevelName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Words", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class Words : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceProfileReference.Crucigrams[] CrucigramsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDWordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WordField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceProfileReference.Crucigrams[] Crucigrams {
+            get {
+                return this.CrucigramsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
+                    this.CrucigramsField = value;
+                    this.RaisePropertyChanged("Crucigrams");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDWord {
+            get {
+                return this.IDWordField;
+            }
+            set {
+                if ((this.IDWordField.Equals(value) != true)) {
+                    this.IDWordField = value;
+                    this.RaisePropertyChanged("IDWord");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Word {
+            get {
+                return this.WordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WordField, value) != true)) {
+                    this.WordField = value;
+                    this.RaisePropertyChanged("Word");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileReference.IProfile")]
     public interface IProfile {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddProfile", ReplyAction="http://tempuri.org/IProfile/AddProfileResponse")]
+        int AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddProfile", ReplyAction="http://tempuri.org/IProfile/AddProfileResponse")]
+        System.Threading.Tasks.Task<int> AddProfileAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfile/ChangeLoginStatusResponse")]
+        void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfile/ChangeLoginStatusResponse")]
+        System.Threading.Tasks.Task ChangeLoginStatusAsync(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetFriends", ReplyAction="http://tempuri.org/IProfile/GetFriendsResponse")]
         domain.Profile[] GetFriends(int profileID);
@@ -26,6 +774,18 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetImage", ReplyAction="http://tempuri.org/IProfile/GetImageResponse")]
         System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerID", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerIDResponse")]
+        domain.Profile GetProfileByPlayerID(int playerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerID", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerIDResponse")]
+        System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerIDAsync(int playerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerNickname", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerNicknameResponse")]
+        domain.Profile GetProfileByPlayerNickname(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerNickname", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerNicknameResponse")]
+        System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerNicknameAsync(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/UploadImage", ReplyAction="http://tempuri.org/IProfile/UploadImageResponse")]
         bool UploadImage(string fileName, byte[] imageData);
@@ -61,6 +821,22 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
                 base(binding, remoteAddress) {
         }
         
+        public int AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {
+            return base.Channel.AddProfile(profiles);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddProfileAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {
+            return base.Channel.AddProfileAsync(profiles);
+        }
+        
+        public void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID) {
+            base.Channel.ChangeLoginStatus(profileLoginStatus, profileID);
+        }
+        
+        public System.Threading.Tasks.Task ChangeLoginStatusAsync(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID) {
+            return base.Channel.ChangeLoginStatusAsync(profileLoginStatus, profileID);
+        }
+        
         public domain.Profile[] GetFriends(int profileID) {
             return base.Channel.GetFriends(profileID);
         }
@@ -75,6 +851,22 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         
         public System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName) {
             return base.Channel.GetImageAsync(fileName);
+        }
+        
+        public domain.Profile GetProfileByPlayerID(int playerID) {
+            return base.Channel.GetProfileByPlayerID(playerID);
+        }
+        
+        public System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerIDAsync(int playerID) {
+            return base.Channel.GetProfileByPlayerIDAsync(playerID);
+        }
+        
+        public domain.Profile GetProfileByPlayerNickname(string nickname) {
+            return base.Channel.GetProfileByPlayerNickname(nickname);
+        }
+        
+        public System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerNicknameAsync(string nickname) {
+            return base.Channel.GetProfileByPlayerNicknameAsync(nickname);
         }
         
         public bool UploadImage(string fileName, byte[] imageData) {

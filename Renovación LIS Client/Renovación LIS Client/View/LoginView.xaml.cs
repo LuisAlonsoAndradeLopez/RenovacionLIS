@@ -15,7 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
+using DomainStatuses;
 using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -48,17 +50,19 @@ namespace Renovación_LIS_Client.View
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
 
-                PlayerClient client = new PlayerClient();
-                Player player = client.GetPlayerByNickname(NicknameTextField.Text);
+                ProfileClient profileClient = new ProfileClient();
+                Profile profile = profileClient.GetProfileByPlayerNickname(NicknameTextField.Text);
                 
-                if (player != null)
+                if (profile != null)
                 {
-                    string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(player.Password));
+                    string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(profile.Player.Password));
 
                     if (BCrypt.Net.BCrypt.Verify(password, storedHash))
                     {
+                        profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
+
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new MenuView(player));
+                        navigationService.Navigate(new MenuView(profile));
                     }
                     else
                     {

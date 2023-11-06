@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/05/2023 00:38:30
+-- Date Created: 11/06/2023 00:23:14
 -- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -93,20 +93,20 @@ GO
 -- Creating table 'PlayersSet'
 CREATE TABLE [dbo].[PlayersSet] (
     [IDPlayer] bigint IDENTITY(1,1) NOT NULL,
-    [Name] nvarchar(max)  NULL,
-    [FirstSurname] nvarchar(max)  NULL,
-    [NickName] nvarchar(max)  NULL,
-    [BirthDate] datetime  NULL,
-    [Email] nvarchar(max)  NULL,
-    [Password] nvarchar(max)  NULL
+    [Names] nvarchar(max)  NOT NULL,
+    [Surnames] nvarchar(max)  NOT NULL,
+    [NickName] nvarchar(max)  NOT NULL,
+    [BirthDate] datetime  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'ProfilesSet'
 CREATE TABLE [dbo].[ProfilesSet] (
     [IDProfile] bigint IDENTITY(1,1) NOT NULL,
-    [ProfilePicture] nvarchar(max)  NULL,
     [Coins] bigint  NULL,
+    [LoginStatus] nvarchar(max)  NOT NULL,
     [Players_IDPlayer] bigint  NOT NULL
 );
 GO
@@ -137,8 +137,9 @@ GO
 CREATE TABLE [dbo].[FriendRequestsSet] (
     [IDFriendRequest] int IDENTITY(1,1) NOT NULL,
     [Message] nvarchar(max)  NULL,
-    [CreationDate] datetime  NULL,
-    [Status] nvarchar(max)  NULL,
+    [CreationDate] datetime  NOT NULL,
+    [SendingStatus] nvarchar(max)  NOT NULL,
+    [AceptationStatus] nvarchar(max)  NOT NULL,
     [Profiles_IDProfile] bigint  NOT NULL,
     [Profiles1_IDProfile] bigint  NOT NULL
 );

@@ -97,6 +97,10 @@
       <Project>{1F083135-139B-42BA-91E9-B8D96CFD7D3E}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Renovación LIS Client\DomainStatuses\DomainStatuses.csproj">
+      <Project>{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}</Project>
+      <Name>DomainStatuses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

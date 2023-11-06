@@ -61,20 +61,20 @@
       <PropertyRef Name="IDPlayer" />
     </Key>
     <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="FirstSurname" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="NickName" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="BirthDate" Type="datetime" Nullable="true" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Names" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surnames" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfilesSet">
     <Key>
       <PropertyRef Name="IDProfile" />
     </Key>
     <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProfilePicture" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Coins" Type="bigint" Nullable="true" />
+    <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Players_IDPlayer" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="CrucigramsSet">
@@ -105,8 +105,8 @@
     </Key>
     <Property Name="IDFriendRequest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Message" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="CreationDate" Type="datetime" Nullable="true" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Profiles_IDProfile" Type="bigint" Nullable="false" />
     <Property Name="Profiles1_IDProfile" Type="bigint" Nullable="false" />
   </EntityType>

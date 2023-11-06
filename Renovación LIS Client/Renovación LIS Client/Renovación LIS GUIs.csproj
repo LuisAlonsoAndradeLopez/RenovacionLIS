@@ -247,6 +247,12 @@
     <None Include="Connected Services\ServiceProfileReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceProfileReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.Player.datasource" />
@@ -280,6 +286,10 @@
     <ProjectReference Include="..\..\Domain\Domain.csproj">
       <Project>{1F083135-139B-42BA-91E9-B8D96CFD7D3E}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainStatuses\DomainStatuses.csproj">
+      <Project>{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}</Project>
+      <Name>DomainStatuses</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

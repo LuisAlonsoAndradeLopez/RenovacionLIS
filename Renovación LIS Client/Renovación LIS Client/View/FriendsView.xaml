@@ -11,7 +11,7 @@
     <Grid>
         <Image Source="/images/friendsImage.png" VerticalAlignment="Center"/>
 
-        <Border Margin="40,56,619,56" Visibility="Visible" 
+        <Border Margin="40,56,619,56" Visibility="Hidden" 
             Name="FriendsBorder"
             Grid.Column="0"
             CornerRadius="20">
@@ -50,50 +50,7 @@
 
 
                         <StackPanel Name="OnlineFriendsStackPanel">
-                            <Border Height="55" Margin="25,10,25,0" CornerRadius="20" Background="Black">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock
-                                        FontFamily="{StaticResource K2DBold}"
-                                        Foreground="White"
-                                        Margin="15,0,0,0" Width="173" TextWrapping="Wrap"
-                                        FontSize="14" VerticalAlignment="Center"
-                                        Text="Pene"/>
-
-                                    <TextBlock
-                                        FontFamily="{StaticResource K2DBold}"
-                                        Foreground="White"
-                                        Margin="15,0,0,0" Width="161" TextWrapping="Wrap"
-                                        FontSize="14" VerticalAlignment="Center"
-                                        Text="Fecha: 22/05/2023"/>
-
-                                    <Button Content="Detalles" 
-                                        Style="{StaticResource NormalButtom}"
-                                        Height="35"
-                                        Width="59"
-                                        Background="#FF195388"
-                                        Margin="15,0,0,0"     
-                                        FontSize="13"
-                                        Click="CancelButton"/>
-                                </StackPanel>
-
-                            </Border>
-
-                            <Border Height="55" Margin="25,10,25,0" CornerRadius="20" Background="Black">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Width="42"
-                                           Height="42"
-                                           Name="FriendProfilePictureImage"
-                                           Margin="30,0,0,0"/>
-                                    <TextBlock
-                                        FontFamily="{StaticResource K2DBold}"
-                                        Foreground="White"
-                                        Margin="15,0,0,0" Width="250" TextWrapping="Wrap"
-                                        FontSize="14" VerticalAlignment="Center"
-                                        Text="Pene"/>
-
-                                </StackPanel>
-
-                            </Border>
+                            
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
@@ -173,7 +130,7 @@
 
                     <TextBox
                         Margin="30,0,0,0"
-                        x:Name="NamesTextBox"
+                        x:Name="NicknameTextBox"
                         Style="{StaticResource BorderTextBox}" Width="471"
                         HorizontalAlignment="Left" SelectionBrush="White"/>
 
@@ -271,7 +228,7 @@
             </StackPanel>
         </Border>
 
-        <Border Margin="40,113,619,114" Visibility="Hidden" 
+        <Border Margin="40,113,619,114" Visibility="Visible" 
             Name="FriendRequestDetailsBorder"
             Grid.Column="0"
             CornerRadius="20">
@@ -341,21 +298,56 @@
                         FontSize="20"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <Button Content="Mandar Invitación a Amigo" 
+                        <Button
                             Style="{StaticResource NormalButtom}"
                             Height="56"
-                            Width="202"
-                            Margin="60,0,0,0"
-                            Click="SendFriendsRequestButton"/>
-
-                        <Button Content="Salir" 
-                            Style="{StaticResource NormalButtom}"
-                            Height="56"
-                            Width="127"
-                            Background="Black"
-                            Margin="80,0,0,0"                                
-                            Click="CancelButton"/>
+                            Width="150"
+                            Margin="22,0,0,0"
                         
+                            Click="AcceptFriendRequestButton">
+
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                                Aceptar Invitación a Amigo
+                            </TextBlock>
+                        </Button>
+
+                        <Button
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="150"
+                            Margin="22,0,0,0"
+                            Click="RejectFriendRequestButton" Background="#FFEA0750">
+
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                                Rechazar Invitación a Amigo
+                            </TextBlock>
+                        </Button>
+
+                        <Button 
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="150"
+                            Margin="22,0,0,0"
+                            Click="CancelFriendsRequestButton" Background="#FFEA0750">
+
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                                Cancelar Invitación a Amigo
+                            </TextBlock>
+                        </Button>
+
+                        <Button
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="150"
+                            Background="Black"
+                            Margin="22,0,0,0"                                
+                            Click="CancelButton">
+
+                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                                Atrás
+                            </TextBlock>
+                        </Button>
+
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

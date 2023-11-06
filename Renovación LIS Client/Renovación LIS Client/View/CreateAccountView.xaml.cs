@@ -15,7 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using domain;
+using DomainStatuses;
 using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -41,17 +44,24 @@ namespace Renovación_LIS_Client.View
 
                 if (Password == ConfirmPassword)
                 {
-                    PlayerClient client = new PlayerClient();
-                    if (!client.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
+                    ProfileClient profileClient = new ProfileClient();
+                    PlayerClient playerClient = new PlayerClient();
+                    if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
                     {
-                        if (!client.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
+                        if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                         {
-                            Players players = new Players();
-                            players.Name = NamesTextBox.Text;
-                            players.FirstSurname = SurnamesTextBox.Text;
+
+                            ServiceProfileReference.Players players = new ServiceProfileReference.Players();
+                            players.Names = NamesTextBox.Text;
+                            players.Surnames = SurnamesTextBox.Text;
                             players.Email = EmailTextBox.Text;
                             players.NickName = NickNameTextBox.Text;
-                            players.BirthDate = BirthdayDatePicker.SelectedDate;
+                            players.BirthDate = (DateTime)BirthdayDatePicker.SelectedDate;
+
+                            ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles();
+                            profiles.LoginStatus = ProfileLoginStatuses.NotLogged.ToString();
+                            profiles.Coins = 0;
+                            profiles.Players = players;
 
                             string salt = BCrypt.Net.BCrypt.GenerateSalt();
                             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
@@ -59,7 +69,7 @@ namespace Renovación_LIS_Client.View
 
                             try
                             {
-                                client.AddPlayer(players);
+                                profileClient.AddProfile(profiles);
                             }
                             catch (Exception ex)
                             {

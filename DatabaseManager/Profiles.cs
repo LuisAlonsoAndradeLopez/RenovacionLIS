@@ -29,9 +29,9 @@ namespace DatabaseManager
         [DataMember]
         public long IDProfile { get; set; }
         [DataMember]
-        public string ProfilePicture { get; set; }
-        [DataMember]
         public Nullable<long> Coins { get; set; }
+        [DataMember]
+        public string LoginStatus { get; set; }
 
         [DataMember]
         public virtual Players Players { get; set; }

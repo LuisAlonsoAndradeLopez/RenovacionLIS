@@ -41,12 +41,12 @@
       <PropertyRef Name="IDPlayer" />
     </Key>
     <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="FirstSurname" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="NickName" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="BirthDate" Type="DateTime" Nullable="true" Precision="3" />
-    <Property Name="Email" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Password" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Names" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Surnames" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NickName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
   </EntityType>
   <EntityType Name="Profiles">
@@ -54,7 +54,6 @@
       <PropertyRef Name="IDProfile" />
     </Key>
     <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProfilePicture" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Coins" Type="Int64" Nullable="true" />
     <NavigationProperty Name="Players" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
     <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.ProfilesCrucigrams" FromRole="Profiles" ToRole="Crucigrams" />
@@ -62,6 +61,7 @@
     <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesProfiles" FromRole="Profiles" ToRole="Profiles1" />
     <NavigationProperty Name="Profiles2" Relationship="DatabaseModel.ProfilesProfiles" FromRole="Profiles1" ToRole="Profiles" />
     <NavigationProperty Name="FriendRequests1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="Profiles" ToRole="FriendRequests" />
+    <Property Name="LoginStatus" Type="String" Nullable="false" />
   </EntityType>
   <Association Name="ProfilesPlayers">
     <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
@@ -114,8 +114,8 @@
     <Property Name="Message" Type="String" Nullable="true" />
     <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
     <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="true" />
-    <Property Name="Status" Type="String" Nullable="true" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" />
   </EntityType>
   <Association Name="ProfilesFriendRequests">
     <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />

@@ -6,12 +6,98 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
+using DomainStatuses;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
     public class ServiceProfile : IProfile
     {
+        public int AddProfile(Profiles profiles)
+        {
+            int generatedID = 0;
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                databaseModelContainer.ProfilesSet.Add(profiles);
+                databaseModelContainer.SaveChanges();
+                generatedID = (int)profiles.IDProfile;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return generatedID;
+        }
+        public void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, int profileID)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                Profiles profileToModify = databaseModelContainer.ProfilesSet.Find(profileID);
+                if (profileToModify != null)
+                {
+                    profileToModify.LoginStatus = profileLoginStatus.ToString();
+
+                    databaseModelContainer.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public List<Profile> GetFriends(int profileID)
+        {
+            List<Profile> profileList = new List<Profile>();
+            Profiles profiles = new Profiles();
+            ICollection<Profiles> profilesHasSet = new HashSet<Profiles>();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                profiles = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
+
+                if (profiles != null)
+                {
+                    profilesHasSet = profiles.Profiles2;
+
+                    foreach(Profiles p in profilesHasSet)
+                    {
+                        Player profilePlayer = new Player();
+                        profilePlayer.IDPlayer = p.Players.IDPlayer;
+                        profilePlayer.Names = p.Players.Names;
+                        profilePlayer.Surnames = p.Players.Surnames;
+                        profilePlayer.Email = p.Players.Email;
+                        profilePlayer.NickName = p.Players.NickName;
+                        profilePlayer.BirthDate = p.Players.BirthDate;
+
+                        Profile profile = new Profile();
+                        profile.IDProfile = (int)p.IDProfile;
+                        profile.Coins = (int)p.Coins;
+                        profile.LoginStatus = p.LoginStatus;
+                        profile.Player = profilePlayer;
+
+                        profileList.Add(profile);
+                    }
+                }
+                else
+                {
+                    profileList = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return profileList;
+        }
+
         public byte[] GetImage(string fileName)
         {
             try
@@ -26,6 +112,90 @@ namespace ServicesTCP.Services
             {
                 return null;
             }
+        }
+
+        public Profile GetProfileByPlayerID(int playerID)
+        {
+            Profile profile = new Profile();
+            Player player = new Player();
+            Profiles profiles = new Profiles();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                profiles = databaseModelContainer.ProfilesSet.Where(e => e.Players.IDPlayer == playerID).FirstOrDefault();
+
+                if (profiles != null)
+                {
+                    player.IDPlayer = profiles.Players.IDPlayer;
+                    player.Names = profiles.Players.Names;
+                    player.Surnames = profiles.Players.Surnames;
+                    player.Email = profiles.Players.Email;
+                    player.NickName = profiles.Players.NickName;
+                    player.BirthDate = profiles.Players.BirthDate;
+                    player.Password = profiles.Players.Password;
+
+                    profile.IDProfile = (int)profiles.IDProfile;
+                    //profile.Coins = profiles.Coins;
+
+                    profile.Player = player;
+
+                    //Para profiles 1 y 2, tienes que recorrer la lista e impementar logica
+                }
+                else
+                {
+                    profile = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return profile;
+        }
+
+        public Profile GetProfileByPlayerNickname(string nickname)
+        {
+            Profile profile = new Profile();
+            Player player = new Player();
+            Profiles profiles = new Profiles();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                profiles = databaseModelContainer.ProfilesSet.Where(e => e.Players.NickName == nickname).FirstOrDefault();
+
+                if (profiles != null)
+                {
+                    player.IDPlayer = profiles.Players.IDPlayer;
+                    player.Names = profiles.Players.Names;
+                    player.Surnames = profiles.Players.Surnames;
+                    player.Email = profiles.Players.Email;
+                    player.NickName = profiles.Players.NickName;
+                    player.BirthDate = profiles.Players.BirthDate;
+                    player.Password = profiles.Players.Password;
+
+                    profile.IDProfile = (int)profiles.IDProfile;
+                    //profile.Coins = profiles.Coins;
+
+                    profile.Player = player;
+
+                    //Para profiles 1 y 2, tienes que recorrer la lista e impementar logica
+                }
+                else
+                {
+                    profile = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return profile;
         }
 
         public bool UploadImage(string fileName, byte[] imageData)
@@ -73,11 +243,6 @@ namespace ServicesTCP.Services
             }
 
             return true;
-        }
-
-        List<Profile> IProfile.GetFriends(int profileID)
-        {
-            throw new NotImplementedException();
         }
     }
 }

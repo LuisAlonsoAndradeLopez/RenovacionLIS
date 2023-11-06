@@ -19,18 +19,18 @@ namespace DatabaseManager
         [DataMember]
         public long IDPlayer { get; set; }
         [DataMember]
-        public string Name { get; set; }
+        public string Names { get; set; }
         [DataMember]
-        public string FirstSurname { get; set; }
+        public string Surnames { get; set; }
         [DataMember]
         public string NickName { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> BirthDate { get; set; }
+        public System.DateTime BirthDate { get; set; }
         [DataMember]
         public string Email { get; set; }
         [DataMember]
         public string Password { get; set; }
-        
+
         [DataMember]
         public virtual Profiles Profiles { get; set; }
     }

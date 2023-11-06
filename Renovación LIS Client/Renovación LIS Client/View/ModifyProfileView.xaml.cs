@@ -29,19 +29,19 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ModifyProfileView : Page
     {
-        Player loggedPlayer = new Player();
+        Profile loggedProfile = new Profile();
 
-        public ModifyProfileView(Player loggedPlayer)
+        public ModifyProfileView(Profile loggedProfile)
         {
             InitializeComponent();
 
-            this.loggedPlayer = loggedPlayer;
+            this.loggedProfile = loggedProfile;
 
-            NamesTextBox.Text = loggedPlayer.Name;
-            SurnamesTextBox.Text = loggedPlayer.FirstSurname;
-            EmailTextBox.Text = loggedPlayer.Email;
-            NicknameTextBox.Text = loggedPlayer.NickName;
-            BirthDayDatePicker.SelectedDate = loggedPlayer.BirthDate;
+            NamesTextBox.Text = loggedProfile.Player.Names;
+            SurnamesTextBox.Text = loggedProfile.Player.Surnames;
+            EmailTextBox.Text = loggedProfile.Player.Email;
+            NicknameTextBox.Text = loggedProfile.Player.NickName;
+            BirthDayDatePicker.SelectedDate = loggedProfile.Player.BirthDate;
 
             byte[] imageData = GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions();
 
@@ -70,7 +70,7 @@ namespace Renovación_LIS_Client.View
         private void CancelButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(loggedPlayer));
+            navigationService.Navigate(new MenuView(loggedProfile));
         }
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
@@ -80,17 +80,17 @@ namespace Renovación_LIS_Client.View
                 PlayerClient playerClient = new PlayerClient();
                 ProfileClient profileClient = new ProfileClient();
 
-                if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedPlayer.Email)
+                if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedProfile.Player.Email)
                 {
-                    if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedPlayer.NickName)
+                    if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedProfile.Player.NickName)
                     {
-                        Players players = new Players();
-                        players.IDPlayer = loggedPlayer.IDPlayer;
-                        players.Name = NamesTextBox.Text;
-                        players.FirstSurname = SurnamesTextBox.Text;
+                        ServicePlayerReference.Players players = new ServicePlayerReference.Players();
+                        players.IDPlayer = loggedProfile.Player.IDPlayer;
+                        players.Names = NamesTextBox.Text;
+                        players.Surnames = SurnamesTextBox.Text;
                         players.Email = EmailTextBox.Text;
                         players.NickName = NicknameTextBox.Text;
-                        players.BirthDate = BirthDayDatePicker.SelectedDate;
+                        players.BirthDate = (DateTime)BirthDayDatePicker.SelectedDate;
 
                         playerClient.ModifyPlayer(players);
 
@@ -98,7 +98,7 @@ namespace Renovación_LIS_Client.View
                         {
                             byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
                             string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
-                            string fileName = loggedPlayer.NickName + fileExtension;
+                            string fileName = loggedProfile.Player.NickName + fileExtension;
 
                             if (imageData.Length <= 51200)
                             {
@@ -113,10 +113,10 @@ namespace Renovación_LIS_Client.View
 
                         MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
 
-                        loggedPlayer = playerClient.GetPlayerByID((int)loggedPlayer.IDPlayer);
+                        loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
                         
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new MenuView(loggedPlayer));
+                        navigationService.Navigate(new MenuView(loggedProfile));
                     }
                     else
                     {
@@ -232,18 +232,18 @@ namespace Renovación_LIS_Client.View
         private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions()
         {
             ProfileClient profileClient = new ProfileClient();
-            string fileName = loggedPlayer.NickName + ".png";
+            string fileName = loggedProfile.Player.NickName + ".png";
             byte[] imageData = profileClient.GetImage(fileName);
 
             if(imageData == null)
             {
-                fileName = loggedPlayer.NickName + ".jpg";
+                fileName = loggedProfile.Player.NickName + ".jpg";
                 imageData = profileClient.GetImage(fileName);
             }
 
             if (imageData == null)
             {
-                fileName = loggedPlayer.NickName + ".jpeg";
+                fileName = loggedProfile.Player.NickName + ".jpeg";
                 imageData = profileClient.GetImage(fileName);
             }
 

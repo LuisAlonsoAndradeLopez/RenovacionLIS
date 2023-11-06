@@ -21,9 +21,11 @@ namespace DatabaseManager
         [DataMember]
         public string Message { get; set; }
         [DataMember]
-        public Nullable<System.DateTime> CreationDate { get; set; }
+        public System.DateTime CreationDate { get; set; }
         [DataMember]
-        public string Status { get; set; }
+        public string SendingStatus { get; set; }
+        [DataMember]
+        public string AceptationStatus { get; set; }
 
         [DataMember]
         public virtual Profiles Profiles { get; set; }

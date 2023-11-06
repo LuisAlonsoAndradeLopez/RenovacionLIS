@@ -5,8 +5,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Players)">
         <MappingFragment StoreEntitySet="PlayersSet">
           <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="FirstSurname" ColumnName="FirstSurname" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -18,8 +18,8 @@
       <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Profiles)">
         <MappingFragment StoreEntitySet="ProfilesSet">
           <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
-          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
           <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

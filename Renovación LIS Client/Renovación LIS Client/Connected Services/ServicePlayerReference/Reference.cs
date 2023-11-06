@@ -23,19 +23,16 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> BirthDateField;
+        private System.DateTime BirthDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstSurnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IDPlayerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
+        private string NamesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NickNameField;
@@ -45,6 +42,9 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Renovación_LIS_Client.ServicePlayerReference.Profiles ProfilesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnamesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -57,7 +57,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> BirthDate {
+        public System.DateTime BirthDate {
             get {
                 return this.BirthDateField;
             }
@@ -83,19 +83,6 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FirstSurname {
-            get {
-                return this.FirstSurnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirstSurnameField, value) != true)) {
-                    this.FirstSurnameField = value;
-                    this.RaisePropertyChanged("FirstSurname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public long IDPlayer {
             get {
                 return this.IDPlayerField;
@@ -109,14 +96,14 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
+        public string Names {
             get {
-                return this.NameField;
+                return this.NamesField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
+                    this.NamesField = value;
+                    this.RaisePropertyChanged("Names");
                 }
             }
         }
@@ -160,6 +147,19 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surnames {
+            get {
+                return this.SurnamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnamesField, value) != true)) {
+                    this.SurnamesField = value;
+                    this.RaisePropertyChanged("Surnames");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -195,10 +195,10 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private long IDProfileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Players PlayersField;
+        private string LoginStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ProfilePictureField;
+        private Renovación_LIS_Client.ServicePlayerReference.Players PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Renovación_LIS_Client.ServicePlayerReference.Profiles[] Profiles1Field;
@@ -282,6 +282,19 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LoginStatus {
+            get {
+                return this.LoginStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginStatusField, value) != true)) {
+                    this.LoginStatusField = value;
+                    this.RaisePropertyChanged("LoginStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Renovación_LIS_Client.ServicePlayerReference.Players Players {
             get {
                 return this.PlayersField;
@@ -290,19 +303,6 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
                 if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
                     this.PlayersField = value;
                     this.RaisePropertyChanged("Players");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ProfilePicture {
-            get {
-                return this.ProfilePictureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilePictureField, value) != true)) {
-                    this.ProfilePictureField = value;
-                    this.RaisePropertyChanged("ProfilePicture");
                 }
             }
         }
@@ -446,7 +446,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreationDateField;
+        private System.DateTime CreationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDFriendRequestField;
@@ -474,7 +474,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreationDate {
+        public System.DateTime CreationDate {
             get {
                 return this.CreationDateField;
             }

@@ -17,6 +17,8 @@ namespace domain
 
         public int Coins { get; set; }
 
+        public string LoginStatus { get; set; }
+
         public Player Player { get; set; }
     }
 }
