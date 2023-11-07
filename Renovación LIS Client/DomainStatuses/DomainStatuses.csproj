@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FriendRequestSendingStatuses.cs" />
     <Compile Include="ProfileLoginStatuses.cs" />
-    <Compile Include="FriendRequestStatuses.cs" />
+    <Compile Include="FriendRequestAceptationStatuses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

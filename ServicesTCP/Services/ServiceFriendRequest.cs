@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
+using DomainStatuses;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -18,16 +19,16 @@ namespace ServicesTCP.Services
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServiceFriendRequest : IFriendRequest
     {
-        int IFriendRequest.AddFriendRequest(FriendRequests friendRequests)
+        public long AddFriendRequest(FriendRequests friendRequests)
         {
-            int generatedID = 0;
+            long generatedID = 0;
 
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 databaseModelContainer.FriendRequestsSet.Add(friendRequests);
                 databaseModelContainer.SaveChanges();
-                generatedID = (int)friendRequests.IDFriendRequest;
+                generatedID = friendRequests.IDFriendRequest;
             }
             catch (Exception ex)
             {
@@ -37,7 +38,46 @@ namespace ServicesTCP.Services
             return generatedID;
         }
 
-        List<FriendRequests> IFriendRequest.GetFriendsRequestsByProfileID(int ID)
+        public void AcceptFriendRequest(FriendRequests friendRequests)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
+                if (friendRequestsToModify != null)
+                {
+                    friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Accepted);
+                    databaseModelContainer.SaveChanges();
+
+                    ServiceProfile serviceProfile = new ServiceProfile();
+                    serviceProfile.AddFriendship(friendRequests.Profiles, friendRequests.Profiles1);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public void CancelFriendRequest(FriendRequests friendRequests)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
+                if (friendRequestsToModify != null)
+                {
+                    friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
+                    databaseModelContainer.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public List<FriendRequests> GetFriendsRequestsByProfileID(long ID)
         {
             List<FriendRequests> friendRequests = new List<FriendRequests>();
 
@@ -55,7 +95,7 @@ namespace ServicesTCP.Services
             return friendRequests;
         }
 
-        List<FriendRequests> IFriendRequest.GetFriendsRequestsByProfile1ID(int ID)
+        public List<FriendRequests> GetFriendsRequestsByProfile1ID(long ID)
         {
             List<FriendRequests> friendRequests = new List<FriendRequests>();
 
@@ -73,7 +113,7 @@ namespace ServicesTCP.Services
             return friendRequests;
         }
 
-        public FriendRequest GetFriendsRequestsByID(int ID)
+        public FriendRequest GetFriendRequestByID(long ID)
         {
             FriendRequests friendRequests = new FriendRequests();
             FriendRequest friendRequest = new FriendRequest();
@@ -87,31 +127,31 @@ namespace ServicesTCP.Services
                 {
 
                     Player playerProfile = new Player();
-                    playerProfile.IDPlayer = friendRequest.Profiles.Player.IDPlayer;
-                    playerProfile.Names = friendRequest.Profiles.Player.Names;
-                    playerProfile.Surnames = friendRequest.Profiles.Player.Surnames;
-                    playerProfile.Email = friendRequest.Profiles.Player.Email;
-                    playerProfile.NickName = friendRequest.Profiles.Player.NickName;
-                    playerProfile.BirthDate = friendRequest.Profiles.Player.BirthDate;
+                    playerProfile.IDPlayer = friendRequests.Profiles.Players.IDPlayer;
+                    playerProfile.Names = friendRequests.Profiles.Players.Names;
+                    playerProfile.Surnames = friendRequests.Profiles.Players.Surnames;
+                    playerProfile.Email = friendRequests.Profiles.Players.Email;
+                    playerProfile.NickName = friendRequests.Profiles.Players.NickName;
+                    playerProfile.BirthDate = friendRequests.Profiles.Players.BirthDate;
 
                     Player playerProfile1 = new Player();
-                    playerProfile1.IDPlayer = friendRequest.Profiles1.Player.IDPlayer;
-                    playerProfile1.Names = friendRequest.Profiles1.Player.Names;
-                    playerProfile1.Surnames = friendRequest.Profiles1.Player.Surnames;
-                    playerProfile1.Email = friendRequest.Profiles1.Player.Email;
-                    playerProfile1.NickName = friendRequest.Profiles1.Player.NickName;
-                    playerProfile1.BirthDate = friendRequest.Profiles1.Player.BirthDate;
+                    playerProfile1.IDPlayer = friendRequests.Profiles1.Players.IDPlayer;
+                    playerProfile1.Names = friendRequests.Profiles1.Players.Names;
+                    playerProfile1.Surnames = friendRequests.Profiles1.Players.Surnames;
+                    playerProfile1.Email = friendRequests.Profiles1.Players.Email;
+                    playerProfile1.NickName = friendRequests.Profiles1.Players.NickName;
+                    playerProfile1.BirthDate = friendRequests.Profiles1.Players.BirthDate;
 
                     Profile profile = new Profile();
-                    profile.IDProfile = friendRequest.Profiles.IDProfile;
-                    profile.Coins = friendRequest.Profiles.Coins;
-                    profile.LoginStatus = friendRequest.Profiles.LoginStatus;
+                    profile.IDProfile = friendRequests.Profiles.IDProfile;
+                    profile.Coins = (long)friendRequests.Profiles.Coins;
+                    profile.LoginStatus = friendRequests.Profiles.LoginStatus;
                     profile.Player = playerProfile;
 
                     Profile profile1 = new Profile();
-                    profile1.IDProfile = friendRequest.Profiles1.IDProfile;
-                    profile1.Coins = friendRequest.Profiles1.Coins;
-                    profile1.LoginStatus = friendRequest.Profiles1.LoginStatus;
+                    profile1.IDProfile = friendRequests.Profiles1.IDProfile;
+                    profile1.Coins = (long)friendRequests.Profiles1.Coins;
+                    profile1.LoginStatus = friendRequests.Profiles1.LoginStatus;
                     profile1.Player = playerProfile1;
 
                     friendRequest.IDFriendRequest = friendRequests.IDFriendRequest;
@@ -119,8 +159,8 @@ namespace ServicesTCP.Services
                     friendRequest.Message = friendRequests.Message;
                     friendRequest.AceptationStatus = friendRequests.AceptationStatus;
                     friendRequest.SendingStatus = friendRequests.SendingStatus;
-                    friendRequest.Profiles = profile;
-                    friendRequest.Profiles1 = profile1;
+                    friendRequest.Profile = profile;
+                    friendRequest.Profile1 = profile1;
                 }
                 else
                 {
@@ -133,6 +173,138 @@ namespace ServicesTCP.Services
             }
 
             return friendRequest;
+        }
+
+        public List<FriendRequest> GetPendientsForAceptationFriendsRequestsByProfile1ID(long IDProfile1)
+        {
+            List<FriendRequest> friendRequestList = new List<FriendRequest>();
+            List<FriendRequests> friendRequestsList = new List<FriendRequests>();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                friendRequestsList = databaseModelContainer.FriendRequestsSet
+                .Where(fr => fr.Profiles1.IDProfile == IDProfile1)
+                .Where(fr => fr.AceptationStatus == Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient))
+                .Where(fr => fr.SendingStatus == Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent))
+                .ToList();
+
+                if (friendRequestsList != null)
+                {
+                    friendRequestList = FriendRequestsListToFriendRequestListConverter(friendRequestsList);
+                }
+                else
+                {
+                    friendRequestList = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return friendRequestList;
+        }
+
+        public List<FriendRequest> GetSentFriendsRequestsByProfileID(long IDProfile)
+        {
+            List<FriendRequest> friendRequestList = new List<FriendRequest>();
+            List<FriendRequests> friendRequestsList = new List<FriendRequests>();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                friendRequestsList = databaseModelContainer.FriendRequestsSet
+                .Where(fr => fr.Profiles.IDProfile == IDProfile)
+                .Where(fr => fr.SendingStatus == Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent))
+                .ToList();
+
+                if (friendRequestsList != null)
+                {
+                    friendRequestList = FriendRequestsListToFriendRequestListConverter(friendRequestsList);
+                }
+                else
+                {
+                    friendRequestList = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return friendRequestList;
+        }
+
+
+        private List<FriendRequest> FriendRequestsListToFriendRequestListConverter(List<FriendRequests> friendRequestsList)
+        {
+            List<FriendRequest> friendRequestList = new List<FriendRequest>();
+
+            foreach (FriendRequests friendRequests in friendRequestsList)
+            {
+
+                Player playerProfile = new Player();
+                playerProfile.IDPlayer = friendRequests.Profiles.Players.IDPlayer;
+                playerProfile.Names = friendRequests.Profiles.Players.Names;
+                playerProfile.Surnames = friendRequests.Profiles.Players.Surnames;
+                playerProfile.Email = friendRequests.Profiles.Players.Email;
+                playerProfile.NickName = friendRequests.Profiles.Players.NickName;
+                playerProfile.BirthDate = friendRequests.Profiles.Players.BirthDate;
+
+                Player playerProfile1 = new Player();
+                playerProfile1.IDPlayer = friendRequests.Profiles1.Players.IDPlayer;
+                playerProfile1.Names = friendRequests.Profiles1.Players.Names;
+                playerProfile1.Surnames = friendRequests.Profiles1.Players.Surnames;
+                playerProfile1.Email = friendRequests.Profiles1.Players.Email;
+                playerProfile1.NickName = friendRequests.Profiles1.Players.NickName;
+                playerProfile1.BirthDate = friendRequests.Profiles1.Players.BirthDate;
+
+                Profile profile = new Profile();
+                profile.IDProfile = friendRequests.Profiles.IDProfile;
+                profile.Coins = (long)friendRequests.Profiles.Coins;
+                profile.LoginStatus = friendRequests.Profiles.LoginStatus;
+                profile.Player = playerProfile;
+
+                Profile profile1 = new Profile();
+                profile1.IDProfile = friendRequests.Profiles1.IDProfile;
+                profile1.Coins = (long)friendRequests.Profiles1.Coins;
+                profile1.LoginStatus = friendRequests.Profiles1.LoginStatus;
+                profile1.Player = playerProfile1;
+
+                FriendRequest friendRequest = new FriendRequest();
+                friendRequest.IDFriendRequest = friendRequests.IDFriendRequest;
+                friendRequest.CreationDate = friendRequests.CreationDate;
+                friendRequest.Message = friendRequests.Message;
+                friendRequest.AceptationStatus = friendRequests.AceptationStatus;
+                friendRequest.SendingStatus = friendRequests.SendingStatus;
+                friendRequest.Profile = profile;
+                friendRequest.Profile1 = profile1;
+
+                friendRequestList.Add(friendRequest);
+            }
+
+            return friendRequestList;
+        }
+
+        public void RejectFriendRequest(FriendRequests friendRequests)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
+                if(friendRequestsToModify != null)
+                {
+                    friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Rejected);
+                    databaseModelContainer.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

@@ -11,11 +11,11 @@ namespace domain
 {
     public class Profile
     {
-        public int IDProfile { get; set; }
+        public long IDProfile { get; set; }
 
         public byte[] ProfilePicture { get; set; }
 
-        public int Coins { get; set; }
+        public long Coins { get; set; }
 
         public string LoginStatus { get; set; }
 

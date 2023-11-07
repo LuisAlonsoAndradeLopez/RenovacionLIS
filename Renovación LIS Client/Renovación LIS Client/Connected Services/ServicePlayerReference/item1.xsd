@@ -15,8 +15,8 @@
   <xs:element name="Player" nillable="true" type="tns:Player" />
   <xs:complexType name="Profile">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Coins" type="xs:int" />
-      <xs:element minOccurs="0" name="IDProfile" type="xs:int" />
+      <xs:element minOccurs="0" name="Coins" type="xs:long" />
+      <xs:element minOccurs="0" name="IDProfile" type="xs:long" />
       <xs:element minOccurs="0" name="LoginStatus" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Player" nillable="true" type="tns:Player" />
       <xs:element minOccurs="0" name="ProfilePicture" nillable="true" type="xs:base64Binary" />

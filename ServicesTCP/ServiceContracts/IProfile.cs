@@ -16,19 +16,19 @@ namespace ServicesTCP.ServiceContracts
     public interface IProfile
     {
         [OperationContract]
-        int AddProfile(Profiles profiles);
+        long AddProfile(Profiles profiles);
 
         [OperationContract]
-        void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, int profileID);
+        void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, long profileID);
 
         [OperationContract]
-        List<Profile> GetFriends(int profileID);
+        List<Profile> GetFriends(long profileID);
 
         [OperationContract]
         byte[] GetImage(string fileName);
 
         [OperationContract]
-        Profile GetProfileByPlayerID(int playerID);
+        Profile GetProfileByPlayerID(long playerID);
 
         [OperationContract]
         Profile GetProfileByPlayerNickname(string nickname);

@@ -13,7 +13,7 @@
   <xs:element name="AddProfileResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddProfileResult" type="xs:int" />
+        <xs:element minOccurs="0" name="AddProfileResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -21,7 +21,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DomainStatuses" minOccurs="0" name="profileLoginStatus" type="q2:ProfileLoginStatuses" />
-        <xs:element minOccurs="0" name="profileID" type="xs:int" />
+        <xs:element minOccurs="0" name="profileID" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,7 +33,7 @@
   <xs:element name="GetFriends">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="profileID" type="xs:int" />
+        <xs:element minOccurs="0" name="profileID" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -61,7 +61,7 @@
   <xs:element name="GetProfileByPlayerID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="playerID" type="xs:int" />
+        <xs:element minOccurs="0" name="playerID" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

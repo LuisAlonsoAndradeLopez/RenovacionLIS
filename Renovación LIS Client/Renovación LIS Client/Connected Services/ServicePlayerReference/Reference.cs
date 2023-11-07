@@ -446,6 +446,9 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AceptationStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -461,7 +464,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private Renovación_LIS_Client.ServicePlayerReference.Profiles Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StatusField;
+        private string SendingStatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -470,6 +473,19 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AceptationStatus {
+            get {
+                return this.AceptationStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AceptationStatusField, value) != true)) {
+                    this.AceptationStatusField = value;
+                    this.RaisePropertyChanged("AceptationStatus");
+                }
             }
         }
         
@@ -539,14 +555,14 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status {
+        public string SendingStatus {
             get {
-                return this.StatusField;
+                return this.SendingStatusField;
             }
             set {
-                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
+                if ((object.ReferenceEquals(this.SendingStatusField, value) != true)) {
+                    this.SendingStatusField = value;
+                    this.RaisePropertyChanged("SendingStatus");
                 }
             }
         }
@@ -752,10 +768,10 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
     public interface IPlayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        int AddPlayer(Renovación_LIS_Client.ServicePlayerReference.Players player);
+        long AddPlayer(Renovación_LIS_Client.ServicePlayerReference.Players player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        System.Threading.Tasks.Task<int> AddPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players player);
+        System.Threading.Tasks.Task<long> AddPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
         Renovación_LIS_Client.ServicePlayerReference.Players[] GetPlayers();
@@ -764,10 +780,10 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetPlayersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        domain.Player GetPlayerByID(int ID);
+        domain.Player GetPlayerByID(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(int ID);
+        System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
         Renovación_LIS_Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
@@ -782,16 +798,16 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         System.Threading.Tasks.Task<domain.Player> GetPlayerByNicknameAsync(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
-        int ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
+        long ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
-        System.Threading.Tasks.Task<int> ModifyPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
+        System.Threading.Tasks.Task<long> ModifyPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPasswordByEmail", ReplyAction="http://tempuri.org/IPlayer/ModifyPasswordByEmailResponse")]
-        int ModifyPasswordByEmail(string originalEmail, string newPassword);
+        void ModifyPasswordByEmail(string originalEmail, string newPassword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPasswordByEmail", ReplyAction="http://tempuri.org/IPlayer/ModifyPasswordByEmailResponse")]
-        System.Threading.Tasks.Task<int> ModifyPasswordByEmailAsync(string originalEmail, string newPassword);
+        System.Threading.Tasks.Task ModifyPasswordByEmailAsync(string originalEmail, string newPassword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegisted", ReplyAction="http://tempuri.org/IPlayer/TheEmailIsAlreadyRegistedResponse")]
         bool TheEmailIsAlreadyRegisted(string emailToSearch);
@@ -833,11 +849,11 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
                 base(binding, remoteAddress) {
         }
         
-        public int AddPlayer(Renovación_LIS_Client.ServicePlayerReference.Players player) {
+        public long AddPlayer(Renovación_LIS_Client.ServicePlayerReference.Players player) {
             return base.Channel.AddPlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> AddPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players player) {
+        public System.Threading.Tasks.Task<long> AddPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players player) {
             return base.Channel.AddPlayerAsync(player);
         }
         
@@ -849,11 +865,11 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             return base.Channel.GetPlayersAsync();
         }
         
-        public domain.Player GetPlayerByID(int ID) {
+        public domain.Player GetPlayerByID(long ID) {
             return base.Channel.GetPlayerByID(ID);
         }
         
-        public System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(int ID) {
+        public System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(long ID) {
             return base.Channel.GetPlayerByIDAsync(ID);
         }
         
@@ -873,19 +889,19 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
             return base.Channel.GetPlayerByNicknameAsync(nickname);
         }
         
-        public int ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
+        public long ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
             return base.Channel.ModifyPlayer(modifiedPlayer);
         }
         
-        public System.Threading.Tasks.Task<int> ModifyPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
+        public System.Threading.Tasks.Task<long> ModifyPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
             return base.Channel.ModifyPlayerAsync(modifiedPlayer);
         }
         
-        public int ModifyPasswordByEmail(string originalEmail, string newPassword) {
-            return base.Channel.ModifyPasswordByEmail(originalEmail, newPassword);
+        public void ModifyPasswordByEmail(string originalEmail, string newPassword) {
+            base.Channel.ModifyPasswordByEmail(originalEmail, newPassword);
         }
         
-        public System.Threading.Tasks.Task<int> ModifyPasswordByEmailAsync(string originalEmail, string newPassword) {
+        public System.Threading.Tasks.Task ModifyPasswordByEmailAsync(string originalEmail, string newPassword) {
             return base.Channel.ModifyPasswordByEmailAsync(originalEmail, newPassword);
         }
         

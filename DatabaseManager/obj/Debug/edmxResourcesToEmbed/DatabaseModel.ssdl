@@ -106,7 +106,8 @@
     <Property Name="IDFriendRequest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Message" Type="nvarchar(max)" Nullable="true" />
     <Property Name="CreationDate" Type="datetime" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SendingStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AceptationStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Profiles_IDProfile" Type="bigint" Nullable="false" />
     <Property Name="Profiles1_IDProfile" Type="bigint" Nullable="false" />
   </EntityType>

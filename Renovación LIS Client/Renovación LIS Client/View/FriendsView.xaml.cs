@@ -33,7 +33,13 @@ namespace Renovación_LIS_Client.View
         }
         private void AcceptFriendRequestButton(object sender, RoutedEventArgs e)
         {
-            
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
+
+            MessageBox.Show("Solicitud aceptada exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
@@ -44,7 +50,13 @@ namespace Renovación_LIS_Client.View
 
         private void CancelFriendRequestButton(object sender, RoutedEventArgs e)
         {
-            
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
+
+            MessageBox.Show("Cancelación del envio de solicitud realizado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
         }
 
         private void DetailsButton(object sender, RoutedEventArgs e)
@@ -56,19 +68,21 @@ namespace Renovación_LIS_Client.View
             {
                 StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
 
-                int childCount = VisualTreeHelper.GetChildrenCount(parent);
-
                 TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 1);
 
                 FriendRequestClient friendRequestClient = new FriendRequestClient();
                 FriendRequest friendRequest = new FriendRequest();
-                friendRequest = friendRequestClient.GetFriendsRequestsByID();
+                friendRequest = friendRequestClient.GetFriendRequestByID(int.Parse(IDTextBlock.Text));
 
-                NicknameLabel.Content = friendRequest.Profiles.Player.NickName;
+                NicknameLabel.Content = friendRequest.Profile.Player.NickName;
                 CreationDateLabel.Content = friendRequest.CreationDate;
                 MessageTextBlock.Text = friendRequest.Message;
-                    
+                IDFriendRequestLabel.Content = friendRequest.IDFriendRequest;
 
+                //if ()
+                //{
+                //
+                //}
                 //TODO Add buttons to accept or reject da friendrequest
             }
 
@@ -89,7 +103,13 @@ namespace Renovación_LIS_Client.View
 
         private void RejectFriendRequestButton(object sender, RoutedEventArgs e)
         {
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
 
+            MessageBox.Show("Invitación Rechazada", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
         }
 
         private void SeeFriendsRequestButton(object sender, RoutedEventArgs e)
@@ -98,7 +118,7 @@ namespace Renovación_LIS_Client.View
             FriendsRequestsBorder.Visibility = Visibility.Visible;
 
             FriendRequestClient friendRequestClient = new FriendRequestClient();
-            foreach (ServiceFriendRequestReference.FriendRequests friendRequests in friendRequestClient.GetPendientsForAceptationFriendsRequestsByProfile1ID((int)loggedPlayer.IDPlayer))
+            foreach (FriendRequest friendRequest in friendRequestClient.GetPendientsForAceptationFriendsRequestsByProfile1ID((int)loggedProfile.IDProfile))
             {
                 Border receivedFriendRequestBorder = new Border
                 {
@@ -116,7 +136,7 @@ namespace Renovación_LIS_Client.View
                 TextBlock idTextBlock = new TextBlock
                 {
                     FontSize = 0,
-                    Text = friendRequests.IDFriendRequest.ToString()
+                    Text = friendRequest.IDFriendRequest.ToString()
                 };
 
                 TextBlock fromTextBlock = new TextBlock
@@ -127,7 +147,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "De: " + friendRequests.Profiles.Players.NickName
+                    Text = "De: " + friendRequest.Profile.Player.NickName
                 };
 
                 TextBlock dateTextBlock = new TextBlock
@@ -138,7 +158,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "Fecha: " + friendRequests.CreationDate.ToString()
+                    Text = "Fecha: " + friendRequest.CreationDate.ToString()
                 };
 
                 Button detailsButton = new Button
@@ -163,7 +183,7 @@ namespace Renovación_LIS_Client.View
             }
 
 
-            foreach (ServiceFriendRequestReference.FriendRequests friendRequests in friendRequestClient.GetSendedFriendsRequestsByProfileID((int)loggedProfile.Player.IDPlayer))
+            foreach (FriendRequest friendRequest in friendRequestClient.GetSentFriendsRequestsByProfileID((int)loggedProfile.IDProfile))
             {
                 Border sentFriendRequestBorder = new Border
                 {
@@ -181,7 +201,7 @@ namespace Renovación_LIS_Client.View
                 TextBlock idTextBlock = new TextBlock
                 {
                     FontSize = 0,
-                    Text = friendRequests.IDFriendRequest.ToString()
+                    Text = friendRequest.IDFriendRequest.ToString()
                 };
 
                 TextBlock forTextBlock = new TextBlock
@@ -192,7 +212,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "Para: " + friendRequests.Profiles1.Players.NickName
+                    Text = "Para: " + friendRequest.Profile1.Player.NickName
                 };
 
                 TextBlock dateTextBlock = new TextBlock
@@ -203,7 +223,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "Fecha: " + friendRequests.CreationDate.ToString()
+                    Text = "Fecha: " + friendRequest.CreationDate.ToString()
                 };
 
                 Button detailsButton = new Button
@@ -239,7 +259,8 @@ namespace Renovación_LIS_Client.View
             ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
             friendRequests.Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text;
             friendRequests.CreationDate = DateTime.Now;
-            friendRequests.Status = FriendRequestStatuses.Sent.ToString();
+            friendRequests.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient);
+            friendRequests.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent);
 
             ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players();
             players.IDPlayer = loggedProfile.Player.IDPlayer;
@@ -269,7 +290,7 @@ namespace Renovación_LIS_Client.View
             profiles1.IDProfile = profile1.IDProfile;
             profiles1.Coins = profile1.Coins;
             profiles1.LoginStatus = profile1.LoginStatus;
-            profiles1.Players = players;
+            profiles1.Players = players1;
 
             friendRequests.Profiles = profiles;
             friendRequests.Profiles1 = profiles1;
@@ -349,12 +370,12 @@ namespace Renovación_LIS_Client.View
 
                 friendBorder.Child = textAndButtonsStackPanel;
 
-                if (profile.LoginStatus == ProfileLoginStatuses.Logged.ToString())
+                if (profile.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
                 {
                     OnlineFriendsStackPanel.Children.Add(friendBorder);
                 }
 
-                if (profile.LoginStatus == ProfileLoginStatuses.NotLogged.ToString())
+                if (profile.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.NotLogged))
                 {
                     OfflineFriendsStackPanel.Children.Add(friendBorder);
                 }
@@ -383,5 +404,51 @@ namespace Renovación_LIS_Client.View
 
             return imageData;
         }
+
+
+        
+        private ServiceFriendRequestReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
+        {           
+            ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
+            
+            friendRequests.Message = friendRequest.Message;
+            friendRequests.CreationDate = friendRequest.CreationDate;
+            friendRequests.AceptationStatus = friendRequest.AceptationStatus;
+            friendRequests.SendingStatus = friendRequest.SendingStatus;
+
+            ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players();
+            players.IDPlayer = friendRequest.Profile.Player.IDPlayer;
+            players.Names = friendRequest.Profile.Player.Names;
+            players.Surnames = friendRequest.Profile.Player.Surnames;
+            players.Email = friendRequest.Profile.Player.Email;
+            players.NickName = friendRequest.Profile.Player.NickName;
+            players.BirthDate = (DateTime)friendRequest.Profile.Player.BirthDate;
+
+            ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles();
+            profiles.IDProfile = friendRequest.Profile.IDProfile;
+            profiles.Coins = friendRequest.Profile.Coins;
+            profiles.LoginStatus = friendRequest.Profile.LoginStatus;
+            profiles.Players = players;
+
+            ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players();
+            players1.IDPlayer = friendRequest.Profile1.Player.IDPlayer;
+            players1.Names = friendRequest.Profile1.Player.Names;
+            players1.Surnames = friendRequest.Profile1.Player.Surnames;
+            players1.Email = friendRequest.Profile1.Player.Email;
+            players1.NickName = friendRequest.Profile1.Player.NickName;
+            players1.BirthDate = (DateTime)friendRequest.Profile1.Player.BirthDate;
+
+            ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles();
+            profiles1.IDProfile = friendRequest.Profile1.IDProfile;
+            profiles1.Coins = friendRequest.Profile1.Coins;
+            profiles1.LoginStatus = friendRequest.Profile1.LoginStatus;
+            profiles1.Players = players1;
+
+            friendRequests.Profiles = profiles;
+            friendRequests.Profiles1 = profiles1;
+
+            return friendRequests;
+        }
+
     }
 }

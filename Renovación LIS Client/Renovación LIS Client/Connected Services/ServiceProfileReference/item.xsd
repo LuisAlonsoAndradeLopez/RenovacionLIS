@@ -73,12 +73,13 @@
   <xs:element name="ArrayOfFriendRequests" nillable="true" type="tns:ArrayOfFriendRequests" />
   <xs:complexType name="FriendRequests">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AceptationStatus" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="IDFriendRequest" type="xs:int" />
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Profiles" nillable="true" type="tns:Profiles" />
       <xs:element minOccurs="0" name="Profiles1" nillable="true" type="tns:Profiles" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendingStatus" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FriendRequests" nillable="true" type="tns:FriendRequests" />

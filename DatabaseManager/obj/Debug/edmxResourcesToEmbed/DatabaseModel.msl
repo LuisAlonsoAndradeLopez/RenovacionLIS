@@ -54,7 +54,8 @@
           <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
           <ScalarProperty Name="Message" ColumnName="Message" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SendingStatus" ColumnName="SendingStatus" />
+          <ScalarProperty Name="AceptationStatus" ColumnName="AceptationStatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

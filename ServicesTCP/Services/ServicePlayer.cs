@@ -17,9 +17,9 @@ namespace ServicesTCP.Services
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServicePlayer : IPlayer
     {
-        int IPlayer.AddPlayer(Players player)
+        public long AddPlayer(Players player)
         {
-            int generatedID = 0;
+            long generatedID = 0;
 
             try
             {
@@ -27,7 +27,7 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 databaseModelContainer.PlayersSet.Add(player);
                 databaseModelContainer.SaveChanges();
-                generatedID = (int)player.IDPlayer;
+                generatedID = player.IDPlayer;
                 //String message = "Usuario Wardado Exitosamente";
                 //IPlayerCallback callback = OperationContext.Current.GetCallbackChannel<IPlayerCallback>();
                 //Thread.Sleep(50);
@@ -42,7 +42,7 @@ namespace ServicesTCP.Services
             return generatedID;
         }
 
-        List<Players> IPlayer.GetPlayers()
+        public List<Players> GetPlayers()
         {
             List<Players> players = null;
 
@@ -58,7 +58,7 @@ namespace ServicesTCP.Services
             return players;
         }
 
-        Player IPlayer.GetPlayerByID(int ID)
+        public Player GetPlayerByID(long ID)
         {
             Player player = new Player();
             Players players = new Players();
@@ -92,7 +92,7 @@ namespace ServicesTCP.Services
             return player;
         }
 
-        Player IPlayer.GetPlayerByNickname(string nickname)
+        public Player GetPlayerByNickname(string nickname)
         {
             Player player = new Player();
             Players players = new Players();
@@ -127,7 +127,7 @@ namespace ServicesTCP.Services
             return player;
         }
 
-        List<Players> IPlayer.GetSpecifiedPlayers(string name)
+        public List<Players> GetSpecifiedPlayers(string name)
         {
             List<Players> players = null;
 
@@ -144,9 +144,9 @@ namespace ServicesTCP.Services
 
         }
 
-        int IPlayer.ModifyPlayer(Players modifiedPlayer)
+        public long ModifyPlayer(Players modifiedPlayer)
         {
-            int generatedID = 0;
+            long generatedID = 0;
 
             try
             {
@@ -171,10 +171,8 @@ namespace ServicesTCP.Services
             return generatedID;
         }
 
-        int IPlayer.ModifyPasswordByEmail(String originalEmail, String newPassword)
+        public void ModifyPasswordByEmail(String originalEmail, String newPassword)
         {
-            int generatedID = 0;
-
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
@@ -192,10 +190,9 @@ namespace ServicesTCP.Services
                 Console.WriteLine(ex.ToString());
             }
 
-            return generatedID;
         }
 
-        bool IPlayer.TheEmailIsAlreadyRegisted(String emailToSearch)
+        public bool TheEmailIsAlreadyRegisted(String emailToSearch)
         {
             DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
             List<String> emails = databaseModelContainer.PlayersSet.Select(row => row.Email).ToList();
@@ -209,7 +206,7 @@ namespace ServicesTCP.Services
             return false;
         }
 
-        bool IPlayer.TheNicknameIsAlreadyRegisted(String nicknameToSearch)
+        public bool TheNicknameIsAlreadyRegisted(String nicknameToSearch)
         {
             DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
             List<String> nicknames = databaseModelContainer.PlayersSet.Select(row => row.NickName).ToList();

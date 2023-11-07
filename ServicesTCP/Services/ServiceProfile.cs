@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager;
@@ -13,16 +15,16 @@ namespace ServicesTCP.Services
 {
     public class ServiceProfile : IProfile
     {
-        public int AddProfile(Profiles profiles)
+        public long AddProfile(Profiles profiles)
         {
-            int generatedID = 0;
+            long generatedID = 0;
 
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 databaseModelContainer.ProfilesSet.Add(profiles);
                 databaseModelContainer.SaveChanges();
-                generatedID = (int)profiles.IDProfile;
+                generatedID = profiles.IDProfile;
             }
             catch (Exception ex)
             {
@@ -31,7 +33,8 @@ namespace ServicesTCP.Services
 
             return generatedID;
         }
-        public void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, int profileID)
+
+        public void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, long profileID)
         {
             try
             {
@@ -50,7 +53,7 @@ namespace ServicesTCP.Services
             }
         }
 
-        public List<Profile> GetFriends(int profileID)
+        public List<Profile> GetFriends(long profileID)
         {
             List<Profile> profileList = new List<Profile>();
             Profiles profiles = new Profiles();
@@ -76,8 +79,8 @@ namespace ServicesTCP.Services
                         profilePlayer.BirthDate = p.Players.BirthDate;
 
                         Profile profile = new Profile();
-                        profile.IDProfile = (int)p.IDProfile;
-                        profile.Coins = (int)p.Coins;
+                        profile.IDProfile = p.IDProfile;
+                        profile.Coins = (long)p.Coins;
                         profile.LoginStatus = p.LoginStatus;
                         profile.Player = profilePlayer;
 
@@ -114,7 +117,7 @@ namespace ServicesTCP.Services
             }
         }
 
-        public Profile GetProfileByPlayerID(int playerID)
+        public Profile GetProfileByPlayerID(long playerID)
         {
             Profile profile = new Profile();
             Player player = new Player();
@@ -135,12 +138,10 @@ namespace ServicesTCP.Services
                     player.BirthDate = profiles.Players.BirthDate;
                     player.Password = profiles.Players.Password;
 
-                    profile.IDProfile = (int)profiles.IDProfile;
-                    //profile.Coins = profiles.Coins;
+                    profile.IDProfile = profiles.IDProfile;
+                    profile.Coins = (long)profiles.Coins;
 
                     profile.Player = player;
-
-                    //Para profiles 1 y 2, tienes que recorrer la lista e impementar logica
                 }
                 else
                 {
@@ -177,12 +178,11 @@ namespace ServicesTCP.Services
                     player.BirthDate = profiles.Players.BirthDate;
                     player.Password = profiles.Players.Password;
 
-                    profile.IDProfile = (int)profiles.IDProfile;
-                    //profile.Coins = profiles.Coins;
+                    profile.IDProfile = profiles.IDProfile;
+                    profile.Coins = (long)profiles.Coins;
 
                     profile.Player = player;
 
-                    //Para profiles 1 y 2, tienes que recorrer la lista e impementar logica
                 }
                 else
                 {
@@ -243,6 +243,33 @@ namespace ServicesTCP.Services
             }
 
             return true;
+        }
+
+
+
+        public void AddFriendship(Profiles profiles, Profiles profiles1)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
+
+                var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
+                var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);                
+                databaseModelContainer.SaveChanges();
+
+                parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
+                parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
+
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                databaseModelContainer.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

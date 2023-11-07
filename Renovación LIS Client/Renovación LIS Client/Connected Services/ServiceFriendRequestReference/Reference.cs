@@ -23,6 +23,9 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AceptationStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -38,7 +41,7 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         private Renovación_LIS_Client.ServiceFriendRequestReference.Profiles Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StatusField;
+        private string SendingStatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -47,6 +50,19 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AceptationStatus {
+            get {
+                return this.AceptationStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AceptationStatusField, value) != true)) {
+                    this.AceptationStatusField = value;
+                    this.RaisePropertyChanged("AceptationStatus");
+                }
             }
         }
         
@@ -116,14 +132,14 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status {
+        public string SendingStatus {
             get {
-                return this.StatusField;
+                return this.SendingStatusField;
             }
             set {
-                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
+                if ((object.ReferenceEquals(this.SendingStatusField, value) != true)) {
+                    this.SendingStatusField = value;
+                    this.RaisePropertyChanged("SendingStatus");
                 }
             }
         }
@@ -752,22 +768,62 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
     public interface IFriendRequest {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AddFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AddFriendRequestResponse")]
-        int AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        long AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AddFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AddFriendRequestResponse")]
-        System.Threading.Tasks.Task<int> AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        System.Threading.Tasks.Task<long> AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AcceptFriendRequestResponse")]
+        void AcceptFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AcceptFriendRequestResponse")]
+        System.Threading.Tasks.Task AcceptFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/CancelFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/CancelFriendRequestResponse")]
+        void CancelFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/CancelFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/CancelFriendRequestResponse")]
+        System.Threading.Tasks.Task CancelFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileIDResponse")]
-        Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfileID(int ID);
+        Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfileID(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileIDResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfileIDAsync(int ID);
+        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfileIDAsync(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1ID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1IDResponse")]
-        Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfile1ID(int ID);
+        Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfile1ID(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1ID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1IDResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfile1IDAsync(int ID);
+        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfile1IDAsync(long ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendRequestByID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendRequestByIDResponse")]
+        domain.FriendRequest GetFriendRequestByID(long IDFriendRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendRequestByID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendRequestByIDResponse")]
+        System.Threading.Tasks.Task<domain.FriendRequest> GetFriendRequestByIDAsync(long IDFriendRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfi" +
+            "le1ID", ReplyAction="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfi" +
+            "le1IDResponse")]
+        domain.FriendRequest[] GetPendientsForAceptationFriendsRequestsByProfile1ID(long IDProfile1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfi" +
+            "le1ID", ReplyAction="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfi" +
+            "le1IDResponse")]
+        System.Threading.Tasks.Task<domain.FriendRequest[]> GetPendientsForAceptationFriendsRequestsByProfile1IDAsync(long IDProfile1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileIDResponse")]
+        domain.FriendRequest[] GetSentFriendsRequestsByProfileID(long IDProfile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileIDResponse")]
+        System.Threading.Tasks.Task<domain.FriendRequest[]> GetSentFriendsRequestsByProfileIDAsync(long IDProfile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/RejectFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse")]
+        void RejectFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/RejectFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse")]
+        System.Threading.Tasks.Task RejectFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -797,28 +853,76 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
                 base(binding, remoteAddress) {
         }
         
-        public int AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+        public long AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
             return base.Channel.AddFriendRequest(friendRequests);
         }
         
-        public System.Threading.Tasks.Task<int> AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+        public System.Threading.Tasks.Task<long> AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
             return base.Channel.AddFriendRequestAsync(friendRequests);
         }
         
-        public Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfileID(int ID) {
+        public void AcceptFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.AcceptFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task AcceptFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.AcceptFriendRequestAsync(friendRequests);
+        }
+        
+        public void CancelFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.CancelFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task CancelFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.CancelFriendRequestAsync(friendRequests);
+        }
+        
+        public Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfileID(long ID) {
             return base.Channel.GetFriendsRequestsByProfileID(ID);
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfileIDAsync(int ID) {
+        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfileIDAsync(long ID) {
             return base.Channel.GetFriendsRequestsByProfileIDAsync(ID);
         }
         
-        public Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfile1ID(int ID) {
+        public Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[] GetFriendsRequestsByProfile1ID(long ID) {
             return base.Channel.GetFriendsRequestsByProfile1ID(ID);
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfile1IDAsync(int ID) {
+        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests[]> GetFriendsRequestsByProfile1IDAsync(long ID) {
             return base.Channel.GetFriendsRequestsByProfile1IDAsync(ID);
+        }
+        
+        public domain.FriendRequest GetFriendRequestByID(long IDFriendRequest) {
+            return base.Channel.GetFriendRequestByID(IDFriendRequest);
+        }
+        
+        public System.Threading.Tasks.Task<domain.FriendRequest> GetFriendRequestByIDAsync(long IDFriendRequest) {
+            return base.Channel.GetFriendRequestByIDAsync(IDFriendRequest);
+        }
+        
+        public domain.FriendRequest[] GetPendientsForAceptationFriendsRequestsByProfile1ID(long IDProfile1) {
+            return base.Channel.GetPendientsForAceptationFriendsRequestsByProfile1ID(IDProfile1);
+        }
+        
+        public System.Threading.Tasks.Task<domain.FriendRequest[]> GetPendientsForAceptationFriendsRequestsByProfile1IDAsync(long IDProfile1) {
+            return base.Channel.GetPendientsForAceptationFriendsRequestsByProfile1IDAsync(IDProfile1);
+        }
+        
+        public domain.FriendRequest[] GetSentFriendsRequestsByProfileID(long IDProfile) {
+            return base.Channel.GetSentFriendsRequestsByProfileID(IDProfile);
+        }
+        
+        public System.Threading.Tasks.Task<domain.FriendRequest[]> GetSentFriendsRequestsByProfileIDAsync(long IDProfile) {
+            return base.Channel.GetSentFriendsRequestsByProfileIDAsync(IDProfile);
+        }
+        
+        public void RejectFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.RejectFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task RejectFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.RejectFriendRequestAsync(friendRequests);
         }
     }
 }

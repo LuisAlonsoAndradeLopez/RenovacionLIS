@@ -14,16 +14,31 @@ namespace ServicesTCP.ServiceContracts
     public interface IFriendRequest
     {
         [OperationContract]
-        int AddFriendRequest(FriendRequests friendRequests);
+        long AddFriendRequest(FriendRequests friendRequests);
 
         [OperationContract]
-        List<FriendRequests> GetFriendsRequestsByProfileID(int ID);
+        void AcceptFriendRequest(FriendRequests friendRequests);
 
         [OperationContract]
-        List<FriendRequests> GetFriendsRequestsByProfile1ID(int ID);
+        void CancelFriendRequest(FriendRequests friendRequests);
 
         [OperationContract]
-        FriendRequest GetFriendRequestByID(int IDFriendRequest);
+        List<FriendRequests> GetFriendsRequestsByProfileID(long ID);
+
+        [OperationContract]
+        List<FriendRequests> GetFriendsRequestsByProfile1ID(long ID);
+
+        [OperationContract]
+        FriendRequest GetFriendRequestByID(long IDFriendRequest);
+
+        [OperationContract]
+        List<FriendRequest> GetPendientsForAceptationFriendsRequestsByProfile1ID(long IDProfile1);
+
+        [OperationContract]
+        List<FriendRequest> GetSentFriendsRequestsByProfileID(long IDProfile);
+
+        [OperationContract]
+        void RejectFriendRequest(FriendRequests friendRequests);
     }
 
 }

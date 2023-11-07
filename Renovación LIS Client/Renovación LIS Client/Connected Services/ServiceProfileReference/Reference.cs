@@ -446,6 +446,9 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AceptationStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -461,7 +464,7 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         private Renovación_LIS_Client.ServiceProfileReference.Profiles Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StatusField;
+        private string SendingStatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -470,6 +473,19 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AceptationStatus {
+            get {
+                return this.AceptationStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AceptationStatusField, value) != true)) {
+                    this.AceptationStatusField = value;
+                    this.RaisePropertyChanged("AceptationStatus");
+                }
             }
         }
         
@@ -539,14 +555,14 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status {
+        public string SendingStatus {
             get {
-                return this.StatusField;
+                return this.SendingStatusField;
             }
             set {
-                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
+                if ((object.ReferenceEquals(this.SendingStatusField, value) != true)) {
+                    this.SendingStatusField = value;
+                    this.RaisePropertyChanged("SendingStatus");
                 }
             }
         }
@@ -752,22 +768,22 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
     public interface IProfile {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddProfile", ReplyAction="http://tempuri.org/IProfile/AddProfileResponse")]
-        int AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles);
+        long AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddProfile", ReplyAction="http://tempuri.org/IProfile/AddProfileResponse")]
-        System.Threading.Tasks.Task<int> AddProfileAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles);
+        System.Threading.Tasks.Task<long> AddProfileAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfile/ChangeLoginStatusResponse")]
-        void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID);
+        void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfile/ChangeLoginStatusResponse")]
-        System.Threading.Tasks.Task ChangeLoginStatusAsync(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID);
+        System.Threading.Tasks.Task ChangeLoginStatusAsync(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetFriends", ReplyAction="http://tempuri.org/IProfile/GetFriendsResponse")]
-        domain.Profile[] GetFriends(int profileID);
+        domain.Profile[] GetFriends(long profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetFriends", ReplyAction="http://tempuri.org/IProfile/GetFriendsResponse")]
-        System.Threading.Tasks.Task<domain.Profile[]> GetFriendsAsync(int profileID);
+        System.Threading.Tasks.Task<domain.Profile[]> GetFriendsAsync(long profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetImage", ReplyAction="http://tempuri.org/IProfile/GetImageResponse")]
         byte[] GetImage(string fileName);
@@ -776,10 +792,10 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerID", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerIDResponse")]
-        domain.Profile GetProfileByPlayerID(int playerID);
+        domain.Profile GetProfileByPlayerID(long playerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerID", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerIDResponse")]
-        System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerIDAsync(int playerID);
+        System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerIDAsync(long playerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerNickname", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerNicknameResponse")]
         domain.Profile GetProfileByPlayerNickname(string nickname);
@@ -821,27 +837,27 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
                 base(binding, remoteAddress) {
         }
         
-        public int AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {
+        public long AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {
             return base.Channel.AddProfile(profiles);
         }
         
-        public System.Threading.Tasks.Task<int> AddProfileAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {
+        public System.Threading.Tasks.Task<long> AddProfileAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {
             return base.Channel.AddProfileAsync(profiles);
         }
         
-        public void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID) {
+        public void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID) {
             base.Channel.ChangeLoginStatus(profileLoginStatus, profileID);
         }
         
-        public System.Threading.Tasks.Task ChangeLoginStatusAsync(DomainStatuses.ProfileLoginStatuses profileLoginStatus, int profileID) {
+        public System.Threading.Tasks.Task ChangeLoginStatusAsync(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID) {
             return base.Channel.ChangeLoginStatusAsync(profileLoginStatus, profileID);
         }
         
-        public domain.Profile[] GetFriends(int profileID) {
+        public domain.Profile[] GetFriends(long profileID) {
             return base.Channel.GetFriends(profileID);
         }
         
-        public System.Threading.Tasks.Task<domain.Profile[]> GetFriendsAsync(int profileID) {
+        public System.Threading.Tasks.Task<domain.Profile[]> GetFriendsAsync(long profileID) {
             return base.Channel.GetFriendsAsync(profileID);
         }
         
@@ -853,11 +869,11 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
             return base.Channel.GetImageAsync(fileName);
         }
         
-        public domain.Profile GetProfileByPlayerID(int playerID) {
+        public domain.Profile GetProfileByPlayerID(long playerID) {
             return base.Channel.GetProfileByPlayerID(playerID);
         }
         
-        public System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerIDAsync(int playerID) {
+        public System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerIDAsync(long playerID) {
             return base.Channel.GetProfileByPlayerIDAsync(playerID);
         }
         

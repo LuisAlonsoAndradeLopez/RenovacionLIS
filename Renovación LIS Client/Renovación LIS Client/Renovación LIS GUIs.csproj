@@ -41,6 +41,9 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="Intersoft.Crosslight, Version=6.0.5000.1, Culture=neutral, PublicKeyToken=71f3e3261ac778b5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Intersoft.Crosslight.6.0.5000.975\lib\Intersoft.Crosslight.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -218,6 +221,9 @@
     <None Include="Connected Services\ServiceFriendRequestReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceFriendRequestReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceFriendRequestReference\Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -255,6 +261,7 @@
     </None>
     <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
     <None Include="Properties\DataSources\domain.Player.datasource" />
     <None Include="Properties\DataSources\domain.Profile.datasource" />
     <None Include="Properties\Settings.settings">

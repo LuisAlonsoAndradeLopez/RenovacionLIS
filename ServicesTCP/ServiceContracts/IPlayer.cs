@@ -16,13 +16,13 @@ namespace ServicesTCP.ServiceContracts
     public interface IPlayer
     {
         [OperationContract (Name = "AddPlayer")]
-        int AddPlayer(Players player);
+        long AddPlayer(Players player);
 
         [OperationContract (Name = "GetPlayers")]
         List<Players> GetPlayers();
 
         [OperationContract (Name = "GetPlayerByID")]
-        Player GetPlayerByID(int ID);
+        Player GetPlayerByID(long ID);
 
         [OperationContract (Name = "GetSpecifiedPlayers")]
         List<Players> GetSpecifiedPlayers(string name);
@@ -31,10 +31,10 @@ namespace ServicesTCP.ServiceContracts
         Player GetPlayerByNickname(String nickname);
 
         [OperationContract(Name = "ModifyPlayer")]
-        int ModifyPlayer(Players modifiedPlayer);
+        long ModifyPlayer(Players modifiedPlayer);
 
         [OperationContract(Name = "ModifyPasswordByEmail")]
-        int ModifyPasswordByEmail(String originalEmail, String newPassword);
+        void ModifyPasswordByEmail(String originalEmail, String newPassword);
 
         [OperationContract(Name = "TheEmailIsAlreadyRegisted")]
         bool TheEmailIsAlreadyRegisted(String emailToSearch);

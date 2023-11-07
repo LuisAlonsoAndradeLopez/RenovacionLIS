@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Crucigram.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="FriendRequest.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

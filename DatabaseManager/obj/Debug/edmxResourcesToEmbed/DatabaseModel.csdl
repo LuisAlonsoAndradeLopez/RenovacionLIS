@@ -115,7 +115,8 @@
     <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
     <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-    <Property Name="Status" Type="String" Nullable="false" />
+    <Property Name="SendingStatus" Type="String" Nullable="false" />
+    <Property Name="AceptationStatus" Type="String" Nullable="false" />
   </EntityType>
   <Association Name="ProfilesFriendRequests">
     <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
