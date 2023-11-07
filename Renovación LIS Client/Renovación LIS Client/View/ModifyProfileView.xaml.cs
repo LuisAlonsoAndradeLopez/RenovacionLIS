@@ -100,15 +100,15 @@ namespace Renovación_LIS_Client.View
                             string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
                             string fileName = loggedProfile.Player.NickName + fileExtension;
 
-                            //if (imageData.Length <= 51200)
-                            //{
+                            if (imageData.Length <= 1048576)
+                            {
                                 profileClient.UploadImage(fileName, imageData);
-                            //}
-                            //else
-                            //{
-                            //    MessageBox.Show("El archivo no debe de pesar más de 50 KB", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
-                            //    return;
-                            //}
+                            }
+                            else
+                            {
+                                MessageBox.Show("El archivo no debe de pesar más de 1 MB", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return;
+                            }
                         }
 
                         MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);

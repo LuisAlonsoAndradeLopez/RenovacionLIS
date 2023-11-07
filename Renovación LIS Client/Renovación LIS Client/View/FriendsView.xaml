@@ -11,7 +11,7 @@
     <Grid>
         <Image Source="/images/friendsImage.png" VerticalAlignment="Center"/>
 
-        <Border Margin="40,56,619,56" Visibility="Hidden" 
+        <Border Margin="40,56,619,56" Visibility="Visible" 
             Name="FriendsBorder"
             Grid.Column="0"
             CornerRadius="20">
@@ -167,7 +167,7 @@
             </StackPanel>
         </Border>
 
-        <Border Margin="40,56,619,56" Visibility="Visible" 
+        <Border Margin="40,56,619,56" Visibility="Hidden" 
             Name="FriendsRequestsBorder"
             Grid.Column="0"
             CornerRadius="20">
