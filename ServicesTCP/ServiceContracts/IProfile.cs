@@ -34,6 +34,9 @@ namespace ServicesTCP.ServiceContracts
         Profile GetProfileByPlayerNickname(string nickname);
 
         [OperationContract]
+        bool TheProfileIsLogged(long profileID);
+
+        [OperationContract]
         bool UploadImage(string fileName, byte[] imageData);
     }
 }

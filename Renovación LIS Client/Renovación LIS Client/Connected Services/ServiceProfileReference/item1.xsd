@@ -86,6 +86,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="TheProfileIsLogged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheProfileIsLoggedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TheProfileIsLoggedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UploadImage">
     <xs:complexType>
       <xs:sequence>

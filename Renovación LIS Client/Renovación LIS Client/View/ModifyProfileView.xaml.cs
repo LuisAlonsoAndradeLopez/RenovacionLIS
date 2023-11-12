@@ -29,12 +29,14 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ModifyProfileView : Page
     {
+        private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
-        public ModifyProfileView(Profile loggedProfile)
+        public ModifyProfileView(MainWindow mainWindow, Profile loggedProfile)
         {
             InitializeComponent();
 
+            this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
 
             NamesTextBox.Text = loggedProfile.Player.Names;
@@ -70,7 +72,7 @@ namespace Renovación_LIS_Client.View
         private void CancelButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(loggedProfile));
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
         }
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
@@ -116,7 +118,7 @@ namespace Renovación_LIS_Client.View
                         loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
                         
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new MenuView(loggedProfile));
+                        navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
                     }
                     else
                     {

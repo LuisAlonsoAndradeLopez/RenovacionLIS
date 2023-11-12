@@ -803,6 +803,12 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerNickname", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerNicknameResponse")]
         System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerNicknameAsync(string nickname);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/TheProfileIsLogged", ReplyAction="http://tempuri.org/IProfile/TheProfileIsLoggedResponse")]
+        bool TheProfileIsLogged(long profileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/TheProfileIsLogged", ReplyAction="http://tempuri.org/IProfile/TheProfileIsLoggedResponse")]
+        System.Threading.Tasks.Task<bool> TheProfileIsLoggedAsync(long profileID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/UploadImage", ReplyAction="http://tempuri.org/IProfile/UploadImageResponse")]
         bool UploadImage(string fileName, byte[] imageData);
         
@@ -883,6 +889,14 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         
         public System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerNicknameAsync(string nickname) {
             return base.Channel.GetProfileByPlayerNicknameAsync(nickname);
+        }
+        
+        public bool TheProfileIsLogged(long profileID) {
+            return base.Channel.TheProfileIsLogged(profileID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TheProfileIsLoggedAsync(long profileID) {
+            return base.Channel.TheProfileIsLoggedAsync(profileID);
         }
         
         public bool UploadImage(string fileName, byte[] imageData) {

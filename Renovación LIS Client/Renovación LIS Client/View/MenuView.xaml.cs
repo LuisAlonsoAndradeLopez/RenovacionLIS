@@ -24,34 +24,39 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
+        private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
-        public MenuView(Profile loggedProfile)
+        public MenuView(MainWindow mainWindow, Profile loggedProfile)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
             WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedProfile.Player.NickName + "!";
         }
 
+        public MenuView() { }
+
         private void FriendsButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(loggedProfile));
+            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile));
         }
 
         private void ProfileButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ModifyProfileView(loggedProfile));
+            navigationService.Navigate(new ModifyProfileView(mainWindow, loggedProfile));
         }
 
         private void QuitButton(object sender, RoutedEventArgs e)
         {
             ProfileClient profileClient = new ProfileClient();
             profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            mainWindow.SetNullToLoggedProfile();
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView());
+            navigationService.Navigate(new LoginView(mainWindow));
         }
 
     }

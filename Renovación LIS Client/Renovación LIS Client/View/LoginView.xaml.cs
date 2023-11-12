@@ -26,25 +26,29 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class LoginView : Page
     {
-        public LoginView()
+        private MainWindow mainWindow;
+
+        public LoginView(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
         }
 
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ForgotPassword());
+            navigationService.Navigate(new ForgotPassword(mainWindow));
         }
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new CreateAccountView());
+            navigationService.Navigate(new CreateAccountView(mainWindow));
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
+
             if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
@@ -59,10 +63,19 @@ namespace Renovación_LIS_Client.View
 
                     if (BCrypt.Net.BCrypt.Verify(password, storedHash))
                     {
-                        profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
+                        if (!profileClient.TheProfileIsLogged(profile.IDProfile))
+                        {
+                            profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
 
-                        NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new MenuView(profile));
+                            mainWindow.SetProfileToLoggedProfile(profile);
+
+                            NavigationService navigationService = NavigationService.GetNavigationService(this);
+                            navigationService.Navigate(new MenuView(mainWindow, profile));
+                        }
+                        else
+                        {
+                            MessageBox.Show("El Usuario ya está Logueado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                     else
                     {

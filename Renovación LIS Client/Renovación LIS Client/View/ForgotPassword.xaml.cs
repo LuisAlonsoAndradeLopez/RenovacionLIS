@@ -26,19 +26,21 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ForgotPassword : Page
     {
+        private MainWindow mainWindow;
         Random random = new Random();
         int verificationCode;
 
-        public ForgotPassword()
+        public ForgotPassword(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
             verificationCode = random.Next(100001, 1000000);
         }
 
         private void CancelButton1(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView());
+            navigationService.Navigate(new LoginView(mainWindow));
         }
 
         private void CancelButton2(object sender, RoutedEventArgs e)
@@ -65,7 +67,7 @@ namespace Renovación_LIS_Client.View
                 client.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
                 MessageBox.Show("Contraseña cambiada exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LoginView());
+                navigationService.Navigate(new LoginView(mainWindow));
             }
             else
             {

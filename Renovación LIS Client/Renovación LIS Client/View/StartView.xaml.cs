@@ -23,8 +23,9 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class StartView : Page
     {
-        
-        public StartView()
+        private MainWindow mainWindow;
+
+        public StartView(MainWindow mainWindow)
         {
             string incompletePath = Path.GetFullPath("resources\\songs\\Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav");
             string pathPartToDelete = "Renovación LIS Client\\Renovación LIS Client\\bin\\Debug\\";
@@ -37,13 +38,15 @@ namespace Renovación_LIS_Client.View
             mainMenuSong.Play();
 
             InitializeComponent();
+            this.mainWindow = mainWindow;
             ChangeLanguageLabel();
         }
 
+        
         private void StartGame(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView());
+            navigationService.Navigate(new LoginView(mainWindow));
         }
 
         private void ShowLanguages(object sender, MouseButtonEventArgs e)
@@ -59,17 +62,17 @@ namespace Renovación_LIS_Client.View
         private void SetSpanishLanguage(object sender, RoutedEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es");
-
+            
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new StartView());
+            navigationService.Navigate(new StartView(mainWindow));
         }
 
         private void SetEnglishLanguage(object sender, RoutedEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-
+            
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new StartView());
+            navigationService.Navigate(new StartView(mainWindow));
         }
 
         private void ChangeLanguageLabel() 

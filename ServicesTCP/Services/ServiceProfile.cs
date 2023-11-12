@@ -198,6 +198,30 @@ namespace ServicesTCP.Services
             return profile;
         }
 
+        public bool TheProfileIsLogged(long profileID)
+        {
+            Profiles profiles = new Profiles();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                profiles = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
+
+                if (profiles.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
+                {
+                    return true;
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return false;
+        }
+
         public bool UploadImage(string fileName, byte[] imageData)
         {
             try

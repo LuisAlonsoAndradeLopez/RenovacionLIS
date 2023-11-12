@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.ServiceModel.Configuration;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -22,11 +23,13 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class FriendsView : Page
     {
+        private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
-        public FriendsView(Profile loggedProfile)
+        public FriendsView(MainWindow mainWindow, Profile loggedProfile)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
 
             ShowUpdatedFriendsList();
@@ -92,7 +95,7 @@ namespace Renovación_LIS_Client.View
         private void ExitButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(loggedProfile));
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
         }
 
         private void InviteFriendButton(object sender, RoutedEventArgs e)

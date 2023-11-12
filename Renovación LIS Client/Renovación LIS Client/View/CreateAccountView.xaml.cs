@@ -27,9 +27,12 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class CreateAccountView : Page
     {
-        public CreateAccountView()
+        private MainWindow mainWindow;
+
+        public CreateAccountView(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
         }
 
         private void CreateAccountButton(object sender, RoutedEventArgs e)
@@ -78,7 +81,7 @@ namespace Renovación_LIS_Client.View
 
                             MessageBox.Show("Cuenta creada con éxito", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new LoginView());
+                            navigationService.Navigate(new LoginView(mainWindow));
                         }
                         else
                         {
@@ -113,7 +116,7 @@ namespace Renovación_LIS_Client.View
         private void GoLoginButton(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView());
+            navigationService.Navigate(new LoginView(mainWindow));
         }
 
         private String invalidValuesInTextFieldsTextGenerator()
