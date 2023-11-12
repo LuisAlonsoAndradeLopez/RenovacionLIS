@@ -266,6 +266,7 @@
                     <Label
                         Margin="30,0,0,0"
                         x:Name="NicknameLabel"
+                        Foreground="White"
                         Width="471"
                         HorizontalAlignment="Left"
                         Height="26"/>
@@ -280,6 +281,7 @@
                     <Label
                         Margin="30,0,0,0"
                         x:Name="CreationDateLabel"
+                        Foreground="White"
                         Width="471"
                         HorizontalAlignment="Left"
                         Height="26"/>
@@ -294,10 +296,10 @@
                     <TextBlock 
                         Margin="30,0,0,0"
                         x:Name="MessageTextBlock"
+                        Foreground="White"
                         Width="472"
                         HorizontalAlignment="Left"
                         Background="Transparent"
-                        Foreground="White"
                         OpacityMask="White"
                         Height="157"
                         Padding="6,3,6,3"

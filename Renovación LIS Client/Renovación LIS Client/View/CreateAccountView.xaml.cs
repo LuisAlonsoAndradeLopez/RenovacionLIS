@@ -39,63 +39,70 @@ namespace Renovación_LIS_Client.View
         {
             if (invalidValuesInTextFieldsTextGenerator() == "")
             {
-                SecureString securePassword = PasswordPasswordBox.SecurePassword;
-                string Password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
-
-                SecureString secureConfirmPassword = ConfirmPasswordPasswordBox.SecurePassword;
-                string ConfirmPassword = new System.Net.NetworkCredential(string.Empty, secureConfirmPassword).Password;
-
-                if (Password == ConfirmPassword)
+                if (BirthdayDatePicker.SelectedDate <= DateTime.Now)
                 {
-                    ProfileClient profileClient = new ProfileClient();
-                    PlayerClient playerClient = new PlayerClient();
-                    if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
+                    SecureString securePassword = PasswordPasswordBox.SecurePassword;
+                    string Password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
+
+                    SecureString secureConfirmPassword = ConfirmPasswordPasswordBox.SecurePassword;
+                    string ConfirmPassword = new System.Net.NetworkCredential(string.Empty, secureConfirmPassword).Password;
+
+                    if (Password == ConfirmPassword)
                     {
-                        if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
+                        ProfileClient profileClient = new ProfileClient();
+                        PlayerClient playerClient = new PlayerClient();
+                        if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
                         {
-
-                            ServiceProfileReference.Players players = new ServiceProfileReference.Players();
-                            players.Names = NamesTextBox.Text;
-                            players.Surnames = SurnamesTextBox.Text;
-                            players.Email = EmailTextBox.Text;
-                            players.NickName = NickNameTextBox.Text;
-                            players.BirthDate = (DateTime)BirthdayDatePicker.SelectedDate;
-
-                            ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles();
-                            profiles.LoginStatus = ProfileLoginStatuses.NotLogged.ToString();
-                            profiles.Coins = 0;
-                            profiles.Players = players;
-
-                            string salt = BCrypt.Net.BCrypt.GenerateSalt();
-                            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
-                            players.Password = hashedPassword;
-
-                            try
+                            if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                             {
-                                profileClient.AddProfile(profiles);
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine(ex.StackTrace);
-                            }
 
-                            MessageBox.Show("Cuenta creada con éxito", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
-                            NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new LoginView(mainWindow));
+                                ServiceProfileReference.Players players = new ServiceProfileReference.Players();
+                                players.Names = NamesTextBox.Text;
+                                players.Surnames = SurnamesTextBox.Text;
+                                players.Email = EmailTextBox.Text;
+                                players.NickName = NickNameTextBox.Text;
+                                players.BirthDate = (DateTime)BirthdayDatePicker.SelectedDate;
+
+                                ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles();
+                                profiles.LoginStatus = ProfileLoginStatuses.NotLogged.ToString();
+                                profiles.Coins = 0;
+                                profiles.Players = players;
+
+                                string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
+                                players.Password = hashedPassword;
+
+                                try
+                                {
+                                    profileClient.AddProfile(profiles);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex.StackTrace);
+                                }
+
+                                MessageBox.Show("Cuenta creada con éxito", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                                navigationService.Navigate(new LoginView(mainWindow));
+                            }
+                            else
+                            {
+                                MessageBox.Show("El nickname ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("El nickname ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("El correo electrónico ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("El correo electrónico ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Las contraseñas no coinciden", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("La fecha de Nacimiento debe de ser antes de la fecha actual", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -128,7 +135,7 @@ namespace Renovación_LIS_Client.View
             string namesPattern = "^[A-Za-z\\s'-]{2,50}$";
             string surnamesPattern = "^[A-Za-z\\s'-]{2,50}$";
             string emailPattern = "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+";
-            string nickNamePattern = "^[A-Za-z\\s'-]{2,50}$";
+            string nickNamePattern = "^[A-Za-z0-9\\s'-]{2,50}$";
             string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
             string confirmPasswordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
 

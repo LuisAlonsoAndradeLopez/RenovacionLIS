@@ -79,55 +79,62 @@ namespace Renovación_LIS_Client.View
         {
             if(invalidValuesInTextFieldsTextGenerator() == "")
             {
-                PlayerClient playerClient = new PlayerClient();
-                ProfileClient profileClient = new ProfileClient();
-
-                if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedProfile.Player.Email)
+                if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
-                    if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedProfile.Player.NickName)
+                    PlayerClient playerClient = new PlayerClient();
+                    ProfileClient profileClient = new ProfileClient();
+
+                    if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedProfile.Player.Email)
                     {
-                        ServicePlayerReference.Players players = new ServicePlayerReference.Players();
-                        players.IDPlayer = loggedProfile.Player.IDPlayer;
-                        players.Names = NamesTextBox.Text;
-                        players.Surnames = SurnamesTextBox.Text;
-                        players.Email = EmailTextBox.Text;
-                        players.NickName = NicknameTextBox.Text;
-                        players.BirthDate = (DateTime)BirthDayDatePicker.SelectedDate;
-
-                        playerClient.ModifyPlayer(players);
-
-                        if (ImageRouteTextBlock.Text != "")
+                        if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedProfile.Player.NickName)
                         {
-                            byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
-                            string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
-                            string fileName = loggedProfile.Player.NickName + fileExtension;
+                            ServicePlayerReference.Players players = new ServicePlayerReference.Players();
+                            players.IDPlayer = loggedProfile.Player.IDPlayer;
+                            players.Names = NamesTextBox.Text;
+                            players.Surnames = SurnamesTextBox.Text;
+                            players.Email = EmailTextBox.Text;
+                            players.NickName = NicknameTextBox.Text;
+                            players.BirthDate = (DateTime)BirthDayDatePicker.SelectedDate;
 
-                            if (imageData.Length <= 1048576)
+                            playerClient.ModifyPlayer(players);
+
+                            if (ImageRouteTextBlock.Text != "")
                             {
-                                profileClient.UploadImage(fileName, imageData);
+                                byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
+                                string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
+                                string fileName = loggedProfile.Player.NickName + fileExtension;
+
+                                if (imageData.Length <= 1048576)
+                                {
+                                    profileClient.UploadImage(fileName, imageData);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("El archivo no debe de pesar más de 1 MB", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    return;
+                                }
                             }
-                            else
-                            {
-                                MessageBox.Show("El archivo no debe de pesar más de 1 MB", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
-                                return;
-                            }
+
+                            MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+
+                            loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
+
+                            NavigationService navigationService = NavigationService.GetNavigationService(this);
+                            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
                         }
-
-                        MessageBox.Show("Perfil modificado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
-
-                        loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
-                        
-                        NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
+                        else
+                        {
+                            MessageBox.Show("El nickname ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("El nickname ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("El correo electrónico ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El correo electrónico ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("La fecha de Nacimiento debe de ser antes de la fecha actual", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -159,7 +166,7 @@ namespace Renovación_LIS_Client.View
             string namesPattern = "^[A-Za-z\\s'-]{2,50}$";
             string surnamesPattern = "^[A-Za-z\\s'-]{2,50}$";
             string emailPattern = "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+";
-            string nickNamePattern = "^[A-Za-z\\s'-]{2,50}$";
+            string nickNamePattern = "^[A-Za-z0-9\\s'-]{2,50}$";
 
             Regex namesRegex = new Regex(namesPattern);
             Regex surnamesRegex = new Regex(surnamesPattern);

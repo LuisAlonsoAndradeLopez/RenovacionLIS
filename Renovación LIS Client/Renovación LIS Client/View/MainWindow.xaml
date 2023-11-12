@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Renovación_LIS_Client"
         mc:Ignorable="d"
+        Closing="MainWindowClosing"
         Title="MainWindow" Height="700" Width="1200"
         WindowStartupLocation="CenterScreen" >
     <Frame x:Name="MainFrame" Style="{StaticResource FrameStyle}">

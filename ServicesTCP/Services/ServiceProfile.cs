@@ -140,6 +140,7 @@ namespace ServicesTCP.Services
 
                     profile.IDProfile = profiles.IDProfile;
                     profile.Coins = (long)profiles.Coins;
+                    profile.LoginStatus = profiles.LoginStatus;
 
                     profile.Player = player;
                 }
@@ -180,6 +181,7 @@ namespace ServicesTCP.Services
 
                     profile.IDProfile = profiles.IDProfile;
                     profile.Coins = (long)profiles.Coins;
+                    profile.LoginStatus = profiles.LoginStatus;
 
                     profile.Player = player;
 

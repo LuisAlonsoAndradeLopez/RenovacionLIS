@@ -31,5 +31,6 @@ namespace DatabaseManager
         public virtual Profiles Profiles { get; set; }
         [DataMember]
         public virtual Profiles Profiles1 { get; set; }
+
     }
 }

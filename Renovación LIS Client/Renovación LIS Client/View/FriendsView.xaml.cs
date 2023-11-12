@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.ServiceModel.Configuration;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -71,7 +73,7 @@ namespace Renovación_LIS_Client.View
             {
                 StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
 
-                TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 1);
+                TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
 
                 FriendRequestClient friendRequestClient = new FriendRequestClient();
                 FriendRequest friendRequest = new FriendRequest();
@@ -121,7 +123,7 @@ namespace Renovación_LIS_Client.View
             FriendsRequestsBorder.Visibility = Visibility.Visible;
 
             FriendRequestClient friendRequestClient = new FriendRequestClient();
-            foreach (FriendRequest friendRequest in friendRequestClient.GetPendientsForAceptationFriendsRequestsByProfile1ID((int)loggedProfile.IDProfile))
+            foreach (FriendRequest friendRequest in friendRequestClient.GetPendientsForAceptationFriendsRequestsByProfile1ID(loggedProfile.IDProfile))
             {
                 Border receivedFriendRequestBorder = new Border
                 {
@@ -138,7 +140,7 @@ namespace Renovación_LIS_Client.View
 
                 TextBlock idTextBlock = new TextBlock
                 {
-                    FontSize = 0,
+                    Visibility = Visibility.Collapsed,
                     Text = friendRequest.IDFriendRequest.ToString()
                 };
 
@@ -170,6 +172,7 @@ namespace Renovación_LIS_Client.View
                     Width = 59,
                     Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
                     Margin = new Thickness(15,0,0,0),
+                    Content = "Detalles",
                     FontSize = 13
                 };
 
@@ -186,7 +189,7 @@ namespace Renovación_LIS_Client.View
             }
 
 
-            foreach (FriendRequest friendRequest in friendRequestClient.GetSentFriendsRequestsByProfileID((int)loggedProfile.IDProfile))
+            foreach (FriendRequest friendRequest in friendRequestClient.GetSentFriendsRequestsByProfileID(loggedProfile.IDProfile))
             {
                 Border sentFriendRequestBorder = new Border
                 {
@@ -203,7 +206,7 @@ namespace Renovación_LIS_Client.View
 
                 TextBlock idTextBlock = new TextBlock
                 {
-                    FontSize = 0,
+                    Visibility = Visibility.Collapsed,
                     Text = friendRequest.IDFriendRequest.ToString()
                 };
 
@@ -253,57 +256,108 @@ namespace Renovación_LIS_Client.View
         }
 
         private void SendFriendRequestButton(object sender, RoutedEventArgs e)
-        {
-            //TODO: If con regex para nickname y mensaje
+        {            
+            //TODO: Si ya mandaste una solicitud a alguien, no puedes mandar otra a el
 
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            ProfileClient profileClient = new ProfileClient();
-            
-            ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
-            friendRequests.Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text;
-            friendRequests.CreationDate = DateTime.Now;
-            friendRequests.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient);
-            friendRequests.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent);
+            if (invalidNicknameInSendFriendRequestTextFieldsTextGenerator() == "")
+            {
+                if (new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text.Length <= 100)
+                {
+                    ProfileClient profileClient = new ProfileClient();
+                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text) != null)
+                    {
+                        if (NicknameTextBox.Text != loggedProfile.Player.NickName)
+                        {
+                            bool theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = false;
+                            foreach (Profile p in profileClient.GetFriends(loggedProfile.IDProfile))
+                            {
+                                if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).Player.NickName == p.Player.NickName)
+                                {
+                                    theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = true;
+                                    break;
+                                }
+                            }
+                                
+                            if (!theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile)
+                            {
+                                FriendRequestClient friendRequestClient = new FriendRequestClient();
+                                
+                                ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
+                                friendRequests.Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text;
+                                friendRequests.CreationDate = DateTime.Now;
+                                friendRequests.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient);
+                                friendRequests.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent);
 
-            ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players();
-            players.IDPlayer = loggedProfile.Player.IDPlayer;
-            players.Names = loggedProfile.Player.Names;
-            players.Surnames = loggedProfile.Player.Surnames;
-            players.Email = loggedProfile.Player.Email;
-            players.NickName= loggedProfile.Player.NickName;
-            players.BirthDate = (DateTime)loggedProfile.Player.BirthDate;
+                                ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players();
+                                players.IDPlayer = loggedProfile.Player.IDPlayer;
+                                players.Names = loggedProfile.Player.Names;
+                                players.Surnames = loggedProfile.Player.Surnames;
+                                players.Email = loggedProfile.Player.Email;
+                                players.NickName= loggedProfile.Player.NickName;
+                                players.BirthDate = (DateTime)loggedProfile.Player.BirthDate;
+                                players.Password = loggedProfile.Player.Password;
 
-            ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles();
-            profiles.IDProfile = loggedProfile.IDProfile;
-            profiles.Coins = loggedProfile.Coins;
-            profiles.LoginStatus = loggedProfile.LoginStatus;
-            profiles.Players = players;
+                                ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles();
+                                profiles.IDProfile = loggedProfile.IDProfile;
+                                profiles.Coins = loggedProfile.Coins;
+                                profiles.LoginStatus = loggedProfile.LoginStatus;
+                                profiles.Players = players;
 
-            Profile profile1 = profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
+                                Profile profile1 = profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
 
-            ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players();
-            players1.IDPlayer = profile1.Player.IDPlayer;
-            players1.Names = profile1.Player.Names;
-            players1.Surnames = profile1.Player.Surnames;
-            players1.Email = profile1.Player.Email;
-            players1.NickName = profile1.Player.NickName;
-            players1.BirthDate = (DateTime)profile1.Player.BirthDate;
+                                ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players();
+                                players1.IDPlayer = profile1.Player.IDPlayer;
+                                players1.Names = profile1.Player.Names;
+                                players1.Surnames = profile1.Player.Surnames;
+                                players1.Email = profile1.Player.Email;
+                                players1.NickName = profile1.Player.NickName;
+                                players1.BirthDate = (DateTime)profile1.Player.BirthDate;
+                                players1.Password = profile1.Player.Password;
 
-            ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles();
-            profiles1.IDProfile = profile1.IDProfile;
-            profiles1.Coins = profile1.Coins;
-            profiles1.LoginStatus = profile1.LoginStatus;
-            profiles1.Players = players1;
+                                ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles();
+                                profiles1.IDProfile = profile1.IDProfile;
+                                profiles1.Coins = profile1.Coins;
+                                profiles1.LoginStatus = profile1.LoginStatus;
+                                profiles1.Players = players1;
 
-            friendRequests.Profiles = profiles;
-            friendRequests.Profiles1 = profiles1;
-            
-            friendRequestClient.AddFriendRequest(friendRequests);
-            
-            MessageBox.Show("Solicitud de Amigo creado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
-            
-            SendFriendRequestBorder.Visibility = Visibility.Hidden;
-            FriendsBorder.Visibility = Visibility.Visible;
+                                friendRequests.Profiles = profiles;
+                                friendRequests.Profiles1 = profiles1;
+                                
+                                friendRequestClient.AddFriendRequest(friendRequests);
+                                
+                                MessageBox.Show("Solicitud de Amigo creado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                                
+                                SendFriendRequestBorder.Visibility = Visibility.Hidden;
+                                FriendsBorder.Visibility = Visibility.Visible;
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("No puedes mandar solicitud de amistad a este usuario por que ya es tu amigo", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No te puedes mandar una solicitud de amistad a ti mismo", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario al que le quieres mandar solicitud de amistad no existe", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("El mensaje no debe de tener más de 100 carácteres", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(invalidNicknameInSendFriendRequestTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 
@@ -316,7 +370,7 @@ namespace Renovación_LIS_Client.View
         private void ShowUpdatedFriendsList()
         {
             ProfileClient profileClient = new ProfileClient();
-            foreach (Profile profile in profileClient.GetFriends((int)loggedProfile.Player.IDPlayer))
+            foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
             {
                 Border friendBorder = new Border
                 {
@@ -451,6 +505,21 @@ namespace Renovación_LIS_Client.View
             friendRequests.Profiles1 = profiles1;
 
             return friendRequests;
+        }
+
+        private String invalidNicknameInSendFriendRequestTextFieldsTextGenerator()
+        {
+            string finalText = "";
+            string nickNamePattern = "^[A-Za-z0-9\\s'-]{2,50}$";
+            Regex nickNameRegex = new Regex(nickNamePattern);
+            Match nickNameMatch = nickNameRegex.Match(NicknameTextBox.Text);
+
+            if (!nickNameMatch.Success)
+            {
+                finalText = "El Nickname no es válido";
+            }
+
+            return finalText;
         }
 
     }

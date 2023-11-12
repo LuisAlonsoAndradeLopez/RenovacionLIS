@@ -100,7 +100,7 @@ namespace Renovación_LIS_Client.View
 
             string finalText = "";
 
-            string nickNamePattern = "^[A-Za-z\\s.'-]{2,50}$";
+            string nickNamePattern = "^[A-Za-z0-9\\s.'-]{2,50}$";
             string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
 
             Regex nickNameRegex = new Regex(nickNamePattern);

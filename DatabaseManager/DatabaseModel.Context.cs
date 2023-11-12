@@ -18,6 +18,8 @@ namespace DatabaseManager
         public DatabaseModelContainer()
             : base("name=DatabaseModelContainer")
         {
+            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.ProxyCreationEnabled = true;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

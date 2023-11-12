@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.Remoting.Contexts;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
@@ -26,13 +28,21 @@ namespace ServicesTCP.Services
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                databaseModelContainer.Entry(friendRequests).State = EntityState.Unchanged;
                 databaseModelContainer.FriendRequestsSet.Add(friendRequests);
                 databaseModelContainer.SaveChanges();
                 generatedID = friendRequests.IDFriendRequest;
             }
-            catch (Exception ex)
+            catch (DbEntityValidationException ex)
             {
-                Console.WriteLine(ex.ToString());
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+                //Console.WriteLine(ex.ToString());
             }
 
             return generatedID;
@@ -185,8 +195,8 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 friendRequestsList = databaseModelContainer.FriendRequestsSet
                 .Where(fr => fr.Profiles1.IDProfile == IDProfile1)
-                .Where(fr => fr.AceptationStatus == Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient))
-                .Where(fr => fr.SendingStatus == Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent))
+                .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
+                .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                 .ToList();
 
                 if (friendRequestsList != null)
@@ -217,7 +227,7 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 friendRequestsList = databaseModelContainer.FriendRequestsSet
                 .Where(fr => fr.Profiles.IDProfile == IDProfile)
-                .Where(fr => fr.SendingStatus == Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent))
+                .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                 .ToList();
 
                 if (friendRequestsList != null)
