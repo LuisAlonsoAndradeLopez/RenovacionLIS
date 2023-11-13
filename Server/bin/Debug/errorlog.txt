@@ -1,0 +1,9 @@
+[13/11/2023 09:11:42 a. m.] Exception: The entity type ProfilesProfiles is not part of the model for the current context.
+Stack Trace:    en System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   en System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   en System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   en System.Data.Entity.Internal.Linq.InternalSet`1.AddRange(IEnumerable entities)
+   en System.Data.Entity.DbSet`1.AddRange(IEnumerable`1 entities)
+   en ServicesTCP.Services.ServiceProfile.AddFriendship(Profiles profiles, Profiles profiles1) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 292
+--------------------------------------------------

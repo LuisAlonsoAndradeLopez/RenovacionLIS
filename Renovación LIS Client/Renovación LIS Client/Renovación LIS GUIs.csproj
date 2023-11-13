@@ -80,7 +80,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\ServiceChatReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceFriendRequestReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceLivePlayerReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -226,6 +236,13 @@
     </EmbeddedResource>
     <Resource Include="Fonts\K2D-Bold.ttf" />
     <Resource Include="Fonts\K2D-Regular.ttf" />
+    <None Include="Connected Services\ServiceChatReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatReference\ServiceChat.wsdl" />
     <None Include="Connected Services\ServiceFriendRequestReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -242,6 +259,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceFriendRequestReference\ServiceFriendRequest.wsdl" />
+    <None Include="Connected Services\ServiceLivePlayerReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLivePlayerReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLivePlayerReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLivePlayerReference\ServiceLivePlayer.wsdl" />
     <None Include="Connected Services\ServicePlayerReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -333,7 +360,9 @@
     <Resource Include="images\OfflineSymbol.png" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceChatReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceLivePlayerReference\" />
     <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceProfileReference\" />
   </ItemGroup>
@@ -387,6 +416,36 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\bannedPlayersImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

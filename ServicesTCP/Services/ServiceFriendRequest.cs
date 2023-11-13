@@ -22,7 +22,8 @@ namespace ServicesTCP.Services
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServiceFriendRequest : IFriendRequest
     {
-        public long AddFriendRequest(FriendRequests friendRequests)
+
+        public void AddFriendRequest(FriendRequests friendRequests)
         {
             long generatedID = 0;
 
@@ -34,8 +35,8 @@ namespace ServicesTCP.Services
                 databaseModelContainer.SaveChanges();
                 generatedID = friendRequests.IDFriendRequest;
 
-                IFriendRequestCallback callback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
-                callback.UpdateFriendsRequestsLists();
+                IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
+                friendRequestCallback.UpdateFriendsRequestsLists();
             }
             catch (DbEntityValidationException ex)
             {
@@ -47,7 +48,7 @@ namespace ServicesTCP.Services
                     }
                 }
             }
-            return generatedID;
+            //return generatedID;
         }
 
         public void AcceptFriendRequest(FriendRequests friendRequests)
@@ -60,9 +61,13 @@ namespace ServicesTCP.Services
                 {
                     friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Accepted);
                     databaseModelContainer.SaveChanges();
+                    IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
+                    friendRequestCallback.UpdateFriendsRequestsLists();
 
                     ServiceProfile serviceProfile = new ServiceProfile();
                     serviceProfile.AddFriendship(friendRequests.Profiles, friendRequests.Profiles1);
+                    IProfileCallback profileCallback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
+                    profileCallback.UpdateFriendsLists();
                 }
             }
             catch (Exception ex)
@@ -81,6 +86,9 @@ namespace ServicesTCP.Services
                 {
                     friendRequestsToModify.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
                     databaseModelContainer.SaveChanges();
+
+                    IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
+                    friendRequestCallback.UpdateFriendsRequestsLists();
                 }
             }
             catch (Exception ex)
@@ -219,7 +227,7 @@ namespace ServicesTCP.Services
             return friendRequestList;
         }
 
-        public List<FriendRequest> GetSentFriendsRequestsByProfileID(long IDProfile)
+        public List<FriendRequest> GetSentAndPendientsForAceptationFriendsRequestsByProfileID(long IDProfile)
         {
             List<FriendRequest> friendRequestList = new List<FriendRequest>();
             List<FriendRequests> friendRequestsList = new List<FriendRequests>();
@@ -229,6 +237,7 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 friendRequestsList = databaseModelContainer.FriendRequestsSet
                 .Where(fr => fr.Profiles.IDProfile == IDProfile)
+                .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
                 .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                 .ToList();
 
@@ -311,6 +320,9 @@ namespace ServicesTCP.Services
                 {
                     friendRequestsToModify.AceptationStatus = FriendRequestAceptationStatuses.Rejected.ToString();
                     databaseModelContainer.SaveChanges();
+
+                    IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
+                    friendRequestCallback.UpdateFriendsRequestsLists();
                 }
             }
             catch (Exception ex)

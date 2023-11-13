@@ -29,7 +29,7 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         private System.DateTime CreationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDFriendRequestField;
+        private long IDFriendRequestField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
@@ -80,7 +80,7 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDFriendRequest {
+        public long IDFriendRequest {
             get {
                 return this.IDFriendRequestField;
             }
@@ -189,6 +189,9 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Renovación_LIS_Client.ServiceFriendRequestReference.Profiles[] Profiles2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceFriendRequestReference.ProfilesProfiles[] ProfilesProfilesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -313,6 +316,19 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
                 if ((object.ReferenceEquals(this.Profiles2Field, value) != true)) {
                     this.Profiles2Field = value;
                     this.RaisePropertyChanged("Profiles2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceFriendRequestReference.ProfilesProfiles[] ProfilesProfiles {
+            get {
+                return this.ProfilesProfilesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfilesProfilesField, value) != true)) {
+                    this.ProfilesProfilesField = value;
+                    this.RaisePropertyChanged("ProfilesProfiles");
                 }
             }
         }
@@ -579,6 +595,99 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfilesProfiles", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.SerializableAttribute()]
+    public partial class ProfilesProfiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceFriendRequestReference.Profiles ProfilesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Renovación_LIS_Client.ServiceFriendRequestReference.Profiles Profiles1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long Profiles1IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long ProfilesIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceFriendRequestReference.Profiles Profiles {
+            get {
+                return this.ProfilesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Renovación_LIS_Client.ServiceFriendRequestReference.Profiles Profiles1 {
+            get {
+                return this.Profiles1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Profiles1Id {
+            get {
+                return this.Profiles1IdField;
+            }
+            set {
+                if ((this.Profiles1IdField.Equals(value) != true)) {
+                    this.Profiles1IdField = value;
+                    this.RaisePropertyChanged("Profiles1Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ProfilesId {
+            get {
+                return this.ProfilesIdField;
+            }
+            set {
+                if ((this.ProfilesIdField.Equals(value) != true)) {
+                    this.ProfilesIdField = value;
+                    this.RaisePropertyChanged("ProfilesId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Levels", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class Levels : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -773,16 +882,16 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AddFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AddFriendRequestResponse")]
         System.Threading.Tasks.Task<long> AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AcceptFriendRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest")]
         void AcceptFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AcceptFriendRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest")]
         System.Threading.Tasks.Task AcceptFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/CancelFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/CancelFriendRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequest/CancelFriendRequest")]
         void CancelFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/CancelFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/CancelFriendRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequest/CancelFriendRequest")]
         System.Threading.Tasks.Task CancelFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileIDResponse")]
@@ -813,16 +922,20 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
             "le1IDResponse")]
         System.Threading.Tasks.Task<domain.FriendRequest[]> GetPendientsForAceptationFriendsRequestsByProfile1IDAsync(long IDProfile1);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileIDResponse")]
-        domain.FriendRequest[] GetSentFriendsRequestsByProfileID(long IDProfile);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequests" +
+            "ByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequests" +
+            "ByProfileIDResponse")]
+        domain.FriendRequest[] GetSentAndPendientsForAceptationFriendsRequestsByProfileID(long IDProfile);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetSentFriendsRequestsByProfileIDResponse")]
-        System.Threading.Tasks.Task<domain.FriendRequest[]> GetSentFriendsRequestsByProfileIDAsync(long IDProfile);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequests" +
+            "ByProfileID", ReplyAction="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequests" +
+            "ByProfileIDResponse")]
+        System.Threading.Tasks.Task<domain.FriendRequest[]> GetSentAndPendientsForAceptationFriendsRequestsByProfileIDAsync(long IDProfile);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/RejectFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequest/RejectFriendRequest")]
         void RejectFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/RejectFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequest/RejectFriendRequest")]
         System.Threading.Tasks.Task RejectFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTh" +
@@ -927,12 +1040,12 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
             return base.Channel.GetPendientsForAceptationFriendsRequestsByProfile1IDAsync(IDProfile1);
         }
         
-        public domain.FriendRequest[] GetSentFriendsRequestsByProfileID(long IDProfile) {
-            return base.Channel.GetSentFriendsRequestsByProfileID(IDProfile);
+        public domain.FriendRequest[] GetSentAndPendientsForAceptationFriendsRequestsByProfileID(long IDProfile) {
+            return base.Channel.GetSentAndPendientsForAceptationFriendsRequestsByProfileID(IDProfile);
         }
         
-        public System.Threading.Tasks.Task<domain.FriendRequest[]> GetSentFriendsRequestsByProfileIDAsync(long IDProfile) {
-            return base.Channel.GetSentFriendsRequestsByProfileIDAsync(IDProfile);
+        public System.Threading.Tasks.Task<domain.FriendRequest[]> GetSentAndPendientsForAceptationFriendsRequestsByProfileIDAsync(long IDProfile) {
+            return base.Channel.GetSentAndPendientsForAceptationFriendsRequestsByProfileIDAsync(IDProfile);
         }
         
         public void RejectFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServiceProfile : IProfile
     {
@@ -276,34 +277,46 @@ namespace ServicesTCP.Services
         }
 
 
-
         public void AddFriendship(Profiles profiles, Profiles profiles1)
         {
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-
-                var friendShip = new ProfilesProfiles { Profiles = profiles, Profiles1 = profiles1 };
-                var backwardFriendShip = new ProfilesProfiles { Profiles = profiles1, Profiles1 = profiles };
-                databaseModelContainer.ProfilesProfiles.Add(friendShip);
-                databaseModelContainer.SaveChanges();
-
-                databaseModelContainer.ProfilesProfiles.Add(backwardFriendShip);
-                databaseModelContainer.SaveChanges();
-
-                //string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
                 //
-                //var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
-                //var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+                //var friendship1 = new ProfilesProfiles { ProfilesId = profiles.IDProfile, Profiles1Id = profiles1.IDProfile };
+                //var friendship2 = new ProfilesProfiles { ProfilesId = profiles1.IDProfile, Profiles1Id = profiles.IDProfile };
                 //
-                //databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);                
+                //var friendships = new List<ProfilesProfiles> { friendship1, friendship2 };
+                //
+                //databaseModelContainer.Set<ProfilesProfiles>().AddRange(friendships);
+
+                //databaseModelContainer.Entry(profiles).State = EntityState.Unchanged;
+                //
+                //databaseModelContainer.Entry(profiles).Collection(p => p.Profiles1).IsModified = true;
+
+
+                //var friendShip = new ProfilesProfiles { Profiles = profiles, Profiles1 = profiles1 };
+                //var backwardFriendShip = new ProfilesProfiles { Profiles = profiles1, Profiles1 = profiles };
+                //databaseModelContainer.ProfilesProfiles.Add(friendShip);
                 //databaseModelContainer.SaveChanges();
-                //
-                //parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
-                //parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
-                //
-                //databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
 
+                //databaseModelContainer.ProfilesProfiles.Add(backwardFriendShip);
+
+
+                string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
+                
+                var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
+                var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+                
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);                
+                databaseModelContainer.SaveChanges();
+                
+                parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
+                parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
+                
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+
+                databaseModelContainer.SaveChanges();
                 IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
                 Thread.Sleep(50);
                 callback.UpdateFriendsLists();

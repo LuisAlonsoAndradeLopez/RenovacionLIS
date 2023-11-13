@@ -40,9 +40,10 @@ namespace ServicesTCP.ServiceContracts
         bool UploadImage(string fileName, byte[] imageData);
     }
 
+    [ServiceContract]
     public interface IProfileCallback
     {
-        [OperationContract(IsOneWay = true, Name = "UpdateFriendsLists")]
+        [OperationContract(IsOneWay = true)]
         void UpdateFriendsLists();
     }
 }

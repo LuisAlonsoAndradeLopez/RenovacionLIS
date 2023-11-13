@@ -1,9 +1,12 @@
 ﻿using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
+using Renovación_LIS_Client.ServiceLivePlayerReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Renovación_LIS_Client.View;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Windows;
@@ -95,7 +98,23 @@ namespace Renovación_LIS_Client
         }
     }
 
-    [CallbackBehavior(UseSynchronizationContext = false)]
+    public class ServiceChatCallback : IChatCallback
+    {
+        public void ReceiveMessage(string sender, string message)
+        {
+            // Update UI or handle the incoming message
+        }
+    }
+
+    public class LivePlayerCallback : ILivePlayerCallback
+    {
+        public void UpdatePlayersList(string[] players)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    //[CallbackBehavior(UseSynchronizationContext = false)]
     public class ServiceProfileCallback : IProfileCallback
     {
         private FriendsView friendsView;

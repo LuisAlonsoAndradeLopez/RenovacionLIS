@@ -29,7 +29,7 @@ namespace Renovación_LIS_Client.View
         //Solo se puede mandar solicitud a alguien una vez, a menos que la haya rechazado
         //Puto cierre de procesos que no desloguea usuarios
         //Callback para las listas de usuarios y friend requests
-        //Cambiar AffFriendship de ServiceProfile
+        //Cambiar AffFriendship de ServiceProfile (No se puede)
         //Al final borrar la base y probar a saco
 
         //Actualizar instantaneamente al aceptar, cancelar o rechazar invitaciones de amistad
@@ -472,7 +472,7 @@ namespace Renovación_LIS_Client.View
             }
 
 
-            foreach (FriendRequest friendRequest in friendRequestClient.GetSentFriendsRequestsByProfileID(loggedProfile.IDProfile))
+            foreach (FriendRequest friendRequest in friendRequestClient.GetSentAndPendientsForAceptationFriendsRequestsByProfileID(loggedProfile.IDProfile))
             {
                 Border sentFriendRequestBorder = new Border
                 {
