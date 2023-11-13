@@ -103,7 +103,7 @@
     <Key>
       <PropertyRef Name="IDFriendRequest" />
     </Key>
-    <Property Name="IDFriendRequest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDFriendRequest" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Message" Type="nvarchar(max)" Nullable="true" />
     <Property Name="CreationDate" Type="datetime" Nullable="false" />
     <Property Name="SendingStatus" Type="nvarchar(max)" Nullable="false" />

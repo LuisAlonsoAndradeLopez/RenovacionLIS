@@ -110,7 +110,7 @@
     <Key>
       <PropertyRef Name="IDFriendRequest" />
     </Key>
-    <Property Name="IDFriendRequest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFriendRequest" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Message" Type="String" Nullable="true" />
     <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
     <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />

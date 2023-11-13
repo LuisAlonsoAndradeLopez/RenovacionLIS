@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/offlinesymbol.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/bannedplayersimage.png")]
 
 

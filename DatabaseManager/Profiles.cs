@@ -38,6 +38,10 @@ namespace DatabaseManager
 
         [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection <ProfilesProfiles> ProfilesProfiles { get; set; }
+
+        [DataMember]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crucigrams> Crucigrams { get; set; }
 
         [DataMember]

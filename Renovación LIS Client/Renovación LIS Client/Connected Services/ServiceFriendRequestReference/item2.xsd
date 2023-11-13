@@ -122,4 +122,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transmitterProfileID" type="xs:long" />
+        <xs:element minOccurs="0" name="receiverProfileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFriendsRequestsLists">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

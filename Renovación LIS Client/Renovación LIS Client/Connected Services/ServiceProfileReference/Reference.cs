@@ -764,7 +764,7 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileReference.IProfile")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileReference.IProfile", CallbackContract=typeof(Renovación_LIS_Client.ServiceProfileReference.IProfileCallback))]
     public interface IProfile {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddProfile", ReplyAction="http://tempuri.org/IProfile/AddProfileResponse")]
@@ -817,30 +817,38 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IProfileCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfile/UpdateFriendsLists")]
+        void UpdateFriendsLists();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IProfileChannel : Renovación_LIS_Client.ServiceProfileReference.IProfile, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProfileClient : System.ServiceModel.ClientBase<Renovación_LIS_Client.ServiceProfileReference.IProfile>, Renovación_LIS_Client.ServiceProfileReference.IProfile {
+    public partial class ProfileClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceProfileReference.IProfile>, Renovación_LIS_Client.ServiceProfileReference.IProfile {
         
-        public ProfileClient() {
+        public ProfileClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ProfileClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ProfileClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ProfileClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ProfileClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ProfileClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ProfileClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ProfileClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ProfileClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public long AddProfile(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles) {

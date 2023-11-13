@@ -1,22 +1,13 @@
 ﻿using domain;
 using DomainStatuses;
-using Intersoft.Crosslight;
+using Renovación_LIS_Client.ServiceFriendRequestReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Renovación_LIS_Client.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.ServiceModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Renovación_LIS_Client
 {
@@ -26,34 +17,70 @@ namespace Renovación_LIS_Client
     public partial class MainWindow : Window
     {
         Profile loggedProfile = null;
-
         public MainWindow()
         {
             InitializeComponent();
+            
+
+            Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
+            Application.Current.Exit += AppExit;
+            AppDomain.CurrentDomain.ProcessExit += ProcessExit;
             this.Closing += MainWindowClosing;
 
             MainFrame.NavigationService.Navigate(new StartView(this));
             
         }
 
+        private void AppExit(object sender, EventArgs e)
+        {
+            if (loggedProfile != null)
+            {
+                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            }
+        }
+
+        private void ProcessExit(object sender, EventArgs e)
+        {
+            if (loggedProfile != null)
+            {
+                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            }
+        }
+
+        private void DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            if (loggedProfile != null)
+            {
+                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            }
+
+        }
+
         private void MainWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
-            MessageBoxResult result = MessageBox.Show("Deseas Salir?", "Closing", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.Yes)
+            if (Debugger.IsAttached)
             {
-                if(loggedProfile != null)
+                MessageBoxResult result = MessageBox.Show("Deseas Salir?", "Closing", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    ProfileClient profileClient = new ProfileClient();
-                    profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+                    if(loggedProfile != null)
+                    {
+                        ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                        profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+                    }
+
+                }
+                else
+                {
+                    e.Cancel = true;
                 }
 
             }
-            else
-            {
-                e.Cancel = true;
-            }
+
         }
 
         public void SetNullToLoggedProfile()
@@ -67,4 +94,36 @@ namespace Renovación_LIS_Client
             this.loggedProfile = profile;
         }
     }
+
+    [CallbackBehavior(UseSynchronizationContext = false)]
+    public class ServiceProfileCallback : IProfileCallback
+    {
+        private FriendsView friendsView;
+
+        public ServiceProfileCallback(FriendsView friendsView)
+        {
+            this.friendsView = friendsView;
+        }
+        public void UpdateFriendsLists()
+        {
+            friendsView.ShowUpdatedFriendsList();
+        }
+    }
+
+    [CallbackBehavior(UseSynchronizationContext = false)]
+    public class ServiceFriendRequestCallback : IFriendRequestCallback
+    {
+        private FriendsView friendsView;
+
+        public ServiceFriendRequestCallback(FriendsView friendsView)
+        {
+            this.friendsView = friendsView;
+        }
+
+        public void UpdateFriendsRequestsLists()
+        {
+            friendsView.ShowUpdatedFriendRequestsList();
+        }
+    }
+
 }

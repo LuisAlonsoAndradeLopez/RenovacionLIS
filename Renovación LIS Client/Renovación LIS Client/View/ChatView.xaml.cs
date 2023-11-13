@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using domain;
 
 namespace Renovación_LIS_Client.View
 {
@@ -20,9 +21,25 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ChatView : Page
     {
-        public ChatView()
+        private MainWindow mainWindow;
+        Profile loggedProfile = new Profile();
+
+        public ChatView(MainWindow mainWindow, Profile loggedProfile)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+            this.loggedProfile = loggedProfile;
         }
+        private void ExitButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
+        }
+
+        private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

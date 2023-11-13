@@ -19,6 +19,7 @@ namespace ServicesTCP.Services
 {
     //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, Name = "ServicePlayer")]
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServiceFriendRequest : IFriendRequest
     {
         public long AddFriendRequest(FriendRequests friendRequests)
@@ -32,6 +33,9 @@ namespace ServicesTCP.Services
                 databaseModelContainer.FriendRequestsSet.Add(friendRequests);
                 databaseModelContainer.SaveChanges();
                 generatedID = friendRequests.IDFriendRequest;
+
+                IFriendRequestCallback callback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
+                callback.UpdateFriendsRequestsLists();
             }
             catch (DbEntityValidationException ex)
             {
@@ -42,9 +46,7 @@ namespace ServicesTCP.Services
                         Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
                     }
                 }
-                //Console.WriteLine(ex.ToString());
             }
-
             return generatedID;
         }
 
@@ -77,7 +79,7 @@ namespace ServicesTCP.Services
                 FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
                 if (friendRequestsToModify != null)
                 {
-                    friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
+                    friendRequestsToModify.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
                     databaseModelContainer.SaveChanges();
                 }
             }
@@ -307,7 +309,7 @@ namespace ServicesTCP.Services
                 FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
                 if(friendRequestsToModify != null)
                 {
-                    friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Rejected);
+                    friendRequestsToModify.AceptationStatus = FriendRequestAceptationStatuses.Rejected.ToString();
                     databaseModelContainer.SaveChanges();
                 }
             }
@@ -315,6 +317,30 @@ namespace ServicesTCP.Services
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+        public bool TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(long transmitterProfileID, long receiverProfileID)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                FriendRequests friendRequests = databaseModelContainer.FriendRequestsSet.Where(fr => fr.Profiles.IDProfile == transmitterProfileID)
+                    .Where(fr => fr.Profiles1.IDProfile == receiverProfileID)
+                    .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
+                    .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
+                    .FirstOrDefault();
+                if (friendRequests != null)
+                {
+                    Console.WriteLine(friendRequests.AceptationStatus);
+                    return true;                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return false;
         }
     }
 }

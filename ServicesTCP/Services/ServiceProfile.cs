@@ -4,7 +4,9 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.ServiceModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
@@ -13,6 +15,8 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServiceProfile : IProfile
     {
         public long AddProfile(Profiles profiles)
@@ -278,19 +282,31 @@ namespace ServicesTCP.Services
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
 
-                var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
-                var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
-
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);                
+                var friendShip = new ProfilesProfiles { Profiles = profiles, Profiles1 = profiles1 };
+                var backwardFriendShip = new ProfilesProfiles { Profiles = profiles1, Profiles1 = profiles };
+                databaseModelContainer.ProfilesProfiles.Add(friendShip);
                 databaseModelContainer.SaveChanges();
 
-                parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
-                parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
-
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                databaseModelContainer.ProfilesProfiles.Add(backwardFriendShip);
                 databaseModelContainer.SaveChanges();
+
+                //string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
+                //
+                //var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
+                //var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+                //
+                //databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);                
+                //databaseModelContainer.SaveChanges();
+                //
+                //parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
+                //parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
+                //
+                //databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+
+                IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
+                Thread.Sleep(50);
+                callback.UpdateFriendsLists();
             }
             catch (Exception ex)
             {

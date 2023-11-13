@@ -95,6 +95,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="View\BannedPlayersView.xaml.cs">
+      <DependentUpon>BannedPlayersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
     <Page Include="Styles\TextBoxStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\BannedPlayersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ChatView.xaml">
       <SubType>Designer</SubType>
@@ -269,8 +276,11 @@
     <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
+    <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
     <None Include="Properties\DataSources\domain.Player.datasource" />
+    <None Include="Properties\DataSources\domain.Player1.datasource" />
     <None Include="Properties\DataSources\domain.Profile.datasource" />
+    <None Include="Properties\DataSources\domain.Profile1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -304,6 +314,10 @@
     <ProjectReference Include="..\DomainStatuses\DomainStatuses.csproj">
       <Project>{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}</Project>
       <Name>DomainStatuses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicesCallbacks\ServicesCallbacks.csproj">
+      <Project>{69A927A8-38D9-4EF6-9E31-F13F98D74A40}</Project>
+      <Name>ServicesCallbacks</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -367,6 +381,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\chatImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bannedPlayersImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

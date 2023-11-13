@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/06/2023 00:23:14
+-- Date Created: 11/13/2023 00:17:17
 -- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -135,7 +135,7 @@ GO
 
 -- Creating table 'FriendRequestsSet'
 CREATE TABLE [dbo].[FriendRequestsSet] (
-    [IDFriendRequest] int IDENTITY(1,1) NOT NULL,
+    [IDFriendRequest] bigint IDENTITY(1,1) NOT NULL,
     [Message] nvarchar(max)  NULL,
     [CreationDate] datetime  NOT NULL,
     [SendingStatus] nvarchar(max)  NOT NULL,

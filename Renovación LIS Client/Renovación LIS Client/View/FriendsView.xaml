@@ -80,21 +80,21 @@
                         Style="{StaticResource NormalButtom}"
                         Height="54"
                         Width="129"
-                        Margin="15,0,0,0" Click="InviteFriendButton"
+                        Margin="15,0,0,0" Click="InviteFriendButtonOnClick"
                         Background="#FF195388"/>
 
                     <Button Content="Ver Invitaciones de Amigos" 
                         Style="{StaticResource NormalButtom}"
                         Height="56"
                         Width="202"
-                        Margin="20,0,0,0" Click="SeeFriendsRequestButton"/>
+                        Margin="20,0,0,0" Click="SeeFriendsRequestButtonOnClick"/>
 
                     <Button Content="Salir" 
                         Style="{StaticResource NormalButtom}"
                         Height="56"
                         Width="127"
                         Background="Black"
-                        Margin="20,0,0,0" Click="ExitButton"/>
+                        Margin="20,0,0,0" Click="ExitButtonOnClick"/>
                 </StackPanel>
 
             </StackPanel>
@@ -153,15 +153,15 @@
                             Height="56"
                             Width="202"
                             Margin="60,0,0,0"
-                            Click="SendFriendRequestButton"/>
+                            Click="SendFriendRequestButtonOnClick"/>
 
-                        <Button Content="Salir" 
+                        <Button Content="Cancelar" 
                             Style="{StaticResource NormalButtom}"
                             Height="56"
                             Width="127"
                             Background="Black"
                             Margin="80,0,0,0"                                
-                            Click="CancelButton"/>
+                            Click="CancelButtonOnClick"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -222,13 +222,13 @@
                         Height="56"
                         Width="127"
                         Background="Black"
-                        Margin="220,0,0,0" Click="BackButton"/>
+                        Margin="220,0,0,0" Click="BackButtonOnClick"/>
                 </StackPanel>
 
             </StackPanel>
         </Border>
 
-        <Border Margin="40,113,619,114" Visibility="Hidden" 
+        <Border Margin="40,113,619,114" Visibility="Hidden"
             Name="FriendRequestDetailsBorder"
             Grid.Column="0"
             CornerRadius="20">
@@ -237,7 +237,7 @@
                 <SolidColorBrush Color="Black" Opacity="0.8"/>
             </Border.Background>
 
-            <StackPanel Background="Black" Margin="0, 0 ,0, 0">
+            <StackPanel Background="Black" Margin="0,-19,0,-19">
                 <Label
                     FontFamily="{StaticResource K2DBold}"
                     Foreground="White"
@@ -312,8 +312,9 @@
                             Height="56"
                             Width="150"
                             Margin="22,0,0,0"
-                        
-                            Click="AcceptFriendRequestButton">
+                            x:Name="AcceptFriendRequestButton"
+                            Visibility="Collapsed"
+                            Click="AcceptFriendRequestButtonOnClick">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                                 Aceptar Invitación a Amigo
@@ -325,7 +326,9 @@
                             Height="56"
                             Width="150"
                             Margin="22,0,0,0"
-                            Click="RejectFriendRequestButton" Background="#FFEA0750">
+                            x:Name="RejectFriendRequestButton"
+                            Visibility="Collapsed"
+                            Click="RejectFriendRequestButtonOnClick" Background="#FFEA0750">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                                 Rechazar Invitación a Amigo
@@ -337,7 +340,9 @@
                             Height="56"
                             Width="150"
                             Margin="22,0,0,0"
-                            Click="CancelFriendRequestButton" Background="#FFEA0750">
+                            x:Name="CancelFriendRequestButton"
+                            Visibility="Collapsed"
+                            Click="CancelFriendRequestButtonOnClick" Background="#FFEA0750">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                                 Cancelar Invitación a Amigo
@@ -349,8 +354,10 @@
                             Height="56"
                             Width="150"
                             Background="Black"
-                            Margin="22,0,0,0"                                
-                            Click="CancelButton">
+                            Margin="22,0,0,0"       
+                            x:Name="BackButton1"
+                            Visibility="Collapsed"
+                            Click="BackButton1OnClick">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center">
                                 Atrás

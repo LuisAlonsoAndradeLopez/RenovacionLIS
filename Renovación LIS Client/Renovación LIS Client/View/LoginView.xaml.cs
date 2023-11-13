@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -54,7 +55,7 @@ namespace Renovación_LIS_Client.View
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
 
-                ProfileClient profileClient = new ProfileClient();
+                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
                 Profile profile = profileClient.GetProfileByPlayerNickname(NicknameTextField.Text);
                 
                 if (profile != null)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security;
+using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -82,7 +83,7 @@ namespace Renovación_LIS_Client.View
                 if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
                     PlayerClient playerClient = new PlayerClient();
-                    ProfileClient profileClient = new ProfileClient();
+                    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
 
                     if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedProfile.Player.Email)
                     {
@@ -240,7 +241,7 @@ namespace Renovación_LIS_Client.View
 
         private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions()
         {
-            ProfileClient profileClient = new ProfileClient();
+            ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
             string fileName = loggedProfile.Player.NickName + ".png";
             byte[] imageData = profileClient.GetImage(fileName);
 

@@ -69,6 +69,9 @@
   <wsdl:message name="IProfile_UploadImage_OutputMessage">
     <wsdl:part name="parameters" element="tns:UploadImageResponse" />
   </wsdl:message>
+  <wsdl:message name="IProfile_UpdateFriendsLists_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriendsLists" />
+  </wsdl:message>
   <wsdl:portType name="IProfile">
     <wsdl:operation name="AddProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/AddProfile" message="tns:IProfile_AddProfile_InputMessage" />
@@ -101,6 +104,9 @@
     <wsdl:operation name="UploadImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/UploadImage" message="tns:IProfile_UploadImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProfile/UploadImageResponse" message="tns:IProfile_UploadImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriendsLists">
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/UpdateFriendsLists" message="tns:IProfile_UpdateFriendsLists_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IProfile" type="tns:IProfile">
@@ -174,6 +180,12 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriendsLists">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/UpdateFriendsLists" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

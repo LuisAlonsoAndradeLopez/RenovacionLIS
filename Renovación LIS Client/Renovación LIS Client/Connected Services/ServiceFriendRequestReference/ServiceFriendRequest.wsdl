@@ -74,6 +74,15 @@
   <wsdl:message name="IFriendRequest_RejectFriendRequest_OutputMessage">
     <wsdl:part name="parameters" element="tns:RejectFriendRequestResponse" />
   </wsdl:message>
+  <wsdl:message name="IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_UpdateFriendsRequestsLists_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriendsRequestsLists" />
+  </wsdl:message>
   <wsdl:portType name="IFriendRequest">
     <wsdl:operation name="AddFriendRequest">
       <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/AddFriendRequest" message="tns:IFriendRequest_AddFriendRequest_InputMessage" />
@@ -110,6 +119,13 @@
     <wsdl:operation name="RejectFriendRequest">
       <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/RejectFriendRequest" message="tns:IFriendRequest_RejectFriendRequest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse" message="tns:IFriendRequest_RejectFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" message="tns:IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" message="tns:IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriendsRequestsLists">
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/UpdateFriendsRequestsLists" message="tns:IFriendRequest_UpdateFriendsRequestsLists_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IFriendRequest" type="tns:IFriendRequest">
@@ -192,6 +208,21 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriendsRequestsLists">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/UpdateFriendsRequestsLists" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

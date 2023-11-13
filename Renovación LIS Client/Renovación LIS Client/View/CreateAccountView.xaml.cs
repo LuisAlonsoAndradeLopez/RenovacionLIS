@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security;
 using System.ServiceModel;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileReference;
@@ -49,13 +39,12 @@ namespace Renovación_LIS_Client.View
 
                     if (Password == ConfirmPassword)
                     {
-                        ProfileClient profileClient = new ProfileClient();
+                        ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
                         PlayerClient playerClient = new PlayerClient();
                         if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
                         {
                             if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                             {
-
                                 ServiceProfileReference.Players players = new ServiceProfileReference.Players();
                                 players.Names = NamesTextBox.Text;
                                 players.Surnames = SurnamesTextBox.Text;

@@ -9,7 +9,113 @@
       Title="ChatView">
 
     <Grid>
-        <Image Source="/images/friendsImage.png" VerticalAlignment="Center"/>
-        
+        <Image Source="/images/chatImage.png" VerticalAlignment="Center"/>
+
+        <Border Margin="28,35,28,35" 
+            Name="IntroduceDataBorder"
+            Grid.Column="0"
+            CornerRadius="20">
+
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="0.8"/>
+            </Border.Background>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Salir" 
+                            Style="{StaticResource NormalButtom}"
+                            Height="56"
+                            Width="68"
+                            Background="#FFD01D1D"
+                            Margin="20,7,0,0" Click="ExitButtonOnClick"/>
+
+                    <Label Content="Chat"
+                        FontFamily="{StaticResource K2DBold}"
+                        Foreground="White"
+                        Margin="420,0,0,0"
+                        FontSize="50"/>
+                </StackPanel>
+
+                <Label Background="White"
+                    Margin="0 5 0 15"
+                    Height="2"/>
+
+                <ScrollViewer Height="393">
+                    <StackPanel>
+                        <Border Margin="28,10,0,0" 
+                            Name="FriendMessageBorder"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            CornerRadius="20" Height="94" Width="433">
+
+                            <Border.Background>
+                                <SolidColorBrush Color="Black" Opacity="0.8"/>
+                            </Border.Background>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="80"
+                                    Margin="5,5,0,5"
+                                    Source="/images/OnlineSymbol.png"/>
+
+                                <StackPanel>
+                                    <Label Content="Mensaje"
+                                        FontFamily="{StaticResource K2DBold}"
+                                        Foreground="White"
+                                        HorizontalAlignment="Left"
+                                        FontSize="20"
+                                        Margin="10,10,0,0"/>
+                                    
+                                    <Label Content="Mensaje"
+                                        FontFamily="{StaticResource K2DBold}"
+                                        Foreground="White"
+                                        HorizontalAlignment="Left"
+                                        FontSize="20"
+                                        Margin="10,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border Margin="0,10,20,0" 
+                            Name="YourMessageBorder"
+                            Grid.Column="0"
+                            HorizontalAlignment="Right"
+                            CornerRadius="20" Height="62" Width="109">
+
+                            <Border.Background>
+                                <SolidColorBrush Color="Black" Opacity="0.8"/>
+                            </Border.Background>
+
+                            <Label Content="Mensaje"
+                                FontFamily="{StaticResource K2DBold}"
+                                Foreground="White"
+                                HorizontalAlignment="Left"
+                                FontSize="20"
+                                Margin="10,10,0,0"/>
+
+                        </Border>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <TextBox 
+                        Name="MessageTextBox"
+                        Style="{StaticResource BorderTextBox}"
+                        Height="56"
+                        Width="903"
+                        Margin="28,0,0,0"/>
+
+                    <Button Content="Mandar Mensaje" 
+                        Style="{StaticResource NormalButtom}"
+                        Height="56"
+                        Width="158"
+                        Background="#37847F"
+                        Margin="20,0,0,0" Click="SendMessageButtonOnClick"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

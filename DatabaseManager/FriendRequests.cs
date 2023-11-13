@@ -17,7 +17,7 @@ namespace DatabaseManager
     public partial class FriendRequests
     {
         [DataMember]
-        public int IDFriendRequest { get; set; }
+        public long IDFriendRequest { get; set; }
         [DataMember]
         public string Message { get; set; }
         [DataMember]
@@ -31,6 +31,5 @@ namespace DatabaseManager
         public virtual Profiles Profiles { get; set; }
         [DataMember]
         public virtual Profiles Profiles1 { get; set; }
-
     }
 }

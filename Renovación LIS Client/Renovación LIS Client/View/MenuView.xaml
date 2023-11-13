@@ -27,7 +27,8 @@
                 FontFamily="{StaticResource K2DRegular}"
                 HorizontalAlignment="Left"
                 Margin="30,40,0,0"
-                Style="{StaticResource underlineButton}"/>
+                Style="{StaticResource underlineButton}"
+                Click="PlayButtonOnClick"/>
 
             <Button Content="Perfil"
                 Foreground="White"
@@ -38,7 +39,7 @@
                 HorizontalAlignment="Left"
                 Margin="30,40,0,0"
                 Style="{StaticResource underlineButton}"
-                MouseLeftButtonDown="ProfileButton" Click="ProfileButton"/>
+                MouseLeftButtonDown="ProfileButtonOnClick" Click="ProfileButtonOnClick"/>
 
             <Button Content="Amigazazos"
                 Foreground="White"
@@ -49,8 +50,8 @@
                 HorizontalAlignment="Left"
                 Margin="30,40,0,0"
                 Style="{StaticResource underlineButton}" Grid.RowSpan="2"
-                MouseLeftButtonDown="FriendsButton"
-                Click="FriendsButton"/>
+                MouseLeftButtonDown="FriendsButtonOnClick"
+                Click="FriendsButtonOnClick"/>
 
             <Button Content="Configuración"
                 Foreground="White"
@@ -71,8 +72,8 @@
                 HorizontalAlignment="Left"
                 Margin="30,40,0,0"
                 Style="{StaticResource underlineButton}"
-                MouseLeftButtonDown="QuitButton"
-                Click="QuitButton"/>
+                MouseLeftButtonDown="QuitButtonOnClick"
+                Click="QuitButtonOnClick"/>
         </StackPanel>
     </Grid>
 </Page>

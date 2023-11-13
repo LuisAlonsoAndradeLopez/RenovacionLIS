@@ -12,7 +12,7 @@ using DomainStatuses;
 
 namespace ServicesTCP.ServiceContracts
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IProfileCallback))]
     public interface IProfile
     {
         [OperationContract]
@@ -38,5 +38,11 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         bool UploadImage(string fileName, byte[] imageData);
+    }
+
+    public interface IProfileCallback
+    {
+        [OperationContract(IsOneWay = true, Name = "UpdateFriendsLists")]
+        void UpdateFriendsLists();
     }
 }

@@ -18,8 +18,6 @@ namespace DatabaseManager
         public DatabaseModelContainer()
             : base("name=DatabaseModelContainer")
         {
-            this.Configuration.LazyLoadingEnabled = true;
-            this.Configuration.ProxyCreationEnabled = true;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -33,5 +31,7 @@ namespace DatabaseManager
         public virtual DbSet<Levels> LevelsSet { get; set; }
         public virtual DbSet<Words> WordsSet { get; set; }
         public virtual DbSet<FriendRequests> FriendRequestsSet { get; set; }
+
+        public virtual DbSet<ProfilesProfiles> ProfilesProfiles{ get; set; }
     }
 }

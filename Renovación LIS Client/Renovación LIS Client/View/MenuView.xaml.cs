@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,21 +38,27 @@ namespace Renovación_LIS_Client.View
 
         public MenuView() { }
 
-        private void FriendsButton(object sender, RoutedEventArgs e)
+        private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new FriendsView(mainWindow, loggedProfile));
         }
 
-        private void ProfileButton(object sender, RoutedEventArgs e)
+        private void PlayButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ChatView(mainWindow, loggedProfile));
+        }
+
+        private void ProfileButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ModifyProfileView(mainWindow, loggedProfile));
         }
 
-        private void QuitButton(object sender, RoutedEventArgs e)
+        private void QuitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            ProfileClient profileClient = new ProfileClient();
+            ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
             profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
             mainWindow.SetNullToLoggedProfile();
 
