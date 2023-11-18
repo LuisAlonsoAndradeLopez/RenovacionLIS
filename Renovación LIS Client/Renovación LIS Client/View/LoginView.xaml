@@ -91,7 +91,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock x:Name="ForgotPasswordButton"
-                                       Text="{x:Static p:Resources.ForgotPassword}"
+                                       Text="{x:Static p:Resources.Forgot_Password}"
                                        Style="{StaticResource TransparentLabel}"
                                        Grid.Column="1"
                                        MouseLeftButtonDown="OpenForgotPasswordPage" Margin="0,0,250,0"/>

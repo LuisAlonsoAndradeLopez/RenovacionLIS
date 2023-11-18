@@ -43,13 +43,13 @@ namespace Renovación_LIS_Client.View
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new CreateAccountView(mainWindow));
+            //NavigationService navigationService = NavigationService.GetNavigationService(this);
+            //navigationService.Navigate(new CreateAccountView(mainWindow));
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-
+            /*
             if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
@@ -92,6 +92,8 @@ namespace Renovación_LIS_Client.View
             {
                 MessageBox.Show(invalidValuesInTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            */
         }
 
 

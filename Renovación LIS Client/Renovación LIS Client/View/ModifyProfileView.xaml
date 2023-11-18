@@ -3,11 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="Renovación_LIS_Client.Properties"
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="ModifyProfileView" Width="1200" Height="700">
 
+    <!--
     <Grid Width="1200" Height="700">
         <Image Source="/images/modifyProfileImage.png"/>
 
@@ -151,4 +153,5 @@
         </Border>
 
     </Grid>
+    -->
 </Page>

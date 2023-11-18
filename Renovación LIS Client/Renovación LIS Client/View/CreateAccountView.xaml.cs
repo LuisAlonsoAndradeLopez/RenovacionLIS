@@ -17,6 +17,7 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class CreateAccountView : Page
     {
+        /*
         private MainWindow mainWindow;
 
         public CreateAccountView(MainWindow mainWindow)
@@ -100,14 +101,6 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        //[CallbackBehavior(UseSynchronizationContext = false)]
-        /*class CallbackHandler : ServicePlayerReference.IPlayerCallback
-        {
-            public void Response(String response)
-            {
-                Console.WriteLine(response);
-            }
-        }*/
 
         private void GoLoginButton(object sender, MouseButtonEventArgs e)
         {
@@ -238,6 +231,7 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+        */
     }
 
 }

@@ -19,8 +19,10 @@ namespace Renovación_LIS_Client.View
     /// <summary>
     /// Lógica de interacción para ChatView.xaml
     /// </summary>
+    
     public partial class ChatView : Page
     {
+        /*
         private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
@@ -40,6 +42,6 @@ namespace Renovación_LIS_Client.View
         {
 
         }
-
+        */
     }
 }

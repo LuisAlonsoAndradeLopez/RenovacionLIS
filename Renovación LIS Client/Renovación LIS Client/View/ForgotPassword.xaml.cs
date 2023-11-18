@@ -18,6 +18,8 @@ using System.Text.RegularExpressions;
 using System.ServiceModel;
 using Renovación_LIS_Client.ServicePlayerReference;
 using System.Security;
+using System.Globalization;
+using System.Resources;
 
 namespace Renovación_LIS_Client.View
 {
@@ -27,13 +29,18 @@ namespace Renovación_LIS_Client.View
     public partial class ForgotPassword : Page
     {
         private MainWindow mainWindow;
-        Random random = new Random();
-        int verificationCode;
+        private Random random = new Random();
+        private int verificationCode;
+        private CultureInfo cultureInfo;
+        private ResourceManager resourceManager;
 
         public ForgotPassword(MainWindow mainWindow)
         {
             InitializeComponent();
+            
             this.mainWindow = mainWindow;
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
             verificationCode = random.Next(100001, 1000000);
         }
 
@@ -57,21 +64,33 @@ namespace Renovación_LIS_Client.View
         {
             if(IntroduceCodeTextField.Text == verificationCode.ToString())
             {
-                PlayerClient client = new PlayerClient();
+                PlayerClient playerClient = new PlayerClient();
                 SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
                 string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
 
                 string salt = BCrypt.Net.BCrypt.GenerateSalt();
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
                 
-                client.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
-                MessageBox.Show("Contraseña cambiada exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                playerClient.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
+                MessageBox.Show(
+                    resourceManager.GetString("Password changed sucessfully!!!", cultureInfo),
+                    resourceManager.GetString("Success!!!", cultureInfo),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.None
+                );
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new LoginView(mainWindow));
+
+                playerClient.Close();
             }
             else
             {
-                MessageBox.Show("El código es inválido", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    resourceManager.GetString("Invalid code", cultureInfo),
+                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
             }
         }
 
@@ -79,7 +98,7 @@ namespace Renovación_LIS_Client.View
         {
             if (invalidValuesInTextFieldsTextGenerator() == "")
             {
-                PlayerClient client = new PlayerClient();
+                PlayerClient playerClient = new PlayerClient();
 
                 SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
                 string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
@@ -89,7 +108,7 @@ namespace Renovación_LIS_Client.View
 
                 if (newPassword == confirmNewPassword)
                 {
-                    if (client.TheEmailIsAlreadyRegisted(EmailTextField.Text))
+                    if (playerClient.TheEmailIsAlreadyRegisted(EmailTextField.Text))
                     {
                         IntroduceDataBorder.Visibility = Visibility.Hidden;
                         IntroduceCodeBorder.Visibility = Visibility.Visible;
@@ -102,33 +121,47 @@ namespace Renovación_LIS_Client.View
                         MailMessage mail = new MailMessage();
                         mail.From = new MailAddress("renovacionlis230@gmail.com");
                         mail.To.Add(new MailAddress(EmailTextField.Text));
-                        mail.Subject = "Codigazo para cambiar la contraseña";
-                        mail.Body = "Introduce este codigazo para cambiar la contraseña: " + verificationCode;
+                        mail.Subject = resourceManager.GetString("Code for change your password", cultureInfo);
+                        mail.Body = resourceManager.GetString("Introduce this code for change your password", cultureInfo) + verificationCode;
 
                         try
                         {
                             smtpClient.Send(mail);
-                            Console.WriteLine("Email sent successfully.");
                         }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Failed to send the email: " + ex.Message);
+                        catch (Exception ex) { 
+                        
                         }
                     }
                     else
                     {
-                        MessageBox.Show("El correo electrónico no fue encontrado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(
+                            resourceManager.GetString("Email not found", cultureInfo),
+                            resourceManager.GetString("Too Bad!!!", cultureInfo),
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                        );
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        resourceManager.GetString("The passwords aren't the same", cultureInfo),
+                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
                 }
-                
+
+                playerClient.Close();
             }
             else
             {
-                MessageBox.Show(invalidValuesInTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    invalidValuesInTextFieldsTextGenerator(),
+                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
             }
             
         }
@@ -160,12 +193,12 @@ namespace Renovación_LIS_Client.View
 
             if (!emailMatch.Success || !newPasswordMatch.Success || !confirmNewPasswordMatch.Success)
             {
-                finalText = finalText + "Los campos de texto con datos inválidos son: ";
+                finalText = finalText + resourceManager.GetString("The text fields with invalid values are", cultureInfo);
             }
 
             if (!emailMatch.Success)
             {
-                finalText = finalText + "Correo Electrónico.";
+                finalText = finalText + resourceManager.GetString("Email", cultureInfo) + ".";
                 textFieldsWithIncorrectValues++;
             }
 
@@ -174,11 +207,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Nueva Contraseña.";
+                    finalText = finalText + "," + resourceManager.GetString("New Password", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Nueva Contraseña.";
+                    finalText = finalText + resourceManager.GetString("New Password", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;                
@@ -189,11 +222,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Confirmar Contraseña.";
+                    finalText = finalText + "," + resourceManager.GetString("Confirm Password", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Confirmar Contraseña.";
+                    finalText = finalText + resourceManager.GetString("Confirm Password", cultureInfo) + ".";
                 }
                 
                 textFieldsWithIncorrectValues++;

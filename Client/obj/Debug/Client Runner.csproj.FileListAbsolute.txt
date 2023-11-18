@@ -1,0 +1,12 @@
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\Client.exe.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\Client.exe
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\Client.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.AssemblyReference.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.CoreCompileInputs.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client Runner.csproj.CopyComplete
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client.exe
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\obj\Debug\Client.pdb

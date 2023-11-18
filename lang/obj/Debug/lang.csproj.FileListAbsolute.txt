@@ -1,0 +1,17 @@
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\lang.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\lang.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\lang.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\es-MX\lang.resources.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.csproj.AssemblyReference.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.Resources.en.US.resources
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.Resources.es-MX.resources
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.csproj.GenerateResource.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.csproj.CoreCompileInputs.cache
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\es-MX\lang.resources.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.csproj.CopyComplete
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.pdb

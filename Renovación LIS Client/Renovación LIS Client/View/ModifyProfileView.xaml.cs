@@ -30,6 +30,7 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ModifyProfileView : Page
     {
+        /*
         private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
@@ -259,5 +260,6 @@ namespace Renovación_LIS_Client.View
 
             return imageData;
         }
+        */
     }
 }

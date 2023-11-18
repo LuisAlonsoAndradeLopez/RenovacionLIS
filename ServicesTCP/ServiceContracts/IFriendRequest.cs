@@ -16,12 +16,6 @@ namespace ServicesTCP.ServiceContracts
         [OperationContract]
         void AddFriendRequest(FriendRequests friendRequests);
 
-        [OperationContract(IsOneWay = true)]
-        void AcceptFriendRequest(FriendRequests friendRequests);
-
-        [OperationContract(IsOneWay = true)]
-        void CancelFriendRequest(FriendRequests friendRequests);
-
         [OperationContract]
         List<FriendRequests> GetFriendsRequestsByProfileID(long ID);
 
@@ -37,12 +31,22 @@ namespace ServicesTCP.ServiceContracts
         [OperationContract]
         List<FriendRequest> GetSentAndPendientsForAceptationFriendsRequestsByProfileID(long IDProfile);
 
-        [OperationContract(IsOneWay = true)]
-        void RejectFriendRequest(FriendRequests friendRequests);
-
         [OperationContract]
         bool TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(long transmitterProfileID, long receiverProfileID);
     }
+
+    public interface IFriendRequestForCallbackMethods
+    {
+        [OperationContract(IsOneWay = true)]
+        void AcceptFriendRequest(FriendRequests friendRequests);
+
+        [OperationContract(IsOneWay = true)]
+        void CancelFriendRequest(FriendRequests friendRequests);
+
+        [OperationContract(IsOneWay = true)]
+        void RejectFriendRequest(FriendRequests friendRequests);
+    }
+
 
     //[ServiceContract]
     public interface IFriendRequestCallback

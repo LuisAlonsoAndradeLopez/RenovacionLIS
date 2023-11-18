@@ -25,6 +25,7 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
+        /*
         private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
@@ -65,6 +66,6 @@ namespace Renovación_LIS_Client.View
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
         }
-
+        */
     }
 }

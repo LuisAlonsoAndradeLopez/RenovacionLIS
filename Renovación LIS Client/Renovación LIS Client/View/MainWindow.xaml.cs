@@ -8,6 +8,8 @@ using Renovación_LIS_Client.View;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
+using System.Resources;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Threading;
@@ -17,18 +19,23 @@ namespace Renovación_LIS_Client
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
-        Profile loggedProfile = null;
+        private Profile loggedProfile = null;
+        private CultureInfo cultureInfo;
+        private ResourceManager resourceManager;
         public MainWindow()
         {
             InitializeComponent();
             
-
             Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
             Application.Current.Exit += AppExit;
             AppDomain.CurrentDomain.ProcessExit += ProcessExit;
             this.Closing += MainWindowClosing;
+
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             MainFrame.NavigationService.Navigate(new StartView(this));
             
@@ -40,6 +47,8 @@ namespace Renovación_LIS_Client
             {
                 ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
                 profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+
+                profileClient.Close();
             }
         }
 
@@ -49,6 +58,8 @@ namespace Renovación_LIS_Client
             {
                 ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
                 profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+
+                profileClient.Close();
             }
         }
 
@@ -58,6 +69,8 @@ namespace Renovación_LIS_Client
             {
                 ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
                 profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+
+                profileClient.Close();
             }
 
         }
@@ -66,7 +79,12 @@ namespace Renovación_LIS_Client
         {
             if (Debugger.IsAttached)
             {
-                MessageBoxResult result = MessageBox.Show("Deseas Salir?", "Closing", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult result = MessageBox.Show(
+                resourceManager.GetString("Do you want to exit", cultureInfo),
+                resourceManager.GetString("What do you want", cultureInfo),
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
 
                 if (result == MessageBoxResult.Yes)
                 {
@@ -74,6 +92,8 @@ namespace Renovación_LIS_Client
                     {
                         ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
                         profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+
+                        profileClient.Close();
                     }
 
                 }
@@ -125,7 +145,7 @@ namespace Renovación_LIS_Client
         }
         public void UpdateFriendsLists()
         {
-            friendsView.ShowUpdatedFriendsList();
+            //friendsView.ShowUpdatedFriendsList();
         }
     }
 
@@ -141,7 +161,7 @@ namespace Renovación_LIS_Client
 
         public void UpdateFriendsRequestsLists()
         {
-            friendsView.ShowUpdatedFriendRequestsList();
+            //friendsView.ShowUpdatedFriendRequestsList();
         }
     }
 

@@ -9,6 +9,7 @@
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="CreateAccountView">
 
+    <!--
     <Grid>
         <Image Source="/images/createAccountImage.png" Stretch="Fill"/>
 
@@ -45,7 +46,7 @@
                         
                     </Grid.RowDefinitions>
 
-                    <Label Content="{x:Static p:Resources.Create_Account}"
+                    <Label Content="{x:Static p:Resources.Cancelation_of_friend_request_send_made_sucessfully}"
                            Grid.Column="1"
                            
                            Margin="0,0,0,10"
@@ -159,7 +160,7 @@
                              Height="45"
                              Margin="20,0"/>
 
-                    <Button Content="Crear Cuenta" 
+                    <Button Content="{x:Static p:Resources.Create_Account}" 
                             Style="{StaticResource NormalButtom}"
                             Grid.Row="9"
                             Height="45"
@@ -188,4 +189,5 @@
             
         </Grid>
     </Grid>
+    -->
 </Page>

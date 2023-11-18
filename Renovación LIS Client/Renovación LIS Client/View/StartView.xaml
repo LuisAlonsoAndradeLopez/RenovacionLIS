@@ -19,6 +19,7 @@
             </Grid.RowDefinitions>
             
             <Image Source="/images/GameLogo.png" Height="180" />
+            
             <Button Grid.Row="1" 
                     Width="200" 
                     Height="45" 
@@ -70,4 +71,5 @@
             </Popup>
         </StackPanel>
     </Grid>
+
 </Page>

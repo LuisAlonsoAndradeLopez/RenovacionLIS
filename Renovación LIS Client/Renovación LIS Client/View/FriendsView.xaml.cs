@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
+using System.Reflection;
+using System.Resources;
+using System.Runtime.InteropServices;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -22,31 +26,41 @@ namespace Renovación_LIS_Client.View
     /// <summary>
     /// Lógica de interacción para FriendsView.xaml
     /// </summary>
-    public partial class FriendsView : Page, IFriendRequestCallback
+    //public partial class FriendsView : Page, IFriendRequestCallback
+    public partial class FriendsView : Page
     {
         //TODO
-        //
-        //Solo se puede mandar solicitud a alguien una vez, a menos que la haya rechazado
-        //Puto cierre de procesos que no desloguea usuarios
-        //Callback para las listas de usuarios y friend requests
-        //Cambiar AffFriendship de ServiceProfile (No se puede)
-        //Al final borrar la base y probar a saco
+        //Puto cierre de procesos que no desloguea usuarios (Pendiente)
+        //Callback para las listas de usuarios y friend requests (En Construcción)
+        //Cambiar AffFriendship de ServiceProfile (Preguntar al revolucionario)
+        //Actualizar instantaneamente al aceptar, cancelar o rechazar invitaciones de amistad (Callback para todo)
+        //Si te rechazan la solicitud de amistad, ya no te debería aparecer en la lista (Hecho)
+        //Internacionalizar todititito (Pendiente)
+        //Cerrar todas las conexiones (Pendiente)
+        //Bug que no se elimina la solicitud de mensaje al cancelarlo por el emisor (Es bug?)
+        //Cancelar Amistad (Pendiente)
 
-        //Actualizar instantaneamente al aceptar, cancelar o rechazar invitaciones de amistad
-        //Si un amigo te envio una solicitud de amistad, no puedes mandarsela hasta que la cancele o la rechazes
-        //Si te rechazan la solicitud de amistad, ya no te debería aparecer en la lista
-        //El de crear la amistad no funciona (AddFriendship)
-
-
+        /*
         private MainWindow mainWindow;
-        Profile loggedProfile = new Profile();
+        private Profile loggedProfile;
+        private CultureInfo culture;
+        private ResourceManager resourceManager;
 
         public FriendsView(MainWindow mainWindow, Profile loggedProfile)
         {
-            InitializeComponent();
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
+            culture = CultureInfo.CurrentCulture;
 
+            //Assembly assembly = Assembly.LoadFrom(new String());
+
+            resourceManager = new ResourceManager("Resources", typeof(MainWindow).Assembly);
+
+            // Specify the folder where the .resources files are located
+            
+
+
+            InitializeComponent();
             ShowUpdatedFriendsList();
         }
         private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
@@ -58,6 +72,7 @@ namespace Renovación_LIS_Client.View
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
+            friendRequestClient.Close();
         }
 
         private void BackButtonOnClick(object sender, RoutedEventArgs e)
@@ -88,6 +103,18 @@ namespace Renovación_LIS_Client.View
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
+            friendRequestClient.Close();
+        }
+
+        private void CancelFriendshipButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(IDFriendRequestLabel.Content.ToString(), "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+            ProfileClient profileClient = new ProfileClient(new InstanceContext(this));
+            //profileClient.CancelFriendship();
+
+            MessageBox.Show("Cancelación del envio de solicitud realizado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+
+            profileClient.Close();
         }
 
         private void DetailsButtonOnClick(object sender, RoutedEventArgs e)
@@ -157,6 +184,8 @@ namespace Renovación_LIS_Client.View
                         }
                     }
                 }
+
+                friendRequestClient.Close();
             }
         }
 
@@ -181,6 +210,7 @@ namespace Renovación_LIS_Client.View
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
+            friendRequestClient.Close();
         }
 
         private void SeeFriendsRequestButtonOnClick(object sender, RoutedEventArgs e)
@@ -284,7 +314,7 @@ namespace Renovación_LIS_Client.View
                             {
                                 MessageBox.Show("Ya le has mandado solicitud de amistad a este usuario", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
-
+                            friendRequestClient.Close();
 
                         }
                         else
@@ -297,6 +327,8 @@ namespace Renovación_LIS_Client.View
                     {
                         MessageBox.Show("El usuario al que le quieres mandar solicitud de amistad no existe", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
+
+                    profileClient.Close();
 
                 }
                 else
@@ -376,8 +408,22 @@ namespace Renovación_LIS_Client.View
                     Text = profile.Player.NickName
                 };
 
+                Button cancelFriendshipButton = new Button
+                {
+                    Height = 35,
+                    Width = 59,
+                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
+                    Margin = new Thickness(0, 0, 10, 0),
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    Content = resourceManager.GetString("Cancel_Friendship"),
+                    FontSize = 13
+                };
+
+                cancelFriendshipButton.Click += CancelFriendshipButtonOnClick;
+
                 textAndButtonsStackPanel.Children.Add(friendProfileImage);
                 textAndButtonsStackPanel.Children.Add(nicknameTextBlock);
+                textAndButtonsStackPanel.Children.Add(cancelFriendshipButton);
 
                 friendBorder.Child = textAndButtonsStackPanel;
 
@@ -392,6 +438,8 @@ namespace Renovación_LIS_Client.View
                 }
                 
             }
+
+            profileClient.Close();
         }
 
         public void ShowUpdatedFriendRequestsList()
@@ -535,6 +583,8 @@ namespace Renovación_LIS_Client.View
 
                 SentFriendsRequestsStackPanel.Children.Add(sentFriendRequestBorder);
             }
+
+            friendRequestClient.Close();
         }
 
 
@@ -555,6 +605,8 @@ namespace Renovación_LIS_Client.View
                 fileName = profileNickname + ".jpeg";
                 imageData = profileClient.GetImage(fileName);
             }
+
+            profileClient.Close();
 
             return imageData;
         }
@@ -623,5 +675,6 @@ namespace Renovación_LIS_Client.View
         {
             ShowUpdatedFriendRequestsList();
         }
+        */
     }
 }
