@@ -9,7 +9,6 @@
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="CreateAccountView">
 
-    <!--
     <Grid>
         <Image Source="/images/createAccountImage.png" Stretch="Fill"/>
 
@@ -46,7 +45,7 @@
                         
                     </Grid.RowDefinitions>
 
-                    <Label Content="{x:Static p:Resources.Cancelation_of_friend_request_send_made_sucessfully}"
+                    <Label Content="{x:Static p:Resources.Create_account}"
                            Grid.Column="1"
                            
                            Margin="0,0,0,10"
@@ -76,7 +75,7 @@
                            Grid.Column="1"
                            Margin="20,0"/>
 
-                    <Label Content="{x:Static p:Resources.E_mail}"
+                    <Label Content="{x:Static p:Resources.Email}"
                            FontFamily="{StaticResource K2DRegular}"
                            FontSize="16"
                            Foreground="White"
@@ -108,7 +107,7 @@
                            Grid.Column="0"
                            Margin="20,20,0,0"/>
 
-                    <Label Content="{x:Static p:Resources.Confirm_Password}"
+                    <Label Content="{x:Static p:Resources.Confirm_password}"
                            FontFamily="{StaticResource K2DRegular}"
                            FontSize="16"
                            Foreground="White"
@@ -160,7 +159,7 @@
                              Height="45"
                              Margin="20,0"/>
 
-                    <Button Content="{x:Static p:Resources.Create_Account}" 
+                    <Button Content="{x:Static p:Resources.Create_account}" 
                             Style="{StaticResource NormalButtom}"
                             Grid.Row="9"
                             Height="45"
@@ -170,7 +169,7 @@
                             Margin="30" Click="CreateAccountButton"/>
 
                     <TextBlock x:Name="GoLogInButton"
-                               Text="{x:Static p:Resources.AlreadyHave_an_Account}"
+                               Text="{x:Static p:Resources.Have_you_already_have_an_account}"
                                Style="{StaticResource TransparentLabel}"
                                Grid.Row="9"
                                Grid.Column="2"
@@ -189,5 +188,4 @@
             
         </Grid>
     </Grid>
-    -->
 </Page>

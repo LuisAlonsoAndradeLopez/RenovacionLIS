@@ -1,23 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
+using System.Resources;
 using System.Security;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using domain;
 using DomainStatuses;
-using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
@@ -28,11 +21,16 @@ namespace Renovación_LIS_Client.View
     public partial class LoginView : Page
     {
         private MainWindow mainWindow;
+        private CultureInfo cultureInfo;
+        private ResourceManager resourceManager;
 
         public LoginView(MainWindow mainWindow)
         {
             InitializeComponent();
+
             this.mainWindow = mainWindow;
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
         }
 
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
@@ -43,13 +41,12 @@ namespace Renovación_LIS_Client.View
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
-            //NavigationService navigationService = NavigationService.GetNavigationService(this);
-            //navigationService.Navigate(new CreateAccountView(mainWindow));
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new CreateAccountView(mainWindow));
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            /*
             if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
@@ -75,25 +72,45 @@ namespace Renovación_LIS_Client.View
                         }
                         else
                         {
-                            MessageBox.Show("El Usuario ya está Logueado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(
+                                resourceManager.GetString("The user is already logged", cultureInfo),
+                                resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error
+                            );
                         }
                     }
                     else
                     {
-                        MessageBox.Show("La contraseña no es correcta", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(
+                            resourceManager.GetString("The password isn't correct", cultureInfo),
+                            resourceManager.GetString("Too Bad!!!", cultureInfo),
+                            MessageBoxButton.OK, 
+                            MessageBoxImage.Error
+                        );
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El nickname introducido no existe", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        resourceManager.GetString("The introduced nickname doesn't exists", cultureInfo),
+                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                        MessageBoxButton.OK, 
+                        MessageBoxImage.Error
+                    );
                 }
+
+                profileClient.Close();
             }
             else
             {
-                MessageBox.Show(invalidValuesInTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    invalidValuesInTextFieldsTextGenerator(),
+                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
             }
-
-            */
         }
 
 
@@ -118,12 +135,12 @@ namespace Renovación_LIS_Client.View
 
             if (!nickNameMatch.Success || !passwordMatch.Success)
             {
-                finalText = finalText + "Los campos de texto con datos inválidos son: ";
+                finalText = finalText + resourceManager.GetString("The text fields with invalid values are", cultureInfo);
             }
 
             if (!nickNameMatch.Success)
             {
-                finalText = finalText + "Nickname.";
+                finalText = finalText + resourceManager.GetString("Nickname", cultureInfo) + ".";
                 textFieldsWithIncorrectValues++;
             }
 
@@ -132,11 +149,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Contraseña.";
+                    finalText = finalText + ", " + resourceManager.GetString("Password", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Contraseña.";
+                    finalText = finalText + resourceManager.GetString("Password", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;

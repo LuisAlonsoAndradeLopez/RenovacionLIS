@@ -70,11 +70,20 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Accept Friend Request.
+        ///   Busca una cadena traducida similar a Accept friend request.
         /// </summary>
-        public static string Accept_Friend_Request {
+        public static string Accept_friend_request {
             get {
-                return ResourceManager.GetString("Accept Friend Request", resourceCulture);
+                return ResourceManager.GetString("Accept friend request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Account made successfully!!!.
+        /// </summary>
+        public static string Account_made_successfully {
+            get {
+                return ResourceManager.GetString("Account made successfully", resourceCulture);
             }
         }
         
@@ -84,6 +93,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Birth date should be before than the actual date.
+        /// </summary>
+        public static string Birth_date_should_be_before_than_the_actual_date {
+            get {
+                return ResourceManager.GetString("Birth date should be before than the actual date", resourceCulture);
             }
         }
         
@@ -106,20 +124,20 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Cancel Friend Request.
+        ///   Busca una cadena traducida similar a Cancel friend request.
         /// </summary>
-        public static string Cancel_Friend_Request {
+        public static string Cancel_friend_request {
             get {
-                return ResourceManager.GetString("Cancel Friend Request", resourceCulture);
+                return ResourceManager.GetString("Cancel friend request", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Cancel Friendship.
+        ///   Busca una cadena traducida similar a Cancel friendship.
         /// </summary>
-        public static string Cancel_Friendship {
+        public static string Cancel_friendship {
             get {
-                return ResourceManager.GetString("Cancel Friendship", resourceCulture);
+                return ResourceManager.GetString("Cancel friendship", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Cancelation_of_friend_request_send_made_sucessfully {
             get {
                 return ResourceManager.GetString("Cancelation of friend request send made sucessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancellation of sending friend request made successfully!!!.
+        /// </summary>
+        public static string Cancellation_of_sending_friend_request_made_successfully {
+            get {
+                return ResourceManager.GetString("Cancellation of sending friend request made successfully", resourceCulture);
             }
         }
         
@@ -160,11 +187,20 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Configuration.
+        /// </summary>
+        public static string Configuration {
+            get {
+                return ResourceManager.GetString("Configuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Confirm password.
         /// </summary>
-        public static string Confirm_Password {
+        public static string Confirm_password {
             get {
-                return ResourceManager.GetString("Confirm Password", resourceCulture);
+                return ResourceManager.GetString("Confirm password", resourceCulture);
             }
         }
         
@@ -178,20 +214,38 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Create Account.
+        ///   Busca una cadena traducida similar a Create account.
         /// </summary>
-        public static string Create_Account {
+        public static string Create_account {
             get {
-                return ResourceManager.GetString("Create Account", resourceCulture);
+                return ResourceManager.GetString("Create account", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Creation Date.
+        ///   Busca una cadena traducida similar a Creation date.
         /// </summary>
-        public static string Creation_Date {
+        public static string Creation_date {
             get {
-                return ResourceManager.GetString("Creation Date", resourceCulture);
+                return ResourceManager.GetString("Creation date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Details.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
             }
         }
         
@@ -210,6 +264,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email already on use.
+        /// </summary>
+        public static string Email_already_on_use {
+            get {
+                return ResourceManager.GetString("Email already on use", resourceCulture);
             }
         }
         
@@ -250,6 +313,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a For.
+        /// </summary>
+        public static string For {
+            get {
+                return ResourceManager.GetString("For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Forgot your password?.
         /// </summary>
         public static string Forgot_Password {
@@ -259,11 +331,38 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Friend Nickname.
+        ///   Busca una cadena traducida similar a Friend nickname.
         /// </summary>
-        public static string Friend_Nickname {
+        public static string Friend_nickname {
             get {
-                return ResourceManager.GetString("Friend Nickname", resourceCulture);
+                return ResourceManager.GetString("Friend nickname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Friend request rejected.
+        /// </summary>
+        public static string Friend_request_rejected {
+            get {
+                return ResourceManager.GetString("Friend request rejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Friend request sent succesfully!!!.
+        /// </summary>
+        public static string Friend_request_sent_succesfully {
+            get {
+                return ResourceManager.GetString("Friend request sent succesfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Friend request successfully accepted!!!.
+        /// </summary>
+        public static string Friend_request_successfully_accepted {
+            get {
+                return ResourceManager.GetString("Friend request successfully accepted", resourceCulture);
             }
         }
         
@@ -277,20 +376,38 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Friends Requests.
+        ///   Busca una cadena traducida similar a Friends requests.
         /// </summary>
-        public static string Friends_Requests {
+        public static string Friends_requests {
             get {
-                return ResourceManager.GetString("Friends Requests", resourceCulture);
+                return ResourceManager.GetString("Friends requests", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Have you already have an account?.
+        ///   Busca una cadena traducida similar a Friendship cancellation made successfully.
         /// </summary>
-        public static string Have_you_already_have_an_account_ {
+        public static string Friendship_cancellation_made_successfully {
             get {
-                return ResourceManager.GetString("Have you already have an account?", resourceCulture);
+                return ResourceManager.GetString("Friendship cancellation made successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a From.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Have you already have an account? Log In.
+        /// </summary>
+        public static string Have_you_already_have_an_account {
+            get {
+                return ResourceManager.GetString("Have you already have an account", resourceCulture);
             }
         }
         
@@ -331,20 +448,29 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Invitation Details.
+        ///   Busca una cadena traducida similar a Invalid nickname.
         /// </summary>
-        public static string Invitation_Details {
+        public static string Invalid_nickname {
             get {
-                return ResourceManager.GetString("Invitation Details", resourceCulture);
+                return ResourceManager.GetString("Invalid nickname", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Invite Friends.
+        ///   Busca una cadena traducida similar a Invitation details.
         /// </summary>
-        public static string Invite_Friends {
+        public static string Invitation_details {
             get {
-                return ResourceManager.GetString("Invite Friends", resourceCulture);
+                return ResourceManager.GetString("Invitation details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invite friends.
+        /// </summary>
+        public static string Invite_friends {
+            get {
+                return ResourceManager.GetString("Invite friends", resourceCulture);
             }
         }
         
@@ -367,11 +493,11 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Modify Profile.
+        ///   Busca una cadena traducida similar a Modify profile.
         /// </summary>
-        public static string Modify_Profile {
+        public static string Modify_profile {
             get {
-                return ResourceManager.GetString("Modify Profile", resourceCulture);
+                return ResourceManager.GetString("Modify profile", resourceCulture);
             }
         }
         
@@ -381,6 +507,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name(s).
+        /// </summary>
+        public static string Name_s_ {
+            get {
+                return ResourceManager.GetString("Name(s)", resourceCulture);
             }
         }
         
@@ -399,6 +534,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Nickname {
             get {
                 return ResourceManager.GetString("Nickname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nickname already on use.
+        /// </summary>
+        public static string Nickname_already_on_use {
+            get {
+                return ResourceManager.GetString("Nickname already on use", resourceCulture);
             }
         }
         
@@ -448,6 +592,42 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Play.
+        /// </summary>
+        public static string Play {
+            get {
+                return ResourceManager.GetString("Play", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Profile.
+        /// </summary>
+        public static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Profile modified successfully!!!.
+        /// </summary>
+        public static string Profile_modified_successfully___ {
+            get {
+                return ResourceManager.GetString("Profile modified successfully!!!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Profile picture.
+        /// </summary>
+        public static string Profile_picture {
+            get {
+                return ResourceManager.GetString("Profile picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Received.
         /// </summary>
         public static string Received {
@@ -457,11 +637,20 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Reject Friend Request.
+        ///   Busca una cadena traducida similar a Reject friend request.
         /// </summary>
-        public static string Reject_Friend_Request {
+        public static string Reject_friend_request {
             get {
-                return ResourceManager.GetString("Reject Friend Request", resourceCulture);
+                return ResourceManager.GetString("Reject friend request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select an image.
+        /// </summary>
+        public static string Select_an_image {
+            get {
+                return ResourceManager.GetString("Select an image", resourceCulture);
             }
         }
         
@@ -475,11 +664,20 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Send Invitation to Friend.
+        ///   Busca una cadena traducida similar a Send invitation to friend.
         /// </summary>
-        public static string Send_Invitation_to_Friend {
+        public static string Send_invitation_to_friend {
             get {
-                return ResourceManager.GetString("Send Invitation to Friend", resourceCulture);
+                return ResourceManager.GetString("Send invitation to friend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Send message.
+        /// </summary>
+        public static string Send_message {
+            get {
+                return ResourceManager.GetString("Send message", resourceCulture);
             }
         }
         
@@ -493,11 +691,11 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Show Friends Invitations.
+        ///   Busca una cadena traducida similar a Show friends invitations.
         /// </summary>
-        public static string Show_Friends_Invitations {
+        public static string Show_friends_invitations {
             get {
-                return ResourceManager.GetString("Show Friends Invitations", resourceCulture);
+                return ResourceManager.GetString("Show friends invitations", resourceCulture);
             }
         }
         
@@ -529,6 +727,51 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Surname(s).
+        /// </summary>
+        public static string Surname_s_ {
+            get {
+                return ResourceManager.GetString("Surname(s)", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The file shouldn&apos;t be larger than 1 MB.
+        /// </summary>
+        public static string The_file_shouldn_t_be_larger_than_1_MB {
+            get {
+                return ResourceManager.GetString("The file shouldn\'t be larger than 1 MB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The introduced nickname doesn&apos;t exists.
+        /// </summary>
+        public static string The_introduced_nickname_doesn_t_exists {
+            get {
+                return ResourceManager.GetString("The introduced nickname doesn\'t exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The message shouldn&apos;t have more than 100 characters.
+        /// </summary>
+        public static string The_message_shouldn_t_have_more_than_100_characters {
+            get {
+                return ResourceManager.GetString("The message shouldn\'t have more than 100 characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The password isn&apos;t correct.
+        /// </summary>
+        public static string The_password_isn_t_correct {
+            get {
+                return ResourceManager.GetString("The password isn\'t correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The passwords aren&apos;t the same.
         /// </summary>
         public static string The_passwords_aren_t_the_same {
@@ -543,6 +786,24 @@ namespace Renovación_LIS_Client.Properties {
         public static string The_text_fields_with_invalid_values_are {
             get {
                 return ResourceManager.GetString("The text fields with invalid values are", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The user is already logged.
+        /// </summary>
+        public static string The_user_is_already_logged {
+            get {
+                return ResourceManager.GetString("The user is already logged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The user you want to sent a friend request doesn&apos;t exists.
+        /// </summary>
+        public static string The_user_you_want_to_sent_a_friend_request_doesn_t_exists {
+            get {
+                return ResourceManager.GetString("The user you want to sent a friend request doesn\'t exists", resourceCulture);
             }
         }
         
@@ -565,11 +826,47 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Welcome back .
+        /// </summary>
+        public static string Welcome_back {
+            get {
+                return ResourceManager.GetString("Welcome back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a What do you want?.
         /// </summary>
         public static string What_do_you_want {
             get {
                 return ResourceManager.GetString("What do you want", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You already has sent a friend request to this user.
+        /// </summary>
+        public static string You_already_has_sent_a_friend_request_to_this_user {
+            get {
+                return ResourceManager.GetString("You already has sent a friend request to this user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You can&apos;t send a friend request to yourself.
+        /// </summary>
+        public static string You_can_t_send_a_friend_request_to_yourself {
+            get {
+                return ResourceManager.GetString("You can\'t send a friend request to yourself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You cant&apos;t send a friend request to this user because is already your friend.
+        /// </summary>
+        public static string You_cant_t_send_a_friend_request_to_this_user_because_is_already_your_friend {
+            get {
+                return ResourceManager.GetString("You cant\'t send a friend request to this user because is already your friend", resourceCulture);
             }
         }
     }

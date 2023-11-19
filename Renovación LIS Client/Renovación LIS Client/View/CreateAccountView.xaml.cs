@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Resources;
 using System.Security;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
@@ -17,13 +19,17 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class CreateAccountView : Page
     {
-        /*
         private MainWindow mainWindow;
+        private CultureInfo cultureInfo;
+        private ResourceManager resourceManager;
 
         public CreateAccountView(MainWindow mainWindow)
         {
             InitializeComponent();
+
             this.mainWindow = mainWindow;
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
         }
 
         private void CreateAccountButton(object sender, RoutedEventArgs e)
@@ -71,33 +77,66 @@ namespace Renovación_LIS_Client.View
                                     Console.WriteLine(ex.StackTrace);
                                 }
 
-                                MessageBox.Show("Cuenta creada con éxito", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                                MessageBox.Show(
+                                    resourceManager.GetString("Account made successfully", cultureInfo),
+                                    resourceManager.GetString("Success!!!", cultureInfo),
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.None
+                                );
                                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                                 navigationService.Navigate(new LoginView(mainWindow));
                             }
                             else
                             {
-                                MessageBox.Show("El nickname ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show(
+                                    resourceManager.GetString("Nickname already on use", cultureInfo),
+                                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                    MessageBoxButton.OK, 
+                                    MessageBoxImage.Error
+                                );
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El correo electrónico ya está usado", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(
+                                resourceManager.GetString("Email already on use", cultureInfo),
+                                resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error
+                            );
                         }
+
+                        profileClient.Close();
+                        playerClient.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Las contraseñas no coinciden", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(
+                            resourceManager.GetString("The passwords aren't the same", cultureInfo),
+                            resourceManager.GetString("Too Bad!!!", cultureInfo),
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                        );
                     }
                 }
                 else
                 {
-                    MessageBox.Show("La fecha de Nacimiento debe de ser antes de la fecha actual", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        resourceManager.GetString("Birth date should be before than the actual date", cultureInfo),
+                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
                 }
             }
             else
             {
-                MessageBox.Show(invalidValuesInTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    invalidValuesInTextFieldsTextGenerator(),
+                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Error
+                );
             }
         }
 
@@ -114,8 +153,8 @@ namespace Renovación_LIS_Client.View
 
             string finalText = "";
 
-            string namesPattern = "^[A-Za-z\\s'-]{2,50}$";
-            string surnamesPattern = "^[A-Za-z\\s'-]{2,50}$";
+            string namesPattern = "^[A-Za-záéíóúÁÉÍÓÚ\\s'-]{2,50}$";
+            string surnamesPattern = "^[A-Za-záéíóúÁÉÍÓÚ\\s'-]{2,50}$";
             string emailPattern = "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+";
             string nickNamePattern = "^[A-Za-z0-9\\s'-]{2,50}$";
             string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
@@ -145,12 +184,12 @@ namespace Renovación_LIS_Client.View
             if (!namesMatch.Success || !surnamesMatch.Success || !emailMatch.Success ||
                 !nickNameMatch.Success || !passwordMatch.Success || !confirmPasswordMatch.Success)
             {
-                finalText = finalText + "Los campos de texto con datos inválidos son: ";
+                finalText = finalText + resourceManager.GetString("The text fields with invalid values are", cultureInfo);
             }
 
             if (!namesMatch.Success)
             {
-                finalText = finalText + "Nombre(s).";
+                finalText = finalText + resourceManager.GetString("Name(s)", cultureInfo) + ".";
                 textFieldsWithIncorrectValues++;
             }
 
@@ -159,11 +198,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Apellido(s).";
+                    finalText = finalText + ", " + resourceManager.GetString("Surname(s)", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Apellido(s).";
+                    finalText = finalText + resourceManager.GetString("Surname(s)", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;
@@ -174,11 +213,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Correo Electrónico.";
+                    finalText = finalText + ", " + resourceManager.GetString("Email", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Correo Electrónico.";
+                    finalText = finalText + resourceManager.GetString("Email", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;
@@ -189,11 +228,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Nickname.";
+                    finalText = finalText + ", " + resourceManager.GetString("Nickname", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Nickname.";
+                    finalText = finalText + resourceManager.GetString("Nickname", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;
@@ -204,11 +243,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Contraseña.";
+                    finalText = finalText + ", " + resourceManager.GetString("Password", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Contraseña.";
+                    finalText = finalText + resourceManager.GetString("Password", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;
@@ -219,11 +258,11 @@ namespace Renovación_LIS_Client.View
                 if (textFieldsWithIncorrectValues >= 1)
                 {
                     finalText = finalText.Substring(0, finalText.Length - 1);
-                    finalText = finalText + ", Confirmar Contraseña.";
+                    finalText = finalText + ", " + resourceManager.GetString("Confirm password", cultureInfo) + ".";
                 }
                 else
                 {
-                    finalText = finalText + "Confirmar Contraseña.";
+                    finalText = finalText + resourceManager.GetString("Confirm password", cultureInfo) + ".";
                 }
 
                 textFieldsWithIncorrectValues++;
@@ -231,7 +270,6 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
-        */
     }
 
 }

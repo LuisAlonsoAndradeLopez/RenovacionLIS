@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
 using System.Resources;
-using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -26,8 +25,7 @@ namespace Renovación_LIS_Client.View
     /// <summary>
     /// Lógica de interacción para FriendsView.xaml
     /// </summary>
-    //public partial class FriendsView : Page, IFriendRequestCallback
-    public partial class FriendsView : Page
+    public partial class FriendsView : Page, IFriendRequestCallback
     {
         //TODO
         //Puto cierre de procesos que no desloguea usuarios (Pendiente)
@@ -39,26 +37,19 @@ namespace Renovación_LIS_Client.View
         //Cerrar todas las conexiones (Pendiente)
         //Bug que no se elimina la solicitud de mensaje al cancelarlo por el emisor (Es bug?)
         //Cancelar Amistad (Pendiente)
+        //Pantallas de desicion para cancelar, aceptar, o rechazar solicitude de amistad ,o eliminar amistades
 
-        /*
         private MainWindow mainWindow;
         private Profile loggedProfile;
-        private CultureInfo culture;
+        private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
         public FriendsView(MainWindow mainWindow, Profile loggedProfile)
         {
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
-            culture = CultureInfo.CurrentCulture;
-
-            //Assembly assembly = Assembly.LoadFrom(new String());
-
-            resourceManager = new ResourceManager("Resources", typeof(MainWindow).Assembly);
-
-            // Specify the folder where the .resources files are located
-            
-
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             InitializeComponent();
             ShowUpdatedFriendsList();
@@ -68,7 +59,12 @@ namespace Renovación_LIS_Client.View
             FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
             friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
 
-            MessageBox.Show("Solicitud aceptada exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+            MessageBox.Show(
+                resourceManager.GetString("Friend request successfully accepted", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK, 
+                MessageBoxImage.None
+            );
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
@@ -95,11 +91,15 @@ namespace Renovación_LIS_Client.View
 
         private void CancelFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(IDFriendRequestLabel.Content.ToString(), "Alert", MessageBoxButton.OK, MessageBoxImage.None);
             FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
             friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
-            MessageBox.Show("Cancelación del envio de solicitud realizado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+            MessageBox.Show(
+                resourceManager.GetString("Cancellation of sending friend request made successfully", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK, 
+                MessageBoxImage.None
+            );
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
@@ -108,11 +108,15 @@ namespace Renovación_LIS_Client.View
 
         private void CancelFriendshipButtonOnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(IDFriendRequestLabel.Content.ToString(), "Alert", MessageBoxButton.OK, MessageBoxImage.None);
             ProfileClient profileClient = new ProfileClient(new InstanceContext(this));
             //profileClient.CancelFriendship();
 
-            MessageBox.Show("Cancelación del envio de solicitud realizado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+            MessageBox.Show(
+                resourceManager.GetString("Friendship cancellation made successfully", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK, 
+                MessageBoxImage.None
+            );
 
             profileClient.Close();
         }
@@ -206,7 +210,12 @@ namespace Renovación_LIS_Client.View
             FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
             friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
-            MessageBox.Show("Invitación Rechazada", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+            MessageBox.Show(
+                resourceManager.GetString("Friend request rejected", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.None
+            );
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
@@ -298,7 +307,12 @@ namespace Renovación_LIS_Client.View
 
                                     friendRequestClient.AddFriendRequest(friendRequests);
 
-                                    MessageBox.Show("Solicitud de Amigo creado exitosamente", "Alert", MessageBoxButton.OK, MessageBoxImage.None);
+                                    MessageBox.Show(
+                                        resourceManager.GetString("Friend request sent succesfully", cultureInfo),
+                                        resourceManager.GetString("Success!!!", cultureInfo),
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.None
+                                    );
                                     
                                     SendFriendRequestBorder.Visibility = Visibility.Hidden;
                                     FriendsBorder.Visibility = Visibility.Visible;
@@ -306,26 +320,46 @@ namespace Renovación_LIS_Client.View
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No puedes mandar solicitud de amistad a este usuario por que ya es tu amigo", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    MessageBox.Show(
+                                        resourceManager.GetString("You cant't send a friend request to this user because is already your friend", cultureInfo),
+                                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Error
+                                    );
                                 }
 
                             }
                             else
                             {
-                                MessageBox.Show("Ya le has mandado solicitud de amistad a este usuario", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show(
+                                    resourceManager.GetString("You already has sent a friend request to this user", cultureInfo),
+                                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                    MessageBoxButton.OK, 
+                                    MessageBoxImage.Error
+                                );
                             }
                             friendRequestClient.Close();
 
                         }
                         else
                         {
-                            MessageBox.Show("No te puedes mandar una solicitud de amistad a ti mismo", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(
+                                resourceManager.GetString("You can't send a friend request to yourself", cultureInfo),
+                                resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error
+                            );
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("El usuario al que le quieres mandar solicitud de amistad no existe", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(
+                            resourceManager.GetString("The user you want to sent a friend request doesn't exists", cultureInfo),
+                            resourceManager.GetString("Too Bad!!!", cultureInfo),
+                            MessageBoxButton.OK, 
+                            MessageBoxImage.Error
+                        );
                     }
 
                     profileClient.Close();
@@ -333,12 +367,22 @@ namespace Renovación_LIS_Client.View
                 }
                 else
                 {
-                    MessageBox.Show("El mensaje no debe de tener más de 100 carácteres", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        resourceManager.GetString("The message shouldn't have more than 100 characters", cultureInfo),
+                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                        MessageBoxButton.OK, 
+                        MessageBoxImage.Error
+                    );
                 }
             }
             else
             {
-                MessageBox.Show(invalidNicknameInSendFriendRequestTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    invalidNicknameInSendFriendRequestTextFieldsTextGenerator(),
+                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Error
+                );
             }
 
         }
@@ -415,7 +459,7 @@ namespace Renovación_LIS_Client.View
                     Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
                     Margin = new Thickness(0, 0, 10, 0),
                     HorizontalAlignment = HorizontalAlignment.Right,
-                    Content = resourceManager.GetString("Cancel_Friendship"),
+                    Content = resourceManager.GetString("Cancel_friendship"),
                     FontSize = 13
                 };
 
@@ -483,7 +527,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "De: " + friendRequest.Profile.Player.NickName
+                    Text = resourceManager.GetString("From", cultureInfo) + ": " + friendRequest.Profile.Player.NickName
                 };
 
                 TextBlock dateTextBlock = new TextBlock
@@ -494,7 +538,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "Fecha: " + friendRequest.CreationDate.ToString()
+                    Text = resourceManager.GetString("Date", cultureInfo) + ": " + friendRequest.CreationDate.ToString()
                 };
 
                 Button detailsButton = new Button
@@ -503,7 +547,7 @@ namespace Renovación_LIS_Client.View
                     Width = 59,
                     Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
                     Margin = new Thickness(15, 0, 0, 0),
-                    Content = "Detalles",
+                    Content = resourceManager.GetString("Details", cultureInfo),
                     FontSize = 13
                 };
 
@@ -549,7 +593,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "Para: " + friendRequest.Profile1.Player.NickName
+                    Text = resourceManager.GetString("For", cultureInfo) + ": " + friendRequest.Profile1.Player.NickName
                 };
 
                 TextBlock dateTextBlock = new TextBlock
@@ -560,7 +604,7 @@ namespace Renovación_LIS_Client.View
                     TextWrapping = TextWrapping.Wrap,
                     FontSize = 14,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Text = "Fecha: " + friendRequest.CreationDate.ToString()
+                    Text = resourceManager.GetString("Date", cultureInfo) + ": " + friendRequest.CreationDate.ToString()
                 };
 
                 Button detailsButton = new Button
@@ -569,6 +613,7 @@ namespace Renovación_LIS_Client.View
                     Width = 59,
                     Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
                     Margin = new Thickness(15, 0, 0, 0),
+                    Content = resourceManager.GetString("Details", cultureInfo),
                     FontSize = 13
                 };
 
@@ -665,7 +710,7 @@ namespace Renovación_LIS_Client.View
 
             if (!nickNameMatch.Success)
             {
-                finalText = "El Nickname no es válido";
+                finalText = resourceManager.GetString("Invalid nickname", cultureInfo) + ": ";
             }
 
             return finalText;
@@ -675,6 +720,5 @@ namespace Renovación_LIS_Client.View
         {
             ShowUpdatedFriendRequestsList();
         }
-        */
     }
 }

@@ -9,7 +9,6 @@
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="FriendsView">
 
-    <!--
     <Grid>
         <Image Source="/images/friendsImage.png" VerticalAlignment="Center"/>
 
@@ -78,14 +77,14 @@
                 </ScrollViewer>
 
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Button Content="{x:Static p:Resources.Invite_Friends}" 
+                    <Button Content="{x:Static p:Resources.Invite_friends}" 
                         Style="{StaticResource NormalButtom}"
                         Height="54"
                         Width="129"
                         Margin="15,0,0,0" Click="InviteFriendButtonOnClick"
                         Background="#FF195388"/>
 
-                    <Button Content="{x:Static p:Resources.Show_Friends_Invitations}" 
+                    <Button Content="{x:Static p:Resources.Show_friends_invitations}" 
                         Style="{StaticResource NormalButtom}"
                         Height="56"
                         Width="202"
@@ -112,7 +111,7 @@
             </Border.Background>
 
             <StackPanel Background="Black">
-                <Label Content="{x:Static p:Resources.Send_Invitation_to_Friend}"
+                <Label Content="{x:Static p:Resources.Send_invitation_to_friend}"
                     FontFamily="{StaticResource K2DBold}"
                     Foreground="White"
                     FontSize="30"
@@ -123,7 +122,7 @@
                     Height="2" Width="479"/>
 
                 <StackPanel Background="Black">
-                    <Label Content="{x:Static p:Resources.Friend_Nickname}"
+                    <Label Content="{x:Static p:Resources.Friend_nickname}"
                         FontFamily="{StaticResource K2DBold}"
                         Foreground="White"
                         HorizontalAlignment="Left"
@@ -150,7 +149,7 @@
                         HorizontalAlignment="Left" Background="Transparent" Foreground="White" OpacityMask="White" Height="157" Padding="6,3,6,3" MinWidth="0" FontSize="20" SelectionBrush="White" CaretBrush="White"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <Button Content="{x:Static p:Resources.Send_Invitation_to_Friend}" 
+                        <Button Content="{x:Static p:Resources.Send_invitation_to_friend}" 
                             Style="{StaticResource NormalButtom}"
                             Height="56"
                             Width="202"
@@ -179,7 +178,7 @@
             </Border.Background>
 
             <StackPanel>
-                <Label Content="{x:Static p:Resources.Friends_Requests}"
+                <Label Content="{x:Static p:Resources.Friends_requests}"
                     FontFamily="{StaticResource K2DBold}"
                     Foreground="White"
                     FontSize="42"
@@ -247,7 +246,7 @@
                     Visibility="Collapsed"
                     Margin="0,0,0,0"/>
 
-                <Label Content="{x:Static p:Resources.Invitation_Details}"
+                <Label Content="{x:Static p:Resources.Invitation_details}"
                     FontFamily="{StaticResource K2DBold}"
                     Foreground="White"
                     FontSize="30"
@@ -258,7 +257,7 @@
                     Height="2" Width="479"/>
 
                 <StackPanel Background="Black">
-                    <Label Content="{x:Static p:Resources.Friend_Nickname}"
+                    <Label Content="{x:Static p:Resources.Friend_nickname}"
                         FontFamily="{StaticResource K2DBold}"
                         Foreground="White"
                         HorizontalAlignment="Left"
@@ -273,7 +272,7 @@
                         HorizontalAlignment="Left"
                         Height="26"/>
 
-                    <Label Content="{x:Static p:Resources.Creation_Date}"
+                    <Label Content="{x:Static p:Resources.Creation_date}"
                         FontFamily="{StaticResource K2DBold}"
                         Foreground="White"
                         HorizontalAlignment="Left"
@@ -319,7 +318,7 @@
                             Click="AcceptFriendRequestButtonOnClick">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center"
-                                       Text="{x:Static p:Resources.Accept_Friend_Request}" />
+                                       Text="{x:Static p:Resources.Accept_friend_request}" />
                         </Button>
 
                         <Button
@@ -332,7 +331,7 @@
                             Click="RejectFriendRequestButtonOnClick" Background="#FFEA0750">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center"
-                                       Text="{x:Static p:Resources.Reject_Friend_Request}" />
+                                       Text="{x:Static p:Resources.Reject_friend_request}" />
                         </Button>
 
                         <Button 
@@ -345,7 +344,7 @@
                             Click="CancelFriendRequestButtonOnClick" Background="#FFEA0750">
 
                             <TextBlock TextWrapping="Wrap" TextAlignment="Center"
-                                       Text="{x:Static p:Resources.Cancel_Friend_Request}" />
+                                       Text="{x:Static p:Resources.Cancel_friend_request}" />
                         </Button>
 
                         <Button
@@ -368,5 +367,4 @@
         </Border>
 
     </Grid>
-    -->
 </Page>

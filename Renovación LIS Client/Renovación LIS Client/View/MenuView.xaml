@@ -13,7 +13,7 @@
         <Image Source="/images/menuImage.png" Stretch="Fill"/>
 
         <StackPanel>
-            <Label Content="Hola de nuevo "
+            <Label Content="{x:Static p:Resources.Welcome_back}"
                 Name="WelcomeBackLabel"
                 Margin="50,30,0,0"
                 FontFamily="{StaticResource K2DBold}" 
@@ -21,7 +21,7 @@
                 Foreground="White"
                 HorizontalAlignment="Left" Width="1097"/>
 
-            <Button Content="Jugar"
+            <Button Content="{x:Static p:Resources.Play}"
                 Foreground="White"
                 FontSize="40"
                 FontFamily="{StaticResource K2DRegular}"
@@ -30,7 +30,7 @@
                 Style="{StaticResource underlineButton}"
                 Click="PlayButtonOnClick"/>
 
-            <Button Content="Perfil"
+            <Button Content="{x:Static p:Resources.Profile}"
                 Foreground="White"
                 FontSize="40"
                 FontFamily="{StaticResource K2DRegular}"
@@ -41,7 +41,7 @@
                 Style="{StaticResource underlineButton}"
                 MouseLeftButtonDown="ProfileButtonOnClick" Click="ProfileButtonOnClick"/>
 
-            <Button Content="Amigazazos"
+            <Button Content="{x:Static p:Resources.Friends}"
                 Foreground="White"
                 FontSize="40"
                 FontFamily="{StaticResource K2DRegular}"
@@ -53,7 +53,7 @@
                 MouseLeftButtonDown="FriendsButtonOnClick"
                 Click="FriendsButtonOnClick"/>
 
-            <Button Content="Configuración"
+            <Button Content="{x:Static p:Resources.Configuration}"
                 Foreground="White"
                 FontSize="40"
                 FontFamily="{StaticResource K2DRegular}"
@@ -63,7 +63,7 @@
                 Margin="30,40,0,0"
                 Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
 
-            <Button Content="Salir"
+            <Button Content="{x:Static p:Resources.Exit}"
                 Foreground="White"
                 FontSize="40"
                 FontFamily="{StaticResource K2DRegular}"

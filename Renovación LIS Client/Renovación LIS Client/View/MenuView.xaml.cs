@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using domain;
 using DomainStatuses;
-using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
@@ -25,7 +13,6 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
-        /*
         private MainWindow mainWindow;
         Profile loggedProfile = new Profile();
 
@@ -65,7 +52,8 @@ namespace Renovación_LIS_Client.View
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
+
+            profileClient.Close();
         }
-        */
     }
 }

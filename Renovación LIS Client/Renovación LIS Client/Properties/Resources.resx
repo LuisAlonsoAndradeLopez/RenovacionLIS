@@ -120,11 +120,17 @@
   <data name="A code has been sent to your email" xml:space="preserve">
     <value>A code has been sent to your email</value>
   </data>
-  <data name="Accept Friend Request" xml:space="preserve">
-    <value>Accept Friend Request</value>
+  <data name="Accept friend request" xml:space="preserve">
+    <value>Accept friend request</value>
+  </data>
+  <data name="Account made successfully" xml:space="preserve">
+    <value>Account made successfully!!!</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
+  </data>
+  <data name="Birth date should be before than the actual date" xml:space="preserve">
+    <value>Birth date should be before than the actual date</value>
   </data>
   <data name="Birth day" xml:space="preserve">
     <value>Birth day</value>
@@ -132,14 +138,17 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Cancel Friend Request" xml:space="preserve">
-    <value>Cancel Friend Request</value>
+  <data name="Cancel friend request" xml:space="preserve">
+    <value>Cancel friend request</value>
   </data>
-  <data name="Cancel Friendship" xml:space="preserve">
-    <value>Cancel Friendship</value>
+  <data name="Cancel friendship" xml:space="preserve">
+    <value>Cancel friendship</value>
   </data>
   <data name="Cancelation of friend request send made sucessfully" xml:space="preserve">
     <value>Cancelation of friend request send made sucessfully</value>
+  </data>
+  <data name="Cancellation of sending friend request made successfully" xml:space="preserve">
+    <value>Cancellation of sending friend request made successfully!!!</value>
   </data>
   <data name="Change password" xml:space="preserve">
     <value>Change password</value>
@@ -150,23 +159,35 @@
   <data name="Code for change your password" xml:space="preserve">
     <value>Code for change your password.</value>
   </data>
-  <data name="Confirm Password" xml:space="preserve">
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Confirm password" xml:space="preserve">
     <value>Confirm password</value>
   </data>
   <data name="Confirm your new password" xml:space="preserve">
     <value>Confirm your new password</value>
   </data>
-  <data name="Create Account" xml:space="preserve">
-    <value>Create Account</value>
+  <data name="Create account" xml:space="preserve">
+    <value>Create account</value>
   </data>
-  <data name="Creation Date" xml:space="preserve">
-    <value>Creation Date</value>
+  <data name="Creation date" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
   </data>
   <data name="Do you want to exit" xml:space="preserve">
     <value>Do you want to exit?</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>E mail</value>
+  </data>
+  <data name="Email already on use" xml:space="preserve">
+    <value>Email already on use</value>
   </data>
   <data name="Email not found" xml:space="preserve">
     <value>Email not found</value>
@@ -180,20 +201,38 @@
   <data name="First Last Name" xml:space="preserve">
     <value>First Last Name</value>
   </data>
+  <data name="For" xml:space="preserve">
+    <value>For</value>
+  </data>
   <data name="Forgot Password" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
-  <data name="Friend Nickname" xml:space="preserve">
-    <value>Friend Nickname</value>
+  <data name="Friend nickname" xml:space="preserve">
+    <value>Friend nickname</value>
+  </data>
+  <data name="Friend request rejected" xml:space="preserve">
+    <value>Friend request rejected</value>
+  </data>
+  <data name="Friend request sent succesfully" xml:space="preserve">
+    <value>Friend request sent succesfully!!!</value>
+  </data>
+  <data name="Friend request successfully accepted" xml:space="preserve">
+    <value>Friend request successfully accepted!!!</value>
   </data>
   <data name="Friends" xml:space="preserve">
     <value>Friends</value>
   </data>
-  <data name="Friends Requests" xml:space="preserve">
-    <value>Friends Requests</value>
+  <data name="Friends requests" xml:space="preserve">
+    <value>Friends requests</value>
   </data>
-  <data name="Have you already have an account?" xml:space="preserve">
-    <value>Have you already have an account?</value>
+  <data name="Friendship cancellation made successfully" xml:space="preserve">
+    <value>Friendship cancellation made successfully</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Have you already have an account" xml:space="preserve">
+    <value>Have you already have an account? Log In</value>
   </data>
   <data name="Introduce the code" xml:space="preserve">
     <value>Introduce the code</value>
@@ -207,11 +246,14 @@
   <data name="Invalid code" xml:space="preserve">
     <value>Invalid code</value>
   </data>
-  <data name="Invitation Details" xml:space="preserve">
-    <value>Invitation Details</value>
+  <data name="Invalid nickname" xml:space="preserve">
+    <value>Invalid nickname</value>
   </data>
-  <data name="Invite Friends" xml:space="preserve">
-    <value>Invite Friends</value>
+  <data name="Invitation details" xml:space="preserve">
+    <value>Invitation details</value>
+  </data>
+  <data name="Invite friends" xml:space="preserve">
+    <value>Invite friends</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Login</value>
@@ -219,17 +261,23 @@
   <data name="Message" xml:space="preserve">
     <value>Message</value>
   </data>
-  <data name="Modify Profile" xml:space="preserve">
-    <value>Modify Profile</value>
+  <data name="Modify profile" xml:space="preserve">
+    <value>Modify profile</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="Name(s)" xml:space="preserve">
+    <value>Name(s)</value>
   </data>
   <data name="New Password" xml:space="preserve">
     <value>New password</value>
   </data>
   <data name="Nickname" xml:space="preserve">
     <value>Nickname</value>
+  </data>
+  <data name="Nickname already on use" xml:space="preserve">
+    <value>Nickname already on use</value>
   </data>
   <data name="NotregisterYet" xml:space="preserve">
     <value>Not register yet? Sign Up</value>
@@ -246,23 +294,41 @@
   <data name="Password changed sucessfully!!!" xml:space="preserve">
     <value>Password changed sucessfully!!!</value>
   </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Profile modified successfully!!!" xml:space="preserve">
+    <value>Profile modified successfully!!!</value>
+  </data>
+  <data name="Profile picture" xml:space="preserve">
+    <value>Profile picture</value>
+  </data>
   <data name="Received" xml:space="preserve">
     <value>Received</value>
   </data>
-  <data name="Reject Friend Request" xml:space="preserve">
-    <value>Reject Friend Request</value>
+  <data name="Reject friend request" xml:space="preserve">
+    <value>Reject friend request</value>
+  </data>
+  <data name="Select an image" xml:space="preserve">
+    <value>Select an image</value>
   </data>
   <data name="Send code" xml:space="preserve">
     <value>Send code</value>
   </data>
-  <data name="Send Invitation to Friend" xml:space="preserve">
-    <value>Send Invitation to Friend</value>
+  <data name="Send invitation to friend" xml:space="preserve">
+    <value>Send invitation to friend</value>
+  </data>
+  <data name="Send message" xml:space="preserve">
+    <value>Send message</value>
   </data>
   <data name="Sent" xml:space="preserve">
     <value>Sent</value>
   </data>
-  <data name="Show Friends Invitations" xml:space="preserve">
-    <value>Show Friends Invitations</value>
+  <data name="Show friends invitations" xml:space="preserve">
+    <value>Show friends invitations</value>
   </data>
   <data name="Spanish" xml:space="preserve">
     <value>Spanish</value>
@@ -273,11 +339,32 @@
   <data name="Success!!!" xml:space="preserve">
     <value>Success!!!</value>
   </data>
+  <data name="Surname(s)" xml:space="preserve">
+    <value>Surname(s)</value>
+  </data>
+  <data name="The file shouldn't be larger than 1 MB" xml:space="preserve">
+    <value>The file shouldn't be larger than 1 MB</value>
+  </data>
+  <data name="The introduced nickname doesn't exists" xml:space="preserve">
+    <value>The introduced nickname doesn't exists</value>
+  </data>
+  <data name="The message shouldn't have more than 100 characters" xml:space="preserve">
+    <value>The message shouldn't have more than 100 characters</value>
+  </data>
+  <data name="The password isn't correct" xml:space="preserve">
+    <value>The password isn't correct</value>
+  </data>
   <data name="The passwords aren't the same" xml:space="preserve">
     <value>The passwords aren't the same</value>
   </data>
   <data name="The text fields with invalid values are" xml:space="preserve">
     <value>The text fields with invalid values are: </value>
+  </data>
+  <data name="The user is already logged" xml:space="preserve">
+    <value>The user is already logged</value>
+  </data>
+  <data name="The user you want to sent a friend request doesn't exists" xml:space="preserve">
+    <value>The user you want to sent a friend request doesn't exists</value>
   </data>
   <data name="To confirm the new password, we'll send a code to your email" xml:space="preserve">
     <value>To confirm the new password, we'll send a code to your email</value>
@@ -285,7 +372,19 @@
   <data name="Too Bad!!!" xml:space="preserve">
     <value>Too Bad!!!</value>
   </data>
+  <data name="Welcome back" xml:space="preserve">
+    <value>Welcome back </value>
+  </data>
   <data name="What do you want" xml:space="preserve">
     <value>What do you want?</value>
+  </data>
+  <data name="You already has sent a friend request to this user" xml:space="preserve">
+    <value>You already has sent a friend request to this user</value>
+  </data>
+  <data name="You can't send a friend request to yourself" xml:space="preserve">
+    <value>You can't send a friend request to yourself</value>
+  </data>
+  <data name="You cant't send a friend request to this user because is already your friend" xml:space="preserve">
+    <value>You cant't send a friend request to this user because is already your friend</value>
   </data>
 </root>

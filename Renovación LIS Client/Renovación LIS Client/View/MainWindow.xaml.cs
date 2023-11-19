@@ -6,7 +6,6 @@ using Renovación_LIS_Client.ServiceLivePlayerReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Renovación_LIS_Client.View;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Resources;
@@ -145,7 +144,7 @@ namespace Renovación_LIS_Client
         }
         public void UpdateFriendsLists()
         {
-            //friendsView.ShowUpdatedFriendsList();
+            friendsView.ShowUpdatedFriendsList();
         }
     }
 
@@ -161,7 +160,7 @@ namespace Renovación_LIS_Client
 
         public void UpdateFriendsRequestsLists()
         {
-            //friendsView.ShowUpdatedFriendRequestsList();
+            friendsView.ShowUpdatedFriendRequestsList();
         }
     }
 
