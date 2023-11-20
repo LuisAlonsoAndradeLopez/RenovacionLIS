@@ -1,8 +1,10 @@
 ﻿using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.ServiceChatReference;
+using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
 using Renovación_LIS_Client.ServiceLivePlayerReference;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Renovación_LIS_Client.View;
 using System;
@@ -24,6 +26,7 @@ namespace Renovación_LIS_Client
         private Profile loggedProfile = null;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,33 +47,32 @@ namespace Renovación_LIS_Client
         {
             if (loggedProfile != null)
             {
-                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
-                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-
-                profileClient.Close();
+                //profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+                //
+                //profileClient.Close();
             }
         }
 
         private void ProcessExit(object sender, EventArgs e)
         {
-            if (loggedProfile != null)
-            {
-                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
-                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-
-                profileClient.Close();
-            }
+            //if (loggedProfile != null)
+            //{
+            //    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback()));
+            //    profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            //
+            //    profileClient.Close();
+            //}
         }
 
         private void DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            if (loggedProfile != null)
-            {
-                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
-                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-
-                profileClient.Close();
-            }
+            //if (loggedProfile != null)
+            //{
+            //    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback()));
+            //    profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            //
+            //    profileClient.Close();
+            //}
 
         }
 
@@ -89,7 +91,7 @@ namespace Renovación_LIS_Client
                 {
                     if(loggedProfile != null)
                     {
-                        ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                        ProfileClient profileClient = new ProfileClient();
                         profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
 
                         profileClient.Close();
@@ -134,25 +136,31 @@ namespace Renovación_LIS_Client
     }
 
     //[CallbackBehavior(UseSynchronizationContext = false)]
-    public class ServiceProfileCallback : IProfileCallback
+    public class ServiceProfileCallback : IProfileForCallbackMethodsCallback
     {
         private FriendsView friendsView;
 
+        public ServiceProfileCallback() { }
         public ServiceProfileCallback(FriendsView friendsView)
         {
             this.friendsView = friendsView;
         }
+
         public void UpdateFriendsLists()
         {
-            friendsView.ShowUpdatedFriendsList();
+            if (friendsView != null)
+            {
+                friendsView.ShowUpdatedFriendRequestsList();
+            }
         }
     }
 
-    [CallbackBehavior(UseSynchronizationContext = false)]
-    public class ServiceFriendRequestCallback : IFriendRequestCallback
+    //[CallbackBehavior(UseSynchronizationContext = false)]
+    public class ServiceFriendRequestCallback : IFriendRequestForCallbackMethodsCallback
     {
         private FriendsView friendsView;
 
+        public ServiceFriendRequestCallback() { }
         public ServiceFriendRequestCallback(FriendsView friendsView)
         {
             this.friendsView = friendsView;
@@ -160,7 +168,10 @@ namespace Renovación_LIS_Client
 
         public void UpdateFriendsRequestsLists()
         {
-            friendsView.ShowUpdatedFriendRequestsList();
+            if(friendsView != null)
+            {
+                friendsView.ShowUpdatedFriendRequestsList();
+            }
         }
     }
 

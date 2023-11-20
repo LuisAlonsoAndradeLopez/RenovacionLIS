@@ -16,7 +16,7 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServiceProfile : IProfile
     {
@@ -327,4 +327,49 @@ namespace ServicesTCP.Services
             }
         }
     }
+
+    public partial class ServiceProfileForCallbackMethods : IProfileForCallbackMethods
+    {
+        private Dictionary<string, IProfileCallback> connectedProfiles = new Dictionary<string, IProfileCallback>();
+        public void Connect(string username)
+        {
+            IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
+
+            if (!connectedProfiles.ContainsKey(username))
+            {
+                connectedProfiles.Add(username, callback);
+
+                // Notify existing friends about the new connection
+                foreach (var profileCallback in connectedProfiles.Values)
+                {
+                    profileCallback.UpdateFriendsLists();
+                }
+            }
+        }
+
+        public void Disconnect(string username)
+        {
+            if (connectedProfiles.ContainsKey(username))
+            {
+                connectedProfiles.Remove(username);
+
+                // Notify existing friends about the disconnection
+                foreach (var friendCallback in connectedProfiles.Values)
+                {
+                    friendCallback.UpdateFriendsLists();
+                }
+            }
+        }
+
+        public Dictionary<string, IProfileCallback> GetConnectedProfiles()
+        {
+            return connectedProfiles;
+        }
+
+        public void SetConnectedProfiles(Dictionary<string, IProfileCallback> connectedProfiles)
+        {
+            this.connectedProfiles = connectedProfiles;
+        }
+    }
+
 }

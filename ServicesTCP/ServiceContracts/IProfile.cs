@@ -12,7 +12,7 @@ using DomainStatuses;
 
 namespace ServicesTCP.ServiceContracts
 {
-    [ServiceContract(CallbackContract = typeof(IProfileCallback))]
+    [ServiceContract]
     public interface IProfile
     {
         [OperationContract]
@@ -31,7 +31,7 @@ namespace ServicesTCP.ServiceContracts
         Profile GetProfileByPlayerID(long playerID);
 
         [OperationContract]
-        Profile GetProfileByPlayerNickname(string nickname);
+        Profile GetProfileByPlayerNickname(string nickname);       
 
         [OperationContract]
         bool TheProfileIsLogged(long profileID);
@@ -40,7 +40,24 @@ namespace ServicesTCP.ServiceContracts
         bool UploadImage(string fileName, byte[] imageData);
     }
 
-    [ServiceContract]
+
+    [ServiceContract(CallbackContract = typeof(IProfileCallback))]
+    public interface IProfileForCallbackMethods
+    {
+        [OperationContract(IsOneWay = true)]
+        void Connect(string username);
+
+        [OperationContract(IsOneWay = true)]
+        void Disconnect(string username);
+
+        [OperationContract]
+        Dictionary<string, IProfileCallback> GetConnectedProfiles();
+
+        [OperationContract]
+        void SetConnectedProfiles(Dictionary<string, IProfileCallback> connectedProfiles);
+    }
+
+    
     public interface IProfileCallback
     {
         [OperationContract(IsOneWay = true)]

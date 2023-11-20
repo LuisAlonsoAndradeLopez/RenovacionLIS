@@ -10,12 +10,9 @@ using domain;
 
 namespace ServicesTCP.ServiceContracts
 {
-    [ServiceContract(CallbackContract = typeof(IFriendRequestCallback))]
+    [ServiceContract]
     public interface IFriendRequest
     {
-        [OperationContract]
-        void AddFriendRequest(FriendRequests friendRequests);
-
         [OperationContract]
         List<FriendRequests> GetFriendsRequestsByProfileID(long ID);
 
@@ -35,8 +32,12 @@ namespace ServicesTCP.ServiceContracts
         bool TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(long transmitterProfileID, long receiverProfileID);
     }
 
+    [ServiceContract(CallbackContract = typeof(IFriendRequestCallback))]
     public interface IFriendRequestForCallbackMethods
     {
+        [OperationContract(IsOneWay = true)]
+        void AddFriendRequest(FriendRequests friendRequests);
+
         [OperationContract(IsOneWay = true)]
         void AcceptFriendRequest(FriendRequests friendRequests);
 
@@ -47,8 +48,6 @@ namespace ServicesTCP.ServiceContracts
         void RejectFriendRequest(FriendRequests friendRequests);
     }
 
-
-    //[ServiceContract]
     public interface IFriendRequestCallback
     {
         [OperationContract(IsOneWay = true)]

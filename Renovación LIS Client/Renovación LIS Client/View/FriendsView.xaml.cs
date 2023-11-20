@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.IO;
 using System.Resources;
-using System.Security.Policy;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -14,7 +13,9 @@ using System.Windows.Navigation;
 using System.Windows.Threading;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Button = System.Windows.Controls.Button;
 using MessageBox = System.Windows.MessageBox;
@@ -25,7 +26,7 @@ namespace Renovación_LIS_Client.View
     /// <summary>
     /// Lógica de interacción para FriendsView.xaml
     /// </summary>
-    public partial class FriendsView : Page, IFriendRequestCallback
+    public partial class FriendsView : Page
     {
         //TODO
         //Puto cierre de procesos que no desloguea usuarios (Pendiente)
@@ -33,8 +34,6 @@ namespace Renovación_LIS_Client.View
         //Cambiar AffFriendship de ServiceProfile (Preguntar al revolucionario)
         //Actualizar instantaneamente al aceptar, cancelar o rechazar invitaciones de amistad (Callback para todo)
         //Si te rechazan la solicitud de amistad, ya no te debería aparecer en la lista (Hecho)
-        //Internacionalizar todititito (Pendiente)
-        //Cerrar todas las conexiones (Pendiente)
         //Bug que no se elimina la solicitud de mensaje al cancelarlo por el emisor (Es bug?)
         //Cancelar Amistad (Pendiente)
         //Pantallas de desicion para cancelar, aceptar, o rechazar solicitude de amistad ,o eliminar amistades
@@ -43,11 +42,16 @@ namespace Renovación_LIS_Client.View
         private Profile loggedProfile;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
-        public FriendsView(MainWindow mainWindow, Profile loggedProfile)
+        public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
+;
+
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
@@ -56,9 +60,8 @@ namespace Renovación_LIS_Client.View
         }
         private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
-            friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
-
+            //FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
+            //friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
             MessageBox.Show(
                 resourceManager.GetString("Friend request successfully accepted", cultureInfo),
                 resourceManager.GetString("Success!!!", cultureInfo),
@@ -68,7 +71,7 @@ namespace Renovación_LIS_Client.View
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
+            //friendRequestClient.Close();
         }
 
         private void BackButtonOnClick(object sender, RoutedEventArgs e)
@@ -91,8 +94,8 @@ namespace Renovación_LIS_Client.View
 
         private void CancelFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
-            friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+            //FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
+            //friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
             MessageBox.Show(
                 resourceManager.GetString("Cancellation of sending friend request made successfully", cultureInfo),
@@ -103,12 +106,11 @@ namespace Renovación_LIS_Client.View
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
+            //friendRequestClient.Close();
         }
 
         private void CancelFriendshipButtonOnClick(object sender, RoutedEventArgs e)
         {
-            ProfileClient profileClient = new ProfileClient(new InstanceContext(this));
             //profileClient.CancelFriendship();
 
             MessageBox.Show(
@@ -118,7 +120,7 @@ namespace Renovación_LIS_Client.View
                 MessageBoxImage.None
             );
 
-            profileClient.Close();
+            //profileClient.Close();
         }
 
         private void DetailsButtonOnClick(object sender, RoutedEventArgs e)
@@ -132,7 +134,8 @@ namespace Renovación_LIS_Client.View
 
                 TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
 
-                FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
+                FriendRequestClient friendRequestClient = new FriendRequestClient();
+                FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
                 FriendRequest friendRequest = new FriendRequest();
                 friendRequest = friendRequestClient.GetFriendRequestByID(long.Parse(IDTextBlock.Text));
 
@@ -196,7 +199,7 @@ namespace Renovación_LIS_Client.View
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void InviteFriendButtonOnClick(object sender, RoutedEventArgs e)
@@ -207,8 +210,8 @@ namespace Renovación_LIS_Client.View
 
         private void RejectFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
-            friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+            //FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
+            //friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
             MessageBox.Show(
                 resourceManager.GetString("Friend request rejected", cultureInfo),
@@ -219,7 +222,7 @@ namespace Renovación_LIS_Client.View
 
             FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
+            //friendRequestClient.Close();
         }
 
         private void SeeFriendsRequestButtonOnClick(object sender, RoutedEventArgs e)
@@ -236,15 +239,15 @@ namespace Renovación_LIS_Client.View
             {
                 if (new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text.Length <= 100)
                 {
-                    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                    ProfileClient profileClient = new ProfileClient();
                     if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text) != null)
                     {
                         if (NicknameTextBox.Text != loggedProfile.Player.NickName)
                         {
-                            ServiceFriendRequestCallback callback = new ServiceFriendRequestCallback(this);
-                            InstanceContext context = new InstanceContext(callback);
-                            FriendRequestClient friendRequestClient = new FriendRequestClient(context);
-
+                            FriendRequestClient friendRequestClient = new FriendRequestClient();
+                            FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(
+                                    new InstanceContext(new ServiceFriendRequestCallback(this))
+                            );
 
                             if (!friendRequestClient.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(
                                 loggedProfile.IDProfile,
@@ -305,7 +308,7 @@ namespace Renovación_LIS_Client.View
                                     friendRequests.Profiles = profiles;
                                     friendRequests.Profiles1 = profiles1;
 
-                                    friendRequestClient.AddFriendRequest(friendRequests);
+                                    //friendRequestClient.AddFriendRequest(friendRequests);
 
                                     MessageBox.Show(
                                         resourceManager.GetString("Friend request sent succesfully", cultureInfo),
@@ -399,7 +402,7 @@ namespace Renovación_LIS_Client.View
             OfflineFriendsStackPanel.Children.Clear();
             
 
-            ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(this)));
+            ProfileClient profileClient = new ProfileClient();
             foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
             {
                 Border friendBorder = new Border
@@ -496,8 +499,9 @@ namespace Renovación_LIS_Client.View
 
             ReceivedFriendsRequestsStackPanel.Children.Clear();
             SentFriendsRequestsStackPanel.Children.Clear();
-            
-            FriendRequestClient friendRequestClient = new FriendRequestClient(new InstanceContext(this));
+
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
             foreach (FriendRequest friendRequest in friendRequestClient.GetPendientsForAceptationFriendsRequestsByProfile1ID(loggedProfile.IDProfile))
             {
                 Border receivedFriendRequestBorder = new Border
@@ -629,13 +633,16 @@ namespace Renovación_LIS_Client.View
                 SentFriendsRequestsStackPanel.Children.Add(sentFriendRequestBorder);
             }
 
+            ProfileClient profileClient = new ProfileClient();
+
+
             friendRequestClient.Close();
         }
 
 
         private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions(string profileNickname)
         {
-            ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+            ProfileClient profileClient = new ProfileClient();
             string fileName = profileNickname + ".png";
             byte[] imageData = profileClient.GetImage(fileName);
 

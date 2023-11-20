@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using domain;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -17,12 +19,14 @@ namespace Renovación_LIS_Client.View
         private Profile loggedProfile = new Profile();
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
-        public ChatView(MainWindow mainWindow, Profile loggedProfile)
+        public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
@@ -30,7 +34,7 @@ namespace Renovación_LIS_Client.View
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)

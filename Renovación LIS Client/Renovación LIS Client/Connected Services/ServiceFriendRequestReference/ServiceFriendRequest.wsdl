@@ -14,24 +14,12 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8030/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8030/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8030/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
-      <xsd:import schemaLocation="http://localhost:8030/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
+      <xsd:import schemaLocation="http://localhost:8050/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8050/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8050/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
+      <xsd:import schemaLocation="http://localhost:8050/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IFriendRequest_AddFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddFriendRequest" />
-  </wsdl:message>
-  <wsdl:message name="IFriendRequest_AddFriendRequest_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddFriendRequestResponse" />
-  </wsdl:message>
-  <wsdl:message name="IFriendRequest_AcceptFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:AcceptFriendRequest" />
-  </wsdl:message>
-  <wsdl:message name="IFriendRequest_CancelFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:CancelFriendRequest" />
-  </wsdl:message>
   <wsdl:message name="IFriendRequest_GetFriendsRequestsByProfileID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfileID" />
   </wsdl:message>
@@ -62,29 +50,13 @@
   <wsdl:message name="IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IFriendRequest_RejectFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:RejectFriendRequest" />
-  </wsdl:message>
   <wsdl:message name="IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage">
     <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" />
   </wsdl:message>
   <wsdl:message name="IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage">
     <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" />
   </wsdl:message>
-  <wsdl:message name="IFriendRequest_UpdateFriendsRequestsLists_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:UpdateFriendsRequestsLists" />
-  </wsdl:message>
   <wsdl:portType name="IFriendRequest">
-    <wsdl:operation name="AddFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/AddFriendRequest" message="tns:IFriendRequest_AddFriendRequest_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/AddFriendRequestResponse" message="tns:IFriendRequest_AddFriendRequest_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AcceptFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest" message="tns:IFriendRequest_AcceptFriendRequest_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CancelFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/CancelFriendRequest" message="tns:IFriendRequest_CancelFriendRequest_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetFriendsRequestsByProfileID">
       <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID" message="tns:IFriendRequest_GetFriendsRequestsByProfileID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileIDResponse" message="tns:IFriendRequest_GetFriendsRequestsByProfileID_OutputMessage" />
@@ -105,41 +77,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequestsByProfileID" message="tns:IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse" message="tns:IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RejectFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/RejectFriendRequest" message="tns:IFriendRequest_RejectFriendRequest_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" message="tns:IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" message="tns:IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateFriendsRequestsLists">
-      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/UpdateFriendsRequestsLists" message="tns:IFriendRequest_UpdateFriendsRequestsLists_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IFriendRequest" type="tns:IFriendRequest">
     <wsp:PolicyReference URI="#NetTcpBinding_IFriendRequest_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="AddFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/AddFriendRequest" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AcceptFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/AcceptFriendRequest" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="CancelFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/CancelFriendRequest" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="GetFriendsRequestsByProfileID">
       <soap12:operation soapAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID" style="document" />
       <wsdl:input>
@@ -185,12 +130,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RejectFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/RejectFriendRequest" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
       <soap12:operation soapAction="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" style="document" />
       <wsdl:input>
@@ -200,18 +139,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateFriendsRequestsLists">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/UpdateFriendsRequestsLists" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServiceFriendRequest">
     <wsdl:port name="NetTcpBinding_IFriendRequest" binding="tns:NetTcpBinding_IFriendRequest">
-      <soap12:address location="net.tcp://localhost:8040/ServiceFriendRequest" />
+      <soap12:address location="net.tcp://localhost:8060/ServiceFriendRequest" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8040/ServiceFriendRequest</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8060/ServiceFriendRequest</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

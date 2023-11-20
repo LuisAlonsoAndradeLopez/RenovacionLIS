@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
@@ -23,16 +24,18 @@ namespace Renovación_LIS_Client.View
     public partial class ModifyProfileView : Page
     {
         private MainWindow mainWindow;
-        Profile loggedProfile = new Profile();
+        private Profile loggedProfile = new Profile();
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
-        public ModifyProfileView(MainWindow mainWindow, Profile loggedProfile)
+        public ModifyProfileView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
@@ -70,7 +73,7 @@ namespace Renovación_LIS_Client.View
         private void CancelButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
@@ -80,7 +83,7 @@ namespace Renovación_LIS_Client.View
                 if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
                     PlayerClient playerClient = new PlayerClient();
-                    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                    ProfileClient profileClient = new ProfileClient();
 
                     if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedProfile.Player.Email)
                     {
@@ -128,7 +131,7 @@ namespace Renovación_LIS_Client.View
                             loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
 
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow, loggedProfile));
+                            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
                         }
                         else
                         {
@@ -270,7 +273,7 @@ namespace Renovación_LIS_Client.View
 
         private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions()
         {
-            ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+            ProfileClient profileClient = new ProfileClient();
             string fileName = loggedProfile.Player.NickName + ".png";
             byte[] imageData = profileClient.GetImage(fileName);
 
@@ -285,6 +288,8 @@ namespace Renovación_LIS_Client.View
                 fileName = loggedProfile.Player.NickName + ".jpeg";
                 imageData = profileClient.GetImage(fileName);
             }
+
+            profileClient.Close();
 
             return imageData;
         }

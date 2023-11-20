@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
@@ -14,13 +15,15 @@ namespace Renovación_LIS_Client.View
     public partial class MenuView : Page
     {
         private MainWindow mainWindow;
-        Profile loggedProfile = new Profile();
+        private Profile loggedProfile = new Profile();
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
-        public MenuView(MainWindow mainWindow, Profile loggedProfile)
+        public MenuView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
             WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedProfile.Player.NickName + "!";
         }
 
@@ -29,24 +32,24 @@ namespace Renovación_LIS_Client.View
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile));
+            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ChatView(mainWindow, loggedProfile));
+            navigationService.Navigate(new ChatView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ModifyProfileView(mainWindow, loggedProfile));
+            navigationService.Navigate(new ModifyProfileView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void QuitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+            ProfileClient profileClient = new ProfileClient();
             profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
             mainWindow.SetNullToLoggedProfile();
 

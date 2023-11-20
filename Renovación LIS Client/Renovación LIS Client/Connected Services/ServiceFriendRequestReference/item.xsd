@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DatabaseManager" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DatabaseManager" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfFriendRequests">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FriendRequests" nillable="true" type="tns:FriendRequests" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFriendRequests" nillable="true" type="tns:ArrayOfFriendRequests" />
   <xs:complexType name="FriendRequests">
     <xs:sequence>
       <xs:element minOccurs="0" name="AceptationStatus" nillable="true" type="xs:string" />
@@ -78,12 +84,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Words" nillable="true" type="tns:Words" />
-  <xs:complexType name="ArrayOfFriendRequests">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FriendRequests" nillable="true" type="tns:FriendRequests" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFriendRequests" nillable="true" type="tns:ArrayOfFriendRequests" />
   <xs:complexType name="Players">
     <xs:sequence>
       <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime" />

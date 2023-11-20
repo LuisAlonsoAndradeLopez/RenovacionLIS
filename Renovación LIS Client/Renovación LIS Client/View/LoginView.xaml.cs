@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
@@ -52,7 +53,7 @@ namespace Renovación_LIS_Client.View
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
 
-                ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                ProfileClient profileClient = new ProfileClient();
                 Profile profile = profileClient.GetProfileByPlayerNickname(NicknameTextField.Text);
                 
                 if (profile != null)
@@ -65,10 +66,13 @@ namespace Renovación_LIS_Client.View
                         {
                             profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
 
+                            ProfileForCallbackMethodsClient profileForCallbackMethodsClient = new ProfileForCallbackMethodsClient(new InstanceContext(new ServiceProfileCallback()));
+                            profileForCallbackMethodsClient.Connect(profile.Player.NickName);
+
                             mainWindow.SetProfileToLoggedProfile(profile);
 
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow, profile));
+                            navigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
                         }
                         else
                         {

@@ -100,6 +100,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceFriendRequestReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +116,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServicePlayerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -259,6 +269,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceChatReference\ServiceChat.wsdl" />
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\ServiceFriendRequestForCallbackMethods.wsdl" />
     <None Include="Connected Services\ServiceFriendRequestReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -301,6 +321,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServicePlayerReference\ServicePlayer.wsdl" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods.wsdl" />
     <None Include="Connected Services\ServiceProfileReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -376,11 +406,46 @@
     <Resource Include="images\OfflineSymbol.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\chatImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bannedPlayersImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceChatReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceLivePlayerReference\" />
     <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProfileForCallbackMethodsReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceProfileReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceFriendRequestReference\item.disco" />
@@ -393,6 +458,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceFriendRequestReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLivePlayerReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -428,52 +523,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\chatImage.png" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\bannedPlayersImage.png" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\item.disco" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

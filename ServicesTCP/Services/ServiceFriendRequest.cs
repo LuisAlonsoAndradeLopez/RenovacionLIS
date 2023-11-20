@@ -19,39 +19,9 @@ namespace ServicesTCP.Services
 {
     //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, Name = "ServicePlayer")]
     //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public partial class ServiceFriendRequest : IFriendRequest
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    public class ServiceFriendRequest : IFriendRequest
     {
-
-        public void AddFriendRequest(FriendRequests friendRequests)
-        {
-            long generatedID = 0;
-
-            try
-            {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                databaseModelContainer.Entry(friendRequests).State = EntityState.Unchanged;
-                databaseModelContainer.FriendRequestsSet.Add(friendRequests);
-                databaseModelContainer.SaveChanges();
-                generatedID = friendRequests.IDFriendRequest;
-
-                foreach (var client in clients)
-                {
-                    OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>().UpdateFriendsRequestsLists();
-                }
-            }
-            catch (DbEntityValidationException ex)
-            {
-                foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
-                    }
-                }
-            }
-            //return generatedID;
-        }
 
         public List<FriendRequests> GetFriendsRequestsByProfileID(long ID)
         {
@@ -291,9 +261,39 @@ namespace ServicesTCP.Services
         }
     }
 
-    public partial class ServiceFriendRequest : IFriendRequestForCallbackMethods
+    public class ServiceFriendRequestForCallbackMethods : IFriendRequestForCallbackMethods
     {
         private static List<IFriendRequestCallback> clients = new List<IFriendRequestCallback>();
+
+        public void AddFriendRequest(FriendRequests friendRequests)
+        {
+            long generatedID = 0;
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                databaseModelContainer.Entry(friendRequests).State = EntityState.Unchanged;
+                databaseModelContainer.FriendRequestsSet.Add(friendRequests);
+                databaseModelContainer.SaveChanges();
+                generatedID = friendRequests.IDFriendRequest;
+
+                foreach (var client in clients)
+                {
+                    OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>().UpdateFriendsRequestsLists();
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+            }
+            //return generatedID;
+        }
 
         public void AcceptFriendRequest(FriendRequests friendRequests)
         {

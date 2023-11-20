@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using Renovación_LIS_Client.ServiceProfileReference;
 using Path = System.IO.Path;
 
 namespace Renovación_LIS_Client.View

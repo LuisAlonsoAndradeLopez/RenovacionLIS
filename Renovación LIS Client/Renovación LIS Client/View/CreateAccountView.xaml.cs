@@ -46,7 +46,7 @@ namespace Renovación_LIS_Client.View
 
                     if (Password == ConfirmPassword)
                     {
-                        ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback(null)));
+                        ProfileClient profileClient = new ProfileClient();
                         PlayerClient playerClient = new PlayerClient();
                         if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
                         {
