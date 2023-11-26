@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 
@@ -30,22 +25,34 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         bool TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(long transmitterProfileID, long receiverProfileID);
+
+
+
+
+        [OperationContract]
+        void AddFriendRequest(FriendRequests friendRequests);
+
+        [OperationContract]
+        void AcceptFriendRequest(FriendRequests friendRequests);
+
+        [OperationContract]
+        void CancelFriendRequest(FriendRequests friendRequests);
+
+        [OperationContract]
+        void RejectFriendRequest(FriendRequests friendRequests);
     }
 
     [ServiceContract(CallbackContract = typeof(IFriendRequestCallback))]
     public interface IFriendRequestForCallbackMethods
-    {
+    {        
         [OperationContract(IsOneWay = true)]
-        void AddFriendRequest(FriendRequests friendRequests);
+        void Connect(string username);
 
         [OperationContract(IsOneWay = true)]
-        void AcceptFriendRequest(FriendRequests friendRequests);
+        void Disconnect(string username);
 
         [OperationContract(IsOneWay = true)]
-        void CancelFriendRequest(FriendRequests friendRequests);
-
-        [OperationContract(IsOneWay = true)]
-        void RejectFriendRequest(FriendRequests friendRequests);
+        void UpdateFriendRequestsListsToAllConnectedClients();
     }
 
     [ServiceContract]

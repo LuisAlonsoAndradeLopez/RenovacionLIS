@@ -32,13 +32,19 @@ namespace Renovación_LIS_Client.ServiceChatReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/SendMessage")]
         System.Threading.Tasks.Task SendMessageAsync(string senderNickname, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/UpdateChatToAllConnectedClients")]
+        void UpdateChatToAllConnectedClients(string senderNickname, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/UpdateChatToAllConnectedClients")]
+        System.Threading.Tasks.Task UpdateChatToAllConnectedClientsAsync(string senderNickname, string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IChatCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/ReceiveMessage")]
-        void ReceiveMessage(string senderNickname, string message);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/UpdateChat")]
+        void UpdateChat(string senderNickname, string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -91,6 +97,14 @@ namespace Renovación_LIS_Client.ServiceChatReference {
         
         public System.Threading.Tasks.Task SendMessageAsync(string senderNickname, string message) {
             return base.Channel.SendMessageAsync(senderNickname, message);
+        }
+        
+        public void UpdateChatToAllConnectedClients(string senderNickname, string message) {
+            base.Channel.UpdateChatToAllConnectedClients(senderNickname, message);
+        }
+        
+        public System.Threading.Tasks.Task UpdateChatToAllConnectedClientsAsync(string senderNickname, string message) {
+            return base.Channel.UpdateChatToAllConnectedClientsAsync(senderNickname, message);
         }
     }
 }

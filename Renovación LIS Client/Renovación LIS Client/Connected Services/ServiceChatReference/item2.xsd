@@ -22,7 +22,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReceiveMessage">
+  <xs:element name="UpdateChatToAllConnectedClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="senderNickname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateChat">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="senderNickname" nillable="true" type="xs:string" />

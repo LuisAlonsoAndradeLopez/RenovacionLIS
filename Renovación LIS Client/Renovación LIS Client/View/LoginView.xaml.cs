@@ -74,10 +74,8 @@ namespace Renovación_LIS_Client.View
 
                             mainWindow.SetProfileToLoggedProfile(profile);
 
-                            mainWindow.MainFrame.NavigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
-
-                            //NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            //navigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
+                            NavigationService navigationService = NavigationService.GetNavigationService(this);
+                            navigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
                         }
                         else
                         {

@@ -24,7 +24,6 @@
   <Metadata>
     <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="31377ae8-ec00-4a05-9d04-59f87374c4c3" SourceId="1" SourceUrl="http://192.168.100.11:8070/?xsd=xsd1" />
     <MetadataFile FileName="ServiceFriendRequestForCallbackMethods1.wsdl" MetadataType="Wsdl" ID="f136888b-1275-47b8-abc5-a7c12cd254d7" SourceId="1" SourceUrl="http://192.168.100.11:8070/?wsdl" />
-    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="275b7096-1943-4688-baf1-0cd466123ee2" SourceId="1" SourceUrl="http://192.168.100.11:8070/?xsd=xsd2" />
     <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="06b145b5-b3fc-4d1b-8e63-05414152cb7c" SourceId="1" SourceUrl="http://192.168.100.11:8070/?disco" />
     <MetadataFile FileName="item32.xsd" MetadataType="Schema" ID="33156cc2-9d8c-423a-bea9-38964b333562" SourceId="1" SourceUrl="http://192.168.100.11:8070/?xsd=xsd0" />
   </Metadata>

@@ -34,11 +34,9 @@ namespace Renovación_LIS_Client.View
         public MenuView() { }
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            mainWindow.MainFrame.NavigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
-
-            //NavigationService navigationService = NavigationService.GetNavigationService(this);
-            //navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+        {            
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)

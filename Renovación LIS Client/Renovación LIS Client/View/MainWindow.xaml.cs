@@ -4,11 +4,11 @@ using Intersoft.Crosslight;
 using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
-using Renovación_LIS_Client.ServiceLivePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Renovación_LIS_Client.View;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Resources;
@@ -24,7 +24,7 @@ namespace Renovación_LIS_Client
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window, IProfileForCallbackMethodsCallback
+    public partial class MainWindow : Window, IChatCallback, IProfileForCallbackMethodsCallback, IFriendRequestForCallbackMethodsCallback
     {
         private Profile loggedProfile = null;
         private CultureInfo cultureInfo;
@@ -42,9 +42,8 @@ namespace Renovación_LIS_Client
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
-            this.MainFrame.NavigationService.Navigate(new StartView(this));
-            //NavigationService navigationService = MainFrame.NavigationService;
-            //navigationService.Navigate(new StartView(this));
+            NavigationService navigationService = MainFrame.NavigationService;
+            navigationService.Navigate(new StartView(this));
 
         }
 
@@ -124,15 +123,20 @@ namespace Renovación_LIS_Client
         }
 
         //Callback Methods
-
-        public void test()
+        public void UpdateChat(string senderNickname, string message)
         {
-            MessageBox.Show(
-                "pene",
-                "pisodio",
-                MessageBoxButton.OK,
-                MessageBoxImage.Error
-            );
+            if (PageStateManager.CurrentPage is ChatView currentPage)
+            {
+                currentPage.ShowUpdatedChat(senderNickname, message);
+            }
+        }
+
+        public void UpdateFriendsRequestsLists()
+        {
+            if (PageStateManager.CurrentPage is FriendsView currentPage)
+            {
+                currentPage.ShowUpdatedFriendRequestsList();
+            }
         }
 
         public void UpdateFriendsLists()
@@ -140,54 +144,9 @@ namespace Renovación_LIS_Client
             if (PageStateManager.CurrentPage is FriendsView currentPage)
             {
                 currentPage.ShowUpdatedFriendsList();
-            }
-            //MessageBox.Show(
-            //    this.MainFrame.NavigationService.Content.ToString(),
-            //    "pisodio",
-            //    MessageBoxButton.OK,
-            //    MessageBoxImage.Error
-            //);
-            //
-            //if (MainFrame.NavigationService.Content is FriendsView currentPage)
-            //{
-            //}
-        }
-    }
-
-    public class ServiceChatCallback : IChatCallback
-    {
-        public void ReceiveMessage(string sender, string message)
-        {
-            // Update UI or handle the incoming message
-        }
-    }
-
-    public class LivePlayerCallback : ILivePlayerCallback
-    {
-        public void UpdatePlayersList(string[] players)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    //[CallbackBehavior(UseSynchronizationContext = false)]
-    public class ServiceFriendRequestCallback : IFriendRequestForCallbackMethodsCallback
-    {
-        private FriendsView friendsView;
-
-        public ServiceFriendRequestCallback() { }
-        public ServiceFriendRequestCallback(FriendsView friendsView)
-        {
-            this.friendsView = friendsView;
+            }            
         }
 
-        public void UpdateFriendsRequestsLists()
-        {
-            if(friendsView != null)
-            {
-                friendsView.ShowUpdatedFriendRequestsList();
-            }
-        }
     }
 
     public class PageStateManager

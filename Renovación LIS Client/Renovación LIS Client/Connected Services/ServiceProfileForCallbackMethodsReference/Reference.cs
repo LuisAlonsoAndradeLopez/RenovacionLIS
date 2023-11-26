@@ -26,13 +26,18 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/Disconnect")]
         System.Threading.Tasks.Task DisconnectAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsListsToAllConnectedCli" +
+            "ents")]
+        void UpdateFriendsListsToAllConnectedClients();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsListsToAllConnectedCli" +
+            "ents")]
+        System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IProfileForCallbackMethodsCallback {
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/test")]
-        void test();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsLists")]
         void UpdateFriendsLists();
@@ -80,6 +85,14 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         public System.Threading.Tasks.Task DisconnectAsync(string username) {
             return base.Channel.DisconnectAsync(username);
+        }
+        
+        public void UpdateFriendsListsToAllConnectedClients() {
+            base.Channel.UpdateFriendsListsToAllConnectedClients();
+        }
+        
+        public System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync() {
+            return base.Channel.UpdateFriendsListsToAllConnectedClientsAsync();
         }
     }
 }

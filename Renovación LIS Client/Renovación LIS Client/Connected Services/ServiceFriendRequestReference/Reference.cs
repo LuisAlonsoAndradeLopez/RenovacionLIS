@@ -923,6 +923,30 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
             "eNicknameTextBoxProfile", ReplyAction="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTh" +
             "eNicknameTextBoxProfileResponse")]
         System.Threading.Tasks.Task<bool> TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileAsync(long transmitterProfileID, long receiverProfileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AddFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AddFriendRequestResponse")]
+        void AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AddFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AddFriendRequestResponse")]
+        System.Threading.Tasks.Task AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AcceptFriendRequestResponse")]
+        void AcceptFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AcceptFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AcceptFriendRequestResponse")]
+        System.Threading.Tasks.Task AcceptFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/CancelFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/CancelFriendRequestResponse")]
+        void CancelFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/CancelFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/CancelFriendRequestResponse")]
+        System.Threading.Tasks.Task CancelFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/RejectFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse")]
+        void RejectFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/RejectFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/RejectFriendRequestResponse")]
+        System.Threading.Tasks.Task RejectFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -998,6 +1022,38 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         
         public System.Threading.Tasks.Task<bool> TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileAsync(long transmitterProfileID, long receiverProfileID) {
             return base.Channel.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileAsync(transmitterProfileID, receiverProfileID);
+        }
+        
+        public void AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.AddFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task AddFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.AddFriendRequestAsync(friendRequests);
+        }
+        
+        public void AcceptFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.AcceptFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task AcceptFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.AcceptFriendRequestAsync(friendRequests);
+        }
+        
+        public void CancelFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.CancelFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task CancelFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.CancelFriendRequestAsync(friendRequests);
+        }
+        
+        public void RejectFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            base.Channel.RejectFriendRequest(friendRequests);
+        }
+        
+        public System.Threading.Tasks.Task RejectFriendRequestAsync(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {
+            return base.Channel.RejectFriendRequestAsync(friendRequests);
         }
     }
 }

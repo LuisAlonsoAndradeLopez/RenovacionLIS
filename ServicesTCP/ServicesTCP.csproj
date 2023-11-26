@@ -78,7 +78,6 @@
     <Compile Include="ServiceContracts\IFriendRequest.cs" />
     <Compile Include="ServiceContracts\ICrucigram.cs" />
     <Compile Include="ServiceContracts\ILevel.cs" />
-    <Compile Include="ServiceContracts\ILivePlayer.cs" />
     <Compile Include="ServiceContracts\IPlayer.cs" />
     <Compile Include="ServiceContracts\IProfile.cs" />
     <Compile Include="ServiceContracts\IWord.cs" />
@@ -86,7 +85,6 @@
     <Compile Include="Services\ServiceCrucigram.cs" />
     <Compile Include="Services\ServiceLevel.cs" />
     <Compile Include="Services\ServiceFriendRequest.cs" />
-    <Compile Include="Services\ServiceLivePlayer.cs" />
     <Compile Include="Services\ServicePlayer.cs" />
     <Compile Include="Services\ServiceProfile.cs" />
     <Compile Include="Services\ServiceWord.cs" />
@@ -107,10 +105,6 @@
     <ProjectReference Include="..\Renovación LIS Client\DomainStatuses\DomainStatuses.csproj">
       <Project>{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}</Project>
       <Name>DomainStatuses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Renovación LIS Client\Renovación LIS Client\Renovación LIS GUIs.csproj">
-      <Project>{8EEA7210-1626-4A14-821B-147589BDB6E6}</Project>
-      <Name>Renovación LIS GUIs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

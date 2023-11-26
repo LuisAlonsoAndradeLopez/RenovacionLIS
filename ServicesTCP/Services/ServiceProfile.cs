@@ -1,25 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.ServiceModel;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
-using Renovación_LIS_Client;
-using Renovación_LIS_Client.View;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServiceProfile : IProfile
     {
         public long AddProfile(Profiles profiles)
@@ -284,26 +275,6 @@ namespace ServicesTCP.Services
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                //
-                //var friendship1 = new ProfilesProfiles { ProfilesId = profiles.IDProfile, Profiles1Id = profiles1.IDProfile };
-                //var friendship2 = new ProfilesProfiles { ProfilesId = profiles1.IDProfile, Profiles1Id = profiles.IDProfile };
-                //
-                //var friendships = new List<ProfilesProfiles> { friendship1, friendship2 };
-                //
-                //databaseModelContainer.Set<ProfilesProfiles>().AddRange(friendships);
-
-                //databaseModelContainer.Entry(profiles).State = EntityState.Unchanged;
-                //
-                //databaseModelContainer.Entry(profiles).Collection(p => p.Profiles1).IsModified = true;
-
-
-                //var friendShip = new ProfilesProfiles { Profiles = profiles, Profiles1 = profiles1 };
-                //var backwardFriendShip = new ProfilesProfiles { Profiles = profiles1, Profiles1 = profiles };
-                //databaseModelContainer.ProfilesProfiles.Add(friendShip);
-                //databaseModelContainer.SaveChanges();
-
-                //databaseModelContainer.ProfilesProfiles.Add(backwardFriendShip);
-
 
                 string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
                 
@@ -317,11 +288,40 @@ namespace ServicesTCP.Services
                 parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
                 
                 databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
-
                 databaseModelContainer.SaveChanges();
-                IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
-                Thread.Sleep(50);
-                callback.UpdateFriendsLists();
+
+                ServiceProfileForCallbackMethods serviceProfileForCallbackMethods = new ServiceProfileForCallbackMethods();
+                serviceProfileForCallbackMethods.UpdateFriendsListsToAllConnectedClients();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public void CancelFriendship(Profiles profiles, Profiles profiles1)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+
+                string sqlQuery = "DELETE FROM ProfilesProfiles WHERE Profiles2_IDProfile = @IDProfile AND Profiles1_IDProfile = @IDProfile1";
+                
+                var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
+                var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+                
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                databaseModelContainer.SaveChanges();
+                
+                parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
+                parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
+                
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                databaseModelContainer.SaveChanges();
+
+
+                ServiceProfileForCallbackMethods serviceProfileForCallbackMethods = new ServiceProfileForCallbackMethods();
+                serviceProfileForCallbackMethods.UpdateFriendsListsToAllConnectedClients();
             }
             catch (Exception ex)
             {
@@ -342,18 +342,7 @@ namespace ServicesTCP.Services
             {
                 connectedProfiles.Add(username, callback);
 
-                foreach (var kvp in connectedProfiles)
-                {
-                    Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
-                }
-
-                // Notify existing friends about the new connection
-                foreach (var profileCallback in connectedProfiles.Values)
-                {
-                    profileCallback.UpdateFriendsLists();
-                    
-                    //profileCallback.test();
-                }
+                UpdateFriendsListsToAllConnectedClients();
             }
         }
 
@@ -363,16 +352,15 @@ namespace ServicesTCP.Services
             {
                 connectedProfiles.Remove(username);
 
-                foreach (var kvp in connectedProfiles)
-                {
-                    Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
-                }
+                UpdateFriendsListsToAllConnectedClients();
+            }
+        }
 
-                // Notify existing friends about the disconnection
-                foreach (var friendCallback in connectedProfiles.Values)
-                {
-                    friendCallback.UpdateFriendsLists();
-                }
+        public void UpdateFriendsListsToAllConnectedClients()
+        {
+            foreach (var friendCallback in connectedProfiles.Values)
+            {
+                friendCallback.UpdateFriendsLists();
             }
         }
     }

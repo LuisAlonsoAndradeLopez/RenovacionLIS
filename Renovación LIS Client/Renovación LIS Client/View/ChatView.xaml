@@ -42,60 +42,8 @@
                     Height="2"/>
 
                 <ScrollViewer Height="393">
-                    <StackPanel>
-                        <Border Margin="28,10,0,0" 
-                            Name="FriendMessageBorder"
-                            Grid.Column="0"
-                            HorizontalAlignment="Left"
-                            CornerRadius="20" Height="94" Width="433">
-
-                            <Border.Background>
-                                <SolidColorBrush Color="Black" Opacity="0.8"/>
-                            </Border.Background>
-
-                            <StackPanel Orientation="Horizontal">
-                                <Image Width="80"
-                                    Margin="5,5,0,5"
-                                    Source="/images/OnlineSymbol.png"/>
-
-                                <StackPanel>
-                                    <Label Content="{x:Static p:Resources.Message}"
-                                        FontFamily="{StaticResource K2DBold}"
-                                        Foreground="White"
-                                        HorizontalAlignment="Left"
-                                        FontSize="20"
-                                        Margin="10,10,0,0"/>
-
-                                    <Label Content="{x:Static p:Resources.Message}"
-                                        FontFamily="{StaticResource K2DBold}"
-                                        Foreground="White"
-                                        HorizontalAlignment="Left"
-                                        FontSize="20"
-                                        Margin="10,2,0,0"/>
-                                </StackPanel>
-                            </StackPanel>
-
-                        </Border>
-
-                        <Border Margin="0,10,20,0" 
-                            Name="YourMessageBorder"
-                            Grid.Column="0"
-                            HorizontalAlignment="Right"
-                            CornerRadius="20" Height="62" Width="109">
-
-                            <Border.Background>
-                                <SolidColorBrush Color="Black" Opacity="0.8"/>
-                            </Border.Background>
-
-                            <Label Content="{x:Static p:Resources.Message}"
-                                FontFamily="{StaticResource K2DBold}"
-                                Foreground="White"
-                                HorizontalAlignment="Left"
-                                FontSize="20"
-                                Margin="10,10,0,0"/>
-
-                        </Border>
-
+                    <StackPanel Name="MessagesStackPanel">
+                        
                     </StackPanel>
                 </ScrollViewer>
 

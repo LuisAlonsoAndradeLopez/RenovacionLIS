@@ -49,13 +49,13 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void Disconnect(string username);
+
+        [OperationContract(IsOneWay = true)]
+        void UpdateFriendsListsToAllConnectedClients();
     }
    
     public interface IProfileCallback
     {
-        [OperationContract(IsOneWay = true)]
-        void test();
-
         [OperationContract(IsOneWay = true)]
         void UpdateFriendsLists();
     }

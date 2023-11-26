@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ServiceModel;
-using ServicesTCP.Services;
 
 namespace ServerHoster
 {
@@ -19,10 +18,6 @@ namespace ServerHoster
             ServiceHost serviceFriendRequestForCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceFriendRequestForCallbackMethods));
             serviceFriendRequestForCallbackMethodsHost.Open();
             Console.WriteLine("ServiceFriendRequestForCallbackMethodsHost started!!!");
-
-            ServiceHost serviceLivePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceLivePlayer));
-            serviceLivePlayerHost.Open();
-            Console.WriteLine("ServiceLivePlayerHost started!!!");
 
             ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer));
             servicePlayerHost.Open();

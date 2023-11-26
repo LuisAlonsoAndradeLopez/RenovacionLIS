@@ -16,36 +16,29 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://192.168.100.11:8070/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://192.168.100.11:8070/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://192.168.100.11:8070/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IFriendRequestForCallbackMethods_AddFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddFriendRequest" />
+  <wsdl:message name="IFriendRequestForCallbackMethods_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
   </wsdl:message>
-  <wsdl:message name="IFriendRequestForCallbackMethods_AcceptFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:AcceptFriendRequest" />
+  <wsdl:message name="IFriendRequestForCallbackMethods_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
-  <wsdl:message name="IFriendRequestForCallbackMethods_CancelFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:CancelFriendRequest" />
-  </wsdl:message>
-  <wsdl:message name="IFriendRequestForCallbackMethods_RejectFriendRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:RejectFriendRequest" />
+  <wsdl:message name="IFriendRequestForCallbackMethods_UpdateFriendRequestsListsToAllConnectedClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriendRequestsListsToAllConnectedClients" />
   </wsdl:message>
   <wsdl:message name="IFriendRequestForCallbackMethods_UpdateFriendsRequestsLists_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateFriendsRequestsLists" />
   </wsdl:message>
   <wsdl:portType name="IFriendRequestForCallbackMethods">
-    <wsdl:operation name="AddFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/AddFriendRequest" message="tns:IFriendRequestForCallbackMethods_AddFriendRequest_InputMessage" />
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/Connect" message="tns:IFriendRequestForCallbackMethods_Connect_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AcceptFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/AcceptFriendRequest" message="tns:IFriendRequestForCallbackMethods_AcceptFriendRequest_InputMessage" />
+    <wsdl:operation name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/Disconnect" message="tns:IFriendRequestForCallbackMethods_Disconnect_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CancelFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/CancelFriendRequest" message="tns:IFriendRequestForCallbackMethods_CancelFriendRequest_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RejectFriendRequest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/RejectFriendRequest" message="tns:IFriendRequestForCallbackMethods_RejectFriendRequest_InputMessage" />
+    <wsdl:operation name="UpdateFriendRequestsListsToAllConnectedClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/UpdateFriendRequestsListsToAllConnectedClients" message="tns:IFriendRequestForCallbackMethods_UpdateFriendRequestsListsToAllConnectedClients_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateFriendsRequestsLists">
       <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestForCallbackMethods/UpdateFriendsRequestsLists" message="tns:IFriendRequestForCallbackMethods_UpdateFriendsRequestsLists_OutputCallbackMessage" />
@@ -54,26 +47,20 @@
   <wsdl:binding name="NetTcpBinding_IFriendRequestForCallbackMethods" type="tns:IFriendRequestForCallbackMethods">
     <wsp:PolicyReference URI="#NetTcpBinding_IFriendRequestForCallbackMethods_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="AddFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/AddFriendRequest" style="document" />
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/Connect" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="AcceptFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/AcceptFriendRequest" style="document" />
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/Disconnect" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="CancelFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/CancelFriendRequest" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="RejectFriendRequest">
-      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/RejectFriendRequest" style="document" />
+    <wsdl:operation name="UpdateFriendRequestsListsToAllConnectedClients">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestForCallbackMethods/UpdateFriendRequestsListsToAllConnectedClients" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

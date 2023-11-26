@@ -110,11 +110,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceLivePlayerReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\ServicePlayerReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -272,9 +267,6 @@
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item31.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item32.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -295,55 +287,45 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceFriendRequestReference\ServiceFriendRequest1.wsdl" />
-    <None Include="Connected Services\ServiceLivePlayerReference\item3.xsd">
+    <None Include="Connected Services\ServicePlayerReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceLivePlayerReference\item31.xsd">
+    <None Include="Connected Services\ServicePlayerReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceLivePlayerReference\item32.xsd">
+    <None Include="Connected Services\ServicePlayerReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceLivePlayerReference\ServiceLivePlayer1.wsdl" />
-    <None Include="Connected Services\ServicePlayerReference\item4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicePlayerReference\item41.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicePlayerReference\item42.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServicePlayerReference\item43.xsd">
+    <None Include="Connected Services\ServicePlayerReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServicePlayerReference\Renovación_LIS_Client.ServicePlayerReference.Players.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer1.wsdl" />
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item3.xsd">
+    <None Include="Connected Services\ServicePlayerReference\ServicePlayer.wsdl" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item31.xsd">
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods1.wsdl" />
-    <None Include="Connected Services\ServiceProfileReference\item5.xsd">
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceProfileReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item51.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item52.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item53.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item54.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\ServiceProfile1.wsdl" />
+    <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
     <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
@@ -424,7 +406,6 @@
     <WCFMetadataStorage Include="Connected Services\ServiceChatReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceLivePlayerReference\" />
     <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceProfileForCallbackMethodsReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceProfileReference\" />
@@ -466,16 +447,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceChatReference\item1.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item1.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <None Include="Connected Services\ServiceFriendRequestReference\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServicePlayerReference\configuration91.svcinfo" />
@@ -490,6 +471,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ServiceProfileReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Connected Services\ServiceProfileReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -502,6 +486,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -512,27 +499,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceLivePlayerReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicePlayerReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\item1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

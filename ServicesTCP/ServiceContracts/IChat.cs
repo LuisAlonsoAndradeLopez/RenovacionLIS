@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -18,12 +13,16 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void SendMessage(string senderNickname, string message);
+
+        [OperationContract(IsOneWay = true)]
+        void UpdateChatToAllConnectedClients(string senderNickname, string message);
     }
 
     [ServiceContract]
     public interface IChatCallback
     {
+
         [OperationContract(IsOneWay = true)]
-        void ReceiveMessage(string senderNickname, string message);
+        void UpdateChat(string senderNickname, string message);
     }
 }

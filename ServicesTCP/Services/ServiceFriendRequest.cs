@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Numerics;
-using System.Runtime.Remoting.Contexts;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
@@ -17,9 +11,7 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, Name = "ServicePlayer")]
-    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+
     public class ServiceFriendRequest : IFriendRequest
     {
 
@@ -259,28 +251,21 @@ namespace ServicesTCP.Services
 
             return false;
         }
-    }
 
-    public class ServiceFriendRequestForCallbackMethods : IFriendRequestForCallbackMethods
-    {
-        private static List<IFriendRequestCallback> clients = new List<IFriendRequestCallback>();
+
 
         public void AddFriendRequest(FriendRequests friendRequests)
         {
-            long generatedID = 0;
-
             try
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 databaseModelContainer.Entry(friendRequests).State = EntityState.Unchanged;
                 databaseModelContainer.FriendRequestsSet.Add(friendRequests);
                 databaseModelContainer.SaveChanges();
-                generatedID = friendRequests.IDFriendRequest;
 
-                foreach (var client in clients)
-                {
-                    OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>().UpdateFriendsRequestsLists();
-                }
+
+                ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
+                serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
             }
             catch (DbEntityValidationException ex)
             {
@@ -292,7 +277,6 @@ namespace ServicesTCP.Services
                     }
                 }
             }
-            //return generatedID;
         }
 
         public void AcceptFriendRequest(FriendRequests friendRequests)
@@ -305,13 +289,11 @@ namespace ServicesTCP.Services
                 {
                     friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Accepted);
                     databaseModelContainer.SaveChanges();
-                    IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
-                    friendRequestCallback.UpdateFriendsRequestsLists();
+                    ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
+                    serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
 
                     ServiceProfile serviceProfile = new ServiceProfile();
                     serviceProfile.AddFriendship(friendRequests.Profiles, friendRequests.Profiles1);
-                    IProfileCallback profileCallback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
-                    profileCallback.UpdateFriendsLists();
                 }
             }
             catch (Exception ex)
@@ -331,8 +313,8 @@ namespace ServicesTCP.Services
                     friendRequestsToModify.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
                     databaseModelContainer.SaveChanges();
 
-                    IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
-                    friendRequestCallback.UpdateFriendsRequestsLists();
+                    ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
+                    serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
                 }
             }
             catch (Exception ex)
@@ -352,8 +334,8 @@ namespace ServicesTCP.Services
                     friendRequestsToModify.AceptationStatus = FriendRequestAceptationStatuses.Rejected.ToString();
                     databaseModelContainer.SaveChanges();
 
-                    IFriendRequestCallback friendRequestCallback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
-                    friendRequestCallback.UpdateFriendsRequestsLists();
+                    ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
+                    serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
                 }
             }
             catch (Exception ex)
@@ -361,15 +343,37 @@ namespace ServicesTCP.Services
                 Console.WriteLine(ex.ToString());
             }
         }
+    }
 
-        public static void RegisterClient(IFriendRequestCallback client)
+    public class ServiceFriendRequestForCallbackMethods : IFriendRequestForCallbackMethods
+    {
+        public static Dictionary<string, IFriendRequestCallback> connectedProfiles = new Dictionary<string, IFriendRequestCallback>();
+        
+
+        public void Connect(string username)
         {
-            clients.Add(client);
+            IFriendRequestCallback callback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
+
+            if (!connectedProfiles.ContainsKey(username))
+            {
+                connectedProfiles.Add(username, callback);
+            }
         }
 
-        public static void UnregisterClient(IFriendRequestCallback client)
+        public void Disconnect(string username)
         {
-            clients.Remove(client);
+            if (connectedProfiles.ContainsKey(username))
+            {
+                connectedProfiles.Remove(username);
+            }
+        }
+
+        public void UpdateFriendRequestsListsToAllConnectedClients()
+        {
+            foreach (var friendRequestCallback in connectedProfiles.Values)
+            {
+                friendRequestCallback.UpdateFriendsRequestsLists();
+            }
         }
     }
 }

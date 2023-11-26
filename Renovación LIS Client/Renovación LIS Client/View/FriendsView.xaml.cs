@@ -248,7 +248,7 @@ namespace Renovación_LIS_Client.View
                         {
                             FriendRequestClient friendRequestClient = new FriendRequestClient();
                             FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(
-                                    new InstanceContext(new ServiceFriendRequestCallback(this))
+                                    new InstanceContext(new MainWindow())
                             );
 
                             if (!friendRequestClient.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(
