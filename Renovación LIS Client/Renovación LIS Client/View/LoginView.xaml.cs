@@ -27,11 +27,13 @@ namespace Renovación_LIS_Client.View
 
         public LoginView(MainWindow mainWindow)
         {
+            PageStateManager.CurrentPage = this;
             InitializeComponent();
 
             this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+
         }
 
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
@@ -65,14 +67,17 @@ namespace Renovación_LIS_Client.View
                         if (!profileClient.TheProfileIsLogged(profile.IDProfile))
                         {
                             profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
+                          
 
-                            ProfileForCallbackMethodsClient profileForCallbackMethodsClient = new ProfileForCallbackMethodsClient(new InstanceContext(new ServiceProfileCallback()));
+                            ProfileForCallbackMethodsClient profileForCallbackMethodsClient = new ProfileForCallbackMethodsClient(new InstanceContext(new MainWindow()));
                             profileForCallbackMethodsClient.Connect(profile.Player.NickName);
 
                             mainWindow.SetProfileToLoggedProfile(profile);
 
-                            NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
+                            mainWindow.MainFrame.NavigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
+
+                            //NavigationService navigationService = NavigationService.GetNavigationService(this);
+                            //navigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
                         }
                         else
                         {

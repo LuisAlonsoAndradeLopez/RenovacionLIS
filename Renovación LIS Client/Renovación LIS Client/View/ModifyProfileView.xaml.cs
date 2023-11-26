@@ -25,9 +25,9 @@ namespace Renovación_LIS_Client.View
     {
         private MainWindow mainWindow;
         private Profile loggedProfile = new Profile();
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
         public ModifyProfileView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
@@ -68,6 +68,8 @@ namespace Renovación_LIS_Client.View
             {
                 ImageRouteTextBlock.Text = "";
             }
+
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
         }
 
         private void CancelButton(object sender, RoutedEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Media;
+using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -28,17 +29,32 @@ namespace Renovación_LIS_Client.View
 
             SoundPlayer mainMenuSong = new SoundPlayer(completePath);
             mainMenuSong.Play();
+            PageStateManager.CurrentPage = this;
 
             InitializeComponent();
             this.mainWindow = mainWindow;
             ChangeLanguageLabel();
+
+            Loaded += StartView_Loaded;
+
         }
 
-        
+        private void StartView_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Access NavigationService here
+            MessageBox.Show(
+                NavigationService?.Content?.ToString() ?? "NavigationService or Content is null",
+                "No Mija",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
+        }
+
+
         private void StartGame(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow));
+            //NavigationService navigationService = NavigationService.GetNavigationService(this);
+            mainWindow.MainFrame.NavigationService.Navigate(new LoginView(mainWindow));
         }
 
         private void ShowLanguages(object sender, MouseButtonEventArgs e)

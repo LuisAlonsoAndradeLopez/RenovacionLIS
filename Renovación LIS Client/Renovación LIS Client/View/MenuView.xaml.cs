@@ -1,6 +1,7 @@
 ﻿using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
@@ -24,15 +25,20 @@ namespace Renovación_LIS_Client.View
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
             this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+
             WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedProfile.Player.NickName + "!";
+
+            PageStateManager.CurrentPage = this;
         }
 
         public MenuView() { }
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            mainWindow.MainFrame.NavigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+
+            //NavigationService navigationService = NavigationService.GetNavigationService(this);
+            //navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
@@ -52,6 +58,8 @@ namespace Renovación_LIS_Client.View
             ProfileClient profileClient = new ProfileClient();
             profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
             mainWindow.SetNullToLoggedProfile();
+
+            profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));

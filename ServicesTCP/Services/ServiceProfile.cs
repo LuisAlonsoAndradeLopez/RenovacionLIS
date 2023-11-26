@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client;
+using Renovación_LIS_Client.View;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -330,7 +332,8 @@ namespace ServicesTCP.Services
 
     public partial class ServiceProfileForCallbackMethods : IProfileForCallbackMethods
     {
-        private Dictionary<string, IProfileCallback> connectedProfiles = new Dictionary<string, IProfileCallback>();
+        public static Dictionary<string, IProfileCallback> connectedProfiles = new Dictionary<string, IProfileCallback>();
+
         public void Connect(string username)
         {
             IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
@@ -339,10 +342,17 @@ namespace ServicesTCP.Services
             {
                 connectedProfiles.Add(username, callback);
 
+                foreach (var kvp in connectedProfiles)
+                {
+                    Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
+                }
+
                 // Notify existing friends about the new connection
                 foreach (var profileCallback in connectedProfiles.Values)
                 {
                     profileCallback.UpdateFriendsLists();
+                    
+                    //profileCallback.test();
                 }
             }
         }
@@ -353,22 +363,17 @@ namespace ServicesTCP.Services
             {
                 connectedProfiles.Remove(username);
 
+                foreach (var kvp in connectedProfiles)
+                {
+                    Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
+                }
+
                 // Notify existing friends about the disconnection
                 foreach (var friendCallback in connectedProfiles.Values)
                 {
                     friendCallback.UpdateFriendsLists();
                 }
             }
-        }
-
-        public Dictionary<string, IProfileCallback> GetConnectedProfiles()
-        {
-            return connectedProfiles;
-        }
-
-        public void SetConnectedProfiles(Dictionary<string, IProfileCallback> connectedProfiles)
-        {
-            this.connectedProfiles = connectedProfiles;
         }
     }
 

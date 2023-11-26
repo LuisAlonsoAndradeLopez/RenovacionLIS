@@ -40,16 +40,14 @@ namespace Renovación_LIS_Client.View
 
         private MainWindow mainWindow;
         private Profile loggedProfile;
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
         public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
-;
-
             this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
@@ -57,6 +55,10 @@ namespace Renovación_LIS_Client.View
 
             InitializeComponent();
             ShowUpdatedFriendsList();
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+
+            PageStateManager.CurrentPage = this;
+
         }
         private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
@@ -727,5 +729,7 @@ namespace Renovación_LIS_Client.View
         {
             ShowUpdatedFriendRequestsList();
         }
+
+        
     }
 }

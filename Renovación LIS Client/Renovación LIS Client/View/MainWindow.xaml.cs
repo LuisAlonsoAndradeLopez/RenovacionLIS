@@ -1,5 +1,6 @@
 ﻿using domain;
 using DomainStatuses;
+using Intersoft.Crosslight;
 using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
@@ -13,6 +14,8 @@ using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 using System.Windows.Threading;
 
 namespace Renovación_LIS_Client
@@ -21,7 +24,7 @@ namespace Renovación_LIS_Client
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IProfileForCallbackMethodsCallback
     {
         private Profile loggedProfile = null;
         private CultureInfo cultureInfo;
@@ -39,40 +42,43 @@ namespace Renovación_LIS_Client
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
-            MainFrame.NavigationService.Navigate(new StartView(this));
-            
+            this.MainFrame.NavigationService.Navigate(new StartView(this));
+            //NavigationService navigationService = MainFrame.NavigationService;
+            //navigationService.Navigate(new StartView(this));
+
         }
 
         private void AppExit(object sender, EventArgs e)
         {
             if (loggedProfile != null)
             {
-                //profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-                //
-                //profileClient.Close();
+                ProfileClient profileClient = new ProfileClient();
+                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+                
+                profileClient.Close();
             }
         }
 
         private void ProcessExit(object sender, EventArgs e)
         {
-            //if (loggedProfile != null)
-            //{
-            //    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback()));
-            //    profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-            //
-            //    profileClient.Close();
-            //}
+            if (loggedProfile != null)
+            {
+                ProfileClient profileClient = new ProfileClient();
+                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            
+                profileClient.Close();
+            }
         }
 
         private void DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            //if (loggedProfile != null)
-            //{
-            //    ProfileClient profileClient = new ProfileClient(new InstanceContext(new ServiceProfileCallback()));
-            //    profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-            //
-            //    profileClient.Close();
-            //}
+            if (loggedProfile != null)
+            {
+                ProfileClient profileClient = new ProfileClient();
+                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+            
+                profileClient.Close();
+            }
 
         }
 
@@ -81,8 +87,8 @@ namespace Renovación_LIS_Client
             if (Debugger.IsAttached)
             {
                 MessageBoxResult result = MessageBox.Show(
-                resourceManager.GetString("Do you want to exit", cultureInfo),
-                resourceManager.GetString("What do you want", cultureInfo),
+                    resourceManager.GetString("Do you want to exit", cultureInfo),
+                    resourceManager.GetString("What do you want", cultureInfo),
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question
                 );
@@ -104,7 +110,6 @@ namespace Renovación_LIS_Client
                 }
 
             }
-
         }
 
         public void SetNullToLoggedProfile()
@@ -116,6 +121,36 @@ namespace Renovación_LIS_Client
         {
             this.loggedProfile = new Profile();
             this.loggedProfile = profile;
+        }
+
+        //Callback Methods
+
+        public void test()
+        {
+            MessageBox.Show(
+                "pene",
+                "pisodio",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
+        }
+
+        public void UpdateFriendsLists()
+        {
+            if (PageStateManager.CurrentPage is FriendsView currentPage)
+            {
+                currentPage.ShowUpdatedFriendsList();
+            }
+            //MessageBox.Show(
+            //    this.MainFrame.NavigationService.Content.ToString(),
+            //    "pisodio",
+            //    MessageBoxButton.OK,
+            //    MessageBoxImage.Error
+            //);
+            //
+            //if (MainFrame.NavigationService.Content is FriendsView currentPage)
+            //{
+            //}
         }
     }
 
@@ -132,26 +167,6 @@ namespace Renovación_LIS_Client
         public void UpdatePlayersList(string[] players)
         {
             throw new NotImplementedException();
-        }
-    }
-
-    //[CallbackBehavior(UseSynchronizationContext = false)]
-    public class ServiceProfileCallback : IProfileForCallbackMethodsCallback
-    {
-        private FriendsView friendsView;
-
-        public ServiceProfileCallback() { }
-        public ServiceProfileCallback(FriendsView friendsView)
-        {
-            this.friendsView = friendsView;
-        }
-
-        public void UpdateFriendsLists()
-        {
-            if (friendsView != null)
-            {
-                friendsView.ShowUpdatedFriendRequestsList();
-            }
         }
     }
 
@@ -173,6 +188,11 @@ namespace Renovación_LIS_Client
                 friendsView.ShowUpdatedFriendRequestsList();
             }
         }
+    }
+
+    public class PageStateManager
+    {
+        public static Page CurrentPage { get; set; }
     }
 
 }

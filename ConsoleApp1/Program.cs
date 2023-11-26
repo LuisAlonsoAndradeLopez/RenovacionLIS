@@ -15,15 +15,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string incompletePath = Path.GetFullPath("resources/songs/Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav");
-            string pathPartToDelete = "ConsoleApp1\\bin\\Debug\\";
-
-            string completePath = incompletePath.Replace(pathPartToDelete, "");
-
-            SoundPlayer mainMenuSong = new SoundPlayer(completePath);
-            mainMenuSong.PlaySync();
-
-            Console.ReadLine();
+            StaticTest staticTest = new StaticTest();
+            staticTest.setToInt(1);
+            staticTest.setToInt(2);
+            staticTest.setToInt(3);
+            Console.Write(StaticTest.x);
+            //string incompletePath = Path.GetFullPath("resources/songs/Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav");
+            //string pathPartToDelete = "ConsoleApp1\\bin\\Debug\\";
+            //
+            //string completePath = incompletePath.Replace(pathPartToDelete, "");
+            //
+            //SoundPlayer mainMenuSong = new SoundPlayer(completePath);
+            //mainMenuSong.PlaySync();
+            //
+            //Console.ReadLine();
             /*
             InstanceContext context = new InstanceContext(new CallbackHandler());
 
@@ -34,6 +39,16 @@ namespace ConsoleApp1
             Console.WriteLine("Exito");
             new CallbackHandler().Response("Meeeeeee");
             Console.ReadLine();*/
+        }
+    }
+
+    public class StaticTest
+    {
+        public static int x;
+
+        public void setToInt(int i)
+        {
+            x += i;
         }
     }
 

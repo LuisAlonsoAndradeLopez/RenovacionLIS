@@ -49,17 +49,13 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void Disconnect(string username);
-
-        [OperationContract]
-        Dictionary<string, IProfileCallback> GetConnectedProfiles();
-
-        [OperationContract]
-        void SetConnectedProfiles(Dictionary<string, IProfileCallback> connectedProfiles);
     }
-
-    
+   
     public interface IProfileCallback
     {
+        [OperationContract(IsOneWay = true)]
+        void test();
+
         [OperationContract(IsOneWay = true)]
         void UpdateFriendsLists();
     }

@@ -26,22 +26,13 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/Disconnect")]
         System.Threading.Tasks.Task DisconnectAsync(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileForCallbackMethods/GetConnectedProfiles", ReplyAction="http://tempuri.org/IProfileForCallbackMethods/GetConnectedProfilesResponse")]
-        System.Collections.Generic.Dictionary<string, object> GetConnectedProfiles();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileForCallbackMethods/GetConnectedProfiles", ReplyAction="http://tempuri.org/IProfileForCallbackMethods/GetConnectedProfilesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>> GetConnectedProfilesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileForCallbackMethods/SetConnectedProfiles", ReplyAction="http://tempuri.org/IProfileForCallbackMethods/SetConnectedProfilesResponse")]
-        void SetConnectedProfiles(System.Collections.Generic.Dictionary<string, object> connectedProfiles);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileForCallbackMethods/SetConnectedProfiles", ReplyAction="http://tempuri.org/IProfileForCallbackMethods/SetConnectedProfilesResponse")]
-        System.Threading.Tasks.Task SetConnectedProfilesAsync(System.Collections.Generic.Dictionary<string, object> connectedProfiles);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IProfileForCallbackMethodsCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/test")]
+        void test();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsLists")]
         void UpdateFriendsLists();
@@ -89,22 +80,6 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         public System.Threading.Tasks.Task DisconnectAsync(string username) {
             return base.Channel.DisconnectAsync(username);
-        }
-        
-        public System.Collections.Generic.Dictionary<string, object> GetConnectedProfiles() {
-            return base.Channel.GetConnectedProfiles();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>> GetConnectedProfilesAsync() {
-            return base.Channel.GetConnectedProfilesAsync();
-        }
-        
-        public void SetConnectedProfiles(System.Collections.Generic.Dictionary<string, object> connectedProfiles) {
-            base.Channel.SetConnectedProfiles(connectedProfiles);
-        }
-        
-        public System.Threading.Tasks.Task SetConnectedProfilesAsync(System.Collections.Generic.Dictionary<string, object> connectedProfiles) {
-            return base.Channel.SetConnectedProfilesAsync(connectedProfiles);
         }
     }
 }

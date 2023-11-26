@@ -14,10 +14,7 @@
     -->
     
     <Frame x:Name="MainFrame" Style="{StaticResource FrameStyle}">
-        
-
-
-
+ 
     </Frame>
 
 

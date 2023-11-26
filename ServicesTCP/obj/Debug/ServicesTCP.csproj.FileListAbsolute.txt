@@ -28,3 +28,7 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\Service
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\obj\Debug\ServicesTCP.pdb
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\DomainStatuses.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\DomainStatuses.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\Renovación LIS Client.exe
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\Renovación LIS Client.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\Renovación LIS Client.exe.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\bin\Debug\es\Renovación LIS Client.resources.dll

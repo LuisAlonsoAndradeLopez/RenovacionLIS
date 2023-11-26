@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="7Y2R9RGiQfj1L0NRV8GSzxtW1SCd5sKtXU/+GHHBPWA=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="Gf1eI1ZokSKUPX6yd2ihh/UVSbLHfDAoxECGCLkJTdQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_ILivePlayer">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_ILivePlayer" contract="ServiceLivePlayerReference.ILivePlayer" bindingType="netTcpBinding" address="net.tcp://localhost:8100/ServiceLivePlayer" bindingConfiguration="NetTcpBinding_ILivePlayer">
+    <endpoint name="NetTcpBinding_ILivePlayer" contract="ServiceLivePlayerReference.ILivePlayer" bindingType="netTcpBinding" address="net.tcp://192.168.100.11:8100/ServiceLivePlayer" bindingConfiguration="NetTcpBinding_ILivePlayer">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8100/ServiceLivePlayer</serializedValue>
+          <serializedValue>net.tcp://192.168.100.11:8100/ServiceLivePlayer</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -17,9 +17,9 @@ namespace Renovación_LIS_Client.View
     {
         private MainWindow mainWindow;
         private Profile loggedProfile = new Profile();
+        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
         public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
@@ -30,6 +30,7 @@ namespace Renovación_LIS_Client.View
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
         }
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {

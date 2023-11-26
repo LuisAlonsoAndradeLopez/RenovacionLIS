@@ -48,6 +48,7 @@ namespace ServicesTCP.ServiceContracts
         void RejectFriendRequest(FriendRequests friendRequests);
     }
 
+    [ServiceContract]
     public interface IFriendRequestCallback
     {
         [OperationContract(IsOneWay = true)]

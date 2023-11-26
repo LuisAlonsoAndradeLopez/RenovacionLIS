@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceFriendRequest" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IFriendRequest_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.100.11:8050/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.100.11:8050/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.100.11:8050/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
+      <xsd:import schemaLocation="http://192.168.100.11:8050/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFriendRequest_GetFriendsRequestsByProfileID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfileID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetFriendsRequestsByProfileID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetFriendsRequestsByProfile1ID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfile1ID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetFriendsRequestsByProfile1ID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfile1IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetFriendRequestByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendRequestByID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetFriendRequestByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendRequestByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetPendientsForAceptationFriendsRequestsByProfile1ID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendientsForAceptationFriendsRequestsByProfile1ID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetPendientsForAceptationFriendsRequestsByProfile1ID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendientsForAceptationFriendsRequestsByProfile1IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentAndPendientsForAceptationFriendsRequestsByProfileID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFriendRequest">
+    <wsdl:operation name="GetFriendsRequestsByProfileID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID" message="tns:IFriendRequest_GetFriendsRequestsByProfileID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileIDResponse" message="tns:IFriendRequest_GetFriendsRequestsByProfileID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsRequestsByProfile1ID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1ID" message="tns:IFriendRequest_GetFriendsRequestsByProfile1ID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1IDResponse" message="tns:IFriendRequest_GetFriendsRequestsByProfile1ID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequestByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendRequestByID" message="tns:IFriendRequest_GetFriendRequestByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetFriendRequestByIDResponse" message="tns:IFriendRequest_GetFriendRequestByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendientsForAceptationFriendsRequestsByProfile1ID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfile1ID" message="tns:IFriendRequest_GetPendientsForAceptationFriendsRequestsByProfile1ID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfile1IDResponse" message="tns:IFriendRequest_GetPendientsForAceptationFriendsRequestsByProfile1ID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSentAndPendientsForAceptationFriendsRequestsByProfileID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequestsByProfileID" message="tns:IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse" message="tns:IFriendRequest_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" message="tns:IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" message="tns:IFriendRequest_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IFriendRequest" type="tns:IFriendRequest">
+    <wsp:PolicyReference URI="#NetTcpBinding_IFriendRequest_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetFriendsRequestsByProfileID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfileID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsRequestsByProfile1ID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/GetFriendsRequestsByProfile1ID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequestByID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/GetFriendRequestByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendientsForAceptationFriendsRequestsByProfile1ID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/GetPendientsForAceptationFriendsRequestsByProfile1ID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentAndPendientsForAceptationFriendsRequestsByProfileID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/GetSentAndPendientsForAceptationFriendsRequestsByProfileID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceFriendRequest">
+    <wsdl:port name="NetTcpBinding_IFriendRequest" binding="tns:NetTcpBinding_IFriendRequest">
+      <soap12:address location="net.tcp://192.168.100.11:8060/ServiceFriendRequest" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.100.11:8060/ServiceFriendRequest</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
