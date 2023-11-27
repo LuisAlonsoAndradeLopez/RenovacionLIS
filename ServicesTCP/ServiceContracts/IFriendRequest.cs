@@ -28,7 +28,6 @@ namespace ServicesTCP.ServiceContracts
 
 
 
-
         [OperationContract]
         void AddFriendRequest(FriendRequests friendRequests);
 

@@ -28,6 +28,9 @@ namespace ServicesTCP.ServiceContracts
         byte[] GetImage(string fileName);
 
         [OperationContract]
+        Profile GetProfileByID(long profileID);
+
+        [OperationContract]
         Profile GetProfileByPlayerID(long playerID);
 
         [OperationContract]
@@ -38,6 +41,12 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         bool UploadImage(string fileName, byte[] imageData);
+
+        [OperationContract]
+        void AddFriendship(Profiles profiles, Profiles profiles1);
+
+        [OperationContract]
+        void CancelFriendship(Profiles profiles, Profiles profiles1);
     }
 
 

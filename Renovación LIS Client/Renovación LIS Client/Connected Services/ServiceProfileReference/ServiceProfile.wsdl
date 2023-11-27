@@ -45,6 +45,12 @@
   <wsdl:message name="IProfile_GetImage_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetImageResponse" />
   </wsdl:message>
+  <wsdl:message name="IProfile_GetProfileByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileByID" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_GetProfileByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileByIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IProfile_GetProfileByPlayerID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProfileByPlayerID" />
   </wsdl:message>
@@ -69,6 +75,18 @@
   <wsdl:message name="IProfile_UploadImage_OutputMessage">
     <wsdl:part name="parameters" element="tns:UploadImageResponse" />
   </wsdl:message>
+  <wsdl:message name="IProfile_AddFriendship_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendship" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_AddFriendship_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendshipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_CancelFriendship_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFriendship" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_CancelFriendship_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFriendshipResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProfile">
     <wsdl:operation name="AddProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/AddProfile" message="tns:IProfile_AddProfile_InputMessage" />
@@ -86,6 +104,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetImage" message="tns:IProfile_GetImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProfile/GetImageResponse" message="tns:IProfile_GetImage_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetProfileByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetProfileByID" message="tns:IProfile_GetProfileByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/GetProfileByIDResponse" message="tns:IProfile_GetProfileByID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetProfileByPlayerID">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetProfileByPlayerID" message="tns:IProfile_GetProfileByPlayerID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProfile/GetProfileByPlayerIDResponse" message="tns:IProfile_GetProfileByPlayerID_OutputMessage" />
@@ -101,6 +123,14 @@
     <wsdl:operation name="UploadImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/UploadImage" message="tns:IProfile_UploadImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProfile/UploadImageResponse" message="tns:IProfile_UploadImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendship">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/AddFriendship" message="tns:IProfile_AddFriendship_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/AddFriendshipResponse" message="tns:IProfile_AddFriendship_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelFriendship">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/CancelFriendship" message="tns:IProfile_CancelFriendship_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/CancelFriendshipResponse" message="tns:IProfile_CancelFriendship_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IProfile" type="tns:IProfile">
@@ -142,6 +172,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProfileByID">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/GetProfileByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProfileByPlayerID">
       <soap12:operation soapAction="http://tempuri.org/IProfile/GetProfileByPlayerID" style="document" />
       <wsdl:input>
@@ -171,6 +210,24 @@
     </wsdl:operation>
     <wsdl:operation name="UploadImage">
       <soap12:operation soapAction="http://tempuri.org/IProfile/UploadImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendship">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/AddFriendship" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelFriendship">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/CancelFriendship" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

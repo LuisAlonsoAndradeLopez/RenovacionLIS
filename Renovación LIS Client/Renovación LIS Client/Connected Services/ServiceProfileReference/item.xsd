@@ -58,6 +58,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetProfileByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProfileByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByIDResult" nillable="true" type="q4:Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetProfileByPlayerID">
     <xs:complexType>
       <xs:sequence>
@@ -68,7 +82,7 @@
   <xs:element name="GetProfileByPlayerIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByPlayerIDResult" nillable="true" type="q4:Profile" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByPlayerIDResult" nillable="true" type="q5:Profile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -82,7 +96,7 @@
   <xs:element name="GetProfileByPlayerNicknameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByPlayerNicknameResult" nillable="true" type="q5:Profile" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByPlayerNicknameResult" nillable="true" type="q6:Profile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -113,6 +127,32 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="UploadImageResult" type="xs:boolean" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFriendship">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="profiles" nillable="true" type="q7:Profiles" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="profiles1" nillable="true" type="q8:Profiles" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFriendshipResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelFriendship">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="profiles" nillable="true" type="q9:Profiles" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="profiles1" nillable="true" type="q10:Profiles" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelFriendshipResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

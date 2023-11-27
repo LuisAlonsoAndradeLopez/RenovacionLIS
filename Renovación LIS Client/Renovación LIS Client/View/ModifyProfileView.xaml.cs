@@ -132,6 +132,8 @@ namespace Renovación_LIS_Client.View
 
                             loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
 
+                            profileForCallbackMethodsClient.UpdateFriendsListsToAllConnectedClients();
+
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
                             navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
                         }

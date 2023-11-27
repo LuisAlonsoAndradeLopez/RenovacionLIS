@@ -900,6 +900,12 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetImage", ReplyAction="http://tempuri.org/IProfile/GetImageResponse")]
         System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByID", ReplyAction="http://tempuri.org/IProfile/GetProfileByIDResponse")]
+        domain.Profile GetProfileByID(long profileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByID", ReplyAction="http://tempuri.org/IProfile/GetProfileByIDResponse")]
+        System.Threading.Tasks.Task<domain.Profile> GetProfileByIDAsync(long profileID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerID", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerIDResponse")]
         domain.Profile GetProfileByPlayerID(long playerID);
         
@@ -923,6 +929,18 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/UploadImage", ReplyAction="http://tempuri.org/IProfile/UploadImageResponse")]
         System.Threading.Tasks.Task<bool> UploadImageAsync(string fileName, byte[] imageData);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddFriendship", ReplyAction="http://tempuri.org/IProfile/AddFriendshipResponse")]
+        void AddFriendship(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/AddFriendship", ReplyAction="http://tempuri.org/IProfile/AddFriendshipResponse")]
+        System.Threading.Tasks.Task AddFriendshipAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/CancelFriendship", ReplyAction="http://tempuri.org/IProfile/CancelFriendshipResponse")]
+        void CancelFriendship(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/CancelFriendship", ReplyAction="http://tempuri.org/IProfile/CancelFriendshipResponse")]
+        System.Threading.Tasks.Task CancelFriendshipAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -984,6 +1002,14 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
             return base.Channel.GetImageAsync(fileName);
         }
         
+        public domain.Profile GetProfileByID(long profileID) {
+            return base.Channel.GetProfileByID(profileID);
+        }
+        
+        public System.Threading.Tasks.Task<domain.Profile> GetProfileByIDAsync(long profileID) {
+            return base.Channel.GetProfileByIDAsync(profileID);
+        }
+        
         public domain.Profile GetProfileByPlayerID(long playerID) {
             return base.Channel.GetProfileByPlayerID(playerID);
         }
@@ -1014,6 +1040,22 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         
         public System.Threading.Tasks.Task<bool> UploadImageAsync(string fileName, byte[] imageData) {
             return base.Channel.UploadImageAsync(fileName, imageData);
+        }
+        
+        public void AddFriendship(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1) {
+            base.Channel.AddFriendship(profiles, profiles1);
+        }
+        
+        public System.Threading.Tasks.Task AddFriendshipAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1) {
+            return base.Channel.AddFriendshipAsync(profiles, profiles1);
+        }
+        
+        public void CancelFriendship(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1) {
+            base.Channel.CancelFriendship(profiles, profiles1);
+        }
+        
+        public System.Threading.Tasks.Task CancelFriendshipAsync(Renovación_LIS_Client.ServiceProfileReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileReference.Profiles profiles1) {
+            return base.Channel.CancelFriendshipAsync(profiles, profiles1);
         }
     }
 }

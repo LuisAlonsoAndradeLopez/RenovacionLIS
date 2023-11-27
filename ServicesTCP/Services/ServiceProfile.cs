@@ -115,6 +115,47 @@ namespace ServicesTCP.Services
             }
         }
 
+        public Profile GetProfileByID(long profileID)
+        {
+            Profile profile = new Profile();
+            Player player = new Player();
+            Profiles profiles = new Profiles();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                profiles = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
+
+                if (profiles != null)
+                {
+                    player.IDPlayer = profiles.Players.IDPlayer;
+                    player.Names = profiles.Players.Names;
+                    player.Surnames = profiles.Players.Surnames;
+                    player.Email = profiles.Players.Email;
+                    player.NickName = profiles.Players.NickName;
+                    player.BirthDate = profiles.Players.BirthDate;
+                    player.Password = profiles.Players.Password;
+
+                    profile.IDProfile = profiles.IDProfile;
+                    profile.Coins = (long)profiles.Coins;
+                    profile.LoginStatus = profiles.LoginStatus;
+
+                    profile.Player = player;
+                }
+                else
+                {
+                    profile = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return profile;
+        }
+
         public Profile GetProfileByPlayerID(long playerID)
         {
             Profile profile = new Profile();
