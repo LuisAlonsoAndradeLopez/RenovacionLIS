@@ -763,6 +763,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The message shouldn&apos;t have more than 60 characters.
+        /// </summary>
+        public static string The_message_shouldn_t_have_more_than_60_characters {
+            get {
+                return ResourceManager.GetString("The message shouldn\'t have more than 60 characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The password isn&apos;t correct.
         /// </summary>
         public static string The_password_isn_t_correct {

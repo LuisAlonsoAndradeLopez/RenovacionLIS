@@ -351,6 +351,9 @@
   <data name="The message shouldn't have more than 100 characters" xml:space="preserve">
     <value>El mensaje no debe de tener más de 100 carácteres</value>
   </data>
+  <data name="The message shouldn't have more than 60 characters" xml:space="preserve">
+    <value>El mensaje no debe de tener más de 60 carácteres</value>
+  </data>
   <data name="The password isn't correct" xml:space="preserve">
     <value>La contraseña no es correcta</value>
   </data>

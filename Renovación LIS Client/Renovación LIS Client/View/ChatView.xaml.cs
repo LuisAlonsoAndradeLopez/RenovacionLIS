@@ -39,7 +39,9 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
             this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
-            chatClient = new ChatClient(new InstanceContext(new MainWindow()));
+            PageStateManager.CurrentPage = this;
+
+            chatClient = new ChatClient(new InstanceContext(mainWindow));
             chatClient.JoinChat(loggedProfile.Player.NickName);
         }
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
@@ -52,8 +54,23 @@ namespace Renovación_LIS_Client.View
 
         private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)
         {
-            chatClient.SendMessage(loggedProfile.Player.NickName, MessageTextBox.Text);
-            MessageTextBox.Clear();
+            if (!String.IsNullOrWhiteSpace(MessageTextBox.Text))
+            {
+                if (MessageTextBox.Text.Length <= 60)
+                {
+                    chatClient.SendMessage(loggedProfile.Player.NickName, MessageTextBox.Text);
+                    MessageTextBox.Clear();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        resourceManager.GetString("The message shouldn't have more than 60 characters", cultureInfo),
+                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
         }
 
         public void ShowUpdatedChat(string senderNickname, string message)
@@ -64,10 +81,10 @@ namespace Renovación_LIS_Client.View
                 {
                     HorizontalAlignment = HorizontalAlignment.Center,
                     Height = 62,
-                    MaxWidth = 109,
+                    MaxWidth = 3000,
                     Margin = new Thickness(0, 10, 20, 0),
                     CornerRadius = new CornerRadius(20),
-                    BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
+                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
                     Opacity = 0.8
                 };
 
@@ -76,7 +93,7 @@ namespace Renovación_LIS_Client.View
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontSize = 20,
-                    Margin = new Thickness(10, 10, 0, 0),
+                    Margin = new Thickness(20, 10, 20, 10),
                     Content = message
                 };
 
@@ -90,10 +107,10 @@ namespace Renovación_LIS_Client.View
                 {
                     HorizontalAlignment = HorizontalAlignment.Left,
                     Height = 94,
-                    MaxWidth = 433,
+                    MaxWidth = 3000,
                     Margin = new Thickness(28, 10, 0, 0),
                     CornerRadius = new CornerRadius(20),
-                    BorderBrush = new SolidColorBrush(Colors.Black),
+                    Background = new SolidColorBrush(Colors.Black),
                     Opacity = 0.8
                 };
 
@@ -123,7 +140,7 @@ namespace Renovación_LIS_Client.View
                 Image friendProfileImage = new Image
                 {
                     Width = 80,
-                    Margin = new Thickness(5, 5, 0, 5),
+                    Margin = new Thickness(20, 5, 0, 20),
                     Source = imageSource
                 };
 
@@ -134,8 +151,8 @@ namespace Renovación_LIS_Client.View
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontSize = 20,
-                    Margin = new Thickness(10, 10, 0, 0),
-                    Content = message
+                    Margin = new Thickness(10, 10, 20, 10),
+                    Content = senderNickname
                 };
 
                 Label friendMessageLabel = new Label
@@ -143,7 +160,7 @@ namespace Renovación_LIS_Client.View
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontSize = 20,
-                    Margin = new Thickness(10, 2, 0, 0),
+                    Margin = new Thickness(10, 2, 20, 10),
                     Content = message
                 };
 
@@ -164,10 +181,10 @@ namespace Renovación_LIS_Client.View
                 {
                     HorizontalAlignment = HorizontalAlignment.Right,
                     Height = 62,
-                    MaxWidth = 109,
+                    MaxWidth = 3000,
                     Margin = new Thickness(0, 10, 20, 0),
                     CornerRadius = new CornerRadius(20),
-                    BorderBrush = new SolidColorBrush(Colors.Black),
+                    Background = new SolidColorBrush(Colors.Black),
                     Opacity = 0.8
                 };
 
@@ -176,7 +193,7 @@ namespace Renovación_LIS_Client.View
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontSize = 20,
-                    Margin = new Thickness(10, 10, 0, 0),
+                    Margin = new Thickness(20, 10, 20, 10),
                     Content = message
                 };
 
