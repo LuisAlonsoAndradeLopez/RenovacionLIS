@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:8050" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="ff9d067a-dd4f-43da-a19e-502fe02cce59" SourceId="1" SourceUrl="http://192.168.100.11:8050/?xsd=xsd0" />
-    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="8fe8be37-fc76-4c8d-9693-ae140f92077f" SourceId="1" SourceUrl="http://192.168.100.11:8050/?xsd=xsd1" />
-    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="a09cc930-af51-495b-9e04-5b414690aa53" SourceId="1" SourceUrl="http://192.168.100.11:8050/?xsd=xsd3" />
-    <MetadataFile FileName="ServiceFriendRequest1.wsdl" MetadataType="Wsdl" ID="e38c725e-7579-4fb6-a5b7-8f2135496895" SourceId="1" SourceUrl="http://192.168.100.11:8050/?wsdl" />
-    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="599cc84c-77ed-4519-aa17-a010215ef3cb" SourceId="1" SourceUrl="http://192.168.100.11:8050/?xsd=xsd2" />
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="d8c8f9aa-11df-4282-9cc0-bdd294af508e" SourceId="1" SourceUrl="http://192.168.100.11:8050/?disco" />
+    <MetadataFile FileName="ServiceFriendRequest.wsdl" MetadataType="Wsdl" ID="76a5c690-c925-4df7-ad60-775352933f3f" SourceId="1" SourceUrl="http://localhost:8050/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="2afdd736-b7b6-46f4-8c86-68bbd0212e71" SourceId="1" SourceUrl="http://localhost:8050/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ce4bc708-7d92-4bab-a589-d3246d80142a" SourceId="1" SourceUrl="http://localhost:8050/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="8449e093-b7d9-4a8d-8732-d6ef4b6455a0" SourceId="1" SourceUrl="http://localhost:8050/?xsd=xsd3" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="24c2536f-dfeb-438a-b762-c476d172c07b" SourceId="1" SourceUrl="http://localhost:8050/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="2a9258f8-af29-42f6-9ecc-bef0745e503c" SourceId="1" SourceUrl="http://localhost:8050/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

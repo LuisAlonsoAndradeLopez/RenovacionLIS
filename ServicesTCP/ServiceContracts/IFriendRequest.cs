@@ -26,6 +26,8 @@ namespace ServicesTCP.ServiceContracts
         [OperationContract]
         bool TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(long transmitterProfileID, long receiverProfileID);
 
+        [OperationContract]
+        bool TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(long transmitterProfileID, long senderProfileID);
 
 
         [OperationContract]

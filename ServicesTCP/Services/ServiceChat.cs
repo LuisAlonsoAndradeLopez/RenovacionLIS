@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Resources;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -9,25 +12,23 @@ namespace ServicesTCP.Services
     {
         public static Dictionary<string, IChatCallback> connectedProfiles = new Dictionary<string, IChatCallback>();
 
-        public void JoinChat(string username)
+        public void JoinChat(string nickname)
         {
             IChatCallback callback = OperationContext.Current.GetCallbackChannel<IChatCallback>();
 
-            if (!connectedProfiles.ContainsKey(username))
+            if (!connectedProfiles.ContainsKey(nickname))
             {
-                connectedProfiles.Add(username, callback);
-
-                UpdateChatToAllConnectedClients("Chat Server", $"{username} joined the chat.");
+                connectedProfiles.Add(nickname, callback);
+                UpdateChatToAllConnectedClients("Chat Server", $"{nickname} has joined to the chat");
             }
         }
-
-        public void LeaveChat(string username)
+        public void LeaveChat(string nickname)
         {
-            if (connectedProfiles.ContainsKey(username))
+            if (connectedProfiles.ContainsKey(nickname))
             {
-                connectedProfiles.Remove(username);
+                connectedProfiles.Remove(nickname);
 
-                UpdateChatToAllConnectedClients("Chat Server", $"{username} left the chat");
+                UpdateChatToAllConnectedClients("Chat Server", $"{nickname} left the chat");
             }
         }
 

@@ -924,6 +924,16 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
             "eNicknameTextBoxProfileResponse")]
         System.Threading.Tasks.Task<bool> TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileAsync(long transmitterProfileID, long receiverProfileID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasReceivedAFriendRequest" +
+            "FromTheNicknameTextBoxProfile", ReplyAction="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasReceivedAFriendRequest" +
+            "FromTheNicknameTextBoxProfileResponse")]
+        bool TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(long transmitterProfileID, long senderProfileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasReceivedAFriendRequest" +
+            "FromTheNicknameTextBoxProfile", ReplyAction="http://tempuri.org/IFriendRequest/TheLoggedPlayerAlreadyHasReceivedAFriendRequest" +
+            "FromTheNicknameTextBoxProfileResponse")]
+        System.Threading.Tasks.Task<bool> TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileAsync(long transmitterProfileID, long senderProfileID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendRequest/AddFriendRequest", ReplyAction="http://tempuri.org/IFriendRequest/AddFriendRequestResponse")]
         void AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests);
         
@@ -1022,6 +1032,14 @@ namespace Renovación_LIS_Client.ServiceFriendRequestReference {
         
         public System.Threading.Tasks.Task<bool> TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileAsync(long transmitterProfileID, long receiverProfileID) {
             return base.Channel.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileAsync(transmitterProfileID, receiverProfileID);
+        }
+        
+        public bool TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(long transmitterProfileID, long senderProfileID) {
+            return base.Channel.TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(transmitterProfileID, senderProfileID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileAsync(long transmitterProfileID, long senderProfileID) {
+            return base.Channel.TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileAsync(transmitterProfileID, senderProfileID);
         }
         
         public void AddFriendRequest(Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests friendRequests) {

@@ -231,6 +231,9 @@
   <data name="From" xml:space="preserve">
     <value>De</value>
   </data>
+  <data name="Has joined to the chat" xml:space="preserve">
+    <value>se ha unido al chat.</value>
+  </data>
   <data name="Have you already have an account" xml:space="preserve">
     <value>¿Ya tienes una cuenta? Inicia Sesión</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="Invite friends" xml:space="preserve">
     <value>Invitar amigos</value>
+  </data>
+  <data name="Left the chat" xml:space="preserve">
+    <value>dejó el chat.</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Iniciar Sesión</value>
@@ -351,8 +357,8 @@
   <data name="The message shouldn't have more than 100 characters" xml:space="preserve">
     <value>El mensaje no debe de tener más de 100 carácteres</value>
   </data>
-  <data name="The message shouldn't have more than 60 characters" xml:space="preserve">
-    <value>El mensaje no debe de tener más de 60 carácteres</value>
+  <data name="The message shouldn't have more than 80 characters" xml:space="preserve">
+    <value>El mensaje no debe de tener más de 80 carácteres</value>
   </data>
   <data name="The password isn't correct" xml:space="preserve">
     <value>La contraseña no es correcta</value>
@@ -365,6 +371,9 @@
   </data>
   <data name="The user is already logged" xml:space="preserve">
     <value>El usuario ya está logueado</value>
+  </data>
+  <data name="The user you want to send a friendrequest already has sent a friendrequest to you" xml:space="preserve">
+    <value>El usuario al que le quieres mandar solicitud de amistad ya te mandó una.</value>
   </data>
   <data name="The user you want to sent a friend request doesn't exists" xml:space="preserve">
     <value>El usuario al que le quieres mandar solicitud de amistad no existe</value>

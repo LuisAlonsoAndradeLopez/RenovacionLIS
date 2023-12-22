@@ -24,7 +24,7 @@ namespace Renovación_LIS_Client
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window, IChatCallback, IProfileForCallbackMethodsCallback, IFriendRequestForCallbackMethodsCallback
+    public partial class MainWindow : Window, IProfileForCallbackMethodsCallback
     {
         private Profile loggedProfile = null;
         private CultureInfo cultureInfo;
@@ -123,21 +123,9 @@ namespace Renovación_LIS_Client
         }
 
         //Callback Methods
-        public void UpdateChat(string senderNickname, string message)
-        {
-            if (PageStateManager.CurrentPage is ChatView currentPage)
-            {
-                currentPage.ShowUpdatedChat(senderNickname, message);
-            }
-        }
+        
 
-        public void UpdateFriendsRequestsLists()
-        {
-            if (PageStateManager.CurrentPage is FriendsView currentPage)
-            {
-                currentPage.ShowUpdatedFriendRequestsList();
-            }
-        }
+        
 
         public void UpdateFriendsLists()
         {

@@ -403,6 +403,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a has joined to the chat..
+        /// </summary>
+        public static string Has_joined_to_the_chat {
+            get {
+                return ResourceManager.GetString("Has joined to the chat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Have you already have an account? Log In.
         /// </summary>
         public static string Have_you_already_have_an_account {
@@ -471,6 +480,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Invite_friends {
             get {
                 return ResourceManager.GetString("Invite friends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a left the chat..
+        /// </summary>
+        public static string Left_the_chat {
+            get {
+                return ResourceManager.GetString("Left the chat", resourceCulture);
             }
         }
         
@@ -763,11 +781,11 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The message shouldn&apos;t have more than 60 characters.
+        ///   Busca una cadena traducida similar a The message shouldn&apos;t have more than 80 characters.
         /// </summary>
-        public static string The_message_shouldn_t_have_more_than_60_characters {
+        public static string The_message_shouldn_t_have_more_than_80_characters {
             get {
-                return ResourceManager.GetString("The message shouldn\'t have more than 60 characters", resourceCulture);
+                return ResourceManager.GetString("The message shouldn\'t have more than 80 characters", resourceCulture);
             }
         }
         
@@ -804,6 +822,16 @@ namespace Renovación_LIS_Client.Properties {
         public static string The_user_is_already_logged {
             get {
                 return ResourceManager.GetString("The user is already logged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The user you want to send a friendrequest already has sent a friendrequest to you..
+        /// </summary>
+        public static string The_user_you_want_to_send_a_friendrequest_already_has_sent_a_friendrequest_to_you {
+            get {
+                return ResourceManager.GetString("The user you want to send a friendrequest already has sent a friendrequest to you" +
+                        "", resourceCulture);
             }
         }
         

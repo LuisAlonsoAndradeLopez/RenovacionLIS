@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8070" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="31377ae8-ec00-4a05-9d04-59f87374c4c3" SourceId="1" SourceUrl="http://192.168.100.11:8070/?xsd=xsd1" />
-    <MetadataFile FileName="ServiceFriendRequestForCallbackMethods1.wsdl" MetadataType="Wsdl" ID="f136888b-1275-47b8-abc5-a7c12cd254d7" SourceId="1" SourceUrl="http://192.168.100.11:8070/?wsdl" />
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="06b145b5-b3fc-4d1b-8e63-05414152cb7c" SourceId="1" SourceUrl="http://192.168.100.11:8070/?disco" />
-    <MetadataFile FileName="item32.xsd" MetadataType="Schema" ID="33156cc2-9d8c-423a-bea9-38964b333562" SourceId="1" SourceUrl="http://192.168.100.11:8070/?xsd=xsd0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="fc576b50-32f0-4070-8e22-34c52b455e8c" SourceId="1" SourceUrl="http://localhost:8070/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="0483d4ea-12a7-4851-905d-b05f55f0e06d" SourceId="1" SourceUrl="http://localhost:8070/?disco" />
+    <MetadataFile FileName="ServiceFriendRequestForCallbackMethods.wsdl" MetadataType="Wsdl" ID="1a7f6bab-e145-441a-bc80-c22b24a6cb5c" SourceId="1" SourceUrl="http://localhost:8070/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="7d78a869-2493-4b36-a816-116f23b2a43c" SourceId="1" SourceUrl="http://localhost:8070/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

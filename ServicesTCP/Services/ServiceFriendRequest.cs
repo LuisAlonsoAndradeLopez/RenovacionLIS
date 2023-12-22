@@ -240,8 +240,30 @@ namespace ServicesTCP.Services
                     .FirstOrDefault();
                 if (friendRequests != null)
                 {
-                    Console.WriteLine(friendRequests.AceptationStatus);
                     return true;                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return false;
+        }
+
+        public bool TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(long transmitterProfileID, long senderProfileID)
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                FriendRequests friendRequests = databaseModelContainer.FriendRequestsSet.Where(fr => fr.Profiles.IDProfile == senderProfileID)
+                    .Where(fr => fr.Profiles1.IDProfile == transmitterProfileID)
+                    .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
+                    .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
+                    .FirstOrDefault();
+                if (friendRequests != null)
+                {
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -289,11 +311,12 @@ namespace ServicesTCP.Services
                 {
                     friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Accepted);
                     databaseModelContainer.SaveChanges();
-                    ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
-                    serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
 
                     ServiceProfile serviceProfile = new ServiceProfile();
                     serviceProfile.AddFriendship(friendRequests.Profiles, friendRequests.Profiles1);
+
+                    ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
+                    serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
                 }
             }
             catch (Exception ex)
@@ -348,8 +371,7 @@ namespace ServicesTCP.Services
     public class ServiceFriendRequestForCallbackMethods : IFriendRequestForCallbackMethods
     {
         public static Dictionary<string, IFriendRequestCallback> connectedProfiles = new Dictionary<string, IFriendRequestCallback>();
-        
-
+       
         public void Connect(string username)
         {
             IFriendRequestCallback callback = OperationContext.Current.GetCallbackChannel<IFriendRequestCallback>();
@@ -357,6 +379,7 @@ namespace ServicesTCP.Services
             if (!connectedProfiles.ContainsKey(username))
             {
                 connectedProfiles.Add(username, callback);
+                Console.WriteLine(connectedProfiles.Values.ToString());
             }
         }
 
@@ -365,6 +388,7 @@ namespace ServicesTCP.Services
             if (connectedProfiles.ContainsKey(username))
             {
                 connectedProfiles.Remove(username);
+                Console.WriteLine(connectedProfiles.Values.ToString());
             }
         }
 

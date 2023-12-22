@@ -5,6 +5,7 @@ using System.Resources;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -19,7 +20,7 @@ namespace Renovación_LIS_Client.View
     /// Lógica de interacción para ChatView.xaml
     /// </summary>
 
-    public partial class ChatView : Page
+    public partial class ChatView : Page, IChatCallback
     {
         private MainWindow mainWindow;
         private ChatClient chatClient;
@@ -41,7 +42,7 @@ namespace Renovación_LIS_Client.View
 
             PageStateManager.CurrentPage = this;
 
-            chatClient = new ChatClient(new InstanceContext(mainWindow));
+            chatClient = new ChatClient(new InstanceContext(this));
             chatClient.JoinChat(loggedProfile.Player.NickName);
         }
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
@@ -56,7 +57,7 @@ namespace Renovación_LIS_Client.View
         {
             if (!String.IsNullOrWhiteSpace(MessageTextBox.Text))
             {
-                if (MessageTextBox.Text.Length <= 60)
+                if (MessageTextBox.Text.Length <= 100)
                 {
                     chatClient.SendMessage(loggedProfile.Player.NickName, MessageTextBox.Text);
                     MessageTextBox.Clear();
@@ -64,7 +65,7 @@ namespace Renovación_LIS_Client.View
                 else
                 {
                     MessageBox.Show(
-                        resourceManager.GetString("The message shouldn't have more than 60 characters", cultureInfo),
+                        resourceManager.GetString("The message shouldn't have more than 100 characters", cultureInfo),
                         resourceManager.GetString("Too Bad!!!", cultureInfo),
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
@@ -82,7 +83,7 @@ namespace Renovación_LIS_Client.View
                     HorizontalAlignment = HorizontalAlignment.Center,
                     Height = 62,
                     MaxWidth = 3000,
-                    Margin = new Thickness(0, 10, 20, 0),
+                    Margin = new Thickness(0, 5, 0, 5),
                     CornerRadius = new CornerRadius(20),
                     Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
                     Opacity = 0.8
@@ -92,8 +93,8 @@ namespace Renovación_LIS_Client.View
                 {
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 20,
-                    Margin = new Thickness(20, 10, 20, 10),
+                    FontSize = 18,
+                    Margin = new Thickness(10, 10, 10, 10),
                     Content = message
                 };
 
@@ -108,7 +109,7 @@ namespace Renovación_LIS_Client.View
                     HorizontalAlignment = HorizontalAlignment.Left,
                     Height = 94,
                     MaxWidth = 3000,
-                    Margin = new Thickness(28, 10, 0, 0),
+                    Margin = new Thickness(28, 5, 0, 5),
                     CornerRadius = new CornerRadius(20),
                     Background = new SolidColorBrush(Colors.Black),
                     Opacity = 0.8
@@ -139,9 +140,9 @@ namespace Renovación_LIS_Client.View
 
                 Image friendProfileImage = new Image
                 {
+                    Source = imageSource,
                     Width = 80,
-                    Margin = new Thickness(20, 5, 0, 20),
-                    Source = imageSource
+                    Margin = new Thickness(20, 20, 5, 20)
                 };
 
                 StackPanel friendNicknameAndMessageStackPanel = new StackPanel();
@@ -150,8 +151,8 @@ namespace Renovación_LIS_Client.View
                 {
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 20,
-                    Margin = new Thickness(10, 10, 20, 10),
+                    FontSize = 18,
+                    Margin = new Thickness(5, 0, 20, 2),
                     Content = senderNickname
                 };
 
@@ -159,8 +160,8 @@ namespace Renovación_LIS_Client.View
                 {
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 20,
-                    Margin = new Thickness(10, 2, 20, 10),
+                    FontSize = 18,
+                    Margin = new Thickness(5, 2, 20, 0),
                     Content = message
                 };
 
@@ -182,7 +183,7 @@ namespace Renovación_LIS_Client.View
                     HorizontalAlignment = HorizontalAlignment.Right,
                     Height = 62,
                     MaxWidth = 3000,
-                    Margin = new Thickness(0, 10, 20, 0),
+                    Margin = new Thickness(0, 5, 28, 5),
                     CornerRadius = new CornerRadius(20),
                     Background = new SolidColorBrush(Colors.Black),
                     Opacity = 0.8
@@ -192,8 +193,8 @@ namespace Renovación_LIS_Client.View
                 {
                     Foreground = new SolidColorBrush(Colors.White),
                     HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 20,
-                    Margin = new Thickness(20, 10, 20, 10),
+                    FontSize = 18,
+                    Margin = new Thickness(10, 10, 10, 10),
                     Content = message
                 };
 
@@ -224,6 +225,40 @@ namespace Renovación_LIS_Client.View
             profileClient.Close();
 
             return imageData;
+        }
+
+
+
+        //The callback method
+        public void UpdateChat(string senderNickname, string message)
+        {
+            if (PageStateManager.CurrentPage is ChatView currentPage)
+            {
+                if (senderNickname == "Chat Server")
+                {
+                    if (message.Contains("has joined to the chat"))
+                    {
+                        currentPage.ShowUpdatedChat
+                        (
+                            senderNickname,
+                            $"{message.Replace("has joined to the chat", "")}" + resourceManager.GetString("Has joined to the chat", cultureInfo)
+                        );
+                    }
+
+                    if (message.Contains("left the chat"))
+                    {
+                        currentPage.ShowUpdatedChat
+                        (
+                            senderNickname,
+                            $"{message.Replace("left the chat", "")}" + resourceManager.GetString("Left the chat", cultureInfo)
+                        );
+                    }
+                }
+                else
+                {
+                    currentPage.ShowUpdatedChat(senderNickname, message);
+                }
+            }
         }
     }
 }
