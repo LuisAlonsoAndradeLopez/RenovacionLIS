@@ -31,16 +31,10 @@ namespace Renovación_LIS_Client.View
     public partial class FriendsView : Page, IFriendRequestForCallbackMethodsCallback
     {
         //TODO
-
-        //Al mandarte solicitud de amistad a ti mismo cuando hay más de 1 usuario usando el servicio de solicitudes de amigo crashea
-        //El callback para aceptar, cancelar o rechazar solicitudes de amistad anda mal
-        //En ModifyProfileView, si se actualiza el nickname tambien debe de actualizarse el nombre del archivo
         //Pantallas de desicion para cancelar, aceptar, o rechazar solicitude de amistad ,o eliminar amistades
         //Puto cierre de procesos que no desloguea usuarios (Pendiente)
-        //Cambiar AffFriendship de ServiceProfile (Preguntar al revolucionario)
         //Sacar del servicio a alguien que cierra la ventana de golpe, o no dejar que salga hasta que se desloguee
-        //Cambiar los popups a una clase y cachear todo
-
+        //Cambiar los popups a una clase
 
         private MainWindow mainWindow;
         private Profile loggedProfile;
@@ -49,78 +43,26 @@ namespace Renovación_LIS_Client.View
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
+        //Constructor
         public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
+            InitializeComponent();
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
             this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-
-            InitializeComponent();
-            ShowUpdatedFriendsList();
-            ShowUpdatedFriendRequestsList();
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
-
+            
             PageStateManager.CurrentPage = this;
 
             friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
-
             friendRequestForCallbackMethodsClient.Connect(loggedProfile.Player.NickName);
+
+            ShowUpdatedFriendsList();
         }
 
-        private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
-            MessageBox.Show(
-                resourceManager.GetString("Friend request successfully accepted", cultureInfo),
-                resourceManager.GetString("Success!!!", cultureInfo),
-                MessageBoxButton.OK,
-                MessageBoxImage.None
-            );
-
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
-        }
-
-        private void BackButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            FriendsRequestsBorder.Visibility = Visibility.Hidden;
-            FriendsBorder.Visibility = Visibility.Visible;
-        }
-
-        private void BackButton1OnClick(object sender, RoutedEventArgs e)
-        {
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-        }
-
-        private void CancelButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            SendFriendRequestBorder.Visibility = Visibility.Hidden;
-            FriendsBorder.Visibility = Visibility.Visible;
-        }
-
-        private void CancelFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
-
-            MessageBox.Show(
-                resourceManager.GetString("Cancellation of sending friend request made successfully", cultureInfo),
-                resourceManager.GetString("Success!!!", cultureInfo),
-                MessageBoxButton.OK,
-                MessageBoxImage.None
-            );
-
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
-        }
-
+        //Start of FriendList methods
         private void CancelFriendshipButtonOnClick(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
@@ -176,79 +118,6 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        private void DetailsButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            FriendsRequestsBorder.Visibility = Visibility.Hidden;
-            FriendRequestDetailsBorder.Visibility = Visibility.Visible;
-
-            if (sender is Button button)
-            {
-                StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
-
-                TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
-
-                FriendRequestClient friendRequestClient = new FriendRequestClient();
-
-                FriendRequest friendRequest = new FriendRequest();
-                friendRequest = friendRequestClient.GetFriendRequestByID(long.Parse(IDTextBlock.Text));
-
-                NicknameLabel.Content = friendRequest.Profile.Player.NickName;
-                CreationDateLabel.Content = friendRequest.CreationDate;
-                MessageTextBlock.Text = friendRequest.Message;
-                IDFriendRequestLabel.Content = friendRequest.IDFriendRequest;
-
-                bool theButtonsAreShowAndHidden = false;
-                foreach (var receivedFriendRequestBorder in ReceivedFriendsRequestsStackPanel.Children)
-                {
-                    if (receivedFriendRequestBorder is FrameworkElement frameworkElement)
-                    {
-                        if (frameworkElement is Border border)
-                        {
-                            StackPanel borderStackPanel = (StackPanel)border.Child;
-                            TextBlock textBlockOfSelectedFriendRequestBorder = (TextBlock)VisualTreeHelper.GetChild(borderStackPanel, 0);
-
-                            if (long.Parse(textBlockOfSelectedFriendRequestBorder.Text) == long.Parse(IDTextBlock.Text))
-                            {
-                                AcceptFriendRequestButton.Visibility = Visibility.Visible;
-                                CancelFriendRequestButton.Visibility = Visibility.Collapsed;
-                                RejectFriendRequestButton.Visibility = Visibility.Visible;
-                                BackButton1.Visibility = Visibility.Visible;
-                                theButtonsAreShowAndHidden = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                if (!theButtonsAreShowAndHidden)
-                {
-                    foreach (var sentFriendRequestBorder in SentFriendsRequestsStackPanel.Children)
-                    {
-                        if (sentFriendRequestBorder is FrameworkElement frameworkElement)
-                        {
-                            if (frameworkElement is Border border)
-                            {
-                                StackPanel borderStackPanel = (StackPanel)border.Child;
-                                TextBlock textBlockOfSelectedFriendRequestBorder = (TextBlock)VisualTreeHelper.GetChild(borderStackPanel, 0);
-
-                                if (long.Parse(textBlockOfSelectedFriendRequestBorder.Text) == long.Parse(IDTextBlock.Text))
-                                {
-                                    AcceptFriendRequestButton.Visibility = Visibility.Collapsed;
-                                    CancelFriendRequestButton.Visibility = Visibility.Visible;
-                                    RejectFriendRequestButton.Visibility = Visibility.Collapsed;
-                                    BackButton1.Visibility = Visibility.Visible;
-                                    theButtonsAreShowAndHidden = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                friendRequestClient.Close();
-            }
-        }
-
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             friendRequestForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
@@ -263,208 +132,15 @@ namespace Renovación_LIS_Client.View
             SendFriendRequestBorder.Visibility = Visibility.Visible;
         }
 
-        private void RejectFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
-
-            MessageBox.Show(
-                resourceManager.GetString("Friend request rejected", cultureInfo),
-                resourceManager.GetString("Success!!!", cultureInfo),
-                MessageBoxButton.OK,
-                MessageBoxImage.None
-            );
-
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
-        }
-
         private void SeeFriendsRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
+            ShowUpdatedFriendRequestsList();
             FriendsBorder.Visibility = Visibility.Hidden;
             FriendsRequestsBorder.Visibility = Visibility.Visible;
         }
 
-        private void SendFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            if (invalidNicknameInSendFriendRequestTextFieldsTextGenerator() == "")
-            {
-                if (new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text.Length <= 100)
-                {
-                    ProfileClient profileClient = new ProfileClient();
-
-                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text) != null)
-                    {
-                        if (NicknameTextBox.Text != loggedProfile.Player.NickName)
-                        {
-                            FriendRequestClient friendRequestClient = new FriendRequestClient();
-                            FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(
-                                    new InstanceContext(new MainWindow())
-                            );
-
-                            if (!friendRequestClient.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(
-                                loggedProfile.IDProfile,
-                                profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
-                                ))
-                            {
-                                bool theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = false;
-                                foreach (Profile p in profileClient.GetFriends(loggedProfile.IDProfile))
-                                {
-                                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).Player.NickName == p.Player.NickName)
-                                    {
-                                        theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = true;
-                                        break;
-                                    }
-                                }
-
-                                if (!theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile)
-                                {
-                                    if (!friendRequestClient.TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(
-                                        loggedProfile.IDProfile,
-                                        profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
-                                        ))
-                                    {
-                                        ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
-                                        friendRequests.Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text;
-                                        friendRequests.CreationDate = DateTime.Now;
-                                        friendRequests.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient);
-                                        friendRequests.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent);
-
-                                        ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players();
-                                        players.IDPlayer = loggedProfile.Player.IDPlayer;
-                                        players.Names = loggedProfile.Player.Names;
-                                        players.Surnames = loggedProfile.Player.Surnames;
-                                        players.Email = loggedProfile.Player.Email;
-                                        players.NickName = loggedProfile.Player.NickName;
-                                        players.BirthDate = (DateTime)loggedProfile.Player.BirthDate;
-                                        players.Password = loggedProfile.Player.Password;
-
-                                        ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles();
-                                        profiles.IDProfile = loggedProfile.IDProfile;
-                                        profiles.Coins = loggedProfile.Coins;
-                                        profiles.LoginStatus = loggedProfile.LoginStatus;
-                                        profiles.Players = players;
-
-                                        Profile profile1 = profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
-
-                                        ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players();
-                                        players1.IDPlayer = profile1.Player.IDPlayer;
-                                        players1.Names = profile1.Player.Names;
-                                        players1.Surnames = profile1.Player.Surnames;
-                                        players1.Email = profile1.Player.Email;
-                                        players1.NickName = profile1.Player.NickName;
-                                        players1.BirthDate = (DateTime)profile1.Player.BirthDate;
-                                        players1.Password = profile1.Player.Password;
-
-                                        ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles();
-                                        profiles1.IDProfile = profile1.IDProfile;
-                                        profiles1.Coins = profile1.Coins;
-                                        profiles1.LoginStatus = profile1.LoginStatus;
-                                        profiles1.Players = players1;
-
-                                        friendRequests.Profiles = profiles;
-                                        friendRequests.Profiles1 = profiles1;
-
-                                        friendRequestClient.AddFriendRequest(friendRequests);
-
-                                        MessageBox.Show(
-                                            resourceManager.GetString("Friend request sent succesfully", cultureInfo),
-                                            resourceManager.GetString("Success!!!", cultureInfo),
-                                            MessageBoxButton.OK,
-                                            MessageBoxImage.None
-                                        );
-
-                                        SendFriendRequestBorder.Visibility = Visibility.Hidden;
-                                        FriendsBorder.Visibility = Visibility.Visible;
-
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show(
-                                            resourceManager.GetString("The user you want to send a friendrequest already has sent a friendrequest to you", cultureInfo),
-                                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                            MessageBoxButton.OK,
-                                            MessageBoxImage.Error
-                                        );
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show(
-                                        resourceManager.GetString("You cant't send a friend request to this user because is already your friend", cultureInfo),
-                                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                        MessageBoxButton.OK,
-                                        MessageBoxImage.Error
-                                    );
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                    resourceManager.GetString("You already has sent a friend request to this user", cultureInfo),
-                                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Error
-                                );
-                            }
-                            friendRequestClient.Close();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show(
-                                resourceManager.GetString("You can't send a friend request to yourself", cultureInfo),
-                                resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error
-                            );
-                        }
-
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            resourceManager.GetString("The user you want to sent a friend request doesn't exists", cultureInfo),
-                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                        );
-                    }
-
-                    profileClient.Close();
-
-                }
-                else
-                {
-                    MessageBox.Show(
-                        resourceManager.GetString("The message shouldn't have more than 100 characters", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
-                }
-            }
-            else
-            {
-                MessageBox.Show(
-                    invalidNicknameInSendFriendRequestTextFieldsTextGenerator(),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
-            }
-
-        }
-
         public void ShowUpdatedFriendsList()
         {
-            if (!Dispatcher.CheckAccess())
-            {
-                Dispatcher.BeginInvoke(new Action(() => ShowUpdatedFriendsList()), DispatcherPriority.Background);
-                return;
-            }
-
             OnlineFriendsStackPanel.Children.Clear();
             OfflineFriendsStackPanel.Children.Clear();
 
@@ -562,15 +238,271 @@ namespace Renovación_LIS_Client.View
 
             profileClient.Close();
         }
+        //End of FriendList methods
+
+
+        //Start of SendFriendRequest methods
+        private void CancelButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            ShowUpdatedFriendsList();
+            SendFriendRequestBorder.Visibility = Visibility.Hidden;
+            FriendsBorder.Visibility = Visibility.Visible;
+        }
+
+        private void SendFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            if (invalidNicknameInSendFriendRequestTextFieldsTextGenerator() == "")
+            {
+                if (new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text.Length <= 100)
+                {
+                    ProfileClient profileClient = new ProfileClient();
+
+                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text) != null)
+                    {
+                        if (NicknameTextBox.Text != loggedProfile.Player.NickName)
+                        {
+                            FriendRequestClient friendRequestClient = new FriendRequestClient();
+
+                            if (!friendRequestClient.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(
+                                loggedProfile.IDProfile,
+                                profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
+                                ))
+                            {
+                                bool theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = false;
+                                foreach (Profile p in profileClient.GetFriends(loggedProfile.IDProfile))
+                                {
+                                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).Player.NickName == p.Player.NickName)
+                                    {
+                                        theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = true;
+                                        break;
+                                    }
+                                }
+
+                                if (!theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile)
+                                {
+                                    if (!friendRequestClient.TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(
+                                        loggedProfile.IDProfile,
+                                        profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
+                                        ))
+                                    {
+                                        ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
+                                        friendRequests.Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text;
+                                        friendRequests.CreationDate = DateTime.Now;
+                                        friendRequests.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Pendient);
+                                        friendRequests.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent);
+
+                                        ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players();
+                                        players.IDPlayer = loggedProfile.Player.IDPlayer;
+                                        players.Names = loggedProfile.Player.Names;
+                                        players.Surnames = loggedProfile.Player.Surnames;
+                                        players.Email = loggedProfile.Player.Email;
+                                        players.NickName = loggedProfile.Player.NickName;
+                                        players.BirthDate = (DateTime)loggedProfile.Player.BirthDate;
+                                        players.Password = loggedProfile.Player.Password;
+
+                                        ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles();
+                                        profiles.IDProfile = loggedProfile.IDProfile;
+                                        profiles.Coins = loggedProfile.Coins;
+                                        profiles.LoginStatus = loggedProfile.LoginStatus;
+                                        profiles.Players = players;
+
+                                        Profile profile1 = profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
+
+                                        ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players();
+                                        players1.IDPlayer = profile1.Player.IDPlayer;
+                                        players1.Names = profile1.Player.Names;
+                                        players1.Surnames = profile1.Player.Surnames;
+                                        players1.Email = profile1.Player.Email;
+                                        players1.NickName = profile1.Player.NickName;
+                                        players1.BirthDate = (DateTime)profile1.Player.BirthDate;
+                                        players1.Password = profile1.Player.Password;
+
+                                        ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles();
+                                        profiles1.IDProfile = profile1.IDProfile;
+                                        profiles1.Coins = profile1.Coins;
+                                        profiles1.LoginStatus = profile1.LoginStatus;
+                                        profiles1.Players = players1;
+
+                                        friendRequests.Profiles = profiles;
+                                        friendRequests.Profiles1 = profiles1;
+
+                                        friendRequestClient.AddFriendRequest(friendRequests);
+
+                                        MessageBox.Show(
+                                            resourceManager.GetString("Friend request sent succesfully", cultureInfo),
+                                            resourceManager.GetString("Success!!!", cultureInfo),
+                                            MessageBoxButton.OK,
+                                            MessageBoxImage.None
+                                        );
+
+                                        ShowUpdatedFriendsList();
+                                        SendFriendRequestBorder.Visibility = Visibility.Hidden;
+                                        FriendsBorder.Visibility = Visibility.Visible;
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(
+                                            resourceManager.GetString("The user you want to send a friendrequest already has sent a friendrequest to you", cultureInfo),
+                                            resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                            MessageBoxButton.OK,
+                                            MessageBoxImage.Error
+                                        );
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show(
+                                        resourceManager.GetString("You cant't send a friend request to this user because is already your friend", cultureInfo),
+                                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Error
+                                    );
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    resourceManager.GetString("You already has sent a friend request to this user", cultureInfo),
+                                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                );
+                            }
+                            friendRequestClient.Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                resourceManager.GetString("You can't send a friend request to yourself", cultureInfo),
+                                resourceManager.GetString("Too Bad!!!", cultureInfo),
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error
+                            );
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            resourceManager.GetString("The user you want to sent a friend request doesn't exists", cultureInfo),
+                            resourceManager.GetString("Too Bad!!!", cultureInfo),
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                        );
+                    }
+
+                    profileClient.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show(
+                        resourceManager.GetString("The message shouldn't have more than 100 characters", cultureInfo),
+                        resourceManager.GetString("Too Bad!!!", cultureInfo),
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    invalidNicknameInSendFriendRequestTextFieldsTextGenerator(),
+                    resourceManager.GetString("Too Bad!!!", cultureInfo),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+            }
+
+        }
+        //End of SendFriendRequest methods
+
+
+        //Start of FriendRequestsList methods
+        private void BackButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            ShowUpdatedFriendsList();
+            FriendsRequestsBorder.Visibility = Visibility.Hidden;
+            FriendsBorder.Visibility = Visibility.Visible;
+        }
+
+        private void DetailsButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            FriendsRequestsBorder.Visibility = Visibility.Hidden;
+            FriendRequestDetailsBorder.Visibility = Visibility.Visible;
+
+            if (sender is Button button)
+            {
+                StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
+
+                TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
+
+                FriendRequestClient friendRequestClient = new FriendRequestClient();
+
+                FriendRequest friendRequest = new FriendRequest();
+                friendRequest = friendRequestClient.GetFriendRequestByID(long.Parse(IDTextBlock.Text));
+
+                NicknameLabel.Content = friendRequest.Profile.Player.NickName;
+                CreationDateLabel.Content = friendRequest.CreationDate;
+                MessageTextBlock.Text = friendRequest.Message;
+                IDFriendRequestLabel.Content = friendRequest.IDFriendRequest;
+
+                bool theButtonsAreShowAndHidden = false;
+                foreach (var receivedFriendRequestBorder in ReceivedFriendsRequestsStackPanel.Children)
+                {
+                    if (receivedFriendRequestBorder is FrameworkElement frameworkElement)
+                    {
+                        if (frameworkElement is Border border)
+                        {
+                            StackPanel borderStackPanel = (StackPanel)border.Child;
+                            TextBlock textBlockOfSelectedFriendRequestBorder = (TextBlock)VisualTreeHelper.GetChild(borderStackPanel, 0);
+
+                            if (long.Parse(textBlockOfSelectedFriendRequestBorder.Text) == long.Parse(IDTextBlock.Text))
+                            {
+                                AcceptFriendRequestButton.Visibility = Visibility.Visible;
+                                CancelFriendRequestButton.Visibility = Visibility.Collapsed;
+                                RejectFriendRequestButton.Visibility = Visibility.Visible;
+                                BackButton1.Visibility = Visibility.Visible;
+                                theButtonsAreShowAndHidden = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (!theButtonsAreShowAndHidden)
+                {
+                    foreach (var sentFriendRequestBorder in SentFriendsRequestsStackPanel.Children)
+                    {
+                        if (sentFriendRequestBorder is FrameworkElement frameworkElement)
+                        {
+                            if (frameworkElement is Border border)
+                            {
+                                StackPanel borderStackPanel = (StackPanel)border.Child;
+                                TextBlock textBlockOfSelectedFriendRequestBorder = (TextBlock)VisualTreeHelper.GetChild(borderStackPanel, 0);
+
+                                if (long.Parse(textBlockOfSelectedFriendRequestBorder.Text) == long.Parse(IDTextBlock.Text))
+                                {
+                                    AcceptFriendRequestButton.Visibility = Visibility.Collapsed;
+                                    CancelFriendRequestButton.Visibility = Visibility.Visible;
+                                    RejectFriendRequestButton.Visibility = Visibility.Collapsed;
+                                    BackButton1.Visibility = Visibility.Visible;
+                                    theButtonsAreShowAndHidden = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                friendRequestClient.Close();
+            }
+        }
 
         public void ShowUpdatedFriendRequestsList()
         {
-            if (!Dispatcher.CheckAccess())
-            {
-                Dispatcher.BeginInvoke(new Action(() => ShowUpdatedFriendRequestsList()), DispatcherPriority.Background);
-                return;
-            }
-
             ReceivedFriendsRequestsStackPanel.Children.Clear();
             SentFriendsRequestsStackPanel.Children.Clear();
 
@@ -709,8 +641,70 @@ namespace Renovación_LIS_Client.View
 
             friendRequestClient.Close();
         }
+        //End of FriendRequestsList methods
 
 
+        //Start of FriendRequestDetails methods
+        private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
+            MessageBox.Show(
+                resourceManager.GetString("Friend request successfully accepted", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.None
+            );
+        
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
+            friendRequestClient.Close();
+        }
+
+        private void BackButton1OnClick(object sender, RoutedEventArgs e)
+        {
+            ShowUpdatedFriendRequestsList();
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
+        }
+
+        private void CancelFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+
+            MessageBox.Show(
+                resourceManager.GetString("Cancellation of sending friend request made successfully", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.None
+            );
+
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
+            friendRequestClient.Close();
+        }
+
+        private void RejectFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            FriendRequestClient friendRequestClient = new FriendRequestClient();
+            friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+
+            MessageBox.Show(
+                resourceManager.GetString("Friend request rejected", cultureInfo),
+                resourceManager.GetString("Success!!!", cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.None
+            );
+
+            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+            FriendsRequestsBorder.Visibility = Visibility.Visible;
+            friendRequestClient.Close();
+        }
+        //End of FriendRequestDetails methods
+
+
+        //Start of auxiliary methods
         private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions(string profileNickname)
         {
             ProfileClient profileClient = new ProfileClient();
@@ -733,7 +727,6 @@ namespace Renovación_LIS_Client.View
 
             return imageData;
         }
-
 
         private ServiceFriendRequestReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
         {
@@ -793,12 +786,14 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+        //End of auxiliary methods
+
 
         //The callback method
         public void UpdateFriendsRequestsLists()
         {
             if (PageStateManager.CurrentPage is FriendsView currentPage)
-            {
+            {                
                 currentPage.ShowUpdatedFriendRequestsList();
             }
         }

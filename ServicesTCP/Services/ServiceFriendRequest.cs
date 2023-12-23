@@ -336,6 +336,7 @@ namespace ServicesTCP.Services
                     friendRequestsToModify.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
                     databaseModelContainer.SaveChanges();
 
+
                     ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
                     serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
                 }
@@ -368,6 +369,7 @@ namespace ServicesTCP.Services
         }
     }
 
+    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class ServiceFriendRequestForCallbackMethods : IFriendRequestForCallbackMethods
     {
         public static Dictionary<string, IFriendRequestCallback> connectedProfiles = new Dictionary<string, IFriendRequestCallback>();
@@ -379,7 +381,6 @@ namespace ServicesTCP.Services
             if (!connectedProfiles.ContainsKey(username))
             {
                 connectedProfiles.Add(username, callback);
-                Console.WriteLine(connectedProfiles.Values.ToString());
             }
         }
 
@@ -388,7 +389,6 @@ namespace ServicesTCP.Services
             if (connectedProfiles.ContainsKey(username))
             {
                 connectedProfiles.Remove(username);
-                Console.WriteLine(connectedProfiles.Values.ToString());
             }
         }
 
@@ -399,5 +399,6 @@ namespace ServicesTCP.Services
                 friendRequestCallback.UpdateFriendsRequestsLists();
             }
         }
+
     }
 }

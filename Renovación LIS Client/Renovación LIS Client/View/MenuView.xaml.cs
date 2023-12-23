@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using System.Globalization;
+using System.Resources;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -21,14 +23,14 @@ namespace Renovación_LIS_Client.View
 
         public MenuView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
+            PageStateManager.CurrentPage = this;
+
             InitializeComponent();
             this.mainWindow = mainWindow;
             this.loggedProfile = loggedProfile;
             this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedProfile.Player.NickName + "!";
-
-            PageStateManager.CurrentPage = this;
         }
 
         public MenuView() { }

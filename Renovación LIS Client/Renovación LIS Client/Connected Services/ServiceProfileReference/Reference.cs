@@ -918,6 +918,12 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/GetProfileByPlayerNickname", ReplyAction="http://tempuri.org/IProfile/GetProfileByPlayerNicknameResponse")]
         System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerNicknameAsync(string nickname);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/ModifyImageName", ReplyAction="http://tempuri.org/IProfile/ModifyImageNameResponse")]
+        bool ModifyImageName(string fileName, string newName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/ModifyImageName", ReplyAction="http://tempuri.org/IProfile/ModifyImageNameResponse")]
+        System.Threading.Tasks.Task<bool> ModifyImageNameAsync(string fileName, string newName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfile/TheProfileIsLogged", ReplyAction="http://tempuri.org/IProfile/TheProfileIsLoggedResponse")]
         bool TheProfileIsLogged(long profileID);
         
@@ -1024,6 +1030,14 @@ namespace Renovación_LIS_Client.ServiceProfileReference {
         
         public System.Threading.Tasks.Task<domain.Profile> GetProfileByPlayerNicknameAsync(string nickname) {
             return base.Channel.GetProfileByPlayerNicknameAsync(nickname);
+        }
+        
+        public bool ModifyImageName(string fileName, string newName) {
+            return base.Channel.ModifyImageName(fileName, newName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ModifyImageNameAsync(string fileName, string newName) {
+            return base.Channel.ModifyImageNameAsync(fileName, newName);
         }
         
         public bool TheProfileIsLogged(long profileID) {

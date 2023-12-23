@@ -34,7 +34,10 @@ namespace ServicesTCP.ServiceContracts
         Profile GetProfileByPlayerID(long playerID);
 
         [OperationContract]
-        Profile GetProfileByPlayerNickname(string nickname);       
+        Profile GetProfileByPlayerNickname(string nickname);
+
+        [OperationContract]
+        bool ModifyImageName(string fileName, string newName);
 
         [OperationContract]
         bool TheProfileIsLogged(long profileID);

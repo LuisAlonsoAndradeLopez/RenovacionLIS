@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Resources;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
@@ -91,6 +92,9 @@ namespace Renovación_LIS_Client.View
                     {
                         if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedProfile.Player.NickName)
                         {
+                            profileClient.ModifyImageName(loggedProfile.Player.NickName, NicknameTextBox.Text);
+
+
                             ServicePlayerReference.Players players = new ServicePlayerReference.Players();
                             players.IDPlayer = loggedProfile.Player.IDPlayer;
                             players.Names = NamesTextBox.Text;
@@ -105,7 +109,7 @@ namespace Renovación_LIS_Client.View
                             {
                                 byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
                                 string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
-                                string fileName = loggedProfile.Player.NickName + fileExtension;
+                                string fileName = NicknameTextBox.Text + fileExtension;
 
                                 if (imageData.Length <= 1048576)
                                 {

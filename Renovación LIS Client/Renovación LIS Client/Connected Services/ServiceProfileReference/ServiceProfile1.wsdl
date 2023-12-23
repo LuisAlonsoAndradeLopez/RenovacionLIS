@@ -63,6 +63,12 @@
   <wsdl:message name="IProfile_GetProfileByPlayerNickname_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProfileByPlayerNicknameResponse" />
   </wsdl:message>
+  <wsdl:message name="IProfile_ModifyImageName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyImageName" />
+  </wsdl:message>
+  <wsdl:message name="IProfile_ModifyImageName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyImageNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IProfile_TheProfileIsLogged_InputMessage">
     <wsdl:part name="parameters" element="tns:TheProfileIsLogged" />
   </wsdl:message>
@@ -115,6 +121,10 @@
     <wsdl:operation name="GetProfileByPlayerNickname">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/GetProfileByPlayerNickname" message="tns:IProfile_GetProfileByPlayerNickname_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProfile/GetProfileByPlayerNicknameResponse" message="tns:IProfile_GetProfileByPlayerNickname_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyImageName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfile/ModifyImageName" message="tns:IProfile_ModifyImageName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfile/ModifyImageNameResponse" message="tns:IProfile_ModifyImageName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="TheProfileIsLogged">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfile/TheProfileIsLogged" message="tns:IProfile_TheProfileIsLogged_InputMessage" />
@@ -192,6 +202,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetProfileByPlayerNickname">
       <soap12:operation soapAction="http://tempuri.org/IProfile/GetProfileByPlayerNickname" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyImageName">
+      <soap12:operation soapAction="http://tempuri.org/IProfile/ModifyImageName" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -33,7 +33,6 @@ namespace Renovación_LIS_Client.View
             this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-
         }
 
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)

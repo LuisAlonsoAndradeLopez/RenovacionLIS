@@ -27,7 +27,6 @@ namespace ServicesTCP.Services
             if (connectedProfiles.ContainsKey(nickname))
             {
                 connectedProfiles.Remove(nickname);
-
                 UpdateChatToAllConnectedClients("Chat Server", $"{nickname} left the chat");
             }
         }

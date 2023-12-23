@@ -34,7 +34,6 @@ namespace Renovación_LIS_Client.View
             InitializeComponent();
             this.mainWindow = mainWindow;
             ChangeLanguageLabel();
-
         }
 
         private void StartGame(object sender, RoutedEventArgs e)

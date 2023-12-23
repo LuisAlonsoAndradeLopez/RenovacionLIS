@@ -38,7 +38,6 @@ namespace Renovación_LIS_Client.View
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             PageStateManager.CurrentPage = this;
 
