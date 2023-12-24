@@ -70,7 +70,7 @@
                         <Button x:Name="LogInButton" 
                                 Content="{x:Static p:Resources.LogIn}" 
                                 HorizontalAlignment="Left"
-                                Style="{StaticResource NormalButtom}"
+                                Style="{StaticResource DarkBlueButton}"
                                 Height="45"
                                 Width="200"
                                 Click="LoginButton"/>

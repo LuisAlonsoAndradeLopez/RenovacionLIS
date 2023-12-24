@@ -83,8 +83,8 @@ namespace Renovación_LIS_Client
 
         private void MainWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (Debugger.IsAttached)
-            {
+            //if (Debugger.IsAttached)
+            //{
                 MessageBoxResult result = MessageBox.Show(
                     resourceManager.GetString("Do you want to exit", cultureInfo),
                     resourceManager.GetString("What do you want", cultureInfo),
@@ -108,7 +108,7 @@ namespace Renovación_LIS_Client
                     e.Cancel = true;
                 }
 
-            }
+            //}
         }
 
         public void SetNullToLoggedProfile()

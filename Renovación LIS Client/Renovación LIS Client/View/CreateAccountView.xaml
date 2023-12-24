@@ -160,7 +160,7 @@
                              Margin="20,0"/>
 
                     <Button Content="{x:Static p:Resources.Create_account}" 
-                            Style="{StaticResource NormalButtom}"
+                            Style="{StaticResource GreenButton}"
                             Grid.Row="9"
                             Height="45"
                             Width="200"

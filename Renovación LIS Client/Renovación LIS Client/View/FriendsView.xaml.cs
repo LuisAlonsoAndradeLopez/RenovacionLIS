@@ -10,13 +10,10 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Threading;
 using domain;
 using DomainStatuses;
-using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
-using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Button = System.Windows.Controls.Button;
@@ -206,13 +203,12 @@ namespace Renovación_LIS_Client.View
 
                 Button cancelFriendshipButton = new Button
                 {
+                    Style = (Style)FindResource("RedButton"),
                     Height = 35,
-                    Width = 59,
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
-                    Margin = new Thickness(0, 0, 10, 0),
+                    Width = 110,
                     HorizontalAlignment = HorizontalAlignment.Right,
-                    Content = resourceManager.GetString("Cancel_friendship"),
-                    FontSize = 13
+                    Content = resourceManager.GetString("Cancel friendship", cultureInfo),
+                    FontSize = 13,
                 };
 
                 cancelFriendshipButton.Click += CancelFriendshipButtonOnClick;
@@ -553,6 +549,7 @@ namespace Renovación_LIS_Client.View
 
                 Button detailsButton = new Button
                 {
+                    Style = (Style)FindResource("CyanButton"),
                     Height = 35,
                     Width = 59,
                     Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
@@ -619,9 +616,9 @@ namespace Renovación_LIS_Client.View
 
                 Button detailsButton = new Button
                 {
+                    Style = (Style)FindResource("CyanButton"),
                     Height = 35,
                     Width = 59,
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF195388")),
                     Margin = new Thickness(15, 0, 0, 0),
                     Content = resourceManager.GetString("Details", cultureInfo),
                     FontSize = 13
@@ -796,6 +793,11 @@ namespace Renovación_LIS_Client.View
             {                
                 currentPage.ShowUpdatedFriendRequestsList();
             }
+        }
+
+        private void Button_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }

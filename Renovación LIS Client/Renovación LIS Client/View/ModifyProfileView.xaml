@@ -40,11 +40,11 @@
 
                     <StackPanel Width="240">
                         <Button Content="{x:Static p:Resources.Select_an_image}" 
-                        Style="{StaticResource NormalButtom}"
+                        Style="{StaticResource RedButton}"
                         Height="45"
                         Width="200"
                         HorizontalAlignment="Left"
-                        Margin="25,20,0,0" Click="SelectImageButton" Background="Red"/>
+                        Margin="25,20,0,0" Click="SelectImageButton"/>
 
                         <TextBlock TextWrapping="Wrap" Text=""
                         Margin="10,20,0,0" Foreground="White" Height="92"
@@ -134,17 +134,16 @@
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
 
                     <Button Content="{x:Static p:Resources.Modify_profile}" 
-                    Style="{StaticResource NormalButtom}"
+                    Style="{StaticResource GreenButton}"
                     Height="45"
                     Width="200"
                     HorizontalAlignment="Left"
                     Margin="40,0,0,0" Click="ModifyProfileButton"/>
 
                     <Button Content="{x:Static p:Resources.Cancel}" 
-                    Style="{StaticResource NormalButtom}"
+                    Style="{StaticResource BlackButton}"
                     Height="45"
                     Width="200"
-                    Background="Black"
                     Margin="200,0,0,0" Click="CancelButton"/>
                 </StackPanel>
 

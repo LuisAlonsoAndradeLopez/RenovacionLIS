@@ -24,10 +24,9 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Content="{x:Static p:Resources.Exit}" 
-                            Style="{StaticResource NormalButtom}"
+                            Style="{StaticResource BlackButton}"
                             Height="56"
                             Width="68"
-                            Background="#FFD01D1D"
                             Margin="20,7,0,0" Click="ExitButtonOnClick"/>
 
                     <Label Content="Chat"
@@ -57,10 +56,9 @@
                         Margin="28,0,0,0"/>
 
                     <Button Content="{x:Static p:Resources.Send_message}" 
-                        Style="{StaticResource NormalButtom}"
+                        Style="{StaticResource CyanButton}"
                         Height="56"
                         Width="158"
-                        Background="#37847F"
                         Margin="20,0,0,0" Click="SendMessageButtonOnClick"/>
                 </StackPanel>
 
