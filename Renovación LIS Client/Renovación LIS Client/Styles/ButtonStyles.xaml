@@ -121,75 +121,27 @@
     </Style>
 
 
+    <Style TargetType="DatePicker" x:Key="DatePicker">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+        
+
+    </Style>
+
+
+    <Style TargetType="DatePickerTextBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    
+    
+
     <Style x:Key="ScrollViewer" TargetType="ScrollViewer">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ScrollViewer">
-                    <Grid>
-                        <ScrollViewer x:Name="PART_ScrollViewer"
-                                          Focusable="false"
-                                          HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
-                                          VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}">
-                            <ScrollViewer.Template>
-                                <ControlTemplate TargetType="ScrollViewer">
-                                    <Grid Background="{TemplateBinding Background}">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-
-                                        <!-- ScrollContentPresenter -->
-                                        <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
-                                                                  Grid.Column="1"
-                                                                  Grid.Row="1"
-                                                                  CanContentScroll="{TemplateBinding CanContentScroll}"
-                                                                  Content="{TemplateBinding Content}"
-                                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                  Margin="{TemplateBinding Padding}"/>
-
-                                        <!-- VerticalScrollBar -->
-                                        <ScrollBar x:Name="PART_VerticalScrollBar"
-                                                       Grid.Column="2"
-                                                       Grid.Row="1"
-                                                       Value="{TemplateBinding VerticalOffset}"
-                                                       Maximum="{TemplateBinding ScrollableHeight}"
-                                                       ViewportSize="{TemplateBinding ViewportHeight}"
-                                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                                                       Background="Transparent" 
-                                                       Foreground="DarkGray"
-                                                       Width="18"/>
-
-                                        <!-- HorizontalScrollBar -->
-                                        <ScrollBar x:Name="PART_HorizontalScrollBar"
-                                                       Orientation="Horizontal"
-                                                       Grid.Column="1"
-                                                       Grid.Row="2"
-                                                       Value="{TemplateBinding HorizontalOffset}"
-                                                       Maximum="{TemplateBinding ScrollableWidth}"
-                                                       ViewportSize="{TemplateBinding ViewportWidth}"
-                                                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-                                                       Background="LightGray"
-                                                       Foreground="DarkGray"
-                                                
-                                                Height="18"/>
-                                    </Grid>
-                                </ControlTemplate>
-                            </ScrollViewer.Template>
-                            <ScrollViewer.Background>
-                                <SolidColorBrush Color="Transparent"/>
-                                <!-- Set the background color of the ScrollViewer -->
-                            </ScrollViewer.Background>
-                        </ScrollViewer>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        
     </Style>
 
 

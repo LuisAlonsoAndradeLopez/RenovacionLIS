@@ -9,6 +9,7 @@ using Renovación_LIS_Client.ServicePlayerReference;
 using System.Security;
 using System.Globalization;
 using System.Resources;
+using Renovación_LIS_Client.AuxiliaryClasses;
 
 namespace Renovación_LIS_Client.View
 {
@@ -61,12 +62,9 @@ namespace Renovación_LIS_Client.View
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
                 
                 playerClient.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
-                MessageBox.Show(
-                    resourceManager.GetString("Password changed sucessfully!!!", cultureInfo),
-                    resourceManager.GetString("Success!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.None
-                );
+
+                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
+
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new LoginView(mainWindow));
 
@@ -74,12 +72,7 @@ namespace Renovación_LIS_Client.View
             }
             else
             {
-                MessageBox.Show(
-                    resourceManager.GetString("Invalid code", cultureInfo),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Invalid code");
             }
         }
 
@@ -123,34 +116,19 @@ namespace Renovación_LIS_Client.View
                     }
                     else
                     {
-                        MessageBox.Show(
-                            resourceManager.GetString("Email not found", cultureInfo),
-                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                        );
+                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Email not found");
                     }
                 }
                 else
                 {
-                    MessageBox.Show(
-                        resourceManager.GetString("The passwords aren't the same", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The passwords aren't the same");
                 }
 
                 playerClient.Close();
             }
             else
             {
-                MessageBox.Show(
-                    invalidValuesInTextFieldsTextGenerator(),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
             }
         }
 

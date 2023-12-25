@@ -126,6 +126,21 @@
   <data name="Account made successfully" xml:space="preserve">
     <value>Account made successfully!!!</value>
   </data>
+  <data name="Are you sure you want to accept the friend request?" xml:space="preserve">
+    <value>Are you sure you want to accept the friend request?</value>
+  </data>
+  <data name="Are you sure you want to cancel the friend request sending?" xml:space="preserve">
+    <value>Are you sure you want to cancel the friend request sending?</value>
+  </data>
+  <data name="Are you sure you want to cancel the friendship?" xml:space="preserve">
+    <value>Are you sure you want to cancel the friendship?</value>
+  </data>
+  <data name="Are you sure you want to reject the friend request?" xml:space="preserve">
+    <value>Are you sure you want to reject the friend request?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
   </data>

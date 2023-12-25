@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
@@ -63,12 +64,7 @@ namespace Renovación_LIS_Client.View
                 }
                 else
                 {
-                    MessageBox.Show(
-                        resourceManager.GetString("The message shouldn't have more than 100 characters", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The message shouldn't have more than 100 characters");
                 }
             }
         }

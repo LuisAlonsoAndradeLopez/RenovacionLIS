@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
@@ -27,12 +28,6 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class FriendsView : Page, IFriendRequestForCallbackMethodsCallback
     {
-        //TODO
-        //Pantallas de desicion para cancelar, aceptar, o rechazar solicitude de amistad ,o eliminar amistades
-        //Puto cierre de procesos que no desloguea usuarios (Pendiente)
-        //Sacar del servicio a alguien que cierra la ventana de golpe, o no dejar que salga hasta que se desloguee
-        //Cambiar los popups a una clase
-
         private MainWindow mainWindow;
         private Profile loggedProfile;
         private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
@@ -64,54 +59,52 @@ namespace Renovación_LIS_Client.View
         {
             if (sender is Button button)
             {
-                ServiceProfileReference.Players players = new ServiceProfileReference.Players();
-                players.IDPlayer = loggedProfile.Player.IDPlayer;
-                players.Names = loggedProfile.Player.Names;
-                players.Surnames = loggedProfile.Player.Surnames;
-                players.Email = loggedProfile.Player.Email;
-                players.NickName = loggedProfile.Player.NickName;
-                players.BirthDate = (DateTime)loggedProfile.Player.BirthDate;
-                players.Password = loggedProfile.Player.Password;
+                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friendship?"))
+                {
+                    ServiceProfileReference.Players players = new ServiceProfileReference.Players();
+                    players.IDPlayer = loggedProfile.Player.IDPlayer;
+                    players.Names = loggedProfile.Player.Names;
+                    players.Surnames = loggedProfile.Player.Surnames;
+                    players.Email = loggedProfile.Player.Email;
+                    players.NickName = loggedProfile.Player.NickName;
+                    players.BirthDate = (DateTime)loggedProfile.Player.BirthDate;
+                    players.Password = loggedProfile.Player.Password;
 
-                ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles();
-                profiles.IDProfile = loggedProfile.IDProfile;
-                profiles.Coins = loggedProfile.Coins;
-                profiles.LoginStatus = loggedProfile.LoginStatus;
-                profiles.Players = players;
+                    ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles();
+                    profiles.IDProfile = loggedProfile.IDProfile;
+                    profiles.Coins = loggedProfile.Coins;
+                    profiles.LoginStatus = loggedProfile.LoginStatus;
+                    profiles.Players = players;
 
-                ProfileClient profileClient = new ProfileClient();
-                StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
-                TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
-                Profile profile1 = profileClient.GetProfileByPlayerID(long.Parse(IDTextBlock.Text));
+                    ProfileClient profileClient = new ProfileClient();
+                    StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
+                    TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
+                    Profile profile1 = profileClient.GetProfileByPlayerID(long.Parse(IDTextBlock.Text));
 
-                ServiceProfileReference.Players players1 = new ServiceProfileReference.Players();
-                players1.IDPlayer = profile1.Player.IDPlayer;
-                players1.Names = profile1.Player.Names;
-                players1.Surnames = profile1.Player.Surnames;
-                players1.Email = profile1.Player.Email;
-                players1.NickName = profile1.Player.NickName;
-                players1.BirthDate = (DateTime)profile1.Player.BirthDate;
-                players1.Password = profile1.Player.Password;
+                    ServiceProfileReference.Players players1 = new ServiceProfileReference.Players();
+                    players1.IDPlayer = profile1.Player.IDPlayer;
+                    players1.Names = profile1.Player.Names;
+                    players1.Surnames = profile1.Player.Surnames;
+                    players1.Email = profile1.Player.Email;
+                    players1.NickName = profile1.Player.NickName;
+                    players1.BirthDate = (DateTime)profile1.Player.BirthDate;
+                    players1.Password = profile1.Player.Password;
 
-                ServiceProfileReference.Profiles profiles1 = new ServiceProfileReference.Profiles();
-                profiles1.IDProfile = profile1.IDProfile;
-                profiles1.Coins = profile1.Coins;
-                profiles1.LoginStatus = profile1.LoginStatus;
-                profiles1.Players = players1;
+                    ServiceProfileReference.Profiles profiles1 = new ServiceProfileReference.Profiles();
+                    profiles1.IDProfile = profile1.IDProfile;
+                    profiles1.Coins = profile1.Coins;
+                    profiles1.LoginStatus = profile1.LoginStatus;
+                    profiles1.Players = players1;
 
-                profileClient.CancelFriendship(
-                    profiles,
-                    profiles1
-                );
+                    profileClient.CancelFriendship(
+                        profiles,
+                        profiles1
+                    );
 
-                MessageBox.Show(
-                    resourceManager.GetString("Friendship cancellation made successfully", cultureInfo),
-                    resourceManager.GetString("Success!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.None
-                );
+                    new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Friendship cancellation made successfully");
 
-                profileClient.Close();
+                    profileClient.Close();
+                }
             }
         }
 
@@ -324,12 +317,7 @@ namespace Renovación_LIS_Client.View
 
                                         friendRequestClient.AddFriendRequest(friendRequests);
 
-                                        MessageBox.Show(
-                                            resourceManager.GetString("Friend request sent succesfully", cultureInfo),
-                                            resourceManager.GetString("Success!!!", cultureInfo),
-                                            MessageBoxButton.OK,
-                                            MessageBoxImage.None
-                                        );
+                                        new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Friend request sent succesfully");
 
                                         ShowUpdatedFriendsList();
                                         SendFriendRequestBorder.Visibility = Visibility.Hidden;
@@ -338,55 +326,30 @@ namespace Renovación_LIS_Client.View
                                     }
                                     else
                                     {
-                                        MessageBox.Show(
-                                            resourceManager.GetString("The user you want to send a friendrequest already has sent a friendrequest to you", cultureInfo),
-                                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                            MessageBoxButton.OK,
-                                            MessageBoxImage.Error
-                                        );
+                                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The user you want to send a friendrequest already has sent a friendrequest to you");
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show(
-                                        resourceManager.GetString("You cant't send a friend request to this user because is already your friend", cultureInfo),
-                                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                        MessageBoxButton.OK,
-                                        MessageBoxImage.Error
-                                    );
+                                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You cant't send a friend request to this user because is already your friend");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show(
-                                    resourceManager.GetString("You already has sent a friend request to this user", cultureInfo),
-                                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Error
-                                );
+                                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You already has sent a friend request to this user");
                             }
                             friendRequestClient.Close();
 
                         }
                         else
                         {
-                            MessageBox.Show(
-                                resourceManager.GetString("You can't send a friend request to yourself", cultureInfo),
-                                resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error
-                            );
+                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You can't send a friend request to yourself");
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show(
-                            resourceManager.GetString("The user you want to sent a friend request doesn't exists", cultureInfo),
-                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                        );
+                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The user you want to sent a friend request doesn't exists");
                     }
 
                     profileClient.Close();
@@ -394,22 +357,12 @@ namespace Renovación_LIS_Client.View
                 }
                 else
                 {
-                    MessageBox.Show(
-                        resourceManager.GetString("The message shouldn't have more than 100 characters", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The message shouldn't have more than 100 characters");
                 }
             }
             else
             {
-                MessageBox.Show(
-                    invalidNicknameInSendFriendRequestTextFieldsTextGenerator(),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidNicknameInSendFriendRequestTextFieldsTextGenerator());
             }
 
         }
@@ -644,18 +597,17 @@ namespace Renovación_LIS_Client.View
         //Start of FriendRequestDetails methods
         private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
-            MessageBox.Show(
-                resourceManager.GetString("Friend request successfully accepted", cultureInfo),
-                resourceManager.GetString("Success!!!", cultureInfo),
-                MessageBoxButton.OK,
-                MessageBoxImage.None
-            );
+            if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to accept the friend request?"))
+            {
+                FriendRequestClient friendRequestClient = new FriendRequestClient();
+                friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
+
+                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Friend request successfully accepted");
         
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
+                FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+                FriendsRequestsBorder.Visibility = Visibility.Visible;
+                friendRequestClient.Close();
+            }
         }
 
         private void BackButton1OnClick(object sender, RoutedEventArgs e)
@@ -667,36 +619,32 @@ namespace Renovación_LIS_Client.View
 
         private void CancelFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+            if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friend request sending?"))
+            {
+                FriendRequestClient friendRequestClient = new FriendRequestClient();
+                friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
-            MessageBox.Show(
-                resourceManager.GetString("Cancellation of sending friend request made successfully", cultureInfo),
-                resourceManager.GetString("Success!!!", cultureInfo),
-                MessageBoxButton.OK,
-                MessageBoxImage.None
-            );
+                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Cancellation of sending friend request made successfully");
 
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
+                FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+                FriendsRequestsBorder.Visibility = Visibility.Visible;
+                friendRequestClient.Close();
+            }
         }
 
         private void RejectFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+            if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to reject the friend request?"))
+            {
+                FriendRequestClient friendRequestClient = new FriendRequestClient();
+                friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
-            MessageBox.Show(
-                resourceManager.GetString("Friend request rejected", cultureInfo),
-                resourceManager.GetString("Success!!!", cultureInfo),
-                MessageBoxButton.OK,
-                MessageBoxImage.None
-            );
+                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Friend request rejected");
 
-            FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
-            FriendsRequestsBorder.Visibility = Visibility.Visible;
-            friendRequestClient.Close();
+                FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
+                FriendsRequestsBorder.Visibility = Visibility.Visible;
+                friendRequestClient.Close();
+            }
         }
         //End of FriendRequestDetails methods
 
@@ -793,11 +741,6 @@ namespace Renovación_LIS_Client.View
             {                
                 currentPage.ShowUpdatedFriendRequestsList();
             }
-        }
-
-        private void Button_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-
         }
     }
 }

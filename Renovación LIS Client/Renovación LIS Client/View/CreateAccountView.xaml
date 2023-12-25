@@ -142,6 +142,7 @@
                              Margin="20,0"/>
 
                     <DatePicker x:Name="BirthdayDatePicker"
+                             Style="{StaticResource DatePicker}"
                              Grid.Row="6"
                              Grid.Column="1"
                              Height="45"

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
@@ -78,44 +79,24 @@ namespace Renovación_LIS_Client.View
                         }
                         else
                         {
-                            MessageBox.Show(
-                                resourceManager.GetString("The user is already logged", cultureInfo),
-                                resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error
-                            );
+                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The user is already logged");
                         }
                     }
                     else
                     {
-                        MessageBox.Show(
-                            resourceManager.GetString("The password isn't correct", cultureInfo),
-                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                            MessageBoxButton.OK, 
-                            MessageBoxImage.Error
-                        );
+                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The password isn't correct");
                     }
                 }
                 else
                 {
-                    MessageBox.Show(
-                        resourceManager.GetString("The introduced nickname doesn't exists", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK, 
-                        MessageBoxImage.Error
-                    );
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The introduced nickname doesn't exists");
                 }
 
                 profileClient.Close();
             }
             else
             {
-                MessageBox.Show(
-                    invalidValuesInTextFieldsTextGenerator(),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
             }
         }
 

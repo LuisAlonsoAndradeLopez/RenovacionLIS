@@ -13,45 +13,60 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
 {
     public class AlertPopUpGenerator
     {
-        public AlertPopUpGenerator() { }
+        private CultureInfo cultureInfo;
+        private ResourceManager resourceManager;
 
-        public void OpenDesicionPopUp()
+        public AlertPopUpGenerator()
         {
-            //MessageBoxResult result = MessageBox.Show(
-            //    resourceManager.GetString("Do you want to exit", cultureInfo),
-            //    resourceManager.GetString("What do you want", cultureInfo),
-            //    MessageBoxButton.YesNo,
-            //    MessageBoxImage.Question
-            //);
-            //
-            //if (result == MessageBoxResult.Yes)
-            //{
-            //    if (loggedProfile != null)
-            //    {
-            //        ProfileClient profileClient = new ProfileClient();
-            //        profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-            //
-            //        profileClient.Close();
-            //    }
-            //
-            //}
-            //else
-            //{
-            //    e.Cancel = true;
-            //}
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
         }
 
-        public void OpenErrorPopUp()
+        public bool OpenDesicionPopUp(String header, String message)
         {
+            MessageBoxResult result = MessageBox.Show(
+                resourceManager.GetString(message, cultureInfo),
+                resourceManager.GetString(header, cultureInfo),
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+            
+            if (result == MessageBoxResult.Yes)
+            {
+                return true;         
+            }     
+            
+            return false;
         }
 
-        public void OpenSuccessPopUp()
+        public void OpenErrorPopUp(String header, String message)
         {
+            MessageBox.Show(
+                resourceManager.GetString(message, cultureInfo),
+                resourceManager.GetString(header, cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
         }
 
-        public void OpenWarningPopUp()
+        public void OpenSuccessPopUp(String header, String message)
         {
+            MessageBox.Show(
+                resourceManager.GetString(message, cultureInfo),
+                resourceManager.GetString(header, cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.None
+            );
         }
 
+        public void OpenWarningPopUp(String header, String message)
+        {
+            MessageBox.Show(
+                resourceManager.GetString(message, cultureInfo),
+                resourceManager.GetString(header, cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning
+            );
+        }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Resources;
-using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
@@ -117,22 +116,11 @@ namespace Renovación_LIS_Client.View
                                 }
                                 else
                                 {
-                                    MessageBox.Show(
-                                        resourceManager.GetString("The file shouldn't be larger than 1 MB", cultureInfo),
-                                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                        MessageBoxButton.OK,
-                                        MessageBoxImage.Error
-                                    );
+                                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The file shouldn't be larger than 1 MB");
                                     return;
                                 }
                             }
-
-                            MessageBox.Show(
-                                resourceManager.GetString("Profile modified successfully!!!", cultureInfo),
-                                resourceManager.GetString("Success!!!", cultureInfo),
-                                MessageBoxButton.OK, 
-                                MessageBoxImage.None
-                            );
+                            new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Profile modified successfully!!!");
 
                             loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
 
@@ -143,22 +131,12 @@ namespace Renovación_LIS_Client.View
                         }
                         else
                         {
-                            MessageBox.Show(
-                                resourceManager.GetString("Nickname already on use", cultureInfo),
-                                resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                MessageBoxButton.OK, 
-                                MessageBoxImage.Error
-                            );
+                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Nickname already on use");
                         }
                     }
                     else
                     {
-                        MessageBox.Show(
-                            resourceManager.GetString("Email already on use", cultureInfo),
-                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                            MessageBoxButton.OK, 
-                            MessageBoxImage.Error
-                        );
+                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Email already on use");
                     }
 
                     playerClient.Close();
@@ -166,21 +144,12 @@ namespace Renovación_LIS_Client.View
                 }
                 else
                 {
-                    MessageBox.Show(
-                        resourceManager.GetString("Birth date should be before than the actual date", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
                 }
             }
             else
             {
-                MessageBox.Show(
-                    invalidValuesInTextFieldsTextGenerator(),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
             }
         }
 

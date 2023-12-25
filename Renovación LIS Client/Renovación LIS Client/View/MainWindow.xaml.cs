@@ -1,18 +1,12 @@
 ﻿using domain;
 using DomainStatuses;
-using Intersoft.Crosslight;
-using Renovación_LIS_Client.ServiceChatReference;
-using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceFriendRequestReference;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Renovación_LIS_Client.View;
 using System;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 using System.Resources;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -85,14 +79,9 @@ namespace Renovación_LIS_Client
         {
             //if (Debugger.IsAttached)
             //{
-                MessageBoxResult result = MessageBox.Show(
-                    resourceManager.GetString("Do you want to exit", cultureInfo),
-                    resourceManager.GetString("What do you want", cultureInfo),
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question
-                );
+                
 
-                if (result == MessageBoxResult.Yes)
+                if (new AlertPopUpGenerator().OpenDesicionPopUp("What do you want", "Do you want to exit"))
                 {
                     if(loggedProfile != null)
                     {
@@ -101,7 +90,6 @@ namespace Renovación_LIS_Client
 
                         profileClient.Close();
                     }
-
                 }
                 else
                 {
@@ -122,11 +110,7 @@ namespace Renovación_LIS_Client
             this.loggedProfile = profile;
         }
 
-        //Callback Methods
-        
-
-        
-
+        //Callback Method         
         public void UpdateFriendsLists()
         {
             if (PageStateManager.CurrentPage is FriendsView currentPage)
@@ -134,7 +118,6 @@ namespace Renovación_LIS_Client
                 currentPage.ShowUpdatedFriendsList();
             }            
         }
-
     }
 
     public class PageStateManager

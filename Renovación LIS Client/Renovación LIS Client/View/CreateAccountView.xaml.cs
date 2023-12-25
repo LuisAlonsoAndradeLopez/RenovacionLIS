@@ -2,13 +2,13 @@
 using System.Globalization;
 using System.Resources;
 using System.Security;
-using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using DomainStatuses;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
@@ -77,33 +77,19 @@ namespace Renovación_LIS_Client.View
                                     Console.WriteLine(ex.StackTrace);
                                 }
 
-                                MessageBox.Show(
-                                    resourceManager.GetString("Account made successfully", cultureInfo),
-                                    resourceManager.GetString("Success!!!", cultureInfo),
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.None
-                                );
+                                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Account made successfully");
+
                                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                                 navigationService.Navigate(new LoginView(mainWindow));
                             }
                             else
                             {
-                                MessageBox.Show(
-                                    resourceManager.GetString("Nickname already on use", cultureInfo),
-                                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                    MessageBoxButton.OK, 
-                                    MessageBoxImage.Error
-                                );
+                                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Nickname already on use");
                             }
                         }
                         else
                         {
-                            MessageBox.Show(
-                                resourceManager.GetString("Email already on use", cultureInfo),
-                                resourceManager.GetString("Too Bad!!!", cultureInfo),
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error
-                            );
+                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Email already on use");
                         }
 
                         profileClient.Close();
@@ -111,32 +97,17 @@ namespace Renovación_LIS_Client.View
                     }
                     else
                     {
-                        MessageBox.Show(
-                            resourceManager.GetString("The passwords aren't the same", cultureInfo),
-                            resourceManager.GetString("Too Bad!!!", cultureInfo),
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                        );
+                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The passwords aren't the same");
                     }
                 }
                 else
                 {
-                    MessageBox.Show(
-                        resourceManager.GetString("Birth date should be before than the actual date", cultureInfo),
-                        resourceManager.GetString("Too Bad!!!", cultureInfo),
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
                 }
             }
             else
             {
-                MessageBox.Show(
-                    invalidValuesInTextFieldsTextGenerator(),
-                    resourceManager.GetString("Too Bad!!!", cultureInfo),
-                    MessageBoxButton.OK, 
-                    MessageBoxImage.Error
-                );
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
             }
         }
 

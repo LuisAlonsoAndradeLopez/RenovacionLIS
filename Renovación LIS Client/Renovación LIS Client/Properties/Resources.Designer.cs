@@ -88,6 +88,51 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure?.
+        /// </summary>
+        public static string Are_you_sure_ {
+            get {
+                return ResourceManager.GetString("Are you sure?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure you want to accept the friend request?.
+        /// </summary>
+        public static string Are_you_sure_you_want_to_accept_the_friend_request_ {
+            get {
+                return ResourceManager.GetString("Are you sure you want to accept the friend request?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure you want to cancel the friend request sending?.
+        /// </summary>
+        public static string Are_you_sure_you_want_to_cancel_the_friend_request_sending_ {
+            get {
+                return ResourceManager.GetString("Are you sure you want to cancel the friend request sending?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure you want to cancel the friendship?.
+        /// </summary>
+        public static string Are_you_sure_you_want_to_cancel_the_friendship_ {
+            get {
+                return ResourceManager.GetString("Are you sure you want to cancel the friendship?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure you want to reject the friend request?.
+        /// </summary>
+        public static string Are_you_sure_you_want_to_reject_the_friend_request_ {
+            get {
+                return ResourceManager.GetString("Are you sure you want to reject the friend request?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Back.
         /// </summary>
         public static string Back {
