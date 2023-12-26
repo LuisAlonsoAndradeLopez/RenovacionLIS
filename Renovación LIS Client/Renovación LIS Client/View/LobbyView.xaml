@@ -13,47 +13,143 @@
         <Image Source="/images/lobbyImage.png" VerticalAlignment="Center"/>
 
         <Border Margin="28,35,28,35" 
+            Height="580"
+            Width="1070"
             Name="IntroduceDataBorder"
             Grid.Column="0"
             CornerRadius="20">
 
             <Border.Background>
-                <SolidColorBrush Color="Black" Opacity="0.8"/>
+                <SolidColorBrush Color="Black" Opacity="0.5"/>
             </Border.Background>
 
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Content="{x:Static p:Resources.Exit}" 
-                        Style="{StaticResource NormalButtom}"
+                        Style="{StaticResource RedButton}"
                         Height="56"
                         Width="68"
-                        Background="#FFD01D1D"
                         Margin="20,7,0,0" Click="ExitButtonOnClick"/>
 
                     <Label Content="Lobby"
                         FontFamily="{StaticResource K2DBold}"
                         Foreground="White"
-                        Margin="420,0,0,0"
+                        Margin="370,0,0,0"
                         FontSize="50"/>
                 </StackPanel>
 
                 <Label Background="White"
-                    Margin="0 5 0 15"
+                    Margin="0 5 0 0"
                     Height="2"/>
 
-                <ScrollViewer Height="393">
-                    <StackPanel Name="MessagesStackPanel">
+                <StackPanel Name="ConnectedUsersStackPanel" Height="310" Orientation="Horizontal">
+                    <Border Margin="20,0,0,0" Height="280" Width="242" CornerRadius="20">
+                        <Border.Background>
+                            <SolidColorBrush Color="Black" Opacity="0.5"/>
+                        </Border.Background>
+                        <StackPanel>
+                            <Image Source="/images/playButton.png"
+                                Margin="0,20,0,0"
+                                Height="110"
+                                Width="110"
+                                RenderTransformOrigin="0.5,0.522"/>
 
+                            <StackPanel Height="54" Margin="0,20,0,0">                                
+                                <TextBlock Text="{x:Static p:Resources.Banned_players}"
+                                    FontFamily="{StaticResource K2DBold}"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontSize="20" Width="218"/>
+                            </StackPanel>
+
+                            <Button Content="{x:Static p:Resources.Ban}" 
+                                Style="{StaticResource RedButton}"
+                                Height="38"
+                                Width="96"
+                                Margin="0,20,0,0" Click="BanPlayerButtonOnClick"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <Label Background="White"
+                    Margin="0 0 0 10"
+                    Height="2"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="45,15,0,0">
+                        <TextBlock Text="{x:Static p:Resources.Banned_players}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="20" Width="115"/>
+
+                        <Image Source="/images/bannedPlayersButton.png"
+                            Height="80"
+                            Width="80"
+                            MouseLeftButtonDown="BannedPlayersButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
                     </StackPanel>
-                </ScrollViewer>
 
+                    <StackPanel Margin="60,20,0,0">
+                        <Label Content="{x:Static p:Resources.Friends}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                    <Image Source="/images/playButton.png"
-                        Height="80"
-                        Width="80"
-                        MouseLeftButtonDown="PlayGameSelected"
-                        Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                        <Image Source="/images/friendsButton.png"
+                            Height="80"
+                            Width="80"
+                            MouseLeftButtonDown="FriendsButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="170,10,0,0">
+                        <Label Content="{x:Static p:Resources.Play}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
+
+                        <Image Source="/images/playButton.png"
+                            Height="104"
+                            Width="100"
+                            MouseLeftButtonDown="PlayButtonOnClick"
+                            Cursor="Hand"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="170,20,0,0">
+                        <Label Content="{x:Static p:Resources.Chat}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
+
+                        <Image Source="/images/chatButton.png"
+                            Height="80"
+                            Width="80"
+                            MouseLeftButtonDown="ChatButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="60,20,0,0">
+                        <Label Content="{x:Static p:Resources.Configuration}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
+
+                        <Image Source="/images/configurationButton.png"
+                            Height="80"
+                            Width="80"
+                            MouseLeftButtonDown="ConfigurationButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
                 </StackPanel>
 
             </StackPanel>

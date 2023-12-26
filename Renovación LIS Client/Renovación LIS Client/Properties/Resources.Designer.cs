@@ -142,6 +142,24 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ban.
+        /// </summary>
+        public static string Ban {
+            get {
+                return ResourceManager.GetString("Ban", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Banned players.
+        /// </summary>
+        public static string Banned_players {
+            get {
+                return ResourceManager.GetString("Banned players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Birth date should be before than the actual date.
         /// </summary>
         public static string Birth_date_should_be_before_than_the_actual_date {
@@ -210,6 +228,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Change_password {
             get {
                 return ResourceManager.GetString("Change password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Chat.
+        /// </summary>
+        public static string Chat {
+            get {
+                return ResourceManager.GetString("Chat", resourceCulture);
             }
         }
         
@@ -904,6 +931,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Too_Bad___ {
             get {
                 return ResourceManager.GetString("Too Bad!!!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Unban.
+        /// </summary>
+        public static string Unban {
+            get {
+                return ResourceManager.GetString("Unban", resourceCulture);
             }
         }
         

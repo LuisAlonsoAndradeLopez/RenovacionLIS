@@ -44,7 +44,7 @@ namespace Renovación_LIS_Client.View
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ChatView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
         }
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)

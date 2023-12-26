@@ -521,5 +521,20 @@
   <ItemGroup>
     <Resource Include="images\winnersImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bannedPlayersButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\chatButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\configurationButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\friendsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\playButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

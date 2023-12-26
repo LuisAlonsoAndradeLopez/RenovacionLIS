@@ -2,10 +2,8 @@
 using System.Globalization;
 using System.IO;
 using System.Resources;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -21,7 +19,7 @@ namespace Renovación_LIS_Client.View
     /// Lógica de interacción para ChatView.xaml
     /// </summary>
 
-    public partial class ChatView : Page, IChatCallback
+    public partial class ChatView : Page
     {
         private MainWindow mainWindow;
         private ChatClient chatClient;
@@ -30,7 +28,7 @@ namespace Renovación_LIS_Client.View
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
-        public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+        public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -41,16 +39,12 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
-
-            chatClient = new ChatClient(new InstanceContext(this));
-            chatClient.JoinChat(loggedProfile.Player.NickName);
+            this.chatClient = chatClient;
         }
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            chatClient.LeaveChat(loggedProfile.Player.NickName);
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
         }
 
         private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)
@@ -220,40 +214,6 @@ namespace Renovación_LIS_Client.View
             profileClient.Close();
 
             return imageData;
-        }
-
-
-
-        //The callback method
-        public void UpdateChat(string senderNickname, string message)
-        {
-            if (PageStateManager.CurrentPage is ChatView currentPage)
-            {
-                if (senderNickname == "Chat Server")
-                {
-                    if (message.Contains("has joined to the chat"))
-                    {
-                        currentPage.ShowUpdatedChat
-                        (
-                            senderNickname,
-                            $"{message.Replace("has joined to the chat", "")}" + resourceManager.GetString("Has joined to the chat", cultureInfo)
-                        );
-                    }
-
-                    if (message.Contains("left the chat"))
-                    {
-                        currentPage.ShowUpdatedChat
-                        (
-                            senderNickname,
-                            $"{message.Replace("left the chat", "")}" + resourceManager.GetString("Left the chat", cultureInfo)
-                        );
-                    }
-                }
-                else
-                {
-                    currentPage.ShowUpdatedChat(senderNickname, message);
-                }
-            }
         }
     }
 }
