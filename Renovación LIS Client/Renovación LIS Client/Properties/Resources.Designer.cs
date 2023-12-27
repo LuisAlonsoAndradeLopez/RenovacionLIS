@@ -358,6 +358,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to unban this player?.
+        /// </summary>
+        public static string Do_you_want_to_unban_this_player_ {
+            get {
+                return ResourceManager.GetString("Do you want to unban this player?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a E mail.
         /// </summary>
         public static string Email {
@@ -736,6 +745,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Player unbanned!.
+        /// </summary>
+        public static string Player_unbanned_ {
+            get {
+                return ResourceManager.GetString("Player unbanned!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Profile.
         /// </summary>
         public static string Profile {
@@ -989,6 +1007,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Uh oh!.
+        /// </summary>
+        public static string Uh_oh_ {
+            get {
+                return ResourceManager.GetString("Uh oh!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Unban.
         /// </summary>
         public static string Unban {
@@ -1048,6 +1075,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string You_cant_t_send_a_friend_request_to_this_user_because_is_already_your_friend {
             get {
                 return ResourceManager.GetString("You cant\'t send a friend request to this user because is already your friend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You have been banned!!!!!.
+        /// </summary>
+        public static string You_have_been_banned_____ {
+            get {
+                return ResourceManager.GetString("You have been banned!!!!!", resourceCulture);
             }
         }
     }

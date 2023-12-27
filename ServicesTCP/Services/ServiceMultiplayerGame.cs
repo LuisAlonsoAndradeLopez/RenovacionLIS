@@ -23,11 +23,16 @@ namespace ServicesTCP.Services
         //IsOneWay = true methods
         public void BanPlayer(string username)
         {
-            if (!bannedProfiles.Contains(username))
+            if (connectedProfiles.ContainsKey(username))
             {
-                bannedProfiles.Add(username);
-                UpdateBannedProfilesListsToAllConnectedClients();
-                UpdateConnectedProfilesListsToAllConnectedClients();
+                if (!bannedProfiles.Contains(username))
+                {
+                    connectedProfiles[username].ExpelPlayerFromLobbyView();
+                    bannedProfiles.Add(username);
+                    connectedProfiles.Remove(username);
+                    UpdateBannedProfilesListsToAllConnectedClients();
+                    UpdateConnectedProfilesListsToAllConnectedClients();
+                }
             }
         }
 
@@ -97,6 +102,11 @@ namespace ServicesTCP.Services
 
 
         //IsOneWay = false methods
+        public List<String> GetBannedProfiles()
+        {
+             return bannedProfiles;
+        }
+
         public List<String> GetConnectedProfiles()
         {
             List<String> connectedProfilesList = new List<string>();
@@ -127,6 +137,5 @@ namespace ServicesTCP.Services
 
             return false;
         }
-
     }
 }

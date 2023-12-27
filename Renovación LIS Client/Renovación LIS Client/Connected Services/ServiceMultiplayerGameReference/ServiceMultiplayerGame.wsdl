@@ -40,6 +40,12 @@
   <wsdl:message name="IMultiplayerGame_UpdateConnectedProfilesListsToAllConnectedClients_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateConnectedProfilesListsToAllConnectedClients" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_GetBannedProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_GetBannedProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannedProfilesResponse" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerGame_GetConnectedProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:GetConnectedProfiles" />
   </wsdl:message>
@@ -57,6 +63,9 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerGame_IsBanned_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsBannedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_ExpelPlayerFromLobbyView_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ExpelPlayerFromLobbyView" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerGame_UpdateBannedProfilesLists_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateBannedProfilesLists" />
@@ -86,6 +95,10 @@
     <wsdl:operation name="UpdateConnectedProfilesListsToAllConnectedClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesListsToAllConnectedClients" message="tns:IMultiplayerGame_UpdateConnectedProfilesListsToAllConnectedClients_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetBannedProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/GetBannedProfiles" message="tns:IMultiplayerGame_GetBannedProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/GetBannedProfilesResponse" message="tns:IMultiplayerGame_GetBannedProfiles_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetConnectedProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/GetConnectedProfiles" message="tns:IMultiplayerGame_GetConnectedProfiles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/GetConnectedProfilesResponse" message="tns:IMultiplayerGame_GetConnectedProfiles_OutputMessage" />
@@ -97,6 +110,9 @@
     <wsdl:operation name="IsBanned">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/IsBanned" message="tns:IMultiplayerGame_IsBanned_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/IsBannedResponse" message="tns:IMultiplayerGame_IsBanned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpelPlayerFromLobbyView">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/ExpelPlayerFromLobbyView" message="tns:IMultiplayerGame_ExpelPlayerFromLobbyView_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateBannedProfilesLists">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/UpdateBannedProfilesLists" message="tns:IMultiplayerGame_UpdateBannedProfilesLists_OutputCallbackMessage" />
@@ -150,6 +166,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="GetBannedProfiles">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/GetBannedProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetConnectedProfiles">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/GetConnectedProfiles" style="document" />
       <wsdl:input>
@@ -173,6 +198,12 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpelPlayerFromLobbyView">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/ExpelPlayerFromLobbyView" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

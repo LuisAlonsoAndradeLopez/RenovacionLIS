@@ -216,6 +216,9 @@
   <data name="Do you want to set admin to this player?" xml:space="preserve">
     <value>¿Quieres hacer administrador a este jugador?</value>
   </data>
+  <data name="Do you want to unban this player?" xml:space="preserve">
+    <value>¿Quieres desbanear este jugador?</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Correo electrónico</value>
   </data>
@@ -342,6 +345,9 @@
   <data name="Player banned successfully!" xml:space="preserve">
     <value>¡Jugador baneao correctamente!</value>
   </data>
+  <data name="Player unbanned!" xml:space="preserve">
+    <value>¡Jugador desbaneado!</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Perfil</value>
   </data>
@@ -426,6 +432,9 @@
   <data name="Too Bad!!!" xml:space="preserve">
     <value>¡Upa!</value>
   </data>
+  <data name="Uh oh!" xml:space="preserve">
+    <value>¡Ay no!</value>
+  </data>
   <data name="Unban" xml:space="preserve">
     <value>Desbanear</value>
   </data>
@@ -446,5 +455,8 @@
   </data>
   <data name="You cant't send a friend request to this user because is already your friend" xml:space="preserve">
     <value>No puedes mandar solicitud de amistad a este usuario por que ya es tu amigo</value>
+  </data>
+  <data name="You have been banned!!!!!" xml:space="preserve">
+    <value>¡Has sido baneao!</value>
   </data>
 </root>

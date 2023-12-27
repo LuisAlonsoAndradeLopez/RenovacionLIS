@@ -61,6 +61,12 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
             "ents")]
         System.Threading.Tasks.Task UpdateConnectedProfilesListsToAllConnectedClientsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetBannedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetBannedProfilesResponse")]
+        string[] GetBannedProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetBannedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetBannedProfilesResponse")]
+        System.Threading.Tasks.Task<string[]> GetBannedProfilesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetConnectedProfilesResponse")]
         string[] GetConnectedProfiles();
         
@@ -82,6 +88,9 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMultiplayerGameCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/ExpelPlayerFromLobbyView")]
+        void ExpelPlayerFromLobbyView();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateBannedProfilesLists")]
         void UpdateBannedProfilesLists();
@@ -172,6 +181,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         public System.Threading.Tasks.Task UpdateConnectedProfilesListsToAllConnectedClientsAsync() {
             return base.Channel.UpdateConnectedProfilesListsToAllConnectedClientsAsync();
+        }
+        
+        public string[] GetBannedProfiles() {
+            return base.Channel.GetBannedProfiles();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetBannedProfilesAsync() {
+            return base.Channel.GetBannedProfilesAsync();
         }
         
         public string[] GetConnectedProfiles() {

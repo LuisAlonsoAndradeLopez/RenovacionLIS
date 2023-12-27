@@ -24,14 +24,14 @@ namespace Renovación_LIS_Client.View
     {
         /*
         TODO
-        -Al entrar a la ventana de chat y salir debe de actualizar la pantalla 
-        (y debe de abrir loginview en otro constructor, porque crashea)
-        -Hacer BannedPlayersView
+        -No hay callback para cuando se desbanea un jugador
         -Al banear un jugador lo debe de sacar de la partida con un mensaje de que ha sido baneado
-        -Si estas baneao debe de salir el mensaje de que estas baneao, no puedes entrar
+        (Lo que falta es el mensaje debe de salirle al jugador baneao)
+        -Si estas baneao debe de salir el mensaje de que estas baneao, no puedes entrar (Correjir de que si entra, no debe de entrar ni al servicio)
         -Actualizar el chat para que se conserven los mensajes mientras se está en el LobbyView
+        -Nuevo panel para amigos para invitarlo a la partida
         -Jugar como invitado (se va a dejar al final)
-
+        -Agregar la palabra "tú" a el panel del lobby
         */
         
 
@@ -73,6 +73,8 @@ namespace Renovación_LIS_Client.View
             PageStateManager.CurrentPage = this;
 
             this.chatClient = chatClient;
+            multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
+            ShowConnectedPlayers();
         }
 
         private void BanPlayerButtonOnClick(object sender, RoutedEventArgs e)
@@ -146,6 +148,16 @@ namespace Renovación_LIS_Client.View
 
         }
 
+
+        //Auxiliary Methods
+        public void ExpelYou()
+        {
+            chatClient.LeaveChat(loggedProfile.Player.NickName);
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
+        }
+
         public void ShowConnectedPlayers()
         {
             ConnectedUsersStackPanel.Children.Clear();
@@ -159,6 +171,8 @@ namespace Renovación_LIS_Client.View
                     CornerRadius = new CornerRadius(20),
                     Background = new SolidColorBrush(Colors.Black)
                 };
+
+                Grid playerBorderContainer = new Grid();
 
                 StackPanel playerBorderStackPanel = new StackPanel();
 
@@ -175,10 +189,10 @@ namespace Renovación_LIS_Client.View
                         HorizontalAlignment = HorizontalAlignment.Center,
                         FontSize = 30,
                         Width = 218
-                    };                    
+                    };
 
                     playerBorderStackPanel.Children.Add(adminText);
-                    
+
                 }
 
                 if (multiplayerGameClient.IsAdmin(profile) || multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
@@ -269,14 +283,12 @@ namespace Renovación_LIS_Client.View
                     playerBorderStackPanel.Children.Add(buttonsStackPanel);
                 }
 
-                playerBorder.Child = playerBorderStackPanel;
+                playerBorderContainer.Children.Add(playerBorderStackPanel);
+                playerBorder.Child = playerBorderContainer;
                 ConnectedUsersStackPanel.Children.Add(playerBorder);
             }
 
         }
-
-        //Auxiliary Methods
-       
 
 
         //Callback methods
@@ -324,6 +336,14 @@ namespace Renovación_LIS_Client.View
             if (PageStateManager.CurrentPage is LobbyView currentPage)
             {
                 currentPage.ShowConnectedPlayers();
+            }
+        }
+
+        public void ExpelPlayerFromLobbyView()
+        {
+            if (PageStateManager.CurrentPage is LobbyView currentPage)
+            {
+                currentPage.ExpelYou();
             }
         }
     }

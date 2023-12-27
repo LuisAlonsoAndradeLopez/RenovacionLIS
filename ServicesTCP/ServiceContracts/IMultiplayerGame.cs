@@ -32,6 +32,9 @@ namespace ServicesTCP.ServiceContracts
 
 
         [OperationContract]
+        List<String> GetBannedProfiles();
+
+        [OperationContract]
         List<String> GetConnectedProfiles();
 
         [OperationContract]
@@ -45,6 +48,9 @@ namespace ServicesTCP.ServiceContracts
     [ServiceContract]
     public interface IMultiplayerGameCallback
     {
+        [OperationContract(IsOneWay = true)]
+        void ExpelPlayerFromLobbyView();
+
         [OperationContract(IsOneWay = true)]
         void UpdateBannedProfilesLists();
 
