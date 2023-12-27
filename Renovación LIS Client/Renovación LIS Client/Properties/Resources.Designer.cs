@@ -88,6 +88,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Admin.
+        /// </summary>
+        public static string Admin {
+            get {
+                return ResourceManager.GetString("Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Are you sure?.
         /// </summary>
         public static string Are_you_sure_ {
@@ -570,6 +579,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string LogIn {
             get {
                 return ResourceManager.GetString("LogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Make admin.
+        /// </summary>
+        public static string Make_admin {
+            get {
+                return ResourceManager.GetString("Make admin", resourceCulture);
             }
         }
         

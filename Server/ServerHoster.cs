@@ -19,6 +19,14 @@ namespace ServerHoster
             serviceFriendRequestForCallbackMethodsHost.Open();
             Console.WriteLine("ServiceFriendRequestForCallbackMethodsHost started!!!");
 
+            ServiceHost serviceMultiplayerCrosswordHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerCrossword));
+            serviceMultiplayerCrosswordHost.Open();
+            Console.WriteLine("ServiceMultiplayerCrosswordHost started!!!");
+
+            ServiceHost serviceMultiplayerGameHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerGame));
+            serviceMultiplayerGameHost.Open();
+            Console.WriteLine("ServiceMultiplayerGameHost started!!!");
+
             ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer));
             servicePlayerHost.Open();
             Console.WriteLine("ServicePlayerHost started!!!");

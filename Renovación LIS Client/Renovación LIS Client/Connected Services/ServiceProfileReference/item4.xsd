@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8110/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
-  <xs:import schemaLocation="http://localhost:8110/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainStatuses" />
-  <xs:import schemaLocation="http://localhost:8110/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/domain" />
+  <xs:import schemaLocation="http://localhost:8130/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
+  <xs:import schemaLocation="http://localhost:8130/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainStatuses" />
+  <xs:import schemaLocation="http://localhost:8130/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/domain" />
   <xs:element name="AddProfile">
     <xs:complexType>
       <xs:sequence>

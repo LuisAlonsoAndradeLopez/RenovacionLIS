@@ -12,7 +12,7 @@
     <Grid>
         <Image Source="/images/bannedPlayersImage.png" VerticalAlignment="Center"/>
 
-        <Border Margin="40,56,619,56" Visibility="Visible" 
+        <Border Margin="40,56,619,56" 
             Name="FriendsBorder"
             Grid.Column="0"
             CornerRadius="20">
@@ -32,15 +32,40 @@
                     Margin="0 0 0 15"
                     Height="2" Width="479"/>
 
-                <ScrollViewer Height="382">                    
+                <ScrollViewer Height="382">
                     <StackPanel Name="BannedPlayersStackPanel">
+                        <Border 
+                            CornerRadius="20" Height="62" Width="502" Margin="0,11,0,0">
+                            <Border.Background>
+                                <SolidColorBrush Color="Black" Opacity="0.8"/>
+                            </Border.Background>
 
-                    </StackPanel>             
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/images/playButton.png"
+                                    Margin="10,0,0,0"
+                                    Height="40"
+                                    Width="40"/>
+
+                                <Label Content="{x:Static p:Resources.Offline}"
+                                    FontFamily="{StaticResource K2DBold}"
+                                    Foreground="White"
+                                    FontSize="20"
+                                    Margin="10,10,0,10" Width="345"/>
+
+                                <Button Content="{x:Static p:Resources.Unban}"
+                                    Style="{StaticResource GreenButton}"
+                                    Height="38"
+                                    Width="88"
+                                    Margin="0,0,10,0" Click="UnbanPlayerButtonOnClick"/>
+                            </StackPanel>
+                        </Border>
+
+                    </StackPanel>
 
                 </ScrollViewer>
 
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Button Content="Salir" 
+                    <Button Content="{x:Static p:Resources.Exit}"
                         Style="{StaticResource BlackButton}"
                         Height="56"
                         Width="127"

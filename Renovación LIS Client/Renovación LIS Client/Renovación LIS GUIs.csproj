@@ -111,6 +111,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceMultiplayerCrosswordReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceMultiplayerGameReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServicePlayerReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -302,45 +312,62 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceFriendRequestReference\ServiceFriendRequest.wsdl" />
-    <None Include="Connected Services\ServicePlayerReference\item4.xsd">
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicePlayerReference\item41.xsd">
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicePlayerReference\item42.xsd">
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicePlayerReference\item43.xsd">
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\ServiceMultiplayerCrossword.wsdl" />
+    <None Include="Connected Services\ServiceMultiplayerGameReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\ServiceMultiplayerGame.wsdl" />
+    <None Include="Connected Services\ServicePlayerReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServicePlayerReference\Renovación_LIS_Client.ServicePlayerReference.Players.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServicePlayerReference\ServicePlayer1.wsdl" />
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item2.xsd">
+    <None Include="Connected Services\ServicePlayerReference\ServicePlayer.wsdl" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item21.xsd">
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods1.wsdl" />
-    <None Include="Connected Services\ServiceProfileReference\item5.xsd">
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceProfileReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item51.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item52.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item53.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item54.xsd">
+    <None Include="Connected Services\ServiceProfileReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\ServiceProfile1.wsdl" />
+    <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
     <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
@@ -418,104 +445,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceChatReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceProfileForCallbackMethodsReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceProfileReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicePlayerReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicePlayerReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicePlayerReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicePlayerReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\lobbyImage.png" />
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +464,136 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\playButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceChatReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerCrosswordReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerGameReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProfileForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProfileReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

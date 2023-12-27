@@ -7,9 +7,9 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    public class ServiceCrucigram : ICrucigram
+    public class ServiceMultiplayerCrossword : IMultiplayerCrossword
     {
-        string[] ICrucigram.GetStrings()
+        string[] IMultiplayerCrossword.GetStrings()
         {
             throw new NotImplementedException();
         }

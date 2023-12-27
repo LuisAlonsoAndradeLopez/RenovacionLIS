@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="42c97432-cc08-4f13-a5d6-114f230fb743" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="a8c830d8-00cd-49f3-9b37-fd891c0eab77" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8070" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8050" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="fc576b50-32f0-4070-8e22-34c52b455e8c" SourceId="1" SourceUrl="http://localhost:8070/?xsd=xsd0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="0483d4ea-12a7-4851-905d-b05f55f0e06d" SourceId="1" SourceUrl="http://localhost:8070/?disco" />
-    <MetadataFile FileName="ServiceFriendRequestForCallbackMethods.wsdl" MetadataType="Wsdl" ID="1a7f6bab-e145-441a-bc80-c22b24a6cb5c" SourceId="1" SourceUrl="http://localhost:8070/?wsdl" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="7d78a869-2493-4b36-a816-116f23b2a43c" SourceId="1" SourceUrl="http://localhost:8070/?xsd=xsd1" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f90c4d45-59b0-479d-a834-06691e85cdf4" SourceId="1" SourceUrl="http://localhost:8050/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="1f91758c-32dd-4b3b-8761-257887cd55b8" SourceId="1" SourceUrl="http://localhost:8050/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="fb075cf7-344f-432f-b342-546c01685be6" SourceId="1" SourceUrl="http://localhost:8050/?disco" />
+    <MetadataFile FileName="ServiceFriendRequestForCallbackMethods.wsdl" MetadataType="Wsdl" ID="0724909e-0189-4dfa-a18c-02c5c433b3f1" SourceId="1" SourceUrl="http://localhost:8050/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -126,6 +126,9 @@
   <data name="Account made successfully" xml:space="preserve">
     <value>¡Cuenta creada con éxito!</value>
   </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Administrador</value>
+  </data>
   <data name="Are you sure you want to accept the friend request?" xml:space="preserve">
     <value>¿Estás seguro de que desea aceptar la solicitud de amistad?</value>
   </data>
@@ -287,6 +290,9 @@
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Iniciar Sesión</value>
+  </data>
+  <data name="Make admin" xml:space="preserve">
+    <value>Hacer Administrador</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Mensaje</value>

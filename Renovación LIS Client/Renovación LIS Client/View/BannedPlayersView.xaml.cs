@@ -60,5 +60,10 @@ namespace Renovación_LIS_Client.View
 
             }
         }
+
+        public void ShowBannedPlayers()
+        {
+
+        }
     }
 }

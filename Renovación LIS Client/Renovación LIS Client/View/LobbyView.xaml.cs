@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.ServiceChatReference;
+using Renovación_LIS_Client.ServiceMultiplayerGameReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
@@ -13,7 +14,7 @@ namespace Renovación_LIS_Client.View
     /// <summary>
     /// Lógica de interacción para LobbyView.xaml
     /// </summary>
-    public partial class LobbyView : Page, IChatCallback
+    public partial class LobbyView : Page, IChatCallback, IMultiplayerGameCallback
     {
         private MainWindow mainWindow;
         private ChatClient chatClient;
@@ -88,13 +89,25 @@ namespace Renovación_LIS_Client.View
 
         }
 
+        private void MakeAdminButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+
+            }
+        }
+
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
 
         }
 
+        public void ShowConnectedPlayers()
+        {
 
-        //The callback method
+        }
+
+        //Callback methods
         public void UpdateChat(string senderNickname, string message)
         {
             if (PageStateManager.CurrentPage is ChatView currentPage)
@@ -123,6 +136,22 @@ namespace Renovación_LIS_Client.View
                 {
                     currentPage.ShowUpdatedChat(senderNickname, message);
                 }
+            }
+        }
+
+        public void UpdateBannedProfilesLists()
+        {
+            if (PageStateManager.CurrentPage is BannedPlayersView currentPage)
+            {
+                currentPage.ShowBannedPlayers();
+            }
+        }
+
+        public void UpdateConnectedProfilesLists()
+        {
+            if (PageStateManager.CurrentPage is LobbyView currentPage)
+            {
+                currentPage.ShowConnectedPlayers();
             }
         }
     }

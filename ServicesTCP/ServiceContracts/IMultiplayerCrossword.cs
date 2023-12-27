@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ServicesTCP.ServiceContracts
 {
     [ServiceContract]
-    public interface ICrucigram
+    public interface IMultiplayerCrossword
     {
         [OperationContract]
         string[] GetStrings();
