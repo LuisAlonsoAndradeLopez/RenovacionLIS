@@ -157,30 +157,12 @@ namespace Renovación_LIS_Client.View
                     Text = profile.IDProfile.ToString()
                 };
 
-                BitmapImage imageSource = new BitmapImage();
-                byte[] imageData = GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions(profile.Player.NickName);
-
-                if (imageData != null)
-                {
-                    try
-                    {
-                        imageSource.BeginInit();
-                        imageSource.StreamSource = new MemoryStream(imageData);
-                        imageSource.EndInit();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-
                 Image friendProfileImage = new Image
                 {
                     Width = 42,
                     Height = 42,
                     Margin = new Thickness(30, 0, 0, 0),
-                    Source = imageSource
+                    Source = new ImageLoader().GetImageByPlayerNickname(profile.Player.NickName)
                 };
 
                 TextBlock nicknameTextBlock = new TextBlock
@@ -650,29 +632,6 @@ namespace Renovación_LIS_Client.View
 
 
         //Start of auxiliary methods
-        private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions(string profileNickname)
-        {
-            ProfileClient profileClient = new ProfileClient();
-            string fileName = profileNickname + ".png";
-            byte[] imageData = profileClient.GetImage(fileName);
-
-            if (imageData == null)
-            {
-                fileName = profileNickname + ".jpg";
-                imageData = profileClient.GetImage(fileName);
-            }
-
-            if (imageData == null)
-            {
-                fileName = profileNickname + ".jpeg";
-                imageData = profileClient.GetImage(fileName);
-            }
-
-            profileClient.Close();
-
-            return imageData;
-        }
-
         private ServiceFriendRequestReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
         {
             ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();

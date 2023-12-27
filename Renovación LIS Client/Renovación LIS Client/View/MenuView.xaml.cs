@@ -7,6 +7,8 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
+using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.ServiceMultiplayerGameReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 
@@ -43,8 +45,16 @@ namespace Renovación_LIS_Client.View
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient)));
+            if (!multiplayerGameClient.IsBanned(loggedProfile.Player.NickName))
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            }
+            else
+            {
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You are banned!!!!!");
+            }
         }
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)

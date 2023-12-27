@@ -207,8 +207,14 @@
   <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="Do you want to ban this player?" xml:space="preserve">
+    <value>Do you want to ban this player?</value>
+  </data>
   <data name="Do you want to exit" xml:space="preserve">
     <value>Do you want to exit?</value>
+  </data>
+  <data name="Do you want to set admin to this player?" xml:space="preserve">
+    <value>Do you want to set admin to this player?</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>E mail</value>
@@ -333,6 +339,9 @@
   <data name="Play" xml:space="preserve">
     <value>Play</value>
   </data>
+  <data name="Player banned successfully!" xml:space="preserve">
+    <value>Player banned successfully!</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profile</value>
   </data>
@@ -377,6 +386,9 @@
   </data>
   <data name="Surname(s)" xml:space="preserve">
     <value>Surname(s)</value>
+  </data>
+  <data name="That player now is admin!" xml:space="preserve">
+    <value>That player now is admin!</value>
   </data>
   <data name="The file shouldn't be larger than 1 MB" xml:space="preserve">
     <value>The file shouldn't be larger than 1 MB</value>
@@ -425,6 +437,9 @@
   </data>
   <data name="You already has sent a friend request to this user" xml:space="preserve">
     <value>You already has sent a friend request to this user</value>
+  </data>
+  <data name="You are banned!!!!!" xml:space="preserve">
+    <value>You are banned!!!!!</value>
   </data>
   <data name="You can't send a friend request to yourself" xml:space="preserve">
     <value>You can't send a friend request to yourself</value>

@@ -96,6 +96,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AuxiliaryClasses\AlertPopUpGenerator.cs" />
+    <Compile Include="AuxiliaryClasses\ImageLoader.cs" />
     <Compile Include="Connected Services\ServiceChatReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -326,6 +327,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceMultiplayerGameReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerGameReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceMultiplayerGameReference\ServiceMultiplayerGame.wsdl" />

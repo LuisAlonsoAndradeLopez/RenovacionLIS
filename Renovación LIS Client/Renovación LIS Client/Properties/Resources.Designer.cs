@@ -331,11 +331,29 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to ban this player?.
+        /// </summary>
+        public static string Do_you_want_to_ban_this_player_ {
+            get {
+                return ResourceManager.GetString("Do you want to ban this player?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Do you want to exit?.
         /// </summary>
         public static string Do_you_want_to_exit {
             get {
                 return ResourceManager.GetString("Do you want to exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to set admin to this player?.
+        /// </summary>
+        public static string Do_you_want_to_set_admin_to_this_player_ {
+            get {
+                return ResourceManager.GetString("Do you want to set admin to this player?", resourceCulture);
             }
         }
         
@@ -709,6 +727,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Player banned successfully!.
+        /// </summary>
+        public static string Player_banned_successfully_ {
+            get {
+                return ResourceManager.GetString("Player banned successfully!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Profile.
         /// </summary>
         public static string Profile {
@@ -840,6 +867,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Surname_s_ {
             get {
                 return ResourceManager.GetString("Surname(s)", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a That player now is admin!.
+        /// </summary>
+        public static string That_player_now_is_admin_ {
+            get {
+                return ResourceManager.GetString("That player now is admin!", resourceCulture);
             }
         }
         
@@ -985,6 +1021,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string You_already_has_sent_a_friend_request_to_this_user {
             get {
                 return ResourceManager.GetString("You already has sent a friend request to this user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You are banned!!!!!.
+        /// </summary>
+        public static string You_are_banned_____ {
+            get {
+                return ResourceManager.GetString("You are banned!!!!!", resourceCulture);
             }
         }
         

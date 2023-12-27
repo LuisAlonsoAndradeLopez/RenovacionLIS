@@ -60,6 +60,24 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesListsToAllConnectedCli" +
             "ents")]
         System.Threading.Tasks.Task UpdateConnectedProfilesListsToAllConnectedClientsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetConnectedProfilesResponse")]
+        string[] GetConnectedProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetConnectedProfilesResponse")]
+        System.Threading.Tasks.Task<string[]> GetConnectedProfilesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsAdmin", ReplyAction="http://tempuri.org/IMultiplayerGame/IsAdminResponse")]
+        bool IsAdmin(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsAdmin", ReplyAction="http://tempuri.org/IMultiplayerGame/IsAdminResponse")]
+        System.Threading.Tasks.Task<bool> IsAdminAsync(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsBanned", ReplyAction="http://tempuri.org/IMultiplayerGame/IsBannedResponse")]
+        bool IsBanned(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsBanned", ReplyAction="http://tempuri.org/IMultiplayerGame/IsBannedResponse")]
+        System.Threading.Tasks.Task<bool> IsBannedAsync(string nickname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -154,6 +172,30 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         public System.Threading.Tasks.Task UpdateConnectedProfilesListsToAllConnectedClientsAsync() {
             return base.Channel.UpdateConnectedProfilesListsToAllConnectedClientsAsync();
+        }
+        
+        public string[] GetConnectedProfiles() {
+            return base.Channel.GetConnectedProfiles();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetConnectedProfilesAsync() {
+            return base.Channel.GetConnectedProfilesAsync();
+        }
+        
+        public bool IsAdmin(string nickname) {
+            return base.Channel.IsAdmin(nickname);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsAdminAsync(string nickname) {
+            return base.Channel.IsAdminAsync(nickname);
+        }
+        
+        public bool IsBanned(string nickname) {
+            return base.Channel.IsBanned(nickname);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsBannedAsync(string nickname) {
+            return base.Channel.IsBannedAsync(nickname);
         }
     }
 }

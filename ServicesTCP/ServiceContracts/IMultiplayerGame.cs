@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using DatabaseManager;
 using domain;
@@ -28,6 +29,16 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void UpdateConnectedProfilesListsToAllConnectedClients();
+
+
+        [OperationContract]
+        List<String> GetConnectedProfiles();
+
+        [OperationContract]
+        bool IsAdmin(string nickname);
+
+        [OperationContract]
+        bool IsBanned(string nickname);
     }
 
 

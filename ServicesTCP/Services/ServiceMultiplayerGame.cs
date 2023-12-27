@@ -37,6 +37,12 @@ namespace ServicesTCP.Services
 
             if (!connectedProfiles.ContainsKey(username))
             {
+                if (!connectedProfiles.Any())
+                {
+                    admin = username;
+                }
+
+
                 connectedProfiles.Add(username, callback);
                 UpdateConnectedProfilesListsToAllConnectedClients();
             }
@@ -47,6 +53,12 @@ namespace ServicesTCP.Services
             if (connectedProfiles.ContainsKey(username))
             {
                 connectedProfiles.Remove(username);
+
+                if (connectedProfiles.Any())
+                {
+                    admin = connectedProfiles.Keys.First();
+                }
+
                 UpdateConnectedProfilesListsToAllConnectedClients();
             }
         }
@@ -54,6 +66,7 @@ namespace ServicesTCP.Services
         public void SetAdmin(string username)
         {
             admin = username;
+            UpdateConnectedProfilesListsToAllConnectedClients();
         }
 
         public void UnbanPlayer(string username)
@@ -98,6 +111,16 @@ namespace ServicesTCP.Services
         public bool IsAdmin(string nickname)
         {
             if (admin != null && nickname == admin)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsBanned(string nickname)
+        {
+            if (bannedProfiles.Contains(nickname))
             {
                 return true;
             }

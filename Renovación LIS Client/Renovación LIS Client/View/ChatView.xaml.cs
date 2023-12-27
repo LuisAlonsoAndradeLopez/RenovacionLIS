@@ -109,27 +109,9 @@ namespace Renovación_LIS_Client.View
                     Orientation = Orientation.Horizontal
                 };
 
-                BitmapImage imageSource = new BitmapImage();
-                byte[] imageData = GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions(senderNickname);
-
-                if (imageData != null)
-                {
-                    try
-                    {
-                        imageSource.BeginInit();
-                        imageSource.StreamSource = new MemoryStream(imageData);
-                        imageSource.EndInit();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-
                 Image friendProfileImage = new Image
                 {
-                    Source = imageSource,
+                    Source = new ImageLoader().GetImageByPlayerNickname(senderNickname),
                     Width = 80,
                     Margin = new Thickness(20, 20, 5, 20)
                 };
@@ -191,29 +173,6 @@ namespace Renovación_LIS_Client.View
                 MessagesStackPanel.Children.Add(loggedPlayerMessageBorder);
             }
 
-        }
-
-        private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions(string profileNickname)
-        {
-            ProfileClient profileClient = new ProfileClient();
-            string fileName = profileNickname + ".png";
-            byte[] imageData = profileClient.GetImage(fileName);
-
-            if (imageData == null)
-            {
-                fileName = profileNickname + ".jpg";
-                imageData = profileClient.GetImage(fileName);
-            }
-
-            if (imageData == null)
-            {
-                fileName = profileNickname + ".jpeg";
-                imageData = profileClient.GetImage(fileName);
-            }
-
-            profileClient.Close();
-
-            return imageData;
         }
     }
 }
