@@ -36,7 +36,7 @@ namespace Renovación_LIS_Client.View
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
-        public BannedPlayersView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient)
+        public BannedPlayersView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -48,7 +48,7 @@ namespace Renovación_LIS_Client.View
             PageStateManager.CurrentPage = this;
 
             this.chatClient = chatClient;
-            multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient)));
+            this.multiplayerGameClient = multiplayerGameClient;
             ShowBannedPlayers();
         }
 
@@ -83,8 +83,7 @@ namespace Renovación_LIS_Client.View
                 {
                     CornerRadius = new CornerRadius(20),
                     Height = 62,
-                    Width = 502,
-                    Margin = new Thickness(0, 11, 0, 0),
+                    Margin = new Thickness(25, 11, 25, 0),
                     Background = new SolidColorBrush(Colors.Black)
                 };
                 bannedPlayerBorder.Background.Opacity = 0.8;
@@ -97,7 +96,7 @@ namespace Renovación_LIS_Client.View
                 Image bannedPlayerImage = new Image
                 {
                     Source = new ImageLoader().GetImageByPlayerNickname(profile),
-                    Margin = new Thickness(10, 0, 0, 0),
+                    Margin = new Thickness(30, 0, 0, 0),
                     Height = 40,
                     Width = 40
                 };
@@ -107,9 +106,9 @@ namespace Renovación_LIS_Client.View
                 {
                     Content = profile,
                     Foreground = new SolidColorBrush(Colors.White),
-                    FontSize = 20,
-                    Margin = new Thickness(10, 10, 0, 10),
-                    Width = 345
+                    FontSize = 14,
+                    Margin = new Thickness(15, 15, 0, 0),
+                    Width = 250
                 };
                 bannedPlayerStackPanel.Children.Add(bannedPlayerNickname);
 
@@ -120,8 +119,7 @@ namespace Renovación_LIS_Client.View
                         Content = resourceManager.GetString("Unban", cultureInfo),
                         Style = (Style)FindResource("GreenButton"),
                         Height = 38,
-                        Width = 88,
-                        Margin = new Thickness(0, 0, 10, 0)
+                        Width = 88
                     };
                     unbanBannedPlayerButton.Click += UnbanPlayerButtonOnClick;
                     bannedPlayerStackPanel.Children.Add(unbanBannedPlayerButton);

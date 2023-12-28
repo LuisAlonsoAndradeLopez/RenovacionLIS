@@ -244,26 +244,15 @@ namespace ServicesTCP.Services
             try
             {
                 string serverFolderPath = "C:\\Users\\wmike\\OneDrive\\Documentos\\RenovaciónLISUsersProfilePictures";
-
-                // Get all image files in the specified folder with the target name
                 var matchingFiles = Directory.GetFiles(serverFolderPath, $"{fileName}.*")
                                               .ToList();
 
                 if (matchingFiles.Count > 0)
                 {
-                    // Assuming there is only one match, you can modify the logic if needed
                     string imagePath = matchingFiles.First();
-
-                    // Generate a new name (e.g., appending "_new" to the original name)
                     string newFileName = $"{newName}{Path.GetExtension(imagePath)}";
-
-                    // Build the new path
                     string newPath = Path.Combine(Path.GetDirectoryName(imagePath), newFileName);
-
-                    // Rename the file
                     File.Move(imagePath, newPath);
-
-                    //Console.WriteLine($"Image renamed: {newName}");
                 }
 
             }

@@ -24,13 +24,10 @@ namespace Renovación_LIS_Client.View
     {
         /*
         TODO
-        -No hay callback para cuando se desbanea un jugador
-        -Al banear un jugador lo debe de sacar de la partida con un mensaje de que ha sido baneado
-        (Lo que falta es el mensaje debe de salirle al jugador baneao)
-        -Si estas baneao debe de salir el mensaje de que estas baneao, no puedes entrar (Correjir de que si entra, no debe de entrar ni al servicio)
         -Actualizar el chat para que se conserven los mensajes mientras se está en el LobbyView
         -Nuevo panel para amigos para invitarlo a la partida (falta que funcione el botón invitar)
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
+        -Al banear jugador debe de sacarlo del chat, de BannedPlayersView o de FriendsView o de la configuración
         */
         
         private MainWindow mainWindow;
@@ -41,7 +38,15 @@ namespace Renovación_LIS_Client.View
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
-        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, MultiplayerGameClient multiplayerGameClient)
+        public LobbyView()
+        {
+            InitializeComponent();
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+            PageStateManager.CurrentPage = this;
+        }
+
+        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -53,10 +58,7 @@ namespace Renovación_LIS_Client.View
             PageStateManager.CurrentPage = this;
 
             chatClient = new ChatClient(new InstanceContext(this));
-            chatClient.JoinChat(loggedProfile.Player.NickName);
-
-            this.multiplayerGameClient = multiplayerGameClient;
-            multiplayerGameClient.Connect(loggedProfile.Player.NickName);
+            multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
         }
 
         public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient)
@@ -96,7 +98,7 @@ namespace Renovación_LIS_Client.View
         private void BannedPlayersButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new BannedPlayersView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
+            navigationService.Navigate(new BannedPlayersView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
         }
 
         private void ChatButtonOnClick(object sender, RoutedEventArgs e)

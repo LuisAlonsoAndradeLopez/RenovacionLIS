@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.ServiceModel;
-using DatabaseManager;
-using domain;
-using DomainStatuses;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
- 
-
-    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
+    //[CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class ServiceMultiplayerGame : IMultiplayerGame
     {
         public static String admin;
