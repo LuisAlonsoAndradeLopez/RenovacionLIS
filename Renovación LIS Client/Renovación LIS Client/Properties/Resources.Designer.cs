@@ -583,6 +583,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Invite.
+        /// </summary>
+        public static string Invite {
+            get {
+                return ResourceManager.GetString("Invite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Invite friends.
         /// </summary>
         public static string Invite_friends {
@@ -916,6 +925,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The lobby is full!!!.
+        /// </summary>
+        public static string The_lobby_is_full___ {
+            get {
+                return ResourceManager.GetString("The lobby is full!!!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The message shouldn&apos;t have more than 100 characters.
         /// </summary>
         public static string The_message_shouldn_t_have_more_than_100_characters {
@@ -1016,6 +1034,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Unavailable.
+        /// </summary>
+        public static string Unavailable {
+            get {
+                return ResourceManager.GetString("Unavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Unban.
         /// </summary>
         public static string Unban {
@@ -1039,6 +1066,24 @@ namespace Renovación_LIS_Client.Properties {
         public static string What_do_you_want {
             get {
                 return ResourceManager.GetString("What do you want", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Work in progress.
+        /// </summary>
+        public static string Work_in_progress {
+            get {
+                return ResourceManager.GetString("Work in progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You.
+        /// </summary>
+        public static string You {
+            get {
+                return ResourceManager.GetString("You", resourceCulture);
             }
         }
         

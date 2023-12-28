@@ -41,6 +41,9 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsLists")]
         void UpdateFriendsLists();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsForInviteLists")]
+        void UpdateFriendsForInviteLists();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

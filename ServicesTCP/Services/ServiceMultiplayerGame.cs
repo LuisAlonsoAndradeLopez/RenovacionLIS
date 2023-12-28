@@ -63,6 +63,10 @@ namespace ServicesTCP.Services
                 {
                     admin = connectedProfiles.Keys.First();
                 }
+                else
+                {
+                    bannedProfiles.Clear();
+                }
 
                 UpdateConnectedProfilesListsToAllConnectedClients();
             }

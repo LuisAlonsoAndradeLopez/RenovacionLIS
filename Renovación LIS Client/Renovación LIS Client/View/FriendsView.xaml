@@ -123,7 +123,7 @@
                     Margin="0 0 0 15"
                     Height="2" Width="479"/>
 
-                <StackPanel Background="Black">
+                <StackPanel>
                     <Label Content="{x:Static p:Resources.Friend_nickname}"
                         FontFamily="{StaticResource K2DBold}"
                         Foreground="White"
@@ -365,5 +365,53 @@
             </StackPanel>
         </Border>
 
+        <Border Margin="40,56,619,56" Visibility="Hidden" 
+            Name="ConnectedFriendsForInviteBorder"
+            Grid.Column="0"
+            CornerRadius="20">
+
+            <Border.Background>
+                <SolidColorBrush Color="Black" Opacity="0.8"/>
+            </Border.Background>
+
+            <StackPanel>
+                <Label Content="{x:Static p:Resources.Friends}"
+                    FontFamily="{StaticResource K2DBold}"
+                    Foreground="White"
+                    FontSize="50"
+                    Margin="30,0,0,0"/>
+
+                <Label Background="White"
+                    Margin="0 0 0 15"
+                    Height="2" Width="479"/>
+
+                <ScrollViewer Height="382" Style="{StaticResource ScrollViewer}">
+                    <StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="32" Height="32"
+                                Margin="30,0,0,0"
+                                Source="/images/OnlineSymbol.png"/>
+
+                            <Label Content="{x:Static p:Resources.Online}"
+                                FontFamily="{StaticResource K2DBold}"
+                                Foreground="White"
+                                FontSize="20"
+                                HorizontalContentAlignment="Left"
+                                Margin="5,0,0,0"/>
+
+                        </StackPanel>
+
+                        <StackPanel Name="OnlineFriendsToInviteStackPanel" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Button Content="{x:Static p:Resources.Exit}" 
+                    Style="{StaticResource BlackButton}"
+                    Height="56"
+                    Width="127"
+                    Margin="20,0,0,0" Click="Exit2ButtonOnClick"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

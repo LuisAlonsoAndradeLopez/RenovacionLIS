@@ -86,8 +86,8 @@ namespace Renovación_LIS_Client.View
                     Width = 502,
                     Margin = new Thickness(0, 11, 0, 0),
                     Background = new SolidColorBrush(Colors.Black)
-                    //Opacity = "0.8"
                 };
+                bannedPlayerBorder.Background.Opacity = 0.8;
 
                 StackPanel bannedPlayerStackPanel = new StackPanel
                 {

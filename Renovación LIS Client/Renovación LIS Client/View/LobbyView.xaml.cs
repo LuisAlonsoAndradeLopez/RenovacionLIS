@@ -29,12 +29,10 @@ namespace Renovación_LIS_Client.View
         (Lo que falta es el mensaje debe de salirle al jugador baneao)
         -Si estas baneao debe de salir el mensaje de que estas baneao, no puedes entrar (Correjir de que si entra, no debe de entrar ni al servicio)
         -Actualizar el chat para que se conserven los mensajes mientras se está en el LobbyView
-        -Nuevo panel para amigos para invitarlo a la partida
-        -Jugar como invitado (se va a dejar al final)
-        -Agregar la palabra "tú" a el panel del lobby
+        -Nuevo panel para amigos para invitarlo a la partida (falta que funcione el botón invitar)
+        -Ajustar la posicion de los borders con info de los jugadores en el lobby
         */
         
-
         private MainWindow mainWindow;
         private ChatClient chatClient;
         private Profile loggedProfile;
@@ -43,7 +41,7 @@ namespace Renovación_LIS_Client.View
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
-        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, MultiplayerGameClient multiplayerGameClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -57,7 +55,7 @@ namespace Renovación_LIS_Client.View
             chatClient = new ChatClient(new InstanceContext(this));
             chatClient.JoinChat(loggedProfile.Player.NickName);
 
-            multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
+            this.multiplayerGameClient = multiplayerGameClient;
             multiplayerGameClient.Connect(loggedProfile.Player.NickName);
         }
 
@@ -109,7 +107,7 @@ namespace Renovación_LIS_Client.View
 
         private void ConfigurationButtonOnClick(object sender, RoutedEventArgs e)
         {
-
+            new AlertPopUpGenerator().OpenWarningPopUp("Unavailable", "Work in progress");
         }
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
@@ -122,7 +120,8 @@ namespace Renovación_LIS_Client.View
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
         }
 
         private void MakeAdminButtonOnClick(object sender, RoutedEventArgs e)
@@ -145,7 +144,7 @@ namespace Renovación_LIS_Client.View
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-
+            new AlertPopUpGenerator().OpenWarningPopUp("Unavailable", "Work in progress");
         }
 
 
@@ -171,6 +170,7 @@ namespace Renovación_LIS_Client.View
                     CornerRadius = new CornerRadius(20),
                     Background = new SolidColorBrush(Colors.Black)
                 };
+                playerBorder.Background.Opacity = 0.5;
 
                 Grid playerBorderContainer = new Grid();
 
@@ -192,34 +192,72 @@ namespace Renovación_LIS_Client.View
                     };
 
                     playerBorderStackPanel.Children.Add(adminText);
-
                 }
+
+                if (profile == loggedProfile.Player.NickName)
+                {
+                    TextBlock youText = new TextBlock
+                    {
+                        Text = resourceManager.GetString("You", cultureInfo),
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Foreground = new SolidColorBrush(Colors.White),
+                        TextWrapping = TextWrapping.Wrap,
+                        TextAlignment = TextAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        FontSize = 30,
+                        Width = 218
+                    };
+
+                    if (multiplayerGameClient.IsAdmin(profile))
+                    {
+                        youText.Margin = new Thickness(0, 13, 0, 0);
+                    }
+                    else
+                    {
+                        youText.Margin = new Thickness(0, 0, 0, 0);
+                    }
+
+
+                    playerBorderStackPanel.Children.Add(youText);
+                }
+
+                Image profileImage = new Image
+                {
+                    Source = new ImageLoader().GetImageByPlayerNickname(profile)
+                };
 
                 if (multiplayerGameClient.IsAdmin(profile) || multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
                 {
-                    Image profileImage = new Image
-                    {
-                        Source = new ImageLoader().GetImageByPlayerNickname(profile),
-                        Margin = new Thickness(0, 20, 0, 0),
-                        Height = 110,
-                        Width = 110
-                    };
+                    profileImage.Height = 110;
+                    profileImage.Width = 110;
 
-                    playerBorderStackPanel.Children.Add(profileImage);
+                    if (profile == loggedProfile.Player.NickName)
+                    {
+                        profileImage.Margin = new Thickness(0, 10, 0, 0);
+                    }
+                    else
+                    {
+                        profileImage.Margin = new Thickness(0, 20, 0, 0);
+                    }
                 }
 
                 if (!multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName) && !multiplayerGameClient.IsAdmin(profile))
                 {
-                    Image profileImage = new Image
-                    {
-                        Source = new ImageLoader().GetImageByPlayerNickname(profile),
-                        Margin = new Thickness(0, 20, 0, 0),
-                        Height = 160,
-                        Width = 160
-                    };
+                    profileImage.Margin = new Thickness(0, 20, 0, 0);
 
-                    playerBorderStackPanel.Children.Add(profileImage);
+                    if (profile == loggedProfile.Player.NickName)
+                    {
+                        profileImage.Height = 110;
+                        profileImage.Width = 110;
+                    }
+                    else
+                    {
+                        profileImage.Height = 160;
+                        profileImage.Width = 160;
+                    }
                 }
+
+                playerBorderStackPanel.Children.Add(profileImage);
 
                 StackPanel playerNicknameStackPanel = new StackPanel
                 {

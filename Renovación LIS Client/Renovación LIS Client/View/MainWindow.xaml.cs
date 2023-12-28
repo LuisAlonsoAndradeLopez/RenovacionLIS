@@ -118,6 +118,14 @@ namespace Renovación_LIS_Client
                 currentPage.ShowUpdatedFriendsList();
             }            
         }
+
+        public void UpdateFriendsForInviteLists()
+        {
+            if (PageStateManager.CurrentPage is FriendsView currentPage)
+            {
+                currentPage.ShowConnectedFriendsListForInviteToLobby();
+            }
+        }
     }
 
     public class PageStateManager

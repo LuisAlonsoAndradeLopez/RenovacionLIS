@@ -291,6 +291,9 @@
   <data name="Invitation details" xml:space="preserve">
     <value>Detalles de la invitación</value>
   </data>
+  <data name="Invite" xml:space="preserve">
+    <value>Invitar</value>
+  </data>
   <data name="Invite friends" xml:space="preserve">
     <value>Invitar amigos</value>
   </data>
@@ -402,6 +405,9 @@
   <data name="The introduced nickname doesn't exists" xml:space="preserve">
     <value>El nickname introducido no existe</value>
   </data>
+  <data name="The lobby is full!!!" xml:space="preserve">
+    <value>¡El lobby está lleno!</value>
+  </data>
   <data name="The message shouldn't have more than 100 characters" xml:space="preserve">
     <value>El mensaje no debe de tener más de 100 carácteres</value>
   </data>
@@ -435,6 +441,9 @@
   <data name="Uh oh!" xml:space="preserve">
     <value>¡Ay no!</value>
   </data>
+  <data name="Unavailable" xml:space="preserve">
+    <value>No disponible</value>
+  </data>
   <data name="Unban" xml:space="preserve">
     <value>Desbanear</value>
   </data>
@@ -443,6 +452,12 @@
   </data>
   <data name="What do you want" xml:space="preserve">
     <value>¿Qué quieres?</value>
+  </data>
+  <data name="Work in progress" xml:space="preserve">
+    <value>En desarrollo</value>
+  </data>
+  <data name="You" xml:space="preserve">
+    <value>Tú</value>
   </data>
   <data name="You already has sent a friend request to this user" xml:space="preserve">
     <value>Ya le has mandado solicitud de amistad a este usuario</value>

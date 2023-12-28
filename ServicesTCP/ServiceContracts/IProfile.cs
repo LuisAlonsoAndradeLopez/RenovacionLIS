@@ -70,5 +70,8 @@ namespace ServicesTCP.ServiceContracts
     {
         [OperationContract(IsOneWay = true)]
         void UpdateFriendsLists();
+
+        [OperationContract(IsOneWay = true)]
+        void UpdateFriendsForInviteLists();
     }
 }

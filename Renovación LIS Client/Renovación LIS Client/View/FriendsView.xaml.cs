@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
@@ -30,12 +31,13 @@ namespace Renovación_LIS_Client.View
     {
         private MainWindow mainWindow;
         private Profile loggedProfile;
+        private ChatClient chatClient; //Only to use when the access is by LobbyView
         private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
 
-        //Constructor
+        //Constructores
         public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             InitializeComponent();
@@ -53,6 +55,29 @@ namespace Renovación_LIS_Client.View
 
             ShowUpdatedFriendsList();
         }
+
+        public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient)
+        {
+            InitializeComponent();
+            this.mainWindow = mainWindow;
+            this.loggedProfile = loggedProfile;
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+
+            cultureInfo = CultureInfo.CurrentUICulture;
+            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+
+            PageStateManager.CurrentPage = this;
+
+            friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
+            friendRequestForCallbackMethodsClient.Connect(loggedProfile.Player.NickName);
+
+            this.chatClient = chatClient;
+
+            FriendsBorder.Visibility = Visibility.Hidden;
+            ConnectedFriendsForInviteBorder.Visibility = Visibility.Visible;
+            ShowConnectedFriendsListForInviteToLobby();
+        }
+
 
         //Start of FriendList methods
         private void CancelFriendshipButtonOnClick(object sender, RoutedEventArgs e)
@@ -133,7 +158,6 @@ namespace Renovación_LIS_Client.View
         {
             OnlineFriendsStackPanel.Children.Clear();
             OfflineFriendsStackPanel.Children.Clear();
-
 
             ProfileClient profileClient = new ProfileClient();
             foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
@@ -629,6 +653,102 @@ namespace Renovación_LIS_Client.View
             }
         }
         //End of FriendRequestDetails methods
+
+
+        //Start of ConnectedFriendsToInviteToLobbyList
+        private void Exit2ButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
+        }
+
+        private void InviteFriendToTheLobbyButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friendship?"))
+                {
+                    
+
+                    new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Friendship cancellation made successfully");
+
+                    //profileClient.Close();
+                }
+            }
+        }
+
+        public void ShowConnectedFriendsListForInviteToLobby()
+        {
+            OnlineFriendsToInviteStackPanel.Children.Clear();
+
+            ProfileClient profileClient = new ProfileClient();
+            foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
+            {
+                if (profile.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
+                {
+                    Border friendBorder = new Border
+                    {
+                        Height = 55,
+                        Margin = new Thickness(25, 10, 25, 0),
+                        CornerRadius = new CornerRadius(20),
+                        Background = new SolidColorBrush(Colors.Black)
+                    };
+
+                    StackPanel textAndButtonsStackPanel = new StackPanel
+                    {
+                        Orientation = Orientation.Horizontal
+                    };
+
+                    TextBlock idTextBlock = new TextBlock
+                    {
+                        Visibility = Visibility.Collapsed,
+                        Text = profile.IDProfile.ToString()
+                    };
+
+                    Image friendProfileImage = new Image
+                    {
+                        Width = 42,
+                        Height = 42,
+                        Margin = new Thickness(30, 0, 0, 0),
+                        Source = new ImageLoader().GetImageByPlayerNickname(profile.Player.NickName)
+                    };
+
+                    TextBlock nicknameTextBlock = new TextBlock
+                    {
+                        Foreground = new SolidColorBrush(Colors.White),
+                        Margin = new Thickness(15, 0, 0, 0),
+                        Width = 250,
+                        TextWrapping = TextWrapping.Wrap,
+                        FontSize = 14,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Text = profile.Player.NickName
+                    };
+
+                    Button inviteFriendButton = new Button
+                    {
+                        Style = (Style)FindResource("GreenButton"),
+                        Height = 35,
+                        Width = 110,
+                        HorizontalAlignment = HorizontalAlignment.Right,
+                        Content = resourceManager.GetString("Invite", cultureInfo),
+                        FontSize = 13
+                    };
+
+                    inviteFriendButton.Click += InviteFriendToTheLobbyButtonOnClick;
+
+                    textAndButtonsStackPanel.Children.Add(idTextBlock);
+                    textAndButtonsStackPanel.Children.Add(friendProfileImage);
+                    textAndButtonsStackPanel.Children.Add(nicknameTextBlock);
+                    textAndButtonsStackPanel.Children.Add(inviteFriendButton);
+
+                    friendBorder.Child = textAndButtonsStackPanel;
+                    OnlineFriendsToInviteStackPanel.Children.Add(friendBorder);
+                }
+            }
+
+            profileClient.Close();
+        }
+        //End of ConnectedFriendsToInviteList
 
 
         //Start of auxiliary methods

@@ -438,6 +438,7 @@ namespace ServicesTCP.Services
             foreach (var friendCallback in connectedProfiles.Values)
             {
                 friendCallback.UpdateFriendsLists();
+                friendCallback.UpdateFriendsForInviteLists();
             }
         }
     }

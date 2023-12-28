@@ -45,11 +45,19 @@ namespace Renovación_LIS_Client.View
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient)));
+            MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, multiplayerGameClient)));
+            LobbyView lobbyView = new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient);
             if (!multiplayerGameClient.IsBanned(loggedProfile.Player.NickName))
             {
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                if (multiplayerGameClient.GetConnectedProfiles().Length < 4)
+                {
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(lobbyView);
+                }
+                else
+                {
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The lobby is full!!!");
+                }
             }
             else
             {
