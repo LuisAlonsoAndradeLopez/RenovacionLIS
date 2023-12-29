@@ -45,22 +45,6 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UnbanPlayer")]
         System.Threading.Tasks.Task UnbanPlayerAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateBannedProfilesListsToAllConnectedClient" +
-            "s")]
-        void UpdateBannedProfilesListsToAllConnectedClients();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateBannedProfilesListsToAllConnectedClient" +
-            "s")]
-        System.Threading.Tasks.Task UpdateBannedProfilesListsToAllConnectedClientsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesListsToAllConnectedCli" +
-            "ents")]
-        void UpdateConnectedProfilesListsToAllConnectedClients();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesListsToAllConnectedCli" +
-            "ents")]
-        System.Threading.Tasks.Task UpdateConnectedProfilesListsToAllConnectedClientsAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetBannedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetBannedProfilesResponse")]
         string[] GetBannedProfiles();
         
@@ -84,6 +68,24 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsBanned", ReplyAction="http://tempuri.org/IMultiplayerGame/IsBannedResponse")]
         System.Threading.Tasks.Task<bool> IsBannedAsync(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGameResponse")]
+        void SetThePlayersAreInGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGameResponse")]
+        System.Threading.Tasks.Task SetThePlayersAreInGameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreNotInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/SetThePlayersAreNotInGameResponse")]
+        void SetThePlayersAreNotInGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreNotInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/SetThePlayersAreNotInGameResponse")]
+        System.Threading.Tasks.Task SetThePlayersAreNotInGameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/ThePlayersAreInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/ThePlayersAreInGameResponse")]
+        bool ThePlayersAreInGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/ThePlayersAreInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/ThePlayersAreInGameResponse")]
+        System.Threading.Tasks.Task<bool> ThePlayersAreInGameAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,22 +169,6 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
             return base.Channel.UnbanPlayerAsync(username);
         }
         
-        public void UpdateBannedProfilesListsToAllConnectedClients() {
-            base.Channel.UpdateBannedProfilesListsToAllConnectedClients();
-        }
-        
-        public System.Threading.Tasks.Task UpdateBannedProfilesListsToAllConnectedClientsAsync() {
-            return base.Channel.UpdateBannedProfilesListsToAllConnectedClientsAsync();
-        }
-        
-        public void UpdateConnectedProfilesListsToAllConnectedClients() {
-            base.Channel.UpdateConnectedProfilesListsToAllConnectedClients();
-        }
-        
-        public System.Threading.Tasks.Task UpdateConnectedProfilesListsToAllConnectedClientsAsync() {
-            return base.Channel.UpdateConnectedProfilesListsToAllConnectedClientsAsync();
-        }
-        
         public string[] GetBannedProfiles() {
             return base.Channel.GetBannedProfiles();
         }
@@ -213,6 +199,30 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         public System.Threading.Tasks.Task<bool> IsBannedAsync(string nickname) {
             return base.Channel.IsBannedAsync(nickname);
+        }
+        
+        public void SetThePlayersAreInGame() {
+            base.Channel.SetThePlayersAreInGame();
+        }
+        
+        public System.Threading.Tasks.Task SetThePlayersAreInGameAsync() {
+            return base.Channel.SetThePlayersAreInGameAsync();
+        }
+        
+        public void SetThePlayersAreNotInGame() {
+            base.Channel.SetThePlayersAreNotInGame();
+        }
+        
+        public System.Threading.Tasks.Task SetThePlayersAreNotInGameAsync() {
+            return base.Channel.SetThePlayersAreNotInGameAsync();
+        }
+        
+        public bool ThePlayersAreInGame() {
+            return base.Channel.ThePlayersAreInGame();
+        }
+        
+        public System.Threading.Tasks.Task<bool> ThePlayersAreInGameAsync() {
+            return base.Channel.ThePlayersAreInGameAsync();
         }
     }
 }

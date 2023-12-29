@@ -25,7 +25,7 @@ namespace ServerHoster
 
             ServiceHost serviceMultiplayerGameHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerGame));
             serviceMultiplayerGameHost.Open();
-            Console.WriteLine("erviceMultiplayerGameHost started!!!");
+            Console.WriteLine("ServiceMultiplayerGameHost started!!!");
 
             ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer));
             servicePlayerHost.Open();

@@ -34,6 +34,12 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsListsToAllConnectedCli" +
             "ents")]
         System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/InviteFriendToTheLobby")]
+        void InviteFriendToTheLobby(string friendNickname);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/InviteFriendToTheLobby")]
+        System.Threading.Tasks.Task InviteFriendToTheLobbyAsync(string friendNickname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -44,6 +50,9 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsForInviteLists")]
         void UpdateFriendsForInviteLists();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/OpenPaneForEnterTheLobby")]
+        void OpenPaneForEnterTheLobby();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -96,6 +105,14 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
         
         public System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync() {
             return base.Channel.UpdateFriendsListsToAllConnectedClientsAsync();
+        }
+        
+        public void InviteFriendToTheLobby(string friendNickname) {
+            base.Channel.InviteFriendToTheLobby(friendNickname);
+        }
+        
+        public System.Threading.Tasks.Task InviteFriendToTheLobbyAsync(string friendNickname) {
+            return base.Channel.InviteFriendToTheLobbyAsync(friendNickname);
         }
     }
 }

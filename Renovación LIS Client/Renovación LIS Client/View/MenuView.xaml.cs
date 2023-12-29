@@ -47,25 +47,32 @@ namespace Renovación_LIS_Client.View
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient)));
-            if (!multiplayerGameClient.IsBanned(loggedProfile.Player.NickName))
+            if (!multiplayerGameClient.ThePlayersAreInGame())
             {
-                if (multiplayerGameClient.GetConnectedProfiles().Length < 4)
+                if (!multiplayerGameClient.IsBanned(loggedProfile.Player.NickName))
                 {
-                    ChatClient chatClient = new ChatClient(new InstanceContext(new LobbyView()));
-                    chatClient.JoinChat(loggedProfile.Player.NickName);
-                   
-                    multiplayerGameClient.Connect(loggedProfile.Player.NickName);
-                    NavigationService navigationService = NavigationService.GetNavigationService(this);
-                    navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                    if (multiplayerGameClient.GetConnectedProfiles().Length < 4)
+                    {
+                        ChatClient chatClient = new ChatClient(new InstanceContext(new LobbyView()));
+                        chatClient.JoinChat(loggedProfile.Player.NickName);
+                       
+                        multiplayerGameClient.Connect(loggedProfile.Player.NickName);
+                        NavigationService navigationService = NavigationService.GetNavigationService(this);
+                        navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                    }
+                    else
+                    {
+                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The lobby is full!!!");
+                    }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The lobby is full!!!");
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You are banned!!!!!");
                 }
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You are banned!!!!!");
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The game already has started!");
             }
         }
 
@@ -87,6 +94,12 @@ namespace Renovación_LIS_Client.View
             navigationService.Navigate(new LoginView(mainWindow));
 
             profileClient.Close();
+        }
+
+
+        public void GoToLobbyView()
+        {
+            mainWindow.OpenTheLobbyView(this);
         }
     }
 }

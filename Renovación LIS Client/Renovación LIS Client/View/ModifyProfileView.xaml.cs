@@ -270,5 +270,10 @@ namespace Renovación_LIS_Client.View
 
             return imageData;
         }
+
+        public void GoToLobbyView()
+        {
+            mainWindow.OpenTheLobbyView(this);
+        }
     }
 }

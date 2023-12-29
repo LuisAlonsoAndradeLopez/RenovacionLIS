@@ -12,14 +12,59 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceMultiplayerCrosswordReference.IMultiplayerCrossword")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceMultiplayerCrosswordReference.IMultiplayerCrossword", CallbackContract=typeof(Renovación_LIS_Client.ServiceMultiplayerCrosswordReference.IMultiplayerCrosswordCallback))]
     public interface IMultiplayerCrossword {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrossword/GetStrings", ReplyAction="http://tempuri.org/IMultiplayerCrossword/GetStringsResponse")]
-        string[] GetStrings();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/addPointsToProfile")]
+        void addPointsToProfile(string userNickname, int points);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrossword/GetStrings", ReplyAction="http://tempuri.org/IMultiplayerCrossword/GetStringsResponse")]
-        System.Threading.Tasks.Task<string[]> GetStringsAsync();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/addPointsToProfile")]
+        System.Threading.Tasks.Task addPointsToProfileAsync(string userNickname, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/Connect")]
+        void Connect(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/Connect")]
+        System.Threading.Tasks.Task ConnectAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/Disconnect")]
+        void Disconnect(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/Disconnect")]
+        System.Threading.Tasks.Task DisconnectAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/SetAdmin")]
+        void SetAdmin(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/SetAdmin")]
+        System.Threading.Tasks.Task SetAdminAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/StartCountdown")]
+        void StartCountdown(int totalSeconds);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/StartCountdown")]
+        System.Threading.Tasks.Task StartCountdownAsync(int totalSeconds);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/UpdateCrosswordsToProfilesToAllConnected" +
+            "Profiles")]
+        void UpdateCrosswordsToProfilesToAllConnectedProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/UpdateCrosswordsToProfilesToAllConnected" +
+            "Profiles")]
+        System.Threading.Tasks.Task UpdateCrosswordsToProfilesToAllConnectedProfilesAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMultiplayerCrosswordCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/UpdateCountdown")]
+        void UpdateCountdown(int seconds);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/UpdateCrossword")]
+        void UpdateCrossword();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrossword/UpdateProfilesPoints")]
+        void UpdateProfilesPoints();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -28,33 +73,74 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MultiplayerCrosswordClient : System.ServiceModel.ClientBase<Renovación_LIS_Client.ServiceMultiplayerCrosswordReference.IMultiplayerCrossword>, Renovación_LIS_Client.ServiceMultiplayerCrosswordReference.IMultiplayerCrossword {
+    public partial class MultiplayerCrosswordClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceMultiplayerCrosswordReference.IMultiplayerCrossword>, Renovación_LIS_Client.ServiceMultiplayerCrosswordReference.IMultiplayerCrossword {
         
-        public MultiplayerCrosswordClient() {
+        public MultiplayerCrosswordClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public MultiplayerCrosswordClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public MultiplayerCrosswordClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public MultiplayerCrosswordClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MultiplayerCrosswordClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MultiplayerCrosswordClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MultiplayerCrosswordClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MultiplayerCrosswordClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public MultiplayerCrosswordClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
-        public string[] GetStrings() {
-            return base.Channel.GetStrings();
+        public void addPointsToProfile(string userNickname, int points) {
+            base.Channel.addPointsToProfile(userNickname, points);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetStringsAsync() {
-            return base.Channel.GetStringsAsync();
+        public System.Threading.Tasks.Task addPointsToProfileAsync(string userNickname, int points) {
+            return base.Channel.addPointsToProfileAsync(userNickname, points);
+        }
+        
+        public void Connect(string username) {
+            base.Channel.Connect(username);
+        }
+        
+        public System.Threading.Tasks.Task ConnectAsync(string username) {
+            return base.Channel.ConnectAsync(username);
+        }
+        
+        public void Disconnect(string username) {
+            base.Channel.Disconnect(username);
+        }
+        
+        public System.Threading.Tasks.Task DisconnectAsync(string username) {
+            return base.Channel.DisconnectAsync(username);
+        }
+        
+        public void SetAdmin(string username) {
+            base.Channel.SetAdmin(username);
+        }
+        
+        public System.Threading.Tasks.Task SetAdminAsync(string username) {
+            return base.Channel.SetAdminAsync(username);
+        }
+        
+        public void StartCountdown(int totalSeconds) {
+            base.Channel.StartCountdown(totalSeconds);
+        }
+        
+        public System.Threading.Tasks.Task StartCountdownAsync(int totalSeconds) {
+            return base.Channel.StartCountdownAsync(totalSeconds);
+        }
+        
+        public void UpdateCrosswordsToProfilesToAllConnectedProfiles() {
+            base.Channel.UpdateCrosswordsToProfilesToAllConnectedProfiles();
+        }
+        
+        public System.Threading.Tasks.Task UpdateCrosswordsToProfilesToAllConnectedProfilesAsync() {
+            return base.Channel.UpdateCrosswordsToProfilesToAllConnectedProfilesAsync();
         }
     }
 }

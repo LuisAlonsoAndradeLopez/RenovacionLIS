@@ -666,13 +666,12 @@ namespace Renovación_LIS_Client.View
         {
             if (sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friendship?"))
+                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Are you sure you want to invite this friend?"))
                 {
-                    
-
-                    new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Friendship cancellation made successfully");
-
-                    //profileClient.Close();
+                    StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
+                    TextBlock friendNickname = (TextBlock)VisualTreeHelper.GetChild(buttonParent, 1);
+                    profileForCallbackMethodsClient.InviteFriendToTheLobby(friendNickname.Text);
+                    new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Invitation sent successfully!");
                 }
             }
         }
@@ -697,12 +696,6 @@ namespace Renovación_LIS_Client.View
                     StackPanel textAndButtonsStackPanel = new StackPanel
                     {
                         Orientation = Orientation.Horizontal
-                    };
-
-                    TextBlock idTextBlock = new TextBlock
-                    {
-                        Visibility = Visibility.Collapsed,
-                        Text = profile.IDProfile.ToString()
                     };
 
                     Image friendProfileImage = new Image
@@ -736,7 +729,6 @@ namespace Renovación_LIS_Client.View
 
                     inviteFriendButton.Click += InviteFriendToTheLobbyButtonOnClick;
 
-                    textAndButtonsStackPanel.Children.Add(idTextBlock);
                     textAndButtonsStackPanel.Children.Add(friendProfileImage);
                     textAndButtonsStackPanel.Children.Add(nicknameTextBlock);
                     textAndButtonsStackPanel.Children.Add(inviteFriendButton);
@@ -809,6 +801,11 @@ namespace Renovación_LIS_Client.View
             }
 
             return finalText;
+        }
+
+        public void GoToLobbyView()
+        {
+            mainWindow.OpenTheLobbyView(this);
         }
         //End of auxiliary methods
 

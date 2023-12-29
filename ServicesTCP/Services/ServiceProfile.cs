@@ -422,6 +422,14 @@ namespace ServicesTCP.Services
             }
         }
 
+        public void InviteFriendToTheLobby(string friendNickname)
+        {
+            if (connectedProfiles.ContainsKey(friendNickname))
+            {
+                connectedProfiles[friendNickname].OpenPaneForEnterTheLobby();
+            }
+        }
+
         public void UpdateFriendsListsToAllConnectedClients()
         {
             foreach (var friendCallback in connectedProfiles.Values)

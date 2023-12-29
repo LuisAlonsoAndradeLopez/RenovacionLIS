@@ -12,6 +12,7 @@ namespace ServicesTCP.Services
         public static String admin;
         public static List<string> bannedProfiles = new List<string>();
         public static Dictionary<string, IMultiplayerGameCallback> connectedProfiles = new Dictionary<string, IMultiplayerGameCallback>();
+        public static bool thePlayersAreInGame = false;
 
         //IsOneWay = true methods
         public void BanPlayer(string username)
@@ -81,7 +82,7 @@ namespace ServicesTCP.Services
             }
         }
 
-        public void UpdateBannedProfilesListsToAllConnectedClients()
+        private void UpdateBannedProfilesListsToAllConnectedClients()
         {
             foreach (var multiplayerGameCallback in connectedProfiles.Values)
             {
@@ -89,7 +90,7 @@ namespace ServicesTCP.Services
             }
         }
 
-        public void UpdateConnectedProfilesListsToAllConnectedClients()
+        private void UpdateConnectedProfilesListsToAllConnectedClients()
         {
             foreach (var multiplayerGameCallback in connectedProfiles.Values)
             {
@@ -133,6 +134,21 @@ namespace ServicesTCP.Services
             }
 
             return false;
+        }
+
+        public void SetThePlayersAreInGame()
+        {
+            thePlayersAreInGame = true;
+        }
+
+        public void SetThePlayersAreNotInGame()
+        {
+            thePlayersAreInGame = false;
+        }
+
+        public bool ThePlayersAreInGame()
+        {
+            return thePlayersAreInGame;
         }
     }
 }

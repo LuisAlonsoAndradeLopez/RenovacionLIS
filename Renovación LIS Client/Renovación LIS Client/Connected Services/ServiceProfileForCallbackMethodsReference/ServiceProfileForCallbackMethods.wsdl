@@ -27,11 +27,17 @@
   <wsdl:message name="IProfileForCallbackMethods_UpdateFriendsListsToAllConnectedClients_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateFriendsListsToAllConnectedClients" />
   </wsdl:message>
+  <wsdl:message name="IProfileForCallbackMethods_InviteFriendToTheLobby_InputMessage">
+    <wsdl:part name="parameters" element="tns:InviteFriendToTheLobby" />
+  </wsdl:message>
   <wsdl:message name="IProfileForCallbackMethods_UpdateFriendsLists_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateFriendsLists" />
   </wsdl:message>
   <wsdl:message name="IProfileForCallbackMethods_UpdateFriendsForInviteLists_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateFriendsForInviteLists" />
+  </wsdl:message>
+  <wsdl:message name="IProfileForCallbackMethods_OpenPaneForEnterTheLobby_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OpenPaneForEnterTheLobby" />
   </wsdl:message>
   <wsdl:portType name="IProfileForCallbackMethods">
     <wsdl:operation name="Connect">
@@ -43,11 +49,17 @@
     <wsdl:operation name="UpdateFriendsListsToAllConnectedClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsListsToAllConnectedClients" message="tns:IProfileForCallbackMethods_UpdateFriendsListsToAllConnectedClients_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="InviteFriendToTheLobby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProfileForCallbackMethods/InviteFriendToTheLobby" message="tns:IProfileForCallbackMethods_InviteFriendToTheLobby_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateFriendsLists">
       <wsdl:output wsaw:Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsLists" message="tns:IProfileForCallbackMethods_UpdateFriendsLists_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateFriendsForInviteLists">
       <wsdl:output wsaw:Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsForInviteLists" message="tns:IProfileForCallbackMethods_UpdateFriendsForInviteLists_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenPaneForEnterTheLobby">
+      <wsdl:output wsaw:Action="http://tempuri.org/IProfileForCallbackMethods/OpenPaneForEnterTheLobby" message="tns:IProfileForCallbackMethods_OpenPaneForEnterTheLobby_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IProfileForCallbackMethods" type="tns:IProfileForCallbackMethods">
@@ -71,6 +83,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="InviteFriendToTheLobby">
+      <soap12:operation soapAction="http://tempuri.org/IProfileForCallbackMethods/InviteFriendToTheLobby" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="UpdateFriendsLists">
       <soap12:operation soapAction="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsLists" style="document" />
       <wsdl:output>
@@ -79,6 +97,12 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateFriendsForInviteLists">
       <soap12:operation soapAction="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsForInviteLists" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenPaneForEnterTheLobby">
+      <soap12:operation soapAction="http://tempuri.org/IProfileForCallbackMethods/OpenPaneForEnterTheLobby" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

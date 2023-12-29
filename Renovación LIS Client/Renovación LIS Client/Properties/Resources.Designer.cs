@@ -133,6 +133,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure you want to invite this friend?.
+        /// </summary>
+        public static string Are_you_sure_you_want_to_invite_this_friend_ {
+            get {
+                return ResourceManager.GetString("Are you sure you want to invite this friend?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Are you sure you want to reject the friend request?.
         /// </summary>
         public static string Are_you_sure_you_want_to_reject_the_friend_request_ {
@@ -340,6 +349,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to enter to the lobby?.
+        /// </summary>
+        public static string Do_you_want_to_enter_to_the_lobby_ {
+            get {
+                return ResourceManager.GetString("Do you want to enter to the lobby?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Do you want to exit?.
         /// </summary>
         public static string Do_you_want_to_exit {
@@ -493,6 +511,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Friends that you can invite.
+        /// </summary>
+        public static string Friends_that_you_can_invite {
+            get {
+                return ResourceManager.GetString("Friends that you can invite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Friendship cancellation made successfully.
         /// </summary>
         public static string Friendship_cancellation_made_successfully {
@@ -579,6 +606,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Invitation_details {
             get {
                 return ResourceManager.GetString("Invitation details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Invitation sent successfully!.
+        /// </summary>
+        public static string Invitation_sent_successfully_ {
+            get {
+                return ResourceManager.GetString("Invitation sent successfully!", resourceCulture);
             }
         }
         
@@ -916,6 +952,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The game already has started!.
+        /// </summary>
+        public static string The_game_already_has_started_ {
+            get {
+                return ResourceManager.GetString("The game already has started!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The introduced nickname doesn&apos;t exists.
         /// </summary>
         public static string The_introduced_nickname_doesn_t_exists {
@@ -1129,6 +1174,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string You_have_been_banned_____ {
             get {
                 return ResourceManager.GetString("You have been banned!!!!!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You have been invitated to the lobby!.
+        /// </summary>
+        public static string You_have_been_invitated_to_the_lobby_ {
+            get {
+                return ResourceManager.GetString("You have been invitated to the lobby!", resourceCulture);
             }
         }
     }

@@ -138,6 +138,9 @@
   <data name="Are you sure you want to cancel the friendship?" xml:space="preserve">
     <value>¿Estas seguro que deseas cancelar la amistad?</value>
   </data>
+  <data name="Are you sure you want to invite this friend?" xml:space="preserve">
+    <value>¿Estás seguro de que quieres invitar a ese amigo?</value>
+  </data>
   <data name="Are you sure you want to reject the friend request?" xml:space="preserve">
     <value>¿Estás seguro que desea rechazar la solicitud de amistad?</value>
   </data>
@@ -210,6 +213,9 @@
   <data name="Do you want to ban this player?" xml:space="preserve">
     <value>¿Quieres banear a este jugador?</value>
   </data>
+  <data name="Do you want to enter to the lobby?" xml:space="preserve">
+    <value>¿Quieres entrar al lobby?</value>
+  </data>
   <data name="Do you want to exit" xml:space="preserve">
     <value>¿Quieres salir?</value>
   </data>
@@ -261,6 +267,9 @@
   <data name="Friends requests" xml:space="preserve">
     <value>Invitaciones de amigos</value>
   </data>
+  <data name="Friends that you can invite" xml:space="preserve">
+    <value>Amigos que puedes invitar</value>
+  </data>
   <data name="Friendship cancellation made successfully" xml:space="preserve">
     <value>Cancelación de amistad realizada exitosamente</value>
   </data>
@@ -290,6 +299,9 @@
   </data>
   <data name="Invitation details" xml:space="preserve">
     <value>Detalles de la invitación</value>
+  </data>
+  <data name="Invitation sent successfully!" xml:space="preserve">
+    <value>¡Invitación mandada con éxito!</value>
   </data>
   <data name="Invite" xml:space="preserve">
     <value>Invitar</value>
@@ -402,6 +414,9 @@
   <data name="The file shouldn't be larger than 1 MB" xml:space="preserve">
     <value>El archivo no debe pesar más de 1 MB</value>
   </data>
+  <data name="The game already has started!" xml:space="preserve">
+    <value>¡El juego ya ha iniciado!</value>
+  </data>
   <data name="The introduced nickname doesn't exists" xml:space="preserve">
     <value>El nickname introducido no existe</value>
   </data>
@@ -473,5 +488,8 @@
   </data>
   <data name="You have been banned!!!!!" xml:space="preserve">
     <value>¡Has sido baneao!</value>
+  </data>
+  <data name="You have been invitated to the lobby!" xml:space="preserve">
+    <value>¡Has sido invitado al lobby!</value>
   </data>
 </root>

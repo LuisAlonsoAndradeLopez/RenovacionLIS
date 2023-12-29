@@ -16,29 +16,117 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8070/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8070/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8070/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IMultiplayerCrossword_GetStrings_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetStrings" />
+  <wsdl:message name="IMultiplayerCrossword_addPointsToProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPointsToProfile" />
   </wsdl:message>
-  <wsdl:message name="IMultiplayerCrossword_GetStrings_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetStringsResponse" />
+  <wsdl:message name="IMultiplayerCrossword_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_SetAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_StartCountdown_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartCountdown" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCrosswordsToProfilesToAllConnectedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_UpdateCountdown_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountdown" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_UpdateCrossword_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCrossword" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrossword_UpdateProfilesPoints_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfilesPoints" />
   </wsdl:message>
   <wsdl:portType name="IMultiplayerCrossword">
-    <wsdl:operation name="GetStrings">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/GetStrings" message="tns:IMultiplayerCrossword_GetStrings_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrossword/GetStringsResponse" message="tns:IMultiplayerCrossword_GetStrings_OutputMessage" />
+    <wsdl:operation name="addPointsToProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/addPointsToProfile" message="tns:IMultiplayerCrossword_addPointsToProfile_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/Connect" message="tns:IMultiplayerCrossword_Connect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/Disconnect" message="tns:IMultiplayerCrossword_Disconnect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/SetAdmin" message="tns:IMultiplayerCrossword_SetAdmin_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartCountdown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/StartCountdown" message="tns:IMultiplayerCrossword_StartCountdown_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrossword/UpdateCrosswordsToProfilesToAllConnectedProfiles" message="tns:IMultiplayerCrossword_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountdown">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrossword/UpdateCountdown" message="tns:IMultiplayerCrossword_UpdateCountdown_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCrossword">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrossword/UpdateCrossword" message="tns:IMultiplayerCrossword_UpdateCrossword_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfilesPoints">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrossword/UpdateProfilesPoints" message="tns:IMultiplayerCrossword_UpdateProfilesPoints_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IMultiplayerCrossword" type="tns:IMultiplayerCrossword">
     <wsp:PolicyReference URI="#NetTcpBinding_IMultiplayerCrossword_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="GetStrings">
-      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/GetStrings" style="document" />
+    <wsdl:operation name="addPointsToProfile">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/addPointsToProfile" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/Disconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/SetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartCountdown">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/StartCountdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/UpdateCrosswordsToProfilesToAllConnectedProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountdown">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/UpdateCountdown" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCrossword">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/UpdateCrossword" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfilesPoints">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrossword/UpdateProfilesPoints" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

@@ -36,16 +36,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateBannedProfilesListsToAllConnectedClients">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateConnectedProfilesListsToAllConnectedClients">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetBannedProfiles">
     <xs:complexType>
       <xs:sequence />
@@ -95,6 +85,38 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="IsBannedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetThePlayersAreInGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetThePlayersAreInGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetThePlayersAreNotInGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetThePlayersAreNotInGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ThePlayersAreInGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ThePlayersAreInGameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ThePlayersAreInGameResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

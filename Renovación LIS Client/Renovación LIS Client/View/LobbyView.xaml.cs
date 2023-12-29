@@ -25,7 +25,8 @@ namespace Renovación_LIS_Client.View
         /*
         TODO
         -Actualizar el chat para que se conserven los mensajes mientras se está en el LobbyView
-        -Nuevo panel para amigos para invitarlo a la partida (falta que funcione el botón invitar)
+        -Nuevo panel para amigos para invitarlo a la partida (no debe de mostrar los amigos baneaos,
+        o que entraron al ConfigurationView o al FriendsView por medio del LobbyView)
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
         -Al banear jugador debe de sacarlo del chat, de BannedPlayersView o de FriendsView o de la configuración
         */

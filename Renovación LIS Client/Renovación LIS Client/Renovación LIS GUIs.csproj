@@ -319,9 +319,6 @@
     <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\ServiceMultiplayerCrosswordReference\ServiceMultiplayerCrossword.wsdl" />
     <None Include="Connected Services\ServiceMultiplayerGameReference\item.xsd">
       <SubType>Designer</SubType>
@@ -525,21 +522,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServiceMultiplayerGameReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +577,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

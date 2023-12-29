@@ -64,6 +64,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void UpdateFriendsListsToAllConnectedClients();
+
+        [OperationContract(IsOneWay = true)]
+        void InviteFriendToTheLobby(String friendNickname);
     }
    
     public interface IProfileCallback
@@ -73,5 +76,8 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void UpdateFriendsForInviteLists();
+
+        [OperationContract(IsOneWay = true)]
+        void OpenPaneForEnterTheLobby();
     }
 }
