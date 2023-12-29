@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace Renovación_LIS_Client.ServiceChatReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueDataContract", Namespace="http://schemas.datacontract.org/2004/07/ServicesTCP.AuxiliaryContracts")]
+    [System.SerializableAttribute()]
+    public partial class KeyValueDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceChatReference.IChat", CallbackContract=typeof(Renovación_LIS_Client.ServiceChatReference.IChatCallback))]
@@ -33,18 +96,18 @@ namespace Renovación_LIS_Client.ServiceChatReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/SendMessage")]
         System.Threading.Tasks.Task SendMessageAsync(string senderNickname, string message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/UpdateChatToAllConnectedClients")]
-        void UpdateChatToAllConnectedClients(string senderNickname, string message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessages", ReplyAction="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessagesResponse")]
+        Renovación_LIS_Client.ServiceChatReference.KeyValueDataContract[] GetConnectedProfilesAndTheirMessages();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/UpdateChatToAllConnectedClients")]
-        System.Threading.Tasks.Task UpdateChatToAllConnectedClientsAsync(string senderNickname, string message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessages", ReplyAction="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessagesResponse")]
+        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceChatReference.KeyValueDataContract[]> GetConnectedProfilesAndTheirMessagesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IChatCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChat/UpdateChat")]
-        void UpdateChat(string senderNickname, string message);
+        void UpdateChat();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -99,12 +162,12 @@ namespace Renovación_LIS_Client.ServiceChatReference {
             return base.Channel.SendMessageAsync(senderNickname, message);
         }
         
-        public void UpdateChatToAllConnectedClients(string senderNickname, string message) {
-            base.Channel.UpdateChatToAllConnectedClients(senderNickname, message);
+        public Renovación_LIS_Client.ServiceChatReference.KeyValueDataContract[] GetConnectedProfilesAndTheirMessages() {
+            return base.Channel.GetConnectedProfilesAndTheirMessages();
         }
         
-        public System.Threading.Tasks.Task UpdateChatToAllConnectedClientsAsync(string senderNickname, string message) {
-            return base.Channel.UpdateChatToAllConnectedClientsAsync(senderNickname, message);
+        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceChatReference.KeyValueDataContract[]> GetConnectedProfilesAndTheirMessagesAsync() {
+            return base.Channel.GetConnectedProfilesAndTheirMessagesAsync();
         }
     }
 }

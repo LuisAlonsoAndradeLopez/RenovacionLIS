@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Resources;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -39,7 +41,9 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
-            this.chatClient = chatClient;
+            this.chatClient = new ChatClient(new InstanceContext(new LobbyView()));
+
+            ShowUpdatedChat();
         }
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
@@ -63,116 +67,138 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        public void ShowUpdatedChat(string senderNickname, string message)
+        public void ShowUpdatedChat()
         {
-            if (senderNickname == "Chat Server")
+            MessagesStackPanel.Children.Clear();
+
+            foreach (var profileAndMessage in chatClient.GetConnectedProfilesAndTheirMessages())
             {
-                Border serviceChatMessageBorder = new Border
+                if(profileAndMessage.Key == "Chat Server")
                 {
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Height = 62,
-                    MaxWidth = 3000,
-                    Margin = new Thickness(0, 5, 0, 5),
-                    CornerRadius = new CornerRadius(20),
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
-                    Opacity = 0.8
-                };
+                    string message = profileAndMessage.Value;
 
-                Label serviceChatMessageLabel = new Label
+                    if (message.Contains("has joined to the chat"))
+                    {
+                        message = $"{profileAndMessage.Value.Replace("has joined to the chat", "")}" + resourceManager.GetString("Has joined to the chat", cultureInfo);
+                    }
+
+                    if (message.Contains("left the chat"))
+                    {
+                        message = $"{profileAndMessage.Value.Replace("left the chat", "")}" + resourceManager.GetString("Left the chat", cultureInfo);
+                    }
+
+
+                    Border serviceChatMessageBorder = new Border
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Height = 62,
+                        MaxWidth = 3000,
+                        Margin = new Thickness(0, 5, 0, 5),
+                        CornerRadius = new CornerRadius(20),
+                        Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
+                        Opacity = 0.8
+                    };
+
+                    Label serviceChatMessageLabel = new Label
+                    {
+                        Foreground = new SolidColorBrush(Colors.White),
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        FontSize = 18,
+                        Margin = new Thickness(10, 10, 10, 10),
+                        Content = message
+                    };
+
+                    serviceChatMessageBorder.Child = serviceChatMessageLabel;
+                    MessagesStackPanel.Children.Add(serviceChatMessageBorder);
+
+                    continue;
+                }
+            
+                if (profileAndMessage.Key != loggedProfile.Player.NickName && profileAndMessage.Key != "Chat Server")
                 {
-                    Foreground = new SolidColorBrush(Colors.White),
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 18,
-                    Margin = new Thickness(10, 10, 10, 10),
-                    Content = message
-                };
+                    Border friendMessageBorder = new Border
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Height = 94,
+                        MaxWidth = 3000,
+                        Margin = new Thickness(28, 5, 0, 5),
+                        CornerRadius = new CornerRadius(20),
+                        Background = new SolidColorBrush(Colors.Black),
+                        Opacity = 0.8
+                    };
 
-                serviceChatMessageBorder.Child = serviceChatMessageLabel;
-                MessagesStackPanel.Children.Add(serviceChatMessageBorder);
+                    StackPanel friendBorderContentStackPanel = new StackPanel
+                    {
+                        Orientation = Orientation.Horizontal
+                    };
+
+                    Image friendProfileImage = new Image
+                    {
+                        Source = new ImageLoader().GetImageByPlayerNickname(profileAndMessage.Key),
+                        Width = 80,
+                        Margin = new Thickness(20, 20, 5, 20)
+                    };
+
+                    StackPanel friendNicknameAndMessageStackPanel = new StackPanel();
+
+                    Label friendNicknameLabel = new Label
+                    {
+                        Foreground = new SolidColorBrush(Colors.White),
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        FontSize = 18,
+                        Margin = new Thickness(5, 0, 20, 2),
+                        Content = profileAndMessage.Key
+                    };
+
+                    Label friendMessageLabel = new Label
+                    {
+                        Foreground = new SolidColorBrush(Colors.White),
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        FontSize = 18,
+                        Margin = new Thickness(5, 2, 20, 0),
+                        Content = profileAndMessage.Value
+                    };
+
+                    friendNicknameAndMessageStackPanel.Children.Add(friendNicknameLabel);
+                    friendNicknameAndMessageStackPanel.Children.Add(friendMessageLabel);
+
+                    friendBorderContentStackPanel.Children.Add(friendProfileImage);
+                    friendBorderContentStackPanel.Children.Add(friendNicknameAndMessageStackPanel);
+
+                    friendMessageBorder.Child = friendBorderContentStackPanel;
+
+                    MessagesStackPanel.Children.Add(friendMessageBorder);
+
+                    continue;
+                }
+
+                if (profileAndMessage.Key == loggedProfile.Player.NickName)
+                {
+                    Border loggedPlayerMessageBorder = new Border
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Right,
+                        Height = 62,
+                        MaxWidth = 3000,
+                        Margin = new Thickness(0, 5, 28, 5),
+                        CornerRadius = new CornerRadius(20),
+                        Background = new SolidColorBrush(Colors.Black),
+                        Opacity = 0.8
+                    };
+
+                    Label loggedPlayerMessageLabel = new Label
+                    {
+                        Foreground = new SolidColorBrush(Colors.White),
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        FontSize = 18,
+                        Margin = new Thickness(10, 10, 10, 10),
+                        Content = profileAndMessage.Value
+                    };
+
+                    loggedPlayerMessageBorder.Child = loggedPlayerMessageLabel;
+                    MessagesStackPanel.Children.Add(loggedPlayerMessageBorder);
+                }
+            
             }
-
-            if (senderNickname != loggedProfile.Player.NickName && senderNickname != "Chat Server")
-            {
-                Border friendMessageBorder = new Border
-                {
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Height = 94,
-                    MaxWidth = 3000,
-                    Margin = new Thickness(28, 5, 0, 5),
-                    CornerRadius = new CornerRadius(20),
-                    Background = new SolidColorBrush(Colors.Black),
-                    Opacity = 0.8
-                };
-
-                StackPanel friendBorderContentStackPanel = new StackPanel
-                {
-                    Orientation = Orientation.Horizontal
-                };
-
-                Image friendProfileImage = new Image
-                {
-                    Source = new ImageLoader().GetImageByPlayerNickname(senderNickname),
-                    Width = 80,
-                    Margin = new Thickness(20, 20, 5, 20)
-                };
-
-                StackPanel friendNicknameAndMessageStackPanel = new StackPanel();
-
-                Label friendNicknameLabel = new Label
-                {
-                    Foreground = new SolidColorBrush(Colors.White),
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 18,
-                    Margin = new Thickness(5, 0, 20, 2),
-                    Content = senderNickname
-                };
-
-                Label friendMessageLabel = new Label
-                {
-                    Foreground = new SolidColorBrush(Colors.White),
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 18,
-                    Margin = new Thickness(5, 2, 20, 0),
-                    Content = message
-                };
-
-                friendNicknameAndMessageStackPanel.Children.Add(friendNicknameLabel);
-                friendNicknameAndMessageStackPanel.Children.Add(friendMessageLabel);
-
-                friendBorderContentStackPanel.Children.Add(friendProfileImage);
-                friendBorderContentStackPanel.Children.Add(friendNicknameAndMessageStackPanel);
-
-                friendMessageBorder.Child = friendBorderContentStackPanel;
-
-                MessagesStackPanel.Children.Add(friendMessageBorder);
-            }
-
-            if (senderNickname == loggedProfile.Player.NickName)
-            {
-                Border loggedPlayerMessageBorder = new Border
-                {
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    Height = 62,
-                    MaxWidth = 3000,
-                    Margin = new Thickness(0, 5, 28, 5),
-                    CornerRadius = new CornerRadius(20),
-                    Background = new SolidColorBrush(Colors.Black),
-                    Opacity = 0.8
-                };
-
-                Label loggedPlayerMessageLabel = new Label
-                {
-                    Foreground = new SolidColorBrush(Colors.White),
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    FontSize = 18,
-                    Margin = new Thickness(10, 10, 10, 10),
-                    Content = message
-                };
-
-                loggedPlayerMessageBorder.Child = loggedPlayerMessageLabel;
-                MessagesStackPanel.Children.Add(loggedPlayerMessageBorder);
-            }
-
         }
     }
 }

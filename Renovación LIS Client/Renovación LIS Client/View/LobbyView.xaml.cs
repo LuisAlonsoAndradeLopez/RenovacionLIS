@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Resources;
@@ -333,34 +334,11 @@ namespace Renovación_LIS_Client.View
 
 
         //Callback methods
-        public void UpdateChat(string senderNickname, string message)
+        public void UpdateChat()
         {
             if (PageStateManager.CurrentPage is ChatView currentPage)
             {
-                if (senderNickname == "Chat Server")
-                {
-                    if (message.Contains("has joined to the chat"))
-                    {
-                        currentPage.ShowUpdatedChat
-                        (
-                            senderNickname,
-                            $"{message.Replace("has joined to the chat", "")}" + resourceManager.GetString("Has joined to the chat", cultureInfo)
-                        );
-                    }
-
-                    if (message.Contains("left the chat"))
-                    {
-                        currentPage.ShowUpdatedChat
-                        (
-                            senderNickname,
-                            $"{message.Replace("left the chat", "")}" + resourceManager.GetString("Left the chat", cultureInfo)
-                        );
-                    }
-                }
-                else
-                {
-                    currentPage.ShowUpdatedChat(senderNickname, message);
-                }
+                currentPage.ShowUpdatedChat();
             }
         }
 

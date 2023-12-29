@@ -26,6 +26,7 @@
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ce6ff388-4483-444a-b64a-cad0ba48b666" SourceId="1" SourceUrl="http://localhost:8010/?xsd=xsd0" />
     <MetadataFile FileName="ServiceChat.wsdl" MetadataType="Wsdl" ID="71e420c3-cf75-4088-b953-554d4d5fdd57" SourceId="1" SourceUrl="http://localhost:8010/?wsdl" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="70009caa-00e7-4b30-a233-224f0c6e43b9" SourceId="1" SourceUrl="http://localhost:8010/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f54cd945-8505-433d-a8d6-e193ba2615bc" SourceId="1" SourceUrl="http://localhost:8010/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -16,6 +16,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8010/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8010/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8010/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServicesTCP.AuxiliaryContracts" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IChat_JoinChat_InputMessage">
@@ -27,8 +28,11 @@
   <wsdl:message name="IChat_SendMessage_InputMessage">
     <wsdl:part name="parameters" element="tns:SendMessage" />
   </wsdl:message>
-  <wsdl:message name="IChat_UpdateChatToAllConnectedClients_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateChatToAllConnectedClients" />
+  <wsdl:message name="IChat_GetConnectedProfilesAndTheirMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectedProfilesAndTheirMessages" />
+  </wsdl:message>
+  <wsdl:message name="IChat_GetConnectedProfilesAndTheirMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectedProfilesAndTheirMessagesResponse" />
   </wsdl:message>
   <wsdl:message name="IChat_UpdateChat_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateChat" />
@@ -43,8 +47,9 @@
     <wsdl:operation name="SendMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IChat/SendMessage" message="tns:IChat_SendMessage_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateChatToAllConnectedClients">
-      <wsdl:input wsaw:Action="http://tempuri.org/IChat/UpdateChatToAllConnectedClients" message="tns:IChat_UpdateChatToAllConnectedClients_InputMessage" />
+    <wsdl:operation name="GetConnectedProfilesAndTheirMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessages" message="tns:IChat_GetConnectedProfilesAndTheirMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessagesResponse" message="tns:IChat_GetConnectedProfilesAndTheirMessages_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateChat">
       <wsdl:output wsaw:Action="http://tempuri.org/IChat/UpdateChat" message="tns:IChat_UpdateChat_OutputCallbackMessage" />
@@ -71,11 +76,14 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="UpdateChatToAllConnectedClients">
-      <soap12:operation soapAction="http://tempuri.org/IChat/UpdateChatToAllConnectedClients" style="document" />
+    <wsdl:operation name="GetConnectedProfilesAndTheirMessages">
+      <soap12:operation soapAction="http://tempuri.org/IChat/GetConnectedProfilesAndTheirMessages" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateChat">
       <soap12:operation soapAction="http://tempuri.org/IChat/UpdateChat" style="document" />
