@@ -58,7 +58,7 @@ namespace ServicesTCP.ServiceContracts
     public interface IMultiplayerGameCallback
     {
         [OperationContract(IsOneWay = true)]
-        void ExpelPlayerFromLobbyView();
+        void ExpelPlayerFromMultiplayerGame();
 
         [OperationContract(IsOneWay = true)]
         void UpdateBannedProfilesLists();

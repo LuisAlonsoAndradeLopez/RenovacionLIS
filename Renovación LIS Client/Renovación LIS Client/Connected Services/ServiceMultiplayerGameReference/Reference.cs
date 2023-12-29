@@ -91,8 +91,8 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMultiplayerGameCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/ExpelPlayerFromLobbyView")]
-        void ExpelPlayerFromLobbyView();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/ExpelPlayerFromMultiplayerGame")]
+        void ExpelPlayerFromMultiplayerGame();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateBannedProfilesLists")]
         void UpdateBannedProfilesLists();

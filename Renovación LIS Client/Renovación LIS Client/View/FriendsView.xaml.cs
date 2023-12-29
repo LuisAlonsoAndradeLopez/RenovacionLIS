@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
 using System.Resources;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
@@ -8,7 +7,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
@@ -19,7 +17,6 @@ using Renovación_LIS_Client.ServiceFriendRequestReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileReference;
 using Button = System.Windows.Controls.Button;
-using MessageBox = System.Windows.MessageBox;
 using Orientation = System.Windows.Controls.Orientation;
 
 namespace Renovación_LIS_Client.View
@@ -36,6 +33,7 @@ namespace Renovación_LIS_Client.View
         private FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient;
         private CultureInfo cultureInfo;
         private ResourceManager resourceManager;
+        private bool entryToThisPageViaLobbyView;
 
         //Constructores
         public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
@@ -49,6 +47,7 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
             
             PageStateManager.CurrentPage = this;
+            entryToThisPageViaLobbyView = false;
 
             friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
             friendRequestForCallbackMethodsClient.Connect(loggedProfile.Player.NickName);
@@ -67,6 +66,7 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
+            entryToThisPageViaLobbyView = true;
 
             friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
             friendRequestForCallbackMethodsClient.Connect(loggedProfile.Player.NickName);
@@ -744,6 +744,17 @@ namespace Renovación_LIS_Client.View
 
 
         //Start of auxiliary methods
+        public void ExitFromThisPageForBeingExpeltFromLobbyView()
+        {
+            if (entryToThisPageViaLobbyView)
+            {
+                chatClient.LeaveChat(loggedProfile.Player.NickName);
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            }
+        }
+
         private ServiceFriendRequestReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
         {
             ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests();
@@ -805,7 +816,10 @@ namespace Renovación_LIS_Client.View
 
         public void GoToLobbyView()
         {
-            mainWindow.OpenTheLobbyView(this);
+            if (!entryToThisPageViaLobbyView)
+            {
+                mainWindow.OpenTheLobbyView(this);
+            }
         }
         //End of auxiliary methods
 

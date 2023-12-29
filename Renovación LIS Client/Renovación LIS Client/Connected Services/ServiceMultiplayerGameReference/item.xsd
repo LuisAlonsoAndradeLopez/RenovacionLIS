@@ -120,7 +120,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExpelPlayerFromLobbyView">
+  <xs:element name="ExpelPlayerFromMultiplayerGame">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

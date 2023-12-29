@@ -417,6 +417,10 @@ namespace ServicesTCP.Services
             if (connectedProfiles.ContainsKey(username))
             {
                 connectedProfiles.Remove(username);
+                new ServiceChat().LeaveChat(username);
+                new ServiceFriendRequestForCallbackMethods().Disconnect(username);
+                new ServiceMultiplayerGame().Disconnect(username);
+                new ServiceMultiplayerCrossword().Disconnect(username);
 
                 UpdateFriendsListsToAllConnectedClients();
             }

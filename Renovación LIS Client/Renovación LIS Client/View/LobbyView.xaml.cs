@@ -25,11 +25,10 @@ namespace Renovación_LIS_Client.View
     {
         /*
         TODO
-        -Actualizar el chat para que se conserven los mensajes mientras se está en el LobbyView
         -Nuevo panel para amigos para invitarlo a la partida (no debe de mostrar los amigos baneaos,
         o que entraron al ConfigurationView o al FriendsView por medio del LobbyView)
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
-        -Al banear jugador debe de sacarlo del chat, de BannedPlayersView o de FriendsView o de la configuración
+        -Al banear jugador debe de la configuración (kate pasa la configuración)
         */
         
         private MainWindow mainWindow;
@@ -153,7 +152,7 @@ namespace Renovación_LIS_Client.View
 
 
         //Auxiliary Methods
-        public void ExpelYou()
+        public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
             chatClient.LeaveChat(loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -358,11 +357,27 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        public void ExpelPlayerFromLobbyView()
+        public void ExpelPlayerFromMultiplayerGame()
         {
-            if (PageStateManager.CurrentPage is LobbyView currentPage)
+            if (PageStateManager.CurrentPage is LobbyView lobbyView)
             {
-                currentPage.ExpelYou();
+                lobbyView.ExitFromThisPageForBeingExpeltFromLobbyView();
+            }
+            else if (PageStateManager.CurrentPage is BannedPlayersView bannedPlayersView)
+            {
+                bannedPlayersView.ExitFromThisPageForBeingExpeltFromLobbyView();
+            }
+            else if (PageStateManager.CurrentPage is FriendsView friendsView)
+            {
+                friendsView.ExitFromThisPageForBeingExpeltFromLobbyView();
+            }
+            else if (PageStateManager.CurrentPage is ChatView chatView)
+            {
+                chatView.ExitFromThisPageForBeingExpeltFromLobbyView();
+            }
+            else if (PageStateManager.CurrentPage is ConfigurationView configurationView)
+            {
+                //configurationView.ExitFromThisPageForBeingExpeltFromLobbyView();
             }
         }
     }

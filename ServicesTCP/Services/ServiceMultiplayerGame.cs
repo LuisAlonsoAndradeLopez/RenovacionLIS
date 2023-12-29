@@ -21,7 +21,7 @@ namespace ServicesTCP.Services
             {
                 if (!bannedProfiles.Contains(username))
                 {
-                    connectedProfiles[username].ExpelPlayerFromLobbyView();
+                    connectedProfiles[username].ExpelPlayerFromMultiplayerGame();
                     bannedProfiles.Add(username);
                     connectedProfiles.Remove(username);
                     UpdateBannedProfilesListsToAllConnectedClients();

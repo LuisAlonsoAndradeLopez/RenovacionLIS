@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using System.Resources;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatReference;
@@ -128,6 +117,15 @@ namespace Renovación_LIS_Client.View
                 bannedPlayerBorder.Child = bannedPlayerStackPanel;
                 BannedPlayersStackPanel.Children.Add(bannedPlayerBorder);
             }                                   
+        }
+
+        //Auxiliary Methods
+        public void ExitFromThisPageForBeingExpeltFromLobbyView()
+        {
+            chatClient.LeaveChat(loggedProfile.Player.NickName);
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
     }
 }

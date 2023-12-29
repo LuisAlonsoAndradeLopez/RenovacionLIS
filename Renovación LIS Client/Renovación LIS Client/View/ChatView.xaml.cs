@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Resources;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -41,7 +36,7 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
-            this.chatClient = new ChatClient(new InstanceContext(new LobbyView()));
+            this.chatClient = chatClient;
 
             ShowUpdatedChat();
         }
@@ -199,6 +194,15 @@ namespace Renovación_LIS_Client.View
                 }
             
             }
+        }
+
+        //Auxiliary Methods
+        public void ExitFromThisPageForBeingExpeltFromLobbyView()
+        {
+            chatClient.LeaveChat(loggedProfile.Player.NickName);
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
+using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using ServicesTCP.AuxiliaryContracts;
@@ -13,58 +15,61 @@ namespace ServicesTCP.Services
     public class ServiceChat : IChat
     {
         public static Dictionary<string, IChatCallback> connectedProfiles = new Dictionary<string, IChatCallback>();
-        public static Dictionary<string, string> connectedProfilesAndTheirMessages = new Dictionary<string, string>();
-
+        public static List<KeyValueDataContract> connectedProfilesAndTheirMessages = new List<KeyValueDataContract>();
 
         //IsOneWay = true messages
         public void JoinChat(string nickname)
         {
             IChatCallback callback = OperationContext.Current.GetCallbackChannel<IChatCallback>();
-
+        
             if (!connectedProfiles.ContainsKey(nickname))
             {
                 connectedProfiles.Add(nickname, callback);
-                //connectedProfilesAndTheirMessages.Add("Chat Server", $"{nickname} has joined to the chat");
-
-                foreach (var profilesAndOperationContract in connectedProfiles)
+        
+                KeyValueDataContract dictionary = new KeyValueDataContract
                 {
-                    Console.WriteLine($"Usuario: {profilesAndOperationContract.Key}, OperationContract: {profilesAndOperationContract.Value}");
-                }
-
-                foreach (var profilesAndMessages in connectedProfilesAndTheirMessages)
-                {
-                    Console.WriteLine($"Usuario: {profilesAndMessages.Key}, Mensaje: {profilesAndMessages.Value}");
-                }
-
+                    Key = "Chat Server",
+                    Value = $"{nickname} has joined to the chat"
+                };
+                connectedProfilesAndTheirMessages.Add(dictionary);
+       
                 UpdateChatToAllConectedProfiles();
             }
         }
         public void LeaveChat(string nickname)
         {
-
+        
             if (connectedProfiles.ContainsKey(nickname))
             {
                 connectedProfiles.Remove(nickname);
-                Console.WriteLine("Pu");
-                //connectedProfilesAndTheirMessages.Add("Chat Server", $"{nickname} left the chat");  //Esta linea genera el problema, el simbolo de pesos genera el problema al parecer
-                                
-
+        
+                KeyValueDataContract dictionary = new KeyValueDataContract
+                {
+                    Key = "Chat Server",
+                    Value = $"{nickname} left the chat"
+                };
+                connectedProfilesAndTheirMessages.Add(dictionary);                              
+        
                 UpdateChatToAllConectedProfiles();
-
+        
                 if (!connectedProfiles.Any())
                 {
                     connectedProfilesAndTheirMessages.Clear();
                 }
             }
         }
-
+        
         public void SendMessage(string senderNickname, string message)
         {
-            Console.WriteLine("Pu");
-            connectedProfilesAndTheirMessages.Add(senderNickname, message);
+            KeyValueDataContract dictionary = new KeyValueDataContract
+            {
+                Key = senderNickname,
+                Value = message
+            };        
+            connectedProfilesAndTheirMessages.Add(dictionary);
+        
             UpdateChatToAllConectedProfiles();
         }
-
 
         //IsOneWay = false messages
         public List<KeyValueDataContract> GetConnectedProfilesAndTheirMessages()
