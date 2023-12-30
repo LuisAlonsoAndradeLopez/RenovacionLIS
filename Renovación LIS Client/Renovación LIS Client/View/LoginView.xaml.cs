@@ -25,8 +25,9 @@ namespace Renovación_LIS_Client.View
         private readonly MainWindow mainWindow;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
-        public LoginView(MainWindow mainWindow)
+        public LoginView(MainWindow mainWindow, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             PageStateManager.CurrentPage = this;
             InitializeComponent();
@@ -34,18 +35,20 @@ namespace Renovación_LIS_Client.View
             this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
         }
 
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ForgotPassword(mainWindow));
+            navigationService.Navigate(new ForgotPassword(mainWindow, profileForCallbackMethodsClient));
         }
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new CreateAccountView(mainWindow));
+            navigationService.Navigate(new CreateAccountView(mainWindow, profileForCallbackMethodsClient));
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
@@ -66,10 +69,9 @@ namespace Renovación_LIS_Client.View
                     {
                         if (!profileClient.TheProfileIsLogged(profile.IDProfile))
                         {
-                            profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
-                          
+                            profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);                         
 
-                            ProfileForCallbackMethodsClient profileForCallbackMethodsClient = new ProfileForCallbackMethodsClient(new InstanceContext(new MainWindow()));
+                            
                             profileForCallbackMethodsClient.Connect(profile.Player.NickName);
 
                             mainWindow.SetProfileToLoggedProfile(profile);

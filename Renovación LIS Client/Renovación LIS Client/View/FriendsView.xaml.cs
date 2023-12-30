@@ -698,70 +698,74 @@ namespace Renovación_LIS_Client.View
 
         public void ShowConnectedFriendsListForInviteToLobby()
         {
-            OnlineFriendsToInviteStackPanel.Children.Clear();
-
-            ProfileClient profileClient = new ProfileClient();
-            foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
+            if (multiplayerGameClient != null)
             {
-                if (!multiplayerGameClient.IsConnected(profile.Player.NickName))
+                OnlineFriendsToInviteStackPanel.Children.Clear();
+
+                ProfileClient profileClient = new ProfileClient();
+                foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
                 {
-                    if (profile.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
+                    if (!multiplayerGameClient.IsConnected(profile.Player.NickName))
                     {
-                        Border friendBorder = new Border
+                        if (profile.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
                         {
-                            Height = 55,
-                            Margin = new Thickness(25, 10, 25, 0),
-                            CornerRadius = new CornerRadius(20),
-                            Background = new SolidColorBrush(Colors.Black)
-                        };
+                            Border friendBorder = new Border
+                            {
+                                Height = 55,
+                                Margin = new Thickness(25, 10, 25, 0),
+                                CornerRadius = new CornerRadius(20),
+                                Background = new SolidColorBrush(Colors.Black)
+                            };
 
-                        StackPanel textAndButtonsStackPanel = new StackPanel
-                        {
-                            Orientation = Orientation.Horizontal
-                        };
+                            StackPanel textAndButtonsStackPanel = new StackPanel
+                            {
+                                Orientation = Orientation.Horizontal
+                            };
 
-                        Image friendProfileImage = new Image
-                        {
-                            Width = 42,
-                            Height = 42,
-                            Margin = new Thickness(30, 0, 0, 0),
-                            Source = new ImageLoader().GetImageByPlayerNickname(profile.Player.NickName)
-                        };
+                            Image friendProfileImage = new Image
+                            {
+                                Width = 42,
+                                Height = 42,
+                                Margin = new Thickness(30, 0, 0, 0),
+                                Source = new ImageLoader().GetImageByPlayerNickname(profile.Player.NickName)
+                            };
 
-                        TextBlock nicknameTextBlock = new TextBlock
-                        {
-                            Foreground = new SolidColorBrush(Colors.White),
-                            Margin = new Thickness(15, 0, 0, 0),
-                            Width = 250,
-                            TextWrapping = TextWrapping.Wrap,
-                            FontSize = 14,
-                            VerticalAlignment = VerticalAlignment.Center,
-                            Text = profile.Player.NickName
-                        };
+                            TextBlock nicknameTextBlock = new TextBlock
+                            {
+                                Foreground = new SolidColorBrush(Colors.White),
+                                Margin = new Thickness(15, 0, 0, 0),
+                                Width = 250,
+                                TextWrapping = TextWrapping.Wrap,
+                                FontSize = 14,
+                                VerticalAlignment = VerticalAlignment.Center,
+                                Text = profile.Player.NickName
+                            };
 
-                        Button inviteFriendButton = new Button
-                        {
-                            Style = (Style)FindResource("GreenButton"),
-                            Height = 35,
-                            Width = 110,
-                            HorizontalAlignment = HorizontalAlignment.Right,
-                            Content = resourceManager.GetString("Invite", cultureInfo),
-                            FontSize = 13
-                        };
+                            Button inviteFriendButton = new Button
+                            {
+                                Style = (Style)FindResource("GreenButton"),
+                                Height = 35,
+                                Width = 110,
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Content = resourceManager.GetString("Invite", cultureInfo),
+                                FontSize = 13
+                            };
 
-                        inviteFriendButton.Click += InviteFriendToTheLobbyButtonOnClick;
+                            inviteFriendButton.Click += InviteFriendToTheLobbyButtonOnClick;
 
-                        textAndButtonsStackPanel.Children.Add(friendProfileImage);
-                        textAndButtonsStackPanel.Children.Add(nicknameTextBlock);
-                        textAndButtonsStackPanel.Children.Add(inviteFriendButton);
+                            textAndButtonsStackPanel.Children.Add(friendProfileImage);
+                            textAndButtonsStackPanel.Children.Add(nicknameTextBlock);
+                            textAndButtonsStackPanel.Children.Add(inviteFriendButton);
 
-                        friendBorder.Child = textAndButtonsStackPanel;
-                        OnlineFriendsToInviteStackPanel.Children.Add(friendBorder);
+                            friendBorder.Child = textAndButtonsStackPanel;
+                            OnlineFriendsToInviteStackPanel.Children.Add(friendBorder);
+                        }
                     }
                 }
-            }
 
-            profileClient.Close();
+                profileClient.Close();
+
+            }
         }
         //End of ConnectedFriendsToInviteList
 

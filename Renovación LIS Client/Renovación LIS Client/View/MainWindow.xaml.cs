@@ -25,8 +25,7 @@ namespace Renovación_LIS_Client
 
     public partial class MainWindow : Window, IProfileForCallbackMethodsCallback
     {
-        private readonly CultureInfo cultureInfo;
-        private readonly ResourceManager resourceManager;
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
         private Profile loggedProfile = null;
 
@@ -39,11 +38,10 @@ namespace Renovación_LIS_Client
             AppDomain.CurrentDomain.ProcessExit += ProcessExit;
             this.Closing += MainWindowClosing;
 
-            cultureInfo = CultureInfo.CurrentUICulture;
-            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+            profileForCallbackMethodsClient = new ProfileForCallbackMethodsClient(new InstanceContext(this));
 
             NavigationService navigationService = MainFrame.NavigationService;
-            navigationService.Navigate(new StartView(this));
+            navigationService.Navigate(new StartView(this, profileForCallbackMethodsClient));
 
         }
 
@@ -53,6 +51,7 @@ namespace Renovación_LIS_Client
             {
                 ProfileClient profileClient = new ProfileClient();
                 profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+                profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
                 
                 profileClient.Close();
             }
@@ -64,7 +63,8 @@ namespace Renovación_LIS_Client
             {
                 ProfileClient profileClient = new ProfileClient();
                 profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-            
+                profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+
                 profileClient.Close();
             }
         }
@@ -75,7 +75,8 @@ namespace Renovación_LIS_Client
             {
                 ProfileClient profileClient = new ProfileClient();
                 profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-            
+                profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+
                 profileClient.Close();
             }
 
@@ -93,6 +94,7 @@ namespace Renovación_LIS_Client
                     {
                         ProfileClient profileClient = new ProfileClient();
                         profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
+                        profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
 
                         profileClient.Close();
                     }

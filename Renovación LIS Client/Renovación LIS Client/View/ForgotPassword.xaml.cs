@@ -10,6 +10,7 @@ using System.Security;
 using System.Globalization;
 using System.Resources;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -22,23 +23,26 @@ namespace Renovación_LIS_Client.View
         private readonly Random random = new Random();
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
         private int verificationCode;
 
-        public ForgotPassword(MainWindow mainWindow)
+        public ForgotPassword(MainWindow mainWindow, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
             InitializeComponent();
             
             this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+
             verificationCode = random.Next(100001, 1000000);
         }
 
         private void CancelButton1(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow));
+            navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
         }
 
         private void CancelButton2(object sender, RoutedEventArgs e)
@@ -67,7 +71,7 @@ namespace Renovación_LIS_Client.View
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
 
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LoginView(mainWindow));
+                navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
 
                 playerClient.Close();
             }

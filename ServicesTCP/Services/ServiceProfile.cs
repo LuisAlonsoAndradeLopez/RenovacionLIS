@@ -4,9 +4,11 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
+using ServicesTCP.AuxiliaryContracts;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -402,15 +404,23 @@ namespace ServicesTCP.Services
 
     public partial class ServiceProfileForCallbackMethods : IProfileForCallbackMethods
     {
-        public static Dictionary<string, IProfileCallback> connectedProfiles = new Dictionary<string, IProfileCallback>();
+        public static List<KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods> connectedProfiles = new List<KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods>();
+        //public static Dictionary<string, IProfileCallback> connectedProfiles = new Dictionary<string, IProfileCallback>();
 
         public void Connect(string username)
         {
             IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
 
-            if (!connectedProfiles.ContainsKey(username))
+            KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods result = connectedProfiles.FirstOrDefault(item => item.Key == username);
+
+            if (result == null)
             {
-                connectedProfiles.Add(username, callback);
+                KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods dictionary = new KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
+                {
+                    Key = username,
+                    Value = callback
+                };
+                connectedProfiles.Add(dictionary);
 
                 UpdateFriendsListsToAllConnectedClients();
             }
@@ -418,9 +428,11 @@ namespace ServicesTCP.Services
 
         public void Disconnect(string username)
         {
-            if (connectedProfiles.ContainsKey(username))
+            KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods result = connectedProfiles.FirstOrDefault(item => item.Key == username);
+
+            if (result != null)
             {
-                connectedProfiles.Remove(username);
+                connectedProfiles = connectedProfiles.Where(item => item.Key != username).ToList();
                 new ServiceChat().LeaveChat(username);
                 new ServiceFriendRequestForCallbackMethods().Disconnect(username);
                 new ServiceMultiplayerGame().Disconnect(username);
@@ -432,18 +444,27 @@ namespace ServicesTCP.Services
 
         public void InviteFriendToTheLobby(string friendNickname)
         {
-            if (connectedProfiles.ContainsKey(friendNickname))
+            KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods result = connectedProfiles.FirstOrDefault(item => item.Key == friendNickname);
+
+            if (result != null)
             {
-                connectedProfiles[friendNickname].OpenPaneForEnterTheLobby();
+                foreach(var friend in connectedProfiles)
+                {
+                    if(friend.Key == friendNickname)
+                    {
+                        friend.Value.OpenPaneForEnterTheLobby();
+                        break;
+                    }
+                }
             }
         }
 
         public void UpdateFriendsListsToAllConnectedClients()
         {
-            foreach (var friendCallback in connectedProfiles.Values)
+            foreach (var friend in connectedProfiles)
             {
-                friendCallback.UpdateFriendsLists();
-                friendCallback.UpdateFriendsForInviteLists();
+                friend.Value.UpdateFriendsLists();
+                friend.Value.UpdateFriendsForInviteLists();
             }
         }
     }

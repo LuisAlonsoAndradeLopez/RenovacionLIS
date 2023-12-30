@@ -23,9 +23,7 @@ namespace Renovación_LIS_Client.View
         -Nuevo panel para amigos para invitarlo a la partida (falta configurationview)
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
         -Al banear jugador debe de la configuración (kate pasa la configuración)
-        -Si se desconecta un jugdroe de tiron, debe de salir de la lista de amigos para invitar al lobby (no hay callback)
-        -Verificar los servicios en los que haya cierre en cadena (por ejemplo, si se sale de serviceprofile
-        debe de salir de servicechat, servicemultiplayergame, etc)
+        -El administrador solo puede iniciar la partida
         */
 
         private readonly MainWindow mainWindow;

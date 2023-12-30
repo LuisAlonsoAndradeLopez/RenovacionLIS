@@ -91,7 +91,7 @@ namespace Renovación_LIS_Client.View
             profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow));
+            navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
 
             profileClient.Close();
         }
