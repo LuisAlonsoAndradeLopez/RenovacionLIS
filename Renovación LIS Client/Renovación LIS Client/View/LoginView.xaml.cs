@@ -22,9 +22,9 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class LoginView : Page
     {
-        private MainWindow mainWindow;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
+        private readonly MainWindow mainWindow;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
 
         public LoginView(MainWindow mainWindow)
         {
@@ -50,7 +50,7 @@ namespace Renovación_LIS_Client.View
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            if (invalidValuesInTextFieldsTextGenerator() == "")
+            if (InvalidValuesInTextFieldsTextGenerator() == "")
             {
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
@@ -79,29 +79,29 @@ namespace Renovación_LIS_Client.View
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The user is already logged");
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The user is already logged");
                         }
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The password isn't correct");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The password isn't correct");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The introduced nickname doesn't exists");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The introduced nickname doesn't exists");
                 }
 
                 profileClient.Close();
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
             }
         }
 
 
-        private String invalidValuesInTextFieldsTextGenerator()
+        private String InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
 
@@ -122,7 +122,7 @@ namespace Renovación_LIS_Client.View
 
             if (!nickNameMatch.Success || !passwordMatch.Success)
             {
-                finalText = finalText + resourceManager.GetString("The text fields with invalid values are", cultureInfo);
+                finalText += resourceManager.GetString("The text fields with invalid values are", cultureInfo);
             }
 
             if (!nickNameMatch.Success)
@@ -142,8 +142,6 @@ namespace Renovación_LIS_Client.View
                 {
                     finalText = finalText + resourceManager.GetString("Password", cultureInfo) + ".";
                 }
-
-                textFieldsWithIncorrectValues++;
             }
 
             return finalText;

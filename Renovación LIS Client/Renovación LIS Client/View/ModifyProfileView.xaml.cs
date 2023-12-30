@@ -23,11 +23,12 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ModifyProfileView : Page
     {
-        private MainWindow mainWindow;
+        private readonly MainWindow mainWindow;
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
+
         private Profile loggedProfile = new Profile();
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
 
         public ModifyProfileView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
@@ -80,7 +81,7 @@ namespace Renovación_LIS_Client.View
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
         {
-            if(invalidValuesInTextFieldsTextGenerator() == "")
+            if(InvalidValuesInTextFieldsTextGenerator() == "")
             {
                 if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
@@ -94,13 +95,15 @@ namespace Renovación_LIS_Client.View
                             profileClient.ModifyImageName(loggedProfile.Player.NickName, NicknameTextBox.Text);
 
 
-                            ServicePlayerReference.Players players = new ServicePlayerReference.Players();
-                            players.IDPlayer = loggedProfile.Player.IDPlayer;
-                            players.Names = NamesTextBox.Text;
-                            players.Surnames = SurnamesTextBox.Text;
-                            players.Email = EmailTextBox.Text;
-                            players.NickName = NicknameTextBox.Text;
-                            players.BirthDate = (DateTime)BirthDayDatePicker.SelectedDate;
+                            ServicePlayerReference.Players players = new ServicePlayerReference.Players
+                            {
+                                IDPlayer = loggedProfile.Player.IDPlayer,
+                                Names = NamesTextBox.Text,
+                                Surnames = SurnamesTextBox.Text,
+                                Email = EmailTextBox.Text,
+                                NickName = NicknameTextBox.Text,
+                                BirthDate = (DateTime)BirthDayDatePicker.SelectedDate
+                            };
 
                             playerClient.ModifyPlayer(players);
 
@@ -116,11 +119,11 @@ namespace Renovación_LIS_Client.View
                                 }
                                 else
                                 {
-                                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The file shouldn't be larger than 1 MB");
+                                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The file shouldn't be larger than 1 MB");
                                     return;
                                 }
                             }
-                            new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Profile modified successfully!!!");
+                            new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Profile modified successfully!!!");
 
                             loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
 
@@ -131,12 +134,12 @@ namespace Renovación_LIS_Client.View
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Nickname already on use");
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Nickname already on use");
                         }
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Email already on use");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
                     }
 
                     playerClient.Close();
@@ -144,20 +147,22 @@ namespace Renovación_LIS_Client.View
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
                 }
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
             }
         }
 
         private void SelectImageButton(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.jpg, *.png, *jpeg)|*.jpg;*.png;*.jpeg";
-            openFileDialog.Title = resourceManager.GetString("Select an image", cultureInfo);
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files (*.jpg, *.png, *jpeg)|*.jpg;*.png;*.jpeg",
+                Title = resourceManager.GetString("Select an image", cultureInfo)
+            };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -167,7 +172,7 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        private String invalidValuesInTextFieldsTextGenerator()
+        private string InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
 
@@ -191,7 +196,7 @@ namespace Renovación_LIS_Client.View
             if (!namesMatch.Success || !surnamesMatch.Success || !emailMatch.Success ||
                 !nickNameMatch.Success)
             {
-                finalText = finalText + resourceManager.GetString("The text fields with invalid values are");
+                finalText += resourceManager.GetString("The text fields with invalid values are");
             }
 
             if (!namesMatch.Success)
@@ -241,8 +246,6 @@ namespace Renovación_LIS_Client.View
                 {
                     finalText = finalText + resourceManager.GetString("Nickname", cultureInfo) + ".";
                 }
-
-                textFieldsWithIncorrectValues++;
             }
 
             return finalText;

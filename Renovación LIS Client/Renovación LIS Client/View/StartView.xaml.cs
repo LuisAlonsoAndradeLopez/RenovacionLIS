@@ -16,7 +16,7 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class StartView : Page
     {
-        private MainWindow mainWindow;
+        private readonly MainWindow mainWindow;
 
         public StartView(MainWindow mainWindow)
         {

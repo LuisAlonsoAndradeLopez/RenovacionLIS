@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatReference;
+using Renovación_LIS_Client.ServiceMultiplayerGameReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
@@ -18,14 +19,15 @@ namespace Renovación_LIS_Client.View
 
     public partial class ChatView : Page
     {
-        private MainWindow mainWindow;
-        private ChatClient chatClient;
-        private Profile loggedProfile = new Profile();
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
+        private readonly MainWindow mainWindow;
+        private readonly ChatClient chatClient;
+        private readonly MultiplayerGameClient multiplayerGameClient;
+        private readonly Profile loggedProfile = new Profile();
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
 
-        public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient)
+        public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -37,13 +39,14 @@ namespace Renovación_LIS_Client.View
 
             PageStateManager.CurrentPage = this;
             this.chatClient = chatClient;
+            this.multiplayerGameClient = multiplayerGameClient;
 
             ShowUpdatedChat();
         }
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
+            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
         }
 
         private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)
@@ -57,7 +60,7 @@ namespace Renovación_LIS_Client.View
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The message shouldn't have more than 100 characters");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The message shouldn't have more than 100 characters");
                 }
             }
         }
@@ -202,7 +205,7 @@ namespace Renovación_LIS_Client.View
             chatClient.LeaveChat(loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
-            new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
     }
 }

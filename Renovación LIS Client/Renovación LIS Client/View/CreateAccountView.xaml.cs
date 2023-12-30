@@ -19,9 +19,9 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class CreateAccountView : Page
     {
-        private MainWindow mainWindow;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
+        private readonly MainWindow mainWindow;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
 
         public CreateAccountView(MainWindow mainWindow)
         {
@@ -34,7 +34,7 @@ namespace Renovación_LIS_Client.View
 
         private void CreateAccountButton(object sender, RoutedEventArgs e)
         {
-            if (invalidValuesInTextFieldsTextGenerator() == "")
+            if (InvalidValuesInTextFieldsTextGenerator() == "")
             {
                 if (BirthdayDatePicker.SelectedDate <= DateTime.Now)
                 {
@@ -52,17 +52,21 @@ namespace Renovación_LIS_Client.View
                         {
                             if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                             {
-                                ServiceProfileReference.Players players = new ServiceProfileReference.Players();
-                                players.Names = NamesTextBox.Text;
-                                players.Surnames = SurnamesTextBox.Text;
-                                players.Email = EmailTextBox.Text;
-                                players.NickName = NickNameTextBox.Text;
-                                players.BirthDate = (DateTime)BirthdayDatePicker.SelectedDate;
+                                ServiceProfileReference.Players players = new ServiceProfileReference.Players
+                                {
+                                    Names = NamesTextBox.Text,
+                                    Surnames = SurnamesTextBox.Text,
+                                    Email = EmailTextBox.Text,
+                                    NickName = NickNameTextBox.Text,
+                                    BirthDate = (DateTime)BirthdayDatePicker.SelectedDate
+                                };
 
-                                ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles();
-                                profiles.LoginStatus = ProfileLoginStatuses.NotLogged.ToString();
-                                profiles.Coins = 0;
-                                profiles.Players = players;
+                                ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles
+                                {
+                                    LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
+                                    Coins = 0,
+                                    Players = players
+                                };
 
                                 string salt = BCrypt.Net.BCrypt.GenerateSalt();
                                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
@@ -77,19 +81,19 @@ namespace Renovación_LIS_Client.View
                                     Console.WriteLine(ex.StackTrace);
                                 }
 
-                                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Account made successfully");
+                                new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Account made successfully");
 
                                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                                 navigationService.Navigate(new LoginView(mainWindow));
                             }
                             else
                             {
-                                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Nickname already on use");
+                                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Nickname already on use");
                             }
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Email already on use");
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
                         }
 
                         profileClient.Close();
@@ -97,17 +101,17 @@ namespace Renovación_LIS_Client.View
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The passwords aren't the same");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The passwords aren't the same");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
                 }
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
             }
         }
 
@@ -118,7 +122,7 @@ namespace Renovación_LIS_Client.View
             navigationService.Navigate(new LoginView(mainWindow));
         }
 
-        private String invalidValuesInTextFieldsTextGenerator()
+        private string InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
 
@@ -235,8 +239,6 @@ namespace Renovación_LIS_Client.View
                 {
                     finalText = finalText + resourceManager.GetString("Confirm password", cultureInfo) + ".";
                 }
-
-                textFieldsWithIncorrectValues++;
             }
 
             return finalText;

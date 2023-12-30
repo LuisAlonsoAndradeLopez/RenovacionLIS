@@ -69,6 +69,12 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsBanned", ReplyAction="http://tempuri.org/IMultiplayerGame/IsBannedResponse")]
         System.Threading.Tasks.Task<bool> IsBannedAsync(string nickname);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsConnected", ReplyAction="http://tempuri.org/IMultiplayerGame/IsConnectedResponse")]
+        bool IsConnected(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/IsConnected", ReplyAction="http://tempuri.org/IMultiplayerGame/IsConnectedResponse")]
+        System.Threading.Tasks.Task<bool> IsConnectedAsync(string nickname);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGame", ReplyAction="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGameResponse")]
         void SetThePlayersAreInGame();
         
@@ -99,6 +105,9 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesLists")]
         void UpdateConnectedProfilesLists();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesForInviteToLobbyLists")]
+        void UpdateConnectedProfilesForInviteToLobbyLists();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -199,6 +208,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         public System.Threading.Tasks.Task<bool> IsBannedAsync(string nickname) {
             return base.Channel.IsBannedAsync(nickname);
+        }
+        
+        public bool IsConnected(string nickname) {
+            return base.Channel.IsConnected(nickname);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsConnectedAsync(string nickname) {
+            return base.Channel.IsConnectedAsync(nickname);
         }
         
         public void SetThePlayersAreInGame() {

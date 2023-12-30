@@ -58,6 +58,12 @@
   <wsdl:message name="IMultiplayerGame_IsBanned_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsBannedResponse" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_IsConnected_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnected" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_IsConnected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnectedResponse" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerGame_SetThePlayersAreInGame_InputMessage">
     <wsdl:part name="parameters" element="tns:SetThePlayersAreInGame" />
   </wsdl:message>
@@ -84,6 +90,9 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerGame_UpdateConnectedProfilesLists_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateConnectedProfilesLists" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_UpdateConnectedProfilesForInviteToLobbyLists_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConnectedProfilesForInviteToLobbyLists" />
   </wsdl:message>
   <wsdl:portType name="IMultiplayerGame">
     <wsdl:operation name="BanPlayer">
@@ -117,6 +126,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/IsBanned" message="tns:IMultiplayerGame_IsBanned_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/IsBannedResponse" message="tns:IMultiplayerGame_IsBanned_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IsConnected">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/IsConnected" message="tns:IMultiplayerGame_IsConnected_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/IsConnectedResponse" message="tns:IMultiplayerGame_IsConnected_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SetThePlayersAreInGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGame" message="tns:IMultiplayerGame_SetThePlayersAreInGame_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGameResponse" message="tns:IMultiplayerGame_SetThePlayersAreInGame_OutputMessage" />
@@ -137,6 +150,9 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateConnectedProfilesLists">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesLists" message="tns:IMultiplayerGame_UpdateConnectedProfilesLists_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectedProfilesForInviteToLobbyLists">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesForInviteToLobbyLists" message="tns:IMultiplayerGame_UpdateConnectedProfilesForInviteToLobbyLists_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IMultiplayerGame" type="tns:IMultiplayerGame">
@@ -208,6 +224,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IsConnected">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/IsConnected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SetThePlayersAreInGame">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/SetThePlayersAreInGame" style="document" />
       <wsdl:input>
@@ -249,6 +274,12 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateConnectedProfilesLists">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesLists" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectedProfilesForInviteToLobbyLists">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/UpdateConnectedProfilesForInviteToLobbyLists" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

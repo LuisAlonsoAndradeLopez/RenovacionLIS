@@ -88,6 +88,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsConnected">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nickname" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsConnectedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsConnectedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SetThePlayersAreInGame">
     <xs:complexType>
       <xs:sequence />
@@ -131,6 +145,11 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateConnectedProfilesLists">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateConnectedProfilesForInviteToLobbyLists">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

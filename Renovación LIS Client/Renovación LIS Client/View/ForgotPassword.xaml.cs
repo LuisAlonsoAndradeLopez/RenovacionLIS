@@ -18,11 +18,12 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ForgotPassword : Page
     {
-        private MainWindow mainWindow;
-        private Random random = new Random();
+        private readonly MainWindow mainWindow;
+        private readonly Random random = new Random();
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
+
         private int verificationCode;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
 
         public ForgotPassword(MainWindow mainWindow)
         {
@@ -63,7 +64,7 @@ namespace Renovación_LIS_Client.View
                 
                 playerClient.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
 
-                new AlertPopUpGenerator().OpenSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
+                new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
 
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new LoginView(mainWindow));
@@ -72,13 +73,13 @@ namespace Renovación_LIS_Client.View
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Invalid code");
+                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Invalid code");
             }
         }
 
         private void SendCodeButton (object sender, RoutedEventArgs e)
         {
-            if (invalidValuesInTextFieldsTextGenerator() == "")
+            if (InvalidValuesInTextFieldsTextGenerator() == "")
             {
                 PlayerClient playerClient = new PlayerClient();
 
@@ -95,13 +96,17 @@ namespace Renovación_LIS_Client.View
                         IntroduceDataBorder.Visibility = Visibility.Hidden;
                         IntroduceCodeBorder.Visibility = Visibility.Visible;
 
-                        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-                        smtpClient.Port = 587;
-                        smtpClient.Credentials = new NetworkCredential("renovacionlis230@gmail.com", "vcgj qyor bews jptu");
-                        smtpClient.EnableSsl = true;
+                        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                        {
+                            Port = 587,
+                            Credentials = new NetworkCredential("renovacionlis230@gmail.com", "vcgj qyor bews jptu"),
+                            EnableSsl = true
+                        };
 
-                        MailMessage mail = new MailMessage();
-                        mail.From = new MailAddress("renovacionlis230@gmail.com");
+                        MailMessage mail = new MailMessage
+                        {
+                            From = new MailAddress("renovacionlis230@gmail.com")
+                        };
                         mail.To.Add(new MailAddress(EmailTextField.Text));
                         mail.Subject = resourceManager.GetString("Code for change your password", cultureInfo);
                         mail.Body = resourceManager.GetString("Introduce this code for change your password", cultureInfo) + verificationCode;
@@ -110,29 +115,30 @@ namespace Renovación_LIS_Client.View
                         {
                             smtpClient.Send(mail);
                         }
-                        catch (Exception ex) { 
+                        catch (Exception)
+                        { 
                         
                         }
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "Email not found");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email not found");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The passwords aren't the same");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The passwords aren't the same");
                 }
 
                 playerClient.Close();
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", invalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
             }
         }
 
-        private String invalidValuesInTextFieldsTextGenerator()
+        private String InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
 
@@ -159,7 +165,7 @@ namespace Renovación_LIS_Client.View
 
             if (!emailMatch.Success || !newPasswordMatch.Success || !confirmNewPasswordMatch.Success)
             {
-                finalText = finalText + resourceManager.GetString("The text fields with invalid values are", cultureInfo);
+                finalText += resourceManager.GetString("The text fields with invalid values are", cultureInfo);
             }
 
             if (!emailMatch.Success)
@@ -194,8 +200,6 @@ namespace Renovación_LIS_Client.View
                 {
                     finalText = finalText + resourceManager.GetString("Confirm Password", cultureInfo) + ".";
                 }
-                
-                textFieldsWithIncorrectValues++;
             }
 
             return finalText;

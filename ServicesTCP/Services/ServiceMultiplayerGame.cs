@@ -26,6 +26,7 @@ namespace ServicesTCP.Services
                     connectedProfiles.Remove(username);
                     UpdateBannedProfilesListsToAllConnectedClients();
                     UpdateConnectedProfilesListsToAllConnectedClients();
+                    UpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients();
                 }
             }
         }
@@ -44,6 +45,7 @@ namespace ServicesTCP.Services
 
                 connectedProfiles.Add(username, callback);
                 UpdateConnectedProfilesListsToAllConnectedClients();
+                UpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients();
             }
         }
 
@@ -63,6 +65,7 @@ namespace ServicesTCP.Services
                 }
 
                 UpdateConnectedProfilesListsToAllConnectedClients();
+                UpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients();
             }
         }
 
@@ -98,6 +101,14 @@ namespace ServicesTCP.Services
             }
         }
 
+        private void UpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients()
+        {
+            foreach (var multiplayerGameCallback in connectedProfiles.Values)
+            {
+                multiplayerGameCallback.UpdateConnectedProfilesForInviteToLobbyLists();
+            }
+        }
+
 
         //IsOneWay = false methods
         public List<String> GetBannedProfiles()
@@ -129,6 +140,16 @@ namespace ServicesTCP.Services
         public bool IsBanned(string nickname)
         {
             if (bannedProfiles.Contains(nickname))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsConnected(string nickname)
+        {
+            if (connectedProfiles.ContainsKey(nickname))
             {
                 return true;
             }

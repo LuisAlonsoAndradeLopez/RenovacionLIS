@@ -68,19 +68,23 @@ namespace ServicesTCP.Services
 
                     foreach(Profiles p in profilesHasSet)
                     {
-                        Player profilePlayer = new Player();
-                        profilePlayer.IDPlayer = p.Players.IDPlayer;
-                        profilePlayer.Names = p.Players.Names;
-                        profilePlayer.Surnames = p.Players.Surnames;
-                        profilePlayer.Email = p.Players.Email;
-                        profilePlayer.NickName = p.Players.NickName;
-                        profilePlayer.BirthDate = p.Players.BirthDate;
+                        Player profilePlayer = new Player
+                        {
+                            IDPlayer = p.Players.IDPlayer,
+                            Names = p.Players.Names,
+                            Surnames = p.Players.Surnames,
+                            Email = p.Players.Email,
+                            NickName = p.Players.NickName,
+                            BirthDate = p.Players.BirthDate
+                        };
 
-                        Profile profile = new Profile();
-                        profile.IDProfile = p.IDProfile;
-                        profile.Coins = (long)p.Coins;
-                        profile.LoginStatus = p.LoginStatus;
-                        profile.Player = profilePlayer;
+                        Profile profile = new Profile
+                        {
+                            IDProfile = p.IDProfile,
+                            Coins = (long)p.Coins,
+                            LoginStatus = p.LoginStatus,
+                            Player = profilePlayer
+                        };
 
                         profileList.Add(profile);
                     }
@@ -109,7 +113,7 @@ namespace ServicesTCP.Services
 
                 return imageData;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -256,7 +260,7 @@ namespace ServicesTCP.Services
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -327,7 +331,7 @@ namespace ServicesTCP.Services
                 File.WriteAllBytes(filePath, imageData);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

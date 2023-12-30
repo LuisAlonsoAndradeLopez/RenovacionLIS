@@ -20,9 +20,9 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
-        private MainWindow mainWindow;
-        private Profile loggedProfile = new Profile();
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        private readonly MainWindow mainWindow;
+        private readonly Profile loggedProfile = new Profile();
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
 
         public MenuView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
         {
@@ -62,17 +62,17 @@ namespace Renovación_LIS_Client.View
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The lobby is full!!!");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The lobby is full!!!");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You are banned!!!!!");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "You are banned!!!!!");
                 }
             }
             else
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The game already has started!");
+                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The game already has started!");
             }
         }
 

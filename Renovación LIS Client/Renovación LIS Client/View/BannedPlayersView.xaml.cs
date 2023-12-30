@@ -17,13 +17,13 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class BannedPlayersView : Page
     {
-        private MainWindow mainWindow;
-        private ChatClient chatClient;
-        private Profile loggedProfile;
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-        private MultiplayerGameClient multiplayerGameClient;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
+        private readonly MainWindow mainWindow;
+        private readonly ChatClient chatClient;
+        private readonly Profile loggedProfile;
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        private readonly MultiplayerGameClient multiplayerGameClient;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
 
         public BannedPlayersView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
         {
@@ -44,21 +44,21 @@ namespace Renovación_LIS_Client.View
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
+            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
         }
 
         private void UnbanPlayerButtonOnClick(object sender, RoutedEventArgs e)
         {
             if(sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Do you want to unban this player?"))
+                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to unban this player?"))
                 {
                     StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
                     Label playerNickname = (Label)VisualTreeHelper.GetChild(buttonParent, 1);
 
                     multiplayerGameClient.UnbanPlayer(playerNickname.Content.ToString());
 
-                    new AlertPopUpGenerator().OpenSuccessPopUp("Success", "Player unbanned!");
+                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player unbanned!");
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace Renovación_LIS_Client.View
             chatClient.LeaveChat(loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
-            new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
     }
 }

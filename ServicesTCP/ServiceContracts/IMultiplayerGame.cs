@@ -24,11 +24,6 @@ namespace ServicesTCP.ServiceContracts
         [OperationContract(IsOneWay = true)]
         void UnbanPlayer(string username);
 
-        //[OperationContract(IsOneWay = true)]
-        //void UpdateBannedProfilesListsToAllConnectedClients();
-        //
-        //[OperationContract(IsOneWay = true)]
-        //void UpdateConnectedProfilesListsToAllConnectedClients();
 
 
         [OperationContract]
@@ -42,6 +37,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         bool IsBanned(string nickname);
+
+        [OperationContract]
+        bool IsConnected(string nickname);
 
         [OperationContract]
         void SetThePlayersAreInGame();
@@ -65,6 +63,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void UpdateConnectedProfilesLists();
+
+        [OperationContract(IsOneWay = true)]
+        void UpdateConnectedProfilesForInviteToLobbyLists();
     }
 
 }

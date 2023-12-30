@@ -25,9 +25,10 @@ namespace Renovación_LIS_Client
 
     public partial class MainWindow : Window, IProfileForCallbackMethodsCallback
     {
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
+
         private Profile loggedProfile = null;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
 
         public MainWindow()
         {
@@ -86,7 +87,7 @@ namespace Renovación_LIS_Client
             //{
                 
 
-                if (new AlertPopUpGenerator().OpenDesicionPopUp("What do you want", "Do you want to exit"))
+                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("What do you want", "Do you want to exit"))
                 {
                     if(loggedProfile != null)
                     {
@@ -119,7 +120,7 @@ namespace Renovación_LIS_Client
         //Auxiliary methods
         public void OpenTheLobbyView(Page page)
         {
-            if (new AlertPopUpGenerator().OpenDesicionPopUp("You have been invitated to the lobby!", "Do you want to enter to the lobby?"))
+            if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("You have been invitated to the lobby!", "Do you want to enter to the lobby?"))
             {
                 MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(this, loggedProfile, new ProfileForCallbackMethodsClient(new InstanceContext(this)))));
                 if (!multiplayerGameClient.ThePlayersAreInGame())
@@ -137,17 +138,17 @@ namespace Renovación_LIS_Client
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The lobby is full!!!");
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The lobby is full!!!");
                         }
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "You are banned!!!!!");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "You are banned!!!!!");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", "The game already has started!");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The game already has started!");
                 }
             }
         }

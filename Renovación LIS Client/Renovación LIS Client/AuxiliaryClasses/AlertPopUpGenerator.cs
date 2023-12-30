@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
-using DomainStatuses;
-using Renovación_LIS_Client.ServiceProfileReference;
 using System.Windows;
 
 namespace Renovación_LIS_Client.AuxiliaryClasses
@@ -22,7 +16,18 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
         }
 
-        public bool OpenDesicionPopUp(String header, String message)
+        public void OpenErrorPopUp(String header, String message)
+        {
+            MessageBox.Show(
+                message,
+                header,
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
+        }
+
+
+        public bool OpenInternationalizedDesicionPopUp(String header, String message)
         {
             MessageBoxResult result = MessageBox.Show(
                 resourceManager.GetString(message, cultureInfo),
@@ -39,7 +44,7 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
             return false;
         }
 
-        public void OpenErrorPopUp(String header, String message)
+        public void OpenInternationalizedErrorPopUp(String header, String message)
         {
             MessageBox.Show(
                 resourceManager.GetString(message, cultureInfo),
@@ -49,7 +54,7 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
             );
         }
 
-        public void OpenSuccessPopUp(String header, String message)
+        public void OpenInternationalizedSuccessPopUp(String header, String message)
         {
             MessageBox.Show(
                 resourceManager.GetString(message, cultureInfo),
@@ -59,7 +64,7 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
             );
         }
 
-        public void OpenWarningPopUp(String header, String message)
+        public void OpenInternationalizedWarningPopUp(String header, String message)
         {
             MessageBox.Show(
                 resourceManager.GetString(message, cultureInfo),

@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
+﻿using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatReference;
 using Renovación_LIS_Client.ServiceMultiplayerGameReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -25,19 +20,21 @@ namespace Renovación_LIS_Client.View
     {
         /*
         TODO
-        -Nuevo panel para amigos para invitarlo a la partida (no debe de mostrar los amigos baneaos,
-        o que entraron al ConfigurationView o al FriendsView por medio del LobbyView)
+        -Nuevo panel para amigos para invitarlo a la partida (falta configurationview)
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
         -Al banear jugador debe de la configuración (kate pasa la configuración)
+        -Si se desconecta un jugdroe de tiron, debe de salir de la lista de amigos para invitar al lobby (no hay callback)
+        -Verificar los servicios en los que haya cierre en cadena (por ejemplo, si se sale de serviceprofile
+        debe de salir de servicechat, servicemultiplayergame, etc)
         */
-        
-        private MainWindow mainWindow;
-        private ChatClient chatClient;
-        private Profile loggedProfile;
-        private MultiplayerGameClient multiplayerGameClient;
-        private ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
+
+        private readonly MainWindow mainWindow;
+        private readonly ChatClient chatClient;
+        private readonly Profile loggedProfile;
+        private readonly MultiplayerGameClient multiplayerGameClient;
+        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
 
         public LobbyView()
         {
@@ -62,7 +59,7 @@ namespace Renovación_LIS_Client.View
             multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
         }
 
-        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient)
+        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -74,7 +71,7 @@ namespace Renovación_LIS_Client.View
             PageStateManager.CurrentPage = this;
 
             this.chatClient = chatClient;
-            multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
+            this.multiplayerGameClient = multiplayerGameClient;
             ShowConnectedPlayers();
         }
 
@@ -82,7 +79,7 @@ namespace Renovación_LIS_Client.View
         {
             if(sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Do you want to ban this player?"))
+                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to ban this player?"))
                 {
                     StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
                     StackPanel buttonParentParent = VisualTreeHelper.GetParent(buttonParent) as StackPanel;
@@ -91,7 +88,7 @@ namespace Renovación_LIS_Client.View
 
                     multiplayerGameClient.BanPlayer(nickname.Text);
 
-                    new AlertPopUpGenerator().OpenSuccessPopUp("Success", "Player banned successfully!");
+                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player banned successfully!");
                 }
             }
         }
@@ -105,12 +102,12 @@ namespace Renovación_LIS_Client.View
         private void ChatButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ChatView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
+            navigationService.Navigate(new ChatView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
         }
 
         private void ConfigurationButtonOnClick(object sender, RoutedEventArgs e)
         {
-            new AlertPopUpGenerator().OpenWarningPopUp("Unavailable", "Work in progress");
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
         }
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
@@ -124,14 +121,14 @@ namespace Renovación_LIS_Client.View
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient));
+            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
         }
 
         private void MakeAdminButtonOnClick(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenDesicionPopUp("Are you sure?", "Do you want to set admin to this player?"))
+                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to set admin to this player?"))
                 {
                     StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
                     StackPanel buttonParentParent = VisualTreeHelper.GetParent(buttonParent) as StackPanel;
@@ -140,14 +137,14 @@ namespace Renovación_LIS_Client.View
 
                     multiplayerGameClient.SetAdmin(nickname.Text);
 
-                    new AlertPopUpGenerator().OpenSuccessPopUp("Success", "That player now is admin!");
+                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "That player now is admin!");
                 }
             }
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            new AlertPopUpGenerator().OpenWarningPopUp("Unavailable", "Work in progress");
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
         }
 
 
@@ -157,7 +154,7 @@ namespace Renovación_LIS_Client.View
             chatClient.LeaveChat(loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
-            new AlertPopUpGenerator().OpenWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
 
         public void ShowConnectedPlayers()
@@ -305,8 +302,8 @@ namespace Renovación_LIS_Client.View
                         Height = 38,
                         Width = 96,
                         Margin = new Thickness(20, 0, 0, 0),
+                        Content = makeAdminButtonText
                     };
-                    makeAdminButton.Content = makeAdminButtonText;
                     makeAdminButton.Click += MakeAdminButtonOnClick;
 
                     Button banPlayerButton = new Button
@@ -357,6 +354,14 @@ namespace Renovación_LIS_Client.View
             }
         }
 
+        public void UpdateConnectedProfilesForInviteToLobbyLists()
+        {
+            if (PageStateManager.CurrentPage is FriendsView currentPage)
+            {
+                currentPage.ShowConnectedFriendsListForInviteToLobby();
+            }
+        }
+
         public void ExpelPlayerFromMultiplayerGame()
         {
             if (PageStateManager.CurrentPage is LobbyView lobbyView)
@@ -380,5 +385,7 @@ namespace Renovación_LIS_Client.View
                 //configurationView.ExitFromThisPageForBeingExpeltFromLobbyView();
             }
         }
+
+        
     }
 }
