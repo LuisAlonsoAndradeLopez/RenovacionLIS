@@ -1,0 +1,4 @@
+﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\ServerHoster.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\Properties\AssemblyInfo.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\App.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\packages.config

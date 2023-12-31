@@ -1,0 +1,6 @@
+projectKey=Renovaci-n-LIS
+serverUrl=http://localhost:9000
+serverVersion=10.3.0.82913
+dashboardUrl=http://localhost:9000/dashboard?id=Renovaci-n-LIS
+ceTaskId=AYy-DPHyoc96S069wmT-
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYy-DPHyoc96S069wmT-

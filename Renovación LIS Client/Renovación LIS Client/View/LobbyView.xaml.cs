@@ -24,6 +24,7 @@ namespace Renovación_LIS_Client.View
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
         -Al banear jugador debe de la configuración (kate pasa la configuración)
         -El administrador solo puede iniciar la partida
+        -Arreglar la ventanita de detalles de solicitud de amigos
         */
 
         private readonly MainWindow mainWindow;

@@ -1,0 +1,2667 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "4.7.0.0",
+        "fileVersion": "4.7.0-3.23416.8 (43b0b05c)",
+        "semanticVersion": "4.7.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 383,
+                  "startColumn": 17,
+                  "endLine": 383,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1135",
+          "level": "warning",
+          "message": "Complete the task associated to this 'TODO' comment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 9,
+                  "endLine": 22,
+                  "endColumn": 13
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2094",
+          "level": "warning",
+          "message": "Remove this empty class, write its code or make it an \"interface\".",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/Properties/Class1.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 18,
+                  "endLine": 9,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 13,
+                  "endLine": 88,
+                  "endColumn": 16
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 13,
+                  "endLine": 107,
+                  "endColumn": 16
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 192,
+                  "startColumn": 17,
+                  "endLine": 192,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1118",
+          "level": "warning",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 18,
+                  "endLine": 197,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 42,
+                  "endLine": 23,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3604",
+          "level": "warning",
+          "message": "Remove the member initializer, all constructors set an initial value for the member.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 39,
+                  "endLine": 31,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'cultureInfo' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/AuxiliaryClasses/AlertPopUpGenerator.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 29,
+                  "endLine": 10,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'resourceManager' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/AuxiliaryClasses/AlertPopUpGenerator.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 33,
+                  "endLine": 11,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3604",
+          "level": "warning",
+          "message": "Remove the member initializer, all constructors set an initial value for the member.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ChatView.xaml.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 48,
+                  "endLine": 25,
+                  "endColumn": 63
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/WinnersView.xaml.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 22,
+                  "endLine": 33,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/WinnersView.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 22,
+                  "endLine": 28,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 22,
+                  "endLine": 82,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 13,
+                  "endLine": 84,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 17,
+                  "endLine": 86,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 21,
+                  "endLine": 91,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 84,
+                  "endLine": 91,
+                  "endColumn": 86
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 25,
+                  "endLine": 93,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 94,
+                  "endLine": 93,
+                  "endColumn": 96
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 110,
+                  "startColumn": 29,
+                  "endLine": 110,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 33,
+                  "endLine": 116,
+                  "endColumn": 35
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 33,
+                  "endLine": 120,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 135,
+                  "startColumn": 25,
+                  "endLine": 135,
+                  "endColumn": 29
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 21,
+                  "endLine": 140,
+                  "endColumn": 25
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 17,
+                  "endLine": 148,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 13,
+                  "endLine": 153,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "10": "+1",
+              "11": "+1",
+              "12": "+1",
+              "2": "+3 (incl 2 for nesting)",
+              "3": "+1",
+              "4": "+4 (incl 3 for nesting)",
+              "5": "+1",
+              "6": "+5 (incl 4 for nesting)",
+              "7": "+6 (incl 5 for nesting)",
+              "8": "+1",
+              "9": "+1"
+            }
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 32,
+                  "endLine": 186,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 187,
+                  "startColumn": 35,
+                  "endLine": 187,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 188,
+                  "startColumn": 32,
+                  "endLine": 188,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ModifyProfileView.xaml.cs",
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 35,
+                  "endLine": 189,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/BannedPlayersView.xaml.cs",
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 17,
+                  "endLine": 54,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/BannedPlayersView.xaml.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 13,
+                  "endLine": 52,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LoginView.xaml.cs",
+                "region": {
+                  "startLine": 113,
+                  "startColumn": 20,
+                  "endLine": 113,
+                  "endColumn": 104
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LoginView.xaml.cs",
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 35,
+                  "endLine": 115,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'configurationView'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 72,
+                  "endLine": 190,
+                  "endColumn": 89
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ConfigurationView.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 22,
+                  "endLine": 28,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LoginView.xaml.cs",
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 35,
+                  "endLine": 116,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1186",
+          "level": "warning",
+          "message": "Add a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ConfigurationView.xaml.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 22,
+                  "endLine": 33,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 17,
+                  "endLine": 80,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 13,
+                  "endLine": 78,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 22,
+                  "endLine": 39,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 13,
+                  "endLine": 41,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 17,
+                  "endLine": 43,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 21,
+                  "endLine": 51,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 25,
+                  "endLine": 55,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 29,
+                  "endLine": 57,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 33,
+                  "endLine": 83,
+                  "endColumn": 38
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 29,
+                  "endLine": 93,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 25,
+                  "endLine": 98,
+                  "endColumn": 29
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 106,
+                  "startColumn": 21,
+                  "endLine": 106,
+                  "endColumn": 25
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 17,
+                  "endLine": 111,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 13,
+                  "endLine": 116,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "10": "+1",
+              "2": "+3 (incl 2 for nesting)",
+              "3": "+4 (incl 3 for nesting)",
+              "4": "+5 (incl 4 for nesting)",
+              "5": "+6 (incl 5 for nesting)",
+              "6": "+1",
+              "7": "+1",
+              "8": "+1",
+              "9": "+1"
+            }
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 17,
+                  "endLine": 129,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 13,
+                  "endLine": 127,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 24,
+                  "endLine": 129,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 13,
+                  "endLine": 163,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 37,
+                  "endLine": 163,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 169,
+                  "startColumn": 13,
+                  "endLine": 169,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 175,
+                  "startColumn": 13,
+                  "endLine": 175,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 177,
+                  "startColumn": 17,
+                  "endLine": 177,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 17,
+                  "endLine": 182,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 13,
+                  "endLine": 190,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 192,
+                  "startColumn": 17,
+                  "endLine": 192,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 17,
+                  "endLine": 197,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 205,
+                  "startColumn": 13,
+                  "endLine": 205,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 17,
+                  "endLine": 207,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 17,
+                  "endLine": 212,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 13,
+                  "endLine": 220,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 222,
+                  "startColumn": 17,
+                  "endLine": 222,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 17,
+                  "endLine": 227,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 235,
+                  "startColumn": 13,
+                  "endLine": 235,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 237,
+                  "startColumn": 17,
+                  "endLine": 237,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 242,
+                  "startColumn": 17,
+                  "endLine": 242,
+                  "endColumn": 21
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+1",
+              "10": "+2 (incl 1 for nesting)",
+              "11": "+1",
+              "12": "+1",
+              "13": "+2 (incl 1 for nesting)",
+              "14": "+1",
+              "15": "+1",
+              "16": "+2 (incl 1 for nesting)",
+              "17": "+1",
+              "2": "+1",
+              "3": "+1",
+              "4": "+2 (incl 1 for nesting)",
+              "5": "+1",
+              "6": "+1",
+              "7": "+2 (incl 1 for nesting)",
+              "8": "+1",
+              "9": "+1"
+            }
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 139,
+                  "startColumn": 20,
+                  "endLine": 139,
+                  "endColumn": 104
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 20,
+                  "endLine": 140,
+                  "endColumn": 111
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 142,
+                  "startColumn": 32,
+                  "endLine": 142,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 143,
+                  "startColumn": 35,
+                  "endLine": 143,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 32,
+                  "endLine": 144,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 35,
+                  "endLine": 145,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 35,
+                  "endLine": 146,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/CreateAccountView.xaml.cs",
+                "region": {
+                  "startLine": 147,
+                  "startColumn": 45,
+                  "endLine": 147,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 158,
+                  "startColumn": 21,
+                  "endLine": 158,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 161,
+                  "startColumn": 13,
+                  "endLine": 161,
+                  "endColumn": 20
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 177,
+                  "startColumn": 17,
+                  "endLine": 177,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 195,
+                  "startColumn": 17,
+                  "endLine": 195,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 21,
+                  "endLine": 209,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 213,
+                  "startColumn": 21,
+                  "endLine": 213,
+                  "endColumn": 25
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 17,
+                  "endLine": 227,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 60,
+                  "endLine": 227,
+                  "endColumn": 62
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 232,
+                  "startColumn": 21,
+                  "endLine": 232,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 236,
+                  "startColumn": 21,
+                  "endLine": 236,
+                  "endColumn": 25
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 242,
+                  "startColumn": 17,
+                  "endLine": 242,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 242,
+                  "startColumn": 83,
+                  "endLine": 242,
+                  "endColumn": 85
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 246,
+                  "startColumn": 21,
+                  "endLine": 246,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 251,
+                  "startColumn": 21,
+                  "endLine": 251,
+                  "endColumn": 25
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 281,
+                  "startColumn": 17,
+                  "endLine": 281,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 281,
+                  "startColumn": 82,
+                  "endLine": 281,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "10": "+1",
+              "11": "+3 (incl 2 for nesting)",
+              "12": "+1",
+              "13": "+2 (incl 1 for nesting)",
+              "14": "+1",
+              "2": "+2 (incl 1 for nesting)",
+              "3": "+3 (incl 2 for nesting)",
+              "4": "+1",
+              "5": "+2 (incl 1 for nesting)",
+              "6": "+1",
+              "7": "+3 (incl 2 for nesting)",
+              "8": "+1",
+              "9": "+2 (incl 1 for nesting)"
+            }
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'configurationView'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/LobbyView.xaml.cs",
+                "region": {
+                  "startLine": 381,
+                  "startColumn": 72,
+                  "endLine": 381,
+                  "endColumn": 89
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2486",
+          "level": "warning",
+          "message": "Handle the exception or explain in a comment why it can be ignored.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 25,
+                  "endLine": 125,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "Please review this hard-coded password.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 106,
+                  "startColumn": 43,
+                  "endLine": 106,
+                  "endColumn": 117
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 17,
+                  "endLine": 90,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 13,
+                  "endLine": 88,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S108",
+          "level": "warning",
+          "message": "Either remove or fill this block of code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 123,
+                  "startColumn": 25,
+                  "endLine": 125,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 20,
+                  "endLine": 152,
+                  "endColumn": 107
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 20,
+                  "endLine": 153,
+                  "endColumn": 114
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 32,
+                  "endLine": 155,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 156,
+                  "startColumn": 38,
+                  "endLine": 156,
+                  "endColumn": 67
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/ForgotPassword.xaml.cs",
+                "region": {
+                  "startLine": 157,
+                  "startColumn": 45,
+                  "endLine": 157,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 407,
+                  "startColumn": 22,
+                  "endLine": 407,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 412,
+                  "startColumn": 13,
+                  "endLine": 412,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 428,
+                  "startColumn": 17,
+                  "endLine": 428,
+                  "endColumn": 24
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 430,
+                  "startColumn": 21,
+                  "endLine": 430,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 432,
+                  "startColumn": 25,
+                  "endLine": 432,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 437,
+                  "startColumn": 29,
+                  "endLine": 437,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 450,
+                  "startColumn": 17,
+                  "endLine": 450,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 452,
+                  "startColumn": 21,
+                  "endLine": 452,
+                  "endColumn": 28
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 454,
+                  "startColumn": 25,
+                  "endLine": 454,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 456,
+                  "startColumn": 29,
+                  "endLine": 456,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 461,
+                  "startColumn": 33,
+                  "endLine": 461,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "2": "+3 (incl 2 for nesting)",
+              "3": "+4 (incl 3 for nesting)",
+              "4": "+5 (incl 4 for nesting)",
+              "5": "+2 (incl 1 for nesting)",
+              "6": "+3 (incl 2 for nesting)",
+              "7": "+4 (incl 3 for nesting)",
+              "8": "+5 (incl 4 for nesting)",
+              "9": "+6 (incl 5 for nesting)"
+            }
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 48 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 22,
+                  "endLine": 258,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 13,
+                  "endLine": 260,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 262,
+                  "startColumn": 17,
+                  "endLine": 262,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 266,
+                  "startColumn": 21,
+                  "endLine": 266,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 268,
+                  "startColumn": 25,
+                  "endLine": 268,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 272,
+                  "startColumn": 29,
+                  "endLine": 272,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 278,
+                  "startColumn": 33,
+                  "endLine": 278,
+                  "endColumn": 40
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 280,
+                  "startColumn": 37,
+                  "endLine": 280,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 287,
+                  "startColumn": 33,
+                  "endLine": 287,
+                  "endColumn": 35
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 37,
+                  "endLine": 289,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 354,
+                  "startColumn": 37,
+                  "endLine": 354,
+                  "endColumn": 41
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 359,
+                  "startColumn": 33,
+                  "endLine": 359,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 364,
+                  "startColumn": 29,
+                  "endLine": 364,
+                  "endColumn": 33
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 371,
+                  "startColumn": 25,
+                  "endLine": 371,
+                  "endColumn": 29
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 377,
+                  "startColumn": 21,
+                  "endLine": 377,
+                  "endColumn": 25
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 385,
+                  "startColumn": 17,
+                  "endLine": 385,
+                  "endColumn": 21
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 390,
+                  "startColumn": 13,
+                  "endLine": 390,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "10": "+1",
+              "11": "+1",
+              "12": "+1",
+              "13": "+1",
+              "14": "+1",
+              "15": "+1",
+              "2": "+3 (incl 2 for nesting)",
+              "3": "+4 (incl 3 for nesting)",
+              "4": "+5 (incl 4 for nesting)",
+              "5": "+6 (incl 5 for nesting)",
+              "6": "+7 (incl 6 for nesting)",
+              "7": "+6 (incl 5 for nesting)",
+              "8": "+7 (incl 6 for nesting)",
+              "9": "+1"
+            }
+          }
+        },
+        {
+          "ruleId": "S1854",
+          "level": "warning",
+          "message": "Remove this useless assignment to local variable 'theButtonsAreShowAndHidden'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 467,
+                  "startColumn": 37,
+                  "endLine": 467,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 432,
+                  "startColumn": 25,
+                  "endLine": 432,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 430,
+                  "startColumn": 21,
+                  "endLine": 430,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 456,
+                  "startColumn": 29,
+                  "endLine": 456,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 454,
+                  "startColumn": 25,
+                  "endLine": 454,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 689,
+                  "startColumn": 17,
+                  "endLine": 689,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 687,
+                  "startColumn": 13,
+                  "endLine": 687,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1066",
+          "level": "warning",
+          "message": "Merge this if statement with the enclosing one.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 710,
+                  "startColumn": 25,
+                  "endLine": 710,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 708,
+                  "startColumn": 21,
+                  "endLine": 708,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1117",
+          "level": "warning",
+          "message": "Rename 'friendRequestForCallbackMethodsClient' which hides the field with the same name.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 485,
+                  "startColumn": 51,
+                  "endLine": 485,
+                  "endColumn": 88
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'friendRequestForCallbackMethodsClient'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 485,
+                  "startColumn": 51,
+                  "endLine": 485,
+                  "endColumn": 88
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/Renovaci%C3%B3n%20LIS%20Client/Renovaci%C3%B3n%20LIS%20Client/View/FriendsView.xaml.cs",
+                "region": {
+                  "startLine": 842,
+                  "startColumn": 35,
+                  "endLine": 842,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S1066": {
+          "id": "S1066",
+          "shortDescription": "Mergeable \"if\" statements should be combined",
+          "fullDescription": "Nested code - blocks of code inside blocks of code - is eventually necessary, but increases complexity. This is why keeping the code as flat as possible, by avoiding unnecessary nesting, is considered a good practice.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1066",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S108": {
+          "id": "S108",
+          "shortDescription": "Nested blocks of code should not be left empty",
+          "fullDescription": "An empty code block is confusing. It will require some effort from maintainers to determine if it is intentional or indicates the implementation is incomplete.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-108",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1117": {
+          "id": "S1117",
+          "shortDescription": "Local variables should not shadow class fields or properties",
+          "fullDescription": "Shadowing occurs when a local variable has the same name as a variable, field, or property in an outer scope.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1117",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1118": {
+          "id": "S1118",
+          "shortDescription": "Utility classes should not have public constructors",
+          "fullDescription": "Whenever there are portions of code that are duplicated and do not depend on the state of their container class, they can be centralized inside a \"utility class\". A utility class is a class that only has static members, hence it should not be instantiated.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1135": {
+          "id": "S1135",
+          "shortDescription": "Track uses of \"TODO\" tags",
+          "fullDescription": "Developers often use TODO tags to mark areas in the code where additional work or improvements are needed but are not implemented immediately. However, these TODO tags sometimes get overlooked or forgotten, leading to incomplete or unfinished code. This code smell class aims to identify and address such unattended TODO tags to ensure a clean and maintainable codebase. This description will explore why this is a problem and how it can be fixed to improve the overall code quality.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1135",
+          "properties": {
+            "category": "Info Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1186": {
+          "id": "S1186",
+          "shortDescription": "Methods should not be empty",
+          "fullDescription": "An empty method is generally considered bad practice and can lead to confusion, readability, and maintenance issues. Empty methods bring no functionality and are misleading to others as they might think the method implementation fulfills a specific and identified requirement.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1186",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S125": {
+          "id": "S125",
+          "shortDescription": "Sections of code should not be commented out",
+          "fullDescription": "Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never executed, it quickly becomes out of date and invalid.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1481": {
+          "id": "S1481",
+          "shortDescription": "Unused local variables should be removed",
+          "fullDescription": "An unused local variable is a variable that has been declared but is not used anywhere in the block of code where it is defined. It is dead code, contributing to unnecessary complexity and leading to confusion when reading the code. Therefore, it should be removed from your code to maintain clarity and efficiency.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1854": {
+          "id": "S1854",
+          "shortDescription": "Unused assignments should be removed",
+          "fullDescription": "Dead stores refer to assignments made to local variables that are subsequently never used or immediately overwritten. Such assignments are unnecessary and don’t contribute to the functionality or clarity of the code. They may even negatively impact performance. Removing them enhances code cleanliness and readability. Even if the unnecessary operations do not do any harm in terms of the program’s correctness, they are - at best - a waste of computing resources.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1854",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2068": {
+          "id": "S2068",
+          "shortDescription": "Hard-coded credentials are security-sensitive",
+          "fullDescription": "Because it is easy to extract strings from an application source code or binary, credentials should not be hard-coded. This is particularly true for applications that are distributed or that are open-source.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2068",
+          "properties": {
+            "category": "Blocker Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2094": {
+          "id": "S2094",
+          "shortDescription": "Classes should not be empty",
+          "fullDescription": "There is no good excuse for an empty class. If it’s being used simply as a common extension point, it should be replaced with an interface. If it was stubbed in as a placeholder for future development it should be fleshed-out. In any other case, it should be eliminated.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2094",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2245": {
+          "id": "S2245",
+          "shortDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive",
+          "fullDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive. For example, it has led in the past to the following vulnerabilities:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2245",
+          "properties": {
+            "category": "Critical Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2486": {
+          "id": "S2486",
+          "shortDescription": "Generic exceptions should not be ignored",
+          "fullDescription": "When exceptions occur, it is usually a bad idea to simply ignore them. Instead, it is better to handle them properly, or at least to log them.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2486",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2933": {
+          "id": "S2933",
+          "shortDescription": "Fields that are only assigned in the constructor should be \"readonly\"",
+          "fullDescription": "readonly fields can only be assigned in a class constructor. If a class has a field that’s not marked readonly but is only set in the constructor, it could cause confusion about the field’s intended use. To avoid confusion, such fields should be marked readonly to make their intended use explicit, and to prevent future maintainers from inadvertently changing their use.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2933",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3604": {
+          "id": "S3604",
+          "shortDescription": "Member initializer values should not be redundant",
+          "fullDescription": "Fields, properties and events can be initialized either inline or in the constructor. Initializing them inline and in the constructor at the same time is redundant; the inline initialization will be overridden.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3604",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3776": {
+          "id": "S3776",
+          "shortDescription": "Cognitive Complexity of methods should not be too high",
+          "fullDescription": "This rule raises an issue when the code cognitive complexity of a function is above a certain threshold.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6444": {
+          "id": "S6444",
+          "shortDescription": "Not specifying a timeout for regular expressions is security-sensitive",
+          "fullDescription": "Not specifying a timeout for regular expressions can lead to a Denial-of-Service attack. Pass a timeout when using System.Text.RegularExpressions to process untrusted input because a malicious user might craft a value for which the evaluation lasts excessively long.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6444",
+          "properties": {
+            "category": "Major Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

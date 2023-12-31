@@ -1,0 +1,23 @@
+ReQerda k pa' jalar L zonarkiub no debez dhe tener nadha avyertho, havre lha termynhal i jala L zonarkyub luego luego k prendaz la compu
+
+Ejecuta estos comandazos en orden para jalar el Sonarkiub:
+
+Token para analizar: sqp_4aefb40584ccc8d1232cb00d48443e690bc03292
+
+.NET Core
+dotnet tool install --global dotnet-sonarscanner
+
+dotnet sonarscanner begin /k:"Renovaci-n-LIS" /d:sonar.host.url="http://localhost:9000"  /d:sonar.token="sqp_4aefb40584ccc8d1232cb00d48443e690bc03292"
+
+dotnet build
+
+dotnet sonarscanner end /d:sonar.token="sqp_4aefb40584ccc8d1232cb00d48443e690bc03292"
+
+
+
+.Net Framework
+"C:\Users\wmike\OneDrive\Documentos\Tecnologias para el Desarrollo de Software\sonar-scanner-6.0.0.81631-net-framework\SonarScanner.MSBuild.exe" begin /k:"Renovaci-n-LIS" /d:sonar.host.url="http://localhost:9000" /d:sonar.token="sqp_4aefb40584ccc8d1232cb00d48443e690bc03292"
+
+"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MsBuild.exe" /t:Rebuild
+
+"C:\Users\wmike\OneDrive\Documentos\Tecnologias para el Desarrollo de Software\sonar-scanner-6.0.0.81631-net-framework\SonarScanner.MSBuild.exe" end /d:sonar.token="sqp_4aefb40584ccc8d1232cb00d48443e690bc03292"
