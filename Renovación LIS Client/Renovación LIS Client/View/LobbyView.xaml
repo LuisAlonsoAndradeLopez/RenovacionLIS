@@ -45,10 +45,10 @@
                 <StackPanel Name="ConnectedUsersStackPanel" Height="310" Orientation="Horizontal" />
 
                 <Label Background="White"
-                    Margin="0 0 0 10"
+                    Margin="0 0 0 5"
                     Height="2"/>
 
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Name="AdminPlayerButtonsStackPanel" Visibility="Visible">
                     <StackPanel Margin="45,15,0,0">
                         <TextBlock Text="{x:Static p:Resources.Banned_players}"
                             FontFamily="{StaticResource K2DBold}"
@@ -122,7 +122,68 @@
                     </StackPanel>
                 </StackPanel>
 
+                <StackPanel Orientation="Horizontal" Name="NormalPlayerButtonsStackPanel" Visibility="Collapsed">
+                    <StackPanel Margin="115,0,0,0">
+                        <TextBlock Text="{x:Static p:Resources.Banned_players}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="20" Width="115"/>
+
+                        <Image Source="/images/bannedPlayersButton.png"
+                            Height="120"
+                            Width="120"
+                            MouseLeftButtonDown="BannedPlayersButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="115,15,0,0">
+                        <Label Content="{x:Static p:Resources.Friends}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
+
+                        <Image Source="/images/friendsButton.png"
+                            Height="120"
+                            Width="120"
+                            MouseLeftButtonDown="FriendsButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="115,15,0,0">
+                        <Label Content="{x:Static p:Resources.Chat}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
+
+                        <Image Source="/images/chatButton.png"
+                            Height="120"
+                            Width="120"
+                            MouseLeftButtonDown="ChatButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="115,15,0,0">
+                        <Label Content="{x:Static p:Resources.Configuration}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Center"
+                            FontSize="20"/>
+
+                        <Image Source="/images/configurationButton.png"
+                            Height="120"
+                            Width="120"
+                            MouseLeftButtonDown="ConfigurationButtonOnClick"
+                            Cursor="Hand" RenderTransformOrigin="0.5,0.522"/>
+                    </StackPanel>
+                </StackPanel>
+
             </StackPanel>
+            
         </Border>
     </Grid>
 </Page>

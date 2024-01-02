@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Windows;
@@ -8,6 +9,7 @@ using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatReference;
+using Renovación_LIS_Client.ServiceMultiplayerCrosswordReference;
 using Renovación_LIS_Client.ServiceMultiplayerGameReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 
@@ -23,8 +25,6 @@ namespace Renovación_LIS_Client.View
         -Nuevo panel para amigos para invitarlo a la partida (falta configurationview)
         -Ajustar la posicion de los borders con info de los jugadores en el lobby
         -Al banear jugador debe de la configuración (kate pasa la configuración)
-        -El administrador solo puede iniciar la partida
-        -Arreglar la ventanita de detalles de solicitud de amigos
         */
 
         private readonly MainWindow mainWindow;
@@ -56,6 +56,17 @@ namespace Renovación_LIS_Client.View
 
             chatClient = new ChatClient(new InstanceContext(this));
             multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
+
+            if (multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+            {
+                AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
+                NormalPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AdminPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
+                NormalPlayerButtonsStackPanel.Visibility = Visibility.Visible;
+            }
         }
 
         public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
@@ -72,6 +83,17 @@ namespace Renovación_LIS_Client.View
             this.chatClient = chatClient;
             this.multiplayerGameClient = multiplayerGameClient;
             ShowConnectedPlayers();
+
+            if (multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+            {
+                AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
+                NormalPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AdminPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
+                NormalPlayerButtonsStackPanel.Visibility = Visibility.Visible;
+            }
         }
 
         private void BanPlayerButtonOnClick(object sender, RoutedEventArgs e)
@@ -144,6 +166,17 @@ namespace Renovación_LIS_Client.View
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
+            //Dont't erase
+            //MultiplayerCrosswordClient multiplayerCrosswordClient = new MultiplayerCrosswordClient(new InstanceContext(this));
+            //foreach (var connectedProfileInMultiplayerGameClient in multiplayerGameClient.GetConnectedProfiles())
+            //{
+            //    multiplayerCrosswordClient.Connect(connectedProfileInMultiplayerGameClient);
+            //}
+            //
+            //multiplayerCrosswordClient.SetAdmin(multiplayerGameClient.GetAdmin());
+            //
+            //NavigationService navigationService = NavigationService.GetNavigationService(this);
+            //navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient, multiplayerCrosswordClient);
         }
 
 
@@ -350,6 +383,17 @@ namespace Renovación_LIS_Client.View
             if (PageStateManager.CurrentPage is LobbyView currentPage)
             {
                 currentPage.ShowConnectedPlayers();
+
+                if (currentPage.multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+                {
+                    currentPage.AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
+                    currentPage.NormalPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    currentPage.AdminPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
+                    currentPage.NormalPlayerButtonsStackPanel.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -383,8 +427,6 @@ namespace Renovación_LIS_Client.View
             {
                 //configurationView.ExitFromThisPageForBeingExpeltFromLobbyView();
             }
-        }
-
-        
+        }        
     }
 }

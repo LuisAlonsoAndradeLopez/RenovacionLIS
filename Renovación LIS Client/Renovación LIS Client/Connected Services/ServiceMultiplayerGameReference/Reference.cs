@@ -45,6 +45,12 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerGame/UnbanPlayer")]
         System.Threading.Tasks.Task UnbanPlayerAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetAdmin", ReplyAction="http://tempuri.org/IMultiplayerGame/GetAdminResponse")]
+        string GetAdmin();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetAdmin", ReplyAction="http://tempuri.org/IMultiplayerGame/GetAdminResponse")]
+        System.Threading.Tasks.Task<string> GetAdminAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerGame/GetBannedProfiles", ReplyAction="http://tempuri.org/IMultiplayerGame/GetBannedProfilesResponse")]
         string[] GetBannedProfiles();
         
@@ -176,6 +182,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerGameReference {
         
         public System.Threading.Tasks.Task UnbanPlayerAsync(string username) {
             return base.Channel.UnbanPlayerAsync(username);
+        }
+        
+        public string GetAdmin() {
+            return base.Channel.GetAdmin();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetAdminAsync() {
+            return base.Channel.GetAdminAsync();
         }
         
         public string[] GetBannedProfiles() {

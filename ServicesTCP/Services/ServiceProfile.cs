@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
 using DatabaseManager;
 using domain;
 using DomainStatuses;

@@ -20,7 +20,7 @@ namespace Renovación_LIS_Client.View
     public partial class ForgotPassword : Page
     {
         private readonly MainWindow mainWindow;
-        private readonly Random random = new Random();
+        //private readonly Random random = new Random();
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
         private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
@@ -36,7 +36,8 @@ namespace Renovación_LIS_Client.View
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
             this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
-            verificationCode = random.Next(100001, 1000000);
+            verificationCode = new Random().Next(100001, 1000000);
+            //verificationCode = random.Next(100001, 1000000);
         }
 
         private void CancelButton1(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ServicesTCP.Services;
 
 namespace Tests
 {
@@ -9,6 +10,7 @@ namespace Tests
         [ClassInitialize]
         public static void ClassInitialize(TestContext context)
         {
+
             // Your setup code here
         }
 
@@ -23,13 +25,24 @@ namespace Tests
         [TestMethod]
         public void JoinChatTest()
         {
-            //Assert.AreEqual();
-            //bool result = Program.JoinChat();
+            string profileNicknameToTheTest = "Augusto ponche de león";
+
+            ServiceChat serviceChat = new ServiceChat();
+            serviceChat.JoinChat(profileNicknameToTheTest);
+
+            Assert.IsTrue(serviceChat.TheProfileIsConnected(profileNicknameToTheTest));
         }
 
         [TestMethod]
         public void JoinChatTestFail()
         {
+            string profileNicknameToTheTest = "Paeoidos123";
+            string profileNicknameToTheTestFail = "W29Baj";
+
+            ServiceChat serviceChat = new ServiceChat();
+            serviceChat.JoinChat(profileNicknameToTheTest);
+
+            Assert.IsFalse(serviceChat.TheProfileIsConnected(profileNicknameToTheTestFail));
             //Assert.AreEqual();
             //bool result = Program.JoinChat();
         }
@@ -37,13 +50,23 @@ namespace Tests
         [TestMethod]
         public void LeaveChatTest()
         {
+            string profileNicknameToTheTest = "Augusto ponche de león";
 
+            ServiceChat serviceChat = new ServiceChat();
+            serviceChat.LeaveChat(profileNicknameToTheTest);
+
+            Assert.IsFalse(serviceChat.TheProfileIsConnected(profileNicknameToTheTest));
         }
 
         [TestMethod]
         public void LeaveChatTestFail()
         {
+            string profileNicknameToTheTest = "Augusto ponche de león";
 
+            ServiceChat serviceChat = new ServiceChat();
+            serviceChat.LeaveChat(profileNicknameToTheTest);
+
+            Assert.IsTrue(serviceChat.TheProfileIsConnected(profileNicknameToTheTest));
         }
 
         [TestMethod]
@@ -61,7 +84,7 @@ namespace Tests
         [TestMethod]
         public void GetConnectedProfilesAndTheirMessagesTest()
         {
-            
+            //Assert.AreEqual(, );
         }
 
         [TestMethod]

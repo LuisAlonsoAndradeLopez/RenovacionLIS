@@ -25,6 +25,8 @@ namespace ServicesTCP.ServiceContracts
         void UnbanPlayer(string username);
 
 
+        [OperationContract]
+        string GetAdmin();
 
         [OperationContract]
         List<String> GetBannedProfiles();

@@ -229,7 +229,7 @@
             </StackPanel>
         </Border>
 
-        <Border Margin="40,113,619,114" Visibility="Hidden"
+        <Border Margin="40,82,619,82" Visibility="Hidden"
             Name="FriendRequestDetailsBorder"
             Grid.Column="0"
             CornerRadius="20">
@@ -256,7 +256,7 @@
                     Margin="0 0 0 15"
                     Height="2" Width="479"/>
 
-                <StackPanel Background="Black">
+                <StackPanel>
                     <Label Content="{x:Static p:Resources.Friend_nickname}"
                         FontFamily="{StaticResource K2DBold}"
                         Foreground="White"
@@ -265,6 +265,7 @@
                         Margin="30,0,0,0"/>
 
                     <Label
+                        Background="Black"
                         Margin="30,0,0,0"
                         x:Name="NicknameLabel"
                         Foreground="White"
@@ -280,6 +281,7 @@
                         Margin="30,0,0,0"/>
 
                     <Label
+                        Background="Black"
                         Margin="30,0,0,0"
                         x:Name="CreationDateLabel"
                         Foreground="White"
@@ -300,9 +302,9 @@
                         Foreground="White"
                         Width="472"
                         HorizontalAlignment="Left"
-                        Background="Transparent"
+                        Background="Black"
                         OpacityMask="White"
-                        Height="157"
+                        Height="174"
                         Padding="6,3,6,3"
                         MinWidth="0"
                         FontSize="20"/>

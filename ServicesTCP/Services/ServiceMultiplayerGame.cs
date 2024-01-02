@@ -9,10 +9,10 @@ namespace ServicesTCP.Services
     //[CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class ServiceMultiplayerGame : IMultiplayerGame
     {
-        public static String admin;
+        private static string admin;
         public static List<string> bannedProfiles = new List<string>();
         public static Dictionary<string, IMultiplayerGameCallback> connectedProfiles = new Dictionary<string, IMultiplayerGameCallback>();
-        public static bool thePlayersAreInGame = false;
+        private static bool thePlayersAreInGame = false;
 
         //IsOneWay = true methods
         public void BanPlayer(string username)
@@ -111,6 +111,11 @@ namespace ServicesTCP.Services
 
 
         //IsOneWay = false methods
+        public string GetAdmin()
+        {
+            return admin;
+        }
+
         public List<String> GetBannedProfiles()
         {
              return bannedProfiles;
@@ -129,32 +134,17 @@ namespace ServicesTCP.Services
 
         public bool IsAdmin(string nickname)
         {
-            if (admin != null && nickname == admin)
-            {
-                return true;
-            }
-
-            return false;
+            return admin != null && nickname == admin;
         }
 
         public bool IsBanned(string nickname)
         {
-            if (bannedProfiles.Contains(nickname))
-            {
-                return true;
-            }
-
-            return false;
+            return bannedProfiles.Contains(nickname);
         }
 
         public bool IsConnected(string nickname)
         {
-            if (connectedProfiles.ContainsKey(nickname))
-            {
-                return true;
-            }
-
-            return false;
+            return connectedProfiles.ContainsKey(nickname);
         }
 
         public void SetThePlayersAreInGame()

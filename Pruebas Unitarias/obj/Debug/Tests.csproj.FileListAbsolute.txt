@@ -19,3 +19,16 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\T
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.csproj.CopyComplete
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\ServicesTCP.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DatabaseManager.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\EntityFramework.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DomainStatuses.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\ServicesTCP.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\ServicesTCP.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DatabaseManager.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DatabaseManager.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\EntityFramework.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DomainStatuses.pdb

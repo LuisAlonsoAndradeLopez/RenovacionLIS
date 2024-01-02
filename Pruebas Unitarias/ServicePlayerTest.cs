@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ServicesTCP.Services
+namespace Tests
 {
     [TestClass]
     public class ServicePlayerTest

@@ -34,6 +34,12 @@
   <wsdl:message name="IMultiplayerGame_UnbanPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:UnbanPlayer" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_GetAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerGame_GetAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminResponse" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerGame_GetBannedProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBannedProfiles" />
   </wsdl:message>
@@ -109,6 +115,10 @@
     </wsdl:operation>
     <wsdl:operation name="UnbanPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/UnbanPlayer" message="tns:IMultiplayerGame_UnbanPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/GetAdmin" message="tns:IMultiplayerGame_GetAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerGame/GetAdminResponse" message="tns:IMultiplayerGame_GetAdmin_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBannedProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerGame/GetBannedProfiles" message="tns:IMultiplayerGame_GetBannedProfiles_InputMessage" />
@@ -187,6 +197,15 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetBannedProfiles">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerGame/GetBannedProfiles" style="document" />

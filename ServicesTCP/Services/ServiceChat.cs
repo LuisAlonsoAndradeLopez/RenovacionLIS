@@ -83,5 +83,11 @@ namespace ServicesTCP.Services
                 chatCallback.UpdateChat();
             }
         }
+
+        //Auxiliary methods for do the tests
+        public bool TheProfileIsConnected(string username)
+        {
+            return connectedProfiles.ContainsKey(username);
+        }
     }
 }
