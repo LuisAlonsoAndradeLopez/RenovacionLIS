@@ -1,0 +1,4 @@
+﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\enums\Difficulties.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\enums\Properties\AssemblyInfo.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\enums\App.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\enums\packages.config

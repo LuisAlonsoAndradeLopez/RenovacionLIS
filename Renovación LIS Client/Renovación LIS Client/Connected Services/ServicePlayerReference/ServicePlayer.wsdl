@@ -14,10 +14,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8110/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8110/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8110/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
-      <xsd:import schemaLocation="http://localhost:8110/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
+      <xsd:import schemaLocation="http://localhost:8170/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8170/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8170/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
+      <xsd:import schemaLocation="http://localhost:8170/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPlayer_AddPlayer_InputMessage">
@@ -199,9 +199,9 @@
   </wsdl:binding>
   <wsdl:service name="ServicePlayer">
     <wsdl:port name="NetTcpBinding_IPlayer" binding="tns:NetTcpBinding_IPlayer">
-      <soap12:address location="net.tcp://localhost:8120/ServicePlayer" />
+      <soap12:address location="net.tcp://localhost:8180/ServicePlayer" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8120/ServicePlayer</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8180/ServicePlayer</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

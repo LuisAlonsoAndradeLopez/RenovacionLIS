@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="6ed77c4c-a18d-489b-b8d2-9f9e3b991212" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="60c8ff9a-52af-403d-9f78-6ac3244f9be6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8150" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8210" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1a79d776-71c8-4e24-b850-9ff18d71658f" SourceId="1" SourceUrl="http://localhost:8150/?xsd=xsd0" />
-    <MetadataFile FileName="ServiceProfileForCallbackMethods.wsdl" MetadataType="Wsdl" ID="b1926574-39cc-46b9-b8fd-e17531231129" SourceId="1" SourceUrl="http://localhost:8150/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="ebe73b22-a8f3-4c7f-b9f7-71ab66bdf01c" SourceId="1" SourceUrl="http://localhost:8150/?disco" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c991757d-fcdf-4603-a6fe-85f964b2f57b" SourceId="1" SourceUrl="http://localhost:8150/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e3a74e21-775f-48cf-90d6-81875b6bb6a6" SourceId="1" SourceUrl="http://localhost:8210/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="70ff0370-c5ca-40e5-bc9c-122aa06e78cf" SourceId="1" SourceUrl="http://localhost:8210/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="3e081eb2-411f-4f4a-ba83-dfbfa5828ae4" SourceId="1" SourceUrl="http://localhost:8210/?xsd=xsd1" />
+    <MetadataFile FileName="ServiceProfileForCallbackMethods.wsdl" MetadataType="Wsdl" ID="a8bfcd36-ef63-42b3-a1f8-07d5ccb647a1" SourceId="1" SourceUrl="http://localhost:8210/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

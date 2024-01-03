@@ -1,15 +1,11 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
-using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatReference;
-using Renovación_LIS_Client.ServiceMultiplayerGameReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -19,43 +15,45 @@ namespace Renovación_LIS_Client.View
 
     public partial class ChatView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly ChatClient chatClient;
-        private readonly MultiplayerGameClient multiplayerGameClient;
-        private readonly Profile loggedProfile = new Profile();
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
+        #endregion
 
-        public ChatView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
+
+
+        #region Constructors
+        public ChatView(MainWindow mainWindow)
         {
-            InitializeComponent();
+            PageStateManager.CurrentPage = this;
+
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
-            PageStateManager.CurrentPage = this;
-            this.chatClient = chatClient;
-            this.multiplayerGameClient = multiplayerGameClient;
-
+            InitializeComponent();
             ShowUpdatedChat();
         }
+        #endregion
+
+
+
+        #region Methods for GUIs elements events
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
+            navigationService.Navigate(new LobbyView(mainWindow));
         }
 
         private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(MessageTextBox.Text))
+            if (!string.IsNullOrWhiteSpace(MessageTextBox.Text))
             {
                 if (MessageTextBox.Text.Length <= 100)
                 {
-                    chatClient.SendMessage(loggedProfile.Player.NickName, MessageTextBox.Text);
+                    LobbyView.chatCallbackMethodsClient.SendMessage(MainWindow.loggedProfile.Player.NickName, MessageTextBox.Text);
                     MessageTextBox.Clear();
                 }
                 else
@@ -64,12 +62,17 @@ namespace Renovación_LIS_Client.View
                 }
             }
         }
+        #endregion
 
+
+
+        #region Auxiliary methods
         public void ShowUpdatedChat()
         {
             MessagesStackPanel.Children.Clear();
 
-            foreach (var profileAndMessage in chatClient.GetConnectedProfilesAndTheirMessages())
+            ChatNotCallbackMethodsClient chatNotCallbackMethodsClient = new ChatNotCallbackMethodsClient();
+            foreach (var profileAndMessage in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
             {
                 if(profileAndMessage.Key == "Chat Server")
                 {
@@ -112,7 +115,7 @@ namespace Renovación_LIS_Client.View
                     continue;
                 }
             
-                if (profileAndMessage.Key != loggedProfile.Player.NickName && profileAndMessage.Key != "Chat Server")
+                if (profileAndMessage.Key != MainWindow.loggedProfile.Player.NickName && profileAndMessage.Key != "Chat Server")
                 {
                     Border friendMessageBorder = new Border
                     {
@@ -170,7 +173,7 @@ namespace Renovación_LIS_Client.View
                     continue;
                 }
 
-                if (profileAndMessage.Key == loggedProfile.Player.NickName)
+                if (profileAndMessage.Key == MainWindow.loggedProfile.Player.NickName)
                 {
                     Border loggedPlayerMessageBorder = new Border
                     {
@@ -197,15 +200,17 @@ namespace Renovación_LIS_Client.View
                 }
             
             }
+
+            chatNotCallbackMethodsClient.Close();
         }
 
-        //Auxiliary Methods
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            chatClient.LeaveChat(loggedProfile.Player.NickName);
+            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new MenuView(mainWindow));
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
+        #endregion
     }
 }

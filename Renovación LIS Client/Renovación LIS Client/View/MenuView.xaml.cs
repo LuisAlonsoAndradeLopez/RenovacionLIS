@@ -1,17 +1,10 @@
-﻿using System.Globalization;
-using System.Resources;
-using System.ServiceModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Navigation;
-using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatReference;
-using Renovación_LIS_Client.ServiceMultiplayerGameReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -20,45 +13,45 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MenuView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly Profile loggedProfile = new Profile();
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        #endregion
 
-        public MenuView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+        #region Constructors
+        public MenuView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
 
-            InitializeComponent();
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
-            WelcomeBackLabel.Content = WelcomeBackLabel.Content + loggedProfile.Player.NickName + "!";
+            InitializeComponent();
+            WelcomeBackLabel.Content = WelcomeBackLabel.Content + MainWindow.loggedProfile.Player.NickName + "!";
         }
+        #endregion
 
-        public MenuView() { }
 
+
+        #region Methods for GUIs elements events
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {            
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new FriendsView(mainWindow));
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient)));
-            if (!multiplayerGameClient.ThePlayersAreInGame())
+            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+            if (!lobbyNonCallbackMethodsClient.ThePlayersAreInGame())
             {
-                if (!multiplayerGameClient.IsBanned(loggedProfile.Player.NickName))
+                if (!lobbyNonCallbackMethodsClient.IsBanned(MainWindow.loggedProfile.Player.NickName))
                 {
-                    if (multiplayerGameClient.GetConnectedProfiles().Length < 4)
+                    if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length < 4)
                     {
-                        ChatClient chatClient = new ChatClient(new InstanceContext(new LobbyView()));
-                        chatClient.JoinChat(loggedProfile.Player.NickName);
-                       
-                        multiplayerGameClient.Connect(loggedProfile.Player.NickName);
+                        LobbyView lobbyView = new LobbyView(mainWindow);
+                        LobbyView.chatCallbackMethodsClient.JoinChat(MainWindow.loggedProfile.Player.NickName);
+                        LobbyView.lobbyCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                        navigationService.Navigate(lobbyView);
                     }
                     else
                     {
@@ -74,32 +67,39 @@ namespace Renovación_LIS_Client.View
             {
                 new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The game already has started!");
             }
+
+            lobbyNonCallbackMethodsClient.Close();
         }
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ModifyProfileView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new ModifyProfileView(mainWindow));
         }
 
         private void QuitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            ProfileClient profileClient = new ProfileClient();
-            profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-            mainWindow.SetNullToLoggedProfile();
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
 
-            profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+            MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+
+            mainWindow.SetNullTologgedProfile();
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new LoginView(mainWindow));
 
-            profileClient.Close();
+            profileNonCallbackMethodsClient.Close();
         }
+        #endregion
 
 
+
+        #region Auxiliary methods
         public void GoToLobbyView()
         {
             mainWindow.OpenTheLobbyView(this);
         }
+        #endregion
     }
 }

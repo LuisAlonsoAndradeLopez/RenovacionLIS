@@ -12,74 +12,74 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethodsCallback))]
-    public interface IProfileForCallbackMethods {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethodsCallback))]
+    public interface IProfileCallbackMethods {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/Connect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/Connect")]
         void Connect(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/Connect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/Connect")]
         System.Threading.Tasks.Task ConnectAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/Disconnect")]
         void Disconnect(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/Disconnect")]
         System.Threading.Tasks.Task DisconnectAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsListsToAllConnectedCli" +
-            "ents")]
-        void UpdateFriendsListsToAllConnectedClients();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsListsToAllConnectedCli" +
-            "ents")]
-        System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/InviteFriendToTheLobby")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/InviteFriendToTheLobby")]
         void InviteFriendToTheLobby(string friendNickname);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/InviteFriendToTheLobby")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/InviteFriendToTheLobby")]
         System.Threading.Tasks.Task InviteFriendToTheLobbyAsync(string friendNickname);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/UpdateFriendsListsToAllConnectedClient" +
+            "s")]
+        void UpdateFriendsListsToAllConnectedClients();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/UpdateFriendsListsToAllConnectedClient" +
+            "s")]
+        System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProfileForCallbackMethodsCallback {
+    public interface IProfileCallbackMethodsCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsLists")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/UpdateFriendsLists")]
         void UpdateFriendsLists();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/UpdateFriendsForInviteLists")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/UpdateFriendsForInviteLists")]
         void UpdateFriendsForInviteLists();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileForCallbackMethods/OpenPaneForEnterTheLobby")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/OpenPaneForEnterTheLobby")]
         void OpenPaneForEnterTheLobby();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProfileForCallbackMethodsChannel : Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IProfileCallbackMethodsChannel : Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProfileForCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethods>, Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethods {
+    public partial class ProfileCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods>, Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods {
         
-        public ProfileForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
+        public ProfileCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
         }
         
-        public ProfileForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+        public ProfileCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
                 base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ProfileForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+        public ProfileCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ProfileForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ProfileCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ProfileForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ProfileCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
         }
         
@@ -99,20 +99,20 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
             return base.Channel.DisconnectAsync(username);
         }
         
-        public void UpdateFriendsListsToAllConnectedClients() {
-            base.Channel.UpdateFriendsListsToAllConnectedClients();
-        }
-        
-        public System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync() {
-            return base.Channel.UpdateFriendsListsToAllConnectedClientsAsync();
-        }
-        
         public void InviteFriendToTheLobby(string friendNickname) {
             base.Channel.InviteFriendToTheLobby(friendNickname);
         }
         
         public System.Threading.Tasks.Task InviteFriendToTheLobbyAsync(string friendNickname) {
             return base.Channel.InviteFriendToTheLobbyAsync(friendNickname);
+        }
+        
+        public void UpdateFriendsListsToAllConnectedClients() {
+            base.Channel.UpdateFriendsListsToAllConnectedClients();
+        }
+        
+        public System.Threading.Tasks.Task UpdateFriendsListsToAllConnectedClientsAsync() {
+            return base.Channel.UpdateFriendsListsToAllConnectedClientsAsync();
         }
     }
 }

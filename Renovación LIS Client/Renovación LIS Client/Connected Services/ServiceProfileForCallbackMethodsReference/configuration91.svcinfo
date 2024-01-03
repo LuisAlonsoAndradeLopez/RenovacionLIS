@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="w+JVR8mscY6TbQawRzphH4PIaDuc7ha0LfHFGV93rf0=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="TXMynBt2+g6RhAdrOAq/HKWvXgXB7UsLiFyMI4gFlOo=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IProfileForCallbackMethods">
+    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IProfileCallbackMethods">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IProfileForCallbackMethods</serializedValue>
+          <serializedValue>NetTcpBinding_IProfileCallbackMethods</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IProfileForCallbackMethods" contract="ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethods" bindingType="netTcpBinding" address="net.tcp://localhost:8160/ServiceProfileForCallbackMethods" bindingConfiguration="NetTcpBinding_IProfileForCallbackMethods">
+    <endpoint name="NetTcpBinding_IProfileCallbackMethods" contract="ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods" bindingType="netTcpBinding" address="net.tcp://localhost:8220/ServiceProfileForCallbackMethods" bindingConfiguration="NetTcpBinding_IProfileCallbackMethods">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8160/ServiceProfileForCallbackMethods</serializedValue>
+          <serializedValue>net.tcp://localhost:8220/ServiceProfileForCallbackMethods</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -133,10 +133,10 @@
           <serializedValue>netTcpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IProfileForCallbackMethods</serializedValue>
+          <serializedValue>NetTcpBinding_IProfileCallbackMethods</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ServiceProfileForCallbackMethodsReference.IProfileForCallbackMethods</serializedValue>
+          <serializedValue>ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -196,7 +196,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IProfileForCallbackMethods</serializedValue>
+          <serializedValue>NetTcpBinding_IProfileCallbackMethods</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

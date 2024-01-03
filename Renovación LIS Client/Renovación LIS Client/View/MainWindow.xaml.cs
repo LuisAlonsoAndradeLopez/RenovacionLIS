@@ -1,19 +1,16 @@
 ﻿using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatReference;
-using Renovación_LIS_Client.ServiceMultiplayerGameReference;
+using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 using Renovación_LIS_Client.View;
 using System;
-using System.Dynamic;
-using System.Globalization;
-using System.Resources;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 
@@ -23,120 +20,121 @@ namespace Renovación_LIS_Client
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window, IProfileForCallbackMethodsCallback
+    public partial class MainWindow : Window, IProfileCallbackMethodsCallback
     {
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        #region Atributes
+        public static Profile loggedProfile = null;
+        public static ProfileCallbackMethodsClient profileCallbackMethodsClient;
+        #endregion
 
-        private Profile loggedProfile = null;
 
+
+        #region Constructor
         public MainWindow()
-        {
-            InitializeComponent();
-            
+        {            
             Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
             Application.Current.Exit += AppExit;
             AppDomain.CurrentDomain.ProcessExit += ProcessExit;
             this.Closing += MainWindowClosing;
 
-            profileForCallbackMethodsClient = new ProfileForCallbackMethodsClient(new InstanceContext(this));
+            profileCallbackMethodsClient = new ProfileCallbackMethodsClient(new InstanceContext(this));
+            
+            InitializeComponent();
 
             NavigationService navigationService = MainFrame.NavigationService;
-            navigationService.Navigate(new StartView(this, profileForCallbackMethodsClient));
-
+            navigationService.Navigate(new StartView(this));
         }
+        #endregion
 
+
+
+        #region Renovación LIS app exit methods
         private void AppExit(object sender, EventArgs e)
         {
-            if (loggedProfile != null)
+            if (MainWindow.loggedProfile != null)
             {
-                ProfileClient profileClient = new ProfileClient();
-                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-                profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
-                
-                profileClient.Close();
+                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+
+                profileNonCallbackMethodsClient.Close();
             }
         }
 
         private void ProcessExit(object sender, EventArgs e)
         {
-            if (loggedProfile != null)
+            if (MainWindow.loggedProfile != null)
             {
-                ProfileClient profileClient = new ProfileClient();
-                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-                profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-                profileClient.Close();
+                profileNonCallbackMethodsClient.Close();
             }
         }
 
         private void DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            if (loggedProfile != null)
+            if (MainWindow.loggedProfile != null)
             {
-                ProfileClient profileClient = new ProfileClient();
-                profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-                profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-                profileClient.Close();
+                profileNonCallbackMethodsClient.Close();
             }
 
         }
 
         private void MainWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //if (Debugger.IsAttached)
-            //{
-                
-
-                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("What do you want", "Do you want to exit"))
+        { 
+            if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("What do you want", "Do you want to exit"))
+            {
+                if(MainWindow.loggedProfile != null)
                 {
-                    if(loggedProfile != null)
-                    {
-                        ProfileClient profileClient = new ProfileClient();
-                        profileClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, loggedProfile.IDProfile);
-                        profileForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                    profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                    MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-                        profileClient.Close();
-                    }
+                    profileNonCallbackMethodsClient.Close();
                 }
-                else
-                {
-                    e.Cancel = true;
-                }
-
-            //}
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
+        #endregion
 
-        public void SetNullToLoggedProfile()
+
+
+        #region Auxiliary methods
+        public void SetNullTologgedProfile()
         {
-            this.loggedProfile = null;
+            MainWindow.loggedProfile = null;
         }
 
-        public void SetProfileToLoggedProfile(Profile profile)
+        public void SetProfileTologgedProfile(Profile profile)
         {
-            this.loggedProfile = new Profile();
-            this.loggedProfile = profile;
+            MainWindow.loggedProfile = new Profile();
+            MainWindow.loggedProfile = profile;
         }
 
-
-        //Auxiliary methods
         public void OpenTheLobbyView(Page page)
         {
             if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("You have been invitated to the lobby!", "Do you want to enter to the lobby?"))
             {
-                MultiplayerGameClient multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(new LobbyView(this, loggedProfile, new ProfileForCallbackMethodsClient(new InstanceContext(this)))));
-                if (!multiplayerGameClient.ThePlayersAreInGame())
+                LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient= new LobbyNonCallbackMethodsClient();
+                if (!lobbyNonCallbackMethodsClient.ThePlayersAreInGame())
                 {
-                    if (!multiplayerGameClient.IsBanned(loggedProfile.Player.NickName))
+                    if (!lobbyNonCallbackMethodsClient.IsBanned(MainWindow.loggedProfile.Player.NickName))
                     {
-                        if (multiplayerGameClient.GetConnectedProfiles().Length < 4)
-                        {
-                            ChatClient chatClient = new ChatClient(new InstanceContext(new LobbyView()));
-                            chatClient.JoinChat(loggedProfile.Player.NickName);
-
-                            multiplayerGameClient.Connect(loggedProfile.Player.NickName);
+                        if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length < 4)
+                        {                            
+                            LobbyView.chatCallbackMethodsClient.JoinChat(MainWindow.loggedProfile.Player.NickName);
+                            LobbyView.lobbyCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
                             NavigationService navigationService = NavigationService.GetNavigationService(page);
-                            navigationService.Navigate(new LobbyView(this, loggedProfile, new ProfileForCallbackMethodsClient(new InstanceContext(this))));
+                            navigationService.Navigate(new LobbyView(this));
                         }
                         else
                         {
@@ -154,9 +152,11 @@ namespace Renovación_LIS_Client
                 }
             }
         }
+        #endregion
 
 
-        //Callback Method         
+
+        #region Callback Methods    
         public void UpdateFriendsLists()
         {
             if (PageStateManager.CurrentPage is FriendsView currentPage)
@@ -192,6 +192,7 @@ namespace Renovación_LIS_Client
                 //configurationView;
             }
         }
+        #endregion
     }
 
     public class PageStateManager

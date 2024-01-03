@@ -1,0 +1,2 @@
+﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\Properties\AssemblyInfo.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\app.config

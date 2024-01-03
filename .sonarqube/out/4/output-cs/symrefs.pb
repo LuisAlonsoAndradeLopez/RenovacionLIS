@@ -1,4 +1,4 @@
-ü
+·
 IC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\Server\ServerHoster.cs
 
 
@@ -9,12 +9,15 @@ IC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\Server\ServerHoster.cs
 " &
 
 
- ' 
- 0 $
- B 6
- 7 +
- 2 &
- ) 
-"" *## 
-&& <'' 0V
+ < 0
+ 9 -
+ E 9
+ B 6
+ L @
+ I =
+"" =## 1
+&& :'' .
+** )++ 
+.. ?// 3
+22 <33 0V
 TC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\Server\Properties\AssemblyInfo.cs

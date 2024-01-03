@@ -4,11 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
-using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatReference;
-using Renovación_LIS_Client.ServiceMultiplayerGameReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -17,34 +14,36 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class BannedPlayersView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly ChatClient chatClient;
-        private readonly Profile loggedProfile;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-        private readonly MultiplayerGameClient multiplayerGameClient;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
+        #endregion
 
-        public BannedPlayersView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
+
+
+        #region Constructors
+        public BannedPlayersView(MainWindow mainWindow)
         {
-            InitializeComponent();
+            PageStateManager.CurrentPage = this;
+
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            PageStateManager.CurrentPage = this;
 
-            this.chatClient = chatClient;
-            this.multiplayerGameClient = multiplayerGameClient;
+            InitializeComponent();
             ShowBannedPlayers();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
+            navigationService.Navigate(new LobbyView(mainWindow));
         }
 
         private void UnbanPlayerButtonOnClick(object sender, RoutedEventArgs e)
@@ -56,17 +55,22 @@ namespace Renovación_LIS_Client.View
                     StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
                     Label playerNickname = (Label)VisualTreeHelper.GetChild(buttonParent, 1);
 
-                    multiplayerGameClient.UnbanPlayer(playerNickname.Content.ToString());
+                    LobbyView.lobbyCallbackMethodsClient.UnbanPlayer(playerNickname.Content.ToString());
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player unbanned!");
                 }
             }
         }
+        #endregion
 
+
+
+        #region Auxiliary Methods
         public void ShowBannedPlayers()
         {
             BannedPlayersStackPanel.Children.Clear();
-            foreach (string profile in multiplayerGameClient.GetBannedProfiles())
+            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+            foreach (string profile in lobbyNonCallbackMethodsClient.GetBannedProfiles())
             {
                 Border bannedPlayerBorder = new Border
                 {
@@ -101,7 +105,7 @@ namespace Renovación_LIS_Client.View
                 };
                 bannedPlayerStackPanel.Children.Add(bannedPlayerNickname);
 
-                if (multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+                if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
                 {
                     Button unbanBannedPlayerButton = new Button
                     {
@@ -116,16 +120,18 @@ namespace Renovación_LIS_Client.View
 
                 bannedPlayerBorder.Child = bannedPlayerStackPanel;
                 BannedPlayersStackPanel.Children.Add(bannedPlayerBorder);
-            }                                   
+            }
+
+            lobbyNonCallbackMethodsClient.Close();
         }
 
-        //Auxiliary Methods
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            chatClient.LeaveChat(loggedProfile.Player.NickName);
+            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new MenuView(mainWindow));
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
+        #endregion
     }
 }

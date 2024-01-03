@@ -6,15 +6,54 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    public class ServiceMultiplayerCrossword : IMultiplayerCrossword
+    public class ServiceMultiplayerCrosswordForNonCallbackMethods : IMultiplayerCrosswordNonCallbackMethods
     {
-        public static String admin;
-        public static Dictionary<string, IMultiplayerCrosswordCallback> connectedProfiles = new Dictionary<string, IMultiplayerCrosswordCallback>();
-        public static Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
-        public static bool thePlayersAreInGame = false;
+        private readonly ServiceMultiplayerCrosswordForCallbackMethods serviceMultiplayerCrosswordForCallbackMethods;
 
-        //IsOneWay = true methods
-        public void addPointsToProfile(string userNickname, int points)
+
+        #region Constructors
+        public ServiceMultiplayerCrosswordForNonCallbackMethods()
+        {
+            serviceMultiplayerCrosswordForCallbackMethods = new ServiceMultiplayerCrosswordForCallbackMethods();
+        }
+        #endregion
+
+
+
+        #region Non-Callback methods
+        public string GetAdmin()
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.GetAdmin();
+        }
+        
+        public int GetPointsFromAProfile(string nickname)
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.GetPointsFromAProfile(nickname);
+        }
+        
+        public void SetAdmin(string username)
+        {
+            serviceMultiplayerCrosswordForCallbackMethods.SetAdmin(username);
+        }
+        #endregion
+
+
+
+        #region Auxiliary methods for do the tests
+        #endregion
+    }
+
+
+
+    public class ServiceMultiplayerCrosswordForCallbackMethods : IMultiplayerCrosswordCallbackMethods
+    {
+        private static string admin;
+        private static readonly Dictionary<string, IMultiplayerCrosswordCallback> connectedProfiles = new Dictionary<string, IMultiplayerCrosswordCallback>();
+        private static readonly Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
+
+
+        #region Callback methods
+        public void AddPointsToProfile(string userNickname, int points)
         {
             if (profilesAndItsPoints.ContainsKey(userNickname))
             {
@@ -43,11 +82,6 @@ namespace ServicesTCP.Services
             }
         }
 
-        public void SetAdmin(string username)
-        {
-            admin = username;
-        }
-
         // Example method to start the countdown
         public void StartCountdown(int totalSeconds)
         {
@@ -65,10 +99,11 @@ namespace ServicesTCP.Services
                 profile.UpdateCrossword();
             }
         }
+        #endregion
 
 
 
-        //Auxiliary methods
+        #region Auxiliary methods
         // Method to update countdown for all subscribers
         private void UpdateCountdownForAllConnectedProfiles(int seconds)
         {
@@ -85,5 +120,31 @@ namespace ServicesTCP.Services
                 profile.UpdateProfilesPoints();
             }
         }
+        #endregion
+
+
+
+        #region Methods for use by ServiceMultiplayerCrosswordForNonCallbackMethods
+        internal string GetAdmin()
+        {
+            return admin;
+        }
+
+        internal int GetPointsFromAProfile(string nickname)
+        {
+            return profilesAndItsPoints[nickname];
+        }
+
+        internal void SetAdmin(string username)
+        {
+            admin = username;
+        }
+        #endregion
+
+
+
+        #region Auxiliary methods for do the tests
+
+        #endregion
     }
 }

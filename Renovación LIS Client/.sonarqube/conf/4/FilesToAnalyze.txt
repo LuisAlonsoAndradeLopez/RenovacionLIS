@@ -1,0 +1,162 @@
+﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\App.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\AuxiliaryClasses\AlertPopUpGenerator.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\AuxiliaryClasses\ImageLoader.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\Class1.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\BannedPlayersView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ChatView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ConfigurationView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\CreateAccountView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ForgotPassword.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\FriendsView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\LobbyView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\LoginView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\MainWindow.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\MenuView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ModifyProfileView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\MultiplayerCrosswordView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\RandomMultiplayerCrosswordGeneratorView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\StartView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\App.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\WinnersView.xaml.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\AssemblyInfo.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\Resources.resx
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\Resources.es.resx
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\ServiceChatForCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\item2.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\ServiceChatForNonCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\ServiceFriendRequestForCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item2.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item3.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\ServiceFriendRequestForNonCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\ServiceLobbyForCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\item2.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\ServiceLobbyForNonCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\ServiceMultiplayerCrosswordForCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\ServiceMultiplayerCrosswordForNonCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\item2.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\item3.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\ServicePlayer.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\item2.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\item3.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\item4.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\ServiceProfileForNonCallbackMethods.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\packages.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\DataSources\domain.FriendRequest.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\DataSources\domain.FriendRequest1.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\DataSources\domain.Player.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\DataSources\domain.Player1.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\DataSources\domain.Profile.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\DataSources\domain.Profile1.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Properties\Settings.settings
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\App.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForNonCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceChatForCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForNonCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceLobbyForCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServicePlayerReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Styles\ButtonStyles.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Styles\Fonts.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Styles\FrameStyle.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Styles\LabelStyle.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Styles\TextBoxStyles.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\BannedPlayersView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ChatView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ConfigurationView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\CreateAccountView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ForgotPassword.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\FriendsView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\LobbyView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\LoginView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\MainWindow.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\MenuView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\ModifyProfileView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\MultiplayerCrosswordView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\RandomMultiplayerCrosswordGeneratorView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\StartView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\View\WinnersView.xaml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Fonts\K2D-Bold.ttf
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\Fonts\K2D-Regular.ttf
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\changePasswordImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\arrowDown.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\createAccountImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\GameLogo.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\loginImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\menuImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\startPageImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\modifyProfileImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\configurationImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\friendsImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\OnlineSymbol.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\OfflineSymbol.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\chatImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\bannedPlayersImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\lobbyImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\winnersImage.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\bannedPlayersButton.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\chatButton.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\configurationButton.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\friendsButton.png
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\images\playButton.png

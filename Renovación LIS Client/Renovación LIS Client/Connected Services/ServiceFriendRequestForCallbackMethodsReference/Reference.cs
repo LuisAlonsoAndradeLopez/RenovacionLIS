@@ -12,62 +12,62 @@ namespace Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceFriendRequestForCallbackMethodsReference.IFriendRequestForCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestForCallbackMethodsCallback))]
-    public interface IFriendRequestForCallbackMethods {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethodsCallback))]
+    public interface IFriendRequestCallbackMethods {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/Connect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/Connect")]
         void Connect(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/Connect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/Connect")]
         System.Threading.Tasks.Task ConnectAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/Disconnect")]
         void Disconnect(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/Disconnect")]
         System.Threading.Tasks.Task DisconnectAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/UpdateFriendRequestsListsToAl" +
-            "lConnectedClients")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/UpdateFriendRequestsListsToAllCo" +
+            "nnectedClients")]
         void UpdateFriendRequestsListsToAllConnectedClients();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/UpdateFriendRequestsListsToAl" +
-            "lConnectedClients")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/UpdateFriendRequestsListsToAllCo" +
+            "nnectedClients")]
         System.Threading.Tasks.Task UpdateFriendRequestsListsToAllConnectedClientsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IFriendRequestForCallbackMethodsCallback {
+    public interface IFriendRequestCallbackMethodsCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestForCallbackMethods/UpdateFriendsRequestsLists")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/UpdateFriendsRequestsLists")]
         void UpdateFriendsRequestsLists();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IFriendRequestForCallbackMethodsChannel : Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestForCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IFriendRequestCallbackMethodsChannel : Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FriendRequestForCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestForCallbackMethods>, Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestForCallbackMethods {
+    public partial class FriendRequestCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods>, Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods {
         
-        public FriendRequestForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
+        public FriendRequestCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
         }
         
-        public FriendRequestForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+        public FriendRequestCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
                 base(callbackInstance, endpointConfigurationName) {
         }
         
-        public FriendRequestForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+        public FriendRequestCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public FriendRequestForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public FriendRequestCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public FriendRequestForCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public FriendRequestCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
         }
         

@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, Name = "ServicePlayer")]
-    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServicePlayer : IPlayer
     {
         public long AddPlayer(Players player)
@@ -28,11 +20,6 @@ namespace ServicesTCP.Services
                 databaseModelContainer.PlayersSet.Add(player);
                 databaseModelContainer.SaveChanges();
                 generatedID = player.IDPlayer;
-                //String message = "Usuario Wardado Exitosamente";
-                //IPlayerCallback callback = OperationContext.Current.GetCallbackChannel<IPlayerCallback>();
-                //Thread.Sleep(50);
-                //callback.Response(message);
-                //Console.WriteLine(generatedID);
             }
             catch (Exception ex)
             {
@@ -111,7 +98,6 @@ namespace ServicesTCP.Services
                     player.NickName = players.NickName;
                     player.BirthDate = players.BirthDate;
                     player.Password = players.Password;
-                    //player.Profile = players.Profiles;
                 }
                 else
                 {

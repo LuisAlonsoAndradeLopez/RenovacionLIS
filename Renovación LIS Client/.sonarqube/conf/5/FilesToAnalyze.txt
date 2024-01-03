@@ -1,0 +1,4 @@
+﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\ClientRunner.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\Properties\AssemblyInfo.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\App.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Client\packages.config

@@ -4,8 +4,15 @@ using ServicesTCP.AuxiliaryContracts;
 
 namespace ServicesTCP.ServiceContracts
 {
+    [ServiceContract]
+    public interface IChatNotCallbackMethods
+    {
+        [OperationContract]
+        List<KeyValueDataContract> GetConnectedProfilesAndTheirMessages();
+    }
+
     [ServiceContract(CallbackContract = typeof(IChatCallback))]
-    public interface IChat
+    public interface IChatCallbackMethods
     {
         [OperationContract(IsOneWay = true)]
         void JoinChat(string nickname);
@@ -15,10 +22,6 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void SendMessage(string senderNickname, string message);
-
-
-        [OperationContract]
-        List<KeyValueDataContract> GetConnectedProfilesAndTheirMessages();
     }
 
     [ServiceContract]

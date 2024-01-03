@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Resources;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,7 +13,7 @@ using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
 
@@ -23,29 +24,29 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ModifyProfileView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
+        #endregion
 
-        private Profile loggedProfile = new Profile();
 
-        public ModifyProfileView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+
+        #region Constructors
+        public ModifyProfileView(MainWindow mainWindow)
         {
-            InitializeComponent();
-
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
-            NamesTextBox.Text = loggedProfile.Player.Names;
-            SurnamesTextBox.Text = loggedProfile.Player.Surnames;
-            EmailTextBox.Text = loggedProfile.Player.Email;
-            NicknameTextBox.Text = loggedProfile.Player.NickName;
-            BirthDayDatePicker.SelectedDate = loggedProfile.Player.BirthDate;
+            InitializeComponent();
+
+            NamesTextBox.Text = MainWindow.loggedProfile.Player.Names;
+            SurnamesTextBox.Text = MainWindow.loggedProfile.Player.Surnames;
+            EmailTextBox.Text = MainWindow.loggedProfile.Player.Email;
+            NicknameTextBox.Text = MainWindow.loggedProfile.Player.NickName;
+            BirthDayDatePicker.SelectedDate = MainWindow.loggedProfile.Player.BirthDate;
 
             byte[] imageData = GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions();
 
@@ -69,14 +70,16 @@ namespace Renovación_LIS_Client.View
             {
                 ImageRouteTextBlock.Text = "";
             }
-
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void CancelButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new MenuView(mainWindow));
         }
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
@@ -86,18 +89,18 @@ namespace Renovación_LIS_Client.View
                 if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
                     PlayerClient playerClient = new PlayerClient();
-                    ProfileClient profileClient = new ProfileClient();
+                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
 
-                    if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == loggedProfile.Player.Email)
+                    if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == MainWindow.loggedProfile.Player.Email)
                     {
-                        if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == loggedProfile.Player.NickName)
+                        if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == MainWindow.loggedProfile.Player.NickName)
                         {
-                            profileClient.ModifyImageName(loggedProfile.Player.NickName, NicknameTextBox.Text);
+                            profileNonCallbackMethodsClient.ModifyImageName(MainWindow.loggedProfile.Player.NickName, NicknameTextBox.Text);
 
 
                             ServicePlayerReference.Players players = new ServicePlayerReference.Players
                             {
-                                IDPlayer = loggedProfile.Player.IDPlayer,
+                                IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
                                 Names = NamesTextBox.Text,
                                 Surnames = SurnamesTextBox.Text,
                                 Email = EmailTextBox.Text,
@@ -115,7 +118,7 @@ namespace Renovación_LIS_Client.View
 
                                 if (imageData.Length <= 1048576)
                                 {
-                                    profileClient.UploadImage(fileName, imageData);
+                                    profileNonCallbackMethodsClient.UploadImage(fileName, imageData);
                                 }
                                 else
                                 {
@@ -125,12 +128,12 @@ namespace Renovación_LIS_Client.View
                             }
                             new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Profile modified successfully!!!");
 
-                            loggedProfile = profileClient.GetProfileByPlayerID((int)loggedProfile.Player.IDPlayer);
+                            MainWindow.loggedProfile = profileNonCallbackMethodsClient.GetProfileByPlayerID((int)MainWindow.loggedProfile.Player.IDPlayer);
 
-                            profileForCallbackMethodsClient.UpdateFriendsListsToAllConnectedClients();
+                            MainWindow.profileCallbackMethodsClient.UpdateFriendsListsToAllConnectedClients();
 
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                            navigationService.Navigate(new MenuView(mainWindow));
                         }
                         else
                         {
@@ -143,7 +146,7 @@ namespace Renovación_LIS_Client.View
                     }
 
                     playerClient.Close();
-                    profileClient.Close();
+                    profileNonCallbackMethodsClient.Close();
                 }
                 else
                 {
@@ -171,7 +174,11 @@ namespace Renovación_LIS_Client.View
                 ImageRouteTextBlock.Text = openFileDialog.FileName;
             }
         }
+        #endregion
 
+
+
+        #region Auxiliary methods
         private string InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
@@ -253,23 +260,23 @@ namespace Renovación_LIS_Client.View
 
         private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions()
         {
-            ProfileClient profileClient = new ProfileClient();
-            string fileName = loggedProfile.Player.NickName + ".png";
-            byte[] imageData = profileClient.GetImage(fileName);
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            string fileName = MainWindow.loggedProfile.Player.NickName + ".png";
+            byte[] imageData = profileNonCallbackMethodsClient.GetImage(fileName);
 
             if(imageData == null)
             {
-                fileName = loggedProfile.Player.NickName + ".jpg";
-                imageData = profileClient.GetImage(fileName);
+                fileName = MainWindow.loggedProfile.Player.NickName + ".jpg";
+                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
             }
 
             if (imageData == null)
             {
-                fileName = loggedProfile.Player.NickName + ".jpeg";
-                imageData = profileClient.GetImage(fileName);
+                fileName = MainWindow.loggedProfile.Player.NickName + ".jpeg";
+                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
             }
 
-            profileClient.Close();
+            profileNonCallbackMethodsClient.Close();
 
             return imageData;
         }
@@ -278,5 +285,6 @@ namespace Renovación_LIS_Client.View
         {
             mainWindow.OpenTheLobbyView(this);
         }
+        #endregion
     }
 }

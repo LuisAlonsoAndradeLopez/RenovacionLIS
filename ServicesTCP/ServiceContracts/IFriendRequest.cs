@@ -6,7 +6,7 @@ using domain;
 namespace ServicesTCP.ServiceContracts
 {
     [ServiceContract]
-    public interface IFriendRequest
+    public interface IFriendRequestNonCallbackMethods
     {
         [OperationContract]
         List<FriendRequests> GetFriendsRequestsByProfileID(long ID);
@@ -43,8 +43,10 @@ namespace ServicesTCP.ServiceContracts
         void RejectFriendRequest(FriendRequests friendRequests);
     }
 
+
+
     [ServiceContract(CallbackContract = typeof(IFriendRequestCallback))]
-    public interface IFriendRequestForCallbackMethods
+    public interface IFriendRequestCallbackMethods
     {        
         [OperationContract(IsOneWay = true)]
         void Connect(string username);
@@ -55,6 +57,8 @@ namespace ServicesTCP.ServiceContracts
         [OperationContract(IsOneWay = true)]
         void UpdateFriendRequestsListsToAllConnectedClients();
     }
+
+
 
     [ServiceContract]
     public interface IFriendRequestCallback

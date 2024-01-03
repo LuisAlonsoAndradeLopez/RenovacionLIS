@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using domain;
 using System.Windows.Media.Imaging;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.AuxiliaryClasses
 {
@@ -14,23 +14,23 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
     {
         public BitmapImage GetImageByPlayerNickname(string profileNickname)
         {
-            ProfileClient profileClient = new ProfileClient();
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
             string fileName = profileNickname + ".png";
-            byte[] imageData = profileClient.GetImage(fileName);
+            byte[] imageData = profileNonCallbackMethodsClient.GetImage(fileName);
 
             if (imageData == null)
             {
                 fileName = profileNickname + ".jpg";
-                imageData = profileClient.GetImage(fileName);
+                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
             }
 
             if (imageData == null)
             {
                 fileName = profileNickname + ".jpeg";
-                imageData = profileClient.GetImage(fileName);
+                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
             }
 
-            profileClient.Close();
+            profileNonCallbackMethodsClient.Close();
 
             BitmapImage imageSource = new BitmapImage();
 

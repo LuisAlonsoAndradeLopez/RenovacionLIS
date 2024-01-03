@@ -10,8 +10,7 @@ using System.Windows.Navigation;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServicePlayerReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -20,22 +19,28 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class CreateAccountView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        #endregion
 
-        public CreateAccountView(MainWindow mainWindow, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+
+
+        #region Constructors
+        public CreateAccountView(MainWindow mainWindow)
         {
-            InitializeComponent();
-
-            this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+            this.mainWindow = mainWindow;
 
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+            InitializeComponent();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void CreateAccountButton(object sender, RoutedEventArgs e)
         {
             if (InvalidValuesInTextFieldsTextGenerator() == "")
@@ -50,13 +55,13 @@ namespace Renovación_LIS_Client.View
 
                     if (Password == ConfirmPassword)
                     {
-                        ProfileClient profileClient = new ProfileClient();
+                        ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
                         PlayerClient playerClient = new PlayerClient();
                         if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
                         {
                             if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                             {
-                                ServiceProfileReference.Players players = new ServiceProfileReference.Players
+                                ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
                                 {
                                     Names = NamesTextBox.Text,
                                     Surnames = SurnamesTextBox.Text,
@@ -65,7 +70,7 @@ namespace Renovación_LIS_Client.View
                                     BirthDate = (DateTime)BirthdayDatePicker.SelectedDate
                                 };
 
-                                ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles
+                                ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
                                 {
                                     LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
                                     Coins = 0,
@@ -78,7 +83,7 @@ namespace Renovación_LIS_Client.View
 
                                 try
                                 {
-                                    profileClient.AddProfile(profiles);
+                                    profileNonCallbackMethodsClient.AddProfile(profiles);
                                 }
                                 catch (Exception ex)
                                 {
@@ -88,7 +93,7 @@ namespace Renovación_LIS_Client.View
                                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Account made successfully");
 
                                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                                navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
+                                navigationService.Navigate(new LoginView(mainWindow));
                             }
                             else
                             {
@@ -100,7 +105,7 @@ namespace Renovación_LIS_Client.View
                             new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
                         }
 
-                        profileClient.Close();
+                        profileNonCallbackMethodsClient.Close();
                         playerClient.Close();
                     }
                     else
@@ -119,13 +124,16 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-
         private void GoLoginButton(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new LoginView(mainWindow));
         }
+        #endregion
 
+
+
+        #region Auxiliary methods
         private string InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
@@ -247,6 +255,6 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+        #endregion
     }
-
 }

@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 
 namespace ServicesTCP.ServiceContracts
 {
-    //[ServiceContract(CallbackContract = typeof(IPlayerCallback))]
     [ServiceContract]
     public interface IPlayer
     {

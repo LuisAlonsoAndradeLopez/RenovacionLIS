@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
@@ -13,7 +8,7 @@ using DomainStatuses;
 namespace ServicesTCP.ServiceContracts
 {
     [ServiceContract]
-    public interface IProfile
+    public interface IProfileNonCallbackMethods
     {
         [OperationContract]
         long AddProfile(Profiles profiles);
@@ -54,7 +49,7 @@ namespace ServicesTCP.ServiceContracts
 
 
     [ServiceContract(CallbackContract = typeof(IProfileCallback))]
-    public interface IProfileForCallbackMethods
+    public interface IProfileCallbackMethods
     {
         [OperationContract(IsOneWay = true)]
         void Connect(string username);
@@ -63,10 +58,10 @@ namespace ServicesTCP.ServiceContracts
         void Disconnect(string username);
 
         [OperationContract(IsOneWay = true)]
-        void UpdateFriendsListsToAllConnectedClients();
+        void InviteFriendToTheLobby(String friendNickname);
 
         [OperationContract(IsOneWay = true)]
-        void InviteFriendToTheLobby(String friendNickname);
+        void UpdateFriendsListsToAllConnectedClients();
     }
    
     public interface IProfileCallback

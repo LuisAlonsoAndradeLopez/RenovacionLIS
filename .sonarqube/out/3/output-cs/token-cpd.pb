@@ -1,4 +1,4 @@
-≠
+Æ
 mC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\AuxiliaryDataContracts\KeyValueDataContract.cs
 	namespace		 	
 ServicesTCP		
@@ -77,8 +77,43 @@ DataMember	 
 set- 0
 ;0 1
 }2 3
-} 
-} Ñ
+} 
+[ 
+DataContract 
+] 
+public   
+
+class   i
+]KeyValueDataContractForProfilesAndTheirPointsForServiceMultiplayerCrosswordForCallbackMethods   n
+{!! 
+["" 	
+
+DataMember""	 
+]"" 
+public## 
+string## 
+Key## 
+{## 
+get## 
+;##  
+set##! $
+;##$ %
+}##& '
+[%% 	
+
+DataMember%%	 
+]%% 
+public&& 
+int&& 
+Value&& 
+{&& 
+get&& 
+;&& 
+set&&  #
+;&&# $
+}&&% &
+}'' 
+}(( Ñ
 YC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Properties\AssemblyInfo.cs
 [ 
 assembly 	
@@ -204,7 +239,7 @@ ComVisible 
 ($$ 
 $str$$ (
 )$$( )
-]$$) *È
+]$$) *°
 XC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\IChat.cs
 	namespace 	
 ServicesTCP
@@ -214,19 +249,11 @@ XC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts
 { 
 [ 
 ServiceContract 
-( 
-CallbackContract %
-=& '
-typeof( .
-(. /
-IChatCallback/ <
-)< =
-)= >
-]> ?
+] 
 public 
 
-	interface 
-IChat 
+	interface #
+IChatNotCallbackMethods ,
 {		 
 [
 
@@ -234,303 +261,314 @@ XC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts
 OperationContract
 
 	 
-(
-
- 
-IsOneWay
-
- #
-=
-
-$ %
-true
-
-& *
-)
-
-* +
 ]
 
-+ ,
-void 
-JoinChat 
-( 
-string 
-nickname %
-)% &
-;& '
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-	LeaveChat 
-( 
-string 
-nickname &
-)& '
-;' (
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-SendMessage 
-( 
-string 
-senderNickname  .
-,. /
-string0 6
-message7 >
-)> ?
-;? @
+ 
+List 
+<  
+KeyValueDataContract !
+>! "0
+$GetConnectedProfilesAndTheirMessages# G
+(G H
+)H I
+;I J
+} 
+[ 
+ServiceContract 
+( 
+CallbackContract %
+=& '
+typeof( .
+(. /
+IChatCallback/ <
+)< =
+)= >
+]> ?
+public 
+
+	interface  
+IChatCallbackMethods )
+{ 
+[ 	
+OperationContract	 
+( 
+IsOneWay #
+=$ %
+true& *
+)* +
+]+ ,
+void 
+JoinChat 
+( 
+string 
+nickname %
+)% &
+;& '
 [ 	
 OperationContract	 
-] 
-List 
-<  
-KeyValueDataContract !
->! "0
-$GetConnectedProfilesAndTheirMessages# G
-(G H
-)H I
-;I J
-} 
-[ 
-ServiceContract 
-] 
-public 
+( 
+IsOneWay #
+=$ %
+true& *
+)* +
+]+ ,
+void 
+	LeaveChat 
+( 
+string 
+nickname &
+)& '
+;' (
+[ 	
+OperationContract	 
+( 
+IsOneWay #
+=$ %
+true& *
+)* +
+]+ ,
+void 
+SendMessage 
+( 
+string 
+senderNickname  .
+,. /
+string0 6
+message7 >
+)> ?
+;? @
+} 
+[ 
+ServiceContract 
+] 
+public 
 
-	interface 
-IChatCallback "
-{ 
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
+	interface 
+IChatCallback "
+{ 
+[ 	
+OperationContract	 
+( 
+IsOneWay #
+=$ %
+true& *
+)* +
+]+ ,
+void 
 
-UpdateChat 
-( 
-) 
-; 
-} 
-} —#
-cC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\IMultiplayerGame.cs
-	namespace 	
-ServicesTCP
+UpdateChat 
+( 
+) 
+; 
+}   
+}!! ˆ%
+YC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\ILobby.cs
+	namespace 	
+ServicesTCP
  
-. 
-ServiceContracts &
-{ 
-[		 
-ServiceContract		 
-(		 
-CallbackContract		 %
-=		& '
-typeof		( .
-(		. /$
-IMultiplayerGameCallback		/ G
-)		G H
-)		H I
-]		I J
-public
-
- 
+. 
+ServiceContracts &
+{ 
+[ 
+ServiceContract 
+] 
+public 
 
-	interface
+	interface $
+ILobbyNonCallbackMethods -
+{		 
+[
 
- 
-IMultiplayerGame
+ 	
+OperationContract
 
- %
-{ 
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-	BanPlayer 
-( 
-string 
-username &
-)& '
-;' (
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-Connect 
-( 
-string 
-username $
-)$ %
-;% &
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-
-Disconnect 
-( 
-string 
-username '
-)' (
-;( )
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-SetAdmin 
-( 
-string 
-username %
-)% &
-;& '
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-UnbanPlayer 
-( 
-string 
-username  (
-)( )
-;) *
-[ 	
-OperationContract	 
-] 
-List 
-< 
-String 
-> 
-GetBannedProfiles &
-(& '
-)' (
-;( )
-[   	
-OperationContract  	 
-]   
-List!! 
-<!! 
-String!! 
->!!  
-GetConnectedProfiles!! )
-(!!) *
-)!!* +
-;!!+ ,
-[## 	
-OperationContract##	 
-]## 
-bool$$ 
-IsAdmin$$ 
-($$ 
-string$$ 
-nickname$$ $
-)$$$ %
-;$$% &
-[&& 	
-OperationContract&&	 
-]&& 
-bool'' 
-IsBanned'' 
-('' 
-string'' 
-nickname'' %
-)''% &
-;''& '
+	 
+]
+
+ 
+string 
+GetAdmin 
+( 
+) 
+; 
+[ 	
+OperationContract	 
+] 
+List 
+< 
+String 
+> 
+GetBannedProfiles &
+(& '
+)' (
+;( )
+[ 	
+OperationContract	 
+] 
+List 
+< 
+String 
+>  
+GetConnectedProfiles )
+() *
+)* +
+;+ ,
+[ 	
+OperationContract	 
+] 
+bool 
+IsAdmin 
+( 
+string 
+nickname $
+)$ %
+;% &
+[ 	
+OperationContract	 
+] 
+bool 
+IsBanned 
+( 
+string 
+nickname %
+)% &
+;& '
+[ 	
+OperationContract	 
+] 
+bool 
+IsConnected 
+( 
+string 
+nickname  (
+)( )
+;) *
+[ 	
+OperationContract	 
+] 
+void "
+SetThePlayersAreInGame #
+(# $
+)$ %
+;% &
+[ 	
+OperationContract	 
+] 
+void   %
+SetThePlayersAreNotInGame   &
+(  & '
+)  ' (
+;  ( )
+["" 	
+OperationContract""	 
+]"" 
+bool## 
+ThePlayersAreInGame##  
+(##  !
+)##! "
+;##" #
+}$$ 
+[&& 
+ServiceContract&& 
+(&& 
+CallbackContract&& %
+=&&& '
+typeof&&( .
+(&&. /
+ILobbyCallback&&/ =
+)&&= >
+)&&> ?
+]&&? @
+public'' 
+
+	interface'' !
+ILobbyCallbackMethods'' *
+{(( 
 [)) 	
 OperationContract))	 
-])) 
-bool** 
-IsConnected** 
-(** 
-string** 
-nickname**  (
-)**( )
-;**) *
+()) 
+IsOneWay)) #
+=))$ %
+true))& *
+)))* +
+]))+ ,
+void** 
+	BanPlayer** 
+(** 
+string** 
+username** &
+)**& '
+;**' (
 [,, 	
 OperationContract,,	 
-],, 
-void-- "
-SetThePlayersAreInGame-- #
-(--# $
+(,, 
+IsOneWay,, #
+=,,$ %
+true,,& *
+),,* +
+],,+ ,
+void-- 
+Connect-- 
+(-- 
+string-- 
+username-- $
 )--$ %
 ;--% &
 [// 	
 OperationContract//	 
-]// 
-void00 %
-SetThePlayersAreNotInGame00 &
-(00& '
+(// 
+IsOneWay// #
+=//$ %
+true//& *
+)//* +
+]//+ ,
+void00 
+
+Disconnect00 
+(00 
+string00 
+username00 '
 )00' (
 ;00( )
 [22 	
 OperationContract22	 
-]22 
-bool33 
-ThePlayersAreInGame33  
-(33  !
-)33! "
-;33" #
-}44 
-[77 
-ServiceContract77 
-]77 
-public88 
+(22 
+IsOneWay22 #
+=22$ %
+true22& *
+)22* +
+]22+ ,
+void33 
+SetAdmin33 
+(33 
+string33 
+username33 %
+)33% &
+;33& '
+[55 	
+OperationContract55	 
+(55 
+IsOneWay55 #
+=55$ %
+true55& *
+)55* +
+]55+ ,
+void66 
+UnbanPlayer66 
+(66 
+string66 
+username66  (
+)66( )
+;66) *
+}77 
+[:: 
+ServiceContract:: 
+]:: 
+public;; 
 
-	interface88 $
-IMultiplayerGameCallback88 -
-{99 
-[:: 	
-OperationContract::	 
-(:: 
-IsOneWay:: #
-=::$ %
-true::& *
-)::* +
-]::+ ,
-void;; *
-ExpelPlayerFromMultiplayerGame;; +
-(;;+ ,
-);;, -
-;;;- .
+	interface;; 
+ILobbyCallback;; #
+{<< 
 [== 	
 OperationContract==	 
 (== 
@@ -539,11 +577,11 @@ Disconnect 
 true==& *
 )==* +
 ]==+ ,
-void>> %
-UpdateBannedProfilesLists>> &
-(>>& '
-)>>' (
-;>>( )
+void>> *
+ExpelPlayerFromMultiplayerGame>> +
+(>>+ ,
+)>>, -
+;>>- .
 [@@ 	
 OperationContract@@	 
 (@@ 
@@ -552,11 +590,11 @@ Disconnect 
 true@@& *
 )@@* +
 ]@@+ ,
-voidAA (
-UpdateConnectedProfilesListsAA )
-(AA) *
-)AA* +
-;AA+ ,
+voidAA %
+UpdateBannedProfilesListsAA &
+(AA& '
+)AA' (
+;AA( )
 [CC 	
 OperationContractCC	 
 (CC 
@@ -565,13 +603,26 @@ Disconnect 
 trueCC& *
 )CC* +
 ]CC+ ,
-voidDD 8
-,UpdateConnectedProfilesForInviteToLobbyListsDD 9
-(DD9 :
-)DD: ;
-;DD; <
-}EE 
-}GG ß%
+voidDD (
+UpdateConnectedProfilesListsDD )
+(DD) *
+)DD* +
+;DD+ ,
+[FF 	
+OperationContractFF	 
+(FF 
+IsOneWayFF #
+=FF$ %
+trueFF& *
+)FF* +
+]FF+ ,
+voidGG 8
+,UpdateConnectedProfilesForInviteToLobbyListsGG 9
+(GG9 :
+)GG: ;
+;GG; <
+}HH 
+}JJ ∂%
 aC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\IFriendRequest.cs
 	namespace 	
 ServicesTCP
@@ -584,8 +635,8 @@ aC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts
 ] 
 public		 
 
-	interface		 
-IFriendRequest		 #
+	interface		 ,
+ IFriendRequestNonCallbackMethods		 5
 {
 
  
@@ -723,90 +774,90 @@ LTheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile
 )++> ?
 ;++? @
 },, 
-[.. 
-ServiceContract.. 
-(.. 
-CallbackContract.. %
-=..& '
-typeof..( .
-(... /"
-IFriendRequestCallback../ E
-)..E F
-)..F G
-]..G H
-public// 
+[00 
+ServiceContract00 
+(00 
+CallbackContract00 %
+=00& '
+typeof00( .
+(00. /"
+IFriendRequestCallback00/ E
+)00E F
+)00F G
+]00G H
+public11 
 
-	interface// ,
- IFriendRequestForCallbackMethods// 5
-{00 
-[11 	
-OperationContract11	 
-(11 
-IsOneWay11 #
-=11$ %
-true11& *
-)11* +
-]11+ ,
-void22 
-Connect22 
-(22 
-string22 
-username22 $
-)22$ %
-;22% &
-[44 	
-OperationContract44	 
-(44 
-IsOneWay44 #
-=44$ %
-true44& *
-)44* +
-]44+ ,
-void55 
+	interface11 )
+IFriendRequestCallbackMethods11 2
+{22 
+[33 	
+OperationContract33	 
+(33 
+IsOneWay33 #
+=33$ %
+true33& *
+)33* +
+]33+ ,
+void44 
+Connect44 
+(44 
+string44 
+username44 $
+)44$ %
+;44% &
+[66 	
+OperationContract66	 
+(66 
+IsOneWay66 #
+=66$ %
+true66& *
+)66* +
+]66+ ,
+void77 
 
-Disconnect55 
-(55 
-string55 
-username55 '
-)55' (
-;55( )
-[77 	
-OperationContract77	 
-(77 
-IsOneWay77 #
-=77$ %
-true77& *
-)77* +
-]77+ ,
-void88 :
-.UpdateFriendRequestsListsToAllConnectedClients88 ;
-(88; <
-)88< =
-;88= >
-}99 
-[;; 
-ServiceContract;; 
-];; 
-public<< 
+Disconnect77 
+(77 
+string77 
+username77 '
+)77' (
+;77( )
+[99 	
+OperationContract99	 
+(99 
+IsOneWay99 #
+=99$ %
+true99& *
+)99* +
+]99+ ,
+void:: :
+.UpdateFriendRequestsListsToAllConnectedClients:: ;
+(::; <
+)::< =
+;::= >
+};; 
+[?? 
+ServiceContract?? 
+]?? 
+public@@ 
 
-	interface<< "
-IFriendRequestCallback<< +
-{== 
-[>> 	
-OperationContract>>	 
-(>> 
-IsOneWay>> #
-=>>$ %
-true>>& *
-)>>* +
-]>>+ ,
-void?? &
-UpdateFriendsRequestsLists?? '
-(??' (
-)??( )
-;??) *
-}@@ 
-}BB Ä
+	interface@@ "
+IFriendRequestCallback@@ +
+{AA 
+[BB 	
+OperationContractBB	 
+(BB 
+IsOneWayBB #
+=BB$ %
+trueBB& *
+)BB* +
+]BB+ ,
+voidCC &
+UpdateFriendsRequestsListsCC '
+(CC' (
+)CC( )
+;CC) *
+}DD 
+}FF œ
 hC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\IMultiplayerCrossword.cs
 	namespace 	
 ServicesTCP
@@ -816,99 +867,57 @@ hC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts
 { 
 [ 
 ServiceContract 
-( 
-CallbackContract %
-=& '
-typeof( .
-(. /)
-IMultiplayerCrosswordCallback/ L
-)L M
-)M N
-]N O
+] 
 public 
 
-	interface !
-IMultiplayerCrossword *
+	interface 3
+'IMultiplayerCrosswordNonCallbackMethods <
 { 
 [ 	
 OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void		 
-addPointsToProfile		 
-(		  
-string		  &
-userNickname		' 3
-,		3 4
-int		5 8
-points		9 ?
-)		? @
-;		@ A
+] 
+string		 
+GetAdmin		 
+(		 
+)		 
+;		 
 [ 	
 OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-Connect 
-( 
-string 
-username $
-)$ %
-;% &
+] 
+int !
+GetPointsFromAProfile !
+(! "
+string" (
+nickname) 1
+)1 2
+;2 3
 [ 	
 OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-
-Disconnect 
-( 
-string 
-username '
-)' (
-;( )
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-SetAdmin 
-( 
-string 
-username %
-)% &
-;& '
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-StartCountdown 
-( 
-int 
-totalSeconds  ,
-), -
-;- .
+] 
+void 
+SetAdmin 
+( 
+string 
+username %
+)% &
+;& '
+} 
+[ 
+ServiceContract 
+( 
+CallbackContract %
+=& '
+typeof( .
+(. /)
+IMultiplayerCrosswordCallback/ L
+)L M
+)M N
+]N O
+public 
+
+	interface 0
+$IMultiplayerCrosswordCallbackMethods 9
+{ 
 [ 	
 OperationContract	 
 ( 
@@ -917,849 +926,957 @@ Disconnect 
 true& *
 )* +
 ]+ ,
-void <
-0UpdateCrosswordsToProfilesToAllConnectedProfiles =
-(= >
-)> ?
-;? @
-} 
-[ 
-ServiceContract 
-] 
-public 
+void 
+AddPointsToProfile 
+(  
+string  &
+userNickname' 3
+,3 4
+int5 8
+points9 ?
+)? @
+;@ A
+[ 	
+OperationContract	 
+( 
+IsOneWay #
+=$ %
+true& *
+)* +
+]+ ,
+void 
+Connect 
+( 
+string 
+username $
+)$ %
+;% &
+[ 	
+OperationContract	 
+( 
+IsOneWay #
+=$ %
+true& *
+)* +
+]+ ,
+void 
+
+Disconnect 
+( 
+string 
+username '
+)' (
+;( )
+[   	
+OperationContract  	 
+(   
+IsOneWay   #
+=  $ %
+true  & *
+)  * +
+]  + ,
+void!! 
+StartCountdown!! 
+(!! 
+int!! 
+totalSeconds!!  ,
+)!!, -
+;!!- .
+[## 	
+OperationContract##	 
+(## 
+IsOneWay## #
+=##$ %
+true##& *
+)##* +
+]##+ ,
+void$$ <
+0UpdateCrosswordsToProfilesToAllConnectedProfiles$$ =
+($$= >
+)$$> ?
+;$$? @
+}%% 
+[)) 
+ServiceContract)) 
+])) 
+public** 
 
-	interface )
-IMultiplayerCrosswordCallback 2
-{ 
-[ 	
-OperationContract	 
-( 
-IsOneWay #
-=$ %
-true& *
-)* +
-]+ ,
-void 
-UpdateCountdown 
-( 
-int  
-seconds! (
-)( )
-;) *
-[!! 	
-OperationContract!!	 
-(!! 
-IsOneWay!! #
-=!!$ %
-true!!& *
-)!!* +
-]!!+ ,
-void"" 
-UpdateCrossword"" 
-("" 
-)"" 
-;"" 
-[$$ 	
-OperationContract$$	 
-($$ 
-IsOneWay$$ #
-=$$$ %
-true$$& *
-)$$* +
-]$$+ ,
-void%%  
-UpdateProfilesPoints%% !
-(%%! "
-)%%" #
-;%%# $
-}&& 
-}'' Ù
+	interface** )
+IMultiplayerCrosswordCallback** 2
+{++ 
+[,, 	
+OperationContract,,	 
+(,, 
+IsOneWay,, #
+=,,$ %
+true,,& *
+),,* +
+],,+ ,
+void-- 
+UpdateCountdown-- 
+(-- 
+int--  
+seconds--! (
+)--( )
+;--) *
+[// 	
+OperationContract//	 
+(// 
+IsOneWay// #
+=//$ %
+true//& *
+)//* +
+]//+ ,
+void00 
+UpdateCrossword00 
+(00 
+)00 
+;00 
+[22 	
+OperationContract22	 
+(22 
+IsOneWay22 #
+=22$ %
+true22& *
+)22* +
+]22+ ,
+void33  
+UpdateProfilesPoints33 !
+(33! "
+)33" #
+;33# $
+}44 
+}55 Ù
 ZC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\IPlayer.cs
-	namespace 	
-ServicesTCP
+	namespace 	
+ServicesTCP
  
-. 
-ServiceContracts &
-{ 
-[ 
-ServiceContract 
-] 
-public 
+. 
+ServiceContracts &
+{ 
+[		 
+ServiceContract		 
+]		 
+public
+
+ 
 
-	interface 
-IPlayer 
-{ 
+	interface
+
+ 
+IPlayer
+
+ 
+{ 
+[ 	
+OperationContract	 
+( 
+Name  
+=! "
+$str# .
+). /
+]/ 0
+long 
+	AddPlayer 
+( 
+Players 
+player %
+)% &
+;& '
+[ 	
+OperationContract	 
+( 
+Name  
+=! "
+$str# /
+)/ 0
+]0 1
+List 
+< 
+Players 
+> 
+
+GetPlayers  
+(  !
+)! "
+;" #
 [ 	
 OperationContract	 
 ( 
 Name  
 =! "
-$str# .
-). /
-]/ 0
-long 
-	AddPlayer 
-( 
-Players 
-player %
-)% &
-;& '
+$str# 2
+)2 3
+]3 4
+Player 
+GetPlayerByID 
+( 
+long !
+ID" $
+)$ %
+;% &
 [ 	
 OperationContract	 
 ( 
 Name  
 =! "
-$str# /
-)/ 0
-]0 1
+$str# 8
+)8 9
+]9 :
 List 
 < 
 Players 
-> 
-
-GetPlayers  
-(  !
-)! "
-;" #
+> 
+GetSpecifiedPlayers )
+() *
+string* 0
+name1 5
+)5 6
+;6 7
 [ 	
 OperationContract	 
-( 
-Name  
-=! "
-$str# 2
-)2 3
-]3 4
-Player 
-GetPlayerByID 
-( 
-long !
-ID" $
-)$ %
-;% &
+( 
+Name 
+=  !
+$str" 7
+)7 8
+]8 9
+Player 
+GetPlayerByNickname "
+(" #
+String# )
+nickname* 2
+)2 3
+;3 4
 [ 	
 OperationContract	 
-( 
-Name  
-=! "
-$str# 8
-)8 9
-]9 :
-List 
-< 
-Players 
-> 
-GetSpecifiedPlayers )
-() *
-string* 0
-name1 5
-)5 6
-;6 7
+( 
+Name 
+=  !
+$str" 0
+)0 1
+]1 2
+long 
+ModifyPlayer 
+( 
+Players !
+modifiedPlayer" 0
+)0 1
+;1 2
 [ 	
 OperationContract	 
 ( 
 Name 
 =  !
-$str" 7
-)7 8
-]8 9
-Player 
-GetPlayerByNickname "
+$str" 9
+)9 :
+]: ;
+void !
+ModifyPasswordByEmail "
 (" #
-String# )
-nickname* 2
-)2 3
-;3 4
+String# )
+originalEmail* 7
+,7 8
+String9 ?
+newPassword@ K
+)K L
+;L M
 [!! 	
 OperationContract!!	 
 (!! 
 Name!! 
 =!!  !
-$str!!" 0
-)!!0 1
-]!!1 2
-long"" 
-ModifyPlayer"" 
-("" 
-Players"" !
-modifiedPlayer""" 0
-)""0 1
-;""1 2
+$str!!" =
+)!!= >
+]!!> ?
+bool"" %
+TheEmailIsAlreadyRegisted"" &
+(""& '
+String""' -
+emailToSearch"". ;
+)""; <
+;""< =
 [$$ 	
 OperationContract$$	 
 ($$ 
 Name$$ 
 =$$  !
-$str$$" 9
-)$$9 :
-]$$: ;
-void%% !
-ModifyPasswordByEmail%% "
-(%%" #
-String%%# )
-originalEmail%%* 7
-,%%7 8
-String%%9 ?
-newPassword%%@ K
-)%%K L
-;%%L M
-['' 	
-OperationContract''	 
-('' 
-Name'' 
-=''  !
-$str''" =
-)''= >
-]''> ?
-bool(( %
-TheEmailIsAlreadyRegisted(( &
-(((& '
-String((' -
-emailToSearch((. ;
-)((; <
-;((< =
+$str$$" @
+)$$@ A
+]$$A B
+bool%% (
+TheNicknameIsAlreadyRegisted%% )
+(%%) *
+String%%* 0
+nicknameToSearch%%1 A
+)%%A B
+;%%B C
+}&& 
+public(( 
+
+	interface(( 
+IPlayerCallback(( $
+{)) 
 [** 	
 OperationContract**	 
-(** 
-Name** 
-=**  !
-$str**" @
-)**@ A
-]**A B
-bool++ (
-TheNicknameIsAlreadyRegisted++ )
-(++) *
-String++* 0
-nicknameToSearch++1 A
-)++A B
-;++B C
-},, 
-public.. 
-
-	interface.. 
-IPlayerCallback.. $
-{// 
-[00 	
-OperationContract00	 
-(00 
-IsOneWay00 $
-=00% &
-true00' +
-,00+ ,
-Name00- 1
-=002 3
-$str004 >
-)00> ?
-]00? @
-void11 
-Response11 
-(11 
-String11 
-response11 %
-)11% &
-;11& '
-}22 
-}33 ù*
+(** 
+IsOneWay** $
+=**% &
+true**' +
+,**+ ,
+Name**- 1
+=**2 3
+$str**4 >
+)**> ?
+]**? @
+void++ 
+Response++ 
+(++ 
+String++ 
+response++ %
+)++% &
+;++& '
+},, 
+}-- ¨*
 [C:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\ServiceContracts\IProfile.cs
-	namespace 	
-ServicesTCP
+	namespace 	
+ServicesTCP
  
-. 
-ServiceContracts &
-{ 
-[ 
-ServiceContract 
-] 
-public 
+. 
+ServiceContracts &
+{		 
+[
+
+ 
+ServiceContract
+
+ 
+]
+
+ 
+public 
 
-	interface 
-IProfile 
-{ 
-[ 	
-OperationContract	 
-] 
-long 
+	interface &
+IProfileNonCallbackMethods /
+{ 
+[ 	
+OperationContract	 
+] 
+long 
 
-AddProfile 
-( 
-Profiles  
-profiles! )
-)) *
-;* +
-[ 	
-OperationContract	 
-] 
-void 
-ChangeLoginStatus 
-(  
-ProfileLoginStatuses 3
-profileLoginStatus4 F
-,F G
-longH L
-	profileIDM V
-)V W
-;W X
-[ 	
-OperationContract	 
-] 
-List 
-< 
-Profile 
-> 
+AddProfile 
+( 
+Profiles  
+profiles! )
+)) *
+;* +
+[ 	
+OperationContract	 
+] 
+void 
+ChangeLoginStatus 
+(  
+ProfileLoginStatuses 3
+profileLoginStatus4 F
+,F G
+longH L
+	profileIDM V
+)V W
+;W X
+[ 	
+OperationContract	 
+] 
+List 
+< 
+Profile 
+> 
 
-GetFriends  
-(  !
-long! %
-	profileID& /
-)/ 0
-;0 1
-[ 	
-OperationContract	 
-] 
-byte 
-[ 
-] 
-GetImage 
-( 
-string 
-fileName '
-)' (
-;( )
-[ 	
-OperationContract	 
-] 
-Profile 
-GetProfileByID 
-( 
-long #
-	profileID$ -
-)- .
-;. /
-[!! 	
-OperationContract!!	 
-]!! 
-Profile""  
-GetProfileByPlayerID"" $
-(""$ %
-long""% )
-playerID""* 2
-)""2 3
-;""3 4
-[$$ 	
-OperationContract$$	 
-]$$ 
-Profile%% &
-GetProfileByPlayerNickname%% *
-(%%* +
-string%%+ 1
-nickname%%2 :
-)%%: ;
-;%%; <
-['' 	
-OperationContract''	 
-]'' 
-bool(( 
-ModifyImageName(( 
-((( 
-string(( #
-fileName(($ ,
-,((, -
-string((. 4
-newName((5 <
-)((< =
-;((= >
-[** 	
-OperationContract**	 
-]** 
-bool++ 
-TheProfileIsLogged++ 
-(++  
-long++  $
-	profileID++% .
-)++. /
-;++/ 0
-[-- 	
-OperationContract--	 
-]-- 
-bool.. 
-UploadImage.. 
-(.. 
-string.. 
-fileName..  (
-,..( )
-byte..* .
-[... /
-]../ 0
-	imageData..1 :
-)..: ;
-;..; <
-[00 	
-OperationContract00	 
-]00 
-void11 
-AddFriendship11 
-(11 
-Profiles11 #
-profiles11$ ,
-,11, -
-Profiles11. 6
-	profiles1117 @
-)11@ A
-;11A B
-[33 	
-OperationContract33	 
-]33 
-void44 
-CancelFriendship44 
-(44 
-Profiles44 &
-profiles44' /
-,44/ 0
-Profiles441 9
-	profiles144: C
-)44C D
-;44D E
-}55 
-[88 
-ServiceContract88 
-(88 
-CallbackContract88 %
-=88& '
-typeof88( .
-(88. /
-IProfileCallback88/ ?
-)88? @
-)88@ A
-]88A B
-public99 
-
-	interface99 &
-IProfileForCallbackMethods99 /
-{:: 
-[;; 	
-OperationContract;;	 
-(;; 
-IsOneWay;; #
-=;;$ %
-true;;& *
-);;* +
-];;+ ,
-void<< 
-Connect<< 
-(<< 
-string<< 
-username<< $
-)<<$ %
-;<<% &
-[>> 	
-OperationContract>>	 
-(>> 
-IsOneWay>> #
-=>>$ %
-true>>& *
-)>>* +
-]>>+ ,
-void?? 
-
-Disconnect?? 
-(?? 
-string?? 
-username?? '
-)??' (
-;??( )
-[AA 	
-OperationContractAA	 
-(AA 
-IsOneWayAA #
-=AA$ %
-trueAA& *
-)AA* +
-]AA+ ,
-voidBB 3
-'UpdateFriendsListsToAllConnectedClientsBB 4
-(BB4 5
-)BB5 6
-;BB6 7
-[DD 	
-OperationContractDD	 
-(DD 
-IsOneWayDD #
-=DD$ %
-trueDD& *
-)DD* +
-]DD+ ,
-voidEE "
-InviteFriendToTheLobbyEE #
-(EE# $
-StringEE$ *
-friendNicknameEE+ 9
-)EE9 :
-;EE: ;
-}FF 
-publicHH 
-
-	interfaceHH 
-IProfileCallbackHH %
-{II 
-[JJ 	
-OperationContractJJ	 
-(JJ 
-IsOneWayJJ #
-=JJ$ %
-trueJJ& *
-)JJ* +
-]JJ+ ,
-voidKK 
-UpdateFriendsListsKK 
-(KK  
-)KK  !
-;KK! "
-[MM 	
-OperationContractMM	 
-(MM 
-IsOneWayMM #
-=MM$ %
-trueMM& *
-)MM* +
-]MM+ ,
-voidNN '
-UpdateFriendsForInviteListsNN (
-(NN( )
-)NN) *
-;NN* +
-[PP 	
-OperationContractPP	 
-(PP 
-IsOneWayPP #
-=PP$ %
-truePP& *
-)PP* +
-]PP+ ,
-voidQQ $
-OpenPaneForEnterTheLobbyQQ %
-(QQ% &
-)QQ& '
-;QQ' (
-}RR 
-}SS Œ.
-VC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceChat.cs
-	namespace 	
-ServicesTCP
- 
-. 
-Services 
-{ 
-public 
-
-class 
-ServiceChat 
-: 
-IChat $
-{ 
-public 
-static 
-
-Dictionary  
-<  !
-string! '
-,' (
-IChatCallback) 6
->6 7
-connectedProfiles8 I
-=J K
-newL O
-
-DictionaryP Z
-<Z [
-string[ a
-,a b
-IChatCallbackc p
->p q
-(q r
-)r s
-;s t
-public 
-static 
-List 
-<  
-KeyValueDataContract /
->/ 0-
-!connectedProfilesAndTheirMessages1 R
-=S T
-newU X
-ListY ]
-<] ^ 
-KeyValueDataContract^ r
->r s
-(s t
-)t u
-;u v
-public 
-void 
-JoinChat 
-( 
-string #
-nickname$ ,
-), -
-{ 	
-IChatCallback 
-callback "
-=# $
-OperationContext% 5
-.5 6
-Current6 =
-.= >
-GetCallbackChannel> P
-<P Q
-IChatCallbackQ ^
->^ _
-(_ `
-)` a
-;a b
-if 
-( 
-! 
-connectedProfiles "
-." #
-ContainsKey# .
-(. /
-nickname/ 7
-)7 8
-)8 9
-{ 
-connectedProfiles !
-.! "
-Add" %
-(% &
-nickname& .
-,. /
-callback0 8
-)8 9
-;9 : 
-KeyValueDataContract $
-
-dictionary% /
-=0 1
-new2 5 
-KeyValueDataContract6 J
-{ 
-Key 
-= 
-$str '
-,' (
-Value   
-=   
-$"   
-{   
-nickname   '
-}  ' (
-$str  ( ?
-"  ? @
-}!! 
-;!! -
-!connectedProfilesAndTheirMessages"" 1
-.""1 2
-Add""2 5
-(""5 6
-
-dictionary""6 @
-)""@ A
-;""A B+
-UpdateChatToAllConectedProfiles$$ /
-($$/ 0
-)$$0 1
-;$$1 2
-}%% 
-}&& 	
-public'' 
-void'' 
-	LeaveChat'' 
-('' 
-string'' $
-nickname''% -
-)''- .
-{(( 	
-if** 
-(** 
-connectedProfiles** !
-.**! "
-ContainsKey**" -
-(**- .
-nickname**. 6
-)**6 7
-)**7 8
-{++ 
-connectedProfiles,, !
-.,,! "
-Remove,," (
-(,,( )
-nickname,,) 1
-),,1 2
-;,,2 3 
-KeyValueDataContract.. $
-
-dictionary..% /
-=..0 1
-new..2 5 
-KeyValueDataContract..6 J
-{// 
-Key00 
-=00 
-$str00 '
-,00' (
-Value11 
-=11 
-$"11 
-{11 
-nickname11 '
-}11' (
-$str11( 6
-"116 7
-}22 
-;22 -
-!connectedProfilesAndTheirMessages33 1
-.331 2
-Add332 5
-(335 6
-
-dictionary336 @
+GetFriends  
+(  !
+long! %
+	profileID& /
+)/ 0
+;0 1
+[ 	
+OperationContract	 
+] 
+byte 
+[ 
+] 
+GetImage 
+( 
+string 
+fileName '
+)' (
+;( )
+[ 	
+OperationContract	 
+] 
+Profile 
+GetProfileByID 
+( 
+long #
+	profileID$ -
+)- .
+;. /
+[ 	
+OperationContract	 
+] 
+Profile  
+GetProfileByPlayerID $
+($ %
+long% )
+playerID* 2
+)2 3
+;3 4
+[ 	
+OperationContract	 
+] 
+Profile   &
+GetProfileByPlayerNickname   *
+(  * +
+string  + 1
+nickname  2 :
+)  : ;
+;  ; <
+["" 	
+OperationContract""	 
+]"" 
+bool## 
+ModifyImageName## 
+(## 
+string## #
+fileName##$ ,
+,##, -
+string##. 4
+newName##5 <
+)##< =
+;##= >
+[%% 	
+OperationContract%%	 
+]%% 
+bool&& 
+TheProfileIsLogged&& 
+(&&  
+long&&  $
+	profileID&&% .
+)&&. /
+;&&/ 0
+[(( 	
+OperationContract((	 
+](( 
+bool)) 
+UploadImage)) 
+()) 
+string)) 
+fileName))  (
+,))( )
+byte))* .
+[)). /
+]))/ 0
+	imageData))1 :
+))): ;
+;)); <
+[++ 	
+OperationContract++	 
+]++ 
+void,, 
+AddFriendship,, 
+(,, 
+Profiles,, #
+profiles,,$ ,
+,,,, -
+Profiles,,. 6
+	profiles1,,7 @
+),,@ A
+;,,A B
+[.. 	
+OperationContract..	 
+].. 
+void// 
+CancelFriendship// 
+(// 
+Profiles// &
+profiles//' /
+,/// 0
+Profiles//1 9
+	profiles1//: C
+)//C D
+;//D E
+}00 
+[33 
+ServiceContract33 
+(33 
+CallbackContract33 %
+=33& '
+typeof33( .
+(33. /
+IProfileCallback33/ ?
+)33? @
 )33@ A
-;33A B+
-UpdateChatToAllConectedProfiles55 /
-(55/ 0
-)550 1
-;551 2
-if77 
-(77 
-!77 
-connectedProfiles77 &
-.77& '
-Any77' *
-(77* +
-)77+ ,
-)77, -
-{88 -
-!connectedProfilesAndTheirMessages99 5
-.995 6
-Clear996 ;
-(99; <
-)99< =
-;99= >
+]33A B
+public44 
+
+	interface44 #
+IProfileCallbackMethods44 ,
+{55 
+[66 	
+OperationContract66	 
+(66 
+IsOneWay66 #
+=66$ %
+true66& *
+)66* +
+]66+ ,
+void77 
+Connect77 
+(77 
+string77 
+username77 $
+)77$ %
+;77% &
+[99 	
+OperationContract99	 
+(99 
+IsOneWay99 #
+=99$ %
+true99& *
+)99* +
+]99+ ,
+void:: 
+
+Disconnect:: 
+(:: 
+string:: 
+username:: '
+)::' (
+;::( )
+[<< 	
+OperationContract<<	 
+(<< 
+IsOneWay<< #
+=<<$ %
+true<<& *
+)<<* +
+]<<+ ,
+void== "
+InviteFriendToTheLobby== #
+(==# $
+String==$ *
+friendNickname==+ 9
+)==9 :
+;==: ;
+[?? 	
+OperationContract??	 
+(?? 
+IsOneWay?? #
+=??$ %
+true??& *
+)??* +
+]??+ ,
+void@@ 3
+'UpdateFriendsListsToAllConnectedClients@@ 4
+(@@4 5
+)@@5 6
+;@@6 7
+}AA 
+publicCC 
+
+	interfaceCC 
+IProfileCallbackCC %
+{DD 
+[EE 	
+OperationContractEE	 
+(EE 
+IsOneWayEE #
+=EE$ %
+trueEE& *
+)EE* +
+]EE+ ,
+voidFF 
+UpdateFriendsListsFF 
+(FF  
+)FF  !
+;FF! "
+[HH 	
+OperationContractHH	 
+(HH 
+IsOneWayHH #
+=HH$ %
+trueHH& *
+)HH* +
+]HH+ ,
+voidII '
+UpdateFriendsForInviteListsII (
+(II( )
+)II) *
+;II* +
+[KK 	
+OperationContractKK	 
+(KK 
+IsOneWayKK #
+=KK$ %
+trueKK& *
+)KK* +
+]KK+ ,
+voidLL $
+OpenPaneForEnterTheLobbyLL %
+(LL% &
+)LL& '
+;LL' (
+}MM 
+}NN å5
+VC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceChat.cs
+	namespace 	
+ServicesTCP
+ 
+. 
+Services 
+{ 
+public		 
+
+class		 ,
+ ServiceChatForNonCallbackMethods		 1
+:		2 3#
+IChatNotCallbackMethods		4 K
+{
+
+ 
+private 
+readonly )
+ServiceChatForCallbackMethods 6)
+serviceChatForCallbackMethods7 T
+;T U
+public ,
+ ServiceChatForNonCallbackMethods /
+(/ 0
+)0 1
+{ 	)
+serviceChatForCallbackMethods )
+=* +
+new, /)
+ServiceChatForCallbackMethods0 M
+(M N
+)N O
+;O P
+} 	
+public 
+List 
+<  
+KeyValueDataContract (
+>( )0
+$GetConnectedProfilesAndTheirMessages* N
+(N O
+)O P
+{ 	
+return )
+serviceChatForCallbackMethods 0
+.0 10
+$GetConnectedProfilesAndTheirMessages1 U
+(U V
+)V W
+;W X
+} 	
+}"" 
+public&& 
+
+class&& )
+ServiceChatForCallbackMethods&& .
+:&&/ 0 
+IChatCallbackMethods&&1 E
+{'' 
+private(( 
+static(( 
+readonly(( 
+
+Dictionary((  *
+<((* +
+string((+ 1
+,((1 2
+IChatCallback((3 @
+>((@ A
+connectedProfiles((B S
+=((T U
+new((V Y
+
+Dictionary((Z d
+<((d e
+string((e k
+,((k l
+IChatCallback((m z
+>((z {
+((({ |
+)((| }
+;((} ~
+private)) 
+static)) 
+readonly)) 
+List))  $
+<))$ % 
+KeyValueDataContract))% 9
+>))9 :-
+!connectedProfilesAndTheirMessages)); \
+=))] ^
+new))_ b
+List))c g
+<))g h 
+KeyValueDataContract))h |
+>))| }
+())} ~
+)))~ 
+;	)) Ä
+public.. 
+void.. 
+JoinChat.. 
+(.. 
+string.. #
+nickname..$ ,
+).., -
+{// 	
+IChatCallback00 
+callback00 "
+=00# $
+OperationContext00% 5
+.005 6
+Current006 =
+.00= >
+GetCallbackChannel00> P
+<00P Q
+IChatCallback00Q ^
+>00^ _
+(00_ `
+)00` a
+;00a b
+if22 
+(22 
+!22 
+connectedProfiles22 "
+.22" #
+ContainsKey22# .
+(22. /
+nickname22/ 7
+)227 8
+)228 9
+{33 
+connectedProfiles44 !
+.44! "
+Add44" %
+(44% &
+nickname44& .
+,44. /
+callback440 8
+)448 9
+;449 : 
+KeyValueDataContract66 $
+
+dictionary66% /
+=660 1
+new662 5 
+KeyValueDataContract666 J
+{77 
+Key88 
+=88 
+$str88 '
+,88' (
+Value99 
+=99 
+$"99 
+{99 
+nickname99 '
+}99' (
+$str99( ?
+"99? @
 }:: 
-};; 
-}<< 	
-public>> 
-void>> 
-SendMessage>> 
-(>>  
-string>>  &
-senderNickname>>' 5
-,>>5 6
-string>>7 =
-message>>> E
-)>>E F
-{?? 	 
-KeyValueDataContract@@  
+;:: -
+!connectedProfilesAndTheirMessages;; 1
+.;;1 2
+Add;;2 5
+(;;5 6
 
-dictionary@@! +
-=@@, -
-new@@. 1 
-KeyValueDataContract@@2 F
-{AA 
-KeyBB 
-=BB 
-senderNicknameBB $
-,BB$ %
-ValueCC 
-=CC 
-messageCC 
-}DD 
-;DD -
-!connectedProfilesAndTheirMessagesEE -
-.EE- .
-AddEE. 1
-(EE1 2
+dictionary;;6 @
+);;@ A
+;;;A B+
+UpdateChatToAllConectedProfiles== /
+(==/ 0
+)==0 1
+;==1 2
+}>> 
+}?? 	
+public@@ 
+void@@ 
+	LeaveChat@@ 
+(@@ 
+string@@ $
+nickname@@% -
+)@@- .
+{AA 	
+ifCC 
+(CC 
+connectedProfilesCC !
+.CC! "
+ContainsKeyCC" -
+(CC- .
+nicknameCC. 6
+)CC6 7
+)CC7 8
+{DD 
+connectedProfilesEE !
+.EE! "
+RemoveEE" (
+(EE( )
+nicknameEE) 1
+)EE1 2
+;EE2 3 
+KeyValueDataContractGG $
 
-dictionaryEE2 <
-)EE< =
-;EE= >+
-UpdateChatToAllConectedProfilesGG +
-(GG+ ,
-)GG, -
-;GG- .
-}HH 	
-publicKK 
-ListKK 
-<KK  
-KeyValueDataContractKK (
->KK( )0
-$GetConnectedProfilesAndTheirMessagesKK* N
-(KKN O
-)KKO P
-{LL 	
-ListMM 
-<MM  
-KeyValueDataContractMM %
->MM% &
-resultMM' -
-=MM. /-
-!connectedProfilesAndTheirMessagesMM0 Q
-.MMQ R
-SelectMMR X
-(MMX Y
-kvMMY [
-=>MM\ ^
-newNN  
-KeyValueDataContractNN $
-{NN% &
-KeyNN' *
-=NN+ ,
-kvNN- /
-.NN/ 0
-KeyNN0 3
-,NN3 4
-ValueNN5 :
-=NN; <
-kvNN= ?
-.NN? @
-ValueNN@ E
-}NNF G
-)NNG H
-.NNH I
-ToListNNI O
-(NNO P
-)NNP Q
-;NNQ R
-returnPP 
-resultPP 
-;PP 
-}QQ 	
-privateUU 
-voidUU +
-UpdateChatToAllConectedProfilesUU 4
-(UU4 5
-)UU5 6
-{VV 	
-foreachWW 
-(WW 
-varWW 
-chatCallbackWW %
-inWW& (
-connectedProfilesWW) :
-.WW: ;
-ValuesWW; A
-)WWA B
-{XX 
-chatCallbackYY 
-.YY 
+dictionaryGG% /
+=GG0 1
+newGG2 5 
+KeyValueDataContractGG6 J
+{HH 
+KeyII 
+=II 
+$strII '
+,II' (
+ValueJJ 
+=JJ 
+$"JJ 
+{JJ 
+nicknameJJ '
+}JJ' (
+$strJJ( 6
+"JJ6 7
+}KK 
+;KK -
+!connectedProfilesAndTheirMessagesLL 1
+.LL1 2
+AddLL2 5
+(LL5 6
 
-UpdateChatYY '
-(YY' (
-)YY( )
-;YY) *
-}ZZ 
-}[[ 	
-}\\ 
-}]] …/
+dictionaryLL6 @
+)LL@ A
+;LLA B+
+UpdateChatToAllConectedProfilesNN /
+(NN/ 0
+)NN0 1
+;NN1 2
+ifPP 
+(PP 
+!PP 
+connectedProfilesPP &
+.PP& '
+AnyPP' *
+(PP* +
+)PP+ ,
+)PP, -
+{QQ -
+!connectedProfilesAndTheirMessagesRR 5
+.RR5 6
+ClearRR6 ;
+(RR; <
+)RR< =
+;RR= >
+}SS 
+}TT 
+}UU 	
+publicWW 
+voidWW 
+SendMessageWW 
+(WW  
+stringWW  &
+senderNicknameWW' 5
+,WW5 6
+stringWW7 =
+messageWW> E
+)WWE F
+{XX 	 
+KeyValueDataContractYY  
+
+dictionaryYY! +
+=YY, -
+newYY. 1 
+KeyValueDataContractYY2 F
+{ZZ 
+Key[[ 
+=[[ 
+senderNickname[[ $
+,[[$ %
+Value\\ 
+=\\ 
+message\\ 
+}]] 
+;]] -
+!connectedProfilesAndTheirMessages^^ -
+.^^- .
+Add^^. 1
+(^^1 2
+
+dictionary^^2 <
+)^^< =
+;^^= >+
+UpdateChatToAllConectedProfiles`` +
+(``+ ,
+)``, -
+;``- .
+}aa 	
+privategg 
+voidgg +
+UpdateChatToAllConectedProfilesgg 4
+(gg4 5
+)gg5 6
+{hh 	
+foreachii 
+(ii 
+varii 
+chatCallbackii %
+inii& (
+connectedProfilesii) :
+.ii: ;
+Valuesii; A
+)iiA B
+{jj 
+chatCallbackkk 
+.kk 
+
+UpdateChatkk '
+(kk' (
+)kk( )
+;kk) *
+}ll 
+}mm 	
+internalss 
+Listss 
+<ss  
+KeyValueDataContractss *
+>ss* +0
+$GetConnectedProfilesAndTheirMessagesss, P
+(ssP Q
+)ssQ R
+{tt 	
+returnuu -
+!connectedProfilesAndTheirMessagesuu 4
+;uu4 5
+}vv 	
+public|| 
+bool|| !
+TheProfileIsConnected|| )
+(||) *
+string||* 0
+username||1 9
+)||9 :
+{}} 	
+return~~ 
+connectedProfiles~~ $
+.~~$ %
+ContainsKey~~% 0
+(~~0 1
+username~~1 9
+)~~9 :
+;~~: ;
+} 	
+}
+ÅÅ 
+}ÇÇ ‘@
 fC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceMultiplayerCrossword.cs
 	namespace 	
 ServicesTCP
@@ -1769,1009 +1886,1475 @@ fC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\Service
 { 
 public		 
 
-class		 '
-ServiceMultiplayerCrossword		 ,
-:		- .!
-IMultiplayerCrossword		/ D
+class		 <
+0ServiceMultiplayerCrosswordForNonCallbackMethods		 A
+:		B C3
+'IMultiplayerCrosswordNonCallbackMethods		D k
 {
 
- 
-public 
-static 
-String 
-admin "
-;" #
-public 
-static 
+ 
+private 
+readonly 9
+-ServiceMultiplayerCrosswordForCallbackMethods F9
+-serviceMultiplayerCrosswordForCallbackMethodsG t
+;t u
+public <
+0ServiceMultiplayerCrosswordForNonCallbackMethods ?
+(? @
+)@ A
+{ 	9
+-serviceMultiplayerCrosswordForCallbackMethods 9
+=: ;
+new< ?9
+-ServiceMultiplayerCrosswordForCallbackMethods@ m
+(m n
+)n o
+;o p
+} 	
+public 
+string 
+GetAdmin 
+( 
+)  
+{ 	
+return 9
+-serviceMultiplayerCrosswordForCallbackMethods @
+.@ A
+GetAdminA I
+(I J
+)J K
+;K L
+} 	
+public 
+int !
+GetPointsFromAProfile (
+(( )
+string) /
+nickname0 8
+)8 9
+{ 	
+return 9
+-serviceMultiplayerCrosswordForCallbackMethods @
+.@ A!
+GetPointsFromAProfileA V
+(V W
+nicknameW _
+)_ `
+;` a
+}   	
+public"" 
+void"" 
+SetAdmin"" 
+("" 
+string"" #
+username""$ ,
+)"", -
+{## 	9
+-serviceMultiplayerCrosswordForCallbackMethods$$ 9
+.$$9 :
+SetAdmin$$: B
+($$B C
+username$$C K
+)$$K L
+;$$L M
+}%% 	
+},, 
+public00 
+
+class00 9
+-ServiceMultiplayerCrosswordForCallbackMethods00 >
+:00? @0
+$IMultiplayerCrosswordCallbackMethods00A e
+{11 
+private22 
+static22 
+string22 
+admin22 #
+;22# $
+private33 
+static33 
+readonly33 
 
-Dictionary  
-<  !
-string! '
-,' ()
-IMultiplayerCrosswordCallback) F
->F G
-connectedProfilesH Y
-=Z [
-new\ _
+Dictionary33  *
+<33* +
+string33+ 1
+,331 2)
+IMultiplayerCrosswordCallback333 P
+>33P Q
+connectedProfiles33R c
+=33d e
+new33f i
 
-Dictionary` j
-<j k
-stringk q
-,q r*
-IMultiplayerCrosswordCallback	s ê
+Dictionary33j t
+<33t u
+string33u {
+,33{ |*
+IMultiplayerCrosswordCallback	33} ö
 >
-ê ë
+33ö õ
 (
-ë í
+33õ ú
 )
-í ì
+33ú ù
 ;
-ì î
-public 
-static 
+33ù û
+private44 
+static44 
+readonly44 
 
-Dictionary  
-<  !
-string! '
-,' (
-int) ,
->, - 
-profilesAndItsPoints. B
-=C D
-newE H
+Dictionary44  *
+<44* +
+string44+ 1
+,441 2
+int443 6
+>446 7 
+profilesAndItsPoints448 L
+=44M N
+new44O R
 
-DictionaryI S
-<S T
-stringT Z
-,Z [
-int\ _
->_ `
-(` a
-)a b
-;b c
-public 
-static 
-bool 
-thePlayersAreInGame .
-=/ 0
-false1 6
-;6 7
-public 
-void 
-addPointsToProfile &
-(& '
-string' -
-userNickname. :
-,: ;
-int< ?
-points@ F
-)F G
-{ 	
-if 
-(  
-profilesAndItsPoints $
-.$ %
-ContainsKey% 0
-(0 1
-userNickname1 =
-)= >
-)> ?
-{  
-profilesAndItsPoints $
-[$ %
-userNickname% 1
-]1 2
-+=3 5
-points6 <
-;< =<
-0UpdateProfilesPointsListsForAllConnectedProfiles @
-(@ A
-)A B
-;B C
-} 
-} 	
-public 
-void 
-Connect 
-( 
-string "
-username# +
-)+ ,
-{ 	)
-IMultiplayerCrosswordCallback )
-callback* 2
-=3 4
-OperationContext5 E
-.E F
-CurrentF M
-.M N
-GetCallbackChannelN `
-<` a)
-IMultiplayerCrosswordCallbacka ~
->~ 
-(	 Ä
+Dictionary44S ]
+<44] ^
+string44^ d
+,44d e
+int44f i
+>44i j
+(44j k
+)44k l
+;44l m
+public88 
+void88 
+AddPointsToProfile88 &
+(88& '
+string88' -
+userNickname88. :
+,88: ;
+int88< ?
+points88@ F
+)88F G
+{99 	
+if:: 
+(::  
+profilesAndItsPoints:: $
+.::$ %
+ContainsKey::% 0
+(::0 1
+userNickname::1 =
+)::= >
+)::> ?
+{;;  
+profilesAndItsPoints<< $
+[<<$ %
+userNickname<<% 1
+]<<1 2
++=<<3 5
+points<<6 <
+;<<< =<
+0UpdateProfilesPointsListsForAllConnectedProfiles== @
+(==@ A
+)==A B
+;==B C
+}>> 
+}?? 	
+publicAA 
+voidAA 
+ConnectAA 
+(AA 
+stringAA "
+usernameAA# +
+)AA+ ,
+{BB 	)
+IMultiplayerCrosswordCallbackCC )
+callbackCC* 2
+=CC3 4
+OperationContextCC5 E
+.CCE F
+CurrentCCF M
+.CCM N
+GetCallbackChannelCCN `
+<CC` a)
+IMultiplayerCrosswordCallbackCCa ~
+>CC~ 
+(	CC Ä
 )
-Ä Å
+CCÄ Å
 ;
-Å Ç
-if 
-( 
-! 
-connectedProfiles "
-." #
-ContainsKey# .
-(. /
-username/ 7
-)7 8
-)8 9
-{ 
-connectedProfiles   !
-.  ! "
-Add  " %
-(  % &
-username  & .
-,  . /
-callback  0 8
-)  8 9
-;  9 : 
-profilesAndItsPoints!! $
-.!!$ %
-Add!!% (
-(!!( )
-username!!) 1
-,!!1 2
-$num!!3 4
-)!!4 5
-;!!5 6
-}"" 
-}## 	
-public%% 
-void%% 
+CCÅ Ç
+ifEE 
+(EE 
+!EE 
+connectedProfilesEE "
+.EE" #
+ContainsKeyEE# .
+(EE. /
+usernameEE/ 7
+)EE7 8
+)EE8 9
+{FF 
+connectedProfilesGG !
+.GG! "
+AddGG" %
+(GG% &
+usernameGG& .
+,GG. /
+callbackGG0 8
+)GG8 9
+;GG9 : 
+profilesAndItsPointsHH $
+.HH$ %
+AddHH% (
+(HH( )
+usernameHH) 1
+,HH1 2
+$numHH3 4
+)HH4 5
+;HH5 6
+}II 
+}JJ 	
+publicLL 
+voidLL 
 
-Disconnect%% 
-(%% 
-string%% %
-username%%& .
-)%%. /
-{&& 	
-if'' 
-('' 
-connectedProfiles'' !
-.''! "
-ContainsKey''" -
-(''- .
-username''. 6
-)''6 7
-)''7 8
-{(( 
-connectedProfiles)) !
-.))! "
-Remove))" (
-())( )
-username))) 1
-)))1 2
-;))2 3 
-profilesAndItsPoints** $
-.**$ %
-Remove**% +
-(**+ ,
-username**, 4
-)**4 5
-;**5 6
-}++ 
-},, 	
-public.. 
-void.. 
-SetAdmin.. 
-(.. 
-string.. #
-username..$ ,
-).., -
-{// 	
-admin00 
-=00 
-username00 
-;00 
-}11 	
-public44 
-void44 
-StartCountdown44 "
-(44" #
-int44# &
-totalSeconds44' 3
-)443 4
-{55 	
-for66 
-(66 
-int66 
-i66 
-=66 
-totalSeconds66 %
-;66% &
-i66' (
->=66) +
-$num66, -
-;66- .
-i66/ 0
---660 2
-)662 3
-{77 2
-&UpdateCountdownForAllConnectedProfiles88 6
-(886 7
-i887 8
-)888 9
-;889 :
-Thread99 
-.99 
-Sleep99 
-(99 
-$num99 !
-)99! "
-;99" #
-}:: 
-};; 	
-public== 
-void== <
-0UpdateCrosswordsToProfilesToAllConnectedProfiles== D
-(==D E
-)==E F
-{>> 	
-foreach?? 
-(?? 
-var?? 
-profile??  
-in??! #
-connectedProfiles??$ 5
-.??5 6
-Values??6 <
-)??< =
-{@@ 
-profileAA 
-.AA 
-UpdateCrosswordAA '
-(AA' (
-)AA( )
-;AA) *
-}BB 
-}CC 	
-privateII 
-voidII 2
-&UpdateCountdownForAllConnectedProfilesII ;
-(II; <
-intII< ?
-secondsII@ G
-)IIG H
-{JJ 	
-foreachKK 
-(KK 
-varKK 
-profileKK  
-inKK! #
-connectedProfilesKK$ 5
-.KK5 6
-ValuesKK6 <
-)KK< =
-{LL 
-profileMM 
-.MM 
-UpdateCountdownMM '
-(MM' (
-secondsMM( /
-)MM/ 0
-;MM0 1
-}NN 
-}OO 	
-privateQQ 
-voidQQ <
-0UpdateProfilesPointsListsForAllConnectedProfilesQQ E
-(QQE F
-)QQF G
-{RR 	
-foreachSS 
-(SS 
-varSS 
-profileSS  
-inSS! #
-connectedProfilesSS$ 5
-.SS5 6
-ValuesSS6 <
-)SS< =
-{TT 
-profileUU 
-.UU  
-UpdateProfilesPointsUU ,
-(UU, -
-)UU- .
-;UU. /
-}VV 
-}WW 	
-}XX 
-}YY ßW
-aC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceMultiplayerGame.cs
+DisconnectLL 
+(LL 
+stringLL %
+usernameLL& .
+)LL. /
+{MM 	
+ifNN 
+(NN 
+connectedProfilesNN !
+.NN! "
+ContainsKeyNN" -
+(NN- .
+usernameNN. 6
+)NN6 7
+)NN7 8
+{OO 
+connectedProfilesPP !
+.PP! "
+RemovePP" (
+(PP( )
+usernamePP) 1
+)PP1 2
+;PP2 3 
+profilesAndItsPointsQQ $
+.QQ$ %
+RemoveQQ% +
+(QQ+ ,
+usernameQQ, 4
+)QQ4 5
+;QQ5 6
+}RR 
+}SS 	
+publicVV 
+voidVV 
+StartCountdownVV "
+(VV" #
+intVV# &
+totalSecondsVV' 3
+)VV3 4
+{WW 	
+forXX 
+(XX 
+intXX 
+iXX 
+=XX 
+totalSecondsXX %
+;XX% &
+iXX' (
+>=XX) +
+$numXX, -
+;XX- .
+iXX/ 0
+--XX0 2
+)XX2 3
+{YY 2
+&UpdateCountdownForAllConnectedProfilesZZ 6
+(ZZ6 7
+iZZ7 8
+)ZZ8 9
+;ZZ9 :
+Thread[[ 
+.[[ 
+Sleep[[ 
+([[ 
+$num[[ !
+)[[! "
+;[[" #
+}\\ 
+}]] 	
+public__ 
+void__ <
+0UpdateCrosswordsToProfilesToAllConnectedProfiles__ D
+(__D E
+)__E F
+{`` 	
+foreachaa 
+(aa 
+varaa 
+profileaa  
+inaa! #
+connectedProfilesaa$ 5
+.aa5 6
+Valuesaa6 <
+)aa< =
+{bb 
+profilecc 
+.cc 
+UpdateCrosswordcc '
+(cc' (
+)cc( )
+;cc) *
+}dd 
+}ee 	
+privatell 
+voidll 2
+&UpdateCountdownForAllConnectedProfilesll ;
+(ll; <
+intll< ?
+secondsll@ G
+)llG H
+{mm 	
+foreachnn 
+(nn 
+varnn 
+profilenn  
+innn! #
+connectedProfilesnn$ 5
+.nn5 6
+Valuesnn6 <
+)nn< =
+{oo 
+profilepp 
+.pp 
+UpdateCountdownpp '
+(pp' (
+secondspp( /
+)pp/ 0
+;pp0 1
+}qq 
+}rr 	
+privatett 
+voidtt <
+0UpdateProfilesPointsListsForAllConnectedProfilestt E
+(ttE F
+)ttF G
+{uu 	
+foreachvv 
+(vv 
+varvv 
+profilevv  
+invv! #
+connectedProfilesvv$ 5
+.vv5 6
+Valuesvv6 <
+)vv< =
+{ww 
+profilexx 
+.xx  
+UpdateProfilesPointsxx ,
+(xx, -
+)xx- .
+;xx. /
+}yy 
+}zz 	
+internal
+ÄÄ 
+string
+ÄÄ 
+GetAdmin
+ÄÄ  
+(
+ÄÄ  !
+)
+ÄÄ! "
+{
+ÅÅ 	
+return
+ÇÇ 
+admin
+ÇÇ 
+;
+ÇÇ 
+}
+ÉÉ 	
+internal
+ÖÖ 
+int
+ÖÖ #
+GetPointsFromAProfile
+ÖÖ *
+(
+ÖÖ* +
+string
+ÖÖ+ 1
+nickname
+ÖÖ2 :
+)
+ÖÖ: ;
+{
+ÜÜ 	
+return
+áá "
+profilesAndItsPoints
+áá '
+[
+áá' (
+nickname
+áá( 0
+]
+áá0 1
+;
+áá1 2
+}
+àà 	
+internal
+ää 
+void
+ää 
+SetAdmin
+ää 
+(
+ää 
+string
+ää %
+username
+ää& .
+)
+ää. /
+{
+ãã 	
+admin
+åå 
+=
+åå 
+username
+åå 
+;
+åå 
+}
+çç 	
+}
+ïï 
+}ññ Ñs
+WC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceLobby.cs
 	namespace 	
 ServicesTCP
  
 . 
 Services 
 { 
-public
-
- 
+public		 
 
-class
+class		 -
+!ServiceLobbyForNonCallbackMethods		 2
+:		3 4$
+ILobbyNonCallbackMethods		5 M
+{
 
- "
-ServiceMultiplayerGame
-
- '
-:
-
-( )
-IMultiplayerGame
-
-* :
-{ 
-public 
-static 
-String 
-admin "
-;" #
-public 
-static 
-List 
-< 
-string !
->! "
-bannedProfiles# 1
-=2 3
-new4 7
-List8 <
-<< =
-string= C
->C D
-(D E
-)E F
-;F G
-public 
-static 
-
-Dictionary  
-<  !
-string! '
-,' ($
-IMultiplayerGameCallback) A
->A B
-connectedProfilesC T
-=U V
-newW Z
-
-Dictionary[ e
-<e f
-stringf l
-,l m%
-IMultiplayerGameCallback	n Ü
->
-Ü á
-(
-á à
-)
-à â
-;
-â ä
-public 
-static 
-bool 
-thePlayersAreInGame .
-=/ 0
-false1 6
-;6 7
-public 
-void 
-	BanPlayer 
-( 
-string $
-username% -
-)- .
-{ 	
-if 
-( 
-connectedProfiles !
-.! "
-ContainsKey" -
-(- .
-username. 6
-)6 7
-)7 8
-{ 
-if 
-( 
-! 
-bannedProfiles #
-.# $
-Contains$ ,
-(, -
-username- 5
-)5 6
-)6 7
-{ 
-connectedProfiles %
-[% &
-username& .
-]. /
-./ 0*
-ExpelPlayerFromMultiplayerGame0 N
-(N O
-)O P
-;P Q
-bannedProfiles "
-." #
-Add# &
-(& '
-username' /
-)/ 0
-;0 1
-connectedProfiles %
-.% &
-Remove& ,
-(, -
-username- 5
-)5 6
-;6 7:
-.UpdateBannedProfilesListsToAllConnectedClients B
-(B C
-)C D
-;D E=
-1UpdateConnectedProfilesListsToAllConnectedClients E
-(E F
-)F G
-;G HM
-AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients U
-(U V
-)V W
-;W X
-} 
-} 
+ 
+private 
+readonly *
+ServiceLobbyForCallbackMethods 7*
+serviceLobbyForCallbackMethods8 V
+;V W
+public -
+!ServiceLobbyForNonCallbackMethods 0
+(0 1
+)1 2
+{ 	*
+serviceLobbyForCallbackMethods *
+=+ ,
+new- 0*
+ServiceLobbyForCallbackMethods1 O
+(O P
+)P Q
+;Q R
+} 	
+public 
+string 
+GetAdmin 
+( 
+)  
+{ 	
+return *
+serviceLobbyForCallbackMethods 1
+.1 2
+GetAdmin2 :
+(: ;
+); <
+;< =
+} 	
+public 
+List 
+< 
+String 
+> 
+GetBannedProfiles -
+(- .
+). /
+{ 	
+return *
+serviceLobbyForCallbackMethods 1
+.1 2
+GetBannedProfiles2 C
+(C D
+)D E
+;E F
 }   	
 public"" 
-void"" 
-Connect"" 
-("" 
-string"" "
-username""# +
-)""+ ,
-{## 	$
-IMultiplayerGameCallback$$ $
-callback$$% -
-=$$. /
-OperationContext$$0 @
-.$$@ A
-Current$$A H
-.$$H I
-GetCallbackChannel$$I [
-<$$[ \$
-IMultiplayerGameCallback$$\ t
->$$t u
-($$u v
-)$$v w
-;$$w x
-if&& 
-(&& 
-!&& 
-connectedProfiles&& "
-.&&" #
-ContainsKey&&# .
-(&&. /
-username&&/ 7
-)&&7 8
-)&&8 9
-{'' 
-if(( 
-((( 
-!(( 
-connectedProfiles(( &
-.((& '
-Any((' *
-(((* +
-)((+ ,
-)((, -
-{)) 
-admin** 
-=** 
-username** $
-;**$ %
-}++ 
-connectedProfiles.. !
-...! "
-Add.." %
-(..% &
-username..& .
-,... /
-callback..0 8
-)..8 9
-;..9 :=
-1UpdateConnectedProfilesListsToAllConnectedClients// A
-(//A B
-)//B C
-;//C DM
-AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients00 Q
-(00Q R
-)00R S
-;00S T
-}11 
-}22 	
-public44 
-void44 
+List"" 
+<"" 
+String"" 
+>""  
+GetConnectedProfiles"" 0
+(""0 1
+)""1 2
+{## 	
+return$$ *
+serviceLobbyForCallbackMethods$$ 1
+.$$1 2 
+GetConnectedProfiles$$2 F
+($$F G
+)$$G H
+;$$H I
+}%% 	
+public'' 
+bool'' 
+IsAdmin'' 
+('' 
+string'' "
+nickname''# +
+)''+ ,
+{(( 	
+return)) *
+serviceLobbyForCallbackMethods)) 1
+.))1 2
+IsAdmin))2 9
+())9 :
+nickname)): B
+)))B C
+;))C D
+}** 	
+public,, 
+bool,, 
+IsBanned,, 
+(,, 
+string,, #
+nickname,,$ ,
+),,, -
+{-- 	
+return.. *
+serviceLobbyForCallbackMethods.. 1
+...1 2
+IsBanned..2 :
+(..: ;
+nickname..; C
+)..C D
+;..D E
+}// 	
+public11 
+bool11 
+IsConnected11 
+(11  
+string11  &
+nickname11' /
+)11/ 0
+{22 	
+return33 *
+serviceLobbyForCallbackMethods33 1
+.331 2
+IsConnected332 =
+(33= >
+nickname33> F
+)33F G
+;33G H
+}44 	
+public66 
+void66 "
+SetThePlayersAreInGame66 *
+(66* +
+)66+ ,
+{77 	*
+serviceLobbyForCallbackMethods88 *
+.88* +"
+SetThePlayersAreInGame88+ A
+(88A B
+)88B C
+;88C D
+}99 	
+public;; 
+void;; %
+SetThePlayersAreNotInGame;; -
+(;;- .
+);;. /
+{<< 	*
+serviceLobbyForCallbackMethods== *
+.==* +%
+SetThePlayersAreNotInGame==+ D
+(==D E
+)==E F
+;==F G
+}>> 	
+public@@ 
+bool@@ 
+ThePlayersAreInGame@@ '
+(@@' (
+)@@( )
+{AA 	
+returnBB *
+serviceLobbyForCallbackMethodsBB 1
+.BB1 2
+ThePlayersAreInGameBB2 E
+(BBE F
+)BBF G
+;BBG H
+}CC 	
+}JJ 
+publicNN 
+
+partialNN 
+classNN *
+ServiceLobbyForCallbackMethodsNN 7
+:NN8 9!
+ILobbyCallbackMethodsNN: O
+{OO 
+privatePP 
+staticPP 
+stringPP 
+adminPP #
+;PP# $
+privateQQ 
+staticQQ 
+readonlyQQ 
+ListQQ  $
+<QQ$ %
+stringQQ% +
+>QQ+ ,
+bannedProfilesQQ- ;
+=QQ< =
+newQQ> A
+ListQQB F
+<QQF G
+stringQQG M
+>QQM N
+(QQN O
+)QQO P
+;QQP Q
+privateRR 
+staticRR 
+readonlyRR 
 
-Disconnect44 
-(44 
-string44 %
-username44& .
-)44. /
-{55 	
-if66 
-(66 
-connectedProfiles66 !
-.66! "
-ContainsKey66" -
-(66- .
-username66. 6
-)666 7
-)667 8
-{77 
-connectedProfiles88 !
-.88! "
-Remove88" (
-(88( )
-username88) 1
-)881 2
-;882 3
-if:: 
-(:: 
-connectedProfiles:: %
-.::% &
-Any::& )
-(::) *
-)::* +
-)::+ ,
-{;; 
-admin<< 
-=<< 
-connectedProfiles<< -
-.<<- .
-Keys<<. 2
-.<<2 3
-First<<3 8
-(<<8 9
-)<<9 :
-;<<: ;
-}== 
-else>> 
-{?? 
-bannedProfiles@@ "
-.@@" #
-Clear@@# (
-(@@( )
-)@@) *
-;@@* +
-}AA =
-1UpdateConnectedProfilesListsToAllConnectedClientsCC A
-(CCA B
-)CCB C
-;CCC DM
-AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClientsDD Q
-(DDQ R
-)DDR S
-;DDS T
-}EE 
-}FF 	
-publicHH 
-voidHH 
-SetAdminHH 
-(HH 
-stringHH #
-usernameHH$ ,
-)HH, -
-{II 	
-adminJJ 
-=JJ 
-usernameJJ 
-;JJ =
-1UpdateConnectedProfilesListsToAllConnectedClientsKK =
-(KK= >
-)KK> ?
-;KK? @
-}LL 	
-publicNN 
-voidNN 
-UnbanPlayerNN 
-(NN  
-stringNN  &
-usernameNN' /
-)NN/ 0
-{OO 	
-ifPP 
-(PP 
-bannedProfilesPP 
-.PP 
-ContainsPP '
-(PP' (
-usernamePP( 0
-)PP0 1
-)PP1 2
-{QQ 
-bannedProfilesRR 
-.RR 
-RemoveRR %
-(RR% &
-usernameRR& .
-)RR. /
-;RR/ 0:
-.UpdateBannedProfilesListsToAllConnectedClientsSS >
-(SS> ?
-)SS? @
-;SS@ A=
-1UpdateConnectedProfilesListsToAllConnectedClientsTT A
-(TTA B
-)TTB C
-;TTC D
-}UU 
-}VV 	
-privateXX 
-voidXX :
-.UpdateBannedProfilesListsToAllConnectedClientsXX C
-(XXC D
-)XXD E
-{YY 	
-foreachZZ 
-(ZZ 
-varZZ #
-multiplayerGameCallbackZZ 0
-inZZ1 3
-connectedProfilesZZ4 E
-.ZZE F
-ValuesZZF L
-)ZZL M
-{[[ #
-multiplayerGameCallback\\ '
-.\\' (%
-UpdateBannedProfilesLists\\( A
-(\\A B
-)\\B C
-;\\C D
-}]] 
-}^^ 	
-private`` 
-void`` =
-1UpdateConnectedProfilesListsToAllConnectedClients`` F
-(``F G
-)``G H
-{aa 	
-foreachbb 
-(bb 
-varbb #
-multiplayerGameCallbackbb 0
-inbb1 3
-connectedProfilesbb4 E
-.bbE F
-ValuesbbF L
-)bbL M
-{cc #
-multiplayerGameCallbackdd '
-.dd' ((
-UpdateConnectedProfilesListsdd( D
-(ddD E
-)ddE F
-;ddF G
-}ee 
-}ff 	
-privatehh 
-voidhh M
-AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClientshh V
-(hhV W
-)hhW X
-{ii 	
-foreachjj 
-(jj 
-varjj #
-multiplayerGameCallbackjj 0
-injj1 3
-connectedProfilesjj4 E
-.jjE F
-ValuesjjF L
-)jjL M
-{kk #
-multiplayerGameCallbackll '
-.ll' (8
-,UpdateConnectedProfilesForInviteToLobbyListsll( T
-(llT U
-)llU V
-;llV W
-}mm 
-}nn 	
-publicrr 
-Listrr 
-<rr 
-Stringrr 
->rr 
-GetBannedProfilesrr -
-(rr- .
-)rr. /
-{ss 	
-returntt 
-bannedProfilestt "
-;tt" #
-}uu 	
-publicww 
-Listww 
-<ww 
-Stringww 
->ww  
-GetConnectedProfilesww 0
-(ww0 1
-)ww1 2
-{xx 	
-Listyy 
-<yy 
-Stringyy 
->yy !
-connectedProfilesListyy .
-=yy/ 0
-newyy1 4
-Listyy5 9
-<yy9 :
-stringyy: @
->yy@ A
-(yyA B
-)yyB C
-;yyC D
-foreachzz 
-(zz 
-varzz 
-connectedProfilezz )
-inzz* ,
-connectedProfileszz- >
-.zz> ?
-Keyszz? C
-)zzC D
-{{{ !
-connectedProfilesList|| %
-.||% &
-Add||& )
-(||) *
-connectedProfile||* :
-)||: ;
-;||; <
-}}} 
-return !
-connectedProfilesList (
-;( )
-}
-ÄÄ 	
-public
-ÇÇ 
-bool
-ÇÇ 
-IsAdmin
-ÇÇ 
-(
-ÇÇ 
-string
-ÇÇ "
-nickname
-ÇÇ# +
-)
-ÇÇ+ ,
+DictionaryRR  *
+<RR* +
+stringRR+ 1
+,RR1 2
+ILobbyCallbackRR3 A
+>RRA B
+connectedProfilesRRC T
+=RRU V
+newRRW Z
+
+DictionaryRR[ e
+<RRe f
+stringRRf l
+,RRl m
+ILobbyCallbackRRn |
+>RR| }
+(RR} ~
+)RR~ 
+;	RR Ä
+privateSS 
+staticSS 
+boolSS 
+thePlayersAreInGameSS /
+=SS0 1
+falseSS2 7
+;SS7 8
+publicWW 
+voidWW 
+	BanPlayerWW 
+(WW 
+stringWW $
+usernameWW% -
+)WW- .
+{XX 	
+ifYY 
+(YY 
+connectedProfilesYY !
+.YY! "
+ContainsKeyYY" -
+(YY- .
+usernameYY. 6
+)YY6 7
+)YY7 8
+{ZZ 
+if[[ 
+([[ 
+![[ 
+bannedProfiles[[ #
+.[[# $
+Contains[[$ ,
+([[, -
+username[[- 5
+)[[5 6
+)[[6 7
+{\\ 
+connectedProfiles]] %
+[]]% &
+username]]& .
+]]]. /
+.]]/ 0*
+ExpelPlayerFromMultiplayerGame]]0 N
+(]]N O
+)]]O P
+;]]P Q
+bannedProfiles^^ "
+.^^" #
+Add^^# &
+(^^& '
+username^^' /
+)^^/ 0
+;^^0 1
+connectedProfiles__ %
+.__% &
+Remove__& ,
+(__, -
+username__- 5
+)__5 6
+;__6 7:
+.UpdateBannedProfilesListsToAllConnectedClients`` B
+(``B C
+)``C D
+;``D E=
+1UpdateConnectedProfilesListsToAllConnectedClientsaa E
+(aaE F
+)aaF G
+;aaG HM
+AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClientsbb U
+(bbU V
+)bbV W
+;bbW X
+}cc 
+}dd 
+}ee 	
+publicgg 
+voidgg 
+Connectgg 
+(gg 
+stringgg "
+usernamegg# +
+)gg+ ,
+{hh 	
+ILobbyCallbackii 
+callbackii #
+=ii$ %
+OperationContextii& 6
+.ii6 7
+Currentii7 >
+.ii> ?
+GetCallbackChannelii? Q
+<iiQ R
+ILobbyCallbackiiR `
+>ii` a
+(iia b
+)iib c
+;iic d
+ifkk 
+(kk 
+!kk 
+connectedProfileskk "
+.kk" #
+ContainsKeykk# .
+(kk. /
+usernamekk/ 7
+)kk7 8
+)kk8 9
+{ll 
+ifmm 
+(mm 
+!mm 
+connectedProfilesmm &
+.mm& '
+Anymm' *
+(mm* +
+)mm+ ,
+)mm, -
+{nn 
+adminoo 
+=oo 
+usernameoo $
+;oo$ %
+}pp 
+connectedProfilesss !
+.ss! "
+Addss" %
+(ss% &
+usernamess& .
+,ss. /
+callbackss0 8
+)ss8 9
+;ss9 :=
+1UpdateConnectedProfilesListsToAllConnectedClientstt A
+(ttA B
+)ttB C
+;ttC DM
+AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClientsuu Q
+(uuQ R
+)uuR S
+;uuS T
+}vv 
+}ww 	
+publicyy 
+voidyy 
+
+Disconnectyy 
+(yy 
+stringyy %
+usernameyy& .
+)yy. /
+{zz 	
+if{{ 
+({{ 
+connectedProfiles{{ !
+.{{! "
+ContainsKey{{" -
+({{- .
+username{{. 6
+){{6 7
+){{7 8
+{|| 
+connectedProfiles}} !
+.}}! "
+Remove}}" (
+(}}( )
+username}}) 1
+)}}1 2
+;}}2 3
+if 
+( 
+connectedProfiles %
+.% &
+Any& )
+() *
+)* +
+)+ ,
 {
-ÉÉ 	
-if
-ÑÑ 
-(
-ÑÑ 
+ÄÄ 
 admin
-ÑÑ 
-!=
-ÑÑ 
-null
-ÑÑ 
-&&
-ÑÑ  
-nickname
-ÑÑ! )
-==
-ÑÑ* ,
-admin
-ÑÑ- 2
-)
-ÑÑ2 3
-{
-ÖÖ 
-return
-ÜÜ 
-true
-ÜÜ 
-;
-ÜÜ 
-}
-áá 
-return
-ââ 
-false
-ââ 
-;
-ââ 
-}
-ää 	
-public
-åå 
-bool
-åå 
-IsBanned
-åå 
-(
-åå 
-string
-åå #
-nickname
-åå$ ,
-)
-åå, -
-{
-çç 	
-if
-éé 
-(
-éé 
-bannedProfiles
-éé 
-.
-éé 
-Contains
-éé '
-(
-éé' (
-nickname
-éé( 0
-)
-éé0 1
-)
-éé1 2
-{
-èè 
-return
-êê 
-true
-êê 
-;
-êê 
-}
-ëë 
-return
-ìì 
-false
-ìì 
-;
-ìì 
-}
-îî 	
-public
-ññ 
-bool
-ññ 
-IsConnected
-ññ 
-(
-ññ  
-string
-ññ  &
-nickname
-ññ' /
-)
-ññ/ 0
-{
-óó 	
-if
-òò 
-(
-òò 
+ÅÅ 
+=
+ÅÅ 
 connectedProfiles
-òò !
+ÅÅ -
 .
-òò! "
-ContainsKey
-òò" -
+ÅÅ- .
+Keys
+ÅÅ. 2
+.
+ÅÅ2 3
+First
+ÅÅ3 8
 (
-òò- .
-nickname
-òò. 6
+ÅÅ8 9
 )
-òò6 7
-)
-òò7 8
+ÅÅ9 :
+;
+ÅÅ: ;
+}
+ÇÇ 
+else
+ÉÉ 
 {
-ôô 
-return
-öö 
-true
-öö 
+ÑÑ 
+bannedProfiles
+ÖÖ "
+.
+ÖÖ" #
+Clear
+ÖÖ# (
+(
+ÖÖ( )
+)
+ÖÖ) *
 ;
-öö 
+ÖÖ* +
 }
-õõ 
-return
-ùù 
-false
-ùù 
+ÜÜ ?
+1UpdateConnectedProfilesListsToAllConnectedClients
+àà A
+(
+ààA B
+)
+ààB C
 ;
-ùù 
+ààC DO
+AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients
+ââ Q
+(
+ââQ R
+)
+ââR S
+;
+ââS T
 }
-ûû 	
+ää 
+}
+ãã 	
 public
-†† 
+çç 
 void
-†† $
-SetThePlayersAreInGame
-†† *
+çç 
+SetAdmin
+çç 
 (
-††* +
+çç 
+string
+çç #
+username
+çç$ ,
 )
-††+ ,
+çç, -
 {
-°° 	!
-thePlayersAreInGame
-¢¢ 
+éé 	
+admin
+èè 
 =
-¢¢  !
-true
-¢¢" &
+èè 
+username
+èè 
 ;
-¢¢& '
+èè ?
+1UpdateConnectedProfilesListsToAllConnectedClients
+êê =
+(
+êê= >
+)
+êê> ?
+;
+êê? @
 }
-££ 	
+ëë 	
 public
-•• 
+ìì 
 void
-•• '
-SetThePlayersAreNotInGame
-•• -
+ìì 
+UnbanPlayer
+ìì 
 (
-••- .
+ìì  
+string
+ìì  &
+username
+ìì' /
 )
-••. /
+ìì/ 0
 {
-¶¶ 	!
-thePlayersAreInGame
-ßß 
-=
-ßß  !
-false
-ßß" '
+îî 	
+if
+ïï 
+(
+ïï 
+bannedProfiles
+ïï 
+.
+ïï 
+Contains
+ïï '
+(
+ïï' (
+username
+ïï( 0
+)
+ïï0 1
+)
+ïï1 2
+{
+ññ 
+bannedProfiles
+óó 
+.
+óó 
+Remove
+óó %
+(
+óó% &
+username
+óó& .
+)
+óó. /
 ;
-ßß' (
+óó/ 0<
+.UpdateBannedProfilesListsToAllConnectedClients
+òò >
+(
+òò> ?
+)
+òò? @
+;
+òò@ A?
+1UpdateConnectedProfilesListsToAllConnectedClients
+ôô A
+(
+ôôA B
+)
+ôôB C
+;
+ôôC D
 }
-®® 	
-public
-™™ 
+öö 
+}
+õõ 	
+private
+°° 
+void
+°° <
+.UpdateBannedProfilesListsToAllConnectedClients
+°° C
+(
+°°C D
+)
+°°D E
+{
+¢¢ 	
+foreach
+££ 
+(
+££ 
+var
+££ %
+multiplayerGameCallback
+££ 0
+in
+££1 3
+connectedProfiles
+££4 E
+.
+££E F
+Values
+££F L
+)
+££L M
+{
+§§ %
+multiplayerGameCallback
+•• '
+.
+••' ('
+UpdateBannedProfilesLists
+••( A
+(
+••A B
+)
+••B C
+;
+••C D
+}
+¶¶ 
+}
+ßß 	
+private
+©© 
+void
+©© ?
+1UpdateConnectedProfilesListsToAllConnectedClients
+©© F
+(
+©©F G
+)
+©©G H
+{
+™™ 	
+foreach
+´´ 
+(
+´´ 
+var
+´´ %
+multiplayerGameCallback
+´´ 0
+in
+´´1 3
+connectedProfiles
+´´4 E
+.
+´´E F
+Values
+´´F L
+)
+´´L M
+{
+¨¨ %
+multiplayerGameCallback
+≠≠ '
+.
+≠≠' (*
+UpdateConnectedProfilesLists
+≠≠( D
+(
+≠≠D E
+)
+≠≠E F
+;
+≠≠F G
+}
+ÆÆ 
+}
+ØØ 	
+private
+±± 
+void
+±± O
+AUpdateConnectedProfilesForInviteToLobbyListsToAllConnectedClients
+±± V
+(
+±±V W
+)
+±±W X
+{
+≤≤ 	
+foreach
+≥≥ 
+(
+≥≥ 
+var
+≥≥ %
+multiplayerGameCallback
+≥≥ 0
+in
+≥≥1 3
+connectedProfiles
+≥≥4 E
+.
+≥≥E F
+Values
+≥≥F L
+)
+≥≥L M
+{
+¥¥ %
+multiplayerGameCallback
+µµ '
+.
+µµ' (:
+,UpdateConnectedProfilesForInviteToLobbyLists
+µµ( T
+(
+µµT U
+)
+µµU V
+;
+µµV W
+}
+∂∂ 
+}
+∑∑ 	
+internal
+ΩΩ 
+string
+ΩΩ 
+GetAdmin
+ΩΩ  
+(
+ΩΩ  !
+)
+ΩΩ! "
+{
+ææ 	
+return
+øø 
+admin
+øø 
+;
+øø 
+}
+¿¿ 	
+internal
+¬¬ 
+List
+¬¬ 
+<
+¬¬ 
+String
+¬¬ 
+>
+¬¬ 
+GetBannedProfiles
+¬¬ /
+(
+¬¬/ 0
+)
+¬¬0 1
+{
+√√ 	
+return
+ƒƒ 
+bannedProfiles
+ƒƒ !
+;
+ƒƒ! "
+}
+≈≈ 	
+internal
+«« 
+List
+«« 
+<
+«« 
+String
+«« 
+>
+«« "
+GetConnectedProfiles
+«« 2
+(
+««2 3
+)
+««3 4
+{
+»» 	
+List
+…… 
+<
+…… 
+String
+…… 
+>
+…… #
+connectedProfilesList
+…… .
+=
+……/ 0
+new
+……1 4
+List
+……5 9
+<
+……9 :
+string
+……: @
+>
+……@ A
+(
+……A B
+)
+……B C
+;
+……C D
+foreach
+   
+(
+   
+var
+   
+connectedProfile
+   )
+in
+  * ,
+connectedProfiles
+  - >
+.
+  > ?
+Keys
+  ? C
+)
+  C D
+{
+ÀÀ #
+connectedProfilesList
+ÃÃ %
+.
+ÃÃ% &
+Add
+ÃÃ& )
+(
+ÃÃ) *
+connectedProfile
+ÃÃ* :
+)
+ÃÃ: ;
+;
+ÃÃ; <
+}
+ÕÕ 
+return
+œœ #
+connectedProfilesList
+œœ (
+;
+œœ( )
+}
+–– 	
+internal
+““ 
 bool
-™™ !
-ThePlayersAreInGame
-™™ '
+““ 
+IsAdmin
+““ 
 (
-™™' (
+““ 
+string
+““ $
+nickname
+““% -
 )
-™™( )
+““- .
 {
-´´ 	
+”” 	
 return
-¨¨ !
-thePlayersAreInGame
-¨¨ &
+‘‘ 
+admin
+‘‘ 
+!=
+‘‘ 
+null
+‘‘  
+&&
+‘‘! #
+nickname
+‘‘$ ,
+==
+‘‘- /
+admin
+‘‘0 5
 ;
-¨¨& '
+‘‘5 6
 }
-≠≠ 	
+’’ 	
+internal
+◊◊ 
+bool
+◊◊ 
+IsBanned
+◊◊ 
+(
+◊◊ 
+string
+◊◊ %
+nickname
+◊◊& .
+)
+◊◊. /
+{
+ÿÿ 	
+return
+ŸŸ 
+bannedProfiles
+ŸŸ !
+.
+ŸŸ! "
+Contains
+ŸŸ" *
+(
+ŸŸ* +
+nickname
+ŸŸ+ 3
+)
+ŸŸ3 4
+;
+ŸŸ4 5
 }
-ÆÆ 
-}ØØ å—
+⁄⁄ 	
+internal
+‹‹ 
+bool
+‹‹ 
+IsConnected
+‹‹ !
+(
+‹‹! "
+string
+‹‹" (
+nickname
+‹‹) 1
+)
+‹‹1 2
+{
+›› 	
+return
+ﬁﬁ 
+connectedProfiles
+ﬁﬁ $
+.
+ﬁﬁ$ %
+ContainsKey
+ﬁﬁ% 0
+(
+ﬁﬁ0 1
+nickname
+ﬁﬁ1 9
+)
+ﬁﬁ9 :
+;
+ﬁﬁ: ;
+}
+ﬂﬂ 	
+internal
+·· 
+void
+·· $
+SetThePlayersAreInGame
+·· ,
+(
+··, -
+)
+··- .
+{
+‚‚ 	!
+thePlayersAreInGame
+„„ 
+=
+„„  !
+true
+„„" &
+;
+„„& '
+}
+‰‰ 	
+internal
+ÊÊ 
+void
+ÊÊ '
+SetThePlayersAreNotInGame
+ÊÊ /
+(
+ÊÊ/ 0
+)
+ÊÊ0 1
+{
+ÁÁ 	!
+thePlayersAreInGame
+ËË 
+=
+ËË  !
+false
+ËË" '
+;
+ËË' (
+}
+ÈÈ 	
+internal
+ÎÎ 
+bool
+ÎÎ !
+ThePlayersAreInGame
+ÎÎ )
+(
+ÎÎ) *
+)
+ÎÎ* +
+{
+ÏÏ 	
+return
+ÌÌ !
+thePlayersAreInGame
+ÌÌ &
+;
+ÌÌ& '
+}
+ÓÓ 	
+}
+ıı 
+}ˆˆ †¬
 _C:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceFriendRequest.cs
 	namespace 	
 ServicesTCP
@@ -2781,550 +3364,3712 @@ _C:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\Service
 { 
 public 
 
-class  
-ServiceFriendRequest %
-:& '
-IFriendRequest( 6
+class 5
+)ServiceFriendRequestForNonCallbackMethods :
+:; <,
+ IFriendRequestNonCallbackMethods= ]
 { 
-public 
-List 
-< 
-FriendRequests "
->" #)
-GetFriendsRequestsByProfileID$ A
-(A B
-longB F
-IDG I
-)I J
-{ 	
-List 
-< 
-FriendRequests 
->  
-friendRequests! /
-=0 1
-new2 5
-List6 :
-<: ;
-FriendRequests; I
->I J
-(J K
-)K L
-;L M
-try 
-{ "
-DatabaseModelContainer &"
-databaseModelContainer' =
-=> ?
-new@ C"
-DatabaseModelContainerD Z
-(Z [
-)[ \
-;\ ]
-friendRequests 
-=  "
-databaseModelContainer! 7
-.7 8
-FriendRequestsSet8 I
-.I J
-WhereJ O
-(O P
-eP Q
-=>R T
-eU V
-.V W
-ProfilesW _
-._ `
-	IDProfile` i
-==j l
-IDm o
-)o p
-.p q
-ToListq w
-(w x
-)x y
-;y z
-} 
-catch 
-( 
-	Exception 
-ex 
-)  
-{ 
-Console 
-. 
-	WriteLine !
-(! "
-ex" $
-.$ %
-ToString% -
-(- .
-). /
-)/ 0
-;0 1
-} 
-return!! 
-friendRequests!! !
-;!!! "
-}"" 	
-public$$ 
-List$$ 
-<$$ 
-FriendRequests$$ "
->$$" #*
-GetFriendsRequestsByProfile1ID$$$ B
-($$B C
-long$$C G
-ID$$H J
-)$$J K
-{%% 	
-List&& 
-<&& 
-FriendRequests&& 
->&&  
-friendRequests&&! /
-=&&0 1
-new&&2 5
-List&&6 :
-<&&: ;
-FriendRequests&&; I
->&&I J
-(&&J K
-)&&K L
-;&&L M
-try(( 
-{)) "
-DatabaseModelContainer** &"
-databaseModelContainer**' =
-=**> ?
-new**@ C"
-DatabaseModelContainer**D Z
-(**Z [
-)**[ \
-;**\ ]
-friendRequests++ 
-=++  "
-databaseModelContainer++! 7
-.++7 8
-FriendRequestsSet++8 I
-.++I J
-Where++J O
-(++O P
-e++P Q
-=>++R T
-e++U V
-.++V W
-	Profiles1++W `
-.++` a
-	IDProfile++a j
-==++k m
-ID++n p
-)++p q
-.++q r
-ToList++r x
-(++x y
-)++y z
-;++z {
-}-- 
-catch.. 
-(.. 
-	Exception.. 
-ex.. 
-)..  
-{// 
-Console00 
-.00 
-	WriteLine00 !
-(00! "
-ex00" $
-.00$ %
-ToString00% -
-(00- .
-)00. /
-)00/ 0
-;000 1
-}11 
-return33 
-friendRequests33 !
-;33! "
-}44 	
-public66 
-FriendRequest66  
-GetFriendRequestByID66 1
-(661 2
-long662 6
-ID667 9
-)669 :
-{77 	
-FriendRequests88 
-friendRequests88 )
-=88* +
-new88, /
-FriendRequests880 >
-(88> ?
-)88? @
-;88@ A
-FriendRequest99 
-friendRequest99 '
-=99( )
-new99* -
-FriendRequest99. ;
-(99; <
-)99< =
-;99= >
-try;; 
-{<< "
-DatabaseModelContainer== &"
-databaseModelContainer==' =
-===> ?
-new==@ C"
-DatabaseModelContainer==D Z
-(==Z [
-)==[ \
-;==\ ]
-friendRequests>> 
-=>>  "
-databaseModelContainer>>! 7
-.>>7 8
-FriendRequestsSet>>8 I
-.>>I J
-Where>>J O
-(>>O P
-fr>>P R
-=>>>S U
-fr>>V X
-.>>X Y
-IDFriendRequest>>Y h
-==>>i k
-ID>>l n
-)>>n o
-.>>o p
-FirstOrDefault>>p ~
-(>>~ 
-)	>> Ä
+public 
+List 
+< 
+FriendRequests "
+>" #)
+GetFriendsRequestsByProfileID$ A
+(A B
+longB F
+IDG I
+)I J
+{ 	
+List 
+< 
+FriendRequests 
+>  
+friendRequests! /
+=0 1
+new2 5
+List6 :
+<: ;
+FriendRequests; I
+>I J
+(J K
+)K L
+;L M
+try 
+{ "
+DatabaseModelContainer &"
+databaseModelContainer' =
+=> ?
+new@ C"
+DatabaseModelContainerD Z
+(Z [
+)[ \
+;\ ]
+friendRequests 
+=  "
+databaseModelContainer! 7
+.7 8
+FriendRequestsSet8 I
+.I J
+WhereJ O
+(O P
+eP Q
+=>R T
+eU V
+.V W
+ProfilesW _
+._ `
+	IDProfile` i
+==j l
+IDm o
+)o p
+.p q
+ToListq w
+(w x
+)x y
+;y z
+} 
+catch 
+( 
+	Exception 
+ex 
+)  
+{ 
+Console 
+. 
+	WriteLine !
+(! "
+ex" $
+.$ %
+ToString% -
+(- .
+). /
+)/ 0
+;0 1
+} 
+return   
+friendRequests   !
+;  ! "
+}!! 	
+public## 
+List## 
+<## 
+FriendRequests## "
+>##" #*
+GetFriendsRequestsByProfile1ID##$ B
+(##B C
+long##C G
+ID##H J
+)##J K
+{$$ 	
+List%% 
+<%% 
+FriendRequests%% 
+>%%  
+friendRequests%%! /
+=%%0 1
+new%%2 5
+List%%6 :
+<%%: ;
+FriendRequests%%; I
+>%%I J
+(%%J K
+)%%K L
+;%%L M
+try'' 
+{(( "
+DatabaseModelContainer)) &"
+databaseModelContainer))' =
+=))> ?
+new))@ C"
+DatabaseModelContainer))D Z
+())Z [
+)))[ \
+;))\ ]
+friendRequests** 
+=**  "
+databaseModelContainer**! 7
+.**7 8
+FriendRequestsSet**8 I
+.**I J
+Where**J O
+(**O P
+e**P Q
+=>**R T
+e**U V
+.**V W
+	Profiles1**W `
+.**` a
+	IDProfile**a j
+==**k m
+ID**n p
+)**p q
+.**q r
+ToList**r x
+(**x y
+)**y z
+;**z {
+},, 
+catch-- 
+(-- 
+	Exception-- 
+ex-- 
+)--  
+{.. 
+Console// 
+.// 
+	WriteLine// !
+(//! "
+ex//" $
+.//$ %
+ToString//% -
+(//- .
+)//. /
+)/// 0
+;//0 1
+}00 
+return22 
+friendRequests22 !
+;22! "
+}33 	
+public55 
+FriendRequest55  
+GetFriendRequestByID55 1
+(551 2
+long552 6
+ID557 9
+)559 :
+{66 	
+FriendRequests77 
+friendRequests77 )
+=77* +
+new77, /
+FriendRequests770 >
+(77> ?
+)77? @
+;77@ A
+FriendRequest88 
+friendRequest88 '
+=88( )
+new88* -
+FriendRequest88. ;
+(88; <
+)88< =
+;88= >
+try:: 
+{;; "
+DatabaseModelContainer<< &"
+databaseModelContainer<<' =
+=<<> ?
+new<<@ C"
+DatabaseModelContainer<<D Z
+(<<Z [
+)<<[ \
+;<<\ ]
+friendRequests== 
+===  "
+databaseModelContainer==! 7
+.==7 8
+FriendRequestsSet==8 I
+.==I J
+Where==J O
+(==O P
+fr==P R
+=>==S U
+fr==V X
+.==X Y
+IDFriendRequest==Y h
+====i k
+ID==l n
+)==n o
+.==o p
+FirstOrDefault==p ~
+(==~ 
+)	== Ä
 ;
->>Ä Å
-if@@ 
-(@@ 
-friendRequests@@ "
-!=@@# %
-null@@& *
-)@@* +
-{AA 
-PlayerCC 
-playerProfileCC (
-=CC) *
-newCC+ .
-PlayerCC/ 5
-(CC5 6
-)CC6 7
-;CC7 8
-playerProfileDD !
-.DD! "
-IDPlayerDD" *
-=DD+ ,
-friendRequestsDD- ;
-.DD; <
-ProfilesDD< D
-.DDD E
-PlayersDDE L
-.DDL M
-IDPlayerDDM U
-;DDU V
-playerProfileEE !
-.EE! "
-NamesEE" '
-=EE( )
-friendRequestsEE* 8
-.EE8 9
-ProfilesEE9 A
-.EEA B
-PlayersEEB I
-.EEI J
-NamesEEJ O
-;EEO P
-playerProfileFF !
-.FF! "
-SurnamesFF" *
-=FF+ ,
-friendRequestsFF- ;
-.FF; <
-ProfilesFF< D
-.FFD E
-PlayersFFE L
-.FFL M
-SurnamesFFM U
-;FFU V
-playerProfileGG !
-.GG! "
-EmailGG" '
-=GG( )
-friendRequestsGG* 8
-.GG8 9
-ProfilesGG9 A
-.GGA B
-PlayersGGB I
-.GGI J
-EmailGGJ O
-;GGO P
-playerProfileHH !
-.HH! "
-NickNameHH" *
-=HH+ ,
-friendRequestsHH- ;
-.HH; <
-ProfilesHH< D
-.HHD E
-PlayersHHE L
-.HHL M
-NickNameHHM U
-;HHU V
-playerProfileII !
-.II! "
-	BirthDateII" +
-=II, -
-friendRequestsII. <
-.II< =
-ProfilesII= E
-.IIE F
-PlayersIIF M
-.IIM N
-	BirthDateIIN W
-;IIW X
-PlayerKK 
-playerProfile1KK )
-=KK* +
-newKK, /
-PlayerKK0 6
-(KK6 7
-)KK7 8
-;KK8 9
-playerProfile1LL "
-.LL" #
-IDPlayerLL# +
-=LL, -
-friendRequestsLL. <
-.LL< =
-	Profiles1LL= F
-.LLF G
-PlayersLLG N
-.LLN O
-IDPlayerLLO W
-;LLW X
-playerProfile1MM "
-.MM" #
-NamesMM# (
-=MM) *
-friendRequestsMM+ 9
-.MM9 :
-	Profiles1MM: C
-.MMC D
-PlayersMMD K
-.MMK L
-NamesMML Q
-;MMQ R
-playerProfile1NN "
-.NN" #
-SurnamesNN# +
-=NN, -
-friendRequestsNN. <
-.NN< =
-	Profiles1NN= F
-.NNF G
-PlayersNNG N
-.NNN O
-SurnamesNNO W
-;NNW X
-playerProfile1OO "
-.OO" #
-EmailOO# (
-=OO) *
-friendRequestsOO+ 9
-.OO9 :
-	Profiles1OO: C
-.OOC D
-PlayersOOD K
-.OOK L
-EmailOOL Q
-;OOQ R
-playerProfile1PP "
-.PP" #
-NickNamePP# +
-=PP, -
-friendRequestsPP. <
-.PP< =
-	Profiles1PP= F
-.PPF G
-PlayersPPG N
-.PPN O
-NickNamePPO W
-;PPW X
-playerProfile1QQ "
-.QQ" #
-	BirthDateQQ# ,
-=QQ- .
-friendRequestsQQ/ =
-.QQ= >
-	Profiles1QQ> G
-.QQG H
-PlayersQQH O
-.QQO P
-	BirthDateQQP Y
-;QQY Z
-ProfileSS 
-profileSS #
-=SS$ %
-newSS& )
-ProfileSS* 1
-(SS1 2
-)SS2 3
-;SS3 4
-profileTT 
-.TT 
-	IDProfileTT %
-=TT& '
-friendRequestsTT( 6
-.TT6 7
-ProfilesTT7 ?
-.TT? @
-	IDProfileTT@ I
-;TTI J
-profileUU 
-.UU 
-CoinsUU !
-=UU" #
-(UU$ %
-longUU% )
-)UU) *
-friendRequestsUU* 8
-.UU8 9
-ProfilesUU9 A
-.UUA B
-CoinsUUB G
-;UUG H
-profileVV 
-.VV 
-LoginStatusVV '
-=VV( )
-friendRequestsVV* 8
-.VV8 9
-ProfilesVV9 A
-.VVA B
-LoginStatusVVB M
-;VVM N
-profileWW 
-.WW 
-PlayerWW "
-=WW# $
-playerProfileWW% 2
-;WW2 3
-ProfileYY 
-profile1YY $
-=YY% &
-newYY' *
-ProfileYY+ 2
-(YY2 3
-)YY3 4
-;YY4 5
-profile1ZZ 
-.ZZ 
-	IDProfileZZ &
-=ZZ' (
-friendRequestsZZ) 7
-.ZZ7 8
-	Profiles1ZZ8 A
-.ZZA B
-	IDProfileZZB K
-;ZZK L
-profile1[[ 
-.[[ 
-Coins[[ "
-=[[# $
-([[% &
-long[[& *
-)[[* +
-friendRequests[[+ 9
-.[[9 :
-	Profiles1[[: C
-.[[C D
-Coins[[D I
-;[[I J
-profile1\\ 
-.\\ 
-LoginStatus\\ (
-=\\) *
-friendRequests\\+ 9
-.\\9 :
-	Profiles1\\: C
-.\\C D
-LoginStatus\\D O
-;\\O P
-profile1]] 
-.]] 
-Player]] #
-=]]$ %
-playerProfile1]]& 4
-;]]4 5
-friendRequest__ !
-.__! "
-IDFriendRequest__" 1
-=__2 3
-friendRequests__4 B
-.__B C
-IDFriendRequest__C R
-;__R S
-friendRequest`` !
-.``! "
-CreationDate``" .
-=``/ 0
-friendRequests``1 ?
-.``? @
-CreationDate``@ L
-;``L M
-friendRequestaa !
-.aa! "
-Messageaa" )
-=aa* +
-friendRequestsaa, :
-.aa: ;
-Messageaa; B
-;aaB C
-friendRequestbb !
-.bb! "
-AceptationStatusbb" 2
-=bb3 4
-friendRequestsbb5 C
-.bbC D
-AceptationStatusbbD T
-;bbT U
-friendRequestcc !
-.cc! "
-SendingStatuscc" /
-=cc0 1
-friendRequestscc2 @
-.cc@ A
-SendingStatusccA N
-;ccN O
-friendRequestdd !
-.dd! "
-Profiledd" )
-=dd* +
-profiledd, 3
-;dd3 4
-friendRequestee !
-.ee! "
-Profile1ee" *
-=ee+ ,
-profile1ee- 5
-;ee5 6
-}ff 
-elsegg 
-{hh 
+==Ä Å
+if?? 
+(?? 
+friendRequests?? "
+!=??# %
+null??& *
+)??* +
+{@@ 
+PlayerBB 
+playerProfileBB (
+=BB) *
+newBB+ .
+PlayerBB/ 5
+{CC 
+IDPlayerDD  
+=DD! "
+friendRequestsDD# 1
+.DD1 2
+ProfilesDD2 :
+.DD: ;
+PlayersDD; B
+.DDB C
+IDPlayerDDC K
+,DDK L
+NamesEE 
+=EE 
+friendRequestsEE  .
+.EE. /
+ProfilesEE/ 7
+.EE7 8
+PlayersEE8 ?
+.EE? @
+NamesEE@ E
+,EEE F
+SurnamesFF  
+=FF! "
+friendRequestsFF# 1
+.FF1 2
+ProfilesFF2 :
+.FF: ;
+PlayersFF; B
+.FFB C
+SurnamesFFC K
+,FFK L
+EmailGG 
+=GG 
+friendRequestsGG  .
+.GG. /
+ProfilesGG/ 7
+.GG7 8
+PlayersGG8 ?
+.GG? @
+EmailGG@ E
+,GGE F
+NickNameHH  
+=HH! "
+friendRequestsHH# 1
+.HH1 2
+ProfilesHH2 :
+.HH: ;
+PlayersHH; B
+.HHB C
+NickNameHHC K
+,HHK L
+	BirthDateII !
+=II" #
+friendRequestsII$ 2
+.II2 3
+ProfilesII3 ;
+.II; <
+PlayersII< C
+.IIC D
+	BirthDateIID M
+}JJ 
+;JJ 
+PlayerLL 
+playerProfile1LL )
+=LL* +
+newLL, /
+PlayerLL0 6
+{MM 
+IDPlayerNN  
+=NN! "
+friendRequestsNN# 1
+.NN1 2
+	Profiles1NN2 ;
+.NN; <
+PlayersNN< C
+.NNC D
+IDPlayerNND L
+,NNL M
+NamesOO 
+=OO 
+friendRequestsOO  .
+.OO. /
+	Profiles1OO/ 8
+.OO8 9
+PlayersOO9 @
+.OO@ A
+NamesOOA F
+,OOF G
+SurnamesPP  
+=PP! "
+friendRequestsPP# 1
+.PP1 2
+	Profiles1PP2 ;
+.PP; <
+PlayersPP< C
+.PPC D
+SurnamesPPD L
+,PPL M
+EmailQQ 
+=QQ 
+friendRequestsQQ  .
+.QQ. /
+	Profiles1QQ/ 8
+.QQ8 9
+PlayersQQ9 @
+.QQ@ A
+EmailQQA F
+,QQF G
+NickNameRR  
+=RR! "
+friendRequestsRR# 1
+.RR1 2
+	Profiles1RR2 ;
+.RR; <
+PlayersRR< C
+.RRC D
+NickNameRRD L
+,RRL M
+	BirthDateSS !
+=SS" #
+friendRequestsSS$ 2
+.SS2 3
+	Profiles1SS3 <
+.SS< =
+PlayersSS= D
+.SSD E
+	BirthDateSSE N
+}TT 
+;TT 
+ProfileVV 
+profileVV #
+=VV$ %
+newVV& )
+ProfileVV* 1
+{WW 
+	IDProfileXX !
+=XX" #
+friendRequestsXX$ 2
+.XX2 3
+ProfilesXX3 ;
+.XX; <
+	IDProfileXX< E
+,XXE F
+CoinsYY 
+=YY 
+(YY  !
+longYY! %
+)YY% &
+friendRequestsYY& 4
+.YY4 5
+ProfilesYY5 =
+.YY= >
+CoinsYY> C
+,YYC D
+LoginStatusZZ #
+=ZZ$ %
+friendRequestsZZ& 4
+.ZZ4 5
+ProfilesZZ5 =
+.ZZ= >
+LoginStatusZZ> I
+,ZZI J
+Player[[ 
+=[[  
+playerProfile[[! .
+}\\ 
+;\\ 
+Profile^^ 
+profile1^^ $
+=^^% &
+new^^' *
+Profile^^+ 2
+{__ 
+	IDProfile`` !
+=``" #
+friendRequests``$ 2
+.``2 3
+	Profiles1``3 <
+.``< =
+	IDProfile``= F
+,``F G
+Coinsaa 
+=aa 
+(aa  !
+longaa! %
+)aa% &
+friendRequestsaa& 4
+.aa4 5
+	Profiles1aa5 >
+.aa> ?
+Coinsaa? D
+,aaD E
+LoginStatusbb #
+=bb$ %
+friendRequestsbb& 4
+.bb4 5
+	Profiles1bb5 >
+.bb> ?
+LoginStatusbb? J
+,bbJ K
+Playercc 
+=cc  
+playerProfile1cc! /
+}dd 
+;dd 
+friendRequestff !
+.ff! "
+IDFriendRequestff" 1
+=ff2 3
+friendRequestsff4 B
+.ffB C
+IDFriendRequestffC R
+;ffR S
+friendRequestgg !
+.gg! "
+CreationDategg" .
+=gg/ 0
+friendRequestsgg1 ?
+.gg? @
+CreationDategg@ L
+;ggL M
+friendRequesthh !
+.hh! "
+Messagehh" )
+=hh* +
+friendRequestshh, :
+.hh: ;
+Messagehh; B
+;hhB C
 friendRequestii !
-=ii" #
-nullii$ (
-;ii( )
-}jj 
+.ii! "
+AceptationStatusii" 2
+=ii3 4
+friendRequestsii5 C
+.iiC D
+AceptationStatusiiD T
+;iiT U
+friendRequestjj !
+.jj! "
+SendingStatusjj" /
+=jj0 1
+friendRequestsjj2 @
+.jj@ A
+SendingStatusjjA N
+;jjN O
+friendRequestkk !
+.kk! "
+Profilekk" )
+=kk* +
+profilekk, 3
+;kk3 4
+friendRequestll !
+.ll! "
+Profile1ll" *
+=ll+ ,
+profile1ll- 5
+;ll5 6
+}mm 
+elsenn 
+{oo 
+friendRequestpp !
+=pp" #
+nullpp$ (
+;pp( )
+}qq 
+}rr 
+catchss 
+(ss 
+	Exceptionss 
+exss 
+)ss  
+{tt 
+Consoleuu 
+.uu 
+	WriteLineuu !
+(uu! "
+exuu" $
+.uu$ %
+ToStringuu% -
+(uu- .
+)uu. /
+)uu/ 0
+;uu0 1
+}vv 
+returnxx 
+friendRequestxx  
+;xx  !
+}yy 	
+public{{ 
+List{{ 
+<{{ 
+FriendRequest{{ !
+>{{! "@
+4GetPendientsForAceptationFriendsRequestsByProfile1ID{{# W
+({{W X
+long{{X \
+
+IDProfile1{{] g
+){{g h
+{|| 	
+List}} 
+<}} 
+FriendRequest}} 
+>}} 
+friendRequestList}}  1
+=}}2 3
+new}}4 7
+List}}8 <
+<}}< =
+FriendRequest}}= J
+>}}J K
+(}}K L
+)}}L M
+;}}M N
+List~~ 
+<~~ 
+FriendRequests~~ 
+>~~  
+friendRequestsList~~! 3
+=~~4 5
+new~~6 9
+List~~: >
+<~~> ?
+FriendRequests~~? M
+>~~M N
+(~~N O
+)~~O P
+;~~P Q
+try
+ÄÄ 
+{
+ÅÅ $
+DatabaseModelContainer
+ÇÇ &$
+databaseModelContainer
+ÇÇ' =
+=
+ÇÇ> ?
+new
+ÇÇ@ C$
+DatabaseModelContainer
+ÇÇD Z
+(
+ÇÇZ [
+)
+ÇÇ[ \
+;
+ÇÇ\ ] 
+friendRequestsList
+ÉÉ "
+=
+ÉÉ# $$
+databaseModelContainer
+ÉÉ% ;
+.
+ÉÉ; <
+FriendRequestsSet
+ÉÉ< M
+.
+ÑÑ 
+Where
+ÑÑ 
+(
+ÑÑ 
+fr
+ÑÑ 
+=>
+ÑÑ 
+fr
+ÑÑ 
+.
+ÑÑ  
+	Profiles1
+ÑÑ  )
+.
+ÑÑ) *
+	IDProfile
+ÑÑ* 3
+==
+ÑÑ4 6
+
+IDProfile1
+ÑÑ7 A
+)
+ÑÑA B
+.
+ÖÖ 
+Where
+ÖÖ 
+(
+ÖÖ 
+fr
+ÖÖ 
+=>
+ÖÖ 
+fr
+ÖÖ 
+.
+ÖÖ  
+AceptationStatus
+ÖÖ  0
+==
+ÖÖ1 3-
+FriendRequestAceptationStatuses
+ÖÖ4 S
+.
+ÖÖS T
+Pendient
+ÖÖT \
+.
+ÖÖ\ ]
+ToString
+ÖÖ] e
+(
+ÖÖe f
+)
+ÖÖf g
+)
+ÖÖg h
+.
+ÜÜ 
+Where
+ÜÜ 
+(
+ÜÜ 
+fr
+ÜÜ 
+=>
+ÜÜ 
+fr
+ÜÜ 
+.
+ÜÜ  
+SendingStatus
+ÜÜ  -
+==
+ÜÜ. 0*
+FriendRequestSendingStatuses
+ÜÜ1 M
+.
+ÜÜM N
+Sent
+ÜÜN R
+.
+ÜÜR S
+ToString
+ÜÜS [
+(
+ÜÜ[ \
+)
+ÜÜ\ ]
+)
+ÜÜ] ^
+.
+áá 
+ToList
+áá 
+(
+áá 
+)
+áá 
+;
+áá 
+if
+ââ 
+(
+ââ  
+friendRequestsList
+ââ &
+!=
+ââ' )
+null
+ââ* .
+)
+ââ. /
+{
+ää 
+friendRequestList
+ãã %
+=
+ãã& '<
+.FriendRequestsListToFriendRequestListConverter
+ãã( V
+(
+ããV W 
+friendRequestsList
+ããW i
+)
+ããi j
+;
+ããj k
+}
+åå 
+else
+çç 
+{
+éé 
+friendRequestList
+èè %
+=
+èè& '
+null
+èè( ,
+;
+èè, -
+}
+êê 
+}
+íí 
+catch
+ìì 
+(
+ìì 
+	Exception
+ìì 
+ex
+ìì 
+)
+ìì  
+{
+îî 
+Console
+ïï 
+.
+ïï 
+	WriteLine
+ïï !
+(
+ïï! "
+ex
+ïï" $
+.
+ïï$ %
+ToString
+ïï% -
+(
+ïï- .
+)
+ïï. /
+)
+ïï/ 0
+;
+ïï0 1
+}
+ññ 
+return
+òò 
+friendRequestList
+òò $
+;
+òò$ %
+}
+ôô 	
+public
+õõ 
+List
+õõ 
+<
+õõ 
+FriendRequest
+õõ !
+>
+õõ! "H
+:GetSentAndPendientsForAceptationFriendsRequestsByProfileID
+õõ# ]
+(
+õõ] ^
+long
+õõ^ b
+	IDProfile
+õõc l
+)
+õõl m
+{
+úú 	
+List
+ùù 
+<
+ùù 
+FriendRequest
+ùù 
+>
+ùù 
+friendRequestList
+ùù  1
+=
+ùù2 3
+new
+ùù4 7
+List
+ùù8 <
+<
+ùù< =
+FriendRequest
+ùù= J
+>
+ùùJ K
+(
+ùùK L
+)
+ùùL M
+;
+ùùM N
+List
+ûû 
+<
+ûû 
+FriendRequests
+ûû 
+>
+ûû   
+friendRequestsList
+ûû! 3
+=
+ûû4 5
+new
+ûû6 9
+List
+ûû: >
+<
+ûû> ?
+FriendRequests
+ûû? M
+>
+ûûM N
+(
+ûûN O
+)
+ûûO P
+;
+ûûP Q
+try
+†† 
+{
+°° $
+DatabaseModelContainer
+¢¢ &$
+databaseModelContainer
+¢¢' =
+=
+¢¢> ?
+new
+¢¢@ C$
+DatabaseModelContainer
+¢¢D Z
+(
+¢¢Z [
+)
+¢¢[ \
+;
+¢¢\ ] 
+friendRequestsList
+££ "
+=
+££# $$
+databaseModelContainer
+££% ;
+.
+££; <
+FriendRequestsSet
+££< M
+.
+§§ 
+Where
+§§ 
+(
+§§ 
+fr
+§§ 
+=>
+§§ 
+fr
+§§ 
+.
+§§  
+Profiles
+§§  (
+.
+§§( )
+	IDProfile
+§§) 2
+==
+§§3 5
+	IDProfile
+§§6 ?
+)
+§§? @
+.
+•• 
+Where
+•• 
+(
+•• 
+fr
+•• 
+=>
+•• 
+fr
+•• 
+.
+••  
+AceptationStatus
+••  0
+==
+••1 3-
+FriendRequestAceptationStatuses
+••4 S
+.
+••S T
+Pendient
+••T \
+.
+••\ ]
+ToString
+••] e
+(
+••e f
+)
+••f g
+)
+••g h
+.
+¶¶ 
+Where
+¶¶ 
+(
+¶¶ 
+fr
+¶¶ 
+=>
+¶¶ 
+fr
+¶¶ 
+.
+¶¶  
+SendingStatus
+¶¶  -
+==
+¶¶. 0*
+FriendRequestSendingStatuses
+¶¶1 M
+.
+¶¶M N
+Sent
+¶¶N R
+.
+¶¶R S
+ToString
+¶¶S [
+(
+¶¶[ \
+)
+¶¶\ ]
+)
+¶¶] ^
+.
+ßß 
+ToList
+ßß 
+(
+ßß 
+)
+ßß 
+;
+ßß 
+if
+©© 
+(
+©©  
+friendRequestsList
+©© &
+!=
+©©' )
+null
+©©* .
+)
+©©. /
+{
+™™ 
+friendRequestList
+´´ %
+=
+´´& '<
+.FriendRequestsListToFriendRequestListConverter
+´´( V
+(
+´´V W 
+friendRequestsList
+´´W i
+)
+´´i j
+;
+´´j k
+}
+¨¨ 
+else
+≠≠ 
+{
+ÆÆ 
+friendRequestList
+ØØ %
+=
+ØØ& '
+null
+ØØ( ,
+;
+ØØ, -
+}
+∞∞ 
+}
+≤≤ 
+catch
+≥≥ 
+(
+≥≥ 
+	Exception
+≥≥ 
+ex
+≥≥ 
+)
+≥≥  
+{
+¥¥ 
+Console
+µµ 
+.
+µµ 
+	WriteLine
+µµ !
+(
+µµ! "
+ex
+µµ" $
+.
+µµ$ %
+ToString
+µµ% -
+(
+µµ- .
+)
+µµ. /
+)
+µµ/ 0
+;
+µµ0 1
+}
+∂∂ 
+return
+∏∏ 
+friendRequestList
+∏∏ $
+;
+∏∏$ %
+}
+ππ 	
+private
+ºº 
+List
+ºº 
+<
+ºº 
+FriendRequest
+ºº "
+>
+ºº" #<
+.FriendRequestsListToFriendRequestListConverter
+ºº$ R
+(
+ººR S
+List
+ººS W
+<
+ººW X
+FriendRequests
+ººX f
+>
+ººf g 
+friendRequestsList
+ººh z
+)
+ººz {
+{
+ΩΩ 	
+List
+ææ 
+<
+ææ 
+FriendRequest
+ææ 
+>
+ææ 
+friendRequestList
+ææ  1
+=
+ææ2 3
+new
+ææ4 7
+List
+ææ8 <
+<
+ææ< =
+FriendRequest
+ææ= J
+>
+ææJ K
+(
+ææK L
+)
+ææL M
+;
+ææM N
+foreach
+¿¿ 
+(
+¿¿ 
+FriendRequests
+¿¿ #
+friendRequests
+¿¿$ 2
+in
+¿¿3 5 
+friendRequestsList
+¿¿6 H
+)
+¿¿H I
+{
+¡¡ 
+Player
+√√ 
+playerProfile
+√√ $
+=
+√√% &
+new
+√√' *
+Player
+√√+ 1
+{
+ƒƒ 
+IDPlayer
+≈≈ 
+=
+≈≈ 
+friendRequests
+≈≈ -
+.
+≈≈- .
+Profiles
+≈≈. 6
+.
+≈≈6 7
+Players
+≈≈7 >
+.
+≈≈> ?
+IDPlayer
+≈≈? G
+,
+≈≈G H
+Names
+∆∆ 
+=
+∆∆ 
+friendRequests
+∆∆ *
+.
+∆∆* +
+Profiles
+∆∆+ 3
+.
+∆∆3 4
+Players
+∆∆4 ;
+.
+∆∆; <
+Names
+∆∆< A
+,
+∆∆A B
+Surnames
+«« 
+=
+«« 
+friendRequests
+«« -
+.
+««- .
+Profiles
+««. 6
+.
+««6 7
+Players
+««7 >
+.
+««> ?
+Surnames
+««? G
+,
+««G H
+Email
+»» 
+=
+»» 
+friendRequests
+»» *
+.
+»»* +
+Profiles
+»»+ 3
+.
+»»3 4
+Players
+»»4 ;
+.
+»»; <
+Email
+»»< A
+,
+»»A B
+NickName
+…… 
+=
+…… 
+friendRequests
+…… -
+.
+……- .
+Profiles
+……. 6
+.
+……6 7
+Players
+……7 >
+.
+……> ?
+NickName
+……? G
+,
+……G H
+	BirthDate
+   
+=
+   
+friendRequests
+    .
+.
+  . /
+Profiles
+  / 7
+.
+  7 8
+Players
+  8 ?
+.
+  ? @
+	BirthDate
+  @ I
+}
+ÀÀ 
+;
+ÀÀ 
+Player
+ÕÕ 
+playerProfile1
+ÕÕ %
+=
+ÕÕ& '
+new
+ÕÕ( +
+Player
+ÕÕ, 2
+{
+ŒŒ 
+IDPlayer
+œœ 
+=
+œœ 
+friendRequests
+œœ -
+.
+œœ- .
+	Profiles1
+œœ. 7
+.
+œœ7 8
+Players
+œœ8 ?
+.
+œœ? @
+IDPlayer
+œœ@ H
+,
+œœH I
+Names
+–– 
+=
+–– 
+friendRequests
+–– *
+.
+––* +
+	Profiles1
+––+ 4
+.
+––4 5
+Players
+––5 <
+.
+––< =
+Names
+––= B
+,
+––B C
+Surnames
+—— 
+=
+—— 
+friendRequests
+—— -
+.
+——- .
+	Profiles1
+——. 7
+.
+——7 8
+Players
+——8 ?
+.
+——? @
+Surnames
+——@ H
+,
+——H I
+Email
+““ 
+=
+““ 
+friendRequests
+““ *
+.
+““* +
+	Profiles1
+““+ 4
+.
+““4 5
+Players
+““5 <
+.
+““< =
+Email
+““= B
+,
+““B C
+NickName
+”” 
+=
+”” 
+friendRequests
+”” -
+.
+””- .
+	Profiles1
+””. 7
+.
+””7 8
+Players
+””8 ?
+.
+””? @
+NickName
+””@ H
+,
+””H I
+	BirthDate
+‘‘ 
+=
+‘‘ 
+friendRequests
+‘‘  .
+.
+‘‘. /
+	Profiles1
+‘‘/ 8
+.
+‘‘8 9
+Players
+‘‘9 @
+.
+‘‘@ A
+	BirthDate
+‘‘A J
+}
+’’ 
+;
+’’ 
+Profile
+◊◊ 
+profile
+◊◊ 
+=
+◊◊  !
+new
+◊◊" %
+Profile
+◊◊& -
+{
+ÿÿ 
+	IDProfile
+ŸŸ 
+=
+ŸŸ 
+friendRequests
+ŸŸ  .
+.
+ŸŸ. /
+Profiles
+ŸŸ/ 7
+.
+ŸŸ7 8
+	IDProfile
+ŸŸ8 A
+,
+ŸŸA B
+Coins
+⁄⁄ 
+=
+⁄⁄ 
+(
+⁄⁄ 
+long
+⁄⁄ !
+)
+⁄⁄! "
+friendRequests
+⁄⁄" 0
+.
+⁄⁄0 1
+Profiles
+⁄⁄1 9
+.
+⁄⁄9 :
+Coins
+⁄⁄: ?
+,
+⁄⁄? @
+LoginStatus
+€€ 
+=
+€€  !
+friendRequests
+€€" 0
+.
+€€0 1
+Profiles
+€€1 9
+.
+€€9 :
+LoginStatus
+€€: E
+,
+€€E F
+Player
+‹‹ 
+=
+‹‹ 
+playerProfile
+‹‹ *
+}
+›› 
+;
+›› 
+Profile
+ﬂﬂ 
+profile1
+ﬂﬂ  
+=
+ﬂﬂ! "
+new
+ﬂﬂ# &
+Profile
+ﬂﬂ' .
+{
+‡‡ 
+	IDProfile
+·· 
+=
+·· 
+friendRequests
+··  .
+.
+··. /
+	Profiles1
+··/ 8
+.
+··8 9
+	IDProfile
+··9 B
+,
+··B C
+Coins
+‚‚ 
+=
+‚‚ 
+(
+‚‚ 
+long
+‚‚ !
+)
+‚‚! "
+friendRequests
+‚‚" 0
+.
+‚‚0 1
+	Profiles1
+‚‚1 :
+.
+‚‚: ;
+Coins
+‚‚; @
+,
+‚‚@ A
+LoginStatus
+„„ 
+=
+„„  !
+friendRequests
+„„" 0
+.
+„„0 1
+	Profiles1
+„„1 :
+.
+„„: ;
+LoginStatus
+„„; F
+,
+„„F G
+Player
+‰‰ 
+=
+‰‰ 
+playerProfile1
+‰‰ +
+}
+ÂÂ 
+;
+ÂÂ 
+FriendRequest
+ÁÁ 
+friendRequest
+ÁÁ +
+=
+ÁÁ, -
+new
+ÁÁ. 1
+FriendRequest
+ÁÁ2 ?
+{
+ËË 
+IDFriendRequest
+ÈÈ #
+=
+ÈÈ$ %
+friendRequests
+ÈÈ& 4
+.
+ÈÈ4 5
+IDFriendRequest
+ÈÈ5 D
+,
+ÈÈD E
+CreationDate
+ÍÍ  
+=
+ÍÍ! "
+friendRequests
+ÍÍ# 1
+.
+ÍÍ1 2
+CreationDate
+ÍÍ2 >
+,
+ÍÍ> ?
+Message
+ÎÎ 
+=
+ÎÎ 
+friendRequests
+ÎÎ ,
+.
+ÎÎ, -
+Message
+ÎÎ- 4
+,
+ÎÎ4 5
+AceptationStatus
+ÏÏ $
+=
+ÏÏ% &
+friendRequests
+ÏÏ' 5
+.
+ÏÏ5 6
+AceptationStatus
+ÏÏ6 F
+,
+ÏÏF G
+SendingStatus
+ÌÌ !
+=
+ÌÌ" #
+friendRequests
+ÌÌ$ 2
+.
+ÌÌ2 3
+SendingStatus
+ÌÌ3 @
+,
+ÌÌ@ A
+Profile
+ÓÓ 
+=
+ÓÓ 
+profile
+ÓÓ %
+,
+ÓÓ% &
+Profile1
+ÔÔ 
+=
+ÔÔ 
+profile1
+ÔÔ '
+}
+ 
+;
+ 
+friendRequestList
+ÚÚ !
+.
+ÚÚ! "
+Add
+ÚÚ" %
+(
+ÚÚ% &
+friendRequest
+ÚÚ& 3
+)
+ÚÚ3 4
+;
+ÚÚ4 5
+}
+ÛÛ 
+return
+ıı 
+friendRequestList
+ıı $
+;
+ıı$ %
+}
+ˆˆ 	
+public
+¯¯ 
+bool
+¯¯ T
+FTheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile
+¯¯ Z
+(
+¯¯Z [
+long
+¯¯[ _"
+transmitterProfileID
+¯¯` t
+,
+¯¯t u
+long
+¯¯v z 
+receiverProfileID¯¯{ å
+)¯¯å ç
+{
+˘˘ 	
+try
+˙˙ 
+{
+˚˚ $
+DatabaseModelContainer
+¸¸ &$
+databaseModelContainer
+¸¸' =
+=
+¸¸> ?
+new
+¸¸@ C$
+DatabaseModelContainer
+¸¸D Z
+(
+¸¸Z [
+)
+¸¸[ \
+;
+¸¸\ ]
+FriendRequests
+˝˝ 
+friendRequests
+˝˝ -
+=
+˝˝. /$
+databaseModelContainer
+˝˝0 F
+.
+˝˝F G
+FriendRequestsSet
+˝˝G X
+.
+˝˝X Y
+Where
+˝˝Y ^
+(
+˝˝^ _
+fr
+˝˝_ a
+=>
+˝˝b d
+fr
+˝˝e g
+.
+˝˝g h
+Profiles
+˝˝h p
+.
+˝˝p q
+	IDProfile
+˝˝q z
+==
+˝˝{ }#
+transmitterProfileID˝˝~ í
+)˝˝í ì
+.
+˛˛ 
+Where
+˛˛ 
+(
+˛˛ 
+fr
+˛˛ 
+=>
+˛˛  
+fr
+˛˛! #
+.
+˛˛# $
+	Profiles1
+˛˛$ -
+.
+˛˛- .
+	IDProfile
+˛˛. 7
+==
+˛˛8 :
+receiverProfileID
+˛˛; L
+)
+˛˛L M
+.
+ˇˇ 
+Where
+ˇˇ 
+(
+ˇˇ 
+fr
+ˇˇ 
+=>
+ˇˇ  
+fr
+ˇˇ! #
+.
+ˇˇ# $
+AceptationStatus
+ˇˇ$ 4
+==
+ˇˇ5 7-
+FriendRequestAceptationStatuses
+ˇˇ8 W
+.
+ˇˇW X
+Pendient
+ˇˇX `
+.
+ˇˇ` a
+ToString
+ˇˇa i
+(
+ˇˇi j
+)
+ˇˇj k
+)
+ˇˇk l
+.
+ÄÄ 
+Where
+ÄÄ 
+(
+ÄÄ 
+fr
+ÄÄ 
+=>
+ÄÄ  
+fr
+ÄÄ! #
+.
+ÄÄ# $
+SendingStatus
+ÄÄ$ 1
+==
+ÄÄ2 4*
+FriendRequestSendingStatuses
+ÄÄ5 Q
+.
+ÄÄQ R
+Sent
+ÄÄR V
+.
+ÄÄV W
+ToString
+ÄÄW _
+(
+ÄÄ_ `
+)
+ÄÄ` a
+)
+ÄÄa b
+.
+ÅÅ 
+FirstOrDefault
+ÅÅ #
+(
+ÅÅ# $
+)
+ÅÅ$ %
+;
+ÅÅ% &
+if
+ÇÇ 
+(
+ÇÇ 
+friendRequests
+ÇÇ "
+!=
+ÇÇ# %
+null
+ÇÇ& *
+)
+ÇÇ* +
+{
+ÉÉ 
+return
+ÑÑ 
+true
+ÑÑ 
+;
+ÑÑ  
+}
+ÖÖ 
+}
+ÜÜ 
+catch
+áá 
+(
+áá 
+	Exception
+áá 
+ex
+áá 
+)
+áá  
+{
+àà 
+Console
+ââ 
+.
+ââ 
+	WriteLine
+ââ !
+(
+ââ! "
+ex
+ââ" $
+.
+ââ$ %
+ToString
+ââ% -
+(
+ââ- .
+)
+ââ. /
+)
+ââ/ 0
+;
+ââ0 1
+}
+ää 
+return
+åå 
+false
+åå 
+;
+åå 
+}
+çç 	
+public
+èè 
+bool
+èè Z
+LTheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile
+èè `
+(
+èè` a
+long
+èèa e"
+transmitterProfileID
+èèf z
+,
+èèz {
+longèè| Ä
+senderProfileIDèèÅ ê
+)èèê ë
+{
+êê 	
+try
+ëë 
+{
+íí $
+DatabaseModelContainer
+ìì &$
+databaseModelContainer
+ìì' =
+=
+ìì> ?
+new
+ìì@ C$
+DatabaseModelContainer
+ììD Z
+(
+ììZ [
+)
+ìì[ \
+;
+ìì\ ]
+FriendRequests
+îî 
+friendRequests
+îî -
+=
+îî. /$
+databaseModelContainer
+îî0 F
+.
+îîF G
+FriendRequestsSet
+îîG X
+.
+îîX Y
+Where
+îîY ^
+(
+îî^ _
+fr
+îî_ a
+=>
+îîb d
+fr
+îîe g
+.
+îîg h
+Profiles
+îîh p
+.
+îîp q
+	IDProfile
+îîq z
+==
+îî{ }
+senderProfileIDîî~ ç
+)îîç é
+.
+ïï 
+Where
+ïï 
+(
+ïï 
+fr
+ïï 
+=>
+ïï  
+fr
+ïï! #
+.
+ïï# $
+	Profiles1
+ïï$ -
+.
+ïï- .
+	IDProfile
+ïï. 7
+==
+ïï8 :"
+transmitterProfileID
+ïï; O
+)
+ïïO P
+.
+ññ 
+Where
+ññ 
+(
+ññ 
+fr
+ññ 
+=>
+ññ  
+fr
+ññ! #
+.
+ññ# $
+AceptationStatus
+ññ$ 4
+==
+ññ5 7-
+FriendRequestAceptationStatuses
+ññ8 W
+.
+ññW X
+Pendient
+ññX `
+.
+ññ` a
+ToString
+ñña i
+(
+ññi j
+)
+ññj k
+)
+ññk l
+.
+óó 
+Where
+óó 
+(
+óó 
+fr
+óó 
+=>
+óó  
+fr
+óó! #
+.
+óó# $
+SendingStatus
+óó$ 1
+==
+óó2 4*
+FriendRequestSendingStatuses
+óó5 Q
+.
+óóQ R
+Sent
+óóR V
+.
+óóV W
+ToString
+óóW _
+(
+óó_ `
+)
+óó` a
+)
+óóa b
+.
+òò 
+FirstOrDefault
+òò #
+(
+òò# $
+)
+òò$ %
+;
+òò% &
+if
+ôô 
+(
+ôô 
+friendRequests
+ôô "
+!=
+ôô# %
+null
+ôô& *
+)
+ôô* +
+{
+öö 
+return
+õõ 
+true
+õõ 
+;
+õõ  
+}
+úú 
+}
+ùù 
+catch
+ûû 
+(
+ûû 
+	Exception
+ûû 
+ex
+ûû 
+)
+ûû  
+{
+üü 
+Console
+†† 
+.
+†† 
+	WriteLine
+†† !
+(
+††! "
+ex
+††" $
+.
+††$ %
+ToString
+††% -
+(
+††- .
+)
+††. /
+)
+††/ 0
+;
+††0 1
+}
+°° 
+return
+££ 
+false
+££ 
+;
+££ 
+}
+§§ 	
+public
+®® 
+void
+®® 
+AddFriendRequest
+®® $
+(
+®®$ %
+FriendRequests
+®®% 3
+friendRequests
+®®4 B
+)
+®®B C
+{
+©© 	
+try
+™™ 
+{
+´´ $
+DatabaseModelContainer
+¨¨ &$
+databaseModelContainer
+¨¨' =
+=
+¨¨> ?
+new
+¨¨@ C$
+DatabaseModelContainer
+¨¨D Z
+(
+¨¨Z [
+)
+¨¨[ \
+;
+¨¨\ ]$
+databaseModelContainer
+≠≠ &
+.
+≠≠& '
+Entry
+≠≠' ,
+(
+≠≠, -
+friendRequests
+≠≠- ;
+)
+≠≠; <
+.
+≠≠< =
+State
+≠≠= B
+=
+≠≠C D
+EntityState
+≠≠E P
+.
+≠≠P Q
+	Unchanged
+≠≠Q Z
+;
+≠≠Z [$
+databaseModelContainer
+ÆÆ &
+.
+ÆÆ& '
+FriendRequestsSet
+ÆÆ' 8
+.
+ÆÆ8 9
+Add
+ÆÆ9 <
+(
+ÆÆ< =
+friendRequests
+ÆÆ= K
+)
+ÆÆK L
+;
+ÆÆL M$
+databaseModelContainer
+ØØ &
+.
+ØØ& '
+SaveChanges
+ØØ' 2
+(
+ØØ2 3
+)
+ØØ3 4
+;
+ØØ4 54
+&ServiceFriendRequestForCallbackMethods
+≤≤ 64
+&serviceFriendRequestForCallbackMethods
+≤≤7 ]
+=
+≤≤^ _
+new
+≤≤` c5
+&ServiceFriendRequestForCallbackMethods≤≤d ä
+(≤≤ä ã
+)≤≤ã å
+;≤≤å ç4
+&serviceFriendRequestForCallbackMethods
+≥≥ 6
+.
+≥≥6 7<
+.UpdateFriendRequestsListsToAllConnectedClients
+≥≥7 e
+(
+≥≥e f
+)
+≥≥f g
+;
+≥≥g h
+}
+¥¥ 
+catch
+µµ 
+(
+µµ )
+DbEntityValidationException
+µµ .
+ex
+µµ/ 1
+)
+µµ1 2
+{
+∂∂ 
+foreach
+∑∑ 
+(
+∑∑ 
+var
+∑∑ 
+validationErrors
+∑∑ -
+in
+∑∑. 0
+ex
+∑∑1 3
+.
+∑∑3 4$
+EntityValidationErrors
+∑∑4 J
+)
+∑∑J K
+{
+∏∏ 
+foreach
+ππ 
+(
+ππ 
+var
+ππ  
+validationError
+ππ! 0
+in
+ππ1 3
+validationErrors
+ππ4 D
+.
+ππD E
+ValidationErrors
+ππE U
+)
+ππU V
+{
+∫∫ 
+Console
+ªª 
+.
+ªª  
+	WriteLine
+ªª  )
+(
+ªª) *
+$"
+ªª* ,
+$str
+ªª, 6
+{
+ªª6 7
+validationError
+ªª7 F
+.
+ªªF G
+PropertyName
+ªªG S
+}
+ªªS T
+$str
+ªªT \
+{
+ªª\ ]
+validationError
+ªª] l
+.
+ªªl m
+ErrorMessage
+ªªm y
+}
+ªªy z
+"
+ªªz {
+)
+ªª{ |
+;
+ªª| }
+}
+ºº 
+}
+ΩΩ 
+}
+ææ 
+}
+øø 	
+public
+¡¡ 
+void
+¡¡ !
+AcceptFriendRequest
+¡¡ '
+(
+¡¡' (
+FriendRequests
+¡¡( 6
+friendRequests
+¡¡7 E
+)
+¡¡E F
+{
+¬¬ 	
+try
+√√ 
+{
+ƒƒ $
+DatabaseModelContainer
+≈≈ &$
+databaseModelContainer
+≈≈' =
+=
+≈≈> ?
+new
+≈≈@ C$
+DatabaseModelContainer
+≈≈D Z
+(
+≈≈Z [
+)
+≈≈[ \
+;
+≈≈\ ]
+FriendRequests
+∆∆ $
+friendRequestsToModify
+∆∆ 5
+=
+∆∆6 7$
+databaseModelContainer
+∆∆8 N
+.
+∆∆N O
+FriendRequestsSet
+∆∆O `
+.
+∆∆` a
+Find
+∆∆a e
+(
+∆∆e f
+friendRequests
+∆∆f t
+.
+∆∆t u
+IDFriendRequest∆∆u Ñ
+)∆∆Ñ Ö
+;∆∆Ö Ü
+if
+«« 
+(
+«« $
+friendRequestsToModify
+«« *
+!=
+««+ -
+null
+««. 2
+)
+««2 3
+{
+»» $
+friendRequestsToModify
+…… *
+.
+……* +
+AceptationStatus
+……+ ;
+=
+……< =
+Enum
+……> B
+.
+……B C
+GetName
+……C J
+(
+……J K
+typeof
+……K Q
+(
+……Q R-
+FriendRequestAceptationStatuses
+……R q
+)
+……q r
+,
+……r s.
+FriendRequestAceptationStatuses……t ì
+.……ì î
+Accepted……î ú
+)……ú ù
+;……ù û$
+databaseModelContainer
+   *
+.
+  * +
+SaveChanges
+  + 6
+(
+  6 7
+)
+  7 8
+;
+  8 91
+#ServiceProfileForNonCallbackMethods
+ÃÃ 71
+#serviceProfileForNonCallbackMethods
+ÃÃ8 [
+=
+ÃÃ\ ]
+new
+ÃÃ^ a2
+#ServiceProfileForNonCallbackMethodsÃÃb Ö
+(ÃÃÖ Ü
+)ÃÃÜ á
+;ÃÃá à1
+#serviceProfileForNonCallbackMethods
+ÕÕ 7
+.
+ÕÕ7 8
+AddFriendship
+ÕÕ8 E
+(
+ÕÕE F
+friendRequests
+ÕÕF T
+.
+ÕÕT U
+Profiles
+ÕÕU ]
+,
+ÕÕ] ^
+friendRequests
+ÕÕ_ m
+.
+ÕÕm n
+	Profiles1
+ÕÕn w
+)
+ÕÕw x
+;
+ÕÕx y4
+&ServiceFriendRequestForCallbackMethods
+œœ :4
+&serviceFriendRequestForCallbackMethods
+œœ; a
+=
+œœb c
+new
+œœd g5
+&ServiceFriendRequestForCallbackMethodsœœh é
+(œœé è
+)œœè ê
+;œœê ë4
+&serviceFriendRequestForCallbackMethods
+–– :
+.
+––: ;<
+.UpdateFriendRequestsListsToAllConnectedClients
+––; i
+(
+––i j
+)
+––j k
+;
+––k l
+}
+—— 
+}
+““ 
+catch
+”” 
+(
+”” 
+	Exception
+”” 
+ex
+”” 
+)
+””  
+{
+‘‘ 
+Console
+’’ 
+.
+’’ 
+	WriteLine
+’’ !
+(
+’’! "
+ex
+’’" $
+.
+’’$ %
+ToString
+’’% -
+(
+’’- .
+)
+’’. /
+)
+’’/ 0
+;
+’’0 1
+}
+÷÷ 
+}
+◊◊ 	
+public
+ŸŸ 
+void
+ŸŸ !
+CancelFriendRequest
+ŸŸ '
+(
+ŸŸ' (
+FriendRequests
+ŸŸ( 6
+friendRequests
+ŸŸ7 E
+)
+ŸŸE F
+{
+⁄⁄ 	
+try
+€€ 
+{
+‹‹ $
+DatabaseModelContainer
+›› &$
+databaseModelContainer
+››' =
+=
+››> ?
+new
+››@ C$
+DatabaseModelContainer
+››D Z
+(
+››Z [
+)
+››[ \
+;
+››\ ]
+FriendRequests
+ﬁﬁ $
+friendRequestsToModify
+ﬁﬁ 5
+=
+ﬁﬁ6 7$
+databaseModelContainer
+ﬁﬁ8 N
+.
+ﬁﬁN O
+FriendRequestsSet
+ﬁﬁO `
+.
+ﬁﬁ` a
+Find
+ﬁﬁa e
+(
+ﬁﬁe f
+friendRequests
+ﬁﬁf t
+.
+ﬁﬁt u
+IDFriendRequestﬁﬁu Ñ
+)ﬁﬁÑ Ö
+;ﬁﬁÖ Ü
+if
+ﬂﬂ 
+(
+ﬂﬂ $
+friendRequestsToModify
+ﬂﬂ *
+!=
+ﬂﬂ+ -
+null
+ﬂﬂ. 2
+)
+ﬂﬂ2 3
+{
+‡‡ $
+friendRequestsToModify
+·· *
+.
+··* +
+SendingStatus
+··+ 8
+=
+··9 :
+Enum
+··; ?
+.
+··? @
+GetName
+··@ G
+(
+··G H
+typeof
+··H N
+(
+··N O*
+FriendRequestSendingStatuses
+··O k
+)
+··k l
+,
+··l m+
+FriendRequestSendingStatuses··n ä
+.··ä ã
+Canceled··ã ì
+)··ì î
+;··î ï$
+databaseModelContainer
+‚‚ *
+.
+‚‚* +
+SaveChanges
+‚‚+ 6
+(
+‚‚6 7
+)
+‚‚7 8
+;
+‚‚8 94
+&ServiceFriendRequestForCallbackMethods
+ÂÂ :4
+&serviceFriendRequestForCallbackMethods
+ÂÂ; a
+=
+ÂÂb c
+new
+ÂÂd g5
+&ServiceFriendRequestForCallbackMethodsÂÂh é
+(ÂÂé è
+)ÂÂè ê
+;ÂÂê ë4
+&serviceFriendRequestForCallbackMethods
+ÊÊ :
+.
+ÊÊ: ;<
+.UpdateFriendRequestsListsToAllConnectedClients
+ÊÊ; i
+(
+ÊÊi j
+)
+ÊÊj k
+;
+ÊÊk l
+}
+ÁÁ 
+}
+ËË 
+catch
+ÈÈ 
+(
+ÈÈ 
+	Exception
+ÈÈ 
+ex
+ÈÈ 
+)
+ÈÈ  
+{
+ÍÍ 
+Console
+ÎÎ 
+.
+ÎÎ 
+	WriteLine
+ÎÎ !
+(
+ÎÎ! "
+ex
+ÎÎ" $
+.
+ÎÎ$ %
+ToString
+ÎÎ% -
+(
+ÎÎ- .
+)
+ÎÎ. /
+)
+ÎÎ/ 0
+;
+ÎÎ0 1
+}
+ÏÏ 
+}
+ÌÌ 	
+public
+ÔÔ 
+void
+ÔÔ !
+RejectFriendRequest
+ÔÔ '
+(
+ÔÔ' (
+FriendRequests
+ÔÔ( 6
+friendRequests
+ÔÔ7 E
+)
+ÔÔE F
+{
+ 	
+try
+ÒÒ 
+{
+ÚÚ $
+DatabaseModelContainer
+ÛÛ &$
+databaseModelContainer
+ÛÛ' =
+=
+ÛÛ> ?
+new
+ÛÛ@ C$
+DatabaseModelContainer
+ÛÛD Z
+(
+ÛÛZ [
+)
+ÛÛ[ \
+;
+ÛÛ\ ]
+FriendRequests
+ÙÙ $
+friendRequestsToModify
+ÙÙ 5
+=
+ÙÙ6 7$
+databaseModelContainer
+ÙÙ8 N
+.
+ÙÙN O
+FriendRequestsSet
+ÙÙO `
+.
+ÙÙ` a
+Find
+ÙÙa e
+(
+ÙÙe f
+friendRequests
+ÙÙf t
+.
+ÙÙt u
+IDFriendRequestÙÙu Ñ
+)ÙÙÑ Ö
+;ÙÙÖ Ü
+if
+ıı 
+(
+ıı $
+friendRequestsToModify
+ıı *
+!=
+ıı+ -
+null
+ıı. 2
+)
+ıı2 3
+{
+ˆˆ $
+friendRequestsToModify
+˜˜ *
+.
+˜˜* +
+AceptationStatus
+˜˜+ ;
+=
+˜˜< =-
+FriendRequestAceptationStatuses
+˜˜> ]
+.
+˜˜] ^
+Rejected
+˜˜^ f
+.
+˜˜f g
+ToString
+˜˜g o
+(
+˜˜o p
+)
+˜˜p q
+;
+˜˜q r$
+databaseModelContainer
+¯¯ *
+.
+¯¯* +
+SaveChanges
+¯¯+ 6
+(
+¯¯6 7
+)
+¯¯7 8
+;
+¯¯8 94
+&ServiceFriendRequestForCallbackMethods
+˙˙ :4
+&serviceFriendRequestForCallbackMethods
+˙˙; a
+=
+˙˙b c
+new
+˙˙d g5
+&ServiceFriendRequestForCallbackMethods˙˙h é
+(˙˙é è
+)˙˙è ê
+;˙˙ê ë4
+&serviceFriendRequestForCallbackMethods
+˚˚ :
+.
+˚˚: ;<
+.UpdateFriendRequestsListsToAllConnectedClients
+˚˚; i
+(
+˚˚i j
+)
+˚˚j k
+;
+˚˚k l
+}
+¸¸ 
+}
+˝˝ 
+catch
+˛˛ 
+(
+˛˛ 
+	Exception
+˛˛ 
+ex
+˛˛ 
+)
+˛˛  
+{
+ˇˇ 
+Console
+ÄÄ 
+.
+ÄÄ 
+	WriteLine
+ÄÄ !
+(
+ÄÄ! "
+ex
+ÄÄ" $
+.
+ÄÄ$ %
+ToString
+ÄÄ% -
+(
+ÄÄ- .
+)
+ÄÄ. /
+)
+ÄÄ/ 0
+;
+ÄÄ0 1
+}
+ÅÅ 
+}
+ÇÇ 	
+}
+ÉÉ 
+[
+áá 
+CallbackBehavior
+áá 
+(
+áá 
+ConcurrencyMode
+áá %
+=
+áá& '
+ConcurrencyMode
+áá( 7
+.
+áá7 8
+Multiple
+áá8 @
+,
+áá@ A'
+UseSynchronizationContext
+ááB [
+=
+áá\ ]
+false
+áá^ c
+)
+áác d
+]
+áád e
+public
+àà 
+
+class
+àà 4
+&ServiceFriendRequestForCallbackMethods
+àà 7
+:
+àà8 9+
+IFriendRequestCallbackMethods
+àà: W
+{
+ââ 
+public
+ää 
+static
+ää 
+
+Dictionary
+ää  
+<
+ää  !
+string
+ää! '
+,
+ää' ($
+IFriendRequestCallback
+ää) ?
+>
+ää? @
+connectedProfiles
+ääA R
+=
+ääS T
+new
+ääU X
+
+Dictionary
+ääY c
+<
+ääc d
+string
+ääd j
+,
+ääj k%
+IFriendRequestCallbackääl Ç
+>ääÇ É
+(ääÉ Ñ
+)ääÑ Ö
+;ääÖ Ü
+public
+åå 
+void
+åå 
+Connect
+åå 
+(
+åå 
+string
+åå "
+username
+åå# +
+)
+åå+ ,
+{
+çç 	$
+IFriendRequestCallback
+éé "
+callback
+éé# +
+=
+éé, -
+OperationContext
+éé. >
+.
+éé> ?
+Current
+éé? F
+.
+ééF G 
+GetCallbackChannel
+ééG Y
+<
+ééY Z$
+IFriendRequestCallback
+ééZ p
+>
+éép q
+(
+ééq r
+)
+éér s
+;
+éés t
+if
+êê 
+(
+êê 
+!
+êê 
+connectedProfiles
+êê "
+.
+êê" #
+ContainsKey
+êê# .
+(
+êê. /
+username
+êê/ 7
+)
+êê7 8
+)
+êê8 9
+{
+ëë 
+connectedProfiles
+íí !
+.
+íí! "
+Add
+íí" %
+(
+íí% &
+username
+íí& .
+,
+íí. /
+callback
+íí0 8
+)
+íí8 9
+;
+íí9 :
+}
+ìì 
+}
+îî 	
+public
+ññ 
+void
+ññ 
+
+Disconnect
+ññ 
+(
+ññ 
+string
+ññ %
+username
+ññ& .
+)
+ññ. /
+{
+óó 	
+if
+òò 
+(
+òò 
+connectedProfiles
+òò !
+.
+òò! "
+ContainsKey
+òò" -
+(
+òò- .
+username
+òò. 6
+)
+òò6 7
+)
+òò7 8
+{
+ôô 
+connectedProfiles
+öö !
+.
+öö! "
+Remove
+öö" (
+(
+öö( )
+username
+öö) 1
+)
+öö1 2
+;
+öö2 3
+}
+õõ 
+}
+úú 	
+public
+ûû 
+void
+ûû <
+.UpdateFriendRequestsListsToAllConnectedClients
+ûû B
+(
+ûûB C
+)
+ûûC D
+{
+üü 	
+foreach
+†† 
+(
+†† 
+var
+†† #
+friendRequestCallback
+†† .
+in
+††/ 1
+connectedProfiles
+††2 C
+.
+††C D
+Values
+††D J
+)
+††J K
+{
+°° #
+friendRequestCallback
+¢¢ %
+.
+¢¢% &(
+UpdateFriendsRequestsLists
+¢¢& @
+(
+¢¢@ A
+)
+¢¢A B
+;
+¢¢B C
+}
+££ 
+}
+§§ 	
+}
+¶¶ 
+}ßß ÕÄ
+XC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServicePlayer.cs
+	namespace 	
+ServicesTCP
+ 
+. 
+Services 
+{		 
+public
+
+ 
+
+class
+
+ 
+ServicePlayer
+
+ 
+:
+
+  
+IPlayer
+
+! (
+{ 
+public 
+long 
+	AddPlayer 
+( 
+Players %
+player& ,
+), -
+{ 	
+long 
+generatedID 
+= 
+$num  
+;  !
+try 
+{ 
+player 
+. 
+Profiles 
+=  !
+new" %
+Profiles& .
+(. /
+)/ 0
+;0 1"
+DatabaseModelContainer &"
+databaseModelContainer' =
+=> ?
+new@ C"
+DatabaseModelContainerD Z
+(Z [
+)[ \
+;\ ]"
+databaseModelContainer &
+.& '
+
+PlayersSet' 1
+.1 2
+Add2 5
+(5 6
+player6 <
+)< =
+;= >"
+databaseModelContainer &
+.& '
+SaveChanges' 2
+(2 3
+)3 4
+;4 5
+generatedID 
+= 
+player $
+.$ %
+IDPlayer% -
+;- .
+} 
+catch 
+( 
+	Exception 
+ex 
+)  
+{ 
+Console 
+. 
+	WriteLine !
+(! "
+ex" $
+.$ %
+ToString% -
+(- .
+). /
+)/ 0
+;0 1
+} 
+return 
+generatedID 
+; 
+} 	
+public   
+List   
+<   
+Players   
+>   
+
+GetPlayers   '
+(  ' (
+)  ( )
+{!! 	
+List"" 
+<"" 
+Players"" 
+>"" 
+players"" !
+=""" #
+null""$ (
+;""( )
+try$$ 
+{%% "
+DatabaseModelContainer&& &"
+databaseModelContainer&&' =
+=&&> ?
+new&&@ C"
+DatabaseModelContainer&&D Z
+(&&Z [
+)&&[ \
+;&&\ ]
+players'' 
+='' "
+databaseModelContainer'' 0
+.''0 1
+
+PlayersSet''1 ;
+.''; <
+ToList''< B
+(''B C
+)''C D
+;''D E
+}(( 
+catch)) 
+()) 
+	Exception)) 
+ex)) 
+)))  
+{** 
+Console++ 
+.++ 
+	WriteLine++ !
+(++! "
+ex++" $
+.++$ %
+ToString++% -
+(++- .
+)++. /
+)++/ 0
+;++0 1
+},, 
+return-- 
+players-- 
+;-- 
+}.. 	
+public00 
+Player00 
+GetPlayerByID00 #
+(00# $
+long00$ (
+ID00) +
+)00+ ,
+{11 	
+Player22 
+player22 
+=22 
+new22 
+Player22  &
+(22& '
+)22' (
+;22( )
+Players33 
+players33 
+=33 
+new33 !
+Players33" )
+(33) *
+)33* +
+;33+ ,
+try55 
+{66 "
+DatabaseModelContainer77 &"
+databaseModelContainer77' =
+=77> ?
+new77@ C"
+DatabaseModelContainer77D Z
+(77Z [
+)77[ \
+;77\ ]
+players88 
+=88 "
+databaseModelContainer88 0
+.880 1
+
+PlayersSet881 ;
+.88; <
+Where88< A
+(88A B
+e88B C
+=>88D F
+e88G H
+.88H I
+IDPlayer88I Q
+==88R T
+ID88U W
+)88W X
+.88X Y
+FirstOrDefault88Y g
+(88g h
+)88h i
+;88i j
+if:: 
+(:: 
+players:: 
+!=:: 
+null:: "
+)::" #
+{;; 
+player<< 
+.<< 
+IDPlayer<< #
+=<<$ %
+players<<& -
+.<<- .
+IDPlayer<<. 6
+;<<6 7
+player== 
+.== 
+Names==  
+===! "
+players==# *
+.==* +
+Names==+ 0
+;==0 1
+player>> 
+.>> 
+Surnames>> #
+=>>$ %
+players>>& -
+.>>- .
+Surnames>>. 6
+;>>6 7
+player?? 
+.?? 
+Email??  
+=??! "
+players??# *
+.??* +
+Email??+ 0
+;??0 1
+player@@ 
+.@@ 
+NickName@@ #
+=@@$ %
+players@@& -
+.@@- .
+NickName@@. 6
+;@@6 7
+playerAA 
+.AA 
+	BirthDateAA $
+=AA% &
+playersAA' .
+.AA. /
+	BirthDateAA/ 8
+;AA8 9
+playerBB 
+.BB 
+PasswordBB #
+=BB$ %
+playersBB& -
+.BB- .
+PasswordBB. 6
+;BB6 7
+}CC 
+elseDD 
+{EE 
+playerFF 
+=FF 
+nullFF !
+;FF! "
+}GG 
+}II 
+catchJJ 
+(JJ 
+	ExceptionJJ 
+exJJ 
+)JJ  
+{KK 
+ConsoleLL 
+.LL 
+	WriteLineLL !
+(LL! "
+exLL" $
+.LL$ %
+ToStringLL% -
+(LL- .
+)LL. /
+)LL/ 0
+;LL0 1
+}MM 
+returnOO 
+playerOO 
+;OO 
+}PP 	
+publicRR 
+PlayerRR 
+GetPlayerByNicknameRR )
+(RR) *
+stringRR* 0
+nicknameRR1 9
+)RR9 :
+{SS 	
+PlayerTT 
+playerTT 
+=TT 
+newTT 
+PlayerTT  &
+(TT& '
+)TT' (
+;TT( )
+PlayersUU 
+playersUU 
+=UU 
+newUU !
+PlayersUU" )
+(UU) *
+)UU* +
+;UU+ ,
+tryWW 
+{XX "
+DatabaseModelContainerYY &"
+databaseModelContainerYY' =
+=YY> ?
+newYY@ C"
+DatabaseModelContainerYYD Z
+(YYZ [
+)YY[ \
+;YY\ ]
+playersZZ 
+=ZZ "
+databaseModelContainerZZ 0
+.ZZ0 1
+
+PlayersSetZZ1 ;
+.ZZ; <
+WhereZZ< A
+(ZZA B
+eZZB C
+=>ZZD F
+eZZG H
+.ZZH I
+NickNameZZI Q
+==ZZR T
+nicknameZZU ]
+)ZZ] ^
+.ZZ^ _
+FirstOrDefaultZZ_ m
+(ZZm n
+)ZZn o
+;ZZo p
+if\\ 
+(\\ 
+players\\ 
+!=\\ 
+null\\ "
+)\\" #
+{]] 
+player^^ 
+.^^ 
+IDPlayer^^ #
+=^^$ %
+players^^& -
+.^^- .
+IDPlayer^^. 6
+;^^6 7
+player__ 
+.__ 
+Names__  
+=__! "
+players__# *
+.__* +
+Names__+ 0
+;__0 1
+player`` 
+.`` 
+Surnames`` #
+=``$ %
+players``& -
+.``- .
+Surnames``. 6
+;``6 7
+playeraa 
+.aa 
+Emailaa  
+=aa! "
+playersaa# *
+.aa* +
+Emailaa+ 0
+;aa0 1
+playerbb 
+.bb 
+NickNamebb #
+=bb$ %
+playersbb& -
+.bb- .
+NickNamebb. 6
+;bb6 7
+playercc 
+.cc 
+	BirthDatecc $
+=cc% &
+playerscc' .
+.cc. /
+	BirthDatecc/ 8
+;cc8 9
+playerdd 
+.dd 
+Passworddd #
+=dd$ %
+playersdd& -
+.dd- .
+Passworddd. 6
+;dd6 7
+}ee 
+elseff 
+{gg 
+playerhh 
+=hh 
+nullhh !
+;hh! "
+}ii 
 }kk 
 catchll 
 (ll 
@@ -3344,3840 +7089,639 @@ _C:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\Service
 )nn/ 0
 ;nn0 1
 }oo 
-returnqq 
-friendRequestqq  
-;qq  !
+returnqq 
+playerqq 
+;qq 
 }rr 	
 publictt 
 Listtt 
-<tt 
-FriendRequesttt !
->tt! "@
-4GetPendientsForAceptationFriendsRequestsByProfile1IDtt# W
-(ttW X
-longttX \
-
-IDProfile1tt] g
-)ttg h
+<tt 
+Playerstt 
+>tt 
+GetSpecifiedPlayerstt 0
+(tt0 1
+stringtt1 7
+namett8 <
+)tt< =
 {uu 	
 Listvv 
-<vv 
-FriendRequestvv 
->vv 
-friendRequestListvv  1
-=vv2 3
-newvv4 7
-Listvv8 <
-<vv< =
-FriendRequestvv= J
->vvJ K
-(vvK L
-)vvL M
-;vvM N
-Listww 
-<ww 
-FriendRequestsww 
->ww  
-friendRequestsListww! 3
-=ww4 5
-newww6 9
-Listww: >
-<ww> ?
-FriendRequestsww? M
->wwM N
-(wwN O
-)wwO P
-;wwP Q
-tryyy 
-{zz "
-DatabaseModelContainer{{ &"
-databaseModelContainer{{' =
-={{> ?
-new{{@ C"
-DatabaseModelContainer{{D Z
-({{Z [
-){{[ \
-;{{\ ]
-friendRequestsList|| "
-=||# $"
-databaseModelContainer||% ;
-.||; <
-FriendRequestsSet||< M
-.}} 
-Where}} 
-(}} 
-fr}} 
-=>}} 
-fr}} 
-.}}  
-	Profiles1}}  )
-.}}) *
-	IDProfile}}* 3
-==}}4 6
+<vv 
+Playersvv 
+>vv 
+playersvv !
+=vv" #
+nullvv$ (
+;vv( )
+tryxx 
+{yy "
+DatabaseModelContainerzz &"
+databaseModelContainerzz' =
+=zz> ?
+newzz@ C"
+DatabaseModelContainerzzD Z
+(zzZ [
+)zz[ \
+;zz\ ]
+players{{ 
+={{ "
+databaseModelContainer{{ 0
+.{{0 1
 
-IDProfile1}}7 A
-)}}A B
-.~~ 
-Where~~ 
-(~~ 
-fr~~ 
-=>~~ 
-fr~~ 
-.~~  
-AceptationStatus~~  0
-==~~1 3+
-FriendRequestAceptationStatuses~~4 S
-.~~S T
-Pendient~~T \
-.~~\ ]
-ToString~~] e
-(~~e f
-)~~f g
-)~~g h
-. 
-Where 
-( 
-fr 
-=> 
-fr 
-.  
-SendingStatus  -
-==. 0(
-FriendRequestSendingStatuses1 M
-.M N
-SentN R
-.R S
-ToStringS [
-([ \
-)\ ]
-)] ^
-.
-ÄÄ 
-ToList
-ÄÄ 
-(
-ÄÄ 
-)
-ÄÄ 
-;
-ÄÄ 
-if
-ÇÇ 
-(
-ÇÇ  
-friendRequestsList
-ÇÇ &
-!=
-ÇÇ' )
-null
-ÇÇ* .
-)
-ÇÇ. /
-{
-ÉÉ 
-friendRequestList
-ÑÑ %
-=
-ÑÑ& '<
-.FriendRequestsListToFriendRequestListConverter
-ÑÑ( V
-(
-ÑÑV W 
-friendRequestsList
-ÑÑW i
-)
-ÑÑi j
-;
-ÑÑj k
+PlayersSet{{1 ;
+.{{; <
+Where{{< A
+({{A B
+e{{B C
+=>{{D F
+e{{G H
+.{{H I
+Names{{I N
+.{{N O
+Contains{{O W
+({{W X
+name{{X \
+){{\ ]
+){{] ^
+.{{^ _
+ToList{{_ e
+({{e f
+){{f g
+;{{g h
+}|| 
+catch}} 
+(}} 
+	Exception}} 
+ex}} 
+)}}  
+{~~ 
+Console 
+. 
+	WriteLine !
+(! "
+ex" $
+.$ %
+ToString% -
+(- .
+). /
+)/ 0
+;0 1
 }
-ÖÖ 
-else
-ÜÜ 
-{
-áá 
-friendRequestList
-àà %
-=
-àà& '
-null
-àà( ,
-;
-àà, -
-}
-ââ 
-}
-ãã 
-catch
-åå 
-(
-åå 
-	Exception
-åå 
-ex
-åå 
-)
-åå  
-{
-çç 
-Console
-éé 
-.
-éé 
-	WriteLine
-éé !
-(
-éé! "
-ex
-éé" $
-.
-éé$ %
-ToString
-éé% -
-(
-éé- .
-)
-éé. /
-)
-éé/ 0
-;
-éé0 1
-}
-èè 
+ÄÄ 
 return
-ëë 
-friendRequestList
-ëë $
+ÅÅ 
+players
+ÅÅ 
 ;
-ëë$ %
+ÅÅ 
 }
-íí 	
+ÉÉ 	
 public
-îî 
-List
-îî 
-<
-îî 
-FriendRequest
-îî !
->
-îî! "H
-:GetSentAndPendientsForAceptationFriendsRequestsByProfileID
-îî# ]
-(
-îî] ^
+ÖÖ 
 long
-îî^ b
-	IDProfile
-îîc l
+ÖÖ 
+ModifyPlayer
+ÖÖ  
+(
+ÖÖ  !
+Players
+ÖÖ! (
+modifiedPlayer
+ÖÖ) 7
 )
-îîl m
+ÖÖ7 8
 {
-ïï 	
-List
-ññ 
-<
-ññ 
-FriendRequest
-ññ 
->
-ññ 
-friendRequestList
-ññ  1
+ÜÜ 	
+long
+áá 
+generatedID
+áá 
 =
-ññ2 3
-new
-ññ4 7
-List
-ññ8 <
-<
-ññ< =
-FriendRequest
-ññ= J
->
-ññJ K
-(
-ññK L
-)
-ññL M
+áá 
+$num
+áá  
 ;
-ññM N
-List
-óó 
-<
-óó 
-FriendRequests
-óó 
->
-óó   
-friendRequestsList
-óó! 3
-=
-óó4 5
-new
-óó6 9
-List
-óó: >
-<
-óó> ?
-FriendRequests
-óó? M
->
-óóM N
-(
-óóN O
-)
-óóO P
-;
-óóP Q
+áá  !
 try
-ôô 
+ââ 
 {
-öö $
+ää $
 DatabaseModelContainer
-õõ &$
+ãã &$
 databaseModelContainer
-õõ' =
+ãã' =
 =
-õõ> ?
+ãã> ?
 new
-õõ@ C$
+ãã@ C$
 DatabaseModelContainer
-õõD Z
+ããD Z
 (
-õõZ [
+ããZ [
 )
-õõ[ \
+ãã[ \
 ;
-õõ\ ] 
-friendRequestsList
-úú "
+ãã\ ]
+Players
+åå 
+playerToModify
+åå &
 =
-úú# $$
+åå' ($
 databaseModelContainer
-úú% ;
+åå) ?
 .
-úú; <
-FriendRequestsSet
-úú< M
+åå? @
+
+PlayersSet
+åå@ J
 .
-ùù 
-Where
-ùù 
+ååJ K
+Find
+ååK O
 (
-ùù 
-fr
-ùù 
-=>
-ùù 
-fr
-ùù 
+ååO P
+modifiedPlayer
+ååP ^
 .
-ùù  
-Profiles
-ùù  (
-.
-ùù( )
-	IDProfile
-ùù) 2
-==
-ùù3 5
-	IDProfile
-ùù6 ?
+åå^ _
+IDPlayer
+åå_ g
 )
-ùù? @
-.
-ûû 
-Where
-ûû 
-(
-ûû 
-fr
-ûû 
-=>
-ûû 
-fr
-ûû 
-.
-ûû  
-AceptationStatus
-ûû  0
-==
-ûû1 3-
-FriendRequestAceptationStatuses
-ûû4 S
-.
-ûûS T
-Pendient
-ûûT \
-.
-ûû\ ]
-ToString
-ûû] e
-(
-ûûe f
-)
-ûûf g
-)
-ûûg h
-.
-üü 
-Where
-üü 
-(
-üü 
-fr
-üü 
-=>
-üü 
-fr
-üü 
-.
-üü  
-SendingStatus
-üü  -
-==
-üü. 0*
-FriendRequestSendingStatuses
-üü1 M
-.
-üüM N
-Sent
-üüN R
-.
-üüR S
-ToString
-üüS [
-(
-üü[ \
-)
-üü\ ]
-)
-üü] ^
-.
-†† 
-ToList
-†† 
-(
-†† 
-)
-†† 
+ååg h
 ;
-†† 
+ååh i
 if
-¢¢ 
+çç 
 (
-¢¢  
-friendRequestsList
-¢¢ &
+çç 
+playerToModify
+çç !
 !=
-¢¢' )
+çç" $
 null
-¢¢* .
+çç% )
 )
-¢¢. /
+çç) *
 {
-££ 
-friendRequestList
-§§ %
+éé 
+playerToModify
+èè "
+.
+èè" #
+	BirthDate
+èè# ,
 =
-§§& '<
-.FriendRequestsListToFriendRequestListConverter
-§§( V
+èè- .
+modifiedPlayer
+èè/ =
+.
+èè= >
+	BirthDate
+èè> G
+;
+èèG H
+playerToModify
+êê "
+.
+êê" #
+Surnames
+êê# +
+=
+êê, -
+modifiedPlayer
+êê. <
+.
+êê< =
+Surnames
+êê= E
+;
+êêE F
+playerToModify
+ëë "
+.
+ëë" #
+Email
+ëë# (
+=
+ëë) *
+modifiedPlayer
+ëë+ 9
+.
+ëë9 :
+Email
+ëë: ?
+;
+ëë? @
+playerToModify
+íí "
+.
+íí" #
+Names
+íí# (
+=
+íí) *
+modifiedPlayer
+íí+ 9
+.
+íí9 :
+Names
+íí: ?
+;
+íí? @
+playerToModify
+ìì "
+.
+ìì" #
+NickName
+ìì# +
+=
+ìì, -
+modifiedPlayer
+ìì. <
+.
+ìì< =
+NickName
+ìì= E
+;
+ììE F$
+databaseModelContainer
+îî *
+.
+îî* +
+SaveChanges
+îî+ 6
 (
-§§V W 
-friendRequestsList
-§§W i
+îî6 7
 )
-§§i j
+îî7 8
 ;
-§§j k
-}
-•• 
-else
-¶¶ 
-{
-ßß 
-friendRequestList
-®® %
+îî8 9
+generatedID
+ïï 
 =
-®®& '
-null
-®®( ,
+ïï  !
+(
+ïï" #
+int
+ïï# &
+)
+ïï& '
+playerToModify
+ïï' 5
+.
+ïï5 6
+IDPlayer
+ïï6 >
 ;
-®®, -
+ïï> ?
 }
-©© 
+ññ 
 }
-´´ 
+óó 
 catch
-¨¨ 
+òò 
 (
-¨¨ 
+òò 
 	Exception
-¨¨ 
+òò 
 ex
-¨¨ 
+òò 
 )
-¨¨  
+òò  
 {
-≠≠ 
+ôô 
 Console
-ÆÆ 
+öö 
 .
-ÆÆ 
+öö 
 	WriteLine
-ÆÆ !
+öö !
 (
-ÆÆ! "
+öö! "
 ex
-ÆÆ" $
+öö" $
 .
-ÆÆ$ %
+öö$ %
 ToString
-ÆÆ% -
+öö% -
 (
-ÆÆ- .
+öö- .
 )
-ÆÆ. /
+öö. /
 )
-ÆÆ/ 0
+öö/ 0
 ;
-ÆÆ0 1
+öö0 1
 }
-ØØ 
+õõ 
 return
-±± 
-friendRequestList
-±± $
+ùù 
+generatedID
+ùù 
 ;
-±±$ %
+ùù 
 }
-≤≤ 	
-private
-µµ 
-List
-µµ 
-<
-µµ 
-FriendRequest
-µµ "
->
-µµ" #<
-.FriendRequestsListToFriendRequestListConverter
-µµ$ R
+ûû 	
+public
+†† 
+void
+†† #
+ModifyPasswordByEmail
+†† )
 (
-µµR S
-List
-µµS W
-<
-µµW X
-FriendRequests
-µµX f
->
-µµf g 
-friendRequestsList
-µµh z
+††) *
+String
+††* 0
+originalEmail
+††1 >
+,
+††> ?
+String
+††@ F
+newPassword
+††G R
 )
-µµz {
+††R S
 {
-∂∂ 	
-List
-∑∑ 
-<
-∑∑ 
-FriendRequest
-∑∑ 
->
-∑∑ 
-friendRequestList
-∑∑  1
+°° 	
+try
+¢¢ 
+{
+££ $
+DatabaseModelContainer
+§§ &$
+databaseModelContainer
+§§' =
 =
-∑∑2 3
+§§> ?
 new
-∑∑4 7
-List
-∑∑8 <
-<
-∑∑< =
-FriendRequest
-∑∑= J
->
-∑∑J K
+§§@ C$
+DatabaseModelContainer
+§§D Z
 (
-∑∑K L
+§§Z [
 )
-∑∑L M
+§§[ \
 ;
-∑∑M N
+§§\ ]
+Players
+•• 
+playerToModify
+•• &
+=
+••' ($
+databaseModelContainer
+••) ?
+.
+••? @
+
+PlayersSet
+••@ J
+.
+••J K
+FirstOrDefault
+••K Y
+(
+••Y Z
+e
+••Z [
+=>
+••\ ^
+e
+••_ `
+.
+••` a
+Email
+••a f
+==
+••g i
+originalEmail
+••j w
+)
+••w x
+;
+••x y
+if
+ßß 
+(
+ßß 
+playerToModify
+ßß "
+!=
+ßß# %
+null
+ßß& *
+)
+ßß* +
+{
+®® 
+playerToModify
+©© "
+.
+©©" #
+Password
+©©# +
+=
+©©, -
+newPassword
+©©. 9
+;
+©©9 :
+}
+™™ $
+databaseModelContainer
+¨¨ &
+.
+¨¨& '
+SaveChanges
+¨¨' 2
+(
+¨¨2 3
+)
+¨¨3 4
+;
+¨¨4 5
+}
+≠≠ 
+catch
+ÆÆ 
+(
+ÆÆ 
+	Exception
+ÆÆ 
+ex
+ÆÆ 
+)
+ÆÆ  
+{
+ØØ 
+Console
+∞∞ 
+.
+∞∞ 
+	WriteLine
+∞∞ !
+(
+∞∞! "
+ex
+∞∞" $
+.
+∞∞$ %
+ToString
+∞∞% -
+(
+∞∞- .
+)
+∞∞. /
+)
+∞∞/ 0
+;
+∞∞0 1
+}
+±± 
+}
+≥≥ 	
+public
+µµ 
+bool
+µµ '
+TheEmailIsAlreadyRegisted
+µµ -
+(
+µµ- .
+String
+µµ. 4
+emailToSearch
+µµ5 B
+)
+µµB C
+{
+∂∂ 	$
+DatabaseModelContainer
+∑∑ "$
+databaseModelContainer
+∑∑# 9
+=
+∑∑: ;
+new
+∑∑< ?$
+DatabaseModelContainer
+∑∑@ V
+(
+∑∑V W
+)
+∑∑W X
+;
+∑∑X Y
+List
+∏∏ 
+<
+∏∏ 
+String
+∏∏ 
+>
+∏∏ 
+emails
+∏∏ 
+=
+∏∏  !$
+databaseModelContainer
+∏∏" 8
+.
+∏∏8 9
+
+PlayersSet
+∏∏9 C
+.
+∏∏C D
+Select
+∏∏D J
+(
+∏∏J K
+row
+∏∏K N
+=>
+∏∏O Q
+row
+∏∏R U
+.
+∏∏U V
+Email
+∏∏V [
+)
+∏∏[ \
+.
+∏∏\ ]
+ToList
+∏∏] c
+(
+∏∏c d
+)
+∏∏d e
+;
+∏∏e f
 foreach
 ππ 
 (
-ππ 
-FriendRequests
-ππ #
-friendRequests
-ππ$ 2
-in
-ππ3 5 
-friendRequestsList
-ππ6 H
-)
-ππH I
-{
-∫∫ 
-Player
-ºº 
-playerProfile
-ºº $
-=
-ºº% &
-new
-ºº' *
-Player
-ºº+ 1
-(
-ºº1 2
-)
-ºº2 3
-;
-ºº3 4
-playerProfile
-ΩΩ 
-.
-ΩΩ 
-IDPlayer
-ΩΩ &
-=
-ΩΩ' (
-friendRequests
-ΩΩ) 7
-.
-ΩΩ7 8
-Profiles
-ΩΩ8 @
-.
-ΩΩ@ A
-Players
-ΩΩA H
-.
-ΩΩH I
-IDPlayer
-ΩΩI Q
-;
-ΩΩQ R
-playerProfile
-ææ 
-.
-ææ 
-Names
-ææ #
-=
-ææ$ %
-friendRequests
-ææ& 4
-.
-ææ4 5
-Profiles
-ææ5 =
-.
-ææ= >
-Players
-ææ> E
-.
-ææE F
-Names
-ææF K
-;
-ææK L
-playerProfile
-øø 
-.
-øø 
-Surnames
-øø &
-=
-øø' (
-friendRequests
-øø) 7
-.
-øø7 8
-Profiles
-øø8 @
-.
-øø@ A
-Players
-øøA H
-.
-øøH I
-Surnames
-øøI Q
-;
-øøQ R
-playerProfile
-¿¿ 
-.
-¿¿ 
-Email
-¿¿ #
-=
-¿¿$ %
-friendRequests
-¿¿& 4
-.
-¿¿4 5
-Profiles
-¿¿5 =
-.
-¿¿= >
-Players
-¿¿> E
-.
-¿¿E F
-Email
-¿¿F K
-;
-¿¿K L
-playerProfile
-¡¡ 
-.
-¡¡ 
-NickName
-¡¡ &
-=
-¡¡' (
-friendRequests
-¡¡) 7
-.
-¡¡7 8
-Profiles
-¡¡8 @
-.
-¡¡@ A
-Players
-¡¡A H
-.
-¡¡H I
-NickName
-¡¡I Q
-;
-¡¡Q R
-playerProfile
-¬¬ 
-.
-¬¬ 
-	BirthDate
-¬¬ '
-=
-¬¬( )
-friendRequests
-¬¬* 8
-.
-¬¬8 9
-Profiles
-¬¬9 A
-.
-¬¬A B
-Players
-¬¬B I
-.
-¬¬I J
-	BirthDate
-¬¬J S
-;
-¬¬S T
-Player
-ƒƒ 
-playerProfile1
-ƒƒ %
-=
-ƒƒ& '
-new
-ƒƒ( +
-Player
-ƒƒ, 2
-(
-ƒƒ2 3
-)
-ƒƒ3 4
-;
-ƒƒ4 5
-playerProfile1
-≈≈ 
-.
-≈≈ 
-IDPlayer
-≈≈ '
-=
-≈≈( )
-friendRequests
-≈≈* 8
-.
-≈≈8 9
-	Profiles1
-≈≈9 B
-.
-≈≈B C
-Players
-≈≈C J
-.
-≈≈J K
-IDPlayer
-≈≈K S
-;
-≈≈S T
-playerProfile1
-∆∆ 
-.
-∆∆ 
-Names
-∆∆ $
-=
-∆∆% &
-friendRequests
-∆∆' 5
-.
-∆∆5 6
-	Profiles1
-∆∆6 ?
-.
-∆∆? @
-Players
-∆∆@ G
-.
-∆∆G H
-Names
-∆∆H M
-;
-∆∆M N
-playerProfile1
-«« 
-.
-«« 
-Surnames
-«« '
-=
-««( )
-friendRequests
-««* 8
-.
-««8 9
-	Profiles1
-««9 B
-.
-««B C
-Players
-««C J
-.
-««J K
-Surnames
-««K S
-;
-««S T
-playerProfile1
-»» 
-.
-»» 
-Email
-»» $
-=
-»»% &
-friendRequests
-»»' 5
-.
-»»5 6
-	Profiles1
-»»6 ?
-.
-»»? @
-Players
-»»@ G
-.
-»»G H
-Email
-»»H M
-;
-»»M N
-playerProfile1
-…… 
-.
-…… 
-NickName
-…… '
-=
-……( )
-friendRequests
-……* 8
-.
-……8 9
-	Profiles1
-……9 B
-.
-……B C
-Players
-……C J
-.
-……J K
-NickName
-……K S
-;
-……S T
-playerProfile1
-   
-.
-   
-	BirthDate
-   (
-=
-  ) *
-friendRequests
-  + 9
-.
-  9 :
-	Profiles1
-  : C
-.
-  C D
-Players
-  D K
-.
-  K L
-	BirthDate
-  L U
-;
-  U V
-Profile
-ÃÃ 
-profile
-ÃÃ 
-=
-ÃÃ  !
-new
-ÃÃ" %
-Profile
-ÃÃ& -
-(
-ÃÃ- .
-)
-ÃÃ. /
-;
-ÃÃ/ 0
-profile
-ÕÕ 
-.
-ÕÕ 
-	IDProfile
-ÕÕ !
-=
-ÕÕ" #
-friendRequests
-ÕÕ$ 2
-.
-ÕÕ2 3
-Profiles
-ÕÕ3 ;
-.
-ÕÕ; <
-	IDProfile
-ÕÕ< E
-;
-ÕÕE F
-profile
-ŒŒ 
-.
-ŒŒ 
-Coins
-ŒŒ 
-=
-ŒŒ 
-(
-ŒŒ  !
-long
-ŒŒ! %
-)
-ŒŒ% &
-friendRequests
-ŒŒ& 4
-.
-ŒŒ4 5
-Profiles
-ŒŒ5 =
-.
-ŒŒ= >
-Coins
-ŒŒ> C
-;
-ŒŒC D
-profile
-œœ 
-.
-œœ 
-LoginStatus
-œœ #
-=
-œœ$ %
-friendRequests
-œœ& 4
-.
-œœ4 5
-Profiles
-œœ5 =
-.
-œœ= >
-LoginStatus
-œœ> I
-;
-œœI J
-profile
-–– 
-.
-–– 
-Player
-–– 
-=
-––  
-playerProfile
-––! .
-;
-––. /
-Profile
-““ 
-profile1
-““  
-=
-““! "
-new
-““# &
-Profile
-““' .
-(
-““. /
-)
-““/ 0
-;
-““0 1
-profile1
-”” 
-.
-”” 
-	IDProfile
-”” "
-=
-””# $
-friendRequests
-””% 3
-.
-””3 4
-	Profiles1
-””4 =
-.
-””= >
-	IDProfile
-””> G
-;
-””G H
-profile1
-‘‘ 
-.
-‘‘ 
-Coins
-‘‘ 
-=
-‘‘  
-(
-‘‘! "
-long
-‘‘" &
-)
-‘‘& '
-friendRequests
-‘‘' 5
-.
-‘‘5 6
-	Profiles1
-‘‘6 ?
-.
-‘‘? @
-Coins
-‘‘@ E
-;
-‘‘E F
-profile1
-’’ 
-.
-’’ 
-LoginStatus
-’’ $
-=
-’’% &
-friendRequests
-’’' 5
-.
-’’5 6
-	Profiles1
-’’6 ?
-.
-’’? @
-LoginStatus
-’’@ K
-;
-’’K L
-profile1
-÷÷ 
-.
-÷÷ 
-Player
-÷÷ 
-=
-÷÷  !
-playerProfile1
-÷÷" 0
-;
-÷÷0 1
-FriendRequest
-ÿÿ 
-friendRequest
-ÿÿ +
-=
-ÿÿ, -
-new
-ÿÿ. 1
-FriendRequest
-ÿÿ2 ?
-(
-ÿÿ? @
-)
-ÿÿ@ A
-;
-ÿÿA B
-friendRequest
-ŸŸ 
-.
-ŸŸ 
-IDFriendRequest
-ŸŸ -
-=
-ŸŸ. /
-friendRequests
-ŸŸ0 >
-.
-ŸŸ> ?
-IDFriendRequest
-ŸŸ? N
-;
-ŸŸN O
-friendRequest
-⁄⁄ 
-.
-⁄⁄ 
-CreationDate
-⁄⁄ *
-=
-⁄⁄+ ,
-friendRequests
-⁄⁄- ;
-.
-⁄⁄; <
-CreationDate
-⁄⁄< H
-;
-⁄⁄H I
-friendRequest
-€€ 
-.
-€€ 
-Message
-€€ %
-=
-€€& '
-friendRequests
-€€( 6
-.
-€€6 7
-Message
-€€7 >
-;
-€€> ?
-friendRequest
-‹‹ 
-.
-‹‹ 
-AceptationStatus
-‹‹ .
-=
-‹‹/ 0
-friendRequests
-‹‹1 ?
-.
-‹‹? @
-AceptationStatus
-‹‹@ P
-;
-‹‹P Q
-friendRequest
-›› 
-.
-›› 
-SendingStatus
-›› +
-=
-››, -
-friendRequests
-››. <
-.
-››< =
-SendingStatus
-››= J
-;
-››J K
-friendRequest
-ﬁﬁ 
-.
-ﬁﬁ 
-Profile
-ﬁﬁ %
-=
-ﬁﬁ& '
-profile
-ﬁﬁ( /
-;
-ﬁﬁ/ 0
-friendRequest
-ﬂﬂ 
-.
-ﬂﬂ 
-Profile1
-ﬂﬂ &
-=
-ﬂﬂ' (
-profile1
-ﬂﬂ) 1
-;
-ﬂﬂ1 2
-friendRequestList
-·· !
-.
-··! "
-Add
-··" %
-(
-··% &
-friendRequest
-··& 3
-)
-··3 4
-;
-··4 5
-}
-‚‚ 
-return
-‰‰ 
-friendRequestList
-‰‰ $
-;
-‰‰$ %
-}
-ÂÂ 	
-public
-ÁÁ 
-bool
-ÁÁ T
-FTheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile
-ÁÁ Z
-(
-ÁÁZ [
-long
-ÁÁ[ _"
-transmitterProfileID
-ÁÁ` t
-,
-ÁÁt u
-long
-ÁÁv z 
-receiverProfileIDÁÁ{ å
-)ÁÁå ç
-{
-ËË 	
-try
-ÈÈ 
-{
-ÍÍ $
-DatabaseModelContainer
-ÎÎ &$
-databaseModelContainer
-ÎÎ' =
-=
-ÎÎ> ?
-new
-ÎÎ@ C$
-DatabaseModelContainer
-ÎÎD Z
-(
-ÎÎZ [
-)
-ÎÎ[ \
-;
-ÎÎ\ ]
-FriendRequests
-ÏÏ 
-friendRequests
-ÏÏ -
-=
-ÏÏ. /$
-databaseModelContainer
-ÏÏ0 F
-.
-ÏÏF G
-FriendRequestsSet
-ÏÏG X
-.
-ÏÏX Y
-Where
-ÏÏY ^
-(
-ÏÏ^ _
-fr
-ÏÏ_ a
-=>
-ÏÏb d
-fr
-ÏÏe g
-.
-ÏÏg h
-Profiles
-ÏÏh p
-.
-ÏÏp q
-	IDProfile
-ÏÏq z
-==
-ÏÏ{ }#
-transmitterProfileIDÏÏ~ í
-)ÏÏí ì
-.
-ÌÌ 
-Where
-ÌÌ 
-(
-ÌÌ 
-fr
-ÌÌ 
-=>
-ÌÌ  
-fr
-ÌÌ! #
-.
-ÌÌ# $
-	Profiles1
-ÌÌ$ -
-.
-ÌÌ- .
-	IDProfile
-ÌÌ. 7
-==
-ÌÌ8 :
-receiverProfileID
-ÌÌ; L
-)
-ÌÌL M
-.
-ÓÓ 
-Where
-ÓÓ 
-(
-ÓÓ 
-fr
-ÓÓ 
-=>
-ÓÓ  
-fr
-ÓÓ! #
-.
-ÓÓ# $
-AceptationStatus
-ÓÓ$ 4
-==
-ÓÓ5 7-
-FriendRequestAceptationStatuses
-ÓÓ8 W
-.
-ÓÓW X
-Pendient
-ÓÓX `
-.
-ÓÓ` a
-ToString
-ÓÓa i
-(
-ÓÓi j
-)
-ÓÓj k
-)
-ÓÓk l
-.
-ÔÔ 
-Where
-ÔÔ 
-(
-ÔÔ 
-fr
-ÔÔ 
-=>
-ÔÔ  
-fr
-ÔÔ! #
-.
-ÔÔ# $
-SendingStatus
-ÔÔ$ 1
-==
-ÔÔ2 4*
-FriendRequestSendingStatuses
-ÔÔ5 Q
-.
-ÔÔQ R
-Sent
-ÔÔR V
-.
-ÔÔV W
-ToString
-ÔÔW _
-(
-ÔÔ_ `
-)
-ÔÔ` a
-)
-ÔÔa b
-.
- 
-FirstOrDefault
- #
-(
-# $
-)
-$ %
-;
-% &
-if
-ÒÒ 
-(
-ÒÒ 
-friendRequests
-ÒÒ "
-!=
-ÒÒ# %
-null
-ÒÒ& *
-)
-ÒÒ* +
-{
-ÚÚ 
-return
-ÛÛ 
-true
-ÛÛ 
-;
-ÛÛ  
-}
-ÙÙ 
-}
-ıı 
-catch
-ˆˆ 
-(
-ˆˆ 
-	Exception
-ˆˆ 
-ex
-ˆˆ 
-)
-ˆˆ  
-{
-˜˜ 
-Console
-¯¯ 
-.
-¯¯ 
-	WriteLine
-¯¯ !
-(
-¯¯! "
-ex
-¯¯" $
-.
-¯¯$ %
-ToString
-¯¯% -
-(
-¯¯- .
-)
-¯¯. /
-)
-¯¯/ 0
-;
-¯¯0 1
-}
-˘˘ 
-return
-˚˚ 
-false
-˚˚ 
-;
-˚˚ 
-}
-¸¸ 	
-public
-˛˛ 
-bool
-˛˛ Z
-LTheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile
-˛˛ `
-(
-˛˛` a
-long
-˛˛a e"
-transmitterProfileID
-˛˛f z
-,
-˛˛z {
-long˛˛| Ä
-senderProfileID˛˛Å ê
-)˛˛ê ë
-{
-ˇˇ 	
-try
-ÄÄ 
-{
-ÅÅ $
-DatabaseModelContainer
-ÇÇ &$
-databaseModelContainer
-ÇÇ' =
-=
-ÇÇ> ?
-new
-ÇÇ@ C$
-DatabaseModelContainer
-ÇÇD Z
-(
-ÇÇZ [
-)
-ÇÇ[ \
-;
-ÇÇ\ ]
-FriendRequests
-ÉÉ 
-friendRequests
-ÉÉ -
-=
-ÉÉ. /$
-databaseModelContainer
-ÉÉ0 F
-.
-ÉÉF G
-FriendRequestsSet
-ÉÉG X
-.
-ÉÉX Y
-Where
-ÉÉY ^
-(
-ÉÉ^ _
-fr
-ÉÉ_ a
-=>
-ÉÉb d
-fr
-ÉÉe g
-.
-ÉÉg h
-Profiles
-ÉÉh p
-.
-ÉÉp q
-	IDProfile
-ÉÉq z
-==
-ÉÉ{ }
-senderProfileIDÉÉ~ ç
-)ÉÉç é
-.
-ÑÑ 
-Where
-ÑÑ 
-(
-ÑÑ 
-fr
-ÑÑ 
-=>
-ÑÑ  
-fr
-ÑÑ! #
-.
-ÑÑ# $
-	Profiles1
-ÑÑ$ -
-.
-ÑÑ- .
-	IDProfile
-ÑÑ. 7
-==
-ÑÑ8 :"
-transmitterProfileID
-ÑÑ; O
-)
-ÑÑO P
-.
-ÖÖ 
-Where
-ÖÖ 
-(
-ÖÖ 
-fr
-ÖÖ 
-=>
-ÖÖ  
-fr
-ÖÖ! #
-.
-ÖÖ# $
-AceptationStatus
-ÖÖ$ 4
-==
-ÖÖ5 7-
-FriendRequestAceptationStatuses
-ÖÖ8 W
-.
-ÖÖW X
-Pendient
-ÖÖX `
-.
-ÖÖ` a
-ToString
-ÖÖa i
-(
-ÖÖi j
-)
-ÖÖj k
-)
-ÖÖk l
-.
-ÜÜ 
-Where
-ÜÜ 
-(
-ÜÜ 
-fr
-ÜÜ 
-=>
-ÜÜ  
-fr
-ÜÜ! #
-.
-ÜÜ# $
-SendingStatus
-ÜÜ$ 1
-==
-ÜÜ2 4*
-FriendRequestSendingStatuses
-ÜÜ5 Q
-.
-ÜÜQ R
-Sent
-ÜÜR V
-.
-ÜÜV W
-ToString
-ÜÜW _
-(
-ÜÜ_ `
-)
-ÜÜ` a
-)
-ÜÜa b
-.
-áá 
-FirstOrDefault
-áá #
-(
-áá# $
-)
-áá$ %
-;
-áá% &
-if
-àà 
-(
-àà 
-friendRequests
-àà "
-!=
-àà# %
-null
-àà& *
-)
-àà* +
-{
-ââ 
-return
-ää 
-true
-ää 
-;
-ää  
-}
-ãã 
-}
-åå 
-catch
-çç 
-(
-çç 
-	Exception
-çç 
-ex
-çç 
-)
-çç  
-{
-éé 
-Console
-èè 
-.
-èè 
-	WriteLine
-èè !
-(
-èè! "
-ex
-èè" $
-.
-èè$ %
-ToString
-èè% -
-(
-èè- .
-)
-èè. /
-)
-èè/ 0
-;
-èè0 1
-}
-êê 
-return
-íí 
-false
-íí 
-;
-íí 
-}
-ìì 	
-public
-óó 
-void
-óó 
-AddFriendRequest
-óó $
-(
-óó$ %
-FriendRequests
-óó% 3
-friendRequests
-óó4 B
-)
-óóB C
-{
-òò 	
-try
-ôô 
-{
-öö $
-DatabaseModelContainer
-õõ &$
-databaseModelContainer
-õõ' =
-=
-õõ> ?
-new
-õõ@ C$
-DatabaseModelContainer
-õõD Z
-(
-õõZ [
-)
-õõ[ \
-;
-õõ\ ]$
-databaseModelContainer
-úú &
-.
-úú& '
-Entry
-úú' ,
-(
-úú, -
-friendRequests
-úú- ;
-)
-úú; <
-.
-úú< =
-State
-úú= B
-=
-úúC D
-EntityState
-úúE P
-.
-úúP Q
-	Unchanged
-úúQ Z
-;
-úúZ [$
-databaseModelContainer
-ùù &
-.
-ùù& '
-FriendRequestsSet
-ùù' 8
-.
-ùù8 9
-Add
-ùù9 <
-(
-ùù< =
-friendRequests
-ùù= K
-)
-ùùK L
-;
-ùùL M$
-databaseModelContainer
-ûû &
-.
-ûû& '
-SaveChanges
-ûû' 2
-(
-ûû2 3
-)
-ûû3 4
-;
-ûû4 54
-&ServiceFriendRequestForCallbackMethods
-°° 64
-&serviceFriendRequestForCallbackMethods
-°°7 ]
-=
-°°^ _
-new
-°°` c5
-&ServiceFriendRequestForCallbackMethods°°d ä
-(°°ä ã
-)°°ã å
-;°°å ç4
-&serviceFriendRequestForCallbackMethods
-¢¢ 6
-.
-¢¢6 7<
-.UpdateFriendRequestsListsToAllConnectedClients
-¢¢7 e
-(
-¢¢e f
-)
-¢¢f g
-;
-¢¢g h
-}
-££ 
-catch
-§§ 
-(
-§§ )
-DbEntityValidationException
-§§ .
-ex
-§§/ 1
-)
-§§1 2
-{
-•• 
-foreach
-¶¶ 
-(
-¶¶ 
-var
-¶¶ 
-validationErrors
-¶¶ -
-in
-¶¶. 0
-ex
-¶¶1 3
-.
-¶¶3 4$
-EntityValidationErrors
-¶¶4 J
-)
-¶¶J K
-{
-ßß 
-foreach
-®® 
-(
-®® 
-var
-®®  
-validationError
-®®! 0
-in
-®®1 3
-validationErrors
-®®4 D
-.
-®®D E
-ValidationErrors
-®®E U
-)
-®®U V
-{
-©© 
-Console
-™™ 
-.
-™™  
-	WriteLine
-™™  )
-(
-™™) *
-$"
-™™* ,
-$str
-™™, 6
-{
-™™6 7
-validationError
-™™7 F
-.
-™™F G
-PropertyName
-™™G S
-}
-™™S T
-$str
-™™T \
-{
-™™\ ]
-validationError
-™™] l
-.
-™™l m
-ErrorMessage
-™™m y
-}
-™™y z
-"
-™™z {
-)
-™™{ |
-;
-™™| }
-}
-´´ 
-}
-¨¨ 
-}
-≠≠ 
-}
-ÆÆ 	
-public
-∞∞ 
-void
-∞∞ !
-AcceptFriendRequest
-∞∞ '
-(
-∞∞' (
-FriendRequests
-∞∞( 6
-friendRequests
-∞∞7 E
-)
-∞∞E F
-{
-±± 	
-try
-≤≤ 
-{
-≥≥ $
-DatabaseModelContainer
-¥¥ &$
-databaseModelContainer
-¥¥' =
-=
-¥¥> ?
-new
-¥¥@ C$
-DatabaseModelContainer
-¥¥D Z
-(
-¥¥Z [
-)
-¥¥[ \
-;
-¥¥\ ]
-FriendRequests
-µµ $
-friendRequestsToModify
-µµ 5
-=
-µµ6 7$
-databaseModelContainer
-µµ8 N
-.
-µµN O
-FriendRequestsSet
-µµO `
-.
-µµ` a
-Find
-µµa e
-(
-µµe f
-friendRequests
-µµf t
-.
-µµt u
-IDFriendRequestµµu Ñ
-)µµÑ Ö
-;µµÖ Ü
-if
-∂∂ 
-(
-∂∂ $
-friendRequestsToModify
-∂∂ *
-!=
-∂∂+ -
-null
-∂∂. 2
-)
-∂∂2 3
-{
-∑∑ $
-friendRequestsToModify
-∏∏ *
-.
-∏∏* +
-AceptationStatus
-∏∏+ ;
-=
-∏∏< =
-Enum
-∏∏> B
-.
-∏∏B C
-GetName
-∏∏C J
-(
-∏∏J K
-typeof
-∏∏K Q
-(
-∏∏Q R-
-FriendRequestAceptationStatuses
-∏∏R q
-)
-∏∏q r
-,
-∏∏r s.
-FriendRequestAceptationStatuses∏∏t ì
-.∏∏ì î
-Accepted∏∏î ú
-)∏∏ú ù
-;∏∏ù û$
-databaseModelContainer
-ππ *
-.
-ππ* +
-SaveChanges
-ππ+ 6
-(
-ππ6 7
-)
-ππ7 8
-;
-ππ8 9
-ServiceProfile
-ªª "
-serviceProfile
-ªª# 1
-=
-ªª2 3
-new
-ªª4 7
-ServiceProfile
-ªª8 F
-(
-ªªF G
-)
-ªªG H
-;
-ªªH I
-serviceProfile
-ºº "
-.
-ºº" #
-AddFriendship
-ºº# 0
-(
-ºº0 1
-friendRequests
-ºº1 ?
-.
-ºº? @
-Profiles
-ºº@ H
-,
-ººH I
-friendRequests
-ººJ X
-.
-ººX Y
-	Profiles1
-ººY b
-)
-ººb c
-;
-ººc d4
-&ServiceFriendRequestForCallbackMethods
-ææ :4
-&serviceFriendRequestForCallbackMethods
-ææ; a
-=
-ææb c
-new
-ææd g5
-&ServiceFriendRequestForCallbackMethodsææh é
-(ææé è
-)ææè ê
-;ææê ë4
-&serviceFriendRequestForCallbackMethods
-øø :
-.
-øø: ;<
-.UpdateFriendRequestsListsToAllConnectedClients
-øø; i
-(
-øøi j
-)
-øøj k
-;
-øøk l
-}
-¿¿ 
-}
-¡¡ 
-catch
-¬¬ 
-(
-¬¬ 
-	Exception
-¬¬ 
-ex
-¬¬ 
-)
-¬¬  
-{
-√√ 
-Console
-ƒƒ 
-.
-ƒƒ 
-	WriteLine
-ƒƒ !
-(
-ƒƒ! "
-ex
-ƒƒ" $
-.
-ƒƒ$ %
-ToString
-ƒƒ% -
-(
-ƒƒ- .
-)
-ƒƒ. /
-)
-ƒƒ/ 0
-;
-ƒƒ0 1
-}
-≈≈ 
-}
-∆∆ 	
-public
-»» 
-void
-»» !
-CancelFriendRequest
-»» '
-(
-»»' (
-FriendRequests
-»»( 6
-friendRequests
-»»7 E
-)
-»»E F
-{
-…… 	
-try
-   
-{
-ÀÀ $
-DatabaseModelContainer
-ÃÃ &$
-databaseModelContainer
-ÃÃ' =
-=
-ÃÃ> ?
-new
-ÃÃ@ C$
-DatabaseModelContainer
-ÃÃD Z
-(
-ÃÃZ [
-)
-ÃÃ[ \
-;
-ÃÃ\ ]
-FriendRequests
-ÕÕ $
-friendRequestsToModify
-ÕÕ 5
-=
-ÕÕ6 7$
-databaseModelContainer
-ÕÕ8 N
-.
-ÕÕN O
-FriendRequestsSet
-ÕÕO `
-.
-ÕÕ` a
-Find
-ÕÕa e
-(
-ÕÕe f
-friendRequests
-ÕÕf t
-.
-ÕÕt u
-IDFriendRequestÕÕu Ñ
-)ÕÕÑ Ö
-;ÕÕÖ Ü
-if
-ŒŒ 
-(
-ŒŒ $
-friendRequestsToModify
-ŒŒ *
-!=
-ŒŒ+ -
-null
-ŒŒ. 2
-)
-ŒŒ2 3
-{
-œœ $
-friendRequestsToModify
-–– *
-.
-––* +
-SendingStatus
-––+ 8
-=
-––9 :
-Enum
-––; ?
-.
-––? @
-GetName
-––@ G
-(
-––G H
-typeof
-––H N
-(
-––N O*
-FriendRequestSendingStatuses
-––O k
-)
-––k l
-,
-––l m+
-FriendRequestSendingStatuses––n ä
-.––ä ã
-Canceled––ã ì
-)––ì î
-;––î ï$
-databaseModelContainer
-—— *
-.
-——* +
-SaveChanges
-——+ 6
-(
-——6 7
-)
-——7 8
-;
-——8 94
-&ServiceFriendRequestForCallbackMethods
-‘‘ :4
-&serviceFriendRequestForCallbackMethods
-‘‘; a
-=
-‘‘b c
-new
-‘‘d g5
-&ServiceFriendRequestForCallbackMethods‘‘h é
-(‘‘é è
-)‘‘è ê
-;‘‘ê ë4
-&serviceFriendRequestForCallbackMethods
-’’ :
-.
-’’: ;<
-.UpdateFriendRequestsListsToAllConnectedClients
-’’; i
-(
-’’i j
-)
-’’j k
-;
-’’k l
-}
-÷÷ 
-}
-◊◊ 
-catch
-ÿÿ 
-(
-ÿÿ 
-	Exception
-ÿÿ 
-ex
-ÿÿ 
-)
-ÿÿ  
-{
-ŸŸ 
-Console
-⁄⁄ 
-.
-⁄⁄ 
-	WriteLine
-⁄⁄ !
-(
-⁄⁄! "
-ex
-⁄⁄" $
-.
-⁄⁄$ %
-ToString
-⁄⁄% -
-(
-⁄⁄- .
-)
-⁄⁄. /
-)
-⁄⁄/ 0
-;
-⁄⁄0 1
-}
-€€ 
-}
-‹‹ 	
-public
-ﬁﬁ 
-void
-ﬁﬁ !
-RejectFriendRequest
-ﬁﬁ '
-(
-ﬁﬁ' (
-FriendRequests
-ﬁﬁ( 6
-friendRequests
-ﬁﬁ7 E
-)
-ﬁﬁE F
-{
-ﬂﬂ 	
-try
-‡‡ 
-{
-·· $
-DatabaseModelContainer
-‚‚ &$
-databaseModelContainer
-‚‚' =
-=
-‚‚> ?
-new
-‚‚@ C$
-DatabaseModelContainer
-‚‚D Z
-(
-‚‚Z [
-)
-‚‚[ \
-;
-‚‚\ ]
-FriendRequests
-„„ $
-friendRequestsToModify
-„„ 5
-=
-„„6 7$
-databaseModelContainer
-„„8 N
-.
-„„N O
-FriendRequestsSet
-„„O `
-.
-„„` a
-Find
-„„a e
-(
-„„e f
-friendRequests
-„„f t
-.
-„„t u
-IDFriendRequest„„u Ñ
-)„„Ñ Ö
-;„„Ö Ü
-if
-‰‰ 
-(
-‰‰ $
-friendRequestsToModify
-‰‰ *
-!=
-‰‰+ -
-null
-‰‰. 2
-)
-‰‰2 3
-{
-ÂÂ $
-friendRequestsToModify
-ÊÊ *
-.
-ÊÊ* +
-AceptationStatus
-ÊÊ+ ;
-=
-ÊÊ< =-
-FriendRequestAceptationStatuses
-ÊÊ> ]
-.
-ÊÊ] ^
-Rejected
-ÊÊ^ f
-.
-ÊÊf g
-ToString
-ÊÊg o
-(
-ÊÊo p
-)
-ÊÊp q
-;
-ÊÊq r$
-databaseModelContainer
-ÁÁ *
-.
-ÁÁ* +
-SaveChanges
-ÁÁ+ 6
-(
-ÁÁ6 7
-)
-ÁÁ7 8
-;
-ÁÁ8 94
-&ServiceFriendRequestForCallbackMethods
-ÈÈ :4
-&serviceFriendRequestForCallbackMethods
-ÈÈ; a
-=
-ÈÈb c
-new
-ÈÈd g5
-&ServiceFriendRequestForCallbackMethodsÈÈh é
-(ÈÈé è
-)ÈÈè ê
-;ÈÈê ë4
-&serviceFriendRequestForCallbackMethods
-ÍÍ :
-.
-ÍÍ: ;<
-.UpdateFriendRequestsListsToAllConnectedClients
-ÍÍ; i
-(
-ÍÍi j
-)
-ÍÍj k
-;
-ÍÍk l
-}
-ÎÎ 
-}
-ÏÏ 
-catch
-ÌÌ 
-(
-ÌÌ 
-	Exception
-ÌÌ 
-ex
-ÌÌ 
-)
-ÌÌ  
-{
-ÓÓ 
-Console
-ÔÔ 
-.
-ÔÔ 
-	WriteLine
-ÔÔ !
-(
-ÔÔ! "
-ex
-ÔÔ" $
-.
-ÔÔ$ %
-ToString
-ÔÔ% -
-(
-ÔÔ- .
-)
-ÔÔ. /
-)
-ÔÔ/ 0
-;
-ÔÔ0 1
-}
- 
-}
-ÒÒ 	
-}
-ÚÚ 
-[
-ÙÙ 
-CallbackBehavior
-ÙÙ 
-(
-ÙÙ 
-ConcurrencyMode
-ÙÙ %
-=
-ÙÙ& '
-ConcurrencyMode
-ÙÙ( 7
-.
-ÙÙ7 8
-Multiple
-ÙÙ8 @
-,
-ÙÙ@ A'
-UseSynchronizationContext
-ÙÙB [
-=
-ÙÙ\ ]
-false
-ÙÙ^ c
-)
-ÙÙc d
-]
-ÙÙd e
-public
-ıı 
-
-class
-ıı 4
-&ServiceFriendRequestForCallbackMethods
-ıı 7
-:
-ıı8 9.
- IFriendRequestForCallbackMethods
-ıı: Z
-{
-ˆˆ 
-public
-˜˜ 
-static
-˜˜ 
-
-Dictionary
-˜˜  
-<
-˜˜  !
-string
-˜˜! '
-,
-˜˜' ($
-IFriendRequestCallback
-˜˜) ?
->
-˜˜? @
-connectedProfiles
-˜˜A R
-=
-˜˜S T
-new
-˜˜U X
-
-Dictionary
-˜˜Y c
-<
-˜˜c d
-string
-˜˜d j
-,
-˜˜j k%
-IFriendRequestCallback˜˜l Ç
->˜˜Ç É
-(˜˜É Ñ
-)˜˜Ñ Ö
-;˜˜Ö Ü
-public
-˘˘ 
-void
-˘˘ 
-Connect
-˘˘ 
-(
-˘˘ 
-string
-˘˘ "
-username
-˘˘# +
-)
-˘˘+ ,
-{
-˙˙ 	$
-IFriendRequestCallback
-˚˚ "
-callback
-˚˚# +
-=
-˚˚, -
-OperationContext
-˚˚. >
-.
-˚˚> ?
-Current
-˚˚? F
-.
-˚˚F G 
-GetCallbackChannel
-˚˚G Y
-<
-˚˚Y Z$
-IFriendRequestCallback
-˚˚Z p
->
-˚˚p q
-(
-˚˚q r
-)
-˚˚r s
-;
-˚˚s t
-if
-˝˝ 
-(
-˝˝ 
-!
-˝˝ 
-connectedProfiles
-˝˝ "
-.
-˝˝" #
-ContainsKey
-˝˝# .
-(
-˝˝. /
-username
-˝˝/ 7
-)
-˝˝7 8
-)
-˝˝8 9
-{
-˛˛ 
-connectedProfiles
-ˇˇ !
-.
-ˇˇ! "
-Add
-ˇˇ" %
-(
-ˇˇ% &
-username
-ˇˇ& .
-,
-ˇˇ. /
-callback
-ˇˇ0 8
-)
-ˇˇ8 9
-;
-ˇˇ9 :
-}
-ÄÄ 
-}
-ÅÅ 	
-public
-ÉÉ 
-void
-ÉÉ 
-
-Disconnect
-ÉÉ 
-(
-ÉÉ 
-string
-ÉÉ %
-username
-ÉÉ& .
-)
-ÉÉ. /
-{
-ÑÑ 	
-if
-ÖÖ 
-(
-ÖÖ 
-connectedProfiles
-ÖÖ !
-.
-ÖÖ! "
-ContainsKey
-ÖÖ" -
-(
-ÖÖ- .
-username
-ÖÖ. 6
-)
-ÖÖ6 7
-)
-ÖÖ7 8
-{
-ÜÜ 
-connectedProfiles
-áá !
-.
-áá! "
-Remove
-áá" (
-(
-áá( )
-username
-áá) 1
-)
-áá1 2
-;
-áá2 3
-}
-àà 
-}
-ââ 	
-public
-ãã 
-void
-ãã <
-.UpdateFriendRequestsListsToAllConnectedClients
-ãã B
-(
-ããB C
-)
-ããC D
-{
-åå 	
-foreach
-çç 
-(
-çç 
-var
-çç #
-friendRequestCallback
-çç .
-in
-çç/ 1
-connectedProfiles
-çç2 C
-.
-ççC D
-Values
-ççD J
-)
-ççJ K
-{
-éé #
-friendRequestCallback
-èè %
-.
-èè% &(
-UpdateFriendsRequestsLists
-èè& @
-(
-èè@ A
-)
-èèA B
-;
-èèB C
-}
-êê 
-}
-ëë 	
-}
-ìì 
-}îî ›Å
-XC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServicePlayer.cs
-	namespace 	
-ServicesTCP
- 
-. 
-Services 
-{ 
-public 
-
-class 
-ServicePlayer 
-:  
-IPlayer! (
-{ 
-public 
-long 
-	AddPlayer 
-( 
-Players %
-player& ,
-), -
-{ 	
-long 
-generatedID 
-= 
-$num  
-;  !
-try 
-{ 
-player 
-. 
-Profiles 
-=  !
-new" %
-Profiles& .
-(. /
-)/ 0
-;0 1"
-DatabaseModelContainer &"
-databaseModelContainer' =
-=> ?
-new@ C"
-DatabaseModelContainerD Z
-(Z [
-)[ \
-;\ ]"
-databaseModelContainer &
-.& '
-
-PlayersSet' 1
-.1 2
-Add2 5
-(5 6
-player6 <
-)< =
-;= >"
-databaseModelContainer &
-.& '
-SaveChanges' 2
-(2 3
-)3 4
-;4 5
-generatedID 
-= 
-player $
-.$ %
-IDPlayer% -
-;- .
-}$$ 
-catch%% 
-(%% 
-	Exception%% 
-ex%% 
-)%%  
-{&& 
-Console'' 
-.'' 
-	WriteLine'' !
-(''! "
-ex''" $
-.''$ %
-ToString''% -
-(''- .
-)''. /
-)''/ 0
-;''0 1
-}(( 
-return** 
-generatedID** 
-;** 
-}++ 	
-public-- 
-List-- 
-<-- 
-Players-- 
->-- 
-
-GetPlayers-- '
-(--' (
-)--( )
-{.. 	
-List// 
-<// 
-Players// 
->// 
-players// !
-=//" #
-null//$ (
-;//( )
-try11 
-{22 "
-DatabaseModelContainer33 &"
-databaseModelContainer33' =
-=33> ?
-new33@ C"
-DatabaseModelContainer33D Z
-(33Z [
-)33[ \
-;33\ ]
-players44 
-=44 "
-databaseModelContainer44 0
-.440 1
-
-PlayersSet441 ;
-.44; <
-ToList44< B
-(44B C
-)44C D
-;44D E
-}55 
-catch66 
-(66 
-	Exception66 
-ex66 
-)66  
-{77 
-Console88 
-.88 
-	WriteLine88 !
-(88! "
-ex88" $
-.88$ %
-ToString88% -
-(88- .
-)88. /
-)88/ 0
-;880 1
-}99 
-return:: 
-players:: 
-;:: 
-};; 	
-public== 
-Player== 
-GetPlayerByID== #
-(==# $
-long==$ (
-ID==) +
-)==+ ,
-{>> 	
-Player?? 
-player?? 
-=?? 
-new?? 
-Player??  &
-(??& '
-)??' (
-;??( )
-Players@@ 
-players@@ 
-=@@ 
-new@@ !
-Players@@" )
-(@@) *
-)@@* +
-;@@+ ,
-tryBB 
-{CC "
-DatabaseModelContainerDD &"
-databaseModelContainerDD' =
-=DD> ?
-newDD@ C"
-DatabaseModelContainerDDD Z
-(DDZ [
-)DD[ \
-;DD\ ]
-playersEE 
-=EE "
-databaseModelContainerEE 0
-.EE0 1
-
-PlayersSetEE1 ;
-.EE; <
-WhereEE< A
-(EEA B
-eEEB C
-=>EED F
-eEEG H
-.EEH I
-IDPlayerEEI Q
-==EER T
-IDEEU W
-)EEW X
-.EEX Y
-FirstOrDefaultEEY g
-(EEg h
-)EEh i
-;EEi j
-ifGG 
-(GG 
-playersGG 
-!=GG 
-nullGG "
-)GG" #
-{HH 
-playerII 
-.II 
-IDPlayerII #
-=II$ %
-playersII& -
-.II- .
-IDPlayerII. 6
-;II6 7
-playerJJ 
-.JJ 
-NamesJJ  
-=JJ! "
-playersJJ# *
-.JJ* +
-NamesJJ+ 0
-;JJ0 1
-playerKK 
-.KK 
-SurnamesKK #
-=KK$ %
-playersKK& -
-.KK- .
-SurnamesKK. 6
-;KK6 7
-playerLL 
-.LL 
-EmailLL  
-=LL! "
-playersLL# *
-.LL* +
-EmailLL+ 0
-;LL0 1
-playerMM 
-.MM 
-NickNameMM #
-=MM$ %
-playersMM& -
-.MM- .
-NickNameMM. 6
-;MM6 7
-playerNN 
-.NN 
-	BirthDateNN $
-=NN% &
-playersNN' .
-.NN. /
-	BirthDateNN/ 8
-;NN8 9
-playerOO 
-.OO 
-PasswordOO #
-=OO$ %
-playersOO& -
-.OO- .
-PasswordOO. 6
-;OO6 7
-}PP 
-elseQQ 
-{RR 
-playerSS 
-=SS 
-nullSS !
-;SS! "
-}TT 
-}VV 
-catchWW 
-(WW 
-	ExceptionWW 
-exWW 
-)WW  
-{XX 
-ConsoleYY 
-.YY 
-	WriteLineYY !
-(YY! "
-exYY" $
-.YY$ %
-ToStringYY% -
-(YY- .
-)YY. /
-)YY/ 0
-;YY0 1
-}ZZ 
-return\\ 
-player\\ 
-;\\ 
-}]] 	
-public__ 
-Player__ 
-GetPlayerByNickname__ )
-(__) *
-string__* 0
-nickname__1 9
-)__9 :
-{`` 	
-Playeraa 
-playeraa 
-=aa 
-newaa 
-Playeraa  &
-(aa& '
-)aa' (
-;aa( )
-Playersbb 
-playersbb 
-=bb 
-newbb !
-Playersbb" )
-(bb) *
-)bb* +
-;bb+ ,
-trydd 
-{ee "
-DatabaseModelContainerff &"
-databaseModelContainerff' =
-=ff> ?
-newff@ C"
-DatabaseModelContainerffD Z
-(ffZ [
-)ff[ \
-;ff\ ]
-playersgg 
-=gg "
-databaseModelContainergg 0
-.gg0 1
-
-PlayersSetgg1 ;
-.gg; <
-Wheregg< A
-(ggA B
-eggB C
-=>ggD F
-eggG H
-.ggH I
-NickNameggI Q
-==ggR T
-nicknameggU ]
-)gg] ^
-.gg^ _
-FirstOrDefaultgg_ m
-(ggm n
-)ggn o
-;ggo p
-ifii 
-(ii 
-playersii 
-!=ii 
-nullii "
-)ii" #
-{jj 
-playerkk 
-.kk 
-IDPlayerkk #
-=kk$ %
-playerskk& -
-.kk- .
-IDPlayerkk. 6
-;kk6 7
-playerll 
-.ll 
-Namesll  
-=ll! "
-playersll# *
-.ll* +
-Namesll+ 0
-;ll0 1
-playermm 
-.mm 
-Surnamesmm #
-=mm$ %
-playersmm& -
-.mm- .
-Surnamesmm. 6
-;mm6 7
-playernn 
-.nn 
-Emailnn  
-=nn! "
-playersnn# *
-.nn* +
-Emailnn+ 0
-;nn0 1
-playeroo 
-.oo 
-NickNameoo #
-=oo$ %
-playersoo& -
-.oo- .
-NickNameoo. 6
-;oo6 7
-playerpp 
-.pp 
-	BirthDatepp $
-=pp% &
-playerspp' .
-.pp. /
-	BirthDatepp/ 8
-;pp8 9
-playerqq 
-.qq 
-Passwordqq #
-=qq$ %
-playersqq& -
-.qq- .
-Passwordqq. 6
-;qq6 7
-}ss 
-elsett 
-{uu 
-playervv 
-=vv 
-nullvv !
-;vv! "
-}ww 
-}yy 
-catchzz 
-(zz 
-	Exceptionzz 
-exzz 
-)zz  
-{{{ 
-Console|| 
-.|| 
-	WriteLine|| !
-(||! "
-ex||" $
-.||$ %
-ToString||% -
-(||- .
-)||. /
-)||/ 0
-;||0 1
-}}} 
-return 
-player 
-; 
-}
-ÄÄ 	
-public
-ÇÇ 
-List
-ÇÇ 
-<
-ÇÇ 
-Players
-ÇÇ 
->
-ÇÇ !
-GetSpecifiedPlayers
-ÇÇ 0
-(
-ÇÇ0 1
-string
-ÇÇ1 7
-name
-ÇÇ8 <
-)
-ÇÇ< =
-{
-ÉÉ 	
-List
-ÑÑ 
-<
-ÑÑ 
-Players
-ÑÑ 
->
-ÑÑ 
-players
-ÑÑ !
-=
-ÑÑ" #
-null
-ÑÑ$ (
-;
-ÑÑ( )
-try
-ÜÜ 
-{
-áá $
-DatabaseModelContainer
-àà &$
-databaseModelContainer
-àà' =
-=
-àà> ?
-new
-àà@ C$
-DatabaseModelContainer
-ààD Z
-(
-ààZ [
-)
-àà[ \
-;
-àà\ ]
-players
-ââ 
-=
-ââ $
-databaseModelContainer
-ââ 0
-.
-ââ0 1
-
-PlayersSet
-ââ1 ;
-.
-ââ; <
-Where
-ââ< A
-(
-ââA B
-e
-ââB C
-=>
-ââD F
-e
-ââG H
-.
-ââH I
-Names
-ââI N
-.
-ââN O
-Contains
-ââO W
-(
-ââW X
-name
-ââX \
-)
-ââ\ ]
-)
-ââ] ^
-.
-ââ^ _
-ToList
-ââ_ e
-(
-ââe f
-)
-ââf g
-;
-ââg h
-}
-ää 
-catch
-ãã 
-(
-ãã 
-	Exception
-ãã 
-ex
-ãã 
-)
-ãã  
-{
-åå 
-Console
-çç 
-.
-çç 
-	WriteLine
-çç !
-(
-çç! "
-ex
-çç" $
-.
-çç$ %
-ToString
-çç% -
-(
-çç- .
-)
-çç. /
-)
-çç/ 0
-;
-çç0 1
-}
-éé 
-return
-èè 
-players
-èè 
-;
-èè 
-}
-ëë 	
-public
-ìì 
-long
-ìì 
-ModifyPlayer
-ìì  
-(
-ìì  !
-Players
-ìì! (
-modifiedPlayer
-ìì) 7
-)
-ìì7 8
-{
-îî 	
-long
-ïï 
-generatedID
-ïï 
-=
-ïï 
-$num
-ïï  
-;
-ïï  !
-try
-óó 
-{
-òò $
-DatabaseModelContainer
-ôô &$
-databaseModelContainer
-ôô' =
-=
-ôô> ?
-new
-ôô@ C$
-DatabaseModelContainer
-ôôD Z
-(
-ôôZ [
-)
-ôô[ \
-;
-ôô\ ]
-Players
-öö 
-playerToModify
-öö &
-=
-öö' ($
-databaseModelContainer
-öö) ?
-.
-öö? @
-
-PlayersSet
-öö@ J
-.
-ööJ K
-Find
-ööK O
-(
-ööO P
-modifiedPlayer
-ööP ^
-.
-öö^ _
-IDPlayer
-öö_ g
-)
-öög h
-;
-ööh i
-if
-õõ 
-(
-õõ 
-playerToModify
-õõ !
-!=
-õõ" $
-null
-õõ% )
-)
-õõ) *
-{
-úú 
-playerToModify
-ùù "
-.
-ùù" #
-	BirthDate
-ùù# ,
-=
-ùù- .
-modifiedPlayer
-ùù/ =
-.
-ùù= >
-	BirthDate
-ùù> G
-;
-ùùG H
-playerToModify
-ûû "
-.
-ûû" #
-Surnames
-ûû# +
-=
-ûû, -
-modifiedPlayer
-ûû. <
-.
-ûû< =
-Surnames
-ûû= E
-;
-ûûE F
-playerToModify
-üü "
-.
-üü" #
-Email
-üü# (
-=
-üü) *
-modifiedPlayer
-üü+ 9
-.
-üü9 :
-Email
-üü: ?
-;
-üü? @
-playerToModify
-†† "
-.
-††" #
-Names
-††# (
-=
-††) *
-modifiedPlayer
-††+ 9
-.
-††9 :
-Names
-††: ?
-;
-††? @
-playerToModify
-°° "
-.
-°°" #
-NickName
-°°# +
-=
-°°, -
-modifiedPlayer
-°°. <
-.
-°°< =
-NickName
-°°= E
-;
-°°E F$
-databaseModelContainer
-¢¢ *
-.
-¢¢* +
-SaveChanges
-¢¢+ 6
-(
-¢¢6 7
-)
-¢¢7 8
-;
-¢¢8 9
-generatedID
-££ 
-=
-££  !
-(
-££" #
-int
-££# &
-)
-££& '
-playerToModify
-££' 5
-.
-££5 6
-IDPlayer
-££6 >
-;
-££> ?
-}
-§§ 
-}
-•• 
-catch
-¶¶ 
-(
-¶¶ 
-	Exception
-¶¶ 
-ex
-¶¶ 
-)
-¶¶  
-{
-ßß 
-Console
-®® 
-.
-®® 
-	WriteLine
-®® !
-(
-®®! "
-ex
-®®" $
-.
-®®$ %
-ToString
-®®% -
-(
-®®- .
-)
-®®. /
-)
-®®/ 0
-;
-®®0 1
-}
-©© 
-return
-´´ 
-generatedID
-´´ 
-;
-´´ 
-}
-¨¨ 	
-public
-ÆÆ 
-void
-ÆÆ #
-ModifyPasswordByEmail
-ÆÆ )
-(
-ÆÆ) *
+ππ 
 String
-ÆÆ* 0
-originalEmail
-ÆÆ1 >
-,
-ÆÆ> ?
-String
-ÆÆ@ F
-newPassword
-ÆÆG R
+ππ 
+email
+ππ !
+in
+ππ" $
+emails
+ππ% +
 )
-ÆÆR S
+ππ+ ,
 {
-ØØ 	
-try
-∞∞ 
-{
-±± $
-DatabaseModelContainer
-≤≤ &$
-databaseModelContainer
-≤≤' =
-=
-≤≤> ?
-new
-≤≤@ C$
-DatabaseModelContainer
-≤≤D Z
-(
-≤≤Z [
-)
-≤≤[ \
-;
-≤≤\ ]
-Players
-≥≥ 
-playerToModify
-≥≥ &
-=
-≥≥' ($
-databaseModelContainer
-≥≥) ?
-.
-≥≥? @
-
-PlayersSet
-≥≥@ J
-.
-≥≥J K
-FirstOrDefault
-≥≥K Y
-(
-≥≥Y Z
-e
-≥≥Z [
-=>
-≥≥\ ^
-e
-≥≥_ `
-.
-≥≥` a
-Email
-≥≥a f
-==
-≥≥g i
-originalEmail
-≥≥j w
-)
-≥≥w x
-;
-≥≥x y
+∫∫ 
 if
-µµ 
+ªª 
 (
-µµ 
-playerToModify
-µµ "
-!=
-µµ# %
-null
-µµ& *
+ªª 
+email
+ªª 
+==
+ªª 
+emailToSearch
+ªª *
 )
-µµ* +
+ªª* +
 {
-∂∂ 
-playerToModify
-∑∑ "
-.
-∑∑" #
-Password
-∑∑# +
-=
-∑∑, -
-newPassword
-∑∑. 9
+ºº 
+return
+ΩΩ 
+true
+ΩΩ 
 ;
-∑∑9 :
+ΩΩ  
 }
-∏∏ $
-databaseModelContainer
-∫∫ &
-.
-∫∫& '
-SaveChanges
-∫∫' 2
-(
-∫∫2 3
-)
-∫∫3 4
+ææ 
+}
+øø 
+return
+¿¿ 
+false
+¿¿ 
 ;
-∫∫4 5
-}
-ªª 
-catch
-ºº 
-(
-ºº 
-	Exception
-ºº 
-ex
-ºº 
-)
-ºº  
-{
-ΩΩ 
-Console
-ææ 
-.
-ææ 
-	WriteLine
-ææ !
-(
-ææ! "
-ex
-ææ" $
-.
-ææ$ %
-ToString
-ææ% -
-(
-ææ- .
-)
-ææ. /
-)
-ææ/ 0
-;
-ææ0 1
-}
-øø 
+¿¿ 
 }
 ¡¡ 	
 public
 √√ 
 bool
-√√ '
-TheEmailIsAlreadyRegisted
-√√ -
+√√ *
+TheNicknameIsAlreadyRegisted
+√√ 0
 (
-√√- .
+√√0 1
 String
-√√. 4
-emailToSearch
-√√5 B
+√√1 7
+nicknameToSearch
+√√8 H
 )
-√√B C
+√√H I
 {
 ƒƒ 	$
 DatabaseModelContainer
@@ -7203,74 +7747,74 @@ PlayersSet
 String
 ∆∆ 
 >
-∆∆ 
-emails
-∆∆ 
+∆∆ 
+	nicknames
+∆∆ "
 =
-∆∆  !$
+∆∆# $$
 databaseModelContainer
-∆∆" 8
+∆∆% ;
 .
-∆∆8 9
+∆∆; <
 
 PlayersSet
-∆∆9 C
+∆∆< F
 .
-∆∆C D
+∆∆F G
 Select
-∆∆D J
+∆∆G M
 (
-∆∆J K
+∆∆M N
 row
-∆∆K N
+∆∆N Q
 =>
-∆∆O Q
+∆∆R T
 row
-∆∆R U
+∆∆U X
 .
-∆∆U V
-Email
-∆∆V [
+∆∆X Y
+NickName
+∆∆Y a
 )
-∆∆[ \
+∆∆a b
 .
-∆∆\ ]
+∆∆b c
 ToList
-∆∆] c
+∆∆c i
 (
-∆∆c d
+∆∆i j
 )
-∆∆d e
+∆∆j k
 ;
-∆∆e f
+∆∆k l
 foreach
 «« 
 (
 «« 
 String
-«« 
-email
-«« !
+«« 
+nickname
+«« $
 in
-««" $
-emails
-««% +
+««% '
+	nicknames
+««( 1
 )
-««+ ,
+««1 2
 {
 »» 
 if
 …… 
 (
-…… 
-email
-…… 
+…… 
+nickname
+…… 
 ==
-…… 
-emailToSearch
-…… *
+…… 
+nicknameToSearch
+……  0
 )
-……* +
+……0 1
 {
    
 return
@@ -7290,2590 +7834,2482 @@ PlayersSet
 ;
 ŒŒ 
 }
-œœ 	
-public
-—— 
-bool
-—— *
-TheNicknameIsAlreadyRegisted
-—— 0
-(
-——0 1
-String
-——1 7
-nicknameToSearch
-——8 H
-)
-——H I
-{
-““ 	$
-DatabaseModelContainer
-”” "$
-databaseModelContainer
-””# 9
-=
-””: ;
-new
-””< ?$
-DatabaseModelContainer
-””@ V
-(
-””V W
-)
-””W X
-;
-””X Y
-List
-‘‘ 
-<
-‘‘ 
-String
-‘‘ 
->
-‘‘ 
-	nicknames
-‘‘ "
-=
-‘‘# $$
-databaseModelContainer
-‘‘% ;
-.
-‘‘; <
-
-PlayersSet
-‘‘< F
-.
-‘‘F G
-Select
-‘‘G M
-(
-‘‘M N
-row
-‘‘N Q
-=>
-‘‘R T
-row
-‘‘U X
-.
-‘‘X Y
-NickName
-‘‘Y a
-)
-‘‘a b
-.
-‘‘b c
-ToList
-‘‘c i
-(
-‘‘i j
-)
-‘‘j k
-;
-‘‘k l
-foreach
-’’ 
-(
-’’ 
-String
-’’ 
-nickname
-’’ $
-in
-’’% '
-	nicknames
-’’( 1
-)
-’’1 2
-{
-÷÷ 
-if
-◊◊ 
-(
-◊◊ 
-nickname
-◊◊ 
-==
-◊◊ 
-nicknameToSearch
-◊◊  0
-)
-◊◊0 1
-{
-ÿÿ 
-return
-ŸŸ 
-true
-ŸŸ 
-;
-ŸŸ  
+œœ 	
 }
-⁄⁄ 
-}
-€€ 
-return
-‹‹ 
-false
-‹‹ 
-;
-‹‹ 
-}
-›› 	
-}
-ﬁﬁ 
-}ﬂﬂ ‘¡
+–– 
+}—— î¬
 YC:\Users\wmike\OneDrive\Documentos\Renovaci√≥n LIS\ServicesTCP\Services\ServiceProfile.cs
-	namespace 	
-ServicesTCP
+	namespace 	
+ServicesTCP
  
-. 
-Services 
-{ 
-public 
+. 
+Services 
+{ 
+public 
 
-class 
-ServiceProfile 
-:  !
-IProfile" *
-{ 
-public 
-long 
+class /
+#ServiceProfileForNonCallbackMethods 4
+:5 6&
+IProfileNonCallbackMethods7 Q
+{ 
+public 
+long 
 
-AddProfile 
-( 
-Profiles '
-profiles( 0
-)0 1
-{ 	
-long 
-generatedID 
-= 
-$num  
-;  !
-try 
-{ "
-DatabaseModelContainer &"
-databaseModelContainer' =
-=> ?
-new@ C"
-DatabaseModelContainerD Z
-(Z [
-)[ \
-;\ ]"
+AddProfile 
+( 
+Profiles '
+profiles( 0
+)0 1
+{ 	
+long 
+generatedID 
+= 
+$num  
+;  !
+try 
+{ "
+DatabaseModelContainer &"
+databaseModelContainer' =
+=> ?
+new@ C"
+DatabaseModelContainerD Z
+(Z [
+)[ \
+;\ ]"
+databaseModelContainer &
+.& '
+ProfilesSet' 2
+.2 3
+Add3 6
+(6 7
+profiles7 ?
+)? @
+;@ A"
 databaseModelContainer &
 .& '
-ProfilesSet' 2
-.2 3
-Add3 6
-(6 7
-profiles7 ?
-)? @
-;@ A"
-databaseModelContainer &
-.& '
-SaveChanges' 2
-(2 3
-)3 4
-;4 5
-generatedID 
-= 
-profiles &
-.& '
-	IDProfile' 0
-;0 1
-} 
-catch 
-( 
-	Exception 
-ex 
-)  
-{ 
-Console 
-. 
-	WriteLine !
-(! "
-ex" $
-.$ %
-ToString% -
-(- .
-). /
-)/ 0
-;0 1
-}   
-return"" 
-generatedID"" 
-;"" 
-}## 	
-public%% 
-void%% 
-ChangeLoginStatus%% %
-(%%% & 
-ProfileLoginStatuses%%& :
-profileLoginStatus%%; M
-,%%M N
-long%%O S
-	profileID%%T ]
-)%%] ^
-{&& 	
-try'' 
-{(( "
-DatabaseModelContainer)) &"
-databaseModelContainer))' =
-=))> ?
-new))@ C"
-DatabaseModelContainer))D Z
-())Z [
-)))[ \
-;))\ ]
-Profiles** 
-profileToModify** (
-=**) *"
-databaseModelContainer**+ A
-.**A B
-ProfilesSet**B M
-.**M N
-Find**N R
-(**R S
-	profileID**S \
-)**\ ]
-;**] ^
-if++ 
-(++ 
-profileToModify++ #
-!=++$ &
-null++' +
-)+++ ,
-{,, 
-profileToModify-- #
-.--# $
-LoginStatus--$ /
-=--0 1
-profileLoginStatus--2 D
-.--D E
-ToString--E M
-(--M N
-)--N O
-;--O P"
-databaseModelContainer// *
-.//* +
-SaveChanges//+ 6
-(//6 7
-)//7 8
-;//8 9
-}00 
-}11 
-catch22 
-(22 
-	Exception22 
-ex22 
-)22  
-{33 
-Console44 
-.44 
-	WriteLine44 !
-(44! "
-ex44" $
-.44$ %
-ToString44% -
-(44- .
-)44. /
-)44/ 0
-;440 1
-}55 
-}66 	
-public88 
-List88 
-<88 
-Profile88 
->88 
+SaveChanges' 2
+(2 3
+)3 4
+;4 5
+generatedID 
+= 
+profiles &
+.& '
+	IDProfile' 0
+;0 1
+} 
+catch 
+( 
+	Exception 
+ex 
+)  
+{ 
+Console 
+. 
+	WriteLine !
+(! "
+ex" $
+.$ %
+ToString% -
+(- .
+). /
+)/ 0
+;0 1
+} 
+return!! 
+generatedID!! 
+;!! 
+}"" 	
+public$$ 
+void$$ 
+ChangeLoginStatus$$ %
+($$% & 
+ProfileLoginStatuses$$& :
+profileLoginStatus$$; M
+,$$M N
+long$$O S
+	profileID$$T ]
+)$$] ^
+{%% 	
+try&& 
+{'' "
+DatabaseModelContainer(( &"
+databaseModelContainer((' =
+=((> ?
+new((@ C"
+DatabaseModelContainer((D Z
+(((Z [
+)(([ \
+;((\ ]
+Profiles)) 
+profileToModify)) (
+=))) *"
+databaseModelContainer))+ A
+.))A B
+ProfilesSet))B M
+.))M N
+Find))N R
+())R S
+	profileID))S \
+)))\ ]
+;))] ^
+if** 
+(** 
+profileToModify** #
+!=**$ &
+null**' +
+)**+ ,
+{++ 
+profileToModify,, #
+.,,# $
+LoginStatus,,$ /
+=,,0 1
+profileLoginStatus,,2 D
+.,,D E
+ToString,,E M
+(,,M N
+),,N O
+;,,O P"
+databaseModelContainer.. *
+...* +
+SaveChanges..+ 6
+(..6 7
+)..7 8
+;..8 9
+}// 
+}00 
+catch11 
+(11 
+	Exception11 
+ex11 
+)11  
+{22 
+Console33 
+.33 
+	WriteLine33 !
+(33! "
+ex33" $
+.33$ %
+ToString33% -
+(33- .
+)33. /
+)33/ 0
+;330 1
+}44 
+}55 	
+public77 
+List77 
+<77 
+Profile77 
+>77 
 
-GetFriends88 '
-(88' (
-long88( ,
-	profileID88- 6
-)886 7
-{99 	
-List:: 
-<:: 
-Profile:: 
->:: 
-profileList:: %
-=::& '
-new::( +
-List::, 0
-<::0 1
-Profile::1 8
->::8 9
-(::9 :
-)::: ;
-;::; <
-Profiles;; 
-profiles;; 
-=;; 
-new;;  #
-Profiles;;$ ,
-(;;, -
-);;- .
-;;;. /
-ICollection<< 
-<<< 
-Profiles<<  
-><<  !
-profilesHasSet<<" 0
-=<<1 2
-new<<3 6
-HashSet<<7 >
-<<<> ?
-Profiles<<? G
-><<G H
-(<<H I
-)<<I J
-;<<J K
-try>> 
-{?? "
-DatabaseModelContainer@@ &"
-databaseModelContainer@@' =
-=@@> ?
-new@@@ C"
-DatabaseModelContainer@@D Z
-(@@Z [
-)@@[ \
-;@@\ ]
-profilesAA 
-=AA "
-databaseModelContainerAA 1
-.AA1 2
-ProfilesSetAA2 =
-.AA= >
-WhereAA> C
-(AAC D
-eAAD E
-=>AAF H
-eAAI J
-.AAJ K
-	IDProfileAAK T
-==AAU W
-	profileIDAAX a
-)AAa b
-.AAb c
-FirstOrDefaultAAc q
-(AAq r
-)AAr s
-;AAs t
-ifCC 
-(CC 
-profilesCC 
-!=CC 
-nullCC  $
-)CC$ %
-{DD 
-profilesHasSetEE "
-=EE# $
-profilesEE% -
-.EE- .
-	Profiles2EE. 7
-;EE7 8
-foreachGG 
-(GG 
-ProfilesGG $
-pGG% &
-inGG' )
-profilesHasSetGG* 8
-)GG8 9
-{HH 
-PlayerII 
-profilePlayerII ,
-=II- .
-newII/ 2
-PlayerII3 9
-{JJ 
-IDPlayerKK $
-=KK% &
-pKK' (
-.KK( )
-PlayersKK) 0
-.KK0 1
-IDPlayerKK1 9
-,KK9 :
-NamesLL !
-=LL" #
-pLL$ %
-.LL% &
-PlayersLL& -
-.LL- .
-NamesLL. 3
-,LL3 4
-SurnamesMM $
-=MM% &
-pMM' (
-.MM( )
-PlayersMM) 0
-.MM0 1
-SurnamesMM1 9
-,MM9 :
-EmailNN !
-=NN" #
-pNN$ %
-.NN% &
-PlayersNN& -
-.NN- .
-EmailNN. 3
-,NN3 4
-NickNameOO $
-=OO% &
-pOO' (
-.OO( )
-PlayersOO) 0
-.OO0 1
-NickNameOO1 9
-,OO9 :
-	BirthDatePP %
-=PP& '
-pPP( )
-.PP) *
-PlayersPP* 1
-.PP1 2
-	BirthDatePP2 ;
-}QQ 
-;QQ 
-ProfileSS 
-profileSS  '
-=SS( )
-newSS* -
-ProfileSS. 5
-{TT 
-	IDProfileUU %
-=UU& '
-pUU( )
-.UU) *
-	IDProfileUU* 3
-,UU3 4
-CoinsVV !
-=VV" #
-(VV$ %
-longVV% )
-)VV) *
+GetFriends77 '
+(77' (
+long77( ,
+	profileID77- 6
+)776 7
+{88 	
+List99 
+<99 
+Profile99 
+>99 
+profileList99 %
+=99& '
+new99( +
+List99, 0
+<990 1
+Profile991 8
+>998 9
+(999 :
+)99: ;
+;99; <
+Profiles:: 
+profiles:: 
+=:: 
+new::  #
+Profiles::$ ,
+(::, -
+)::- .
+;::. /
+ICollection;; 
+<;; 
+Profiles;;  
+>;;  !
+profilesHasSet;;" 0
+=;;1 2
+new;;3 6
+HashSet;;7 >
+<;;> ?
+Profiles;;? G
+>;;G H
+(;;H I
+);;I J
+;;;J K
+try== 
+{>> "
+DatabaseModelContainer?? &"
+databaseModelContainer??' =
+=??> ?
+new??@ C"
+DatabaseModelContainer??D Z
+(??Z [
+)??[ \
+;??\ ]
+profiles@@ 
+=@@ "
+databaseModelContainer@@ 1
+.@@1 2
+ProfilesSet@@2 =
+.@@= >
+Where@@> C
+(@@C D
+e@@D E
+=>@@F H
+e@@I J
+.@@J K
+	IDProfile@@K T
+==@@U W
+	profileID@@X a
+)@@a b
+.@@b c
+FirstOrDefault@@c q
+(@@q r
+)@@r s
+;@@s t
+ifBB 
+(BB 
+profilesBB 
+!=BB 
+nullBB  $
+)BB$ %
+{CC 
+profilesHasSetDD "
+=DD# $
+profilesDD% -
+.DD- .
+	Profiles2DD. 7
+;DD7 8
+foreachFF 
+(FF 
+ProfilesFF $
+pFF% &
+inFF' )
+profilesHasSetFF* 8
+)FF8 9
+{GG 
+PlayerHH 
+profilePlayerHH ,
+=HH- .
+newHH/ 2
+PlayerHH3 9
+{II 
+IDPlayerJJ $
+=JJ% &
+pJJ' (
+.JJ( )
+PlayersJJ) 0
+.JJ0 1
+IDPlayerJJ1 9
+,JJ9 :
+NamesKK !
+=KK" #
+pKK$ %
+.KK% &
+PlayersKK& -
+.KK- .
+NamesKK. 3
+,KK3 4
+SurnamesLL $
+=LL% &
+pLL' (
+.LL( )
+PlayersLL) 0
+.LL0 1
+SurnamesLL1 9
+,LL9 :
+EmailMM !
+=MM" #
+pMM$ %
+.MM% &
+PlayersMM& -
+.MM- .
+EmailMM. 3
+,MM3 4
+NickNameNN $
+=NN% &
+pNN' (
+.NN( )
+PlayersNN) 0
+.NN0 1
+NickNameNN1 9
+,NN9 :
+	BirthDateOO %
+=OO& '
+pOO( )
+.OO) *
+PlayersOO* 1
+.OO1 2
+	BirthDateOO2 ;
+}PP 
+;PP 
+ProfileRR 
+profileRR  '
+=RR( )
+newRR* -
+ProfileRR. 5
+{SS 
+	IDProfileTT %
+=TT& '
+pTT( )
+.TT) *
+	IDProfileTT* 3
+,TT3 4
+CoinsUU !
+=UU" #
+(UU$ %
+longUU% )
+)UU) *
+pUU* +
+.UU+ ,
+CoinsUU, 1
+,UU1 2
+LoginStatusVV '
+=VV( )
 pVV* +
-.VV+ ,
-CoinsVV, 1
-,VV1 2
-LoginStatusWW '
-=WW( )
-pWW* +
-.WW+ ,
-LoginStatusWW, 7
-,WW7 8
-PlayerXX "
-=XX# $
-profilePlayerXX% 2
-}YY 
-;YY 
-profileList[[ #
-.[[# $
-Add[[$ '
-([[' (
-profile[[( /
-)[[/ 0
-;[[0 1
-}\\ 
-}]] 
-else^^ 
-{__ 
-profileList`` 
-=``  !
-null``" &
-;``& '
-}aa 
-}cc 
-catchdd 
-(dd 
-	Exceptiondd 
-exdd 
-)dd  
-{ee 
-Consoleff 
-.ff 
-	WriteLineff !
-(ff! "
-exff" $
-.ff$ %
-ToStringff% -
-(ff- .
-)ff. /
-)ff/ 0
-;ff0 1
-}gg 
-returnii 
-profileListii 
-;ii 
-}jj 	
-publicll 
-bytell 
-[ll 
-]ll 
-GetImagell 
-(ll 
-stringll %
-fileNamell& .
-)ll. /
-{mm 	
-trynn 
-{oo 
-stringpp 
-serverFolderPathpp '
-=pp( )
-$strpp* u
-;ppu v
-stringqq 
-filePathqq 
-=qq  !
-Pathqq" &
-.qq& '
-Combineqq' .
-(qq. /
-serverFolderPathqq/ ?
-,qq? @
-fileNameqqA I
-)qqI J
-;qqJ K
-byterr 
-[rr 
-]rr 
-	imageDatarr  
-=rr! "
-Filerr# '
-.rr' (
-ReadAllBytesrr( 4
-(rr4 5
-filePathrr5 =
-)rr= >
-;rr> ?
-returntt 
-	imageDatatt  
-;tt  !
-}uu 
-catchvv 
-(vv 
-	Exceptionvv 
-)vv 
-{ww 
-returnxx 
-nullxx 
-;xx 
-}yy 
-}zz 	
-public|| 
-Profile|| 
-GetProfileByID|| %
-(||% &
-long||& *
-	profileID||+ 4
-)||4 5
-{}} 	
-Profile~~ 
-profile~~ 
-=~~ 
-new~~ !
-Profile~~" )
-(~~) *
-)~~* +
-;~~+ ,
-Player 
-player 
-= 
-new 
-Player  &
-(& '
-)' (
-;( )
-Profiles
-ÄÄ 
-profiles
-ÄÄ 
-=
-ÄÄ 
-new
-ÄÄ  #
-Profiles
-ÄÄ$ ,
-(
-ÄÄ, -
-)
-ÄÄ- .
-;
-ÄÄ. /
+.VV+ ,
+LoginStatusVV, 7
+,VV7 8
+PlayerWW "
+=WW# $
+profilePlayerWW% 2
+}XX 
+;XX 
+profileListZZ #
+.ZZ# $
+AddZZ$ '
+(ZZ' (
+profileZZ( /
+)ZZ/ 0
+;ZZ0 1
+}[[ 
+}\\ 
+else]] 
+{^^ 
+profileList__ 
+=__  !
+null__" &
+;__& '
+}`` 
+}bb 
+catchcc 
+(cc 
+	Exceptioncc 
+excc 
+)cc  
+{dd 
+Consoleee 
+.ee 
+	WriteLineee !
+(ee! "
+exee" $
+.ee$ %
+ToStringee% -
+(ee- .
+)ee. /
+)ee/ 0
+;ee0 1
+}ff 
+returnhh 
+profileListhh 
+;hh 
+}ii 	
+publickk 
+bytekk 
+[kk 
+]kk 
+GetImagekk 
+(kk 
+stringkk %
+fileNamekk& .
+)kk. /
+{ll 	
+trymm 
+{nn 
+stringoo 
+serverFolderPathoo '
+=oo( )
+$stroo* u
+;oou v
+stringpp 
+filePathpp 
+=pp  !
+Pathpp" &
+.pp& '
+Combinepp' .
+(pp. /
+serverFolderPathpp/ ?
+,pp? @
+fileNameppA I
+)ppI J
+;ppJ K
+byteqq 
+[qq 
+]qq 
+	imageDataqq  
+=qq! "
+Fileqq# '
+.qq' (
+ReadAllBytesqq( 4
+(qq4 5
+filePathqq5 =
+)qq= >
+;qq> ?
+returnss 
+	imageDatass  
+;ss  !
+}tt 
+catchuu 
+(uu 
+	Exceptionuu 
+)uu 
+{vv 
+returnww 
+nullww 
+;ww 
+}xx 
+}yy 	
+public{{ 
+Profile{{ 
+GetProfileByID{{ %
+({{% &
+long{{& *
+	profileID{{+ 4
+){{4 5
+{|| 	
+Profile}} 
+profile}} 
+=}} 
+new}} !
+Profile}}" )
+(}}) *
+)}}* +
+;}}+ ,
+Player~~ 
+player~~ 
+=~~ 
+new~~ 
+Player~~  &
+(~~& '
+)~~' (
+;~~( )
+Profiles 
+profiles 
+= 
+new  #
+Profiles$ ,
+(, -
+)- .
+;. /
 try
-ÇÇ 
+ÅÅ 
 {
-ÉÉ $
+ÇÇ $
 DatabaseModelContainer
-ÑÑ &$
+ÉÉ &$
 databaseModelContainer
-ÑÑ' =
+ÉÉ' =
 =
-ÑÑ> ?
+ÉÉ> ?
 new
-ÑÑ@ C$
+ÉÉ@ C$
 DatabaseModelContainer
-ÑÑD Z
+ÉÉD Z
 (
-ÑÑZ [
+ÉÉZ [
 )
-ÑÑ[ \
+ÉÉ[ \
 ;
-ÑÑ\ ]
+ÉÉ\ ]
 profiles
-ÖÖ 
+ÑÑ 
 =
-ÖÖ $
+ÑÑ $
 databaseModelContainer
-ÖÖ 1
+ÑÑ 1
 .
-ÖÖ1 2
+ÑÑ1 2
 ProfilesSet
-ÖÖ2 =
+ÑÑ2 =
 .
-ÖÖ= >
+ÑÑ= >
 Where
-ÖÖ> C
+ÑÑ> C
 (
-ÖÖC D
+ÑÑC D
 e
-ÖÖD E
+ÑÑD E
 =>
-ÖÖF H
+ÑÑF H
 e
-ÖÖI J
+ÑÑI J
 .
-ÖÖJ K
+ÑÑJ K
 	IDProfile
-ÖÖK T
+ÑÑK T
 ==
-ÖÖU W
+ÑÑU W
 	profileID
-ÖÖX a
+ÑÑX a
 )
-ÖÖa b
+ÑÑa b
 .
-ÖÖb c
+ÑÑb c
 FirstOrDefault
-ÖÖc q
+ÑÑc q
 (
-ÖÖq r
+ÑÑq r
 )
-ÖÖr s
+ÑÑr s
 ;
-ÖÖs t
+ÑÑs t
 if
-áá 
+ÜÜ 
 (
-áá 
+ÜÜ 
 profiles
-áá 
+ÜÜ 
 !=
-áá 
+ÜÜ 
 null
-áá  $
+ÜÜ  $
 )
-áá$ %
+ÜÜ$ %
 {
-àà 
+áá 
+player
+àà 
+.
+àà 
+IDPlayer
+àà #
+=
+àà$ %
+profiles
+àà& .
+.
+àà. /
+Players
+àà/ 6
+.
+àà6 7
+IDPlayer
+àà7 ?
+;
+àà? @
 player
 ââ 
 .
-ââ 
-IDPlayer
-ââ #
+ââ 
+Names
+ââ  
 =
-ââ$ %
+ââ! "
 profiles
-ââ& .
+ââ# +
 .
-ââ. /
+ââ+ ,
 Players
-ââ/ 6
+ââ, 3
 .
-ââ6 7
-IDPlayer
-ââ7 ?
+ââ3 4
+Names
+ââ4 9
 ;
-ââ? @
+ââ9 :
 player
 ää 
 .
-ää 
-Names
-ää  
+ää 
+Surnames
+ää #
 =
-ää! "
+ää$ %
 profiles
-ää# +
+ää& .
 .
-ää+ ,
+ää. /
 Players
-ää, 3
+ää/ 6
 .
-ää3 4
-Names
-ää4 9
+ää6 7
+Surnames
+ää7 ?
 ;
-ää9 :
+ää? @
 player
 ãã 
 .
-ãã 
-Surnames
-ãã #
+ãã 
+Email
+ãã  
 =
-ãã$ %
+ãã! "
 profiles
-ãã& .
+ãã# +
 .
-ãã. /
+ãã+ ,
 Players
-ãã/ 6
+ãã, 3
 .
-ãã6 7
-Surnames
-ãã7 ?
+ãã3 4
+Email
+ãã4 9
 ;
-ãã? @
+ãã9 :
 player
 åå 
 .
-åå 
-Email
-åå  
+åå 
+NickName
+åå #
 =
-åå! "
+åå$ %
 profiles
-åå# +
+åå& .
 .
-åå+ ,
+åå. /
 Players
-åå, 3
+åå/ 6
 .
-åå3 4
-Email
-åå4 9
+åå6 7
+NickName
+åå7 ?
 ;
-åå9 :
+åå? @
 player
 çç 
 .
-çç 
-NickName
-çç #
+çç 
+	BirthDate
+çç $
 =
-çç$ %
+çç% &
 profiles
-çç& .
+çç' /
 .
-çç. /
+çç/ 0
 Players
-çç/ 6
+çç0 7
 .
-çç6 7
-NickName
-çç7 ?
+çç7 8
+	BirthDate
+çç8 A
 ;
-çç? @
+ççA B
 player
 éé 
 .
-éé 
-	BirthDate
-éé $
-=
-éé% &
-profiles
-éé' /
-.
-éé/ 0
-Players
-éé0 7
-.
-éé7 8
-	BirthDate
-éé8 A
-;
-ééA B
-player
-èè 
-.
-èè 
+éé 
 Password
-èè #
+éé #
 =
-èè$ %
+éé$ %
 profiles
-èè& .
+éé& .
 .
-èè. /
+éé. /
 Players
-èè/ 6
+éé/ 6
 .
-èè6 7
+éé6 7
 Password
-èè7 ?
+éé7 ?
 ;
-èè? @
+éé? @
+profile
+êê 
+.
+êê 
+	IDProfile
+êê %
+=
+êê& '
+profiles
+êê( 0
+.
+êê0 1
+	IDProfile
+êê1 :
+;
+êê: ;
 profile
 ëë 
 .
-ëë 
-	IDProfile
-ëë %
+ëë 
+Coins
+ëë !
 =
-ëë& '
+ëë" #
+(
+ëë$ %
+long
+ëë% )
+)
+ëë) *
 profiles
-ëë( 0
+ëë* 2
 .
-ëë0 1
-	IDProfile
-ëë1 :
+ëë2 3
+Coins
+ëë3 8
 ;
-ëë: ;
+ëë8 9
 profile
 íí 
 .
-íí 
-Coins
-íí !
+íí 
+LoginStatus
+íí '
 =
-íí" #
-(
-íí$ %
-long
-íí% )
-)
-íí) *
+íí( )
 profiles
 íí* 2
 .
-íí2 3
-Coins
-íí3 8
-;
-íí8 9
-profile
-ìì 
-.
-ìì 
+íí2 3
 LoginStatus
-ìì '
-=
-ìì( )
-profiles
-ìì* 2
-.
-ìì2 3
-LoginStatus
-ìì3 >
+íí3 >
 ;
-ìì> ?
+íí> ?
 profile
-ïï 
+îî 
 .
-ïï 
+îî 
 Player
-ïï "
+îî "
 =
-ïï# $
+îî# $
 player
-ïï% +
+îî% +
 ;
-ïï+ ,
+îî+ ,
 }
-ññ 
+ïï 
 else
-óó 
+ññ 
 {
-òò 
+óó 
 profile
-ôô 
+òò 
 =
-ôô 
+òò 
 null
-ôô "
+òò "
 ;
-ôô" #
+òò" #
 }
-öö 
+ôô 
 }
-úú 
+õõ 
 catch
-ùù 
+úú 
 (
-ùù 
+úú 
 	Exception
-ùù 
+úú 
 ex
-ùù 
+úú 
 )
-ùù  
+úú  
 {
-ûû 
+ùù 
 Console
-üü 
+ûû 
 .
-üü 
+ûû 
 	WriteLine
-üü !
+ûû !
 (
-üü! "
+ûû! "
 ex
-üü" $
+ûû" $
 .
-üü$ %
+ûû$ %
 ToString
-üü% -
+ûû% -
 (
-üü- .
+ûû- .
 )
-üü. /
+ûû. /
 )
-üü/ 0
+ûû/ 0
 ;
-üü0 1
+ûû0 1
 }
-†† 
+üü 
 return
-¢¢ 
+°° 
 profile
-¢¢ 
+°° 
 ;
-¢¢ 
+°° 
 }
-££ 	
+¢¢ 	
 public
-•• 
+§§ 
 Profile
-•• "
+§§ "
 GetProfileByPlayerID
-•• +
+§§ +
 (
-••+ ,
+§§+ ,
 long
-••, 0
+§§, 0
 playerID
-••1 9
+§§1 9
 )
-••9 :
+§§9 :
 {
-¶¶ 	
+•• 	
 Profile
-ßß 
+¶¶ 
 profile
-ßß 
+¶¶ 
 =
-ßß 
+¶¶ 
 new
-ßß !
+¶¶ !
 Profile
-ßß" )
+¶¶" )
 (
-ßß) *
+¶¶) *
 )
-ßß* +
+¶¶* +
 ;
-ßß+ ,
+¶¶+ ,
 Player
-®® 
+ßß 
 player
-®® 
+ßß 
 =
-®® 
+ßß 
 new
-®® 
+ßß 
 Player
-®®  &
+ßß  &
 (
-®®& '
+ßß& '
 )
-®®' (
+ßß' (
 ;
-®®( )
+ßß( )
 Profiles
-©© 
+®® 
 profiles
-©© 
+®® 
 =
-©© 
+®® 
 new
-©©  #
+®®  #
 Profiles
-©©$ ,
+®®$ ,
 (
-©©, -
+®®, -
 )
-©©- .
+®®- .
 ;
-©©. /
+®®. /
 try
-´´ 
+™™ 
 {
-¨¨ $
+´´ $
 DatabaseModelContainer
-≠≠ &$
+¨¨ &$
 databaseModelContainer
-≠≠' =
+¨¨' =
 =
-≠≠> ?
+¨¨> ?
 new
-≠≠@ C$
+¨¨@ C$
 DatabaseModelContainer
-≠≠D Z
+¨¨D Z
 (
-≠≠Z [
+¨¨Z [
 )
-≠≠[ \
+¨¨[ \
 ;
-≠≠\ ]
+¨¨\ ]
 profiles
-ÆÆ 
+≠≠ 
 =
-ÆÆ $
+≠≠ $
 databaseModelContainer
-ÆÆ 1
+≠≠ 1
 .
-ÆÆ1 2
+≠≠1 2
 ProfilesSet
-ÆÆ2 =
+≠≠2 =
 .
-ÆÆ= >
+≠≠= >
 Where
-ÆÆ> C
+≠≠> C
 (
-ÆÆC D
+≠≠C D
 e
-ÆÆD E
+≠≠D E
 =>
-ÆÆF H
+≠≠F H
 e
-ÆÆI J
+≠≠I J
 .
-ÆÆJ K
+≠≠J K
 Players
-ÆÆK R
+≠≠K R
 .
-ÆÆR S
+≠≠R S
 IDPlayer
-ÆÆS [
+≠≠S [
 ==
-ÆÆ\ ^
+≠≠\ ^
 playerID
-ÆÆ_ g
+≠≠_ g
 )
-ÆÆg h
+≠≠g h
 .
-ÆÆh i
+≠≠h i
 FirstOrDefault
-ÆÆi w
+≠≠i w
 (
-ÆÆw x
+≠≠w x
 )
-ÆÆx y
+≠≠x y
 ;
-ÆÆy z
+≠≠y z
 if
-∞∞ 
+ØØ 
 (
-∞∞ 
+ØØ 
 profiles
-∞∞ 
+ØØ 
 !=
-∞∞ 
+ØØ 
 null
-∞∞  $
+ØØ  $
 )
-∞∞$ %
+ØØ$ %
 {
-±± 
+∞∞ 
+player
+±± 
+.
+±± 
+IDPlayer
+±± #
+=
+±±$ %
+profiles
+±±& .
+.
+±±. /
+Players
+±±/ 6
+.
+±±6 7
+IDPlayer
+±±7 ?
+;
+±±? @
 player
 ≤≤ 
 .
-≤≤ 
-IDPlayer
-≤≤ #
+≤≤ 
+Names
+≤≤  
 =
-≤≤$ %
+≤≤! "
 profiles
-≤≤& .
+≤≤# +
 .
-≤≤. /
+≤≤+ ,
 Players
-≤≤/ 6
+≤≤, 3
 .
-≤≤6 7
-IDPlayer
-≤≤7 ?
+≤≤3 4
+Names
+≤≤4 9
 ;
-≤≤? @
+≤≤9 :
 player
 ≥≥ 
 .
-≥≥ 
-Names
-≥≥  
+≥≥ 
+Surnames
+≥≥ #
 =
-≥≥! "
+≥≥$ %
 profiles
-≥≥# +
+≥≥& .
 .
-≥≥+ ,
+≥≥. /
 Players
-≥≥, 3
+≥≥/ 6
 .
-≥≥3 4
-Names
-≥≥4 9
+≥≥6 7
+Surnames
+≥≥7 ?
 ;
-≥≥9 :
+≥≥? @
 player
 ¥¥ 
 .
-¥¥ 
-Surnames
-¥¥ #
+¥¥ 
+Email
+¥¥  
 =
-¥¥$ %
+¥¥! "
 profiles
-¥¥& .
+¥¥# +
 .
-¥¥. /
+¥¥+ ,
 Players
-¥¥/ 6
+¥¥, 3
 .
-¥¥6 7
-Surnames
-¥¥7 ?
+¥¥3 4
+Email
+¥¥4 9
 ;
-¥¥? @
+¥¥9 :
 player
 µµ 
 .
-µµ 
-Email
-µµ  
+µµ 
+NickName
+µµ #
 =
-µµ! "
+µµ$ %
 profiles
-µµ# +
+µµ& .
 .
-µµ+ ,
+µµ. /
 Players
-µµ, 3
+µµ/ 6
 .
-µµ3 4
-Email
-µµ4 9
+µµ6 7
+NickName
+µµ7 ?
 ;
-µµ9 :
+µµ? @
 player
 ∂∂ 
 .
-∂∂ 
-NickName
-∂∂ #
+∂∂ 
+	BirthDate
+∂∂ $
 =
-∂∂$ %
+∂∂% &
 profiles
-∂∂& .
+∂∂' /
 .
-∂∂. /
+∂∂/ 0
 Players
-∂∂/ 6
+∂∂0 7
 .
-∂∂6 7
-NickName
-∂∂7 ?
+∂∂7 8
+	BirthDate
+∂∂8 A
 ;
-∂∂? @
+∂∂A B
 player
 ∑∑ 
 .
-∑∑ 
-	BirthDate
-∑∑ $
-=
-∑∑% &
-profiles
-∑∑' /
-.
-∑∑/ 0
-Players
-∑∑0 7
-.
-∑∑7 8
-	BirthDate
-∑∑8 A
-;
-∑∑A B
-player
-∏∏ 
-.
-∏∏ 
+∑∑ 
 Password
-∏∏ #
+∑∑ #
 =
-∏∏$ %
+∑∑$ %
 profiles
-∏∏& .
+∑∑& .
 .
-∏∏. /
+∑∑. /
 Players
-∏∏/ 6
+∑∑/ 6
 .
-∏∏6 7
+∑∑6 7
 Password
-∏∏7 ?
+∑∑7 ?
 ;
-∏∏? @
+∑∑? @
+profile
+ππ 
+.
+ππ 
+	IDProfile
+ππ %
+=
+ππ& '
+profiles
+ππ( 0
+.
+ππ0 1
+	IDProfile
+ππ1 :
+;
+ππ: ;
 profile
 ∫∫ 
 .
-∫∫ 
-	IDProfile
-∫∫ %
+∫∫ 
+Coins
+∫∫ !
 =
-∫∫& '
+∫∫" #
+(
+∫∫$ %
+long
+∫∫% )
+)
+∫∫) *
 profiles
-∫∫( 0
+∫∫* 2
 .
-∫∫0 1
-	IDProfile
-∫∫1 :
+∫∫2 3
+Coins
+∫∫3 8
 ;
-∫∫: ;
+∫∫8 9
 profile
 ªª 
 .
-ªª 
-Coins
-ªª !
+ªª 
+LoginStatus
+ªª '
 =
-ªª" #
-(
-ªª$ %
-long
-ªª% )
-)
-ªª) *
+ªª( )
 profiles
 ªª* 2
 .
-ªª2 3
-Coins
-ªª3 8
-;
-ªª8 9
-profile
-ºº 
-.
-ºº 
+ªª2 3
 LoginStatus
-ºº '
-=
-ºº( )
-profiles
-ºº* 2
-.
-ºº2 3
-LoginStatus
-ºº3 >
+ªª3 >
 ;
-ºº> ?
+ªª> ?
 profile
-ææ 
+ΩΩ 
 .
-ææ 
+ΩΩ 
 Player
-ææ "
+ΩΩ "
 =
-ææ# $
+ΩΩ# $
 player
-ææ% +
+ΩΩ% +
 ;
-ææ+ ,
+ΩΩ+ ,
 }
-øø 
+ææ 
 else
-¿¿ 
+øø 
 {
-¡¡ 
+¿¿ 
 profile
-¬¬ 
+¡¡ 
 =
-¬¬ 
+¡¡ 
 null
-¬¬ "
+¡¡ "
 ;
-¬¬" #
+¡¡" #
 }
-√√ 
+¬¬ 
 }
-≈≈ 
+ƒƒ 
 catch
-∆∆ 
+≈≈ 
 (
-∆∆ 
+≈≈ 
 	Exception
-∆∆ 
+≈≈ 
 ex
-∆∆ 
+≈≈ 
 )
-∆∆  
+≈≈  
 {
-«« 
+∆∆ 
 Console
-»» 
+«« 
 .
-»» 
+«« 
 	WriteLine
-»» !
+«« !
 (
-»»! "
+««! "
 ex
-»»" $
+««" $
 .
-»»$ %
+««$ %
 ToString
-»»% -
+««% -
 (
-»»- .
+««- .
 )
-»». /
+««. /
 )
-»»/ 0
+««/ 0
 ;
-»»0 1
+««0 1
 }
-…… 
+»» 
 return
-ÀÀ 
+   
 profile
-ÀÀ 
+   
 ;
-ÀÀ 
+   
 }
-ÃÃ 	
+ÀÀ 	
 public
-ŒŒ 
+ÕÕ 
 Profile
-ŒŒ (
+ÕÕ (
 GetProfileByPlayerNickname
-ŒŒ 1
+ÕÕ 1
 (
-ŒŒ1 2
+ÕÕ1 2
 string
-ŒŒ2 8
+ÕÕ2 8
 nickname
-ŒŒ9 A
+ÕÕ9 A
 )
-ŒŒA B
+ÕÕA B
 {
-œœ 	
+ŒŒ 	
 Profile
-–– 
+œœ 
 profile
-–– 
+œœ 
 =
-–– 
+œœ 
 new
-–– !
+œœ !
 Profile
-––" )
+œœ" )
 (
-––) *
+œœ) *
 )
-––* +
+œœ* +
 ;
-––+ ,
+œœ+ ,
 Player
-—— 
+–– 
 player
-—— 
+–– 
 =
-—— 
+–– 
 new
-—— 
+–– 
 Player
-——  &
+––  &
 (
-——& '
+––& '
 )
-——' (
+––' (
 ;
-——( )
+––( )
 Profiles
-““ 
+—— 
 profiles
-““ 
+—— 
 =
-““ 
+—— 
 new
-““  #
+——  #
 Profiles
-““$ ,
+——$ ,
 (
-““, -
+——, -
 )
-““- .
+——- .
 ;
-““. /
+——. /
 try
-‘‘ 
+”” 
 {
-’’ $
+‘‘ $
 DatabaseModelContainer
-÷÷ &$
+’’ &$
 databaseModelContainer
-÷÷' =
+’’' =
 =
-÷÷> ?
+’’> ?
 new
-÷÷@ C$
+’’@ C$
 DatabaseModelContainer
-÷÷D Z
+’’D Z
 (
-÷÷Z [
+’’Z [
 )
-÷÷[ \
+’’[ \
 ;
-÷÷\ ]
+’’\ ]
 profiles
-◊◊ 
+÷÷ 
 =
-◊◊ $
+÷÷ $
 databaseModelContainer
-◊◊ 1
+÷÷ 1
 .
-◊◊1 2
+÷÷1 2
 ProfilesSet
-◊◊2 =
+÷÷2 =
 .
-◊◊= >
+÷÷= >
 Where
-◊◊> C
+÷÷> C
 (
-◊◊C D
+÷÷C D
 e
-◊◊D E
+÷÷D E
 =>
-◊◊F H
+÷÷F H
 e
-◊◊I J
+÷÷I J
 .
-◊◊J K
+÷÷J K
 Players
-◊◊K R
+÷÷K R
 .
-◊◊R S
+÷÷R S
 NickName
-◊◊S [
+÷÷S [
 ==
-◊◊\ ^
+÷÷\ ^
 nickname
-◊◊_ g
+÷÷_ g
 )
-◊◊g h
+÷÷g h
 .
-◊◊h i
+÷÷h i
 FirstOrDefault
-◊◊i w
+÷÷i w
 (
-◊◊w x
+÷÷w x
 )
-◊◊x y
+÷÷x y
 ;
-◊◊y z
+÷÷y z
 if
-ŸŸ 
+ÿÿ 
 (
-ŸŸ 
+ÿÿ 
 profiles
-ŸŸ 
+ÿÿ 
 !=
-ŸŸ 
+ÿÿ 
 null
-ŸŸ  $
+ÿÿ  $
 )
-ŸŸ$ %
+ÿÿ$ %
 {
-⁄⁄ 
+ŸŸ 
+player
+⁄⁄ 
+.
+⁄⁄ 
+IDPlayer
+⁄⁄ #
+=
+⁄⁄$ %
+profiles
+⁄⁄& .
+.
+⁄⁄. /
+Players
+⁄⁄/ 6
+.
+⁄⁄6 7
+IDPlayer
+⁄⁄7 ?
+;
+⁄⁄? @
 player
 €€ 
 .
-€€ 
-IDPlayer
-€€ #
+€€ 
+Names
+€€  
 =
-€€$ %
+€€! "
 profiles
-€€& .
+€€# +
 .
-€€. /
+€€+ ,
 Players
-€€/ 6
+€€, 3
 .
-€€6 7
-IDPlayer
-€€7 ?
+€€3 4
+Names
+€€4 9
 ;
-€€? @
+€€9 :
 player
 ‹‹ 
 .
-‹‹ 
-Names
-‹‹  
+‹‹ 
+Surnames
+‹‹ #
 =
-‹‹! "
+‹‹$ %
 profiles
-‹‹# +
+‹‹& .
 .
-‹‹+ ,
+‹‹. /
 Players
-‹‹, 3
+‹‹/ 6
 .
-‹‹3 4
-Names
-‹‹4 9
+‹‹6 7
+Surnames
+‹‹7 ?
 ;
-‹‹9 :
+‹‹? @
 player
 ›› 
 .
-›› 
-Surnames
-›› #
+›› 
+Email
+››  
 =
-››$ %
+››! "
 profiles
-››& .
+››# +
 .
-››. /
+››+ ,
 Players
-››/ 6
+››, 3
 .
-››6 7
-Surnames
-››7 ?
+››3 4
+Email
+››4 9
 ;
-››? @
+››9 :
 player
 ﬁﬁ 
 .
-ﬁﬁ 
-Email
-ﬁﬁ  
+ﬁﬁ 
+NickName
+ﬁﬁ #
 =
-ﬁﬁ! "
+ﬁﬁ$ %
 profiles
-ﬁﬁ# +
+ﬁﬁ& .
 .
-ﬁﬁ+ ,
+ﬁﬁ. /
 Players
-ﬁﬁ, 3
+ﬁﬁ/ 6
 .
-ﬁﬁ3 4
-Email
-ﬁﬁ4 9
+ﬁﬁ6 7
+NickName
+ﬁﬁ7 ?
 ;
-ﬁﬁ9 :
+ﬁﬁ? @
 player
 ﬂﬂ 
 .
-ﬂﬂ 
-NickName
-ﬂﬂ #
+ﬂﬂ 
+	BirthDate
+ﬂﬂ $
 =
-ﬂﬂ$ %
+ﬂﬂ% &
 profiles
-ﬂﬂ& .
+ﬂﬂ' /
 .
-ﬂﬂ. /
+ﬂﬂ/ 0
 Players
-ﬂﬂ/ 6
+ﬂﬂ0 7
 .
-ﬂﬂ6 7
-NickName
-ﬂﬂ7 ?
+ﬂﬂ7 8
+	BirthDate
+ﬂﬂ8 A
 ;
-ﬂﬂ? @
+ﬂﬂA B
 player
 ‡‡ 
 .
-‡‡ 
-	BirthDate
-‡‡ $
-=
-‡‡% &
-profiles
-‡‡' /
-.
-‡‡/ 0
-Players
-‡‡0 7
-.
-‡‡7 8
-	BirthDate
-‡‡8 A
-;
-‡‡A B
-player
-·· 
-.
-·· 
+‡‡ 
 Password
-·· #
+‡‡ #
 =
-··$ %
+‡‡$ %
 profiles
-··& .
+‡‡& .
 .
-··. /
+‡‡. /
 Players
-··/ 6
+‡‡/ 6
 .
-··6 7
+‡‡6 7
 Password
-··7 ?
+‡‡7 ?
 ;
-··? @
+‡‡? @
+profile
+‚‚ 
+.
+‚‚ 
+	IDProfile
+‚‚ %
+=
+‚‚& '
+profiles
+‚‚( 0
+.
+‚‚0 1
+	IDProfile
+‚‚1 :
+;
+‚‚: ;
 profile
 „„ 
 .
-„„ 
-	IDProfile
-„„ %
+„„ 
+Coins
+„„ !
 =
-„„& '
+„„" #
+(
+„„$ %
+long
+„„% )
+)
+„„) *
 profiles
-„„( 0
+„„* 2
 .
-„„0 1
-	IDProfile
-„„1 :
+„„2 3
+Coins
+„„3 8
 ;
-„„: ;
+„„8 9
 profile
 ‰‰ 
 .
-‰‰ 
-Coins
-‰‰ !
+‰‰ 
+LoginStatus
+‰‰ '
 =
-‰‰" #
-(
-‰‰$ %
-long
-‰‰% )
-)
-‰‰) *
+‰‰( )
 profiles
 ‰‰* 2
 .
-‰‰2 3
-Coins
-‰‰3 8
-;
-‰‰8 9
-profile
-ÂÂ 
-.
-ÂÂ 
+‰‰2 3
 LoginStatus
-ÂÂ '
-=
-ÂÂ( )
-profiles
-ÂÂ* 2
-.
-ÂÂ2 3
-LoginStatus
-ÂÂ3 >
+‰‰3 >
 ;
-ÂÂ> ?
+‰‰> ?
 profile
-ÁÁ 
+ÊÊ 
 .
-ÁÁ 
+ÊÊ 
 Player
-ÁÁ "
+ÊÊ "
 =
-ÁÁ# $
+ÊÊ# $
 player
-ÁÁ% +
+ÊÊ% +
 ;
-ÁÁ+ ,
+ÊÊ+ ,
 }
-ÈÈ 
+ËË 
 else
-ÍÍ 
+ÈÈ 
 {
-ÎÎ 
+ÍÍ 
 profile
-ÏÏ 
+ÎÎ 
 =
-ÏÏ 
+ÎÎ 
 null
-ÏÏ "
+ÎÎ "
 ;
-ÏÏ" #
+ÎÎ" #
 }
-ÌÌ 
+ÏÏ 
 }
-ÔÔ 
+ÓÓ 
 catch
- 
+ÔÔ 
 (
- 
+ÔÔ 
 	Exception
- 
+ÔÔ 
 ex
- 
+ÔÔ 
 )
-  
+ÔÔ  
 {
-ÒÒ 
+ 
 Console
-ÚÚ 
+ÒÒ 
 .
-ÚÚ 
+ÒÒ 
 	WriteLine
-ÚÚ !
+ÒÒ !
 (
-ÚÚ! "
+ÒÒ! "
 ex
-ÚÚ" $
+ÒÒ" $
 .
-ÚÚ$ %
+ÒÒ$ %
 ToString
-ÚÚ% -
+ÒÒ% -
 (
-ÚÚ- .
+ÒÒ- .
 )
-ÚÚ. /
+ÒÒ. /
 )
-ÚÚ/ 0
+ÒÒ/ 0
 ;
-ÚÚ0 1
+ÒÒ0 1
 }
-ÛÛ 
+ÚÚ 
 return
-ıı 
+ÙÙ 
 profile
-ıı 
+ÙÙ 
 ;
-ıı 
+ÙÙ 
 }
-ˆˆ 	
+ıı 	
 public
-¯¯ 
+˜˜ 
 bool
-¯¯ 
+˜˜ 
 ModifyImageName
-¯¯ #
+˜˜ #
 (
-¯¯# $
+˜˜# $
 string
-¯¯$ *
+˜˜$ *
 fileName
-¯¯+ 3
+˜˜+ 3
 ,
-¯¯3 4
+˜˜3 4
 string
-¯¯5 ;
+˜˜5 ;
 newName
-¯¯< C
+˜˜< C
 )
-¯¯C D
+˜˜C D
 {
-˘˘ 	
+¯¯ 	
 try
-˙˙ 
+˘˘ 
 {
-˚˚ 
+˙˙ 
 string
-¸¸ 
+˚˚ 
 serverFolderPath
-¸¸ '
+˚˚ '
 =
-¸¸( )
+˚˚( )
 $str
-¸¸* u
+˚˚* u
 ;
-¸¸u v
+˚˚u v
 var
-˝˝ 
+¸¸ 
 matchingFiles
-˝˝ !
+¸¸ !
 =
-˝˝" #
+¸¸" #
 	Directory
-˝˝$ -
+¸¸$ -
 .
-˝˝- .
+¸¸- .
 GetFiles
-˝˝. 6
+¸¸. 6
 (
-˝˝6 7
+¸¸6 7
 serverFolderPath
-˝˝7 G
+¸¸7 G
 ,
-˝˝G H
+¸¸G H
 $"
-˝˝I K
+¸¸I K
 {
-˝˝K L
+¸¸K L
 fileName
-˝˝L T
+¸¸L T
 }
-˝˝T U
+¸¸T U
 $str
-˝˝U W
+¸¸U W
 "
-˝˝W X
+¸¸W X
 )
-˝˝X Y
+¸¸X Y
 .
-˛˛. /
+˝˝. /
 ToList
-˛˛/ 5
+˝˝/ 5
 (
-˛˛5 6
+˝˝5 6
 )
-˛˛6 7
+˝˝6 7
 ;
-˛˛7 8
+˝˝7 8
 if
-ÄÄ 
+ˇˇ 
 (
-ÄÄ 
+ˇˇ 
 matchingFiles
-ÄÄ !
+ˇˇ !
 .
-ÄÄ! "
+ˇˇ! "
 Count
-ÄÄ" '
+ˇˇ" '
 >
-ÄÄ( )
+ˇˇ( )
 $num
-ÄÄ* +
+ˇˇ* +
 )
-ÄÄ+ ,
+ˇˇ+ ,
 {
-ÅÅ 
+ÄÄ 
 string
-ÇÇ 
+ÅÅ 
 	imagePath
-ÇÇ $
+ÅÅ $
 =
-ÇÇ% &
+ÅÅ% &
 matchingFiles
-ÇÇ' 4
+ÅÅ' 4
 .
-ÇÇ4 5
+ÅÅ4 5
 First
-ÇÇ5 :
+ÅÅ5 :
 (
-ÇÇ: ;
+ÅÅ: ;
 )
-ÇÇ; <
+ÅÅ; <
 ;
-ÇÇ< =
+ÅÅ< =
 string
-ÉÉ 
+ÇÇ 
 newFileName
-ÉÉ &
+ÇÇ &
 =
-ÉÉ' (
+ÇÇ' (
 $"
-ÉÉ) +
+ÇÇ) +
 {
-ÉÉ+ ,
+ÇÇ+ ,
 newName
-ÉÉ, 3
+ÇÇ, 3
 }
-ÉÉ3 4
+ÇÇ3 4
 {
-ÉÉ4 5
+ÇÇ4 5
 Path
-ÉÉ5 9
+ÇÇ5 9
 .
-ÉÉ9 :
+ÇÇ9 :
 GetExtension
-ÉÉ: F
+ÇÇ: F
 (
-ÉÉF G
+ÇÇF G
 	imagePath
-ÉÉG P
+ÇÇG P
 )
-ÉÉP Q
+ÇÇP Q
 }
-ÉÉQ R
+ÇÇQ R
 "
-ÉÉR S
+ÇÇR S
 ;
-ÉÉS T
+ÇÇS T
 string
-ÑÑ 
+ÉÉ 
 newPath
-ÑÑ "
+ÉÉ "
 =
-ÑÑ# $
+ÉÉ# $
 Path
-ÑÑ% )
+ÉÉ% )
 .
-ÑÑ) *
+ÉÉ) *
 Combine
-ÑÑ* 1
+ÉÉ* 1
 (
-ÑÑ1 2
+ÉÉ1 2
 Path
-ÑÑ2 6
+ÉÉ2 6
 .
-ÑÑ6 7
+ÉÉ6 7
 GetDirectoryName
-ÑÑ7 G
+ÉÉ7 G
 (
-ÑÑG H
+ÉÉG H
 	imagePath
-ÑÑH Q
+ÉÉH Q
 )
-ÑÑQ R
+ÉÉQ R
 ,
-ÑÑR S
+ÉÉR S
 newFileName
-ÑÑT _
+ÉÉT _
 )
-ÑÑ_ `
+ÉÉ_ `
 ;
-ÑÑ` a
+ÉÉ` a
 File
-ÖÖ 
+ÑÑ 
 .
-ÖÖ 
+ÑÑ 
 Move
-ÖÖ 
+ÑÑ 
 (
-ÖÖ 
+ÑÑ 
 	imagePath
-ÖÖ '
+ÑÑ '
 ,
-ÖÖ' (
+ÑÑ' (
 newPath
-ÖÖ) 0
+ÑÑ) 0
 )
-ÖÖ0 1
+ÑÑ0 1
 ;
-ÖÖ1 2
+ÑÑ1 2
 }
-ÜÜ 
+ÖÖ 
 }
-àà 
+áá 
 catch
-ââ 
+àà 
 (
-ââ 
+àà 
 	Exception
-ââ 
+àà 
 )
-ââ 
+àà 
 {
-ää 
+ââ 
 return
-ãã 
+ää 
 false
-ãã 
+ää 
 ;
-ãã 
+ää 
 }
-åå 
+ãã 
 return
-éé 
+çç 
 true
-éé 
+çç 
 ;
-éé 
+çç 
 }
-èè 	
+éé 	
 public
-ëë 
+êê 
 bool
-ëë  
+êê  
 TheProfileIsLogged
-ëë &
+êê &
 (
-ëë& '
+êê& '
 long
-ëë' +
+êê' +
 	profileID
-ëë, 5
+êê, 5
 )
-ëë5 6
+êê5 6
 {
-íí 	
+ëë 	
 Profiles
-ìì 
+íí 
 profiles
-ìì 
+íí 
 =
-ìì 
+íí 
 new
-ìì  #
+íí  #
 Profiles
-ìì$ ,
+íí$ ,
 (
-ìì, -
+íí, -
 )
-ìì- .
+íí- .
 ;
-ìì. /
+íí. /
 try
-ïï 
+îî 
 {
-ññ $
+ïï $
 DatabaseModelContainer
-óó &$
+ññ &$
 databaseModelContainer
-óó' =
+ññ' =
 =
-óó> ?
+ññ> ?
 new
-óó@ C$
+ññ@ C$
 DatabaseModelContainer
-óóD Z
+ññD Z
 (
-óóZ [
+ññZ [
 )
-óó[ \
+ññ[ \
 ;
-óó\ ]
+ññ\ ]
 profiles
-òò 
+óó 
 =
-òò $
+óó $
 databaseModelContainer
-òò 1
+óó 1
 .
-òò1 2
+óó1 2
 ProfilesSet
-òò2 =
+óó2 =
 .
-òò= >
+óó= >
 Where
-òò> C
+óó> C
 (
-òòC D
+óóC D
 e
-òòD E
+óóD E
 =>
-òòF H
+óóF H
 e
-òòI J
+óóI J
 .
-òòJ K
+óóJ K
 	IDProfile
-òòK T
+óóK T
 ==
-òòU W
+óóU W
 	profileID
-òòX a
+óóX a
 )
-òòa b
+óóa b
 .
-òòb c
+óób c
 FirstOrDefault
-òòc q
+óóc q
 (
-òòq r
+óóq r
 )
-òòr s
+óór s
 ;
-òòs t
+óós t
 if
-öö 
+ôô 
 (
-öö 
+ôô 
 profiles
-öö 
+ôô 
 .
-öö 
+ôô 
 LoginStatus
-öö (
+ôô (
 ==
-öö) +
+ôô) +
 Enum
-öö, 0
+ôô, 0
 .
-öö0 1
+ôô0 1
 GetName
-öö1 8
+ôô1 8
 (
-öö8 9
+ôô8 9
 typeof
-öö9 ?
+ôô9 ?
 (
-öö? @"
+ôô? @"
 ProfileLoginStatuses
-öö@ T
+ôô@ T
 )
-ööT U
+ôôT U
 ,
-ööU V"
+ôôU V"
 ProfileLoginStatuses
-ööW k
+ôôW k
 .
-öök l
+ôôk l
 Logged
-ööl r
+ôôl r
 )
-öör s
+ôôr s
 )
-öös t
+ôôs t
 {
-õõ 
+öö 
 return
-úú 
+õõ 
 true
-úú 
+õõ 
 ;
-úú  
+õõ  
 }
-ùù 
+úú 
 }
-†† 
+üü 
 catch
-°° 
+†† 
 (
-°° 
+†† 
 	Exception
-°° 
+†† 
 ex
-°° 
+†† 
 )
-°°  
+††  
 {
-¢¢ 
+°° 
 Console
-££ 
+¢¢ 
 .
-££ 
+¢¢ 
 	WriteLine
-££ !
+¢¢ !
 (
-££! "
+¢¢! "
 ex
-££" $
+¢¢" $
 .
-££$ %
+¢¢$ %
 ToString
-££% -
+¢¢% -
 (
-££- .
+¢¢- .
 )
-££. /
+¢¢. /
 )
-££/ 0
+¢¢/ 0
 ;
-££0 1
+¢¢0 1
 }
-§§ 
+££ 
 return
-¶¶ 
+•• 
 false
-¶¶ 
+•• 
 ;
-¶¶ 
+•• 
 }
-ßß 	
+¶¶ 	
 public
-©© 
+®® 
 bool
-©© 
+®® 
 UploadImage
-©© 
+®® 
 (
-©©  
+®®  
 string
-©©  &
+®®  &
 fileName
-©©' /
+®®' /
 ,
-©©/ 0
+®®/ 0
 byte
-©©1 5
+®®1 5
 [
-©©5 6
+®®5 6
 ]
-©©6 7
+®®6 7
 	imageData
-©©8 A
+®®8 A
 )
-©©A B
+®®A B
 {
-™™ 	
+©© 	
 try
-´´ 
+™™ 
 {
-¨¨ 
+´´ 
 string
-≠≠ 
+¨¨ 
 serverFolderPath
-≠≠ '
+¨¨ '
 =
-≠≠( )
+¨¨( )
 $str
-≠≠* u
+¨¨* u
 ;
-≠≠u v
+¨¨u v
 string
-ØØ 
+ÆÆ 
 searchString
-ØØ #
+ÆÆ #
 =
-ØØ$ %
+ÆÆ$ %
 $str
-ØØ& )
+ÆÆ& )
 ;
-ØØ) *
+ÆÆ) *
 int
-±± 
+∞∞ 
 index
-±± 
+∞∞ 
 =
-±± 
+∞∞ 
 fileName
-±± $
+∞∞ $
 .
-±±$ %
+∞∞$ %
 IndexOf
-±±% ,
+∞∞% ,
 (
-±±, -
+∞∞, -
 searchString
-±±- 9
+∞∞- 9
 )
-±±9 :
+∞∞9 :
 ;
-±±: ;
+∞∞: ;
 string
-≤≤ .
+±± .
  fileNameWithoutExtensionToDelete
-≤≤ 7
+±± 7
 =
-≤≤8 9
+±±8 9
 $str
-≤≤: <
+±±: <
 ;
-≤≤< =
+±±< =
 if
-¥¥ 
+≥≥ 
 (
-¥¥ 
+≥≥ 
 index
-¥¥ 
+≥≥ 
 !=
-¥¥ 
+≥≥ 
 -
-¥¥ 
+≥≥ 
 $num
-¥¥ 
+≥≥ 
 )
-¥¥  
+≥≥  
 {
-µµ .
+¥¥ .
  fileNameWithoutExtensionToDelete
-∂∂ 4
+µµ 4
 =
-∂∂5 6
+µµ5 6
 fileName
-∂∂7 ?
+µµ7 ?
 .
-∂∂? @
+µµ? @
 	Substring
-∂∂@ I
+µµ@ I
 (
-∂∂I J
+µµI J
 $num
-∂∂J K
+µµJ K
 ,
-∂∂K L
+µµK L
 index
-∂∂M R
+µµM R
 )
-∂∂R S
+µµR S
 ;
-∂∂S T
+µµS T
 }
-∑∑ 
+∂∂ 
 DirectoryInfo
-∫∫ 
+ππ 
 directoryInfo
-∫∫ +
+ππ +
 =
-∫∫, -
+ππ, -
 new
-∫∫. 1
+ππ. 1
 DirectoryInfo
-∫∫2 ?
+ππ2 ?
 (
-∫∫? @
+ππ? @
 serverFolderPath
-∫∫@ P
+ππ@ P
 )
-∫∫P Q
+ππP Q
 ;
-∫∫Q R
+ππQ R
 if
-ºº 
+ªª 
 (
-ºº 
+ªª 
 directoryInfo
-ºº !
+ªª !
 .
-ºº! "
+ªª! "
 Exists
-ºº" (
+ªª" (
 )
-ºº( )
+ªª( )
 {
-ΩΩ 
+ºº 
 FileInfo
-ææ 
+ΩΩ 
 [
-ææ 
+ΩΩ 
 ]
-ææ 
+ΩΩ 
 files
-ææ $
+ΩΩ $
 =
-ææ% &
+ΩΩ% &
 directoryInfo
-ææ' 4
+ΩΩ' 4
 .
-ææ4 5
+ΩΩ4 5
 GetFiles
-ææ5 =
+ΩΩ5 =
 (
-ææ= >
+ΩΩ= >
 )
-ææ> ?
+ΩΩ> ?
 ;
-ææ? @
+ΩΩ? @
 foreach
-¿¿ 
+øø 
 (
-¿¿ 
+øø 
 FileInfo
-¿¿ %
+øø %
 file
-¿¿& *
+øø& *
 in
-¿¿+ -
+øø+ -
 files
-¿¿. 3
+øø. 3
 )
-¿¿3 4
+øø3 4
 {
-¡¡ 
+¿¿ 
 string
-¬¬ &
+¡¡ &
 fileNameWithoutExtension
-¬¬ 7
+¡¡ 7
 =
-¬¬8 9
+¡¡8 9
 Path
-¬¬: >
+¡¡: >
 .
-¬¬> ?)
+¡¡> ?)
 GetFileNameWithoutExtension
-¬¬? Z
+¡¡? Z
 (
-¬¬Z [
+¡¡Z [
 file
-¬¬[ _
+¡¡[ _
 .
-¬¬_ `
+¡¡_ `
 Name
-¬¬` d
+¡¡` d
 )
-¬¬d e
+¡¡d e
 ;
-¬¬e f
+¡¡e f
 if
-ƒƒ 
+√√ 
 (
-ƒƒ 
+√√ 
 string
-ƒƒ "
+√√ "
 .
-ƒƒ" #
+√√" #
 Equals
-ƒƒ# )
+√√# )
 (
-ƒƒ) *&
+√√) *&
 fileNameWithoutExtension
-ƒƒ* B
+√√* B
 ,
-ƒƒB C.
+√√B C.
  fileNameWithoutExtensionToDelete
-ƒƒD d
+√√D d
 ,
-ƒƒd e
+√√d e
 StringComparison
-ƒƒf v
+√√f v
 .
-ƒƒv w 
-OrdinalIgnoreCaseƒƒw à
-)ƒƒà â
-)ƒƒâ ä
+√√v w 
+OrdinalIgnoreCase√√w à
+)√√à â
+)√√â ä
 {
-≈≈ 
+ƒƒ 
 file
-∆∆  
+≈≈  
 .
-∆∆  !
+≈≈  !
 Delete
-∆∆! '
+≈≈! '
 (
-∆∆' (
+≈≈' (
 )
-∆∆( )
+≈≈( )
 ;
-∆∆) *
+≈≈) *
 }
-«« 
+∆∆ 
 }
-»» 
+«« 
 }
-…… 
+»» 
 string
-ÃÃ 
+ÀÀ 
 filePath
-ÃÃ 
+ÀÀ 
 =
-ÃÃ  !
+ÀÀ  !
 Path
-ÃÃ" &
+ÀÀ" &
 .
-ÃÃ& '
+ÀÀ& '
 Combine
-ÃÃ' .
+ÀÀ' .
 (
-ÃÃ. /
+ÀÀ. /
 serverFolderPath
-ÃÃ/ ?
+ÀÀ/ ?
 ,
-ÃÃ? @
+ÀÀ? @
 fileName
-ÃÃA I
+ÀÀA I
 )
-ÃÃI J
+ÀÀI J
 ;
-ÃÃJ K
+ÀÀJ K
 File
-ÕÕ 
+ÃÃ 
 .
-ÕÕ 
+ÃÃ 
 WriteAllBytes
-ÕÕ "
+ÃÃ "
 (
-ÕÕ" #
+ÃÃ" #
 filePath
-ÕÕ# +
+ÃÃ# +
 ,
-ÕÕ+ ,
+ÃÃ+ ,
 	imageData
-ÕÕ- 6
+ÃÃ- 6
 )
-ÕÕ6 7
+ÃÃ6 7
 ;
-ÕÕ7 8
+ÃÃ7 8
 }
-œœ 
+ŒŒ 
 catch
-–– 
+œœ 
 (
-–– 
+œœ 
 	Exception
-–– 
+œœ 
 )
-–– 
+œœ 
 {
-—— 
+–– 
 return
-““ 
+—— 
 false
-““ 
+—— 
 ;
-““ 
+—— 
 }
-”” 
+““ 
 return
-’’ 
+‘‘ 
 true
-’’ 
+‘‘ 
 ;
-’’ 
+‘‘ 
 }
-÷÷ 	
+’’ 	
 public
-ŸŸ 
+ÿÿ 
 void
-ŸŸ 
+ÿÿ 
 AddFriendship
-ŸŸ !
+ÿÿ !
 (
-ŸŸ! "
+ÿÿ! "
 Profiles
-ŸŸ" *
+ÿÿ" *
 profiles
-ŸŸ+ 3
+ÿÿ+ 3
 ,
-ŸŸ3 4
+ÿÿ3 4
 Profiles
-ŸŸ5 =
+ÿÿ5 =
 	profiles1
-ŸŸ> G
+ÿÿ> G
 )
-ŸŸG H
+ÿÿG H
 {
-⁄⁄ 	
+ŸŸ 	
 try
-€€ 
+⁄⁄ 
 {
-‹‹ $
+€€ $
 DatabaseModelContainer
-›› &$
+‹‹ &$
 databaseModelContainer
-››' =
+‹‹' =
 =
-››> ?
+‹‹> ?
 new
-››@ C$
+‹‹@ C$
 DatabaseModelContainer
-››D Z
+‹‹D Z
 (
-››Z [
+‹‹Z [
 )
-››[ \
+‹‹[ \
 ;
-››\ ]
+‹‹\ ]
 string
-ﬂﬂ 
+ﬁﬁ 
 sqlQuery
-ﬂﬂ 
+ﬁﬁ 
 =
-ﬂﬂ  !
-$strﬂﬂ" å
-;ﬂﬂå ç
+ﬁﬁ  !
+$strﬁﬁ" å
+;ﬁﬁå ç
+var
+‡‡ 
+
+parameter1
+‡‡ 
+=
+‡‡  
+new
+‡‡! $
+SqlParameter
+‡‡% 1
+(
+‡‡1 2
+$str
+‡‡2 =
+,
+‡‡= >
+profiles
+‡‡? G
+.
+‡‡G H
+	IDProfile
+‡‡H Q
+)
+‡‡Q R
+;
+‡‡R S
 var
 ·· 
 
-parameter1
+parameter2
 ·· 
 =
 ··  
@@ -9884,88 +10320,86 @@ parameter1
 (
 ··1 2
 $str
-··2 =
+··2 >
 ,
-··= >
-profiles
-··? G
+··> ?
+	profiles1
+··@ I
 .
-··G H
+··I J
 	IDProfile
-··H Q
+··J S
 )
-··Q R
+··S T
 ;
-··R S
-var
-‚‚ 
+··T U$
+databaseModelContainer
+„„ &
+.
+„„& '
+Database
+„„' /
+.
+„„/ 0
+ExecuteSqlCommand
+„„0 A
+(
+„„A B
+sqlQuery
+„„B J
+,
+„„J K
+
+parameter1
+„„L V
+,
+„„V W
 
 parameter2
-‚‚ 
-=
-‚‚  
-new
-‚‚! $
-SqlParameter
-‚‚% 1
-(
-‚‚1 2
-$str
-‚‚2 >
-,
-‚‚> ?
-	profiles1
-‚‚@ I
-.
-‚‚I J
-	IDProfile
-‚‚J S
+„„X b
 )
-‚‚S T
+„„b c
 ;
-‚‚T U$
+„„c d$
 databaseModelContainer
 ‰‰ &
 .
-‰‰& '
-Database
-‰‰' /
-.
-‰‰/ 0
-ExecuteSqlCommand
-‰‰0 A
+‰‰& '
+SaveChanges
+‰‰' 2
 (
-‰‰A B
-sqlQuery
-‰‰B J
-,
-‰‰J K
+‰‰2 3
+)
+‰‰3 4
+;
+‰‰4 5
 
 parameter1
-‰‰L V
+ÊÊ 
+=
+ÊÊ 
+new
+ÊÊ  
+SqlParameter
+ÊÊ! -
+(
+ÊÊ- .
+$str
+ÊÊ. 9
 ,
-‰‰V W
+ÊÊ9 :
+	profiles1
+ÊÊ; D
+.
+ÊÊD E
+	IDProfile
+ÊÊE N
+)
+ÊÊN O
+;
+ÊÊO P
 
 parameter2
-‰‰X b
-)
-‰‰b c
-;
-‰‰c d$
-databaseModelContainer
-ÂÂ &
-.
-ÂÂ& '
-SaveChanges
-ÂÂ' 2
-(
-ÂÂ2 3
-)
-ÂÂ3 4
-;
-ÂÂ4 5
-
-parameter1
 ÁÁ 
 =
 ÁÁ 
@@ -9976,11 +10410,11 @@ parameter1
 (
 ÁÁ- .
 $str
-ÁÁ. 9
+ÁÁ. :
 ,
-ÁÁ9 :
-	profiles1
-ÁÁ; D
+ÁÁ: ;
+profiles
+ÁÁ< D
 .
 ÁÁD E
 	IDProfile
@@ -9988,194 +10422,196 @@ parameter1
 )
 ÁÁN O
 ;
-ÁÁO P
+ÁÁO P$
+databaseModelContainer
+ÈÈ &
+.
+ÈÈ& '
+Database
+ÈÈ' /
+.
+ÈÈ/ 0
+ExecuteSqlCommand
+ÈÈ0 A
+(
+ÈÈA B
+sqlQuery
+ÈÈB J
+,
+ÈÈJ K
+
+parameter1
+ÈÈL V
+,
+ÈÈV W
 
 parameter2
-ËË 
-=
-ËË 
-new
-ËË  
-SqlParameter
-ËË! -
-(
-ËË- .
-$str
-ËË. :
-,
-ËË: ;
-profiles
-ËË< D
-.
-ËËD E
-	IDProfile
-ËËE N
+ÈÈX b
 )
-ËËN O
+ÈÈb c
 ;
-ËËO P$
+ÈÈc d$
 databaseModelContainer
 ÍÍ &
 .
-ÍÍ& '
-Database
-ÍÍ' /
-.
-ÍÍ/ 0
-ExecuteSqlCommand
-ÍÍ0 A
+ÍÍ& '
+SaveChanges
+ÍÍ' 2
 (
-ÍÍA B
-sqlQuery
-ÍÍB J
+ÍÍ2 3
+)
+ÍÍ3 4
+;
+ÍÍ4 5.
+ ServiceProfileForCallbackMethods
+ÏÏ 0.
+ serviceProfileForCallbackMethods
+ÏÏ1 Q
+=
+ÏÏR S
+new
+ÏÏT W.
+ ServiceProfileForCallbackMethods
+ÏÏX x
+(
+ÏÏx y
+)
+ÏÏy z
+;
+ÏÏz {.
+ serviceProfileForCallbackMethods
+ÌÌ 0
+.
+ÌÌ0 15
+'UpdateFriendsListsToAllConnectedClients
+ÌÌ1 X
+(
+ÌÌX Y
+)
+ÌÌY Z
+;
+ÌÌZ [
+}
+ÓÓ 
+catch
+ÔÔ 
+(
+ÔÔ 
+	Exception
+ÔÔ 
+ex
+ÔÔ 
+)
+ÔÔ  
+{
+ 
+Console
+ÒÒ 
+.
+ÒÒ 
+	WriteLine
+ÒÒ !
+(
+ÒÒ! "
+ex
+ÒÒ" $
+.
+ÒÒ$ %
+ToString
+ÒÒ% -
+(
+ÒÒ- .
+)
+ÒÒ. /
+)
+ÒÒ/ 0
+;
+ÒÒ0 1
+}
+ÚÚ 
+}
+ÛÛ 	
+public
+ıı 
+void
+ıı 
+CancelFriendship
+ıı $
+(
+ıı$ %
+Profiles
+ıı% -
+profiles
+ıı. 6
 ,
-ÍÍJ K
+ıı6 7
+Profiles
+ıı8 @
+	profiles1
+ııA J
+)
+ııJ K
+{
+ˆˆ 	
+try
+˜˜ 
+{
+¯¯ $
+DatabaseModelContainer
+˘˘ &$
+databaseModelContainer
+˘˘' =
+=
+˘˘> ?
+new
+˘˘@ C$
+DatabaseModelContainer
+˘˘D Z
+(
+˘˘Z [
+)
+˘˘[ \
+;
+˘˘\ ]
+string
+˚˚ 
+sqlQuery
+˚˚ 
+=
+˚˚  !
+$str˚˚" ç
+;˚˚ç é
+var
+˝˝ 
 
 parameter1
-ÍÍL V
-,
-ÍÍV W
-
-parameter2
-ÍÍX b
-)
-ÍÍb c
-;
-ÍÍc d$
-databaseModelContainer
-ÎÎ &
-.
-ÎÎ& '
-SaveChanges
-ÎÎ' 2
-(
-ÎÎ2 3
-)
-ÎÎ3 4
-;
-ÎÎ4 5.
- ServiceProfileForCallbackMethods
-ÌÌ 0.
- serviceProfileForCallbackMethods
-ÌÌ1 Q
+˝˝ 
 =
-ÌÌR S
+˝˝  
 new
-ÌÌT W.
- ServiceProfileForCallbackMethods
-ÌÌX x
+˝˝! $
+SqlParameter
+˝˝% 1
 (
-ÌÌx y
-)
-ÌÌy z
-;
-ÌÌz {.
- serviceProfileForCallbackMethods
-ÓÓ 0
-.
-ÓÓ0 15
-'UpdateFriendsListsToAllConnectedClients
-ÓÓ1 X
-(
-ÓÓX Y
-)
-ÓÓY Z
-;
-ÓÓZ [
-}
-ÔÔ 
-catch
- 
-(
- 
-	Exception
- 
-ex
- 
-)
-  
-{
-ÒÒ 
-Console
-ÚÚ 
-.
-ÚÚ 
-	WriteLine
-ÚÚ !
-(
-ÚÚ! "
-ex
-ÚÚ" $
-.
-ÚÚ$ %
-ToString
-ÚÚ% -
-(
-ÚÚ- .
-)
-ÚÚ. /
-)
-ÚÚ/ 0
-;
-ÚÚ0 1
-}
-ÛÛ 
-}
-ÙÙ 	
-public
-ˆˆ 
-void
-ˆˆ 
-CancelFriendship
-ˆˆ $
-(
-ˆˆ$ %
-Profiles
-ˆˆ% -
+˝˝1 2
+$str
+˝˝2 =
+,
+˝˝= >
 profiles
-ˆˆ. 6
-,
-ˆˆ6 7
-Profiles
-ˆˆ8 @
-	profiles1
-ˆˆA J
+˝˝? G
+.
+˝˝G H
+	IDProfile
+˝˝H Q
 )
-ˆˆJ K
-{
-˜˜ 	
-try
-¯¯ 
-{
-˘˘ $
-DatabaseModelContainer
-˙˙ &$
-databaseModelContainer
-˙˙' =
-=
-˙˙> ?
-new
-˙˙@ C$
-DatabaseModelContainer
-˙˙D Z
-(
-˙˙Z [
-)
-˙˙[ \
+˝˝Q R
 ;
-˙˙\ ]
-string
-¸¸ 
-sqlQuery
-¸¸ 
-=
-¸¸  !
-$str¸¸" ç
-;¸¸ç é
+˝˝R S
 var
 ˛˛ 
 
-parameter1
+parameter2
 ˛˛ 
 =
 ˛˛  
@@ -10186,88 +10622,86 @@ parameter1
 (
 ˛˛1 2
 $str
-˛˛2 =
+˛˛2 >
 ,
-˛˛= >
-profiles
-˛˛? G
+˛˛> ?
+	profiles1
+˛˛@ I
 .
-˛˛G H
+˛˛I J
 	IDProfile
-˛˛H Q
+˛˛J S
 )
-˛˛Q R
+˛˛S T
 ;
-˛˛R S
-var
-ˇˇ 
+˛˛T U$
+databaseModelContainer
+ÄÄ &
+.
+ÄÄ& '
+Database
+ÄÄ' /
+.
+ÄÄ/ 0
+ExecuteSqlCommand
+ÄÄ0 A
+(
+ÄÄA B
+sqlQuery
+ÄÄB J
+,
+ÄÄJ K
+
+parameter1
+ÄÄL V
+,
+ÄÄV W
 
 parameter2
-ˇˇ 
-=
-ˇˇ  
-new
-ˇˇ! $
-SqlParameter
-ˇˇ% 1
-(
-ˇˇ1 2
-$str
-ˇˇ2 >
-,
-ˇˇ> ?
-	profiles1
-ˇˇ@ I
-.
-ˇˇI J
-	IDProfile
-ˇˇJ S
+ÄÄX b
 )
-ˇˇS T
+ÄÄb c
 ;
-ˇˇT U$
+ÄÄc d$
 databaseModelContainer
 ÅÅ &
 .
-ÅÅ& '
-Database
-ÅÅ' /
-.
-ÅÅ/ 0
-ExecuteSqlCommand
-ÅÅ0 A
+ÅÅ& '
+SaveChanges
+ÅÅ' 2
 (
-ÅÅA B
-sqlQuery
-ÅÅB J
-,
-ÅÅJ K
+ÅÅ2 3
+)
+ÅÅ3 4
+;
+ÅÅ4 5
 
 parameter1
-ÅÅL V
+ÉÉ 
+=
+ÉÉ 
+new
+ÉÉ  
+SqlParameter
+ÉÉ! -
+(
+ÉÉ- .
+$str
+ÉÉ. 9
 ,
-ÅÅV W
+ÉÉ9 :
+	profiles1
+ÉÉ; D
+.
+ÉÉD E
+	IDProfile
+ÉÉE N
+)
+ÉÉN O
+;
+ÉÉO P
 
 parameter2
-ÅÅX b
-)
-ÅÅb c
-;
-ÅÅc d$
-databaseModelContainer
-ÇÇ &
-.
-ÇÇ& '
-SaveChanges
-ÇÇ' 2
-(
-ÇÇ2 3
-)
-ÇÇ3 4
-;
-ÇÇ4 5
-
-parameter1
 ÑÑ 
 =
 ÑÑ 
@@ -10278,11 +10712,11 @@ parameter1
 (
 ÑÑ- .
 $str
-ÑÑ. 9
+ÑÑ. :
 ,
-ÑÑ9 :
-	profiles1
-ÑÑ; D
+ÑÑ: ;
+profiles
+ÑÑ< D
 .
 ÑÑD E
 	IDProfile
@@ -10290,671 +10724,646 @@ parameter1
 )
 ÑÑN O
 ;
-ÑÑO P
+ÑÑO P$
+databaseModelContainer
+ÜÜ &
+.
+ÜÜ& '
+Database
+ÜÜ' /
+.
+ÜÜ/ 0
+ExecuteSqlCommand
+ÜÜ0 A
+(
+ÜÜA B
+sqlQuery
+ÜÜB J
+,
+ÜÜJ K
+
+parameter1
+ÜÜL V
+,
+ÜÜV W
 
 parameter2
-ÖÖ 
-=
-ÖÖ 
-new
-ÖÖ  
-SqlParameter
-ÖÖ! -
-(
-ÖÖ- .
-$str
-ÖÖ. :
-,
-ÖÖ: ;
-profiles
-ÖÖ< D
-.
-ÖÖD E
-	IDProfile
-ÖÖE N
+ÜÜX b
 )
-ÖÖN O
+ÜÜb c
 ;
-ÖÖO P$
+ÜÜc d$
 databaseModelContainer
 áá &
 .
-áá& '
-Database
-áá' /
-.
-áá/ 0
-ExecuteSqlCommand
-áá0 A
-(
-ááA B
-sqlQuery
-ááB J
-,
-ááJ K
-
-parameter1
-ááL V
-,
-ááV W
-
-parameter2
-ááX b
-)
-ááb c
-;
-áác d$
-databaseModelContainer
-àà &
-.
-àà& '
+áá& '
 SaveChanges
-àà' 2
+áá' 2
 (
-àà2 3
+áá2 3
 )
-àà3 4
+áá3 4
 ;
-àà4 5.
+áá4 5.
  ServiceProfileForCallbackMethods
-ãã 0.
+ää 0.
  serviceProfileForCallbackMethods
-ãã1 Q
+ää1 Q
 =
-ããR S
+ääR S
 new
-ããT W.
+ääT W.
  ServiceProfileForCallbackMethods
-ããX x
+ääX x
 (
-ããx y
+ääx y
 )
-ããy z
+ääy z
 ;
-ããz {.
+ääz {.
  serviceProfileForCallbackMethods
-åå 0
+ãã 0
 .
-åå0 15
+ãã0 15
 'UpdateFriendsListsToAllConnectedClients
-åå1 X
+ãã1 X
 (
-ååX Y
+ããX Y
 )
-ååY Z
+ããY Z
 ;
-ååZ [
+ããZ [
 }
-çç 
+åå 
 catch
-éé 
+çç 
 (
-éé 
+çç 
 	Exception
-éé 
+çç 
 ex
-éé 
+çç 
 )
-éé  
+çç  
 {
-èè 
+éé 
 Console
-êê 
+èè 
 .
-êê 
+èè 
 	WriteLine
-êê !
+èè !
 (
-êê! "
+èè! "
 ex
-êê" $
+èè" $
 .
-êê$ %
+èè$ %
 ToString
-êê% -
+èè% -
 (
-êê- .
+èè- .
 )
-êê. /
+èè. /
 )
-êê/ 0
+èè/ 0
 ;
-êê0 1
+èè0 1
 }
-ëë 
+êê 
 }
-íí 	
+ëë 	
 }
-ìì 
+íí 
 public
-ïï 
+ññ 
 
 partial
-ïï 
+ññ 
 class
-ïï .
+ññ .
  ServiceProfileForCallbackMethods
-ïï 9
+ññ 9
 :
-ïï: ;(
-IProfileForCallbackMethods
-ïï< V
+ññ: ;%
+IProfileCallbackMethods
+ññ< S
 {
-ññ 
+óó 
 public
-óó 
+òò 
 static
-óó 
+òò 
 List
-óó 
+òò 
 <
-óó i
+òò i
 [KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
-óó v
+òò v
 >
-óóv w 
-connectedProfilesóóx â
-=óóä ã
-newóóå è
-Listóóê î
-<óóî ïk
-[KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethodsóóï 
->óó Ò
-(óóÒ Ú
-)óóÚ Û
-;óóÛ Ù
+òòv w 
+connectedProfilesòòx â
+=òòä ã
+newòòå è
+Listòòê î
+<òòî ïk
+[KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethodsòòï 
+>òò Ò
+(òòÒ Ú
+)òòÚ Û
+;òòÛ Ù
 public
-öö 
+úú 
 void
-öö 
+úú 
 Connect
-öö 
+úú 
 (
-öö 
+úú 
 string
-öö "
+úú "
 username
-öö# +
+úú# +
 )
-öö+ ,
+úú+ ,
 {
-õõ 	
+ùù 	
 IProfileCallback
-úú 
+ûû 
 callback
-úú %
+ûû %
 =
-úú& '
+ûû& '
 OperationContext
-úú( 8
+ûû( 8
 .
-úú8 9
+ûû8 9
 Current
-úú9 @
+ûû9 @
 .
-úú@ A 
+ûû@ A 
 GetCallbackChannel
-úúA S
+ûûA S
 <
-úúS T
+ûûS T
 IProfileCallback
-úúT d
+ûûT d
 >
-úúd e
+ûûd e
 (
-úúe f
+ûûe f
 )
-úúf g
+ûûf g
 ;
-úúg hi
+ûûg hi
 [KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
-ûû g
+†† g
 result
-ûûh n
+††h n
 =
-ûûo p 
-connectedProfilesûûq Ç
-.ûûÇ É
-FirstOrDefaultûûÉ ë
-(ûûë í
-itemûûí ñ
-=>ûûó ô
-itemûûö û
-.ûûû ü
-Keyûûü ¢
-==ûû£ •
-usernameûû¶ Æ
-)ûûÆ Ø
-;ûûØ ∞
+††o p 
+connectedProfiles††q Ç
+.††Ç É
+FirstOrDefault††É ë
+(††ë í
+item††í ñ
+=>††ó ô
+item††ö û
+.††û ü
+Key††ü ¢
+==††£ •
+username††¶ Æ
+)††Æ Ø
+;††Ø ∞
 if
-†† 
+¢¢ 
 (
-†† 
+¢¢ 
 result
-†† 
+¢¢ 
 ==
-†† 
+¢¢ 
 null
-†† 
+¢¢ 
 )
-†† 
+¢¢ 
 {
-°° i
+££ i
 [KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
-¢¢ k
+§§ k
 
 dictionary
-¢¢l v
+§§l v
 =
-¢¢w x
+§§w x
 new
-¢¢y |j
-[KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods¢¢} ÿ
+§§y |j
+[KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods§§} ÿ
 {
-££ 
+•• 
 Key
-§§ 
+¶¶ 
 =
-§§ 
+¶¶ 
 username
-§§ "
+¶¶ "
 ,
-§§" #
+¶¶" #
 Value
-•• 
+ßß 
 =
-•• 
+ßß 
 callback
-•• $
+ßß $
 }
-¶¶ 
+®® 
 ;
-¶¶ 
+®® 
 connectedProfiles
-ßß !
+©© !
 .
-ßß! "
+©©! "
 Add
-ßß" %
+©©" %
 (
-ßß% &
+©©% &
 
 dictionary
-ßß& 0
+©©& 0
 )
-ßß0 1
+©©0 1
 ;
-ßß1 25
+©©1 25
 'UpdateFriendsListsToAllConnectedClients
-©© 7
+´´ 7
 (
-©©7 8
+´´7 8
 )
-©©8 9
+´´8 9
 ;
-©©9 :
+´´9 :
 }
-™™ 
+¨¨ 
 }
-´´ 	
+≠≠ 	
 public
-≠≠ 
+ØØ 
 void
-≠≠ 
+ØØ 
 
 Disconnect
-≠≠ 
+ØØ 
 (
-≠≠ 
+ØØ 
 string
-≠≠ %
+ØØ %
 username
-≠≠& .
+ØØ& .
 )
-≠≠. /
+ØØ. /
 {
-ÆÆ 	i
+∞∞ 	i
 [KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
-ØØ g
+±± g
 result
-ØØh n
+±±h n
 =
-ØØo p 
-connectedProfilesØØq Ç
-.ØØÇ É
-FirstOrDefaultØØÉ ë
-(ØØë í
-itemØØí ñ
-=>ØØó ô
-itemØØö û
-.ØØû ü
-KeyØØü ¢
-==ØØ£ •
-usernameØØ¶ Æ
-)ØØÆ Ø
-;ØØØ ∞
+±±o p 
+connectedProfiles±±q Ç
+.±±Ç É
+FirstOrDefault±±É ë
+(±±ë í
+item±±í ñ
+=>±±ó ô
+item±±ö û
+.±±û ü
+Key±±ü ¢
+==±±£ •
+username±±¶ Æ
+)±±Æ Ø
+;±±Ø ∞
 if
-±± 
+≥≥ 
 (
-±± 
+≥≥ 
 result
-±± 
+≥≥ 
 !=
-±± 
+≥≥ 
 null
-±± 
+≥≥ 
 )
-±± 
+≥≥ 
 {
-≤≤ 
+¥¥ 
 connectedProfiles
-≥≥ !
+µµ !
 =
-≥≥" #
+µµ" #
 connectedProfiles
-≥≥$ 5
+µµ$ 5
 .
-≥≥5 6
+µµ5 6
 Where
-≥≥6 ;
+µµ6 ;
 (
-≥≥; <
+µµ; <
 item
-≥≥< @
+µµ< @
 =>
-≥≥A C
+µµA C
 item
-≥≥D H
+µµD H
 .
-≥≥H I
+µµH I
 Key
-≥≥I L
+µµI L
 !=
-≥≥M O
+µµM O
 username
-≥≥P X
+µµP X
 )
-≥≥X Y
+µµX Y
 .
-≥≥Y Z
+µµY Z
 ToList
-≥≥Z `
+µµZ `
 (
-≥≥` a
+µµ` a
 )
-≥≥a b
+µµa b
 ;
-≥≥b c
+µµb c
 new
-¥¥ 
-ServiceChat
-¥¥ 
+∂∂ +
+ServiceChatForCallbackMethods
+∂∂ 1
 (
-¥¥  
+∂∂1 2
 )
-¥¥  !
+∂∂2 3
 .
-¥¥! "
+∂∂3 4
 	LeaveChat
-¥¥" +
+∂∂4 =
 (
-¥¥+ ,
+∂∂= >
 username
-¥¥, 4
+∂∂> F
 )
-¥¥4 5
+∂∂F G
 ;
-¥¥5 6
+∂∂G H
 new
-µµ 4
+∑∑ 4
 &ServiceFriendRequestForCallbackMethods
-µµ :
+∑∑ :
 (
-µµ: ;
+∑∑: ;
 )
-µµ; <
+∑∑; <
 .
-µµ< =
+∑∑< =
 
 Disconnect
-µµ= G
+∑∑= G
 (
-µµG H
+∑∑G H
 username
-µµH P
+∑∑H P
 )
-µµP Q
+∑∑P Q
 ;
-µµQ R
+∑∑Q R
 new
-∂∂ $
-ServiceMultiplayerGame
-∂∂ *
+∏∏ ,
+ServiceLobbyForCallbackMethods
+∏∏ 2
 (
-∂∂* +
+∏∏2 3
 )
-∂∂+ ,
+∏∏3 4
 .
-∂∂, -
+∏∏4 5
 
 Disconnect
-∂∂- 7
+∏∏5 ?
 (
-∂∂7 8
+∏∏? @
 username
-∂∂8 @
+∏∏@ H
 )
-∂∂@ A
+∏∏H I
 ;
-∂∂A B
+∏∏I J
 new
-∑∑ )
-ServiceMultiplayerCrossword
-∑∑ /
+ππ ;
+-ServiceMultiplayerCrosswordForCallbackMethods
+ππ A
 (
-∑∑/ 0
+ππA B
 )
-∑∑0 1
+ππB C
 .
-∑∑1 2
+ππC D
 
 Disconnect
-∑∑2 <
+ππD N
 (
-∑∑< =
+ππN O
 username
-∑∑= E
+ππO W
 )
-∑∑E F
+ππW X
 ;
-∑∑F G5
+ππX Y5
 'UpdateFriendsListsToAllConnectedClients
-ππ 7
+ªª 7
 (
-ππ7 8
+ªª7 8
 )
-ππ8 9
+ªª8 9
 ;
-ππ9 :
+ªª9 :
 }
-∫∫ 
+ºº 
 }
-ªª 	
+ΩΩ 	
 public
-ΩΩ 
+øø 
 void
-ΩΩ $
+øø $
 InviteFriendToTheLobby
-ΩΩ *
+øø *
 (
-ΩΩ* +
+øø* +
 string
-ΩΩ+ 1
+øø+ 1
 friendNickname
-ΩΩ2 @
+øø2 @
 )
-ΩΩ@ A
+øø@ A
 {
-ææ 	i
+¿¿ 	i
 [KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
-øø g
+¡¡ g
 result
-øøh n
+¡¡h n
 =
-øøo p 
-connectedProfilesøøq Ç
-.øøÇ É
-FirstOrDefaultøøÉ ë
-(øøë í
-itemøøí ñ
-=>øøó ô
-itemøøö û
-.øøû ü
-Keyøøü ¢
-==øø£ •
-friendNicknameøø¶ ¥
-)øø¥ µ
-;øøµ ∂
+¡¡o p 
+connectedProfiles¡¡q Ç
+.¡¡Ç É
+FirstOrDefault¡¡É ë
+(¡¡ë í
+item¡¡í ñ
+=>¡¡ó ô
+item¡¡ö û
+.¡¡û ü
+Key¡¡ü ¢
+==¡¡£ •
+friendNickname¡¡¶ ¥
+)¡¡¥ µ
+;¡¡µ ∂
 if
-¡¡ 
+√√ 
 (
-¡¡ 
+√√ 
 result
-¡¡ 
+√√ 
 !=
-¡¡ 
+√√ 
 null
-¡¡ 
+√√ 
 )
-¡¡ 
+√√ 
 {
-¬¬ 
+ƒƒ 
 foreach
-√√ 
+≈≈ 
 (
-√√ 
+≈≈ 
 var
-√√ 
+≈≈ 
 friend
-√√ "
+≈≈ #
 in
-√√# %
+≈≈$ &
 connectedProfiles
-√√& 7
+≈≈' 8
 )
-√√7 8
+≈≈8 9
 {
-ƒƒ 
+∆∆ 
 if
-≈≈ 
+«« 
 (
-≈≈ 
-friend
-≈≈ 
-.
-≈≈ 
-Key
-≈≈ !
-==
-≈≈" $
-friendNickname
-≈≈% 3
-)
-≈≈3 4
-{
-∆∆ 
+«« 
 friend
 «« 
 .
-«« 
-Value
-«« $
+«« 
+Key
+«« "
+==
+««# %
+friendNickname
+««& 4
+)
+««4 5
+{
+»» 
+friend
+…… 
 .
-««$ %&
+…… 
+Value
+…… $
+.
+……$ %&
 OpenPaneForEnterTheLobby
-««% =
+……% =
 (
-««= >
+……= >
 )
-««> ?
+……> ?
 ;
-««? @
+……? @
 break
-»» 
+   
 ;
-»» 
+   
 }
-…… 
+ÀÀ 
 }
-   
+ÃÃ 
 }
-ÀÀ 
+ÕÕ 
 }
-ÃÃ 	
+ŒŒ 	
 public
-ŒŒ 
+–– 
 void
-ŒŒ 5
+–– 5
 'UpdateFriendsListsToAllConnectedClients
-ŒŒ ;
+–– ;
 (
-ŒŒ; <
+––; <
 )
-ŒŒ< =
+––< =
 {
-œœ 	
+—— 	
 foreach
-–– 
+““ 
 (
-–– 
+““ 
 var
-–– 
+““ 
 friend
-–– 
+““ 
 in
-––  "
+““  "
 connectedProfiles
-––# 4
+““# 4
 )
-––4 5
+““4 5
 {
-—— 
+”” 
 friend
-““ 
+‘‘ 
 .
-““ 
+‘‘ 
 Value
-““ 
+‘‘ 
 .
-““  
+‘‘  
 UpdateFriendsLists
-““ /
+‘‘ /
 (
-““/ 0
+‘‘/ 0
 )
-““0 1
+‘‘0 1
 ;
-““1 2
+‘‘1 2
 friend
-”” 
+’’ 
 .
-”” 
+’’ 
 Value
-”” 
+’’ 
 .
-”” )
+’’ )
 UpdateFriendsForInviteLists
-”” 8
+’’ 8
 (
-””8 9
+’’8 9
 )
-””9 :
+’’9 :
 ;
-””: ;
+’’: ;
 }
-‘‘ 
+÷÷ 
 }
-’’ 	
+◊◊ 	
 }
-÷÷ 
-}ÿÿ 
+ﬁﬁ 
+}‡‡ 

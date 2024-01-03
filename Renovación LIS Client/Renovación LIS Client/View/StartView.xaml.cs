@@ -1,14 +1,9 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Media;
-using System.Resources;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
 using Path = System.IO.Path;
 
 namespace Renovación_LIS_Client.View
@@ -18,33 +13,35 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class StartView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        #endregion
 
-        public StartView(MainWindow mainWindow, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+        #region Constructor
+        public StartView(MainWindow mainWindow)
         {
             string incompletePath = Path.GetFullPath("resources\\songs\\Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav");
             string pathPartToDelete = "Renovación LIS Client\\Renovación LIS Client\\bin\\Debug\\";
-            Console.WriteLine(incompletePath);
-            Console.ReadLine();
-
             string completePath = incompletePath.Replace(pathPartToDelete, "");
-
             SoundPlayer mainMenuSong = new SoundPlayer(completePath);
             mainMenuSong.Play();
+
             PageStateManager.CurrentPage = this;
 
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+            this.mainWindow = mainWindow;
 
             InitializeComponent();
-            this.mainWindow = mainWindow;
             ChangeLanguageLabel();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void StartGame(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new LoginView(mainWindow));
         }
 
         private void ShowLanguages(object sender, MouseButtonEventArgs e)
@@ -62,7 +59,7 @@ namespace Renovación_LIS_Client.View
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es");
             
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new StartView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new StartView(mainWindow));
         }
 
         private void SetEnglishLanguage(object sender, RoutedEventArgs e)
@@ -70,14 +67,17 @@ namespace Renovación_LIS_Client.View
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new StartView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new StartView(mainWindow));
         }
+        #endregion
 
+
+
+        #region Internationalization method
         private void ChangeLanguageLabel() 
         { 
             CultureInfo CurrentLanguage = CultureInfo.CurrentUICulture;
             
-
             if (CurrentLanguage.Name == "en")
             {
                 LanguageLabel.Text = "English";
@@ -85,9 +85,8 @@ namespace Renovación_LIS_Client.View
             else
             {
                 LanguageLabel.Text = "Español";
-            }
-        
-        
+            }        
         }
+        #endregion
     }
 }

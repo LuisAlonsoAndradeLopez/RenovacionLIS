@@ -12,7 +12,7 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    public class ServiceProfile : IProfile
+    public class ServiceProfileForNonCallbackMethods : IProfileNonCallbackMethods
     {
         public long AddProfile(Profiles profiles)
         {
@@ -401,11 +401,14 @@ namespace ServicesTCP.Services
         }
     }
 
-    public partial class ServiceProfileForCallbackMethods : IProfileForCallbackMethods
+
+
+    public partial class ServiceProfileForCallbackMethods : IProfileCallbackMethods
     {
         public static List<KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods> connectedProfiles = new List<KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods>();
-        //public static Dictionary<string, IProfileCallback> connectedProfiles = new Dictionary<string, IProfileCallback>();
 
+
+        #region Callback methods
         public void Connect(string username)
         {
             IProfileCallback callback = OperationContext.Current.GetCallbackChannel<IProfileCallback>();
@@ -432,10 +435,10 @@ namespace ServicesTCP.Services
             if (result != null)
             {
                 connectedProfiles = connectedProfiles.Where(item => item.Key != username).ToList();
-                new ServiceChat().LeaveChat(username);
+                new ServiceChatForCallbackMethods().LeaveChat(username);
                 new ServiceFriendRequestForCallbackMethods().Disconnect(username);
-                new ServiceMultiplayerGame().Disconnect(username);
-                new ServiceMultiplayerCrossword().Disconnect(username);
+                new ServiceLobbyForCallbackMethods().Disconnect(username);
+                new ServiceMultiplayerCrosswordForCallbackMethods().Disconnect(username);
 
                 UpdateFriendsListsToAllConnectedClients();
             }
@@ -447,9 +450,9 @@ namespace ServicesTCP.Services
 
             if (result != null)
             {
-                foreach(var friend in connectedProfiles)
+                foreach (var friend in connectedProfiles)
                 {
-                    if(friend.Key == friendNickname)
+                    if (friend.Key == friendNickname)
                     {
                         friend.Value.OpenPaneForEnterTheLobby();
                         break;
@@ -466,6 +469,12 @@ namespace ServicesTCP.Services
                 friend.Value.UpdateFriendsForInviteLists();
             }
         }
+        #endregion
+
+
+
+        #region Auxiliary methods for do the tests
+        #endregion
     }
 
 }

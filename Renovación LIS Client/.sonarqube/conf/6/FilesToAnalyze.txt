@@ -1,0 +1,14 @@
+﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Program.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Properties\AssemblyInfo.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\App.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\ConsoleApp1.ServicePlayerReference.Players.datasource
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\item.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\item1.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\item2.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\item3.xsd
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\ServicePlayer.wsdl
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\packages.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\item.disco
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\configuration91.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\configuration.svcinfo
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ConsoleApp1\Connected Services\ServicePlayerReference\Reference.svcmap

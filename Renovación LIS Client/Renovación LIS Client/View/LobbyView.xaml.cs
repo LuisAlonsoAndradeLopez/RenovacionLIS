@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Windows;
@@ -8,17 +7,16 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatReference;
-using Renovación_LIS_Client.ServiceMultiplayerCrosswordReference;
-using Renovación_LIS_Client.ServiceMultiplayerGameReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
     /// <summary>
     /// Lógica de interacción para LobbyView.xaml
     /// </summary>
-    public partial class LobbyView : Page, IChatCallback, IMultiplayerGameCallback
+    public partial class LobbyView : Page, IChatCallbackMethodsCallback, ILobbyCallbackMethodsCallback
     {
         /*
         TODO
@@ -27,64 +25,34 @@ namespace Renovación_LIS_Client.View
         -Al banear jugador debe de la configuración (kate pasa la configuración)
         */
 
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly ChatClient chatClient;
-        private readonly Profile loggedProfile;
-        private readonly MultiplayerGameClient multiplayerGameClient;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
 
-        public LobbyView()
-        {
-            InitializeComponent();
-            cultureInfo = CultureInfo.CurrentUICulture;
-            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            PageStateManager.CurrentPage = this;
-        }
+        public static ChatCallbackMethodsClient chatCallbackMethodsClient;
+        public static LobbyCallbackMethodsClient lobbyCallbackMethodsClient;
+        #endregion
 
-        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+
+
+        #region Constructors
+        public LobbyView(MainWindow mainWindow)
         {
-            InitializeComponent();
+            PageStateManager.CurrentPage = this;
+
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+            chatCallbackMethodsClient = new ChatCallbackMethodsClient(new InstanceContext(this));
+            lobbyCallbackMethodsClient = new LobbyCallbackMethodsClient(new InstanceContext(this));
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            PageStateManager.CurrentPage = this;
 
-            chatClient = new ChatClient(new InstanceContext(this));
-            multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
-
-            if (multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
-            {
-                AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
-                NormalPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                AdminPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
-                NormalPlayerButtonsStackPanel.Visibility = Visibility.Visible;
-            }
-        }
-
-        public LobbyView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
-        {
             InitializeComponent();
-            this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
-
-            cultureInfo = CultureInfo.CurrentUICulture;
-            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            PageStateManager.CurrentPage = this;
-
-            this.chatClient = chatClient;
-            this.multiplayerGameClient = multiplayerGameClient;
             ShowConnectedPlayers();
 
-            if (multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+            if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
             {
                 AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
                 NormalPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
@@ -94,8 +62,14 @@ namespace Renovación_LIS_Client.View
                 AdminPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
                 NormalPlayerButtonsStackPanel.Visibility = Visibility.Visible;
             }
-        }
 
+            lobbyNonCallbackMethodsClient.Close();
+        }
+        #endregion
+
+
+
+        #region Methods for GUIs elements events
         private void BanPlayerButtonOnClick(object sender, RoutedEventArgs e)
         {
             if(sender is Button button)
@@ -107,7 +81,7 @@ namespace Renovación_LIS_Client.View
                     StackPanel playerNicknameParent = (StackPanel)VisualTreeHelper.GetChild(buttonParentParent, 1);
                     TextBlock nickname = (TextBlock)VisualTreeHelper.GetChild(playerNicknameParent, 0);
 
-                    multiplayerGameClient.BanPlayer(nickname.Text);
+                    lobbyCallbackMethodsClient.BanPlayer(nickname.Text);
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player banned successfully!");
                 }
@@ -117,13 +91,13 @@ namespace Renovación_LIS_Client.View
         private void BannedPlayersButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new BannedPlayersView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
+            navigationService.Navigate(new BannedPlayersView(mainWindow));
         }
 
         private void ChatButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ChatView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
+            navigationService.Navigate(new ChatView(mainWindow));
         }
 
         private void ConfigurationButtonOnClick(object sender, RoutedEventArgs e)
@@ -133,16 +107,16 @@ namespace Renovación_LIS_Client.View
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            chatClient.LeaveChat(loggedProfile.Player.NickName);
-            multiplayerGameClient.Disconnect(loggedProfile.Player.NickName);
+            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+            lobbyCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new MenuView(mainWindow));
         }
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
+            navigationService.Navigate(new FriendsView(mainWindow, true));
         }
 
         private void MakeAdminButtonOnClick(object sender, RoutedEventArgs e)
@@ -156,7 +130,7 @@ namespace Renovación_LIS_Client.View
                     StackPanel playerNicknameParent = (StackPanel)VisualTreeHelper.GetChild(buttonParentParent, 1);
                     TextBlock nickname = (TextBlock)VisualTreeHelper.GetChild(playerNicknameParent, 0);
 
-                    multiplayerGameClient.SetAdmin(nickname.Text);
+                    lobbyCallbackMethodsClient.SetAdmin(nickname.Text);
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "That player now is admin!");
                 }
@@ -168,31 +142,35 @@ namespace Renovación_LIS_Client.View
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
             //Dont't erase
             //MultiplayerCrosswordClient multiplayerCrosswordClient = new MultiplayerCrosswordClient(new InstanceContext(this));
-            //foreach (var connectedProfileInMultiplayerGameClient in multiplayerGameClient.GetConnectedProfiles())
+            //foreach (var connectedProfileInlobbyCallbackMethodsClient in lobbyCallbackMethodsClient.GetConnectedProfiles())
             //{
-            //    multiplayerCrosswordClient.Connect(connectedProfileInMultiplayerGameClient);
+            //    multiplayerCrosswordClient.Connect(connectedProfileInlobbyCallbackMethodsClient);
             //}
             //
-            //multiplayerCrosswordClient.SetAdmin(multiplayerGameClient.GetAdmin());
+            //multiplayerCrosswordClient.SetAdmin(lobbyCallbackMethodsClient.GetAdmin());
             //
             //NavigationService navigationService = NavigationService.GetNavigationService(this);
-            //navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient, multiplayerCrosswordClient);
+            //navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, MainWindow.loggedProfile, MainWindow.MainWindow.profileCallbackMethodsClient, chatCallbackMethodsClient, lobbyCallbackMethodsClient, multiplayerCrosswordClient);
         }
+        #endregion
 
 
-        //Auxiliary Methods
+
+        #region Auxiliary Methods
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            chatClient.LeaveChat(loggedProfile.Player.NickName);
+            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new MenuView(mainWindow));
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
         }
 
         public void ShowConnectedPlayers()
         {
             ConnectedUsersStackPanel.Children.Clear();
-            foreach (string profile in multiplayerGameClient.GetConnectedProfiles())
+
+            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+            foreach (string profile in lobbyNonCallbackMethodsClient.GetConnectedProfiles())
             {
                 Border playerBorder = new Border
                 {
@@ -208,7 +186,7 @@ namespace Renovación_LIS_Client.View
 
                 StackPanel playerBorderStackPanel = new StackPanel();
 
-                if (multiplayerGameClient.IsAdmin(profile))
+                if (lobbyNonCallbackMethodsClient.IsAdmin(profile))
                 {
                     TextBlock adminText = new TextBlock
                     {
@@ -226,7 +204,7 @@ namespace Renovación_LIS_Client.View
                     playerBorderStackPanel.Children.Add(adminText);
                 }
 
-                if (profile == loggedProfile.Player.NickName)
+                if (profile == MainWindow.loggedProfile.Player.NickName)
                 {
                     TextBlock youText = new TextBlock
                     {
@@ -240,7 +218,7 @@ namespace Renovación_LIS_Client.View
                         Width = 218
                     };
 
-                    if (multiplayerGameClient.IsAdmin(profile))
+                    if (lobbyNonCallbackMethodsClient.IsAdmin(profile))
                     {
                         youText.Margin = new Thickness(0, 13, 0, 0);
                     }
@@ -258,12 +236,12 @@ namespace Renovación_LIS_Client.View
                     Source = new ImageLoader().GetImageByPlayerNickname(profile)
                 };
 
-                if (multiplayerGameClient.IsAdmin(profile) || multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+                if (lobbyNonCallbackMethodsClient.IsAdmin(profile) || lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
                 {
                     profileImage.Height = 110;
                     profileImage.Width = 110;
 
-                    if (profile == loggedProfile.Player.NickName)
+                    if (profile == MainWindow.loggedProfile.Player.NickName)
                     {
                         profileImage.Margin = new Thickness(0, 10, 0, 0);
                     }
@@ -273,11 +251,11 @@ namespace Renovación_LIS_Client.View
                     }
                 }
 
-                if (!multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName) && !multiplayerGameClient.IsAdmin(profile))
+                if (!lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName) && !lobbyNonCallbackMethodsClient.IsAdmin(profile))
                 {
                     profileImage.Margin = new Thickness(0, 20, 0, 0);
 
-                    if (profile == loggedProfile.Player.NickName)
+                    if (profile == MainWindow.loggedProfile.Player.NickName)
                     {
                         profileImage.Height = 110;
                         profileImage.Width = 110;
@@ -312,7 +290,7 @@ namespace Renovación_LIS_Client.View
                 playerNicknameStackPanel.Children.Add(playerNickname);
                 playerBorderStackPanel.Children.Add(playerNicknameStackPanel);
 
-                if (multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName) && !multiplayerGameClient.IsAdmin(profile))
+                if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName) && !lobbyNonCallbackMethodsClient.IsAdmin(profile))
                 {
                     StackPanel buttonsStackPanel = new StackPanel
                     {
@@ -358,10 +336,13 @@ namespace Renovación_LIS_Client.View
                 ConnectedUsersStackPanel.Children.Add(playerBorder);
             }
 
+            lobbyNonCallbackMethodsClient.Close();
         }
+        #endregion
 
 
-        //Callback methods
+
+        #region Callback methods
         public void UpdateChat()
         {
             if (PageStateManager.CurrentPage is ChatView currentPage)
@@ -380,11 +361,12 @@ namespace Renovación_LIS_Client.View
 
         public void UpdateConnectedProfilesLists()
         {
+            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
             if (PageStateManager.CurrentPage is LobbyView currentPage)
             {
                 currentPage.ShowConnectedPlayers();
 
-                if (currentPage.multiplayerGameClient.IsAdmin(loggedProfile.Player.NickName))
+                if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
                 {
                     currentPage.AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
                     currentPage.NormalPlayerButtonsStackPanel.Visibility = Visibility.Collapsed;
@@ -395,6 +377,8 @@ namespace Renovación_LIS_Client.View
                     currentPage.NormalPlayerButtonsStackPanel.Visibility = Visibility.Visible;
                 }
             }
+
+            lobbyNonCallbackMethodsClient.Close();
         }
 
         public void UpdateConnectedProfilesForInviteToLobbyLists()
@@ -427,6 +411,7 @@ namespace Renovación_LIS_Client.View
             {
                 //configurationView.ExitFromThisPageForBeingExpeltFromLobbyView();
             }
-        }        
+        }
+        #endregion
     }
 }

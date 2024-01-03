@@ -10,7 +10,6 @@ using System.Security;
 using System.Globalization;
 using System.Resources;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -19,31 +18,34 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ForgotPassword : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        //private readonly Random random = new Random();
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-
         private int verificationCode;
+        #endregion
 
-        public ForgotPassword(MainWindow mainWindow, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+
+
+        #region Constructors
+        public ForgotPassword(MainWindow mainWindow)
         {
-            InitializeComponent();
-            
             this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             verificationCode = new Random().Next(100001, 1000000);
-            //verificationCode = random.Next(100001, 1000000);
+            InitializeComponent();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void CancelButton1(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new LoginView(mainWindow));
         }
 
         private void CancelButton2(object sender, RoutedEventArgs e)
@@ -53,7 +55,7 @@ namespace Renovación_LIS_Client.View
             EmailTextField.Text = string.Empty;
             NewPasswordPasswordBox.Clear();
             ConfirmNewPasswordPasswordBox.Clear();
-            verificationCode = random.Next(100001, 1000000);
+            verificationCode = new Random().Next(100001, 1000000);
         }
 
         private void ChangePasswordButton(object sender, RoutedEventArgs e)
@@ -72,7 +74,7 @@ namespace Renovación_LIS_Client.View
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
 
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LoginView(mainWindow, profileForCallbackMethodsClient));
+                navigationService.Navigate(new LoginView(mainWindow));
 
                 playerClient.Close();
             }
@@ -82,7 +84,7 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        private void SendCodeButton (object sender, RoutedEventArgs e)
+        private void SendCodeButton(object sender, RoutedEventArgs e)
         {
             if (InvalidValuesInTextFieldsTextGenerator() == "")
             {
@@ -116,14 +118,7 @@ namespace Renovación_LIS_Client.View
                         mail.Subject = resourceManager.GetString("Code for change your password", cultureInfo);
                         mail.Body = resourceManager.GetString("Introduce this code for change your password", cultureInfo) + verificationCode;
 
-                        try
-                        {
-                            smtpClient.Send(mail);
-                        }
-                        catch (Exception)
-                        { 
-                        
-                        }
+                        smtpClient.Send(mail);
                     }
                     else
                     {
@@ -142,8 +137,12 @@ namespace Renovación_LIS_Client.View
                 new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
             }
         }
+        #endregion
 
-        private String InvalidValuesInTextFieldsTextGenerator()
+
+
+        #region Auxiliary methods
+        private string InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
 
@@ -209,5 +208,6 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+        #endregion
     }
 }

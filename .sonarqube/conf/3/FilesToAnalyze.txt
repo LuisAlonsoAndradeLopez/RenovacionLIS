@@ -1,14 +1,14 @@
 ﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\AuxiliaryDataContracts\KeyValueDataContract.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Properties\AssemblyInfo.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\IChat.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\IMultiplayerGame.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\ILobby.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\IFriendRequest.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\IMultiplayerCrossword.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\IPlayer.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\ServiceContracts\IProfile.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceChat.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceMultiplayerCrossword.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceMultiplayerGame.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceLobby.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceFriendRequest.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs

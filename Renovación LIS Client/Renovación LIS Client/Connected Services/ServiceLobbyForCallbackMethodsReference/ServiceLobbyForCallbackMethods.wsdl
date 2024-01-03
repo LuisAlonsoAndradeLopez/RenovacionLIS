@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceLobbyForCallbackMethods" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ILobbyCallbackMethods_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8110/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8110/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILobbyCallbackMethods_BanPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:BanPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_SetAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_UnbanPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnbanPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_ExpelPlayerFromMultiplayerGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ExpelPlayerFromMultiplayerGame" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_UpdateBannedProfilesLists_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBannedProfilesLists" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_UpdateConnectedProfilesLists_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConnectedProfilesLists" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyCallbackMethods_UpdateConnectedProfilesForInviteToLobbyLists_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConnectedProfilesForInviteToLobbyLists" />
+  </wsdl:message>
+  <wsdl:portType name="ILobbyCallbackMethods">
+    <wsdl:operation name="BanPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/BanPlayer" message="tns:ILobbyCallbackMethods_BanPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/Connect" message="tns:ILobbyCallbackMethods_Connect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/Disconnect" message="tns:ILobbyCallbackMethods_Disconnect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/SetAdmin" message="tns:ILobbyCallbackMethods_SetAdmin_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnbanPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/UnbanPlayer" message="tns:ILobbyCallbackMethods_UnbanPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpelPlayerFromMultiplayerGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/ExpelPlayerFromMultiplayerGame" message="tns:ILobbyCallbackMethods_ExpelPlayerFromMultiplayerGame_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBannedProfilesLists">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/UpdateBannedProfilesLists" message="tns:ILobbyCallbackMethods_UpdateBannedProfilesLists_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectedProfilesLists">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/UpdateConnectedProfilesLists" message="tns:ILobbyCallbackMethods_UpdateConnectedProfilesLists_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectedProfilesForInviteToLobbyLists">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyCallbackMethods/UpdateConnectedProfilesForInviteToLobbyLists" message="tns:ILobbyCallbackMethods_UpdateConnectedProfilesForInviteToLobbyLists_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_ILobbyCallbackMethods" type="tns:ILobbyCallbackMethods">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILobbyCallbackMethods_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="BanPlayer">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/BanPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/Disconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/SetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UnbanPlayer">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/UnbanPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ExpelPlayerFromMultiplayerGame">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/ExpelPlayerFromMultiplayerGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBannedProfilesLists">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/UpdateBannedProfilesLists" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectedProfilesLists">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/UpdateConnectedProfilesLists" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectedProfilesForInviteToLobbyLists">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyCallbackMethods/UpdateConnectedProfilesForInviteToLobbyLists" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceLobbyForCallbackMethods">
+    <wsdl:port name="NetTcpBinding_ILobbyCallbackMethods" binding="tns:NetTcpBinding_ILobbyCallbackMethods">
+      <soap12:address location="net.tcp://localhost:8120/ServiceLobbyForCallbackMethods" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8120/ServiceLobbyForCallbackMethods</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

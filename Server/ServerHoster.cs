@@ -7,34 +7,46 @@ namespace ServerHoster
     {
         static void Main(string[] args)
         {
-            ServiceHost serviceChatHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceChat));
-            serviceChatHost.Open();
-            Console.WriteLine("ServiceChatHost started!!!");
+            ServiceHost serviceChatForNonCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceChatForNonCallbackMethods));
+            serviceChatForNonCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceChatForNonCallbackMethodsHost started!!!");
 
-            ServiceHost serviceFriendRequestHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceFriendRequest));
-            serviceFriendRequestHost.Open();
-            Console.WriteLine("ServiceFriendRequestHost started!!!");
-
+            ServiceHost serviceChatForCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceChatForCallbackMethods));
+            serviceChatForCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceChatForCallbackMethodsHost started!!!");
+            
+            ServiceHost serviceFriendRequestForNonCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceFriendRequestForNonCallbackMethods));
+            serviceFriendRequestForNonCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceFriendRequestForNonCallbackMethodsHost started!!!");
+            
             ServiceHost serviceFriendRequestForCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceFriendRequestForCallbackMethods));
             serviceFriendRequestForCallbackMethodsHost.Open();
             Console.WriteLine("ServiceFriendRequestForCallbackMethodsHost started!!!");
 
-            ServiceHost serviceMultiplayerCrosswordHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerCrossword));
-            serviceMultiplayerCrosswordHost.Open();
-            Console.WriteLine("ServiceMultiplayerCrosswordHost started!!!");
+            ServiceHost serviceMultiplayerCrosswordForNonCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerCrosswordForNonCallbackMethods));
+            serviceMultiplayerCrosswordForNonCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceMultiplayerCrosswordForNonCallbackMethodsHost started!!!");
+            
+            ServiceHost serviceMultiplayerCrosswordForCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerCrosswordForCallbackMethods));
+            serviceMultiplayerCrosswordForCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceMultiplayerCrosswordForCallbackMethodsHost started!!!");
 
-            ServiceHost serviceMultiplayerGameHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceMultiplayerGame));
-            serviceMultiplayerGameHost.Open();
-            Console.WriteLine("ServiceMultiplayerGameHost started!!!");
-
+            ServiceHost serviceLobbyForNonCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceLobbyForNonCallbackMethods));
+            serviceLobbyForNonCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceLobbyForNonCallbackMethodsHost started!!!");
+            
+            ServiceHost serviceLobbyForCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceLobbyForCallbackMethods));
+            serviceLobbyForCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceLobbyForCallbackMethodsHost started!!!");
+            
             ServiceHost servicePlayerHost = new ServiceHost(typeof(ServicesTCP.Services.ServicePlayer));
             servicePlayerHost.Open();
             Console.WriteLine("ServicePlayerHost started!!!");
             
-            ServiceHost serviceProfileHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceProfile));
-            serviceProfileHost.Open();
-            Console.WriteLine("ServiceProfileHost started!!!");
-
+            ServiceHost serviceProfileForNonCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceProfileForNonCallbackMethods));
+            serviceProfileForNonCallbackMethodsHost.Open();
+            Console.WriteLine("ServiceProfileForNonCallbackMethodsHost started!!!");
+            
             ServiceHost serviceProfileForCallbackMethodsHost = new ServiceHost(typeof(ServicesTCP.Services.ServiceProfileForCallbackMethods));
             serviceProfileForCallbackMethodsHost.Open();
             Console.WriteLine("ServiceProfileForCallbackMethodsHost started!!!");

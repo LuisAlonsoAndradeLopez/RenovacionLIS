@@ -11,12 +11,13 @@ using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatReference;
+using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceFriendRequestReference;
-using Renovación_LIS_Client.ServiceMultiplayerGameReference;
+using Renovación_LIS_Client.ServiceFriendRequestForNonCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 using Button = System.Windows.Controls.Button;
 using Orientation = System.Windows.Controls.Orientation;
 
@@ -25,25 +26,22 @@ namespace Renovación_LIS_Client.View
     /// <summary>
     /// Lógica de interacción para FriendsView.xaml
     /// </summary>
-    public partial class FriendsView : Page, IFriendRequestForCallbackMethodsCallback
+    public partial class FriendsView : Page, IFriendRequestCallbackMethodsCallback
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private readonly Profile loggedProfile;
-        private readonly ChatClient chatClient; //Only to use when the access is by LobbyView
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
-        private readonly FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient;
-        private readonly MultiplayerGameClient multiplayerGameClient;
+        private readonly FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
         private readonly bool entryToThisPageViaLobbyView;
+        #endregion
 
-        //Constructores
-        public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+
+
+        #region Constructors
+        public FriendsView(MainWindow mainWindow)
         {
-            InitializeComponent();
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
@@ -51,69 +49,69 @@ namespace Renovación_LIS_Client.View
             PageStateManager.CurrentPage = this;
             entryToThisPageViaLobbyView = false;
 
-            friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
-            friendRequestForCallbackMethodsClient.Connect(loggedProfile.Player.NickName);
+            friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(this));
+            friendRequestCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
 
+            InitializeComponent();
             ShowUpdatedFriendsList();
         }
 
-        public FriendsView(MainWindow mainWindow, Profile loggedProfile, ProfileForCallbackMethodsClient profileForCallbackMethodsClient, ChatClient chatClient, MultiplayerGameClient multiplayerGameClient)
+        public FriendsView(MainWindow mainWindow, bool entryToThisPageViaLobbyView)
         {
-            InitializeComponent();
             this.mainWindow = mainWindow;
-            this.loggedProfile = loggedProfile;
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
-            entryToThisPageViaLobbyView = true;
+            this.entryToThisPageViaLobbyView = entryToThisPageViaLobbyView;
 
-            friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
-            friendRequestForCallbackMethodsClient.Connect(loggedProfile.Player.NickName);
+            friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(this));
+            friendRequestCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
 
-            this.chatClient = chatClient;
-            this.multiplayerGameClient = multiplayerGameClient;
+            InitializeComponent();
 
             FriendsBorder.Visibility = Visibility.Hidden;
             ConnectedFriendsForInviteBorder.Visibility = Visibility.Visible;
+
             ShowConnectedFriendsListForInviteToLobby();
         }
+        #endregion
 
 
-        //Start of FriendList methods
+
+        #region FriendList methods
         private void CancelFriendshipButtonOnClick(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
             {
                 if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friendship?"))
                 {
-                    ServiceProfileReference.Players players = new ServiceProfileReference.Players
+                    ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
                     {
-                        IDPlayer = loggedProfile.Player.IDPlayer,
-                        Names = loggedProfile.Player.Names,
-                        Surnames = loggedProfile.Player.Surnames,
-                        Email = loggedProfile.Player.Email,
-                        NickName = loggedProfile.Player.NickName,
-                        BirthDate = (DateTime)loggedProfile.Player.BirthDate,
-                        Password = loggedProfile.Player.Password
+                        IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
+                        Names = MainWindow.loggedProfile.Player.Names,
+                        Surnames = MainWindow.loggedProfile.Player.Surnames,
+                        Email = MainWindow.loggedProfile.Player.Email,
+                        NickName = MainWindow.loggedProfile.Player.NickName,
+                        BirthDate = (DateTime)MainWindow.loggedProfile.Player.BirthDate,
+                        Password = MainWindow.loggedProfile.Player.Password
                     };
 
-                    ServiceProfileReference.Profiles profiles = new ServiceProfileReference.Profiles
+                    ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
                     {
-                        IDProfile = loggedProfile.IDProfile,
-                        Coins = loggedProfile.Coins,
-                        LoginStatus = loggedProfile.LoginStatus,
+                        IDProfile = MainWindow.loggedProfile.IDProfile,
+                        Coins = MainWindow.loggedProfile.Coins,
+                        LoginStatus = MainWindow.loggedProfile.LoginStatus,
                         Players = players
                     };
 
-                    ProfileClient profileClient = new ProfileClient();
+                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
                     StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
                     TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
-                    Profile profile1 = profileClient.GetProfileByPlayerID(long.Parse(IDTextBlock.Text));
+                    Profile profile1 = profileNonCallbackMethodsClient.GetProfileByPlayerID(long.Parse(IDTextBlock.Text));
 
-                    ServiceProfileReference.Players players1 = new ServiceProfileReference.Players
+                    ServiceProfileForNonCallbackMethodsReference.Players players1 = new ServiceProfileForNonCallbackMethodsReference.Players
                     {
                         IDPlayer = profile1.Player.IDPlayer,
                         Names = profile1.Player.Names,
@@ -124,7 +122,7 @@ namespace Renovación_LIS_Client.View
                         Password = profile1.Player.Password
                     };
 
-                    ServiceProfileReference.Profiles profiles1 = new ServiceProfileReference.Profiles
+                    ServiceProfileForNonCallbackMethodsReference.Profiles profiles1 = new ServiceProfileForNonCallbackMethodsReference.Profiles
                     {
                         IDProfile = profile1.IDProfile,
                         Coins = profile1.Coins,
@@ -132,24 +130,24 @@ namespace Renovación_LIS_Client.View
                         Players = players1
                     };
 
-                    profileClient.CancelFriendship(
+                    profileNonCallbackMethodsClient.CancelFriendship(
                         profiles,
                         profiles1
                     );
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friendship cancellation made successfully");
 
-                    profileClient.Close();
+                    profileNonCallbackMethodsClient.Close();
                 }
             }
         }
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            friendRequestForCallbackMethodsClient.Disconnect(loggedProfile.Player.NickName);
+            friendRequestCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+            navigationService.Navigate(new MenuView(mainWindow));
         }
 
         private void InviteFriendButtonOnClick(object sender, RoutedEventArgs e)
@@ -170,8 +168,8 @@ namespace Renovación_LIS_Client.View
             OnlineFriendsStackPanel.Children.Clear();
             OfflineFriendsStackPanel.Children.Clear();
 
-            ProfileClient profileClient = new ProfileClient();
-            foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            foreach (Profile profile in profileNonCallbackMethodsClient.GetFriends(MainWindow.loggedProfile.Player.IDPlayer))
             {
                 Border friendBorder = new Border
                 {
@@ -242,12 +240,13 @@ namespace Renovación_LIS_Client.View
 
             }
 
-            profileClient.Close();
+            profileNonCallbackMethodsClient.Close();
         }
-        //End of FriendList methods
+        #endregion
 
 
-        //Start of SendFriendRequest methods
+
+        #region SendFriendRequest methods
         private void CancelButtonOnClick(object sender, RoutedEventArgs e)
         {
             ShowUpdatedFriendsList();
@@ -261,37 +260,37 @@ namespace Renovación_LIS_Client.View
             {
                 if (new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text.Length <= 100)
                 {
-                    ProfileClient profileClient = new ProfileClient();
+                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
 
-                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text) != null)
+                    if (profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text) != null)
                     {
-                        if (NicknameTextBox.Text != loggedProfile.Player.NickName)
+                        if (NicknameTextBox.Text != MainWindow.loggedProfile.Player.NickName)
                         {
-                            FriendRequestClient friendRequestClient = new FriendRequestClient();
+                            FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
 
-                            if (!friendRequestClient.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(
-                                loggedProfile.IDProfile,
-                                profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
+                            if (!friendRequestNonCallbackMethodsClient.TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile(
+                                MainWindow.loggedProfile.IDProfile,
+                                profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
                                 ))
                             {
-                                bool theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = false;
-                                foreach (Profile p in profileClient.GetFriends(loggedProfile.IDProfile))
+                                bool theUserIntroducedInTheNicknameTextBoxIsFriendOfTheMainWindow = false;
+                                foreach (Profile p in profileNonCallbackMethodsClient.GetFriends(MainWindow.loggedProfile.IDProfile))
                                 {
-                                    if (profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).Player.NickName == p.Player.NickName)
+                                    if (profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text).Player.NickName == p.Player.NickName)
                                     {
-                                        theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile = true;
+                                        theUserIntroducedInTheNicknameTextBoxIsFriendOfTheMainWindow = true;
                                         break;
                                     }
                                 }
 
-                                if (!theUserIntroducedInTheNicknameTextBoxIsFriendOfTheLoggedProfile)
+                                if (!theUserIntroducedInTheNicknameTextBoxIsFriendOfTheMainWindow)
                                 {
-                                    if (!friendRequestClient.TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(
-                                        loggedProfile.IDProfile,
-                                        profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
+                                    if (!friendRequestNonCallbackMethodsClient.TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile(
+                                        MainWindow.loggedProfile.IDProfile,
+                                        profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
                                         ))
                                     {
-                                        ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests
+                                        ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests friendRequests = new ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests
                                         {
                                             Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text,
                                             CreationDate = DateTime.Now,
@@ -299,28 +298,28 @@ namespace Renovación_LIS_Client.View
                                             SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent)
                                         };
 
-                                        ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players
+                                        ServiceFriendRequestForNonCallbackMethodsReference.Players players = new ServiceFriendRequestForNonCallbackMethodsReference.Players
                                         {
-                                            IDPlayer = loggedProfile.Player.IDPlayer,
-                                            Names = loggedProfile.Player.Names,
-                                            Surnames = loggedProfile.Player.Surnames,
-                                            Email = loggedProfile.Player.Email,
-                                            NickName = loggedProfile.Player.NickName,
-                                            BirthDate = (DateTime)loggedProfile.Player.BirthDate,
-                                            Password = loggedProfile.Player.Password
+                                            IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
+                                            Names = MainWindow.loggedProfile.Player.Names,
+                                            Surnames = MainWindow.loggedProfile.Player.Surnames,
+                                            Email = MainWindow.loggedProfile.Player.Email,
+                                            NickName = MainWindow.loggedProfile.Player.NickName,
+                                            BirthDate = (DateTime)MainWindow.loggedProfile.Player.BirthDate,
+                                            Password = MainWindow.loggedProfile.Player.Password
                                         };
 
-                                        ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles
+                                        ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
                                         {
-                                            IDProfile = loggedProfile.IDProfile,
-                                            Coins = loggedProfile.Coins,
-                                            LoginStatus = loggedProfile.LoginStatus,
+                                            IDProfile = MainWindow.loggedProfile.IDProfile,
+                                            Coins = MainWindow.loggedProfile.Coins,
+                                            LoginStatus = MainWindow.loggedProfile.LoginStatus,
                                             Players = players
                                         };
 
-                                        Profile profile1 = profileClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
+                                        Profile profile1 = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
 
-                                        ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players
+                                        ServiceFriendRequestForNonCallbackMethodsReference.Players players1 = new ServiceFriendRequestForNonCallbackMethodsReference.Players
                                         {
                                             IDPlayer = profile1.Player.IDPlayer,
                                             Names = profile1.Player.Names,
@@ -331,7 +330,7 @@ namespace Renovación_LIS_Client.View
                                             Password = profile1.Player.Password
                                         };
 
-                                        ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles
+                                        ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles1 = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
                                         {
                                             IDProfile = profile1.IDProfile,
                                             Coins = profile1.Coins,
@@ -342,7 +341,7 @@ namespace Renovación_LIS_Client.View
                                         friendRequests.Profiles = profiles;
                                         friendRequests.Profiles1 = profiles1;
 
-                                        friendRequestClient.AddFriendRequest(friendRequests);
+                                        friendRequestNonCallbackMethodsClient.AddFriendRequest(friendRequests);
 
                                         new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request sent succesfully");
 
@@ -365,7 +364,7 @@ namespace Renovación_LIS_Client.View
                             {
                                 new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "You already has sent a friend request to this user");
                             }
-                            friendRequestClient.Close();
+                            friendRequestNonCallbackMethodsClient.Close();
 
                         }
                         else
@@ -379,7 +378,7 @@ namespace Renovación_LIS_Client.View
                         new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The user you want to sent a friend request doesn't exists");
                     }
 
-                    profileClient.Close();
+                    profileNonCallbackMethodsClient.Close();
 
                 }
                 else
@@ -393,10 +392,11 @@ namespace Renovación_LIS_Client.View
             }
 
         }
-        //End of SendFriendRequest methods
+        #endregion
 
 
-        //Start of FriendRequestsList methods
+
+        #region FriendRequestsList methods
         private void BackButtonOnClick(object sender, RoutedEventArgs e)
         {
             ShowUpdatedFriendsList();
@@ -415,9 +415,9 @@ namespace Renovación_LIS_Client.View
 
                 TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
 
-                FriendRequestClient friendRequestClient = new FriendRequestClient();
+                FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
 
-                FriendRequest friendRequest = friendRequestClient.GetFriendRequestByID(long.Parse(IDTextBlock.Text));
+                FriendRequest friendRequest = friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDTextBlock.Text));
 
                 NicknameLabel.Content = friendRequest.Profile.Player.NickName;
                 CreationDateLabel.Content = friendRequest.CreationDate;
@@ -472,7 +472,7 @@ namespace Renovación_LIS_Client.View
                     }
                 }
 
-                friendRequestClient.Close();
+                friendRequestNonCallbackMethodsClient.Close();
             }
         }
 
@@ -481,9 +481,9 @@ namespace Renovación_LIS_Client.View
             ReceivedFriendsRequestsStackPanel.Children.Clear();
             SentFriendsRequestsStackPanel.Children.Clear();
 
-            FriendRequestClient friendRequestClient = new FriendRequestClient();
-            FriendRequestForCallbackMethodsClient friendRequestForCallbackMethodsClient = new FriendRequestForCallbackMethodsClient(new InstanceContext(this));
-            foreach (FriendRequest friendRequest in friendRequestClient.GetPendientsForAceptationFriendsRequestsByProfile1ID(loggedProfile.IDProfile))
+            FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
+            FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(this));
+            foreach (FriendRequest friendRequest in friendRequestNonCallbackMethodsClient.GetPendientsForAceptationFriendsRequestsByProfile1ID(MainWindow.loggedProfile.IDProfile))
             {
                 Border receivedFriendRequestBorder = new Border
                 {
@@ -550,7 +550,7 @@ namespace Renovación_LIS_Client.View
             }
 
 
-            foreach (FriendRequest friendRequest in friendRequestClient.GetSentAndPendientsForAceptationFriendsRequestsByProfileID(loggedProfile.IDProfile))
+            foreach (FriendRequest friendRequest in friendRequestNonCallbackMethodsClient.GetSentAndPendientsForAceptationFriendsRequestsByProfileID(MainWindow.loggedProfile.IDProfile))
             {
                 Border sentFriendRequestBorder = new Border
                 {
@@ -615,24 +615,25 @@ namespace Renovación_LIS_Client.View
                 SentFriendsRequestsStackPanel.Children.Add(sentFriendRequestBorder);
             }
 
-            friendRequestClient.Close();
+            friendRequestNonCallbackMethodsClient.Close();
         }
-        //End of FriendRequestsList methods
+        #endregion
 
 
-        //Start of FriendRequestDetails methods
+
+        #region FriendRequestDetails methods
         private void AcceptFriendRequestButtonOnClick(object sender, RoutedEventArgs e)
         {
             if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to accept the friend request?"))
             {
-                FriendRequestClient friendRequestClient = new FriendRequestClient();
-                friendRequestClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
+                FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
+                friendRequestNonCallbackMethodsClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request successfully accepted");
         
                 FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
                 FriendsRequestsBorder.Visibility = Visibility.Visible;
-                friendRequestClient.Close();
+                friendRequestNonCallbackMethodsClient.Close();
             }
         }
 
@@ -647,14 +648,14 @@ namespace Renovación_LIS_Client.View
         {
             if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friend request sending?"))
             {
-                FriendRequestClient friendRequestClient = new FriendRequestClient();
-                friendRequestClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+                FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
+                friendRequestNonCallbackMethodsClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Cancellation of sending friend request made successfully");
 
                 FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
                 FriendsRequestsBorder.Visibility = Visibility.Visible;
-                friendRequestClient.Close();
+                friendRequestNonCallbackMethodsClient.Close();
             }
         }
 
@@ -662,24 +663,25 @@ namespace Renovación_LIS_Client.View
         {
             if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to reject the friend request?"))
             {
-                FriendRequestClient friendRequestClient = new FriendRequestClient();
-                friendRequestClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+                FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
+                friendRequestNonCallbackMethodsClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request rejected");
 
                 FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
                 FriendsRequestsBorder.Visibility = Visibility.Visible;
-                friendRequestClient.Close();
+                friendRequestNonCallbackMethodsClient.Close();
             }
         }
-        //End of FriendRequestDetails methods
+        #endregion
 
 
-        //Start of ConnectedFriendsToInviteToLobbyList
+
+        #region ConnectedFriendsToInviteToLobbyList
         private void Exit2ButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow, loggedProfile, profileForCallbackMethodsClient, chatClient, multiplayerGameClient));
+            navigationService.Navigate(new LobbyView(mainWindow));
         }
 
         private void InviteFriendToTheLobbyButtonOnClick(object sender, RoutedEventArgs e)
@@ -690,7 +692,7 @@ namespace Renovación_LIS_Client.View
                 {
                     StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
                     TextBlock friendNickname = (TextBlock)VisualTreeHelper.GetChild(buttonParent, 1);
-                    profileForCallbackMethodsClient.InviteFriendToTheLobby(friendNickname.Text);
+                    MainWindow.profileCallbackMethodsClient.InviteFriendToTheLobby(friendNickname.Text);
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Invitation sent successfully!");
                 }
             }
@@ -698,14 +700,15 @@ namespace Renovación_LIS_Client.View
 
         public void ShowConnectedFriendsListForInviteToLobby()
         {
-            if (multiplayerGameClient != null)
+            if (LobbyView.lobbyCallbackMethodsClient != null)
             {
                 OnlineFriendsToInviteStackPanel.Children.Clear();
 
-                ProfileClient profileClient = new ProfileClient();
-                foreach (Profile profile in profileClient.GetFriends(loggedProfile.Player.IDPlayer))
+                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+                foreach (Profile profile in profileNonCallbackMethodsClient.GetFriends(MainWindow.loggedProfile.Player.IDPlayer))
                 {
-                    if (!multiplayerGameClient.IsConnected(profile.Player.NickName))
+                    if (!lobbyNonCallbackMethodsClient.IsConnected(profile.Player.NickName))
                     {
                         if (profile.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
                         {
@@ -763,28 +766,29 @@ namespace Renovación_LIS_Client.View
                     }
                 }
 
-                profileClient.Close();
-
+                profileNonCallbackMethodsClient.Close();
+                lobbyNonCallbackMethodsClient.Close();
             }
         }
-        //End of ConnectedFriendsToInviteList
+        #endregion
 
 
-        //Start of auxiliary methods
+
+        #region Auxiliary methods
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
             if (entryToThisPageViaLobbyView)
             {
-                chatClient.LeaveChat(loggedProfile.Player.NickName);
+                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new MenuView(mainWindow, loggedProfile, profileForCallbackMethodsClient));
+                navigationService.Navigate(new MenuView(mainWindow));
                 new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
             }
         }
 
-        private ServiceFriendRequestReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
+        private ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
         {
-            ServiceFriendRequestReference.FriendRequests friendRequests = new ServiceFriendRequestReference.FriendRequests
+            ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests friendRequests = new ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests
             {
                 IDFriendRequest = (int)friendRequest.IDFriendRequest,
                 Message = friendRequest.Message,
@@ -793,7 +797,7 @@ namespace Renovación_LIS_Client.View
                 SendingStatus = friendRequest.SendingStatus
             };
 
-            ServiceFriendRequestReference.Players players = new ServiceFriendRequestReference.Players
+            ServiceFriendRequestForNonCallbackMethodsReference.Players players = new ServiceFriendRequestForNonCallbackMethodsReference.Players
             {
                 IDPlayer = friendRequest.Profile.Player.IDPlayer,
                 Names = friendRequest.Profile.Player.Names,
@@ -803,7 +807,7 @@ namespace Renovación_LIS_Client.View
                 BirthDate = (DateTime)friendRequest.Profile.Player.BirthDate
             };
 
-            ServiceFriendRequestReference.Profiles profiles = new ServiceFriendRequestReference.Profiles
+            ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
             {
                 IDProfile = friendRequest.Profile.IDProfile,
                 Coins = friendRequest.Profile.Coins,
@@ -811,7 +815,7 @@ namespace Renovación_LIS_Client.View
                 Players = players
             };
 
-            ServiceFriendRequestReference.Players players1 = new ServiceFriendRequestReference.Players
+            ServiceFriendRequestForNonCallbackMethodsReference.Players players1 = new ServiceFriendRequestForNonCallbackMethodsReference.Players
             {
                 IDPlayer = friendRequest.Profile1.Player.IDPlayer,
                 Names = friendRequest.Profile1.Player.Names,
@@ -821,7 +825,7 @@ namespace Renovación_LIS_Client.View
                 BirthDate = (DateTime)friendRequest.Profile1.Player.BirthDate
             };
 
-            ServiceFriendRequestReference.Profiles profiles1 = new ServiceFriendRequestReference.Profiles
+            ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles1 = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
             {
                 IDProfile = friendRequest.Profile1.IDProfile,
                 Coins = friendRequest.Profile1.Coins,
@@ -835,7 +839,7 @@ namespace Renovación_LIS_Client.View
             return friendRequests;
         }
 
-        private String InvalidNicknameInSendFriendRequestTextFieldsTextGenerator()
+        private string InvalidNicknameInSendFriendRequestTextFieldsTextGenerator()
         {
             string finalText = "";
             string nickNamePattern = "^[A-Za-z0-9\\s'-]{2,50}$";
@@ -857,10 +861,10 @@ namespace Renovación_LIS_Client.View
                 mainWindow.OpenTheLobbyView(this);
             }
         }
-        //End of auxiliary methods
+        #endregion
 
 
-        //The callback method
+        #region Callback method
         public void UpdateFriendsRequestsLists()
         {
             if (PageStateManager.CurrentPage is FriendsView currentPage)
@@ -868,5 +872,6 @@ namespace Renovación_LIS_Client.View
                 currentPage.ShowUpdatedFriendRequestsList();
             }
         }
+        #endregion
     }
 }

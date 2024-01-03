@@ -97,7 +97,12 @@
     </ApplicationDefinition>
     <Compile Include="AuxiliaryClasses\AlertPopUpGenerator.cs" />
     <Compile Include="AuxiliaryClasses\ImageLoader.cs" />
-    <Compile Include="Connected Services\ServiceChatReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceChatForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceChatForNonCallbackMethodsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -107,17 +112,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceFriendRequestReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceMultiplayerCrosswordReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceLobbyForCallbackMethodsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceMultiplayerGameReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -132,7 +147,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceProfileReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -170,6 +185,12 @@
     </Compile>
     <Compile Include="View\ModifyProfileView.xaml.cs">
       <DependentUpon>ModifyProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultiplayerCrosswordView.xaml.cs">
+      <DependentUpon>MultiplayerCrosswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RandomMultiplayerCrosswordGeneratorView.xaml.cs">
+      <DependentUpon>RandomMultiplayerCrosswordGeneratorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
@@ -245,6 +266,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MultiplayerCrosswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RandomMultiplayerCrosswordGeneratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StartView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -283,19 +312,26 @@
     </EmbeddedResource>
     <Resource Include="Fonts\K2D-Bold.ttf" />
     <Resource Include="Fonts\K2D-Regular.ttf" />
-    <None Include="Connected Services\ServiceChatReference\item.xsd">
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceChatReference\item1.xsd">
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceChatReference\item2.xsd">
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\ServiceChatForCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceChatReference\Renovación_LIS_Client.ServiceChatReference.KeyValueDataContract.datasource">
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceChatReference\ServiceChat.wsdl" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\ServiceChatForNonCallbackMethods.wsdl" />
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -303,39 +339,50 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\ServiceFriendRequestForCallbackMethods.wsdl" />
-    <None Include="Connected Services\ServiceFriendRequestReference\item.xsd">
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceFriendRequestReference\item1.xsd">
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceFriendRequestReference\item2.xsd">
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceFriendRequestReference\item3.xsd">
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceFriendRequestReference\Renovación_LIS_Client.ServiceFriendRequestReference.FriendRequests.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceFriendRequestReference\ServiceFriendRequest.wsdl" />
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item.xsd">
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\ServiceFriendRequestForNonCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item1.xsd">
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\ServiceMultiplayerCrossword.wsdl" />
-    <None Include="Connected Services\ServiceMultiplayerGameReference\item.xsd">
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\ServiceLobbyForCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\item1.xsd">
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\item2.xsd">
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\ServiceMultiplayerGame.wsdl" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\ServiceLobbyForNonCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\ServiceMultiplayerCrosswordForCallbackMethods.wsdl" />
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\ServiceMultiplayerCrosswordForNonCallbackMethods.wsdl" />
     <None Include="Connected Services\ServicePlayerReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -348,9 +395,6 @@
     <None Include="Connected Services\ServicePlayerReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicePlayerReference\Renovación_LIS_Client.ServicePlayerReference.Players.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServicePlayerReference\ServicePlayer.wsdl" />
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
@@ -359,22 +403,22 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods.wsdl" />
-    <None Include="Connected Services\ServiceProfileReference\item.xsd">
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item1.xsd">
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item2.xsd">
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item3.xsd">
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\item4.xsd">
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileReference\ServiceProfile.wsdl" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\ServiceProfileForNonCallbackMethods.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
     <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
@@ -473,41 +517,59 @@
     <Resource Include="images\playButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceChatReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceChatForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceChatForNonCallbackMethodsReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerCrosswordReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerGameReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceLobbyForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\" />
     <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
     <WCFMetadataStorage Include="Connected Services\ServiceProfileForCallbackMethodsReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceProfileReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\item.disco" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChatReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\item.disco" />
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceFriendRequestReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -528,16 +590,61 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\item.disco" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerGameReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -558,16 +665,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\item.disco" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceProfileReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -583,21 +690,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceMultiplayerCrosswordReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

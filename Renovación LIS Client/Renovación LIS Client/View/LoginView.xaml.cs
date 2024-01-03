@@ -1,8 +1,6 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
 using System.Security;
-using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -12,8 +10,7 @@ using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -22,33 +19,40 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class LoginView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
-        private readonly ProfileForCallbackMethodsClient profileForCallbackMethodsClient;
+        #endregion
 
-        public LoginView(MainWindow mainWindow, ProfileForCallbackMethodsClient profileForCallbackMethodsClient)
+
+
+        #region Constructors
+        public LoginView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
-            InitializeComponent();
 
-            this.mainWindow = mainWindow;
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
-            this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
+            this.mainWindow = mainWindow;
+            InitializeComponent();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ForgotPassword(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new ForgotPassword(mainWindow));
         }
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new CreateAccountView(mainWindow, profileForCallbackMethodsClient));
+            navigationService.Navigate(new CreateAccountView(mainWindow));
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
@@ -58,8 +62,8 @@ namespace Renovación_LIS_Client.View
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
 
-                ProfileClient profileClient = new ProfileClient();
-                Profile profile = profileClient.GetProfileByPlayerNickname(NicknameTextField.Text);
+                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                Profile profile = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextField.Text);
                 
                 if (profile != null)
                 {
@@ -67,17 +71,15 @@ namespace Renovación_LIS_Client.View
 
                     if (BCrypt.Net.BCrypt.Verify(password, storedHash))
                     {
-                        if (!profileClient.TheProfileIsLogged(profile.IDProfile))
+                        if (!profileNonCallbackMethodsClient.TheProfileIsLogged(profile.IDProfile))
                         {
-                            profileClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);                         
+                            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);                         
 
-                            
-                            profileForCallbackMethodsClient.Connect(profile.Player.NickName);
-
-                            mainWindow.SetProfileToLoggedProfile(profile);
+                            MainWindow.profileCallbackMethodsClient.Connect(profile.Player.NickName);
+                            mainWindow.SetProfileTologgedProfile(profile);
 
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow, profile, profileForCallbackMethodsClient));
+                            navigationService.Navigate(new MenuView(mainWindow));
                         }
                         else
                         {
@@ -94,16 +96,19 @@ namespace Renovación_LIS_Client.View
                     new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The introduced nickname doesn't exists");
                 }
 
-                profileClient.Close();
+                profileNonCallbackMethodsClient.Close();
             }
             else
             {
                 new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
             }
         }
+        #endregion
 
 
-        private String InvalidValuesInTextFieldsTextGenerator()
+
+        #region Auxiliary methods
+        private string InvalidValuesInTextFieldsTextGenerator()
         {
             int textFieldsWithIncorrectValues = 0;
 
@@ -148,5 +153,6 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+        #endregion
     }
 }

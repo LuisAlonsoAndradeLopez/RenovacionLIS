@@ -6,76 +6,100 @@ using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
 {
-    public class ServiceChat : IChat
+    public class ServiceChatForNonCallbackMethods : IChatNotCallbackMethods
     {
-        public static Dictionary<string, IChatCallback> connectedProfiles = new Dictionary<string, IChatCallback>();
-        public static List<KeyValueDataContract> connectedProfilesAndTheirMessages = new List<KeyValueDataContract>();
+        private readonly ServiceChatForCallbackMethods serviceChatForCallbackMethods;
 
-        //IsOneWay = true messages
+
+        #region Constructors
+        public ServiceChatForNonCallbackMethods()
+        {
+            serviceChatForCallbackMethods = new ServiceChatForCallbackMethods();    
+        }
+        #endregion
+
+
+
+        #region Non-Callback methods
+        public List<KeyValueDataContract> GetConnectedProfilesAndTheirMessages()
+        {
+            return serviceChatForCallbackMethods.GetConnectedProfilesAndTheirMessages();
+        }
+        #endregion
+
+
+
+        #region Auxiliary methods for do the tests
+        #endregion
+    }
+
+
+
+    public class ServiceChatForCallbackMethods : IChatCallbackMethods
+    {
+        private static readonly Dictionary<string, IChatCallback> connectedProfiles = new Dictionary<string, IChatCallback>();
+        private static readonly List<KeyValueDataContract> connectedProfilesAndTheirMessages = new List<KeyValueDataContract>();
+
+
+
+        #region Callback methods
         public void JoinChat(string nickname)
         {
             IChatCallback callback = OperationContext.Current.GetCallbackChannel<IChatCallback>();
-        
+
             if (!connectedProfiles.ContainsKey(nickname))
             {
                 connectedProfiles.Add(nickname, callback);
-        
+
                 KeyValueDataContract dictionary = new KeyValueDataContract
                 {
                     Key = "Chat Server",
                     Value = $"{nickname} has joined to the chat"
                 };
                 connectedProfilesAndTheirMessages.Add(dictionary);
-       
+
                 UpdateChatToAllConectedProfiles();
             }
         }
         public void LeaveChat(string nickname)
         {
-        
+
             if (connectedProfiles.ContainsKey(nickname))
             {
                 connectedProfiles.Remove(nickname);
-        
+
                 KeyValueDataContract dictionary = new KeyValueDataContract
                 {
                     Key = "Chat Server",
                     Value = $"{nickname} left the chat"
                 };
-                connectedProfilesAndTheirMessages.Add(dictionary);                              
-        
+                connectedProfilesAndTheirMessages.Add(dictionary);
+
                 UpdateChatToAllConectedProfiles();
-        
+
                 if (!connectedProfiles.Any())
                 {
                     connectedProfilesAndTheirMessages.Clear();
                 }
             }
         }
-        
+
         public void SendMessage(string senderNickname, string message)
         {
             KeyValueDataContract dictionary = new KeyValueDataContract
             {
                 Key = senderNickname,
                 Value = message
-            };        
+            };
             connectedProfilesAndTheirMessages.Add(dictionary);
-        
+
             UpdateChatToAllConectedProfiles();
         }
-
-        //IsOneWay = false messages
-        public List<KeyValueDataContract> GetConnectedProfilesAndTheirMessages()
-        {
-            List<KeyValueDataContract> result = connectedProfilesAndTheirMessages.Select(kv =>
-            new KeyValueDataContract { Key = kv.Key, Value = kv.Value }).ToList();
-
-            return result;
-        }
+        #endregion
+        
 
 
-        //Auxiliary methods
+        #region Auxiliary methods
         private void UpdateChatToAllConectedProfiles()
         {
             foreach (var chatCallback in connectedProfiles.Values)
@@ -83,11 +107,24 @@ namespace ServicesTCP.Services
                 chatCallback.UpdateChat();
             }
         }
+        #endregion
 
-        //Auxiliary methods for do the tests
+
+
+        #region Methods for use by ServiceChatForCallbackMethods
+        internal List<KeyValueDataContract> GetConnectedProfilesAndTheirMessages()
+        {
+            return connectedProfilesAndTheirMessages;
+        }
+        #endregion
+
+
+
+        #region Auxiliary methods for do the tests
         public bool TheProfileIsConnected(string username)
         {
             return connectedProfiles.ContainsKey(username);
         }
+        #endregion
     }
 }
