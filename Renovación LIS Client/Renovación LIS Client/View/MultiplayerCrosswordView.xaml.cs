@@ -15,19 +15,17 @@ namespace Renovación_LIS_Client.View
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
 
-        public MultiplayerCrosswordView(MainWindow mainWindow)
+        private int crosswordNumberSelected;
+        private int crosswordsPlayed;
+
+        public MultiplayerCrosswordView(MainWindow mainWindow, int crosswordNumberSelected, int crosswordsPlayed)
         {
             //InitializeComponent();
             //this.mainWindow = mainWindow;
-            //this.MainWindow.loggedProfile = MainWindow.loggedProfile;
-            //this.profileForCallbackMethodsClient = profileForCallbackMethodsClient;
             //
             //cultureInfo = CultureInfo.CurrentUICulture;
             //resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
             //PageStateManager.CurrentPage = this;
-            //
-            //chatClient = new ChatClient(new InstanceContext(this));
-            //multiplayerGameClient = new MultiplayerGameClient(new InstanceContext(this));
         }
     }
 }

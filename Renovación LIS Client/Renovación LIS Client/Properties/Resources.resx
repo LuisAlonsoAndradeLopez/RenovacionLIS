@@ -120,6 +120,9 @@
   <data name="A code has been sent to your email" xml:space="preserve">
     <value>A code has been sent to your email</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
   <data name="Accept friend request" xml:space="preserve">
     <value>Accept friend request</value>
   </data>
@@ -243,11 +246,17 @@
   <data name="First Last Name" xml:space="preserve">
     <value>First Last Name</value>
   </data>
+  <data name="First place" xml:space="preserve">
+    <value>First place</value>
+  </data>
   <data name="For" xml:space="preserve">
     <value>For</value>
   </data>
   <data name="Forgot Password" xml:space="preserve">
     <value>Forgot your password?</value>
+  </data>
+  <data name="Fourth place" xml:space="preserve">
+    <value>Fourth place</value>
   </data>
   <data name="Friend nickname" xml:space="preserve">
     <value>Friend nickname</value>
@@ -378,6 +387,9 @@
   <data name="Reject friend request" xml:space="preserve">
     <value>Reject friend request</value>
   </data>
+  <data name="Second place" xml:space="preserve">
+    <value>Second place</value>
+  </data>
   <data name="Select an image" xml:space="preserve">
     <value>Select an image</value>
   </data>
@@ -447,6 +459,9 @@
   <data name="The user you want to sent a friend request doesn't exists" xml:space="preserve">
     <value>The user you want to sent a friend request doesn't exists</value>
   </data>
+  <data name="Third place" xml:space="preserve">
+    <value>Third place</value>
+  </data>
   <data name="To confirm the new password, we'll send a code to your email" xml:space="preserve">
     <value>To confirm the new password, we'll send a code to your email</value>
   </data>
@@ -467,6 +482,9 @@
   </data>
   <data name="What do you want" xml:space="preserve">
     <value>What do you want?</value>
+  </data>
+  <data name="Winners table" xml:space="preserve">
+    <value>Winners table</value>
   </data>
   <data name="Work in progress" xml:space="preserve">
     <value>Work in progress</value>

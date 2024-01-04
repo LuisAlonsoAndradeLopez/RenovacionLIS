@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/playbutton.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gamelogo.ico")]
 
 

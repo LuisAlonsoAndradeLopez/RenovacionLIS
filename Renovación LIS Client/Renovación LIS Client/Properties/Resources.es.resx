@@ -120,6 +120,9 @@
   <data name="A code has been sent to your email" xml:space="preserve">
     <value>Se ha mandado un codigo a tu correo electrónico</value>
   </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
   <data name="Accept friend request" xml:space="preserve">
     <value>Aceptar invitación de amigo</value>
   </data>
@@ -243,11 +246,17 @@
   <data name="First Last Name" xml:space="preserve">
     <value>Apellido Paterno</value>
   </data>
+  <data name="First place" xml:space="preserve">
+    <value>Primer lugar</value>
+  </data>
   <data name="For" xml:space="preserve">
     <value>Para</value>
   </data>
   <data name="Forgot Password" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>
+  </data>
+  <data name="Fourth place" xml:space="preserve">
+    <value>Cuarto lugar</value>
   </data>
   <data name="Friend nickname" xml:space="preserve">
     <value>Nickname del amigo</value>
@@ -378,6 +387,9 @@
   <data name="Reject friend request" xml:space="preserve">
     <value>Rechazar invitación de amigo</value>
   </data>
+  <data name="Second place" xml:space="preserve">
+    <value>Segundo lugar</value>
+  </data>
   <data name="Select an image" xml:space="preserve">
     <value>Selecciona una imágen</value>
   </data>
@@ -447,6 +459,9 @@
   <data name="The user you want to sent a friend request doesn't exists" xml:space="preserve">
     <value>El usuario al que le quieres mandar solicitud de amistad no existe</value>
   </data>
+  <data name="Third place" xml:space="preserve">
+    <value>Tercer lugar</value>
+  </data>
   <data name="To confirm the new password, we'll send a code to your email" xml:space="preserve">
     <value>Para confirmar la nueva contraseña, te mandaremos un código a tu correo electrónico</value>
   </data>
@@ -467,6 +482,9 @@
   </data>
   <data name="What do you want" xml:space="preserve">
     <value>¿Qué quieres?</value>
+  </data>
+  <data name="Winners table" xml:space="preserve">
+    <value>Tabla de ganadores</value>
   </data>
   <data name="Work in progress" xml:space="preserve">
     <value>En desarrollo</value>

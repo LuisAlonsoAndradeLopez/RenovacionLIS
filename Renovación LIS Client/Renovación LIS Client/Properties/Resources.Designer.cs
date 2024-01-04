@@ -70,6 +70,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Accept.
+        /// </summary>
+        public static string Accept {
+            get {
+                return ResourceManager.GetString("Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Accept friend request.
         /// </summary>
         public static string Accept_friend_request {
@@ -439,6 +448,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a First place.
+        /// </summary>
+        public static string First_place {
+            get {
+                return ResourceManager.GetString("First place", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a For.
         /// </summary>
         public static string For {
@@ -453,6 +471,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Forgot_Password {
             get {
                 return ResourceManager.GetString("Forgot Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fourth place.
+        /// </summary>
+        public static string Fourth_place {
+            get {
+                return ResourceManager.GetString("Fourth place", resourceCulture);
             }
         }
         
@@ -844,6 +871,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Second place.
+        /// </summary>
+        public static string Second_place {
+            get {
+                return ResourceManager.GetString("Second place", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select an image.
         /// </summary>
         public static string Select_an_image {
@@ -1052,6 +1088,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Third place.
+        /// </summary>
+        public static string Third_place {
+            get {
+                return ResourceManager.GetString("Third place", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a To confirm the new password, we&apos;ll send a code to your email.
         /// </summary>
         public static string To_confirm_the_new_password__we_ll_send_a_code_to_your_email {
@@ -1111,6 +1156,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string What_do_you_want {
             get {
                 return ResourceManager.GetString("What do you want", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Winners table.
+        /// </summary>
+        public static string Winners_table {
+            get {
+                return ResourceManager.GetString("Winners table", resourceCulture);
             }
         }
         

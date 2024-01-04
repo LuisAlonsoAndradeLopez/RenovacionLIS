@@ -13,57 +13,414 @@
         <Image Source="/images/winnersImage.png" VerticalAlignment="Center"/>
 
         <Border Margin="28,35,28,35" 
-    Name="IntroduceDataBorder"
-    Grid.Column="0"
-    CornerRadius="20">
+            Name="IntroduceDataBorder"
+            Grid.Column="0"
+            CornerRadius="20">
 
             <Border.Background>
                 <SolidColorBrush Color="Black" Opacity="0.8"/>
             </Border.Background>
 
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="{x:Static p:Resources.Exit}" 
-                Style="{StaticResource NormalButtom}"
-                Height="56"
-                Width="68"
-                Background="#FFD01D1D"
-                Margin="20,7,0,0" Click="ExitButtonOnClick"/>
+                <Label Content="{x:Static p:Resources.Winners_table}"
+                    FontFamily="{StaticResource K2DBold}"
+                    HorizontalAlignment="Center"
+                    Foreground="White"
+                    FontSize="50"/>
 
-                    <Label Content="Chat"
-                FontFamily="{StaticResource K2DBold}"
-                Foreground="White"
-                Margin="420,0,0,0"
-                FontSize="50"/>
+                <Label Background="White"
+                    Margin="0 5 0 15"
+                    Height="2"/>
+
+                <StackPanel Height="428">
+                    <StackPanel Orientation="Horizontal" Height="428" Name="TwoPlayersPositionsStackPanel" Visibility="Collapsed">
+                        <Border
+                            Visibility="Hidden"
+                            Name="TwoPlayersSecondPlaceBorder"
+                            Margin="196,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="360" Width="360">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.Second_place}"
+                                    Foreground="Silver"
+                                    FontSize="25"/>
+
+                                <Image Height="178"
+                                    Margin="0,10,0,0"
+                                    Width="176"
+                                    Name="TwoPlayersSecondPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="TwoPlayersSecondPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="60" Width="330"/>
+
+                                <TextBlock 
+                                    Name="TwoPlayersSecondPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Visibility="Hidden"
+                            Name="TwoPlayersFirstPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="408" Width="360">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.First_place}"
+                                    Foreground="Gold"
+                                    FontSize="25"/>
+
+                                <Image Height="224"
+                                    Margin="0,10,0,0"
+                                    Width="222"
+                                    Name="TwoPlayersFirstPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="TwoPlayersFirstPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="60" Width="330"/>
+
+                                <TextBlock 
+                                    Name="TwoPlayersFirstPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Height="428" Name="ThreePlayersPositionsStackPanel" Visibility="Collapsed">
+                        <Border
+                            Visibility="Hidden"
+                            Name="ThreePlayersSecondPlaceBorder"
+                            Margin="90,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="360" Width="310">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.Second_place}"
+                                    Foreground="Silver"
+                                    FontSize="25"/>
+
+                                <Image Height="178"
+                                    Margin="0,10,0,0"
+                                    Width="176"
+                                    Name="TreePlayersSecondPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="ThreePlayersSecondPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="60" Width="282"/>
+
+                                <TextBlock 
+                                    Name="ThreePlayersSecondPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Visibility="Hidden"
+                            Name="ThreePlayersFirstPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="408" Width="310">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.First_place}"
+                                    Foreground="Gold"
+                                    FontSize="25"/>
+
+                                <Image Height="224"
+                                    Margin="0,10,0,0"
+                                    Width="222"
+                                    Name="ThreePlayersFirstPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="ThreePlayersFirstPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="60" Width="290"/>
+
+                                <TextBlock 
+                                    Name="ThreePlayersFirstPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Visibility="Hidden"
+                            Name="ThreePlayersThirdPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="312" Width="310">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.Third_place}"
+                                    Foreground="DarkOrange"
+                                    FontSize="25"/>
+
+                                <Image Height="130"
+                                    Margin="0,10,0,0"
+                                    Width="130"
+                                    Name="ThreePlayersThirdPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="ThreePlayersThirdPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    FontSize="20" Height="60" Width="290"/>
+
+                                <TextBlock 
+                                    Name="ThreePlayersThirdPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Height="428" Name="FourPlayersPositionsStackPanel" Visibility="Collapsed">
+                        <Border
+                            Visibility="Hidden"
+                            Name="FourPlayersFirstPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="408" Width="260">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.First_place}"
+                                    Foreground="Gold"
+                                    FontSize="25"/>
+
+                                <Image Height="224"
+                                    Margin="0,10,0,0"
+                                    Width="222"
+                                    Name="FourPlayersFirstPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersFirstPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="60" Width="246"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersFirstPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Visibility="Hidden"
+                            Name="FourPlayersSecondPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="360" Width="260">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.Second_place}"
+                                    Foreground="Silver"
+                                    FontSize="25"/>
+
+                                <Image Height="178"
+                                    Margin="0,10,0,0"
+                                    Width="176"
+                                    Name="FourPlayersSecondPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersSecondPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="60" Width="246"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersSecondPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="Silver"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Visibility="Hidden"
+                            Name="FourPlayersThirdPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="312" Width="260">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.Third_place}"
+                                    Foreground="DarkOrange"
+                                    FontSize="25"/>
+
+                                <Image Height="130"
+                                    Margin="0,10,0,0"
+                                    Width="130"
+                                    Name="FourPlayersThirdPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersThirdPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    FontSize="20" Height="60" Width="250"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersThirdPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Visibility="Hidden"
+                            Name="FourPlayersFourthPlaceBorder"
+                            Margin="20,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Black"
+                            Opacity="0.8"
+                            Height="264" Width="260">
+
+                            <StackPanel>
+                                <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10,0,0"
+                                    Text="{x:Static p:Resources.Fourth_place}"
+                                    Foreground="Purple"
+                                    FontSize="25"/>
+
+                                <Image Height="80"
+                                    Margin="0,10,0,0"
+                                    Width="80"
+                                    Name="FourPlayersFourthPlaceImageProfileImage"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersFourthPlaceProfileNicknameTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    FontSize="20" Height="60" Width="250"/>
+
+                                <TextBlock 
+                                    Name="FourPlayersFourthPlacePointsTextBlock"
+                                    HorizontalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Margin="0,10,0,0"
+                                    Foreground="White"
+                                    FontSize="20" Height="32"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
 
                 <Label Background="White"
-            Margin="0 5 0 15"
-            Height="2"/>
+                    Margin="0 15 0 15"
+                    Height="2"/>
 
-                <ScrollViewer Height="393">
-                    <StackPanel Name="MessagesStackPanel">
-
-                    </StackPanel>
-                </ScrollViewer>
-
-
-                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                    <TextBox 
-                Name="MessageTextBox"
-                Style="{StaticResource BorderTextBox}"
-                Height="56"
-                Width="903"
-                Margin="28,0,0,0"/>
-
-                    <Button Content="{x:Static p:Resources.Send_message}" 
-                Style="{StaticResource NormalButtom}"
-                Height="56"
-                Width="158"
-                Background="#37847F"
-                Margin="20,0,0,0" Click="SendMessageButtonOnClick"/>
-                </StackPanel>
-
+                <Button Content="{x:Static p:Resources.Accept}" 
+                    Style="{StaticResource GreenButton}"
+                    Height="56"
+                    Width="116"
+                    FontSize="20"
+                    Click="AcceptButtonOnClick"/>
             </StackPanel>
         </Border>
     </Grid>

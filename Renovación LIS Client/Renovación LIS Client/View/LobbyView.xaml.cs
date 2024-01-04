@@ -1,15 +1,20 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -140,17 +145,31 @@ namespace Renovación_LIS_Client.View
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
-            //Dont't erase
-            //MultiplayerCrosswordClient multiplayerCrosswordClient = new MultiplayerCrosswordClient(new InstanceContext(this));
-            //foreach (var connectedProfileInlobbyCallbackMethodsClient in lobbyCallbackMethodsClient.GetConnectedProfiles())
-            //{
-            //    multiplayerCrosswordClient.Connect(connectedProfileInlobbyCallbackMethodsClient);
-            //}
-            //
-            //multiplayerCrosswordClient.SetAdmin(lobbyCallbackMethodsClient.GetAdmin());
-            //
-            //NavigationService navigationService = NavigationService.GetNavigationService(this);
-            //navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, MainWindow.loggedProfile, MainWindow.MainWindow.profileCallbackMethodsClient, chatCallbackMethodsClient, lobbyCallbackMethodsClient, multiplayerCrosswordClient);
+
+            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+            foreach (var connectedProfileInlobbyCallbackMethodsClient in lobbyNonCallbackMethodsClient.GetConnectedProfiles())
+            {
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Connect(connectedProfileInlobbyCallbackMethodsClient);
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToTheSelectedClients(connectedProfileInlobbyCallbackMethodsClient);
+            }
+
+            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+            multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
+            
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow);
+
+            Thread.Sleep(1000);
+            var animation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                FillBehavior = FillBehavior.HoldEnd
+            };
+
+            BlackScreenRectangle.Visibility = Visibility.Visible;
+            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
         }
         #endregion
 
