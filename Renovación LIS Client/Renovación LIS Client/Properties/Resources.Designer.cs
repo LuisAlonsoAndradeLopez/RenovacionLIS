@@ -106,6 +106,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a And the selected crossword is:.
+        /// </summary>
+        public static string And_the_selected_crossword_is_ {
+            get {
+                return ResourceManager.GetString("And the selected crossword is:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Are you sure?.
         /// </summary>
         public static string Are_you_sure_ {

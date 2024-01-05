@@ -3,20 +3,20 @@ using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestForNonCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 using Button = System.Windows.Controls.Button;
 using Orientation = System.Windows.Controls.Orientation;
@@ -859,6 +859,27 @@ namespace Renovación_LIS_Client.View
             if (!entryToThisPageViaLobbyView)
             {
                 mainWindow.OpenTheLobbyView(this);
+            }
+        }
+
+        public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
+        {
+            if (entryToThisPageViaLobbyView)
+            {
+                Thread.Sleep(1000);
+                var animation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    FillBehavior = FillBehavior.HoldEnd
+                };
+
+                BlackScreenRectangle.Visibility = Visibility.Visible;
+                BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
+
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, false));
             }
         }
         #endregion

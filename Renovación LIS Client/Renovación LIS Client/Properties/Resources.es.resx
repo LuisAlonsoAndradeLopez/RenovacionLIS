@@ -132,6 +132,9 @@
   <data name="Admin" xml:space="preserve">
     <value>Administrador</value>
   </data>
+  <data name="And the selected crossword is:" xml:space="preserve">
+    <value>Y el crucigrama seleccionado es:</value>
+  </data>
   <data name="Are you sure you want to accept the friend request?" xml:space="preserve">
     <value>¿Estás seguro de que desea aceptar la solicitud de amistad?</value>
   </data>

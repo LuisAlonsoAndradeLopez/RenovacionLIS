@@ -130,11 +130,12 @@ namespace Renovación_LIS_Client
                     if (!lobbyNonCallbackMethodsClient.IsBanned(MainWindow.loggedProfile.Player.NickName))
                     {
                         if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length < 4)
-                        {                            
+                        {
+                            LobbyView lobbyView = new LobbyView(this);
                             LobbyView.chatCallbackMethodsClient.JoinChat(MainWindow.loggedProfile.Player.NickName);
                             LobbyView.lobbyCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
                             NavigationService navigationService = NavigationService.GetNavigationService(page);
-                            navigationService.Navigate(new LobbyView(this));
+                            navigationService.Navigate(lobbyView);
                         }
                         else
                         {

@@ -27,11 +27,32 @@
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_Disconnect_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenTheMultiplayerCrosswordViewToConnectedClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTheMultiplayerCrosswordViewToConnectedClients" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordBorderToConnectedClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowTheSelectedCrosswordBorderToConnectedClients" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_StartCountdown_InputMessage">
     <wsdl:part name="parameters" element="tns:StartCountdown" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_StartTheCrosswordSelectionAlgorythm_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTheCrosswordSelectionAlgorythm" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateCrosswordsToProfilesToAllConnectedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenMultiplayerCrosswordView_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OpenMultiplayerCrosswordView" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordBorder_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowTheSelectedCrosswordBorder" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_UpdateCountdown_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateCountdown" />
@@ -52,11 +73,32 @@
     <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/Disconnect" message="tns:IMultiplayerCrosswordCallbackMethods_Disconnect_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="OpenTheMultiplayerCrosswordViewToConnectedClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheMultiplayerCrosswordViewToConnectedClients" message="tns:IMultiplayerCrosswordCallbackMethods_OpenTheMultiplayerCrosswordViewToConnectedClients_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin" message="tns:IMultiplayerCrosswordCallbackMethods_OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowTheSelectedCrosswordBorderToConnectedClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordBorderToConnectedClients" message="tns:IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordBorderToConnectedClients_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="StartCountdown">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartCountdown" message="tns:IMultiplayerCrosswordCallbackMethods_StartCountdown_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="StartTheCrosswordSelectionAlgorythm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartTheCrosswordSelectionAlgorythm" message="tns:IMultiplayerCrosswordCallbackMethods_StartTheCrosswordSelectionAlgorythm_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfilesToAllConnectedProfiles" message="tns:IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenMultiplayerCrosswordView">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenMultiplayerCrosswordView" message="tns:IMultiplayerCrosswordCallbackMethods_OpenMultiplayerCrosswordView_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage" message="tns:IMultiplayerCrosswordCallbackMethods_OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowTheSelectedCrosswordBorder">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordBorder" message="tns:IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordBorder_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateCountdown">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCountdown" message="tns:IMultiplayerCrosswordCallbackMethods_UpdateCountdown_OutputCallbackMessage" />
@@ -89,8 +131,32 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="OpenTheMultiplayerCrosswordViewToConnectedClients">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheMultiplayerCrosswordViewToConnectedClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTheSelectedCrosswordBorderToConnectedClients">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordBorderToConnectedClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="StartCountdown">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartCountdown" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartTheCrosswordSelectionAlgorythm">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartTheCrosswordSelectionAlgorythm" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -100,6 +166,24 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="OpenMultiplayerCrosswordView">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenMultiplayerCrosswordView" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTheSelectedCrosswordBorder">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordBorder" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateCountdown">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCountdown" style="document" />

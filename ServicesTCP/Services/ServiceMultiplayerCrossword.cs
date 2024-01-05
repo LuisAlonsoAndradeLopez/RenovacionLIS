@@ -50,6 +50,9 @@ namespace ServicesTCP.Services
         private static string admin;
         private static readonly Dictionary<string, IMultiplayerCrosswordCallback> connectedProfiles = new Dictionary<string, IMultiplayerCrosswordCallback>();
         private static readonly Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
+        private static readonly int[] crosswordsPlayedNumbers = new int[3];
+        private static int crosswordsPlayed = 0;
+        private static int crosswordNumberSelected;
 
 
         #region Callback methods
@@ -80,6 +83,48 @@ namespace ServicesTCP.Services
                 connectedProfiles.Remove(username);
                 profilesAndItsPoints.Remove(username);
             }
+        }
+
+        public void OpenTheMultiplayerCrosswordViewToConnectedClients()
+        {
+            foreach (var profile in connectedProfiles.Values)
+            {
+                profile.OpenMultiplayerCrosswordView(crosswordNumberSelected);
+            }
+        }
+
+        public void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(string adminNickname)
+        {
+            foreach (var profile in connectedProfiles)
+            {
+                if (profile.Key != adminNickname)
+                {
+                    profile.Value.OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage();
+                }
+            }
+        }
+
+        public void ShowTheSelectedCrosswordBorderToConnectedClients()
+        {
+            foreach (var profile in connectedProfiles.Values)
+            {
+                profile.ShowTheSelectedCrosswordBorder();
+            }
+        }
+
+        public void StartTheCrosswordSelectionAlgorythm()
+        {
+            while (true)
+            {
+                crosswordNumberSelected = new Random().Next(1, 6);
+                if (Array.IndexOf(crosswordsPlayedNumbers, crosswordNumberSelected) == -1)
+                {
+                    crosswordsPlayedNumbers[crosswordsPlayed] = crosswordNumberSelected;
+                    break;
+                }
+            }
+
+            crosswordsPlayed++;
         }
 
         // Example method to start the countdown

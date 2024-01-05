@@ -132,6 +132,9 @@
   <data name="Admin" xml:space="preserve">
     <value>Admin</value>
   </data>
+  <data name="And the selected crossword is:" xml:space="preserve">
+    <value>And the selected crossword is:</value>
+  </data>
   <data name="Are you sure you want to accept the friend request?" xml:space="preserve">
     <value>Are you sure you want to accept the friend request?</value>
   </data>

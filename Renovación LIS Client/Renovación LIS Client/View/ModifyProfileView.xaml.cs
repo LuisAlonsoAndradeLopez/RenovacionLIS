@@ -35,6 +35,8 @@ namespace Renovación_LIS_Client.View
         #region Constructors
         public ModifyProfileView(MainWindow mainWindow)
         {
+            PageStateManager.CurrentPage = this;
+
             this.mainWindow = mainWindow;
 
             cultureInfo = CultureInfo.CurrentUICulture;

@@ -48,5 +48,6 @@
             </StackPanel>
         </Border>
 
+        <Rectangle x:Name="BlackScreenRectangle" Fill="Black" Opacity="0" Visibility="Collapsed"/>
     </Grid>
 </Page>

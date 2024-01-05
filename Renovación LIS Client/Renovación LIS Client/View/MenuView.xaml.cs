@@ -50,6 +50,9 @@ namespace Renovación_LIS_Client.View
                         LobbyView lobbyView = new LobbyView(mainWindow);
                         LobbyView.chatCallbackMethodsClient.JoinChat(MainWindow.loggedProfile.Player.NickName);
                         LobbyView.lobbyCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
+
+                        new RandomMultiplayerCrosswordGeneratorView();
+                        RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
                         NavigationService navigationService = NavigationService.GetNavigationService(this);
                         navigationService.Navigate(lobbyView);
                     }

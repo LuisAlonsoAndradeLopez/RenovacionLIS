@@ -57,6 +57,7 @@ namespace Renovación_LIS_Client.View
             ShowConnectedPlayers();
 
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+
             if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
             {
                 AdminPlayerButtonsStackPanel.Visibility = Visibility.Visible;
@@ -144,32 +145,16 @@ namespace Renovación_LIS_Client.View
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
-
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            foreach (var connectedProfileInlobbyCallbackMethodsClient in lobbyNonCallbackMethodsClient.GetConnectedProfiles())
-            {
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Connect(connectedProfileInlobbyCallbackMethodsClient);
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToTheSelectedClients(connectedProfileInlobbyCallbackMethodsClient);
-            }
-
+            lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
+            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(MainWindow.loggedProfile.Player.NickName);
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
             multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
-            
+
+            lobbyNonCallbackMethodsClient.Close();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow);
-
-            Thread.Sleep(1000);
-            var animation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                FillBehavior = FillBehavior.HoldEnd
-            };
-
-            BlackScreenRectangle.Visibility = Visibility.Visible;
-            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
+            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, true));
         }
         #endregion
 
@@ -182,6 +167,24 @@ namespace Renovación_LIS_Client.View
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow));
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+        }
+
+        public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
+        {
+            Thread.Sleep(1000);
+            var animation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                FillBehavior = FillBehavior.HoldEnd
+            };
+
+            BlackScreenRectangle.Visibility = Visibility.Visible;
+            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
+
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, false));
         }
 
         public void ShowConnectedPlayers()

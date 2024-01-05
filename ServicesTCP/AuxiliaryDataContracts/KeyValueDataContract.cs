@@ -19,16 +19,6 @@ namespace ServicesTCP.AuxiliaryContracts
     }
 
     [DataContract]
-    public class KeyValueDataContractForProfilesNicknamesAndTheirCallbackForServiceProfileForCallbackMethods
-    {
-        [DataMember]
-        public string Key { get; set; }
-
-        [DataMember]
-        public IProfileCallback Value { get; set; }
-    }
-
-    [DataContract]
     public class KeyValueDataContractForProfilesAndTheirPointsForServiceMultiplayerCrosswordForCallbackMethods
     {
         [DataMember]
