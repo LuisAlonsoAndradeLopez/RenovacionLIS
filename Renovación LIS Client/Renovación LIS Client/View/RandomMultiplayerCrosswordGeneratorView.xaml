@@ -10,61 +10,52 @@
       Title="RandomMultiplayerCrosswordGeneratorView">
 
     <Grid>
-        <Border Margin="28,35,28,35" 
-            Height="580"
-            Width="1070"
-            Name="IntroduceDataBorder"
-            Grid.Column="0"
-            CornerRadius="20">
+        <Image Source="/images/randomMultiplayerCrosswordGeneratorImage.png" VerticalAlignment="Center"/>
 
-            <Border.Background>
-                <SolidColorBrush Color="Black" Opacity="0.5"/>
-            </Border.Background>
+        <StackPanel>
+            <Border
+                Visibility="Visible"
+                HorizontalAlignment="Center"
+                Background="Black"
+                CornerRadius="20"
+                Height="82" Width="792">
 
-            <StackPanel>
                 <Label Content="{x:Static p:Resources.And_the_selected_crossword_is_}"
-                    FontFamily="{StaticResource K2DBold}"
-                    Foreground="White"
-                    HorizontalAlignment="Center"
-                    FontSize="50"/>
+                FontFamily="{StaticResource K2DBold}"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                FontSize="50"/>
 
-                <Label Background="White"
-                    Margin="0 5 0 0"
-                    Height="2"/>
+            </Border>
 
-                <Border
-                    Visibility="Hidden"
-                    Name="SelectedCrosswordBorder"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Margin="0,70,0,0"
-                    Background="Black"
-                    Opacity="0.8"
-                    CornerRadius="20"
-                    Height="360" Width="360">
+            <Border
+                Visibility="Collapsed"
+                Name="SelectedCrosswordBorder"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="440,70,0,0"
+                Background="Black"
+                CornerRadius="20"
+                Height="360" Width="360">
 
-                    <StackPanel>
-                        <TextBlock 
-                            HorizontalAlignment="Center"
-                            Margin="0,10,0,10"
-                            Text="{x:Static p:Resources.Second_place}"
-                            Foreground="White"
-                            Name="SelectedCrosswordName"
-                            FontSize="25"/>
+                <StackPanel>
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        Margin="0,10,0,10"
+                        Foreground="White"
+                        TextAlignment="Center"
+                        Name="SelectedCrosswordName"
+                        FontSize="25" Width="334"/>
 
-                        <Image Height="270"
-                            Margin="0,10,0,0"
-                            Width="270"
-                            Name="SelectedCrosswordImage"/>
+                    <Image Height="270"
+                        Margin="0,10,0,0"
+                        Width="270"
+                        Name="SelectedCrosswordImage"/>
 
-                    </StackPanel>
-                </Border>
+                </StackPanel>
+            </Border>
 
-
-
-            </StackPanel>
-
-        </Border>
+        </StackPanel>
 
         <Rectangle x:Name="BlackScreenRectangle" Fill="Black" Opacity="1" Visibility="Collapsed"/>
     </Grid>

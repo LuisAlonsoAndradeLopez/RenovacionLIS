@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gamelogo.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/doctoradoencienciasdelacomputaci%c3%b3nmultiplayercrosswordselectionimage." +
+    "jpeg")]
 
 

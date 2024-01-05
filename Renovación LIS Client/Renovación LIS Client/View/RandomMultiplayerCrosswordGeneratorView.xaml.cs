@@ -2,13 +2,16 @@
 using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -21,7 +24,6 @@ namespace Renovación_LIS_Client.View
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
         
-        private readonly int thisPageIsOpenedByTheAdmin;
 
         public static MultiplayerCrosswordCallbackMethodsClient multiplayerCrosswordCallbackMethodsClient;
 
@@ -40,22 +42,13 @@ namespace Renovación_LIS_Client.View
 
             InitializeComponent();
 
-            var animation = new DoubleAnimation
-            {
-                From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                FillBehavior = FillBehavior.HoldEnd
-            };
-
-            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
-            BlackScreenRectangle.Visibility = Visibility.Collapsed;
+            Thread.Sleep(1000);
 
             if (openedByTheAdmin)
             {
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartTheCrosswordSelectionAlgorythm();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowTheSelectedCrosswordBorderToConnectedClients();
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheMultiplayerCrosswordViewToConnectedClients();
+                //RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheMultiplayerCrosswordViewToConnectedClients();
             }
         }
 
@@ -72,7 +65,7 @@ namespace Renovación_LIS_Client.View
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
-                currentPage.UpdateCountdown();
+                //currentPage.UpdateCountdown();
             }
         }
 
@@ -80,7 +73,7 @@ namespace Renovación_LIS_Client.View
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
-                currentPage.UpdateCrosswordCompletition();
+                //currentPage.UpdateCrosswordCompletition();
             }
         }
 
@@ -88,7 +81,7 @@ namespace Renovación_LIS_Client.View
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
-                currentPage.UpdateProfilesPointsList();
+                //currentPage.UpdateProfilesPointsList();
             }
         }
 
@@ -115,8 +108,6 @@ namespace Renovación_LIS_Client.View
                 //configurationView.GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin();
             }
         }
-
-
         
         public void OpenMultiplayerCrosswordView(int crosswordNumberSelected)
         {
@@ -128,28 +119,44 @@ namespace Renovación_LIS_Client.View
 
         public void ShowTheSelectedCrosswordBorder()
         {
+            //No internacionaliza
+            //Pasar la imagen del salon cristal
+            //verificar las pantallas que acedan bien al randommultiplayercrosswordselectorview
+
             if (PageStateManager.CurrentPage is RandomMultiplayerCrosswordGeneratorView currentPage)
             {
-                switch (RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.)
+                currentPage.SelectedCrosswordBorder.Visibility = Visibility.Visible;
+                MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+                switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
                 {
-                    case 0:
+                    case 1:
+                        currentPage.SelectedCrosswordName.Text = "105";
+                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
+                        break;
 
-                        //TODO: En el servicio crear metodo para recojer crosswordNumberSelected y en este switch
-                        //ponerle basura para mostrar la imagen del crucigrama y su texto
-                        
+                    case 2:
+                        currentPage.SelectedCrosswordName.Text = "CC3";
+                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
+                        break;
+
+                    case 3:
+                        currentPage.SelectedCrosswordName.Text = resourceManager.GetString("ECONEX bathroom low level", cultureInfo);
+                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
+                        break;
+
+                    case 4:
+                        currentPage.SelectedCrosswordName.Text = resourceManager.GetString("Doctorated in CS", cultureInfo);
+                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.jpeg");
+                        break;
+
+                    case 5:
+                        currentPage.SelectedCrosswordName.Text = resourceManager.GetString("Crystal saloon", cultureInfo);
+                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
+                        break;
+
                 }
-                currentPage.SelectedCrosswordName
-                current
 
-                var animation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(0.5),
-                    FillBehavior = FillBehavior.HoldEnd
-                };
-
-                currentPage.SelectedCrosswordBorder.BeginAnimation(Border.OpacityProperty, animation);
+                Thread.Sleep(3000);
             }
         }
         #endregion

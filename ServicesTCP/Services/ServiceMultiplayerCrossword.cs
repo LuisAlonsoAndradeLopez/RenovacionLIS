@@ -25,12 +25,22 @@ namespace ServicesTCP.Services
         {
             return serviceMultiplayerCrosswordForCallbackMethods.GetAdmin();
         }
-        
+
         public int GetPointsFromAProfile(string nickname)
         {
             return serviceMultiplayerCrosswordForCallbackMethods.GetPointsFromAProfile(nickname);
         }
-        
+
+        public int GetCrosswordNumberSelected()
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.GetCrosswordNumberSelected();
+        }
+
+        public int GetCrosswordsPlayed()
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.GetCrosswordsPlayed();
+        }
+
         public void SetAdmin(string username)
         {
             serviceMultiplayerCrosswordForCallbackMethods.SetAdmin(username);
@@ -173,6 +183,16 @@ namespace ServicesTCP.Services
         internal string GetAdmin()
         {
             return admin;
+        }
+
+        internal int GetCrosswordNumberSelected()
+        {
+            return crosswordNumberSelected;
+        }
+
+        internal int GetCrosswordsPlayed()
+        {
+            return crosswordsPlayed;
         }
 
         internal int GetPointsFromAProfile(string nickname)

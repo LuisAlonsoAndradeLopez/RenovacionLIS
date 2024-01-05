@@ -700,5 +700,32 @@
   <ItemGroup>
     <Resource Include="GameLogo.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\randomMultiplayerCrosswordGeneratorImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\105MultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bañoMultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\105MultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bañoMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\CC3MultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\doctoradoENCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

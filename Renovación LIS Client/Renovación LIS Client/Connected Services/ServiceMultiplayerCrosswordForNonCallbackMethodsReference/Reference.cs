@@ -22,6 +22,24 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdminResponse")]
         System.Threading.Tasks.Task<string> GetAdminAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSele" +
+            "cted", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSele" +
+            "ctedResponse")]
+        int GetCrosswordNumberSelected();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSele" +
+            "cted", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSele" +
+            "ctedResponse")]
+        System.Threading.Tasks.Task<int> GetCrosswordNumberSelectedAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayed", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayedRes" +
+            "ponse")]
+        int GetCrosswordsPlayed();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayed", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayedRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<int> GetCrosswordsPlayedAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetPointsFromAProfile", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetPointsFromAProfileR" +
             "esponse")]
         int GetPointsFromAProfile(string nickname);
@@ -70,6 +88,22 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         public System.Threading.Tasks.Task<string> GetAdminAsync() {
             return base.Channel.GetAdminAsync();
+        }
+        
+        public int GetCrosswordNumberSelected() {
+            return base.Channel.GetCrosswordNumberSelected();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCrosswordNumberSelectedAsync() {
+            return base.Channel.GetCrosswordNumberSelectedAsync();
+        }
+        
+        public int GetCrosswordsPlayed() {
+            return base.Channel.GetCrosswordsPlayed();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCrosswordsPlayedAsync() {
+            return base.Channel.GetCrosswordsPlayedAsync();
         }
         
         public int GetPointsFromAProfile(string nickname) {

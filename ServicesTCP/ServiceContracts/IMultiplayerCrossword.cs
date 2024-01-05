@@ -7,7 +7,13 @@ namespace ServicesTCP.ServiceContracts
     {
         [OperationContract]
         string GetAdmin();
-        
+
+        [OperationContract]
+        int GetCrosswordNumberSelected();
+
+        [OperationContract]
+        int GetCrosswordsPlayed();
+
         [OperationContract]
         int GetPointsFromAProfile(string nickname);
         

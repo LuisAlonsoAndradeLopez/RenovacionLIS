@@ -9,6 +9,6 @@
       Title="MultiplayerCrosswordView">
 
     <Grid>
-        
+        <Image Source="/images/doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" VerticalAlignment="Center"/>
     </Grid>
 </Page>

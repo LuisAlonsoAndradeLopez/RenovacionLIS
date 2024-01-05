@@ -210,6 +210,9 @@
   <data name="Creation date" xml:space="preserve">
     <value>Creation date</value>
   </data>
+  <data name="Crystal saloon" xml:space="preserve">
+    <value>Crystal saloon</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -230,6 +233,12 @@
   </data>
   <data name="Do you want to unban this player?" xml:space="preserve">
     <value>Do you want to unban this player?</value>
+  </data>
+  <data name="Doctorated in CS" xml:space="preserve">
+    <value>Doctorated in CS</value>
+  </data>
+  <data name="ECONEX bathroom low level" xml:space="preserve">
+    <value>ECONEX bathroom low level</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>E mail</value>

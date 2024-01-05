@@ -340,6 +340,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Crystal saloon.
+        /// </summary>
+        public static string Crystal_saloon {
+            get {
+                return ResourceManager.GetString("Crystal saloon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Date.
         /// </summary>
         public static string Date {
@@ -399,6 +408,24 @@ namespace Renovación_LIS_Client.Properties {
         public static string Do_you_want_to_unban_this_player_ {
             get {
                 return ResourceManager.GetString("Do you want to unban this player?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Doctorated in CS.
+        /// </summary>
+        public static string Doctorated_in_CS {
+            get {
+                return ResourceManager.GetString("Doctorated in CS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ECONEX bathroom low level.
+        /// </summary>
+        public static string ECONEX_bathroom_low_level {
+            get {
+                return ResourceManager.GetString("ECONEX bathroom low level", resourceCulture);
             }
         }
         

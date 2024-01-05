@@ -73,17 +73,6 @@ namespace Renovación_LIS_Client.View
         public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
         {
             Thread.Sleep(1000);
-            var animation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                FillBehavior = FillBehavior.HoldEnd
-            };
-
-            BlackScreenRectangle.Visibility = Visibility.Visible;
-            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, false));
         }

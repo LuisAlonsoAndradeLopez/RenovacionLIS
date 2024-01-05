@@ -24,6 +24,18 @@
   <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdminResponse" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetCrosswordNumberSelected_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCrosswordNumberSelected" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetCrosswordNumberSelected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCrosswordNumberSelectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetCrosswordsPlayed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCrosswordsPlayed" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetCrosswordsPlayed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCrosswordsPlayedResponse" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetPointsFromAProfile_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPointsFromAProfile" />
   </wsdl:message>
@@ -41,6 +53,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdminResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetAdmin_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCrosswordNumberSelected">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSelected" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetCrosswordNumberSelected_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSelectedResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetCrosswordNumberSelected_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosswordsPlayed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayed" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetCrosswordsPlayed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayedResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetCrosswordsPlayed_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPointsFromAProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetPointsFromAProfile" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetPointsFromAProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetPointsFromAProfileResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetPointsFromAProfile_OutputMessage" />
@@ -55,6 +75,24 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetAdmin">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosswordNumberSelected">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSelected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosswordsPlayed">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordsPlayed" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
