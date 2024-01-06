@@ -16,9 +16,12 @@
             <Border
                 Visibility="Visible"
                 HorizontalAlignment="Center"
-                Background="Black"
                 CornerRadius="20"
                 Height="82" Width="792">
+
+                <Border.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.8"/>
+                </Border.Background>
 
                 <Label Content="{x:Static p:Resources.And_the_selected_crossword_is_}"
                 FontFamily="{StaticResource K2DBold}"
@@ -34,9 +37,12 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Margin="440,70,0,0"
-                Background="Black"
                 CornerRadius="20"
                 Height="360" Width="360">
+
+                <Border.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.8"/>
+                </Border.Background>
 
                 <StackPanel>
                     <TextBlock 

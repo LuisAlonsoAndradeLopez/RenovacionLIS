@@ -146,16 +146,24 @@ namespace Renovación_LIS_Client.View
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
-            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(MainWindow.loggedProfile.Player.NickName);
-            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-            multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
+            //if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
+            //    lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4) {
+                lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(MainWindow.loggedProfile.Player.NickName);
+                MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+                multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
+
+                Thread.Sleep(1000);
+
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, true));
+            //}
+            //else
+            //{
+            //    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Should be in the lobby 2-4 players to start the game");
+            //}
 
             lobbyNonCallbackMethodsClient.Close();
-            Thread.Sleep(1000);
-
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, true));
         }
         #endregion
 

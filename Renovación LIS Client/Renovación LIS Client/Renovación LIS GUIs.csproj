@@ -727,5 +727,11 @@
   <ItemGroup>
     <Resource Include="images\doctoradoENCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\salónCristalCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

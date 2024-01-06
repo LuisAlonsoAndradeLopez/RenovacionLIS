@@ -961,6 +961,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Should be in the lobby 2-4 players to start the game.
+        /// </summary>
+        public static string Should_be_in_the_lobby_2_4_players_to_start_the_game {
+            get {
+                return ResourceManager.GetString("Should be in the lobby 2-4 players to start the game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Show friends invitations.
         /// </summary>
         public static string Show_friends_invitations {
@@ -1174,6 +1183,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Unban {
             get {
                 return ResourceManager.GetString("Unban", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verify answer.
+        /// </summary>
+        public static string Verify_answer {
+            get {
+                return ResourceManager.GetString("Verify answer", resourceCulture);
             }
         }
         

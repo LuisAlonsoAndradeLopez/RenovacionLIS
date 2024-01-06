@@ -1,14 +1,10 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference;
@@ -57,6 +53,42 @@ namespace Renovación_LIS_Client.View
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MultiplayerCrosswordView(mainWindow));
+        }
+
+        public void SetVisibleToTheSelectedCrosswordBorder()
+        {
+            SelectedCrosswordBorder.Visibility = Visibility.Visible;
+            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+            switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
+            {
+                case 1:
+                    SelectedCrosswordName.Text = "105";
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
+                    break;
+
+                case 2:
+                    SelectedCrosswordName.Text = "CC3";
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
+                    break;
+
+                case 3:
+                    SelectedCrosswordName.Text = resourceManager.GetString("ECONEX bathroom low level", cultureInfo);
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
+                    break;
+
+                case 4:
+                    SelectedCrosswordName.Text = resourceManager.GetString("Doctorated in CS", cultureInfo);
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.jpeg");
+                    break;
+
+                case 5:
+                    SelectedCrosswordName.Text = resourceManager.GetString("Crystal saloon", cultureInfo);
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\salónCristalMultiplayerCrosswordSelectionImage.jpeg");
+                    break;
+
+            }
+
+            Thread.Sleep(3000);
         }
 
 
@@ -119,44 +151,9 @@ namespace Renovación_LIS_Client.View
 
         public void ShowTheSelectedCrosswordBorder()
         {
-            //No internacionaliza
-            //Pasar la imagen del salon cristal
-            //verificar las pantallas que acedan bien al randommultiplayercrosswordselectorview
-
             if (PageStateManager.CurrentPage is RandomMultiplayerCrosswordGeneratorView currentPage)
             {
-                currentPage.SelectedCrosswordBorder.Visibility = Visibility.Visible;
-                MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-                switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
-                {
-                    case 1:
-                        currentPage.SelectedCrosswordName.Text = "105";
-                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
-                        break;
-
-                    case 2:
-                        currentPage.SelectedCrosswordName.Text = "CC3";
-                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
-                        break;
-
-                    case 3:
-                        currentPage.SelectedCrosswordName.Text = resourceManager.GetString("ECONEX bathroom low level", cultureInfo);
-                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
-                        break;
-
-                    case 4:
-                        currentPage.SelectedCrosswordName.Text = resourceManager.GetString("Doctorated in CS", cultureInfo);
-                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.jpeg");
-                        break;
-
-                    case 5:
-                        currentPage.SelectedCrosswordName.Text = resourceManager.GetString("Crystal saloon", cultureInfo);
-                        currentPage.SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
-                        break;
-
-                }
-
-                Thread.Sleep(3000);
+                currentPage.SetVisibleToTheSelectedCrosswordBorder();
             }
         }
         #endregion
