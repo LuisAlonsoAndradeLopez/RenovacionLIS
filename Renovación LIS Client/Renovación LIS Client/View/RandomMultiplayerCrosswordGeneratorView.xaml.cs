@@ -16,13 +16,17 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class RandomMultiplayerCrosswordGeneratorView : Page, IMultiplayerCrosswordCallbackMethodsCallback
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
-        
 
         public static MultiplayerCrosswordCallbackMethodsClient multiplayerCrosswordCallbackMethodsClient;
+        #endregion
 
+
+
+        #region Constructors
         public RandomMultiplayerCrosswordGeneratorView() 
         {
             multiplayerCrosswordCallbackMethodsClient = new MultiplayerCrosswordCallbackMethodsClient(new InstanceContext(this));
@@ -38,17 +42,22 @@ namespace Renovación_LIS_Client.View
 
             InitializeComponent();
 
-            Thread.Sleep(1000);
+            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
 
             if (openedByTheAdmin)
             {
+                multiplayerCrosswordNonCallbackMethodsClient.SetTheCrosswordIsNotComplete();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartTheCrosswordSelectionAlgorythm();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowTheSelectedCrosswordBorderToConnectedClients();
-                //RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheMultiplayerCrosswordViewToConnectedClients();
+                Thread.Sleep(3000);
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheMultiplayerCrosswordViewToConnectedClients();
             }
         }
+        #endregion
 
 
+
+        #region Auxiliary methods
         public void GoToMultiplayerCrosswordView()
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -63,49 +72,59 @@ namespace Renovación_LIS_Client.View
             {
                 case 1:
                     SelectedCrosswordName.Text = "105";
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 2:
                     SelectedCrosswordName.Text = "CC3";
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 3:
                     SelectedCrosswordName.Text = resourceManager.GetString("ECONEX bathroom low level", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 4:
                     SelectedCrosswordName.Text = resourceManager.GetString("Doctorated in CS", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.jpeg");
                     break;
 
                 case 5:
                     SelectedCrosswordName.Text = resourceManager.GetString("Crystal saloon", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByGetImageByRenovaciónLISStoragedImagePathPath("images\\salónCristalMultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\salónCristalMultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
             }
 
             Thread.Sleep(3000);
         }
+        #endregion
+
 
 
         #region Callback methods
-        public void UpdateCountdown(int seconds)
-        {
-            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
-            {
-                //currentPage.UpdateCountdown();
-            }
-        }
 
         public void UpdateCrossword()
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
-                //currentPage.UpdateCrosswordCompletition();
+                currentPage.UpdateCrosswordCompletition();
+            }
+        }
+        public void UpdateGameCountdown(int seconds)
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.UpdateGameCountdown(seconds);
+            }
+        }
+
+        public void UpdateGlobalCountdown(int seconds)
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.UpdateGlobalCountdown(seconds);
             }
         }
 
@@ -113,7 +132,7 @@ namespace Renovación_LIS_Client.View
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
-                //currentPage.UpdateProfilesPointsList();
+                currentPage.UpdateProfilesPointsList();
             }
         }
 
@@ -141,7 +160,7 @@ namespace Renovación_LIS_Client.View
             }
         }
         
-        public void OpenMultiplayerCrosswordView(int crosswordNumberSelected)
+        public void OpenMultiplayerCrosswordView()
         {
             if (PageStateManager.CurrentPage is RandomMultiplayerCrosswordGeneratorView currentPage)
             {
@@ -154,6 +173,46 @@ namespace Renovación_LIS_Client.View
             if (PageStateManager.CurrentPage is RandomMultiplayerCrosswordGeneratorView currentPage)
             {
                 currentPage.SetVisibleToTheSelectedCrosswordBorder();
+            }
+        }
+
+        public void ShowGoText()
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.UpdateGoText();
+            }
+        }
+
+        public void ShowTimesUpText()
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.UpdateTimesUpText();
+            }
+        }
+
+        public void OpenLobbyView()
+        {
+            if (PageStateManager.CurrentPage is WinnersView currentPage)
+            {
+                //currentPage.ShowLobbyView();
+            }
+        }
+
+        public void OpenRandomMultiplayerCrosswordGeneratorView()
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.OpenRandomMultiplayerCrosswordGeneratorView();
+            }
+        }
+
+        public void OpenWinnersView()
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.OpenWinnersView();
             }
         }
         #endregion

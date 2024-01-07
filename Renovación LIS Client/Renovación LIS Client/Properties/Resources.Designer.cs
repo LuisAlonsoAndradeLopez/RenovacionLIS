@@ -601,6 +601,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Go!.
+        /// </summary>
+        public static string Go_ {
+            get {
+                return ResourceManager.GetString("Go!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a has joined to the chat..
         /// </summary>
         public static string Has_joined_to_the_chat {
@@ -1138,6 +1147,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Third_place {
             get {
                 return ResourceManager.GetString("Third place", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Times up!.
+        /// </summary>
+        public static string Times_up_ {
+            get {
+                return ResourceManager.GetString("Times up!", resourceCulture);
             }
         }
         

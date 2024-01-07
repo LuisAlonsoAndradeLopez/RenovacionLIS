@@ -1,4 +1,6 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System;
+using System.ServiceModel;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -7,6 +9,9 @@ namespace ServicesTCP.ServiceContracts
     {
         [OperationContract]
         string GetAdmin();
+
+        [OperationContract]
+        List<String> GetConnectedProfiles();
 
         [OperationContract]
         int GetCrosswordNumberSelected();
@@ -19,6 +24,12 @@ namespace ServicesTCP.ServiceContracts
         
         [OperationContract]
         void SetAdmin(string username);
+
+        [OperationContract]
+        void SetTheCrosswordIsComplete();
+
+        [OperationContract]
+        void SetTheCrosswordIsNotComplete();
     }
 
 
@@ -36,6 +47,12 @@ namespace ServicesTCP.ServiceContracts
         void Disconnect(string username);
 
         [OperationContract(IsOneWay = true)]
+        void EndGame();
+
+        [OperationContract(IsOneWay = true)]
+        void OpenTheLobbyViewToAllConnectedProfiles();
+
+        [OperationContract(IsOneWay = true)]
         void OpenTheMultiplayerCrosswordViewToConnectedClients();
 
         [OperationContract(IsOneWay = true)]
@@ -45,7 +62,10 @@ namespace ServicesTCP.ServiceContracts
         void ShowTheSelectedCrosswordBorderToConnectedClients();
 
         [OperationContract(IsOneWay = true)]
-        void StartCountdown(int totalSeconds);
+        void StartGameCountdown(int totalSeconds);
+
+        [OperationContract(IsOneWay = true)]
+        void StartGlobalCountdown(int totalSeconds);
 
         [OperationContract(IsOneWay = true)]
         void StartTheCrosswordSelectionAlgorythm();
@@ -60,16 +80,34 @@ namespace ServicesTCP.ServiceContracts
     public interface IMultiplayerCrosswordCallback
     {
         [OperationContract(IsOneWay = true)]
-        void OpenMultiplayerCrosswordView(int crosswordNumberSelected);
+        void ShowGoText();
+
+        [OperationContract(IsOneWay = true)]
+        void ShowTimesUpText();
+
+        [OperationContract(IsOneWay = true)]
+        void OpenLobbyView();
+
+        [OperationContract(IsOneWay = true)]
+        void OpenMultiplayerCrosswordView();
+
+        [OperationContract(IsOneWay = true)]
+        void OpenRandomMultiplayerCrosswordGeneratorView();
 
         [OperationContract(IsOneWay = true)]
         void OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage();
 
         [OperationContract(IsOneWay = true)]
+        void OpenWinnersView();
+
+        [OperationContract(IsOneWay = true)]
         void ShowTheSelectedCrosswordBorder();
 
         [OperationContract(IsOneWay = true)]
-        void UpdateCountdown(int seconds);
+        void UpdateGameCountdown(int seconds);
+
+        [OperationContract(IsOneWay = true)]
+        void UpdateGlobalCountdown(int seconds);
 
         [OperationContract(IsOneWay = true)]
         void UpdateCrossword();

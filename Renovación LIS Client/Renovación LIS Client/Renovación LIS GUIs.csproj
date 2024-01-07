@@ -385,6 +385,9 @@
     <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\ServiceMultiplayerCrosswordForNonCallbackMethods.wsdl" />
     <None Include="Connected Services\ServicePlayerReference\item.xsd">
       <SubType>Designer</SubType>
@@ -722,16 +725,16 @@
     <Resource Include="images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\doctoradoENCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\salónCristalCrosswordImage.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

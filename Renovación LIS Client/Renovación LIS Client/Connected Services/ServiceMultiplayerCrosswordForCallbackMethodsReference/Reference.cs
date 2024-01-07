@@ -34,6 +34,20 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/Disconnect")]
         System.Threading.Tasks.Task DisconnectAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/EndGame")]
+        void EndGame();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/EndGame")]
+        System.Threading.Tasks.Task EndGameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheLobbyViewToAllConn" +
+            "ectedProfiles")]
+        void OpenTheLobbyViewToAllConnectedProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheLobbyViewToAllConn" +
+            "ectedProfiles")]
+        System.Threading.Tasks.Task OpenTheLobbyViewToAllConnectedProfilesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheMultiplayerCrosswo" +
             "rdViewToConnectedClients")]
         void OpenTheMultiplayerCrosswordViewToConnectedClients();
@@ -58,11 +72,17 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
             "orderToConnectedClients")]
         System.Threading.Tasks.Task ShowTheSelectedCrosswordBorderToConnectedClientsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartCountdown")]
-        void StartCountdown(int totalSeconds);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartGameCountdown")]
+        void StartGameCountdown(int totalSeconds);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartCountdown")]
-        System.Threading.Tasks.Task StartCountdownAsync(int totalSeconds);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartGameCountdown")]
+        System.Threading.Tasks.Task StartGameCountdownAsync(int totalSeconds);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartGlobalCountdown")]
+        void StartGlobalCountdown(int totalSeconds);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartGlobalCountdown")]
+        System.Threading.Tasks.Task StartGlobalCountdownAsync(int totalSeconds);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartTheCrosswordSelectio" +
             "nAlgorythm")]
@@ -84,20 +104,39 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMultiplayerCrosswordCallbackMethodsCallback {
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowGoText")]
+        void ShowGoText();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTimesUpText")]
+        void ShowTimesUpText();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenLobbyView")]
+        void OpenLobbyView();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenMultiplayerCrosswordV" +
             "iew")]
-        void OpenMultiplayerCrosswordView(int crosswordNumberSelected);
+        void OpenMultiplayerCrosswordView();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenRandomMultiplayerCros" +
+            "swordGeneratorView")]
+        void OpenRandomMultiplayerCrosswordGeneratorView();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenRandomMultiplayerCros" +
             "swordGeneratorViewInTheCurrentLobbyViewChildPage")]
         void OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage();
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenWinnersView")]
+        void OpenWinnersView();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordB" +
             "order")]
         void ShowTheSelectedCrosswordBorder();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCountdown")]
-        void UpdateCountdown(int seconds);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateGameCountdown")]
+        void UpdateGameCountdown(int seconds);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateGlobalCountdown")]
+        void UpdateGlobalCountdown(int seconds);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrossword")]
         void UpdateCrossword();
@@ -158,6 +197,22 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
             return base.Channel.DisconnectAsync(username);
         }
         
+        public void EndGame() {
+            base.Channel.EndGame();
+        }
+        
+        public System.Threading.Tasks.Task EndGameAsync() {
+            return base.Channel.EndGameAsync();
+        }
+        
+        public void OpenTheLobbyViewToAllConnectedProfiles() {
+            base.Channel.OpenTheLobbyViewToAllConnectedProfiles();
+        }
+        
+        public System.Threading.Tasks.Task OpenTheLobbyViewToAllConnectedProfilesAsync() {
+            return base.Channel.OpenTheLobbyViewToAllConnectedProfilesAsync();
+        }
+        
         public void OpenTheMultiplayerCrosswordViewToConnectedClients() {
             base.Channel.OpenTheMultiplayerCrosswordViewToConnectedClients();
         }
@@ -182,12 +237,20 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
             return base.Channel.ShowTheSelectedCrosswordBorderToConnectedClientsAsync();
         }
         
-        public void StartCountdown(int totalSeconds) {
-            base.Channel.StartCountdown(totalSeconds);
+        public void StartGameCountdown(int totalSeconds) {
+            base.Channel.StartGameCountdown(totalSeconds);
         }
         
-        public System.Threading.Tasks.Task StartCountdownAsync(int totalSeconds) {
-            return base.Channel.StartCountdownAsync(totalSeconds);
+        public System.Threading.Tasks.Task StartGameCountdownAsync(int totalSeconds) {
+            return base.Channel.StartGameCountdownAsync(totalSeconds);
+        }
+        
+        public void StartGlobalCountdown(int totalSeconds) {
+            base.Channel.StartGlobalCountdown(totalSeconds);
+        }
+        
+        public System.Threading.Tasks.Task StartGlobalCountdownAsync(int totalSeconds) {
+            return base.Channel.StartGlobalCountdownAsync(totalSeconds);
         }
         
         public void StartTheCrosswordSelectionAlgorythm() {

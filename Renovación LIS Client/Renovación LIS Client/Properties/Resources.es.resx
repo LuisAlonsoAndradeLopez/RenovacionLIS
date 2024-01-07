@@ -297,6 +297,9 @@
   <data name="From" xml:space="preserve">
     <value>De</value>
   </data>
+  <data name="Go!" xml:space="preserve">
+    <value>¡Ya!</value>
+  </data>
   <data name="Has joined to the chat" xml:space="preserve">
     <value>se ha unido al chat.</value>
   </data>
@@ -476,6 +479,9 @@
   </data>
   <data name="Third place" xml:space="preserve">
     <value>Tercer lugar</value>
+  </data>
+  <data name="Times up!" xml:space="preserve">
+    <value>¡Se acabó!</value>
   </data>
   <data name="To confirm the new password, we'll send a code to your email" xml:space="preserve">
     <value>Para confirmar la nueva contraseña, te mandaremos un código a tu correo electrónico</value>

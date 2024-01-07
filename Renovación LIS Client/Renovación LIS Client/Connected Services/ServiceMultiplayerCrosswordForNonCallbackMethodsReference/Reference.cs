@@ -22,6 +22,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdminResponse")]
         System.Threading.Tasks.Task<string> GetAdminAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfilesRe" +
+            "sponse")]
+        string[] GetConnectedProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfilesRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<string[]> GetConnectedProfilesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSele" +
             "cted", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSele" +
             "ctedResponse")]
@@ -53,6 +61,26 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetAdmin", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetAdminResponse")]
         System.Threading.Tasks.Task SetAdminAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsCompl" +
+            "ete", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsCompl" +
+            "eteResponse")]
+        void SetTheCrosswordIsComplete();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsCompl" +
+            "ete", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsCompl" +
+            "eteResponse")]
+        System.Threading.Tasks.Task SetTheCrosswordIsCompleteAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotCo" +
+            "mplete", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotCo" +
+            "mpleteResponse")]
+        void SetTheCrosswordIsNotComplete();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotCo" +
+            "mplete", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotCo" +
+            "mpleteResponse")]
+        System.Threading.Tasks.Task SetTheCrosswordIsNotCompleteAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -90,6 +118,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
             return base.Channel.GetAdminAsync();
         }
         
+        public string[] GetConnectedProfiles() {
+            return base.Channel.GetConnectedProfiles();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetConnectedProfilesAsync() {
+            return base.Channel.GetConnectedProfilesAsync();
+        }
+        
         public int GetCrosswordNumberSelected() {
             return base.Channel.GetCrosswordNumberSelected();
         }
@@ -120,6 +156,22 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         public System.Threading.Tasks.Task SetAdminAsync(string username) {
             return base.Channel.SetAdminAsync(username);
+        }
+        
+        public void SetTheCrosswordIsComplete() {
+            base.Channel.SetTheCrosswordIsComplete();
+        }
+        
+        public System.Threading.Tasks.Task SetTheCrosswordIsCompleteAsync() {
+            return base.Channel.SetTheCrosswordIsCompleteAsync();
+        }
+        
+        public void SetTheCrosswordIsNotComplete() {
+            base.Channel.SetTheCrosswordIsNotComplete();
+        }
+        
+        public System.Threading.Tasks.Task SetTheCrosswordIsNotCompleteAsync() {
+            return base.Channel.SetTheCrosswordIsNotCompleteAsync();
         }
     }
 }

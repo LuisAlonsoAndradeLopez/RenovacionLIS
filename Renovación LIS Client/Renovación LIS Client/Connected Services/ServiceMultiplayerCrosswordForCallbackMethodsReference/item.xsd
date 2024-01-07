@@ -22,6 +22,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EndGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTheLobbyViewToAllConnectedProfiles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OpenTheMultiplayerCrosswordViewToConnectedClients">
     <xs:complexType>
       <xs:sequence />
@@ -39,7 +49,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="StartCountdown">
+  <xs:element name="StartGameCountdown">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="totalSeconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartGlobalCountdown">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="totalSeconds" type="xs:int" />
@@ -56,14 +73,37 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ShowGoText">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTimesUpText">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenLobbyView">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OpenMultiplayerCrosswordView">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="crosswordNumberSelected" type="xs:int" />
-      </xs:sequence>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenRandomMultiplayerCrosswordGeneratorView">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenWinnersView">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -73,7 +113,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateCountdown">
+  <xs:element name="UpdateGameCountdown">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="seconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGlobalCountdown">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="seconds" type="xs:int" />

@@ -16,6 +16,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8130/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8130/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8130/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetAdmin_InputMessage">
@@ -23,6 +24,12 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetConnectedProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetConnectedProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectedProfilesResponse" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_GetCrosswordNumberSelected_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCrosswordNumberSelected" />
@@ -48,10 +55,26 @@
   <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_SetAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetAdminResponse" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTheCrosswordIsComplete" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTheCrosswordIsCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsNotComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTheCrosswordIsNotComplete" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsNotComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTheCrosswordIsNotCompleteResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMultiplayerCrosswordNonCallbackMethods">
     <wsdl:operation name="GetAdmin">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdminResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectedProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfiles" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetConnectedProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfilesResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetConnectedProfiles_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCrosswordNumberSelected">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetCrosswordNumberSelected" message="tns:IMultiplayerCrosswordNonCallbackMethods_GetCrosswordNumberSelected_InputMessage" />
@@ -69,12 +92,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetAdmin" message="tns:IMultiplayerCrosswordNonCallbackMethods_SetAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetAdminResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_SetAdmin_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SetTheCrosswordIsComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsComplete" message="tns:IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsCompleteResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTheCrosswordIsNotComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotComplete" message="tns:IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsNotComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotCompleteResponse" message="tns:IMultiplayerCrosswordNonCallbackMethods_SetTheCrosswordIsNotComplete_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods" type="tns:IMultiplayerCrosswordNonCallbackMethods">
     <wsp:PolicyReference URI="#NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetAdmin">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectedProfiles">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfiles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -111,6 +151,24 @@
     </wsdl:operation>
     <wsdl:operation name="SetAdmin">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTheCrosswordIsComplete">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTheCrosswordIsNotComplete">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotComplete" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

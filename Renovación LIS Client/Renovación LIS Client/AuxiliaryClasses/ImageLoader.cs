@@ -44,7 +44,7 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
             return imageSource;
         }
 
-        public BitmapImage GetImageByGetImageByRenovaciónLISStoragedImagePathPath(string filePath)
+        public BitmapImage GetImageByRenovaciónLISStoragedImagePath(string filePath)
         {
             string incompletePath = Path.GetFullPath(filePath);
             string pathPartToDelete = "bin\\Debug\\";

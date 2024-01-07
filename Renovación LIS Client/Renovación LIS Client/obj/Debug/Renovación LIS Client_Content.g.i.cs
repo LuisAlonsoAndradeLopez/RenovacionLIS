@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/sal%c3%b3ncristalmultiplayercrosswordselectionimage.jpeg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/doctoradoencienciasdelacomputaci%c3%b3nmultiplayercrosswordselectionimage." +
+    "jpeg")]
 
 

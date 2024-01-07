@@ -417,6 +417,8 @@
 
                 <Button Content="{x:Static p:Resources.Accept}" 
                     Style="{StaticResource GreenButton}"
+                    Name="AcceptButton"
+                    Visibility="Collapsed"
                     Height="56"
                     Width="116"
                     FontSize="20"
