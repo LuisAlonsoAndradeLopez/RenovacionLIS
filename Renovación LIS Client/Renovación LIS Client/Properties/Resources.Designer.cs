@@ -61,6 +61,232 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 1. Course that addresses legal aspects related to the technology.
+        /// </summary>
+        public static string _1__Course_that_addresses_legal_aspects_related_to_the_technology {
+            get {
+                return ResourceManager.GetString("1. Course that addresses legal aspects related to the technology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1. Data structure that follows the FIFO principle.
+        /// </summary>
+        public static string _1__Data_structure_that_follows_the_FIFO_principle {
+            get {
+                return ResourceManager.GetString("1. Data structure that follows the FIFO principle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1. Practices to avoid during programming.
+        /// </summary>
+        public static string _1__Practices_to_avoid_during_programming {
+            get {
+                return ResourceManager.GetString("1. Practices to avoid during programming", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 1. Statement used in databases to retrieve data.
+        /// </summary>
+        public static string _1__Statement_used_in_databases_to_retrieve_data {
+            get {
+                return ResourceManager.GetString("1. Statement used in databases to retrieve data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 2. High-level programming language known for its simplicity and readability.
+        /// </summary>
+        public static string _2__High_level_programming_language_known_for_its_simplicity_and_readability {
+            get {
+                return ResourceManager.GetString("2. High-level programming language known for its simplicity and readability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 2. Measurement of the complexity of a program based on its control structure.
+        /// </summary>
+        public static string _2__Measurement_of_the_complexity_of_a_program_based_on_its_control_structure {
+            get {
+                return ResourceManager.GetString("2. Measurement of the complexity of a program based on its control structure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 2. Model to represent the logical structure of a database.
+        /// </summary>
+        public static string _2__Model_to_represent_the_logical_structure_of_a_database {
+            get {
+                return ResourceManager.GetString("2. Model to represent the logical structure of a database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 2. Visual component that allows interaction with a program.
+        /// </summary>
+        public static string _2__Visual_component_that_allows_interaction_with_a_program {
+            get {
+                return ResourceManager.GetString("2. Visual component that allows interaction with a program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 3. Educational center for software engineering.
+        /// </summary>
+        public static string _3__Educational_center_for_software_engineering {
+            get {
+                return ResourceManager.GetString("3. Educational center for software engineering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 3. Process of creating and developing software.
+        /// </summary>
+        public static string _3__Process_of_creating_and_developing_software {
+            get {
+                return ResourceManager.GetString("3. Process of creating and developing software", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 3. Repetitive control structure.
+        /// </summary>
+        public static string _3__Repetitive_control_structure {
+            get {
+                return ResourceManager.GetString("3. Repetitive control structure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 3. Statement used in databases to retrieve data.
+        /// </summary>
+        public static string _3__Statement_used_in_databases_to_retrieve_data {
+            get {
+                return ResourceManager.GetString("3. Statement used in databases to retrieve data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 4. Markup language for creating web pages.
+        /// </summary>
+        public static string _4__Markup_language_for_creating_web_pages {
+            get {
+                return ResourceManager.GetString("4. Markup language for creating web pages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 4. Process of obtaining and documenting the requirements of a system.
+        /// </summary>
+        public static string _4__Process_of_obtaining_and_documenting_the_requirements_of_a_system {
+            get {
+                return ResourceManager.GetString("4. Process of obtaining and documenting the requirements of a system", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 4. Teacher who has Sun Certified Java Programmer.
+        /// </summary>
+        public static string _4__Teacher_who_has_Sun_Certified_Java_Programmer {
+            get {
+                return ResourceManager.GetString("4. Teacher who has Sun Certified Java Programmer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 5. Condition-based repetitive control structure.
+        /// </summary>
+        public static string _5__Condition_based_repetitive_control_structure {
+            get {
+                return ResourceManager.GetString("5. Condition-based repetitive control structure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 5. Open source operating system.
+        /// </summary>
+        public static string _5__Open_source_operating_system {
+            get {
+                return ResourceManager.GetString("5. Open source operating system", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 5. Popular integrated development environment for various languages.
+        /// </summary>
+        public static string _5__Popular_integrated_development_environment_for_various_languages {
+            get {
+                return ResourceManager.GetString("5. Popular integrated development environment for various languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 5. Professor who has a Master&apos;s Degree in Free Software at the Open University of Catalonia.
+        /// </summary>
+        public static string _5__Professor_who_has_a_Master_s_Degree_in_Free_Software_at_the_Open_University_of_Catalonia {
+            get {
+                return ResourceManager.GetString("5. Professor who has a Master\'s Degree in Free Software at the Open University of" +
+                        " Catalonia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 6. Fundamental skill set and concepts in computer science.
+        /// </summary>
+        public static string _6__Fundamental_skill_set_and_concepts_in_computer_science {
+            get {
+                return ResourceManager.GetString("6. Fundamental skill set and concepts in computer science", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 6. Hosting and version control platform for collaborative development.
+        /// </summary>
+        public static string _6__Hosting_and_version_control_platform_for_collaborative_development {
+            get {
+                return ResourceManager.GetString("6. Hosting and version control platform for collaborative development", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 6. Integrated Development Environment (IDE) widely used for java.
+        /// </summary>
+        public static string _6__Integrated_Development_Environment__IDE__widely_used_for_java {
+            get {
+                return ResourceManager.GetString("6. Integrated Development Environment (IDE) widely used for java", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 6. Integrated development environment for Java.
+        /// </summary>
+        public static string _6__Integrated_development_environment_for_Java {
+            get {
+                return ResourceManager.GetString("6. Integrated development environment for Java", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 7. Software development methodology that uses interaction diagrams.
+        /// </summary>
+        public static string _7__Software_development_methodology_that_uses_interaction_diagrams {
+            get {
+                return ResourceManager.GetString("7. Software development methodology that uses interaction diagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 8. Programming language for web development server side.
+        /// </summary>
+        public static string _8__Programming_language_for_web_development_server_side {
+            get {
+                return ResourceManager.GetString("8. Programming language for web development server side", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a A code has been sent to your email.
         /// </summary>
         public static string A_code_has_been_sent_to_your_email {
@@ -291,6 +517,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Code_for_change_your_password {
             get {
                 return ResourceManager.GetString("Code for change your password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Columns.
+        /// </summary>
+        public static string Columns {
+            get {
+                return ResourceManager.GetString("Columns", resourceCulture);
             }
         }
         
@@ -912,6 +1147,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Reject_friend_request {
             get {
                 return ResourceManager.GetString("Reject friend request", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Rows.
+        /// </summary>
+        public static string Rows {
+            get {
+                return ResourceManager.GetString("Rows", resourceCulture);
             }
         }
         

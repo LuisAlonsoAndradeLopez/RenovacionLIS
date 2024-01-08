@@ -56,7 +56,10 @@ namespace ServicesTCP.ServiceContracts
         void OpenTheMultiplayerCrosswordViewToConnectedClients();
 
         [OperationContract(IsOneWay = true)]
-        void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(string adminNickname);
+        void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
+
+        [OperationContract(IsOneWay = true)]
+        void ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
 
         [OperationContract(IsOneWay = true)]
         void ShowTheSelectedCrosswordBorderToConnectedClients();
@@ -80,7 +83,13 @@ namespace ServicesTCP.ServiceContracts
     public interface IMultiplayerCrosswordCallback
     {
         [OperationContract(IsOneWay = true)]
+        void ShowBlackScreenAnimationOnLobbyViewOrItsChildPages();
+
+        [OperationContract(IsOneWay = true)]
         void ShowGoText();
+
+        [OperationContract(IsOneWay = true)]
+        void ShowTheSelectedCrosswordAndItsQustions();
 
         [OperationContract(IsOneWay = true)]
         void ShowTimesUpText();

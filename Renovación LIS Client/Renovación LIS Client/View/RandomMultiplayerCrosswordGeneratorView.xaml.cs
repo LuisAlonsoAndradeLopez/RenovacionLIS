@@ -32,7 +32,7 @@ namespace Renovación_LIS_Client.View
             multiplayerCrosswordCallbackMethodsClient = new MultiplayerCrosswordCallbackMethodsClient(new InstanceContext(this));
         }
 
-        public RandomMultiplayerCrosswordGeneratorView(MainWindow mainWindow, bool openedByTheAdmin)
+        public RandomMultiplayerCrosswordGeneratorView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
             this.mainWindow = mainWindow;
@@ -44,18 +44,19 @@ namespace Renovación_LIS_Client.View
 
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
 
-            if (openedByTheAdmin)
+            if (MainWindow.loggedProfile.Player.NickName == multiplayerCrosswordNonCallbackMethodsClient.GetAdmin())
             {
                 multiplayerCrosswordNonCallbackMethodsClient.SetTheCrosswordIsNotComplete();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartTheCrosswordSelectionAlgorythm();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowTheSelectedCrosswordBorderToConnectedClients();
-                Thread.Sleep(3000);
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheMultiplayerCrosswordViewToConnectedClients();
             }
         }
         #endregion
 
-
+        //TODO:
+        //Internacionalizar preguntas del crucigrama
+        //Metodo EndGame genera error
 
         #region Auxiliary methods
         public void GoToMultiplayerCrosswordView()
@@ -87,7 +88,7 @@ namespace Renovación_LIS_Client.View
 
                 case 4:
                     SelectedCrosswordName.Text = resourceManager.GetString("Doctorated in CS", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 5:
@@ -96,8 +97,6 @@ namespace Renovación_LIS_Client.View
                     break;
 
             }
-
-            Thread.Sleep(3000);
         }
         #endregion
 
@@ -176,11 +175,43 @@ namespace Renovación_LIS_Client.View
             }
         }
 
+        public void ShowBlackScreenAnimationOnLobbyViewOrItsChildPages()
+        {
+            if (PageStateManager.CurrentPage is LobbyView lobbyView)
+            {
+                lobbyView.StartBlackScreenAnimation();
+            }
+            else if (PageStateManager.CurrentPage is BannedPlayersView bannedPlayersView)
+            {
+                bannedPlayersView.StartBlackScreenAnimation();
+            }
+            else if (PageStateManager.CurrentPage is FriendsView friendsView)
+            {
+                friendsView.StartBlackScreenAnimation();
+            }
+            else if (PageStateManager.CurrentPage is ChatView chatView)
+            {
+                chatView.StartBlackScreenAnimation();
+            }
+            else if (PageStateManager.CurrentPage is ConfigurationView configurationView)
+            {
+                //configurationView.StartBlackScreenAnimation();
+            }
+        }
+
         public void ShowGoText()
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
                 currentPage.UpdateGoText();
+            }
+        }
+
+        public void ShowTheSelectedCrosswordAndItsQustions()
+        {
+            if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
+            {
+                currentPage.ShowTheSelectCrosswordAndItsQuestions();
             }
         }
 
@@ -196,7 +227,7 @@ namespace Renovación_LIS_Client.View
         {
             if (PageStateManager.CurrentPage is WinnersView currentPage)
             {
-                //currentPage.ShowLobbyView();
+                currentPage.ShowLobbyView();
             }
         }
 

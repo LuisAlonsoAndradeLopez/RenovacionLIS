@@ -36,8 +36,11 @@
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenTheMultiplayerCrosswordViewToConnectedClients_InputMessage">
     <wsdl:part name="parameters" element="tns:OpenTheMultiplayerCrosswordViewToConnectedClients" />
   </wsdl:message>
-  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin_InputMessage">
-    <wsdl:part name="parameters" element="tns:OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin" />
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordBorderToConnectedClients_InputMessage">
     <wsdl:part name="parameters" element="tns:ShowTheSelectedCrosswordBorderToConnectedClients" />
@@ -54,8 +57,14 @@
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateCrosswordsToProfilesToAllConnectedProfiles" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowBlackScreenAnimationOnLobbyViewOrItsChildPages_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowBlackScreenAnimationOnLobbyViewOrItsChildPages" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowGoText_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowGoText" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordAndItsQustions_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowTheSelectedCrosswordAndItsQustions" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowTimesUpText_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowTimesUpText" />
@@ -109,8 +118,11 @@
     <wsdl:operation name="OpenTheMultiplayerCrosswordViewToConnectedClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheMultiplayerCrosswordViewToConnectedClients" message="tns:IMultiplayerCrosswordCallbackMethods_OpenTheMultiplayerCrosswordViewToConnectedClients_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin" message="tns:IMultiplayerCrosswordCallbackMethods_OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin_InputMessage" />
+    <wsdl:operation name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages" message="tns:IMultiplayerCrosswordCallbackMethods_OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles" message="tns:IMultiplayerCrosswordCallbackMethods_ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ShowTheSelectedCrosswordBorderToConnectedClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordBorderToConnectedClients" message="tns:IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordBorderToConnectedClients_InputMessage" />
@@ -127,8 +139,14 @@
     <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfilesToAllConnectedProfiles" message="tns:IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPages">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationOnLobbyViewOrItsChildPages" message="tns:IMultiplayerCrosswordCallbackMethods_ShowBlackScreenAnimationOnLobbyViewOrItsChildPages_OutputCallbackMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ShowGoText">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowGoText" message="tns:IMultiplayerCrosswordCallbackMethods_ShowGoText_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowTheSelectedCrosswordAndItsQustions">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordAndItsQustions" message="tns:IMultiplayerCrosswordCallbackMethods_ShowTheSelectedCrosswordAndItsQustions_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="ShowTimesUpText">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTimesUpText" message="tns:IMultiplayerCrosswordCallbackMethods_ShowTimesUpText_OutputCallbackMessage" />
@@ -203,8 +221,14 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin">
-      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin" style="document" />
+    <wsdl:operation name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -239,8 +263,20 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPages">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationOnLobbyViewOrItsChildPages" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ShowGoText">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowGoText" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTheSelectedCrosswordAndItsQustions">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordAndItsQustions" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

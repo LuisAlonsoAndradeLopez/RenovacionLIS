@@ -57,12 +57,20 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         System.Threading.Tasks.Task OpenTheMultiplayerCrosswordViewToConnectedClientsAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerC" +
-            "rosswordGeneratorViewToConnectedClientsExceptTheAdmin")]
-        void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(string adminNickname);
+            "rosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages")]
+        void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheRandomMultiplayerC" +
-            "rosswordGeneratorViewToConnectedClientsExceptTheAdmin")]
-        System.Threading.Tasks.Task OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdminAsync(string adminNickname);
+            "rosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages")]
+        System.Threading.Tasks.Task OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPagesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationO" +
+            "nLobbyViewOrItsChildPagesToAllConnectedProfiles")]
+        void ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationO" +
+            "nLobbyViewOrItsChildPagesToAllConnectedProfiles")]
+        System.Threading.Tasks.Task ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfilesAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordB" +
             "orderToConnectedClients")]
@@ -104,8 +112,16 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMultiplayerCrosswordCallbackMethodsCallback {
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationO" +
+            "nLobbyViewOrItsChildPages")]
+        void ShowBlackScreenAnimationOnLobbyViewOrItsChildPages();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowGoText")]
         void ShowGoText();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTheSelectedCrosswordA" +
+            "ndItsQustions")]
+        void ShowTheSelectedCrosswordAndItsQustions();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowTimesUpText")]
         void ShowTimesUpText();
@@ -221,12 +237,20 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
             return base.Channel.OpenTheMultiplayerCrosswordViewToConnectedClientsAsync();
         }
         
-        public void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(string adminNickname) {
-            base.Channel.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(adminNickname);
+        public void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages() {
+            base.Channel.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
         }
         
-        public System.Threading.Tasks.Task OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdminAsync(string adminNickname) {
-            return base.Channel.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdminAsync(adminNickname);
+        public System.Threading.Tasks.Task OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPagesAsync() {
+            return base.Channel.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPagesAsync();
+        }
+        
+        public void ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles() {
+            base.Channel.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
+        }
+        
+        public System.Threading.Tasks.Task ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfilesAsync() {
+            return base.Channel.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfilesAsync();
         }
         
         public void ShowTheSelectedCrosswordBorderToConnectedClients() {

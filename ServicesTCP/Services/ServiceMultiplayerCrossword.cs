@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.ServiceModel;
 using System.Threading;
 using ServicesTCP.ServiceContracts;
@@ -73,11 +74,12 @@ namespace ServicesTCP.Services
     {
         private static string admin;
         private static readonly Dictionary<string, IMultiplayerCrosswordCallback> connectedProfiles = new Dictionary<string, IMultiplayerCrosswordCallback>();
-        private static readonly Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
+        private static Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
         private static readonly int[] crosswordsPlayedNumbers = new int[3];
         private static int crosswordsPlayed = 0;
         private static int crosswordNumberSelected;
         private static bool selectedCrosswordCompleted = false;
+
 
 
         #region Callback methods
@@ -112,11 +114,14 @@ namespace ServicesTCP.Services
 
         public void EndGame()
         {
-            foreach (var key in profilesAndItsPoints.Keys)
+            List<string> keysCopy = new List<string>(profilesAndItsPoints.Keys);
+
+            foreach (string key in keysCopy)
             {
                 profilesAndItsPoints[key] = 0;
             }
-            Array.Clear(crosswordsPlayedNumbers, -1, crosswordsPlayedNumbers.Length);
+
+            Array.Clear(crosswordsPlayedNumbers, 0, crosswordsPlayedNumbers.Length);
             crosswordsPlayed = 0;
             crosswordNumberSelected = -1;
         }
@@ -137,15 +142,24 @@ namespace ServicesTCP.Services
             }
         }
 
-        public void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(string adminNickname)
+        public void OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages()
         {
             foreach (var profile in connectedProfiles)
             {
-                if (profile.Key != adminNickname)
-                {
-                    profile.Value.OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage();
-                }
+                profile.Value.OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage();
             }
+
+            //Thread.Sleep(3000);
+        }
+
+        public void ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles()
+        {
+            foreach (var profile in connectedProfiles)
+            {
+                profile.Value.ShowBlackScreenAnimationOnLobbyViewOrItsChildPages();
+            }
+
+            Thread.Sleep(1000);
         }
 
         public void ShowTheSelectedCrosswordBorderToConnectedClients()
@@ -154,6 +168,8 @@ namespace ServicesTCP.Services
             {
                 profile.ShowTheSelectedCrosswordBorder();
             }
+
+            Thread.Sleep(3000);
         }
 
         public void StartTheCrosswordSelectionAlgorythm()
@@ -191,8 +207,6 @@ namespace ServicesTCP.Services
                 }
             }
 
-            Thread.Sleep(3000);
-
             if (crosswordsPlayed == 3)
             {
                 OpenWinnersViewToAllConnectedProfiles();
@@ -212,6 +226,7 @@ namespace ServicesTCP.Services
             }
 
             ShowGoTextToAllConnectedProfiles();
+            ShowTheSelectedCrosswordAndItsQustionsToAllConnectedProfiles();
         }
 
         public void UpdateCrosswordsToProfilesToAllConnectedProfiles()
@@ -248,6 +263,16 @@ namespace ServicesTCP.Services
             {
                 profile.ShowGoText();
             }
+
+            Thread.Sleep(1000);
+        }
+
+        private void ShowTheSelectedCrosswordAndItsQustionsToAllConnectedProfiles()
+        {
+            foreach (var profile in connectedProfiles.Values)
+            {
+                profile.ShowTheSelectedCrosswordAndItsQustions();
+            }
         }
 
         private void ShowTimesUpTextToAllConnectedProfiles()
@@ -256,6 +281,8 @@ namespace ServicesTCP.Services
             {
                 profile.ShowTimesUpText();
             }
+
+            Thread.Sleep(3000);
         }
 
         private void UpdateGameCountdownForAllConnectedProfiles(int seconds)

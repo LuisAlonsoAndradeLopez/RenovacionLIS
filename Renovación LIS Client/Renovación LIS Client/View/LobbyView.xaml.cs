@@ -3,13 +3,14 @@ using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using domain;
+using System.Windows.Threading;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
@@ -149,14 +150,15 @@ namespace Renovación_LIS_Client.View
             //if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
             //    lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4) {
                 lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin(MainWindow.loggedProfile.Player.NickName);
                 MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
                 multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
 
-                Thread.Sleep(1000);
 
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, true));
+
+            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
+            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
+
+                
             //}
             //else
             //{
@@ -180,9 +182,10 @@ namespace Renovación_LIS_Client.View
 
         public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
         {
-            Thread.Sleep(1000);
+            StartBlackScreenAnimation();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, false));
+            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
         }
 
         public void ShowConnectedPlayers()
@@ -357,6 +360,20 @@ namespace Renovación_LIS_Client.View
             }
 
             lobbyNonCallbackMethodsClient.Close();
+        }
+
+        public void StartBlackScreenAnimation()
+        {
+            var animation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.HoldEnd
+            };
+
+            BlackScreenRectangle.Visibility = Visibility.Visible;
+            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
         }
         #endregion
 

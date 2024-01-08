@@ -725,9 +725,6 @@
     <Resource Include="images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\salónCristalCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
   </ItemGroup>
   <ItemGroup>
@@ -735,6 +732,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\salónCristalMultiplayerCrosswordImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

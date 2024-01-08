@@ -74,7 +74,7 @@ namespace Renovación_LIS_Client.View
         {
             Thread.Sleep(1000);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow, false));
+            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
         }
 
         public void ShowBannedPlayers()
@@ -134,6 +134,20 @@ namespace Renovación_LIS_Client.View
             }
 
             lobbyNonCallbackMethodsClient.Close();
+        }
+
+        public void StartBlackScreenAnimation()
+        {
+            var animation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.HoldEnd
+            };
+
+            BlackScreenRectangle.Visibility = Visibility.Visible;
+            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
         }
 
         public void ExitFromThisPageForBeingExpeltFromLobbyView()

@@ -37,11 +37,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsExceptTheAdmin">
+  <xs:element name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="adminNickname" nillable="true" type="xs:string" />
-      </xs:sequence>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ShowTheSelectedCrosswordBorderToConnectedClients">
@@ -73,7 +76,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPages">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ShowGoText">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTheSelectedCrosswordAndItsQustions">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -42,5 +42,12 @@ namespace Renovación_LIS_Client.View
             RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.EndGame();
             RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheLobbyViewToAllConnectedProfiles();
         }
+
+
+        public void ShowLobbyView()
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LobbyView(mainWindow));
+        }
     }
 }

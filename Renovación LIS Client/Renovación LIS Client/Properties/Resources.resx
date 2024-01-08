@@ -117,6 +117,81 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="1. Course that addresses legal aspects related to the technology" xml:space="preserve">
+    <value>1. Course that addresses legal aspects related to the technology</value>
+  </data>
+  <data name="1. Data structure that follows the FIFO principle" xml:space="preserve">
+    <value>1. Data structure that follows the FIFO principle</value>
+  </data>
+  <data name="1. Practices to avoid during programming" xml:space="preserve">
+    <value>1. Practices to avoid during programming</value>
+  </data>
+  <data name="1. Statement used in databases to retrieve data" xml:space="preserve">
+    <value>1. Statement used in databases to retrieve data</value>
+  </data>
+  <data name="2. High-level programming language known for its simplicity and readability" xml:space="preserve">
+    <value>2. High-level programming language known for its simplicity and readability</value>
+  </data>
+  <data name="2. Measurement of the complexity of a program based on its control structure" xml:space="preserve">
+    <value>2. Measurement of the complexity of a program based on its control structure</value>
+  </data>
+  <data name="2. Model to represent the logical structure of a database" xml:space="preserve">
+    <value>2. Model to represent the logical structure of a database</value>
+  </data>
+  <data name="2. Visual component that allows interaction with a program" xml:space="preserve">
+    <value>2. Visual component that allows interaction with a program</value>
+  </data>
+  <data name="3. Educational center for software engineering" xml:space="preserve">
+    <value>3. Educational center for software engineering</value>
+  </data>
+  <data name="3. Process of creating and developing software" xml:space="preserve">
+    <value>3. Process of creating and developing software</value>
+  </data>
+  <data name="3. Repetitive control structure" xml:space="preserve">
+    <value>3. Repetitive control structure</value>
+  </data>
+  <data name="3. Statement used in databases to retrieve data" xml:space="preserve">
+    <value>3. Statement used in databases to retrieve data</value>
+  </data>
+  <data name="4. Markup language for creating web pages" xml:space="preserve">
+    <value>4. Markup language for creating web pages</value>
+  </data>
+  <data name="4. Process of obtaining and documenting the requirements of a system" xml:space="preserve">
+    <value>4. Process of obtaining and documenting the requirements of a system</value>
+  </data>
+  <data name="4. Teacher who has Sun Certified Java Programmer" xml:space="preserve">
+    <value>4. Teacher who has Sun Certified Java Programmer</value>
+  </data>
+  <data name="5. Condition-based repetitive control structure" xml:space="preserve">
+    <value>5. Condition-based repetitive control structure</value>
+  </data>
+  <data name="5. Open source operating system" xml:space="preserve">
+    <value>5. Open source operating system</value>
+  </data>
+  <data name="5. Popular integrated development environment for various languages" xml:space="preserve">
+    <value>5. Popular integrated development environment for various languages</value>
+  </data>
+  <data name="5. Professor who has a Master's Degree in Free Software at the Open University of Catalonia" xml:space="preserve">
+    <value>5. Professor who has a Master's Degree in Free Software at the Open University of Catalonia</value>
+  </data>
+  <data name="6. Fundamental skill set and concepts in computer science" xml:space="preserve">
+    <value>6. Fundamental skill set and concepts in computer science</value>
+  </data>
+  <data name="6. Hosting and version control platform for collaborative development" xml:space="preserve">
+    <value>6. Hosting and version control platform for collaborative development</value>
+  </data>
+  <data name="6. Integrated Development Environment (IDE) widely used for java" xml:space="preserve">
+    <value>6. Integrated Development Environment (IDE) widely used for java</value>
+  </data>
+  <data name="6. Integrated development environment for Java" xml:space="preserve">
+    <value>6. Integrated development environment for Java</value>
+  </data>
+  <data name="7. Software development methodology that uses interaction diagrams" xml:space="preserve">
+    <value>7. Software development methodology that uses interaction diagrams</value>
+  </data>
+  <data name="8. Programming language for web development server side" xml:space="preserve">
+    <value>8. Programming language for web development server side</value>
+  </data>
   <data name="A code has been sent to your email" xml:space="preserve">
     <value>A code has been sent to your email</value>
   </data>
@@ -194,6 +269,9 @@
   </data>
   <data name="Code for change your password" xml:space="preserve">
     <value>Code for change your password.</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Columns</value>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Configuration</value>
@@ -401,6 +479,9 @@
   </data>
   <data name="Reject friend request" xml:space="preserve">
     <value>Reject friend request</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>Rows</value>
   </data>
   <data name="Second place" xml:space="preserve">
     <value>Second place</value>
