@@ -30,6 +30,9 @@
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_EndGame_InputMessage">
     <wsdl:part name="parameters" element="tns:EndGame" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ExpeltProfileForTheGameForBeingAlone_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExpeltProfileForTheGameForBeingAlone" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_OpenTheLobbyViewToAllConnectedProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:OpenTheLobbyViewToAllConnectedProfiles" />
   </wsdl:message>
@@ -56,6 +59,9 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateCrosswordsToProfilesToAllConnectedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ExpeltProfileToTheLobbyViewForBeingAlone_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ExpeltProfileToTheLobbyViewForBeingAlone" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ShowBlackScreenAnimationOnLobbyViewOrItsChildPages_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowBlackScreenAnimationOnLobbyViewOrItsChildPages" />
@@ -112,6 +118,9 @@
     <wsdl:operation name="EndGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/EndGame" message="tns:IMultiplayerCrosswordCallbackMethods_EndGame_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ExpeltProfileForTheGameForBeingAlone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileForTheGameForBeingAlone" message="tns:IMultiplayerCrosswordCallbackMethods_ExpeltProfileForTheGameForBeingAlone_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OpenTheLobbyViewToAllConnectedProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheLobbyViewToAllConnectedProfiles" message="tns:IMultiplayerCrosswordCallbackMethods_OpenTheLobbyViewToAllConnectedProfiles_InputMessage" />
     </wsdl:operation>
@@ -138,6 +147,9 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfilesToAllConnectedProfiles" message="tns:IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpeltProfileToTheLobbyViewForBeingAlone">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileToTheLobbyViewForBeingAlone" message="tns:IMultiplayerCrosswordCallbackMethods_ExpeltProfileToTheLobbyViewForBeingAlone_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPages">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationOnLobbyViewOrItsChildPages" message="tns:IMultiplayerCrosswordCallbackMethods_ShowBlackScreenAnimationOnLobbyViewOrItsChildPages_OutputCallbackMessage" />
@@ -209,6 +221,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="ExpeltProfileForTheGameForBeingAlone">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileForTheGameForBeingAlone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="OpenTheLobbyViewToAllConnectedProfiles">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheLobbyViewToAllConnectedProfiles" style="document" />
       <wsdl:input>
@@ -262,6 +280,12 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ExpeltProfileToTheLobbyViewForBeingAlone">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileToTheLobbyViewForBeingAlone" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPages">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationOnLobbyViewOrItsChildPages" style="document" />

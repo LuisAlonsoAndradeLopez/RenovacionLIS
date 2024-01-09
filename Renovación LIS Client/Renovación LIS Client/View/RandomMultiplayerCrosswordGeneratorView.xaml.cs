@@ -54,11 +54,17 @@ namespace Renovación_LIS_Client.View
         }
         #endregion
 
-        //TODO:
-        //Internacionalizar preguntas del crucigrama
-        //Metodo EndGame genera error
+
 
         #region Auxiliary methods
+        public void ExpeltPlayerToLobbyViewForBeingAlone()
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LobbyView(mainWindow));
+
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been expelt from the game for being the unique player in the game!");
+        }
+
         public void GoToMultiplayerCrosswordView()
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -103,6 +109,17 @@ namespace Renovación_LIS_Client.View
 
 
         #region Callback methods
+        public void ExpeltProfileToTheLobbyViewForBeingAlone()
+        {
+            if (PageStateManager.CurrentPage is RandomMultiplayerCrosswordGeneratorView randomMultiplayerCrosswordGeneratorView)
+            {
+                randomMultiplayerCrosswordGeneratorView.ExpeltPlayerToLobbyViewForBeingAlone();
+            }
+            else if (PageStateManager.CurrentPage is MultiplayerCrosswordView multiplayerCrosswordView)
+            {
+                multiplayerCrosswordView.ExpeltPlayerToLobbyViewForBeingAlone();
+            }
+        }
 
         public void UpdateCrossword()
         {

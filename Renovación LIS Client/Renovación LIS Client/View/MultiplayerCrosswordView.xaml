@@ -101,9 +101,9 @@
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
                     <TextBox
-                        Margin="10"
+                        Margin="20,10,10,10"
                         Height="42"
-                        Width="973"
+                        Width="959"
                         Name="SelectedCrosswordRowOrColumnWordAnswerTextBox"
                         Style="{StaticResource BorderTextBox}"/>
 

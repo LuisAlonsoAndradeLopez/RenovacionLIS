@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword", Namespace="http://schemas.datacontract.org/2004/07/ServicesTCP.AuxiliaryContracts")]
+    [System.SerializableAttribute()]
+    public partial class DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNo" +
@@ -21,6 +84,16 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdminResponse")]
         System.Threading.Tasks.Task<string> GetAdminAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
+            "ints", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
+            "intsResponse")]
+        Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsPoints();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
+            "ints", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
+            "intsResponse")]
+        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsPointsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfilesRe" +
             "sponse")]
@@ -116,6 +189,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         public System.Threading.Tasks.Task<string> GetAdminAsync() {
             return base.Channel.GetAdminAsync();
+        }
+        
+        public Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsPoints() {
+            return base.Channel.GetAllProfilesAndItsPoints();
+        }
+        
+        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsPointsAsync() {
+            return base.Channel.GetAllProfilesAndItsPointsAsync();
         }
         
         public string[] GetConnectedProfiles() {

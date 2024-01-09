@@ -120,6 +120,9 @@
   <data name="1. Course that addresses legal aspects related to the technology" xml:space="preserve">
     <value>1. Materia que aborda aspectos legales relacionados con la tecnología</value>
   </data>
+  <data name="1. Data source that provides information for an application" xml:space="preserve">
+    <value>1. Fuente de datos que suministra información para una aplicación</value>
+  </data>
   <data name="1. Data structure that follows the FIFO principle" xml:space="preserve">
     <value>1. Estructura de datos que sigue el principio FIFO</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="2. High-level programming language known for its simplicity and readability" xml:space="preserve">
     <value>2. Lenguaje de programación de alto nivel conocido por su simplicidad y legibilidad</value>
+  </data>
+  <data name="2. Key programming paradigm in Software Engineering" xml:space="preserve">
+    <value>2. Paradigma de programación clave en Ingeniería de Software</value>
   </data>
   <data name="2. Measurement of the complexity of a program based on its control structure" xml:space="preserve">
     <value>2. Medida de la complejidad de un programa basada en su estructura de control</value>
@@ -144,6 +150,9 @@
   <data name="3. Educational center for software engineering" xml:space="preserve">
     <value>3. Centro educativo para la Ingeniería de Software</value>
   </data>
+  <data name="3. High-level programming language known for its simplicity and readability" xml:space="preserve">
+    <value>3. Lenguaje de programación de alto nivel conocido por su simplicidad y legibilidad</value>
+  </data>
   <data name="3. Process of creating and developing software" xml:space="preserve">
     <value>3. Proceso de crear y desarrollar software</value>
   </data>
@@ -152,6 +161,9 @@
   </data>
   <data name="3. Statement used in databases to retrieve data" xml:space="preserve">
     <value>3. Sentencia utilizada en bases de datos para recuperar datos</value>
+  </data>
+  <data name="4. Course that addresses legal aspects related to the technology" xml:space="preserve">
+    <value>4. Materia que aborda aspectos legales relacionados con la tecnología</value>
   </data>
   <data name="4. Markup language for creating web pages" xml:space="preserve">
     <value>4. Lenguaje de marcado para la creación de páginas web</value>
@@ -174,6 +186,9 @@
   <data name="5. Professor who has a Master's Degree in Free Software at the Open University of Catalonia" xml:space="preserve">
     <value>5. Profesor que cuenta con un Máster en Software Libre en la Universitat Oberta de Catalunya</value>
   </data>
+  <data name="5. Widely used Integrated Development Environment for java" xml:space="preserve">
+    <value>5. Entorno de Desarrollo Integrado ampliamente utilizado para Java</value>
+  </data>
   <data name="6. Fundamental skill set and concepts in computer science" xml:space="preserve">
     <value>6. Conjunto de habilidades y conceptos fundamentales en ciencias de la computación</value>
   </data>
@@ -186,8 +201,14 @@
   <data name="6. Integrated development environment for Java" xml:space="preserve">
     <value>6. Entorno de desarrollo integrado para Java</value>
   </data>
+  <data name="6. Linear and dynamic data structures" xml:space="preserve">
+    <value>6. Estructuras de datos lineales y dinámicas</value>
+  </data>
   <data name="7. Software development methodology that uses interaction diagrams" xml:space="preserve">
     <value>7. Metodología de desarrollo de software que utiliza diagramas de interacción</value>
+  </data>
+  <data name="7. Visual component that allows interaction with a program" xml:space="preserve">
+    <value>7. Componente visual que permite la interacción con un programa</value>
   </data>
   <data name="8. Programming language for web development server side" xml:space="preserve">
     <value>8. Lenguaje de programación para desarrollo web del lado del servidor</value>
@@ -611,6 +632,9 @@
   </data>
   <data name="You have been banned!!!!!" xml:space="preserve">
     <value>¡Has sido baneao!</value>
+  </data>
+  <data name="You have been expelt from the game for being the unique player in the game!" xml:space="preserve">
+    <value>¡Has sido expulsado del juego por ser el unico jugador en el juego!</value>
   </data>
   <data name="You have been invitated to the lobby!" xml:space="preserve">
     <value>¡Has sido invitado al lobby!</value>

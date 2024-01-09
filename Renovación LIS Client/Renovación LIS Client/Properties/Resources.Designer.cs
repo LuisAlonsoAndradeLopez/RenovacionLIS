@@ -70,6 +70,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 1. Data source that provides information for an application.
+        /// </summary>
+        public static string _1__Data_source_that_provides_information_for_an_application {
+            get {
+                return ResourceManager.GetString("1. Data source that provides information for an application", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 1. Data structure that follows the FIFO principle.
         /// </summary>
         public static string _1__Data_structure_that_follows_the_FIFO_principle {
@@ -102,6 +111,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string _2__High_level_programming_language_known_for_its_simplicity_and_readability {
             get {
                 return ResourceManager.GetString("2. High-level programming language known for its simplicity and readability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 2. Key programming paradigm in Software Engineering.
+        /// </summary>
+        public static string _2__Key_programming_paradigm_in_Software_Engineering {
+            get {
+                return ResourceManager.GetString("2. Key programming paradigm in Software Engineering", resourceCulture);
             }
         }
         
@@ -142,6 +160,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 3. High-level programming language known for its simplicity and readability.
+        /// </summary>
+        public static string _3__High_level_programming_language_known_for_its_simplicity_and_readability {
+            get {
+                return ResourceManager.GetString("3. High-level programming language known for its simplicity and readability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 3. Process of creating and developing software.
         /// </summary>
         public static string _3__Process_of_creating_and_developing_software {
@@ -165,6 +192,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string _3__Statement_used_in_databases_to_retrieve_data {
             get {
                 return ResourceManager.GetString("3. Statement used in databases to retrieve data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 4. Course that addresses legal aspects related to the technology.
+        /// </summary>
+        public static string _4__Course_that_addresses_legal_aspects_related_to_the_technology {
+            get {
+                return ResourceManager.GetString("4. Course that addresses legal aspects related to the technology", resourceCulture);
             }
         }
         
@@ -233,6 +269,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 5. Widely used Integrated Development Environment for java.
+        /// </summary>
+        public static string _5__Widely_used_Integrated_Development_Environment_for_java {
+            get {
+                return ResourceManager.GetString("5. Widely used Integrated Development Environment for java", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 6. Fundamental skill set and concepts in computer science.
         /// </summary>
         public static string _6__Fundamental_skill_set_and_concepts_in_computer_science {
@@ -269,11 +314,29 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 6. Linear and dynamic data structures.
+        /// </summary>
+        public static string _6__Linear_and_dynamic_data_structures {
+            get {
+                return ResourceManager.GetString("6. Linear and dynamic data structures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a 7. Software development methodology that uses interaction diagrams.
         /// </summary>
         public static string _7__Software_development_methodology_that_uses_interaction_diagrams {
             get {
                 return ResourceManager.GetString("7. Software development methodology that uses interaction diagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 7. Visual component that allows interaction with a program.
+        /// </summary>
+        public static string _7__Visual_component_that_allows_interaction_with_a_program {
+            get {
+                return ResourceManager.GetString("7. Visual component that allows interaction with a program", resourceCulture);
             }
         }
         
@@ -1544,6 +1607,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string You_have_been_banned_____ {
             get {
                 return ResourceManager.GetString("You have been banned!!!!!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You have been expelt from the game for being the unique player in the game!.
+        /// </summary>
+        public static string You_have_been_expelt_from_the_game_for_being_the_unique_player_in_the_game_ {
+            get {
+                return ResourceManager.GetString("You have been expelt from the game for being the unique player in the game!", resourceCulture);
             }
         }
         

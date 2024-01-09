@@ -19,7 +19,7 @@ namespace ServicesTCP.AuxiliaryContracts
     }
 
     [DataContract]
-    public class KeyValueDataContractForProfilesAndTheirPointsForServiceMultiplayerCrosswordForCallbackMethods
+    public class DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword
     {
         [DataMember]
         public string Key { get; set; }

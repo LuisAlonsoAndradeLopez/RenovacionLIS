@@ -40,6 +40,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/EndGame")]
         System.Threading.Tasks.Task EndGameAsync();
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileForTheGameFo" +
+            "rBeingAlone")]
+        void ExpeltProfileForTheGameForBeingAlone();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileForTheGameFo" +
+            "rBeingAlone")]
+        System.Threading.Tasks.Task ExpeltProfileForTheGameForBeingAloneAsync();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/OpenTheLobbyViewToAllConn" +
             "ectedProfiles")]
         void OpenTheLobbyViewToAllConnectedProfiles();
@@ -111,6 +119,10 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMultiplayerCrosswordCallbackMethodsCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileToTheLobbyVi" +
+            "ewForBeingAlone")]
+        void ExpeltProfileToTheLobbyViewForBeingAlone();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ShowBlackScreenAnimationO" +
             "nLobbyViewOrItsChildPages")]
@@ -219,6 +231,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         
         public System.Threading.Tasks.Task EndGameAsync() {
             return base.Channel.EndGameAsync();
+        }
+        
+        public void ExpeltProfileForTheGameForBeingAlone() {
+            base.Channel.ExpeltProfileForTheGameForBeingAlone();
+        }
+        
+        public System.Threading.Tasks.Task ExpeltProfileForTheGameForBeingAloneAsync() {
+            return base.Channel.ExpeltProfileForTheGameForBeingAloneAsync();
         }
         
         public void OpenTheLobbyViewToAllConnectedProfiles() {

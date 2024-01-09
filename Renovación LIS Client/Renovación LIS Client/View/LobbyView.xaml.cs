@@ -24,13 +24,6 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class LobbyView : Page, IChatCallbackMethodsCallback, ILobbyCallbackMethodsCallback
     {
-        /*
-        TODO
-        -Nuevo panel para amigos para invitarlo a la partida (falta configurationview)
-        -Ajustar la posicion de los borders con info de los jugadores en el lobby
-        -Al banear jugador debe de la configuración (kate pasa la configuración)
-        */
-
         #region Atributes
         private readonly MainWindow mainWindow;
         private readonly CultureInfo cultureInfo;
@@ -116,6 +109,7 @@ namespace Renovación_LIS_Client.View
         {
             LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
             lobbyCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow));
         }
@@ -147,23 +141,19 @@ namespace Renovación_LIS_Client.View
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            //if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
-            //    lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4) {
+            if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
+                lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4) {
                 lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
                 MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
                 multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
 
-
-
-            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
-            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
-
-                
-            //}
-            //else
-            //{
-            //    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Should be in the lobby 2-4 players to start the game");
-            //}
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();   
+            }
+            else
+            {
+                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Should be in the lobby 2-4 players to start the game");
+            }
 
             lobbyNonCallbackMethodsClient.Close();
         }

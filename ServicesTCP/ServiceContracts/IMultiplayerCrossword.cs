@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.ServiceModel;
+using ServicesTCP.AuxiliaryContracts;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -9,6 +10,9 @@ namespace ServicesTCP.ServiceContracts
     {
         [OperationContract]
         string GetAdmin();
+
+        [OperationContract]
+        List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> GetAllProfilesAndItsPoints();
 
         [OperationContract]
         List<String> GetConnectedProfiles();
@@ -21,7 +25,7 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         int GetPointsFromAProfile(string nickname);
-        
+
         [OperationContract]
         void SetAdmin(string username);
 
@@ -48,6 +52,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void EndGame();
+
+        [OperationContract(IsOneWay = true)]
+        void ExpeltProfileForTheGameForBeingAlone();
 
         [OperationContract(IsOneWay = true)]
         void OpenTheLobbyViewToAllConnectedProfiles();
@@ -82,6 +89,9 @@ namespace ServicesTCP.ServiceContracts
     [ServiceContract]
     public interface IMultiplayerCrosswordCallback
     {
+        [OperationContract(IsOneWay = true)]
+        void ExpeltProfileToTheLobbyViewForBeingAlone();
+
         [OperationContract(IsOneWay = true)]
         void ShowBlackScreenAnimationOnLobbyViewOrItsChildPages();
 

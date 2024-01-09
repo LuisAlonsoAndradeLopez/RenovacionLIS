@@ -27,6 +27,11 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ExpeltProfileForTheGameForBeingAlone">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OpenTheLobbyViewToAllConnectedProfiles">
     <xs:complexType>
       <xs:sequence />
@@ -72,6 +77,11 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpeltProfileToTheLobbyViewForBeingAlone">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

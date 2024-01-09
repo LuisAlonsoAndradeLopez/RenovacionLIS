@@ -5,10 +5,6 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renovación LIS GUIs", "Renovación LIS Client\Renovación LIS GUIs.csproj", "{8EEA7210-1626-4A14-821B-147589BDB6E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client Runner", "..\Client\Client Runner.csproj", "{4A697A58-66C5-46CE-B66B-61CD4EB6CD7D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\ConsoleApp1\ConsoleApp1.csproj", "{EA18D99A-0CFF-44B9-B335-6309A1764611}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lang", "..\lang\lang.csproj", "{F507E433-922C-4D65-9C98-7870D0EACA31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "enums", "..\enums\enums.csproj", "{7D71CAB5-9BDD-4657-B6D8-D50FD905E9E9}"
@@ -38,14 +34,6 @@ Global
 		{8EEA7210-1626-4A14-821B-147589BDB6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EEA7210-1626-4A14-821B-147589BDB6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EEA7210-1626-4A14-821B-147589BDB6E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A697A58-66C5-46CE-B66B-61CD4EB6CD7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A697A58-66C5-46CE-B66B-61CD4EB6CD7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A697A58-66C5-46CE-B66B-61CD4EB6CD7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A697A58-66C5-46CE-B66B-61CD4EB6CD7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA18D99A-0CFF-44B9-B335-6309A1764611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA18D99A-0CFF-44B9-B335-6309A1764611}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA18D99A-0CFF-44B9-B335-6309A1764611}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA18D99A-0CFF-44B9-B335-6309A1764611}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F507E433-922C-4D65-9C98-7870D0EACA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F507E433-922C-4D65-9C98-7870D0EACA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F507E433-922C-4D65-9C98-7870D0EACA31}.Release|Any CPU.ActiveCfg = Release|Any CPU

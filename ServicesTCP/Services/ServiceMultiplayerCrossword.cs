@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Threading;
+using ServicesTCP.AuxiliaryContracts;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -27,6 +28,11 @@ namespace ServicesTCP.Services
             return serviceMultiplayerCrosswordForCallbackMethods.GetAdmin();
         }
 
+        public List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> GetAllProfilesAndItsPoints()
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.GetAllProfilesAndItsPoints();
+        }
+
         public List<String> GetConnectedProfiles()
         {
             return serviceMultiplayerCrosswordForCallbackMethods.GetConnectedProfiles();
@@ -36,14 +42,15 @@ namespace ServicesTCP.Services
         {
             return serviceMultiplayerCrosswordForCallbackMethods.GetCrosswordNumberSelected();
         }
-        public int GetPointsFromAProfile(string nickname)
-        {
-            return serviceMultiplayerCrosswordForCallbackMethods.GetPointsFromAProfile(nickname);
-        }
 
         public int GetCrosswordsPlayed()
         {
             return serviceMultiplayerCrosswordForCallbackMethods.GetCrosswordsPlayed();
+        }
+
+        public int GetPointsFromAProfile(string nickname)
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.GetPointsFromAProfile(nickname);
         }
 
         public void SetAdmin(string username)
@@ -74,7 +81,7 @@ namespace ServicesTCP.Services
     {
         private static string admin;
         private static readonly Dictionary<string, IMultiplayerCrosswordCallback> connectedProfiles = new Dictionary<string, IMultiplayerCrosswordCallback>();
-        private static Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
+        private static readonly Dictionary<string, int> profilesAndItsPoints = new Dictionary<string, int>();
         private static readonly int[] crosswordsPlayedNumbers = new int[3];
         private static int crosswordsPlayed = 0;
         private static int crosswordNumberSelected;
@@ -110,6 +117,19 @@ namespace ServicesTCP.Services
                 connectedProfiles.Remove(username);
                 profilesAndItsPoints.Remove(username);
             }
+
+            UpdateProfilesPointsListsForAllConnectedProfiles();
+
+            if (connectedProfiles.Count == 1 || profilesAndItsPoints.Count == 1)
+            {
+                ExpeltProfileForTheGameForBeingAlone();
+            }
+
+            if (connectedProfiles.Count == 0 || profilesAndItsPoints.Count == 0)
+            {
+                ServiceLobbyForNonCallbackMethods serviceLobbyForNonCallbackMethods = new ServiceLobbyForNonCallbackMethods();
+                serviceLobbyForNonCallbackMethods.SetThePlayersAreNotInGame();
+            }
         }
 
         public void EndGame()
@@ -124,6 +144,17 @@ namespace ServicesTCP.Services
             Array.Clear(crosswordsPlayedNumbers, 0, crosswordsPlayedNumbers.Length);
             crosswordsPlayed = 0;
             crosswordNumberSelected = -1;
+        }
+
+        public void ExpeltProfileForTheGameForBeingAlone()
+        {
+            foreach (var profile in connectedProfiles.Values)
+            {
+                profile.ExpeltProfileToTheLobbyViewForBeingAlone();
+            }
+
+            ServiceLobbyForNonCallbackMethods serviceLobbyForNonCallbackMethods = new ServiceLobbyForNonCallbackMethods();
+            serviceLobbyForNonCallbackMethods.SetThePlayersAreNotInGame();
         }
 
         public void OpenTheLobbyViewToAllConnectedProfiles()
@@ -327,6 +358,23 @@ namespace ServicesTCP.Services
             }
 
             return connectedProfilesList;
+        }
+
+        internal List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> GetAllProfilesAndItsPoints()
+        {
+            List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> profilesAndItsPointsForTransport = new List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword>();
+
+            foreach (var profileAndItsPoints in profilesAndItsPoints)
+            {
+                DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword dictionary = new DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword
+                {
+                    Key = profileAndItsPoints.Key,
+                    Value = profileAndItsPoints.Value
+                };
+
+                profilesAndItsPointsForTransport.Add(dictionary);
+            }
+            return profilesAndItsPointsForTransport;
         }
 
         internal int GetCrosswordNumberSelected()

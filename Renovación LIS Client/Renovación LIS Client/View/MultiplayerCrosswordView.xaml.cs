@@ -75,6 +75,7 @@ namespace Renovación_LIS_Client.View
         }
 
 
+
         #region Crossword questions and background selection methods
         private void Show105Background()
         {
@@ -102,12 +103,6 @@ namespace Renovación_LIS_Client.View
         }
 
         //TODO:
-        //Al salirse todos los jugadores, private static bool thePlayersAreInGame = false; debe de estar en falso
-        //(Es de ServiceLobby)
-        //Ajustar el botón aceptar de WinnersView, tiene que verse completo, está muy abajo
-        //campo de texto de multiplayercrosswordvies la izquierda no se ve
-        //multiplayercrosswordvies la imagen de fondo tiene que estar completa
-        //winnersview tabla de gnadores dinamicos
         //crucigramas y jugabilidad (recueda que si alguien ya completó una fila o columna y la tienes abierta, abrir el mensaje que ya se completó)
 
         private void Show105CrosswordQuestions()
@@ -116,7 +111,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 22,
+                FontSize = 21,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -124,19 +119,19 @@ namespace Renovación_LIS_Client.View
             verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("1. Data structure that follows the FIFO principle", cultureInfo) + "\n";
             verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("2. High-level programming language known for its simplicity and readability", cultureInfo) + "\n";
             verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("3. Process of creating and developing software", cultureInfo) + "\n";
-            verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("5. Open source operating system", cultureInfo);
+            verticalQuestions.Text += resourceManager.GetString("5. Open source operating system", cultureInfo);
 
             TextBlock horizontalQuestions = new TextBlock
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 22,
+                FontSize = 21,
                 TextWrapping = TextWrapping.Wrap
             };
 
             horizontalQuestions.Text = resourceManager.GetString("Rows", cultureInfo) + "\n";
-            verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("4. Process of obtaining and documenting the requirements of a system", cultureInfo) + "\n";
-            horizontalQuestions.Text = horizontalQuestions.Text + resourceManager.GetString("6. Fundamental skill set and concepts in computer science", cultureInfo);
+            horizontalQuestions.Text = horizontalQuestions.Text + resourceManager.GetString("4. Process of obtaining and documenting the requirements of a system", cultureInfo) + "\n";
+            horizontalQuestions.Text += resourceManager.GetString("6. Fundamental skill set and concepts in computer science", cultureInfo);
 
             SelectedCrosswordQuestionsStackPanel.Children.Add(verticalQuestions);
             SelectedCrosswordQuestionsStackPanel.Children.Add(horizontalQuestions);
@@ -148,7 +143,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 22,
+                FontSize = 21,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -161,7 +156,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 22,
+                FontSize = 21,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -180,7 +175,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 19,
+                FontSize = 17,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -194,7 +189,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 19,
+                FontSize = 17,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -214,7 +209,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 22,
+                FontSize = 21,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -227,7 +222,7 @@ namespace Renovación_LIS_Client.View
             {
                 Margin = new Thickness(10),
                 Foreground = new SolidColorBrush(Colors.White),
-                FontSize = 22,
+                FontSize = 21,
                 TextWrapping = TextWrapping.Wrap
             };
 
@@ -242,19 +237,56 @@ namespace Renovación_LIS_Client.View
 
         private void ShowCrystalSaloonCrosswordQuestions()
         {
+            TextBlock verticalQuestions = new TextBlock
+            {
+                Margin = new Thickness(10),
+                Foreground = new SolidColorBrush(Colors.White),
+                FontSize = 19,
+                TextWrapping = TextWrapping.Wrap
+            };
 
+            verticalQuestions.Text = resourceManager.GetString("Columns", cultureInfo) + "\n";
+            verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("1. Data source that provides information for an application", cultureInfo) + "\n";
+            verticalQuestions.Text = verticalQuestions.Text + resourceManager.GetString("2. Key programming paradigm in Software Engineering", cultureInfo) + "\n";
+            verticalQuestions.Text += resourceManager.GetString("5. Widely used Integrated Development Environment for java", cultureInfo);
 
+            TextBlock horizontalQuestions = new TextBlock
+            {
+                Margin = new Thickness(10),
+                Foreground = new SolidColorBrush(Colors.White),
+                FontSize = 19,
+                TextWrapping = TextWrapping.Wrap
+            };
+
+            horizontalQuestions.Text = resourceManager.GetString("Rows", cultureInfo) + "\n";
+            horizontalQuestions.Text = horizontalQuestions.Text + resourceManager.GetString("3. High-level programming language known for its simplicity and readability", cultureInfo) + "\n";
+            horizontalQuestions.Text = horizontalQuestions.Text + resourceManager.GetString("4. Course that addresses legal aspects related to the technology", cultureInfo) + "\n";
+            horizontalQuestions.Text = horizontalQuestions.Text + resourceManager.GetString("6. Linear and dynamic data structures", cultureInfo) + "\n";
+            horizontalQuestions.Text += resourceManager.GetString("7. Visual component that allows interaction with a program", cultureInfo);
+
+            SelectedCrosswordQuestionsStackPanel.Children.Add(verticalQuestions);
+            SelectedCrosswordQuestionsStackPanel.Children.Add(horizontalQuestions);
         }
         #endregion
 
 
 
         #region Auxiliary methods
+        public void ExpeltPlayerToLobbyViewForBeingAlone()
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LobbyView(mainWindow));
+
+            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been expelt from the game for being the unique player in the game!");
+        }
+
         public void ShowTheSelectCrosswordAndItsQuestions()
         {
             GlobalCountdownBlockScreenRectangle.Visibility = Visibility.Collapsed;
             GlobalCountdownSecondsTextBlock.Visibility = Visibility.Collapsed;
 
+
+            SelectedCrosswordQuestionsStackPanel.Children.Clear();
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
             switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
             {
@@ -296,18 +328,8 @@ namespace Renovación_LIS_Client.View
 
         public void OpenRandomMultiplayerCrosswordGeneratorView()
         {
-            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-
-            if (multiplayerCrosswordNonCallbackMethodsClient.GetAdmin() == MainWindow.loggedProfile.Player.NickName)
-            {
-                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
-            }
-            else
-            {
-                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
-            }
+            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
         }
 
         public void OpenWinnersView()
@@ -333,6 +355,8 @@ namespace Renovación_LIS_Client.View
 
         public void UpdateProfilesPointsList()
         {
+            ConnectedPlayersAndItsPointsStackPanel.Children.Clear();
+
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
             foreach (var profile in multiplayerCrosswordNonCallbackMethodsClient.GetConnectedProfiles())
             {

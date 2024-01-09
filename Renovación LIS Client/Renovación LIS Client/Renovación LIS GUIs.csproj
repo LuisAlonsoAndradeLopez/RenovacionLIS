@@ -155,7 +155,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Class1.cs" />
     <Compile Include="View\BannedPlayersView.xaml.cs">
       <DependentUpon>BannedPlayersView.xaml</DependentUpon>
     </Compile>
@@ -386,6 +385,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\ServiceMultiplayerCrosswordForNonCallbackMethods.wsdl" />
