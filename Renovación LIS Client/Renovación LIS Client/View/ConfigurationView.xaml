@@ -4,80 +4,139 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
+      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="ConfigurationView">
 
     <Grid>
-        <Image Source="/images/configurationImage.png" VerticalAlignment="Center" Height="700"/>
+        <Image Source="/images/configurationImage.png" Stretch="Fill"/>
 
-        <Border Margin="40,56,41,56" 
-        Name="IntroduceDataBorder"
-        Grid.Column="0"
-        CornerRadius="20">
-            <Border.Background>
-                <SolidColorBrush Color="Black" Opacity="0.8"/>
-            </Border.Background>
+        <Border Width="700"
+                Height="600"
+                Name="IntroduceDataBorder"
+                CornerRadius="20"
+                Background="#90000000">
 
-            <StackPanel>
-                <Label Content="Configuración"
+            <Canvas >
+                <Label Content="{x:Static p:Resources.Configuration}"
                     FontFamily="{StaticResource K2DBold}"
                     Foreground="White"
-                    HorizontalAlignment="Center" FontSize="64"/>
+                    HorizontalAlignment="Right" FontSize="50" Canvas.Left="333" Canvas.Top="15"/>
+
+                <Label Background="#337cce"
+                       Width="327"
+                    Height="2" Canvas.Left="0" Canvas.Top="55"/>
+
+
+                <Label Content="{x:Static p:Resources.Language}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Foreground="White"
+                            HorizontalAlignment="Left" FontSize="20" Canvas.Left="40" Canvas.Top="96"/>
 
                 <Label Background="White"
-                    Margin="0 15 0 15"
-                    Height="2"/>
+                        Width="553"
+                        Height="1" Canvas.Right="0" Canvas.Top="117"/>
 
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Idioma"
-                            FontFamily="{StaticResource K2DBold}"
-                            Foreground="White"
-                            HorizontalAlignment="Center" FontSize="48"/>
+                <Label Content="{x:Static p:Resources.Language}"
+                        FontFamily="{StaticResource K2DRegular}"
+                        Foreground="White"
+                        HorizontalAlignment="Left" FontSize="16" Canvas.Left="84" Canvas.Top="150"/>
 
-                        <ComboBox Width="913"/>
+                <Image Source="/images/normalArrow.png" Height="24" Width="24" Canvas.Left="234" Canvas.Top="154"
+                       Cursor="Hand"
+                       MouseLeftButtonDown="ChangeLanguageButton"
+                       MouseEnter="PlayHoverSound"/>
 
-                    </StackPanel>
+                <TextBlock Name="TxtLanguages"
+                       Text="{x:Static p:Resources.Spanish}"
+                       FontFamily="{StaticResource K2DRegular}"
+                       Foreground="White"
+                       FontSize="16" Canvas.Left="294" Canvas.Top="154" Cursor="" />
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Volumen de la Música"
-                            FontFamily="{StaticResource K2DBold}"
-                            Foreground="White" FontSize="48"/>
+                <Image Source="/images/normalArrow.png" Height="24" Width="24" Canvas.Right="290" Canvas.Top="154" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top"
+                       Cursor="Hand" 
+                       MouseLeftButtonDown="ChangeLanguageButton"
+                       MouseEnter="PlayHoverSound">
+                    
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
 
-                        <Slider/>
-                    </StackPanel>
+                <Label Content="{x:Static p:Resources.Sound}"
+                       FontFamily="{StaticResource K2DBold}"
+                       Foreground="White"
+                       FontSize="20" Canvas.Left="40" Canvas.Top="209" />
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Volumen de los Sonidos"
-                            FontFamily="{StaticResource K2DBold}"
-                            Foreground="White"
-                            HorizontalAlignment="Center" FontSize="48"/>
+                <Label Width="580"
+                       Height="1"
+                       Background="White"
+                       HorizontalAlignment="Left" FontSize="16" Canvas.Right="0" Canvas.Top="230"/>
 
-                        <Slider Width="537"/>
+                <Label Content="{x:Static p:Resources.MusicVolume}"
+                       FontFamily="{StaticResource K2DRegular}"
+                       FontSize="16"
+                       Foreground="White" Canvas.Left="84" Canvas.Top="267"/>
 
-                    </StackPanel>
+                <Label Name="MusicValue"
+                       Content="100%"
+                       FontFamily="{StaticResource K2DRegular}"
+                       FontSize="16"
+                       Foreground="White" Canvas.Left="361" Canvas.Top="329"/>
 
-                </StackPanel>
+                <Slider
+                    x:Name="VolumeSlider"
+                    Width="250" Height="15" Canvas.Left="84" Canvas.Top="335" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    ValueChanged="BackgroundMusicVolumeSlider_ValueChanged"
+                    Minimum="0"
+                    Maximum="100">
 
 
+                </Slider>
 
-                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                    <Button Content="Aplicar Cambios" 
+                <Label Content="{x:Static p:Resources.SoundVolume}"
+                        FontFamily="{StaticResource K2DRegular}"
+                        FontSize="16"
+                        Foreground="White" Canvas.Left="89" Canvas.Top="392"/>
+
+                <Slider x:Name="SoundSlider"
+                        Width="250" Height="15" Canvas.Left="84" Canvas.Top="457" HorizontalAlignment="Left" VerticalAlignment="Top"
+                        ValueChanged="SoundMusicSlider_ValueChanged"
+                        Minimum="0"
+                        Maximum="100">
+
+                </Slider>
+
+                
+
+                <Label Name="SoundValue"
+                       Content="100%"
+                       FontFamily="{StaticResource K2DRegular}"
+                       FontSize="16"
+                       Foreground="White" Canvas.Left="361" Canvas.Top="454"/>
+
+                <Button Content="{x:Static p:Resources.Apply}"
                         Style="{StaticResource NormalButtom}"
-                        Height="56"
-                        Width="224"
-                        Margin="120,0,0,0" Click="ApplyChangesButton"/>
+                        Height="45"
+                        Width="200" Click="ApplyChangesButton" Canvas.Left="40" Canvas.Bottom="40"
+                        MouseEnter="PlayHoverSound"/>
 
-                    <Button Content="Salir" 
+                <Button Content="{x:Static p:Resources.Cancel}" 
                         Style="{StaticResource NormalButtom}"
-                        Height="56"
-                        Width="224"
-                        Background="Black"
-                        Margin="420,0,0,0" Click="ExitButton"/>
-                </StackPanel>
+                        Height="45"
+                        Width="200"
+                        Background="Black"  Canvas.Right="40" Canvas.Bottom="40"
+                        Click="CancelChangesButton"
+                        MouseEnter="PlayHoverSound"/>
 
-            </StackPanel>
+
+            </Canvas>
         </Border>
     </Grid>
 </Page>

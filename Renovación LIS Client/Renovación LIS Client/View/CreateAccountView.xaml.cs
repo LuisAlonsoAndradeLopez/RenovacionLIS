@@ -126,6 +126,8 @@ namespace Renovación_LIS_Client.View
 
         private void GoLoginButton(object sender, MouseButtonEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
         }

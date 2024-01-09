@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Microsoft.Win32;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
@@ -80,6 +82,8 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void CancelButton(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow));
         }
@@ -87,6 +91,9 @@ namespace Renovación_LIS_Client.View
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
         {
             if(InvalidValuesInTextFieldsTextGenerator() == "")
+            SongManager.Instance.PlayClickSound();
+
+            if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
@@ -288,5 +295,6 @@ namespace Renovación_LIS_Client.View
             mainWindow.OpenTheLobbyView(this);
         }
         #endregion
+       
     }
 }

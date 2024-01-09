@@ -45,12 +45,16 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ForgotPassword(mainWindow));
         }
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new CreateAccountView(mainWindow));
         }
@@ -155,4 +159,6 @@ namespace Renovación_LIS_Client.View
         }
         #endregion
     }
+
+    
 }

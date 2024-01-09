@@ -73,7 +73,9 @@
                                 Style="{StaticResource DarkBlueButton}"
                                 Height="45"
                                 Width="200"
-                                Click="LoginButton"/>
+                                Click="LoginButton"
+                                MouseEnter="PlayHoverSound"/>
+
                     </StackPanel>
 
                     <StackPanel VerticalAlignment="Bottom">
@@ -93,13 +95,15 @@
                                        Text="{x:Static p:Resources.Forgot_Password}"
                                        Style="{StaticResource TransparentLabel}"
                                        Grid.Column="1"
-                                       MouseLeftButtonDown="OpenForgotPasswordPage" Margin="0,0,250,0"/>
+                                       MouseLeftButtonDown="OpenForgotPasswordPage" Margin="0,0,250,0"
+                                       MouseEnter="PlayHoverSound"/>
 
                             <TextBlock x:Name="SignUpButton"
                                        Text="{x:Static p:Resources.NotregisterYet}"
                                        Style="{StaticResource TransparentLabel}"
                                        Grid.Column="1"
-                                       MouseLeftButtonDown="OpenSignUpPage" Margin="428,1,0,-1"/>
+                                       MouseLeftButtonDown="OpenSignUpPage" Margin="428,1,0,-1"
+                                       MouseEnter="PlayHoverSound"/>
 
 
                         </Grid>

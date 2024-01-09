@@ -44,12 +44,16 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void CancelButton1(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
         }
 
         private void CancelButton2(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             IntroduceDataBorder.Visibility = Visibility.Visible;
             IntroduceCodeBorder.Visibility = Visibility.Hidden;
             EmailTextField.Text = string.Empty;
@@ -60,7 +64,9 @@ namespace Renovación_LIS_Client.View
 
         private void ChangePasswordButton(object sender, RoutedEventArgs e)
         {
-            if(IntroduceCodeTextField.Text == verificationCode.ToString())
+            SongManager.Instance.PlayClickSound();
+
+            if (IntroduceCodeTextField.Text == verificationCode.ToString())
             {
                 PlayerClient playerClient = new PlayerClient();
                 SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;

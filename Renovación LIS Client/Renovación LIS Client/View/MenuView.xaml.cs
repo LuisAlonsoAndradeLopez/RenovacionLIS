@@ -76,6 +76,8 @@ namespace Renovación_LIS_Client.View
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ModifyProfileView(mainWindow));
         }

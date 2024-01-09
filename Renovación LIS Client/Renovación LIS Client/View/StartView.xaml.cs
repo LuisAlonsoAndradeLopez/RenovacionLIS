@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+﻿using Renovación_LIS_Client.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Media;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +33,9 @@ namespace Renovación_LIS_Client.View
 
             this.mainWindow = mainWindow;
 
+           SongManager.Instance.PlayMainSong();
+
+
             InitializeComponent();
             ChangeLanguageLabel();
         }
@@ -40,6 +46,8 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void StartGame(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
         }
@@ -88,5 +96,13 @@ namespace Renovación_LIS_Client.View
             }        
         }
         #endregion
+
+
+
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
+
+        }
     }
 }

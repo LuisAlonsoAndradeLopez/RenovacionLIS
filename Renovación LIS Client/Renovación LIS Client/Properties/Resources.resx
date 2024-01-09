@@ -261,6 +261,9 @@
   <data name="Birth date should be before than the actual date" xml:space="preserve">
     <value>Birth date should be before than the actual date</value>
   </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="Birth day" xml:space="preserve">
     <value>Birth day</value>
   </data>
@@ -298,6 +301,13 @@
     <value>Configuration</value>
   </data>
   <data name="Confirm password" xml:space="preserve">
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Confirm Password" xml:space="preserve">
     <value>Confirm password</value>
   </data>
   <data name="Confirm your new password" xml:space="preserve">
@@ -435,6 +445,12 @@
   <data name="Left the chat" xml:space="preserve">
     <value>left the chat.</value>
   </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -446,6 +462,12 @@
   </data>
   <data name="Modify profile" xml:space="preserve">
     <value>Modify profile</value>
+  </data>
+  <data name="ModifyProfile" xml:space="preserve">
+    <value>Modify profile</value>
+  </data>
+  <data name="MusicVolume" xml:space="preserve">
+    <value>Music Volume</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -527,6 +549,24 @@
   </data>
   <data name="Show friends invitations" xml:space="preserve">
     <value>Show friends invitations</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ProfileImage" xml:space="preserve">
+    <value>Profile Image</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="SoundVolume" xml:space="preserve">
+    <value>Sound Volume</value>
   </data>
   <data name="Spanish" xml:space="preserve">
     <value>Spanish</value>
@@ -638,5 +678,8 @@
   </data>
   <data name="You have been invitated to the lobby!" xml:space="preserve">
     <value>You have been invitated to the lobby!</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome back!</value>
   </data>
 </root>

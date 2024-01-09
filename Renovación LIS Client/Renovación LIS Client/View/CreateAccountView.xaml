@@ -167,7 +167,8 @@
                             Width="200"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Left"
-                            Margin="30" Click="CreateAccountButton"/>
+                            Margin="30" Click="CreateAccountButton"
+                            MouseEnter="PlayHoverSound"/>
 
                     <TextBlock x:Name="GoLogInButton"
                                Text="{x:Static p:Resources.Have_you_already_have_an_account}"
@@ -177,7 +178,8 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Bottom"
                                Margin="30"
-                               MouseLeftButtonDown="GoLoginButton"/>
+                               MouseLeftButtonDown="GoLoginButton"
+                               MouseEnter="PlayHoverSound"/>
 
 
 
