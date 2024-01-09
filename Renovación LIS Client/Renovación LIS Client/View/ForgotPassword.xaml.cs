@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using System.ServiceModel;
 using Renovación_LIS_Client.ServicePlayerReference;
 using System.Security;
+using Renovación_LIS_Client.Helpers;
 
 namespace Renovación_LIS_Client.View
 {
@@ -37,12 +38,16 @@ namespace Renovación_LIS_Client.View
 
         private void CancelButton1(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView());
         }
 
         private void CancelButton2(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             IntroduceDataBorder.Visibility = Visibility.Visible;
             IntroduceCodeBorder.Visibility = Visibility.Hidden;
             EmailTextField.Text = string.Empty;
@@ -53,7 +58,9 @@ namespace Renovación_LIS_Client.View
 
         private void ChangePasswordButton(object sender, RoutedEventArgs e)
         {
-            if(IntroduceCodeTextField.Text == verificationCode.ToString())
+            SongManager.Instance.PlayClickSound();
+
+            if (IntroduceCodeTextField.Text == verificationCode.ToString())
             {
                 PlayerClient client = new PlayerClient();
                 SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;

@@ -25,7 +25,8 @@
                     VerticalAlignment="Bottom" 
                     Margin="0,0,0,20" 
                     Content="{x:Static p:Resources.Start}" 
-                    Style="{StaticResource NormalButtom}" Click="StartGame"/>
+                    Style="{StaticResource NormalButtom}" Click="StartGame"
+                    MouseEnter="PlayHoverSound"/>
         </Grid>
 
         <StackPanel HorizontalAlignment="Right" 
@@ -58,11 +59,13 @@
                         <Button Content="{x:Static p:Resources.Spanish}"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource underlineButton}"
-                                Click="SetSpanishLanguage"/>
+                                Click="SetSpanishLanguage"
+                                MouseEnter="PlayHoverSound"/>
 
                         <Button Content="{x:Static p:Resources.English}"
                                 Style="{StaticResource underlineButton}"
-                                Click="SetEnglishLanguage"/>
+                                Click="SetEnglishLanguage"
+                                MouseEnter="PlayHoverSound"/>
                     </StackPanel>
                     
                 </Border>

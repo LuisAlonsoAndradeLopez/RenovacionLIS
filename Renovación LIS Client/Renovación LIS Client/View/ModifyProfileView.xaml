@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
+      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="ModifyProfileView" Width="1200" Height="700">
@@ -18,7 +19,7 @@
         CornerRadius="20">
 
             <StackPanel>
-                <Label Content="Modificar Perfil"
+                <Label Content="{x:Static p:Resources.ModifyProfile}"
                 FontFamily="{StaticResource K2DBold}"
                 Foreground="White"
                 HorizontalAlignment="Center" FontSize="43"/>
@@ -28,7 +29,7 @@
                 Height="2"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Foto de Perfil"
+                    <TextBlock Text="{x:Static p:Resources.ProfileImage}"
                     FontFamily="{StaticResource K2DBold}"
                     Foreground="White" FontSize="43" Width="189"
                     TextWrapping="Wrap" 
@@ -43,7 +44,8 @@
                         Height="45"
                         Width="200"
                         HorizontalAlignment="Left"
-                        Margin="25,20,0,0" Click="SelectImageButton" Background="Red"/>
+                        Margin="25,20,0,0" Click="SelectImageButton" Background="Red"
+                        />
 
                         <TextBlock TextWrapping="Wrap" Text=""
                         Margin="10,20,0,0" Foreground="White" Height="92"
@@ -54,7 +56,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Label Content="Nombre(s)"
+                        <Label Content="{x:Static p:Resources.Name}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -69,7 +71,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Label Content="Apellido(s)"
+                        <Label Content="{x:Static p:Resources.First_Last_Name}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -85,7 +87,7 @@
 
                 </StackPanel>
 
-                <Label Content="Correo electrónico"
+                <Label Content="{x:Static p:Resources.E_mail}"
                 FontFamily="{StaticResource K2DRegular}"
                 FontSize="16"
                 Foreground="White"
@@ -100,7 +102,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Label Content="Nickname"
+                        <Label Content="{x:Static p:Resources.Nickname}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -115,7 +117,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Label Content="Fecha de nacimiento"
+                        <Label Content="{x:Static p:Resources.Birth_day}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -132,19 +134,21 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
 
-                    <Button Content="Modificar Perfil" 
+                    <Button Content="{x:Static p:Resources.ModifyProfile}" 
                     Style="{StaticResource NormalButtom}"
                     Height="45"
                     Width="200"
                     HorizontalAlignment="Left"
-                    Margin="40,0,0,0" Click="ModifyProfileButton"/>
+                    Margin="40,0,0,0" Click="ModifyProfileButton"
+                    />
 
-                    <Button Content="Cancelar" 
+                    <Button Content="{x:Static p:Resources.Cancel}" 
                     Style="{StaticResource NormalButtom}"
                     Height="45"
                     Width="200"
                     Background="Black"
-                    Margin="200,0,0,0" Click="CancelButton"/>
+                    Margin="200,0,0,0" Click="CancelButton"
+                    />
                 </StackPanel>
 
             </StackPanel>

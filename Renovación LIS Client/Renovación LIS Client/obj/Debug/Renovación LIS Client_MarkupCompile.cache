@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\
 Renovación_LIS_Client
 none
 false
 DEBUG;TRACE
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\App.xaml
-122125086310
-
-12581384044
-13-1310406943
-Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\AnimationView.xaml;View\CreateAccountView.xaml;View\LevelView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\StartView.xaml;
+18-1168837163
+1-263096394
+22-548652487
+23-998578074
+Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\AnimationView.xaml;View\ConfigurationView.xaml;View\CreateAccountView.xaml;View\LevelOneTwoView.xaml;View\LevelOneView.xaml;View\LevelView.xaml;View\ForgotPassword.xaml;View\FriendsView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\ModifyProfileView.xaml;View\StartView.xaml;
 
 False
 

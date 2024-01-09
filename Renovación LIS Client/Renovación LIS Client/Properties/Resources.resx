@@ -120,8 +120,17 @@
   <data name="AlreadyHave an Account" xml:space="preserve">
     <value>Have you already have an account?</value>
   </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="Birth day" xml:space="preserve">
     <value>Birth day</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
   </data>
   <data name="Confirm Password" xml:space="preserve">
     <value>Confirm password</value>
@@ -141,8 +150,20 @@
   <data name="ForgotPassword" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="ModifyProfile" xml:space="preserve">
+    <value>Modify profile</value>
+  </data>
+  <data name="MusicVolume" xml:space="preserve">
+    <value>Music Volume</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -156,10 +177,31 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ProfileImage" xml:space="preserve">
+    <value>Profile Image</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="SoundVolume" xml:space="preserve">
+    <value>Sound Volume</value>
+  </data>
   <data name="Spanish" xml:space="preserve">
     <value>Spanish</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome back!</value>
   </data>
 </root>

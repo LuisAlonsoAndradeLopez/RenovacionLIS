@@ -19,3 +19,24 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\ServicesTCP.
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\domain.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\domain.pdb
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Server\bin\Debug\domain.dll.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\Server.exe.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\Server.exe
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\Server.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\DatabaseManager.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\EntityFramework.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\ServicesTCP.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\domain.dll
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\DatabaseManager.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\DatabaseManager.dll.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\ServicesTCP.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\ServicesTCP.dll.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\EntityFramework.xml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\domain.pdb
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\bin\Debug\domain.dll.config
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\obj\Debug\ServerHoster.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\obj\Debug\ServerHoster.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\obj\Debug\ServerHoster.csproj.CopyComplete
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\obj\Debug\Server.exe
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Server\obj\Debug\Server.pdb

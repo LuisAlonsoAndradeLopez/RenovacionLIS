@@ -120,8 +120,17 @@
   <data name="AlreadyHave an Account" xml:space="preserve">
     <value>¿Ya tienes una cuenta? Inicia Sesión</value>
   </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Aplicar</value>
+  </data>
   <data name="Birth day" xml:space="preserve">
     <value>Fecha de nacimiento</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuración</value>
   </data>
   <data name="Confirm Password" xml:space="preserve">
     <value>Confirmar contraseña</value>
@@ -141,8 +150,20 @@
   <data name="ForgotPassword" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>
   </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Amigos</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Iniciar Sesión</value>
+  </data>
+  <data name="ModifyProfile" xml:space="preserve">
+    <value>Modificar perfil</value>
+  </data>
+  <data name="MusicVolume" xml:space="preserve">
+    <value>Volumen de la música</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nombre</value>
@@ -156,10 +177,31 @@
   <data name="Password" xml:space="preserve">
     <value>Contraseña</value>
   </data>
+  <data name="Play" xml:space="preserve">
+    <value>Jugar</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="ProfileImage" xml:space="preserve">
+    <value>Foto de perfil</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Sonido</value>
+  </data>
+  <data name="SoundVolume" xml:space="preserve">
+    <value>Volumen de los sonidos</value>
+  </data>
   <data name="Spanish" xml:space="preserve">
     <value>Español</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Jugar</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>¡Hola de nuevo!</value>
   </data>
 </root>

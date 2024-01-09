@@ -77,6 +77,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\SongManager.cs" />
+    <Compile Include="Helpers\Word.cs" />
     <Compile Include="View\AnimationView.xaml.cs">
       <DependentUpon>AnimationView.xaml</DependentUpon>
     </Compile>
@@ -95,6 +97,12 @@
     </Compile>
     <Compile Include="View\CreateAccountView.xaml.cs">
       <DependentUpon>CreateAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelOneTwoView.xaml.cs">
+      <DependentUpon>LevelOneTwoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelOneView.xaml.cs">
+      <DependentUpon>LevelOneView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LevelView.xaml.cs">
       <DependentUpon>LevelView.xaml</DependentUpon>
@@ -155,6 +163,14 @@
     <Page Include="View\CreateAccountView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LevelOneTwoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LevelOneView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LevelView.xaml">
       <SubType>Designer</SubType>
@@ -315,10 +331,31 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\friendsImage.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="images\configurationImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\friendsImage.png" />
+    <Resource Include="images\normalArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ArrowRight.png" />
+    <Resource Include="images\ArrowLeft.png" />
+    <Resource Include="images\levelOneImage.png" />
+    <Resource Include="images\levelEightImage.png" />
+    <Resource Include="images\levelFiveImage.png" />
+    <Resource Include="images\levelFourImage.png" />
+    <Resource Include="images\levelSevenImage.png" />
+    <Resource Include="images\levelSixImage.png" />
+    <Resource Include="images\levelThreeImage.png" />
+    <Resource Include="images\levelTwoImage.png" />
+    <Resource Include="images\friendsButtonImage.png" />
+    <Resource Include="images\playButtonImage.png" />
+    <Resource Include="images\storeButtonImage.png" />
+    <Resource Include="images\WallpaperLevelOneImage.png" />
+    <Resource Include="images\GridLevels\GridLevelOne.png" />
+    <Content Include="Videos\AnimationVideo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

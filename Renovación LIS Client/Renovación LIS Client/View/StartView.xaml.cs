@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Renovación_LIS_Client.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -26,15 +27,8 @@ namespace Renovación_LIS_Client.View
         
         public StartView()
         {
-            string incompletePath = Path.GetFullPath("resources\\songs\\Apprentice (Instrumental) - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav");
-            string pathPartToDelete = "Renovación LIS Client\\Renovación LIS Client\\bin\\Debug\\";
-            Console.WriteLine(incompletePath);
-            Console.ReadLine();
+           SongManager.Instance.PlayMainSong();
 
-            string completePath = incompletePath.Replace(pathPartToDelete, "");
-
-            SoundPlayer mainMenuSong = new SoundPlayer(completePath);
-            mainMenuSong.Play();
 
             InitializeComponent();
             ChangeLanguageLabel();
@@ -42,6 +36,8 @@ namespace Renovación_LIS_Client.View
 
         private void StartGame(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView());
         }
@@ -89,5 +85,10 @@ namespace Renovación_LIS_Client.View
         
         }
 
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
+
+        }
     }
 }

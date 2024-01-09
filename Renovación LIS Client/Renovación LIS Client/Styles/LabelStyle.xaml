@@ -8,4 +8,12 @@
         <Setter Property="FontFamily" Value="{StaticResource K2DRegular}"/>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
+
+    <Style x:Key="Game_TextBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontFamily" Value="{StaticResource K2DBold}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
 </ResourceDictionary>

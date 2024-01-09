@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
@@ -34,14 +35,40 @@ namespace Renovación_LIS_Client.View
 
         private void ProfileButton(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ModifyProfileView(loggedPlayer));
         }
 
         private void QuitButton(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView());
+        }
+
+        private void ConfigurationButton(object sender, RoutedEventArgs e)
+        {
+            SongManager.Instance.PlayClickSound();
+
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ConfigurationView());
+        }
+
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
+
+        }
+
+        private void PlayButton(object sender, RoutedEventArgs e)
+        {
+            SongManager.Instance.PlayClickSound();
+
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new AnimationView());
         }
     }
 }

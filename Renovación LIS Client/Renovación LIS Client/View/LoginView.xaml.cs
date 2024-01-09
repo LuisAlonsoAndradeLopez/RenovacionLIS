@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
@@ -31,19 +32,33 @@ namespace Renovación_LIS_Client.View
 
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ForgotPassword());
         }
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new CreateAccountView());
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            if (invalidValuesInTextFieldsTextGenerator() == "")
+            SongManager.Instance.PlayClickSound();
+
+            Player player = new Player();
+            player.Name = "Kathe";
+            player.Password = "123";
+            
+
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new MenuView(player));
+
+            /*if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
                 string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
@@ -73,7 +88,7 @@ namespace Renovación_LIS_Client.View
             else
             {
                 MessageBox.Show(invalidValuesInTextFieldsTextGenerator(), "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            }*/
         }
 
 
@@ -124,5 +139,12 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
+
+        }
     }
+
+    
 }

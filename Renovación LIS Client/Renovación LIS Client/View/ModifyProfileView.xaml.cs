@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using domain;
 using Microsoft.Win32;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
@@ -45,13 +46,17 @@ namespace Renovación_LIS_Client.View
 
         private void CancelButton(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(loggedPlayer));
         }
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
         {
-            if(invalidValuesInTextFieldsTextGenerator() == "")
+            SongManager.Instance.PlayClickSound();
+
+            if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 PlayerClient client = new PlayerClient();
 
@@ -186,5 +191,6 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+       
     }
 }

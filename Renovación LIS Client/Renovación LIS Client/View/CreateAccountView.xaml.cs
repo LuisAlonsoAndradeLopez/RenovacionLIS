@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
@@ -31,6 +32,8 @@ namespace Renovación_LIS_Client.View
 
         private void CreateAccountButton(object sender, RoutedEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             if (invalidValuesInTextFieldsTextGenerator() == "")
             {
                 SecureString securePassword = PasswordPasswordBox.SecurePassword;
@@ -99,6 +102,8 @@ namespace Renovación_LIS_Client.View
 
         private void GoLoginButton(object sender, MouseButtonEventArgs e)
         {
+            SongManager.Instance.PlayClickSound();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView());
         }
@@ -225,6 +230,12 @@ namespace Renovación_LIS_Client.View
             }
 
             return finalText;
+        }
+
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
+
         }
     }
 
