@@ -8,6 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/sal%c3%b3ncristalmultiplayercrosswordimage.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/songs/custom%20character%20-%20dan%20the%20man%20music.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/songs/smile.dk%20-%20butterfly%20(last%20word%20karaoke).wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/songs/apprentice%20(instrumental)%20-%20friday%20night%20funkin%20vs%20" +
+    "dave%20and%20bambi%20golden%20apple%20ost.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/soundeffects/beep_soundeffect.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/soundeffects/start_soundeffect.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videos/animationvideo.mp4")]
 
 

@@ -43,8 +43,8 @@ namespace Renovación_LIS_Client.View
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelView());
+            //NavigationService navigationService = NavigationService.GetNavigationService(this);
+            //navigationService.Navigate(new LevelView());
         }
     }
 }

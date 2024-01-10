@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Net.Mail;
+using System.Globalization;
 using System.Net;
+using System.Net.Mail;
+using System.Resources;
+using System.Security;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using System.Text.RegularExpressions;
-using Renovación_LIS_Client.ServicePlayerReference;
-using System.Security;
-using System.Globalization;
-using System.Resources;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
+using Renovación_LIS_Client.ServicePlayerReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -74,7 +75,7 @@ namespace Renovación_LIS_Client.View
 
                 string salt = BCrypt.Net.BCrypt.GenerateSalt();
                 string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
-                
+
                 playerClient.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
 
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
@@ -153,7 +154,7 @@ namespace Renovación_LIS_Client.View
             int textFieldsWithIncorrectValues = 0;
 
             string finalText = "";
-            
+
             string emailPattern = "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+";
             string newPasswordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
             string confirmNewPasswordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$";
@@ -196,7 +197,7 @@ namespace Renovación_LIS_Client.View
                     finalText = finalText + resourceManager.GetString("New Password", cultureInfo) + ".";
                 }
 
-                textFieldsWithIncorrectValues++;                
+                textFieldsWithIncorrectValues++;
             }
 
             if (!confirmNewPasswordMatch.Success)

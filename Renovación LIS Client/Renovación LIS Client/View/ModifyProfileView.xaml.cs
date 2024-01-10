@@ -2,19 +2,15 @@
 using System.Globalization;
 using System.IO;
 using System.Resources;
-using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
-using Microsoft.Win32;
 using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
@@ -90,10 +86,9 @@ namespace Renovación_LIS_Client.View
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
         {
-            if(InvalidValuesInTextFieldsTextGenerator() == "")
             SongManager.Instance.PlayClickSound();
 
-            if (invalidValuesInTextFieldsTextGenerator() == "")
+            if (InvalidValuesInTextFieldsTextGenerator() == "")
             {
                 if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                 {
@@ -273,7 +268,7 @@ namespace Renovación_LIS_Client.View
             string fileName = MainWindow.loggedProfile.Player.NickName + ".png";
             byte[] imageData = profileNonCallbackMethodsClient.GetImage(fileName);
 
-            if(imageData == null)
+            if (imageData == null)
             {
                 fileName = MainWindow.loggedProfile.Player.NickName + ".jpg";
                 imageData = profileNonCallbackMethodsClient.GetImage(fileName);
@@ -295,6 +290,6 @@ namespace Renovación_LIS_Client.View
             mainWindow.OpenTheLobbyView(this);
         }
         #endregion
-       
+
     }
 }

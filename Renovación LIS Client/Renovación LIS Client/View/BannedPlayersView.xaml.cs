@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
@@ -52,7 +53,7 @@ namespace Renovación_LIS_Client.View
 
         private void UnbanPlayerButtonOnClick(object sender, RoutedEventArgs e)
         {
-            if(sender is Button button)
+            if (sender is Button button)
             {
                 if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to unban this player?"))
                 {
@@ -153,6 +154,10 @@ namespace Renovación_LIS_Client.View
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
             LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+
+            SongManager.Instance.StopMusic();
+            SongManager.Instance.PlayMainSong();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow));
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");

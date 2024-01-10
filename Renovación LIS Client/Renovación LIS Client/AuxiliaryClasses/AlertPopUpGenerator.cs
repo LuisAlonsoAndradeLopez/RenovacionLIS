@@ -35,12 +35,12 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question
             );
-            
+
             if (result == MessageBoxResult.Yes)
             {
-                return true;         
-            }     
-            
+                return true;
+            }
+
             return false;
         }
 

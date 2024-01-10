@@ -1,18 +1,16 @@
-﻿using domain;
-using DomainStatuses;
-using Renovación_LIS_Client.AuxiliaryClasses;
-using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
-using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
-using Renovación_LIS_Client.View;
-using System;
+﻿using System;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using domain;
+using DomainStatuses;
+using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
+using Renovación_LIS_Client.View;
 
 namespace Renovación_LIS_Client
 {
@@ -31,14 +29,14 @@ namespace Renovación_LIS_Client
 
         #region Constructor
         public MainWindow()
-        {            
+        {
             Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
             Application.Current.Exit += AppExit;
             AppDomain.CurrentDomain.ProcessExit += ProcessExit;
             this.Closing += MainWindowClosing;
 
             profileCallbackMethodsClient = new ProfileCallbackMethodsClient(new InstanceContext(this));
-            
+
             InitializeComponent();
 
             NavigationService navigationService = MainFrame.NavigationService;
@@ -87,10 +85,10 @@ namespace Renovación_LIS_Client
         }
 
         private void MainWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
-        { 
+        {
             if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("What do you want", "Do you want to exit"))
             {
-                if(MainWindow.loggedProfile != null)
+                if (MainWindow.loggedProfile != null)
                 {
                     ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
                     profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
@@ -124,7 +122,7 @@ namespace Renovación_LIS_Client
         {
             if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("You have been invitated to the lobby!", "Do you want to enter to the lobby?"))
             {
-                LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient= new LobbyNonCallbackMethodsClient();
+                LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
                 if (!lobbyNonCallbackMethodsClient.ThePlayersAreInGame())
                 {
                     if (!lobbyNonCallbackMethodsClient.IsBanned(MainWindow.loggedProfile.Player.NickName))
@@ -163,7 +161,7 @@ namespace Renovación_LIS_Client
             if (PageStateManager.CurrentPage is FriendsView currentPage)
             {
                 currentPage.ShowUpdatedFriendsList();
-            }            
+            }
         }
 
         public void UpdateFriendsForInviteLists()

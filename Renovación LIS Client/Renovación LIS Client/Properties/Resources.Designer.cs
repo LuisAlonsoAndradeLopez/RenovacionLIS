@@ -404,6 +404,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Apply.
+        /// </summary>
+        public static string Apply {
+            get {
+                return ResourceManager.GetString("Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Are you sure?.
         /// </summary>
         public static string Are_you_sure_ {
@@ -1007,6 +1016,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a left the chat..
         /// </summary>
         public static string Left_the_chat {
@@ -1048,6 +1066,33 @@ namespace Renovación_LIS_Client.Properties {
         public static string Modify_profile {
             get {
                 return ResourceManager.GetString("Modify profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modify profile.
+        /// </summary>
+        public static string ModifyProfile {
+            get {
+                return ResourceManager.GetString("ModifyProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Multiplayer.
+        /// </summary>
+        public static string Multiplayer {
+            get {
+                return ResourceManager.GetString("Multiplayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Music volume.
+        /// </summary>
+        public static string Music_volume {
+            get {
+                return ResourceManager.GetString("Music volume", resourceCulture);
             }
         }
         
@@ -1196,6 +1241,24 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Profile Image.
+        /// </summary>
+        public static string ProfileImage {
+            get {
+                return ResourceManager.GetString("ProfileImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Quit.
+        /// </summary>
+        public static string Quit {
+            get {
+                return ResourceManager.GetString("Quit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Received.
         /// </summary>
         public static string Received {
@@ -1291,6 +1354,33 @@ namespace Renovación_LIS_Client.Properties {
         public static string Show_friends_invitations {
             get {
                 return ResourceManager.GetString("Show friends invitations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Singleplayer.
+        /// </summary>
+        public static string Singleplayer {
+            get {
+                return ResourceManager.GetString("Singleplayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sound.
+        /// </summary>
+        public static string Sound {
+            get {
+                return ResourceManager.GetString("Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sound Volume.
+        /// </summary>
+        public static string SoundVolume {
+            get {
+                return ResourceManager.GetString("SoundVolume", resourceCulture);
             }
         }
         
@@ -1517,6 +1607,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Verify_answer {
             get {
                 return ResourceManager.GetString("Verify answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome back!.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
         

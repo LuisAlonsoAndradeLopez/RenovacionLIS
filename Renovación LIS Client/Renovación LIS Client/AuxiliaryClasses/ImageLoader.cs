@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using domain;
+﻿using System.IO;
 using System.Windows.Media.Imaging;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
@@ -35,7 +29,7 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
             BitmapImage imageSource = new BitmapImage();
 
             if (imageData != null)
-            {                
+            {
                 imageSource.BeginInit();
                 imageSource.StreamSource = new MemoryStream(imageData);
                 imageSource.EndInit();

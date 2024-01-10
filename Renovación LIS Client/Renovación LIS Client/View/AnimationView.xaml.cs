@@ -1,19 +1,10 @@
 ﻿using Renovación_LIS_Client.Helpers;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Renovación_LIS_Client.View
 {
@@ -22,8 +13,14 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class AnimationView : Page
     {
-        public AnimationView()
+        private readonly MainWindow mainWindow;
+
+        public AnimationView(MainWindow mainWindow)
         {
+            PageStateManager.CurrentPage = this;
+
+            this.mainWindow = mainWindow;
+
             InitializeComponent();
             SongManager.Instance.PauseMusic();
 
@@ -33,9 +30,10 @@ namespace Renovación_LIS_Client.View
             AnimationVideo.MediaEnded += (sender, e) =>
             {
                 SongManager.Instance.ResumeMusic();
+                SongManager.Instance.PlaySingleplayerSong();
 
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LevelView());
+                navigationService.Navigate(new LevelView(mainWindow));
             };
         }
 
@@ -44,9 +42,10 @@ namespace Renovación_LIS_Client.View
             SongManager.Instance.PlayClickSound();
 
             SongManager.Instance.ResumeMusic();
+            SongManager.Instance.PlaySingleplayerSong();
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelView());
+            navigationService.Navigate(new LevelView(mainWindow));
 
         }
 

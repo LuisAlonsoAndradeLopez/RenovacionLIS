@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
@@ -99,7 +100,7 @@ namespace Renovación_LIS_Client.View
             ChatNotCallbackMethodsClient chatNotCallbackMethodsClient = new ChatNotCallbackMethodsClient();
             foreach (var profileAndMessage in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
             {
-                if(profileAndMessage.Key == "Chat Server")
+                if (profileAndMessage.Key == "Chat Server")
                 {
                     string message = profileAndMessage.Value;
 
@@ -139,7 +140,7 @@ namespace Renovación_LIS_Client.View
 
                     continue;
                 }
-            
+
                 if (profileAndMessage.Key != MainWindow.loggedProfile.Player.NickName && profileAndMessage.Key != "Chat Server")
                 {
                     Border friendMessageBorder = new Border
@@ -223,7 +224,7 @@ namespace Renovación_LIS_Client.View
                     loggedPlayerMessageBorder.Child = loggedPlayerMessageLabel;
                     MessagesStackPanel.Children.Add(loggedPlayerMessageBorder);
                 }
-            
+
             }
 
             chatNotCallbackMethodsClient.Close();
@@ -232,6 +233,10 @@ namespace Renovación_LIS_Client.View
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
             LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+
+            SongManager.Instance.StopMusic();
+            SongManager.Instance.PlayMainSong();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new MenuView(mainWindow));
             new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");

@@ -2,16 +2,14 @@
 using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
@@ -72,7 +70,7 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void BanPlayerButtonOnClick(object sender, RoutedEventArgs e)
         {
-            if(sender is Button button)
+            if (sender is Button button)
             {
                 if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to ban this player?"))
                 {
@@ -102,7 +100,8 @@ namespace Renovación_LIS_Client.View
 
         private void ConfigurationButtonOnClick(object sender, RoutedEventArgs e)
         {
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Unavailable", "Work in progress");
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ConfigurationView(mainWindow, true));
         }
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
@@ -110,8 +109,12 @@ namespace Renovación_LIS_Client.View
             LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
             lobbyCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
             RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+
+            SongManager.Instance.StopMusic();
+            SongManager.Instance.PlayMainSong();
+
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow));
+            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
         }
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
@@ -142,13 +145,14 @@ namespace Renovación_LIS_Client.View
         {
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
             if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
-                lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4) {
+                lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4)
+            {
                 lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
                 MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
                 multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
 
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();   
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
             }
             else
             {

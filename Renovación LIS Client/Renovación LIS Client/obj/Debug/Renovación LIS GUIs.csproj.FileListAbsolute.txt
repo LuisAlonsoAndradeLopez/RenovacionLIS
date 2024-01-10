@@ -30,28 +30,6 @@ C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovac
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.GenerateResource.cache
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CoreCompileInputs.cache
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\es\Renovación LIS Client.resources.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\es\Renovación LIS Client.resources.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\DomainStatuses.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Intersoft.Crosslight.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\ServicesCallbacks.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\DomainStatuses.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\ServicesCallbacks.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\ServicesCallbacks.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.xml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.xml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.xml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.AssemblyReference.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\ButtonStyles.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\Fonts.baml
@@ -64,11 +42,15 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ForgotPassword.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\FriendsView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LobbyView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LoginView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MultiplayerCrosswordView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\WinnersView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\App.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_MarkupCompile.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_MarkupCompile.lref
@@ -76,29 +58,55 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\BannedPlayersView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ChatView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ConfigurationView.baml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ForgotPassword.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\FriendsView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LobbyView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LoginView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MultiplayerCrosswordView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\WinnersView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.exe
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\es\Renovación LIS Client.resources.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\DomainStatuses.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Intersoft.Crosslight.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\DomainStatuses.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.baml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.g.resources
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación_LIS_Client.Properties.Resources.resources
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación_LIS_Client.Properties.Resources.es.resources
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.GenerateResource.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CoreCompileInputs.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\es\Renovación LIS Client.resources.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.exe
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe.config
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CopyComplete
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LobbyView.g.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LobbyView.baml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\WinnersView.g.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\WinnersView.baml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MultiplayerCrosswordView.g.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.g.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MultiplayerCrosswordView.baml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\AnimationView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelOneTwoView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelOneView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_Content.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\AnimationView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelOneTwoView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelOneView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelView.baml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\GamemodeSelectionView.g.cs
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\GamemodeSelectionView.baml

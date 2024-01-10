@@ -243,7 +243,7 @@ namespace Renovación_LIS_Client.View
                 profileBorder.Child = borderStackPanel;
 
                 PositionsStackPanel.Children.Add(profileBorder);
-            }          
+            }
         }
         #endregion
     }

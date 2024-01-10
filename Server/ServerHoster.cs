@@ -52,7 +52,7 @@ namespace ServerHoster
             serviceProfileForCallbackMethodsHost.Open();
             Console.WriteLine("ServiceProfileForCallbackMethodsHost started!!!");
 
-            Console.ReadLine();
+            Console.ReadLine();            
         }
     }
 }

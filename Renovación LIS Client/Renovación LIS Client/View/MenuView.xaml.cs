@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
@@ -32,46 +33,22 @@ namespace Renovación_LIS_Client.View
 
 
         #region Methods for GUIs elements events
+        private void ConfigurationButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new ConfigurationView(mainWindow));
+        }
+
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
-        {            
+        {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new FriendsView(mainWindow));
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            if (!lobbyNonCallbackMethodsClient.ThePlayersAreInGame())
-            {
-                if (!lobbyNonCallbackMethodsClient.IsBanned(MainWindow.loggedProfile.Player.NickName))
-                {
-                    if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length < 4)
-                    {
-                        LobbyView lobbyView = new LobbyView(mainWindow);
-                        LobbyView.chatCallbackMethodsClient.JoinChat(MainWindow.loggedProfile.Player.NickName);
-                        LobbyView.lobbyCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
-
-                        new RandomMultiplayerCrosswordGeneratorView();
-                        RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
-                        NavigationService navigationService = NavigationService.GetNavigationService(this);
-                        navigationService.Navigate(lobbyView);
-                    }
-                    else
-                    {
-                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The lobby is full!!!");
-                    }
-                }
-                else
-                {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "You are banned!!!!!");
-                }
-            }
-            else
-            {
-                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The game already has started!");
-            }
-
-            lobbyNonCallbackMethodsClient.Close();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
         }
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)

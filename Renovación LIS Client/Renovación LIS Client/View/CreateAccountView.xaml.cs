@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
@@ -256,6 +257,11 @@ namespace Renovación_LIS_Client.View
             }
 
             return finalText;
+        }
+
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
         }
         #endregion
     }

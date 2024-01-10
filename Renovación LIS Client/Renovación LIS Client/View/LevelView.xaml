@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
@@ -13,7 +14,7 @@
             <ColumnDefinition Width="179*"/>
             <ColumnDefinition Width="1021*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="/images/LevelsImage.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+        <Image Source="/images/gamemodeSelectionImage.png" Stretch="Fill" Grid.ColumnSpan="2"/>
 
         <Border Margin="60,20,60,60" 
                 Grid.Column="0" 
@@ -32,16 +33,16 @@
                            FontSize="50"
                            Foreground="White"
                            HorizontalAlignment="Center"
-                           Grid.Column="1"/>
+                           Grid.Column="1" Width="423"/>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="20">
-                        <Label Content="Username"
+                        <Label Name="ProfileNickname"
                                FontFamily="{StaticResource K2DRegular}"
                                FontSize="20"
                                Foreground="White"
                                VerticalAlignment="Center"
                                Margin="0,0,20,0"/>
-                        <Image Source="/images/startPageImage.png"
+                        <Image Name="ProfileImage"
                                Height="45"
                                Width="45"
                                Stretch="Fill"/>
@@ -155,7 +156,7 @@
                     </StackPanel>
 
 
-                    
+
 
                     <Image Name="BeforeButton"
                            Source="/images/ArrowRight.png"
@@ -167,7 +168,7 @@
 
                 </Grid>
 
-                
+
 
 
 
@@ -183,7 +184,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel>
-                <Label Content="Friends"
+                <Label Content="{x:Static p:Resources.Exit}"
                FontFamily="{StaticResource K2DBold}"
                FontSize="16"
                Foreground="White"
@@ -191,21 +192,23 @@
 
                 <Image Source="/images/friendsButtonImage.png"
                        Height="80"
-                       Width="80"/>
-                
-                
+                       Width="80"
+                       MouseLeftButtonDown="ExitButtonOnClick"
+                       Cursor="Hand"/>
+
+
             </StackPanel>
 
-            <StackPanel Grid.Column="1">
+            <StackPanel Grid.Column="1" Margin="0,-12,0,0">
                 <Label Content="Play"
                         FontFamily="{StaticResource K2DBold}"
                         FontSize="16"
                         Foreground="White"
                         HorizontalAlignment="Center"/>
 
-                <Image Source="/images/playButtonImage.png"
-                       Height="80"
-                       Width="80"
+                <Image Source="/images/playButton.png"
+                       Height="90"
+                       Width="106"
                        MouseLeftButtonDown="PlayGameSelected"
                        Cursor="Hand"/>
             </StackPanel>

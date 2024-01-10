@@ -1,13 +1,9 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
-using System.Windows.Threading;
-using domain;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference;
 
@@ -26,7 +22,7 @@ namespace Renovación_LIS_Client.View
         {
             PageStateManager.CurrentPage = this;
             this.mainWindow = mainWindow;
-            
+
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
@@ -316,7 +312,7 @@ namespace Renovación_LIS_Client.View
 
         public void UpdateGoText()
         {
-            GlobalCountdownSecondsTextBlock.Text = resourceManager.GetString("Go!", cultureInfo);            
+            GlobalCountdownSecondsTextBlock.Text = resourceManager.GetString("Go!", cultureInfo);
         }
 
         public void UpdateTimesUpText()
@@ -350,7 +346,7 @@ namespace Renovación_LIS_Client.View
 
         public void UpdateCrosswordCompletition()
         {
-            
+
         }
 
         public void UpdateProfilesPointsList()
@@ -362,7 +358,7 @@ namespace Renovación_LIS_Client.View
             {
                 Border connectedProfileBorder = new Border
                 {
-                    Margin = new Thickness(10,10,2,10),
+                    Margin = new Thickness(10, 10, 2, 10),
                     CornerRadius = new CornerRadius(20),
                     Height = 106,
                     Width = 270,

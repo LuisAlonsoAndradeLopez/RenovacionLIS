@@ -8,12 +8,17 @@ namespace Renovación_LIS_Client.View
 {
     public partial class LevelOneTwoView : Page
     {
+        private readonly MainWindow mainWindow;
 
         private int word = 1;
         private Dictionary<int, Word> gameWords = new Dictionary<int, Word>();
 
-        public LevelOneTwoView()
+        public LevelOneTwoView(MainWindow mainWindow)
         {
+            PageStateManager.CurrentPage = this;
+
+            this.mainWindow = mainWindow;
+
             InitializeComponent();
 
             InitializeWordsLevel1();

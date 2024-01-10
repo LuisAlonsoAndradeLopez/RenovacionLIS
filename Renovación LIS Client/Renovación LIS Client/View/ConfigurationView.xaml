@@ -3,8 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Renovación_LIS_Client.View"
       xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
+      xmlns:local="clr-namespace:Renovación_LIS_Client.View"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="ConfigurationView">
@@ -79,7 +79,7 @@
                        Background="White"
                        HorizontalAlignment="Left" FontSize="16" Canvas.Right="0" Canvas.Top="230"/>
 
-                <Label Content="{x:Static p:Resources.MusicVolume}"
+                <Label Content="{x:Static p:Resources.Music_volume}"
                        FontFamily="{StaticResource K2DRegular}"
                        FontSize="16"
                        Foreground="White" Canvas.Left="84" Canvas.Top="267"/>
@@ -122,13 +122,13 @@
                        Foreground="White" Canvas.Left="361" Canvas.Top="454"/>
 
                 <Button Content="{x:Static p:Resources.Apply}"
-                        Style="{StaticResource NormalButtom}"
+                        Style="{StaticResource RedButton}"
                         Height="45"
                         Width="200" Click="ApplyChangesButton" Canvas.Left="40" Canvas.Bottom="40"
                         MouseEnter="PlayHoverSound"/>
 
                 <Button Content="{x:Static p:Resources.Cancel}" 
-                        Style="{StaticResource NormalButtom}"
+                        Style="{StaticResource RedButton}"
                         Height="45"
                         Width="200"
                         Background="Black"  Canvas.Right="40" Canvas.Bottom="40"

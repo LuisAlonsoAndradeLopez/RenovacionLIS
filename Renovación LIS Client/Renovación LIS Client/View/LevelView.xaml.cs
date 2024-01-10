@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 
 namespace Renovación_LIS_Client.View
 {
@@ -21,10 +15,19 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class LevelView : Page
     {
+        private readonly MainWindow mainWindow;
         private int SelectedLevel = 2;
-        public LevelView()
+
+        public LevelView(MainWindow mainWindow)
         {
+            PageStateManager.CurrentPage = this;
+
+            this.mainWindow = mainWindow;
+
             InitializeComponent();
+            
+            ProfileImage.Source = new ImageLoader().GetImageByPlayerNickname(MainWindow.loggedProfile.Player.NickName);
+            ProfileNickname.Content = MainWindow.loggedProfile.Player.NickName;
         }
 
         private void GoToNextLevel(object sender, MouseButtonEventArgs e)
@@ -133,10 +136,19 @@ namespace Renovación_LIS_Client.View
             image.BeginAnimation(Image.OpacityProperty, FadeIn);
         }
 
+        private void ExitButtonOnClick(object sender, MouseButtonEventArgs e)
+        {
+            SongManager.Instance.ResumeMusic();
+            SongManager.Instance.PlayMainSong();
+
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
+        }
+
         private void PlayGameSelected(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelOneTwoView());
+            navigationService.Navigate(new LevelOneTwoView(mainWindow));
         }
 
         private void ChangeLevelName()

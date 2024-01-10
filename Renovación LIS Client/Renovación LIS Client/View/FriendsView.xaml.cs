@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestForNonCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
@@ -45,7 +46,7 @@ namespace Renovación_LIS_Client.View
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
-            
+
             PageStateManager.CurrentPage = this;
             entryToThisPageViaLobbyView = false;
 
@@ -630,7 +631,7 @@ namespace Renovación_LIS_Client.View
                 friendRequestNonCallbackMethodsClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                 new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request successfully accepted");
-        
+
                 FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
                 FriendsRequestsBorder.Visibility = Visibility.Visible;
                 friendRequestNonCallbackMethodsClient.Close();
@@ -780,6 +781,10 @@ namespace Renovación_LIS_Client.View
             if (entryToThisPageViaLobbyView)
             {
                 LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+
+                SongManager.Instance.StopMusic();
+                SongManager.Instance.PlayMainSong();
+
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new MenuView(mainWindow));
                 new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
@@ -892,7 +897,7 @@ namespace Renovación_LIS_Client.View
         public void UpdateFriendsRequestsLists()
         {
             if (PageStateManager.CurrentPage is FriendsView currentPage)
-            {                
+            {
                 currentPage.ShowUpdatedFriendRequestsList();
             }
         }

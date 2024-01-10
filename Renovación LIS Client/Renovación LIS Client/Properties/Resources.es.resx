@@ -301,13 +301,6 @@
     <value>Configuración</value>
   </data>
   <data name="Confirm password" xml:space="preserve">
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="Configuration" xml:space="preserve">
-    <value>Configuración</value>
-  </data>
-  <data name="Confirm Password" xml:space="preserve">
     <value>Confirmar contraseña</value>
   </data>
   <data name="Confirm your new password" xml:space="preserve">
@@ -392,7 +385,7 @@
     <value>¡Solicitud de amistad aceptada exitosamente!</value>
   </data>
   <data name="Friends" xml:space="preserve">
-    <value>Amigazos</value>
+    <value>Amigos</value>
   </data>
   <data name="Friends requests" xml:space="preserve">
     <value>Invitaciones de amigos</value>
@@ -445,9 +438,6 @@
   <data name="Left the chat" xml:space="preserve">
     <value>dejó el chat.</value>
   </data>
-  <data name="Friends" xml:space="preserve">
-    <value>Amigos</value>
-  </data>
   <data name="Language" xml:space="preserve">
     <value>Lenguaje</value>
   </data>
@@ -466,7 +456,7 @@
   <data name="ModifyProfile" xml:space="preserve">
     <value>Modificar perfil</value>
   </data>
-  <data name="MusicVolume" xml:space="preserve">
+  <data name="Music volume" xml:space="preserve">
     <value>Volumen de la música</value>
   </data>
   <data name="Name" xml:space="preserve">
@@ -549,12 +539,6 @@
   </data>
   <data name="Show friends invitations" xml:space="preserve">
     <value>Mostrar invitaciones de amigos</value>
-  </data>
-  <data name="Play" xml:space="preserve">
-    <value>Jugar</value>
-  </data>
-  <data name="Profile" xml:space="preserve">
-    <value>Perfil</value>
   </data>
   <data name="ProfileImage" xml:space="preserve">
     <value>Foto de perfil</value>
@@ -681,5 +665,11 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>¡Hola de nuevo!</value>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>Multijugador</value>
+  </data>
+  <data name="Singleplayer" xml:space="preserve">
+    <value>Un jugador</value>
   </data>
 </root>

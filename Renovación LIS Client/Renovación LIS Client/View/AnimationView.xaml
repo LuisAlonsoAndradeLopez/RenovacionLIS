@@ -23,7 +23,7 @@
                     HorizontalAlignment="Right"
                     Margin="20" 
                     Content="Omitir" 
-                    Style="{StaticResource NormalButtom}"
+                    Style="{StaticResource DarkBlueButton}"
                     MouseEnter="PlayHoverSound"
                     Click="SkipButton"/>
     </Grid>

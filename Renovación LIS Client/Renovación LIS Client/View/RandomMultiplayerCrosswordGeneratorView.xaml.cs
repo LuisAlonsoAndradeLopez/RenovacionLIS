@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -27,7 +26,7 @@ namespace Renovación_LIS_Client.View
 
 
         #region Constructors
-        public RandomMultiplayerCrosswordGeneratorView() 
+        public RandomMultiplayerCrosswordGeneratorView()
         {
             multiplayerCrosswordCallbackMethodsClient = new MultiplayerCrosswordCallbackMethodsClient(new InstanceContext(this));
         }
@@ -36,7 +35,7 @@ namespace Renovación_LIS_Client.View
         {
             PageStateManager.CurrentPage = this;
             this.mainWindow = mainWindow;
-            
+
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
@@ -175,7 +174,7 @@ namespace Renovación_LIS_Client.View
                 //configurationView.GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin();
             }
         }
-        
+
         public void OpenMultiplayerCrosswordView()
         {
             if (PageStateManager.CurrentPage is RandomMultiplayerCrosswordGeneratorView currentPage)

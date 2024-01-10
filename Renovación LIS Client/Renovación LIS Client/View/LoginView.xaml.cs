@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using domain;
 using DomainStatuses;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
@@ -68,7 +69,7 @@ namespace Renovación_LIS_Client.View
 
                 ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
                 Profile profile = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextField.Text);
-                
+
                 if (profile != null)
                 {
                     string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(profile.Player.Password));
@@ -77,7 +78,7 @@ namespace Renovación_LIS_Client.View
                     {
                         if (!profileNonCallbackMethodsClient.TheProfileIsLogged(profile.IDProfile))
                         {
-                            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);                         
+                            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
 
                             MainWindow.profileCallbackMethodsClient.Connect(profile.Player.NickName);
                             mainWindow.SetProfileTologgedProfile(profile);
@@ -157,8 +158,13 @@ namespace Renovación_LIS_Client.View
 
             return finalText;
         }
+
+        private void PlayHoverSound(object sender, MouseEventArgs e)
+        {
+            SongManager.Instance.PlayHoverSound();
+        }
         #endregion
     }
 
-    
+
 }

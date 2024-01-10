@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
-      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="ModifyProfileView" Width="1200" Height="700">

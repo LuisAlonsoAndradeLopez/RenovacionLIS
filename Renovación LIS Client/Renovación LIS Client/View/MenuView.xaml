@@ -61,7 +61,9 @@
                 Grid.Row="4"
                 HorizontalAlignment="Left"
                 Margin="30,40,0,0"
-                Style="{StaticResource underlineButton}" Grid.RowSpan="2"/>
+                Style="{StaticResource underlineButton}" Grid.RowSpan="2"
+                MouseLeftButtonDown="ConfigurationButtonOnClick"
+                Click="ConfigurationButtonOnClick"/>
 
             <Button Content="{x:Static p:Resources.Exit}"
                 Foreground="White"
