@@ -772,6 +772,7 @@
     <Resource Include="images\salónCristalMultiplayerCrosswordImage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\WallpaperLevelOneImage.png" />
     <Content Include="resources\Songs\Custom Character - Dan The Man Music.wav" />
     <Content Include="resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
     <Resource Include="images\gamemodeSelectionImage.png" />

@@ -46,13 +46,11 @@ namespace Renovación_LIS_Client.View
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LevelView(mainWindow));
-
         }
 
         private void PlayHoverSound(object sender, MouseEventArgs e)
         {
             SongManager.Instance.PlayHoverSound();
-
         }
 
 

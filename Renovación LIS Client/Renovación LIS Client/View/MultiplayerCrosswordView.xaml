@@ -83,6 +83,21 @@
                                 <SolidColorBrush Color="Black" Opacity="0.5"/>
                             </Border.Background>
 
+                            <Grid Name="Crossword" Grid.Column="1" Visibility="Visible">
+                                <Image Margin="10" Source="/images/GridLevels/GridLevelOne.png"/>
+                                <Canvas Width="455" Height="390" Margin="20">
+                                    <!--VERTICALES-->
+                                    <TextBlock Name="L1W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Center" Canvas.Left="265" VerticalAlignment="Top" Height="259" Canvas.Top="-2"/>
+                                    <TextBlock Name="L1W3" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Center" Canvas.Top="180"/>
+                                    <TextBlock Name="L1W4" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Left" Canvas.Left="240" VerticalAlignment="Center" Canvas.Top="180"/>
+                                    <TextBlock Name="L1W6" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Left" Canvas.Left="290" VerticalAlignment="Center" Canvas.Top="206"/>
+                                    <!--HORIZONTALES-->
+                                    <TextBlock Name="L1W2" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="268" VerticalAlignment="Center" Canvas.Top="50"/>
+                                    <TextBlock Name="L1W5" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="8" VerticalAlignment="Center" Canvas.Top="206"/>
+                                    <TextBlock Name="L1W7" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="38" VerticalAlignment="Center" Canvas.Top="232"/>
+                                    <TextBlock Name="L1W8" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="293" VerticalAlignment="Center" Canvas.Top="284"/>
+                                </Canvas>
+                            </Grid>
                         </Border>
                     </StackPanel>
 
@@ -121,7 +136,7 @@
 
         </StackPanel>
 
-        <Rectangle x:Name="GlobalCountdownBlockScreenRectangle" Fill="Black" Opacity="0" Visibility="Visible"/>
+        <Rectangle x:Name="GlobalCountdownBlockScreenRectangle" Fill="Black" Opacity="0" Visibility="Collapsed"/>
 
         <TextBlock
             Visibility="Visible"

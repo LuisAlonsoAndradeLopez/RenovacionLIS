@@ -171,7 +171,7 @@ namespace Renovación_LIS_Client.View
             }
             else if (PageStateManager.CurrentPage is ConfigurationView configurationView)
             {
-                //configurationView.GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin();
+                configurationView.GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin();
             }
         }
 
@@ -211,7 +211,7 @@ namespace Renovación_LIS_Client.View
             }
             else if (PageStateManager.CurrentPage is ConfigurationView configurationView)
             {
-                //configurationView.StartBlackScreenAnimation();
+                configurationView.StartBlackScreenAnimation();
             }
         }
 

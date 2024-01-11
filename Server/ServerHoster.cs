@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ServiceModel;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ServerHoster
 {

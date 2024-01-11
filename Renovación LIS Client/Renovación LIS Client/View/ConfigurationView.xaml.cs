@@ -1,9 +1,14 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Resources;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 
@@ -14,19 +19,17 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class ConfigurationView : Page
     {
-        //TODO:
-        //En configuration view pulirle todo (al salir que salga a menuview o lobbyview bien
-        //Configurationview debe de tener todo lo que tiene friendsview (expulsar jugador, invitar amigo y pantalla rené)
-        //levelview internacionalizar y botones bien
-        //terminar crucigramas multijugador
-        //kate crucigramas un jugador
-
+        #region Attributes
         private readonly MainWindow mainWindow;
         private readonly FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
         private readonly bool entryToThisPageViaLobbyView;
+        #endregion
 
+
+
+        #region Constructors
         public ConfigurationView(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
@@ -60,7 +63,11 @@ namespace Renovación_LIS_Client.View
             SoundValue.Content = SongManager.Instance.GetVolumeSound() * 100 + "%";
             ChangeLanguageLabel();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements events
         private void ApplyChangesButton(object sender, RoutedEventArgs e)
         {
             SongManager.Instance.PlayClickSound();
@@ -77,14 +84,11 @@ namespace Renovación_LIS_Client.View
                 case "English":
                     System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en"); ;
                     break;
-
             }
         }
 
-        private void ExitButton(object sender, RoutedEventArgs e)
+        private void CancelChangesButton(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
-
             if (entryToThisPageViaLobbyView)
             {
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -95,12 +99,10 @@ namespace Renovación_LIS_Client.View
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new MenuView(mainWindow));
             }
-
         }
 
         private void ChangeLanguageButton(object sender, MouseButtonEventArgs e)
         {
-
             string CurrentLanguage = TxtLanguages.Text;
 
             switch (CurrentLanguage)
@@ -116,25 +118,6 @@ namespace Renovación_LIS_Client.View
                     break;
 
             }
-
-
-        }
-
-        private void ChangeLanguageLabel()
-        {
-            CultureInfo CurrentLanguage = CultureInfo.CurrentUICulture;
-
-
-            if (CurrentLanguage.Name == "en")
-            {
-                TxtLanguages.Text = Properties.Resources.English;
-            }
-            else
-            {
-                TxtLanguages.Text = Properties.Resources.Spanish;
-            }
-
-
         }
 
         private void BackgroundMusicVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -153,12 +136,72 @@ namespace Renovación_LIS_Client.View
         {
             SongManager.Instance.PlayHoverSound();
         }
+        #endregion
 
-        private void CancelChangesButton(object sender, RoutedEventArgs e)
+
+
+        #region Auxiliary methods
+        private void ChangeLanguageLabel()
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow));
+            CultureInfo CurrentLanguage = CultureInfo.CurrentUICulture;
+
+            if (CurrentLanguage.Name == "en")
+            {
+                TxtLanguages.Text = Properties.Resources.English;
+            }
+            else
+            {
+                TxtLanguages.Text = Properties.Resources.Spanish;
+            }
         }
+
+        public void ExitFromThisPageForBeingExpeltFromLobbyView()
+        {
+            if (entryToThisPageViaLobbyView)
+            {
+                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+
+                SongManager.Instance.StopMusic();
+                SongManager.Instance.PlayMainSong();
+
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MenuView(mainWindow));
+                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            }
+        }
+
+        public void GoToLobbyView()
+        {
+            if (!entryToThisPageViaLobbyView)
+            {
+                mainWindow.OpenTheLobbyView(this);
+            }
+        }
+
+        public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
+        {
+            if (entryToThisPageViaLobbyView)
+            {
+                Thread.Sleep(1000);
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            }
+        }
+
+        public void StartBlackScreenAnimation()
+        {
+            var animation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.HoldEnd
+            };
+
+            BlackScreenRectangle.Visibility = Visibility.Visible;
+            BlackScreenRectangle.BeginAnimation(Rectangle.OpacityProperty, animation);
+        }
+        #endregion
 
     }
 }

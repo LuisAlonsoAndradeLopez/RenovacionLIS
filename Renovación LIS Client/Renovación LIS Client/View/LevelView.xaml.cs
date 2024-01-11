@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -136,7 +137,7 @@ namespace Renovación_LIS_Client.View
             image.BeginAnimation(Image.OpacityProperty, FadeIn);
         }
 
-        private void ExitButtonOnClick(object sender, MouseButtonEventArgs e)
+        private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
             SongManager.Instance.ResumeMusic();
             SongManager.Instance.PlayMainSong();
@@ -197,8 +198,6 @@ namespace Renovación_LIS_Client.View
                     break;
             }
         }
-            
-
     }
 
 }

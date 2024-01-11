@@ -575,6 +575,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Choose a level.
+        /// </summary>
+        public static string Choose_a_level {
+            get {
+                return ResourceManager.GetString("Choose a level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Closing....
         /// </summary>
         public static string Closing___ {

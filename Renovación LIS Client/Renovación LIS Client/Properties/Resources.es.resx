@@ -672,4 +672,7 @@
   <data name="Singleplayer" xml:space="preserve">
     <value>Un jugador</value>
   </data>
+  <data name="Choose a level" xml:space="preserve">
+    <value>Escoje un nivel</value>
+  </data>
 </root>

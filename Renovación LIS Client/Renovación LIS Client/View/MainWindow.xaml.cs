@@ -188,7 +188,7 @@ namespace Renovación_LIS_Client
             }
             else if (PageStateManager.CurrentPage is ConfigurationView configurationView)
             {
-                //configurationView;
+                configurationView.GoToLobbyView();
             }
         }
         #endregion

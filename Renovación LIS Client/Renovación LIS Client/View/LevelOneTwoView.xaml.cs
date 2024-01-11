@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace Renovación_LIS_Client.View
 {
@@ -155,6 +156,12 @@ namespace Renovación_LIS_Client.View
             {
                 Txt_WordNumber.Text = "Ganaste"; 
             }
+        }
+
+        private void ExitButtonOnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LevelView(mainWindow));
         }
     }
 }

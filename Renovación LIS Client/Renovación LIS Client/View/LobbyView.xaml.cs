@@ -440,7 +440,7 @@ namespace Renovación_LIS_Client.View
             }
             else if (PageStateManager.CurrentPage is ConfigurationView configurationView)
             {
-                //configurationView.ExitFromThisPageForBeingExpeltFromLobbyView();
+                configurationView.ExitFromThisPageForBeingExpeltFromLobbyView();
             }
         }
         #endregion

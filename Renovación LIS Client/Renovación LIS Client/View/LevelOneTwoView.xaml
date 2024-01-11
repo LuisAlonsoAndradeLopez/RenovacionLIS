@@ -17,14 +17,14 @@
         <Image Source="/images/WallpaperLevelOneImage.png" Stretch="Fill" Grid.RowSpan="3"/>
 
         <Grid Grid.Row="1">
-            <Button Content="Regresar" Style="{StaticResource BlueButton}" Width="200" Height="45" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
+            <Button Content="Regresar" Style="{StaticResource RedButton}" Width="200" Height="45" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Click="ExitButtonOnClick"/>
             <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20">
                 <Border Background="#99000000" CornerRadius="20" BorderBrush="Black" BorderThickness="2"/>
                 <StackPanel Margin="30 20" Width="400">
                     <TextBlock Name="Txt_correctWord" Text="Palabras correctas: " FontSize="16" FontFamily="{StaticResource K2DBold}" Foreground="LawnGreen"/>
                     <TextBlock Name="Txt_incorrectWords" Text="Palabras incorrectas: " FontSize="16" FontFamily="{StaticResource K2DBold}" Foreground="OrangeRed"/>
                 </StackPanel>
-                <Button Content="Validar" Height="45" Width="150" HorizontalAlignment="Right" Style="{StaticResource BlueButton}" Margin="20 0" Click="ValidateWords"/>
+                <Button Content="Validar" Height="45" Width="150" HorizontalAlignment="Right" Style="{StaticResource DarkBlueButton}" Margin="20 0" Click="ValidateWords"/>
             </Grid>
         </Grid>
         

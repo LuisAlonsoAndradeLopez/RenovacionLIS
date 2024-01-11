@@ -28,14 +28,29 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="Choose your level"
-                           FontFamily="{StaticResource K2DBold}"
-                           FontSize="50"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           Grid.Column="1" Width="423"/>
 
-                    <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="20">
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="20,20,20,20" Grid.ColumnSpan="2">
+                        <Button
+                            Content="{x:Static p:Resources.Exit}" 
+                            Style="{StaticResource RedButton}"
+                            Height="56"
+                            Width="95"
+                            Margin="20,7,0,0"
+                            Click="ExitButtonOnClick"
+                            Cursor="Hand"/>
+
+
+                        <TextBlock 
+                            Text="{x:Static p:Resources.Choose_a_level}"
+                            FontFamily="{StaticResource K2DBold}"
+                            Margin="170,0,0,0"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="50"
+                            Foreground="White"
+                            Grid.Column="1" Width="481"/>
+
                         <Label Name="ProfileNickname"
                                FontFamily="{StaticResource K2DRegular}"
                                FontSize="20"
@@ -43,6 +58,7 @@
                                VerticalAlignment="Center"
                                Margin="0,0,20,0"/>
                         <Image Name="ProfileImage"
+                               HorizontalAlignment="Right"
                                Height="45"
                                Width="45"
                                Stretch="Fill"/>
@@ -86,7 +102,7 @@
                                Foreground="White"
                                FontSize="20"/>
 
-                        <Label Content="Bloqueado" 
+                        <Label Content="{x:Static p:Resources.Unavailable}" 
                                FontFamily="{StaticResource K2DRegular}"
                                Foreground="White"
                                FontSize="12"/>
@@ -113,14 +129,12 @@
                                FontSize="20"
                                HorizontalAlignment="Right"/>
 
-                        <Label Content="Bloqueado" 
+                        <Label Content="{x:Static p:Resources.Unavailable}" 
                                FontFamily="{StaticResource K2DRegular}"
                                Foreground="White"
                                FontSize="12"
                                HorizontalAlignment="Right"/>
                     </StackPanel>
-
-
 
                     <StackPanel VerticalAlignment="Center" Grid.Column="2">
                         <Border BorderBrush="#F99500" 
@@ -138,25 +152,24 @@
                         <Border Background="#337CCF" 
                                 Height="10" Width="320" 
                                 HorizontalAlignment="Center" 
-                                Margin="10"
+                                Margin="0,10,0,0"
                                 CornerRadius="5"/>
 
                         <Label Name="MainLevel"
                                Content="FEI"
                                FontFamily="{StaticResource K2DBold}"
                                Foreground="White"
+                               Margin="0,0,0,0"
                                FontSize="20"
                                HorizontalAlignment="Center"/>
 
-                        <Label Content="Bloqueado" 
+                        <Label Content="{x:Static p:Resources.Unavailable}" 
                                FontFamily="{StaticResource K2DRegular}"
                                Foreground="White"
+                               Margin="0,0,0,0"
                                FontSize="12"
                                HorizontalAlignment="Center"/>
                     </StackPanel>
-
-
-
 
                     <Image Name="BeforeButton"
                            Source="/images/ArrowRight.png"
@@ -165,13 +178,7 @@
                            Cursor="Hand"
                            Width="100"
                            MouseLeftButtonDown="GoToNextLevel"/>
-
                 </Grid>
-
-
-
-
-
             </StackPanel>
 
         </Border>
@@ -183,49 +190,20 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel>
-                <Label Content="{x:Static p:Resources.Exit}"
-               FontFamily="{StaticResource K2DBold}"
-               FontSize="16"
-               Foreground="White"
-               HorizontalAlignment="Center"/>
-
-                <Image Source="/images/friendsButtonImage.png"
-                       Height="80"
-                       Width="80"
-                       MouseLeftButtonDown="ExitButtonOnClick"
-                       Cursor="Hand"/>
-
-
-            </StackPanel>
-
-            <StackPanel Grid.Column="1" Margin="0,-12,0,0">
-                <Label Content="Play"
+            <StackPanel Grid.Column="1" Margin="0,22,0,0">
+                <Label Content="{x:Static p:Resources.Play}"
                         FontFamily="{StaticResource K2DBold}"
                         FontSize="16"
                         Foreground="White"
                         HorizontalAlignment="Center"/>
 
                 <Image Source="/images/playButton.png"
-                       Height="90"
-                       Width="106"
+                       Height="76"
+                       Width="107"
                        MouseLeftButtonDown="PlayGameSelected"
                        Cursor="Hand"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="3">
-                <Label Content="Store"
-                       FontFamily="{StaticResource K2DBold}"
-                       FontSize="16"
-                       Foreground="White"
-                       HorizontalAlignment="Center"/>
-
-                <Image Source="/images/storeButtonImage.png"
-                       Height="80"
-                       Width="80"/>
-
-
-            </StackPanel>
         </Grid>
     </Grid>
 </Page>
