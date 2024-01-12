@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,10 +15,18 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class MultiplayerCrosswordView : Page
     {
+        #region Attributes
         private readonly MainWindow mainWindow;
         private readonly CultureInfo cultureInfo;
         private readonly ResourceManager resourceManager;
 
+        private readonly Dictionary<string, string> allMultiplayerCrosswordsAnswers = new Dictionary<string, string>();
+        private readonly Dictionary<string, int> allMultiplayerCrosswordsPoints = new Dictionary<string, int>();
+
+        private string selectedCrosswordElementKey = "";
+        #endregion
+
+        #region Constructors
         public MultiplayerCrosswordView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
@@ -25,6 +34,10 @@ namespace Renovación_LIS_Client.View
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+
+            StorageAnswersOfAllMultiplayerCrosswords();
+            StoragePointsOfAllMultiplayerCrosswords();
+
 
             InitializeComponent();
 
@@ -64,15 +77,52 @@ namespace Renovación_LIS_Client.View
 
             multiplayerCrosswordNonCallbackMethodsClient.Close();
         }
+        #endregion
 
-        public void VerifyAnswerButtonOnClick(object sender, RoutedEventArgs e)
+
+
+        #region Methods for GUIs elements events
+        private void ChangeTextToOnlyUpperCase(object sender, TextChangedEventArgs e)
         {
-
+            TextBox textBox = (TextBox)sender;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.CaretIndex = textBox.Text.Length;
         }
 
+        private void SelectedCrosswordElementOnClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is TextBlock selectedColumnOrRow)
+            {
+                selectedCrosswordElementKey = selectedColumnOrRow.Name;
+                //agregar en la interfaz gráfica un texto de que numero de columna o fila tienes seleccionado, por que no puede tener color de borde los textblock
+
+            }
+        }
+
+        private void VerifyAnswerButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            if(selectedCrosswordElementKey != "")
+            {
+                if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedCrosswordElementKey])
+                {
+                    //Si ya contestaron la pregunta, botar mensaje de que ya está contestado
+                    //si esta bien y no han contestado aun la pregunta, agregar puntos al jugador, agregar la palabra al
+                    //textbox seleccionado y actualizar los crucigramas de los clientes con la palabra seleccionada
+                }
+                else
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh Oh", "Incorrect answer");
+                }
+            }
+            else
+            {
+                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh Oh", "Select a column or a row first");
+            }
+        }
+        #endregion
 
 
-        #region Crossword questions and background selection methods
+        #region Crosswords, questions and background selection methods
         private void Show105Background()
         {
             SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\105MultiplayerCrosswordImage.png");
@@ -98,11 +148,10 @@ namespace Renovación_LIS_Client.View
             SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\salónCristalMultiplayerCrosswordImage.png");
         }
 
-        //TODO:
-        //crucigramas y jugabilidad (recueda que si alguien ya completó una fila o columna y la tienes abierta, abrir el mensaje que ya se completó)
-
-        private void Show105CrosswordQuestions()
+        private void Show105CrosswordAndItsQuestions()
         {
+            Crossword105.Visibility = Visibility.Visible;
+
             TextBlock verticalQuestions = new TextBlock
             {
                 Margin = new Thickness(10),
@@ -133,8 +182,10 @@ namespace Renovación_LIS_Client.View
             SelectedCrosswordQuestionsStackPanel.Children.Add(horizontalQuestions);
         }
 
-        private void ShowCC3CrosswordQuestions()
+        private void ShowCC3CrosswordAndItsQuestions()
         {
+            CrosswordCC3.Visibility = Visibility.Visible;
+
             TextBlock verticalQuestions = new TextBlock
             {
                 Margin = new Thickness(10),
@@ -165,8 +216,10 @@ namespace Renovación_LIS_Client.View
             SelectedCrosswordQuestionsStackPanel.Children.Add(horizontalQuestions);
         }
 
-        private void ShowECONEXBathroomLowLevelCrosswordQuestions()
+        private void ShowECONEXBathroomLowLevelCrosswordAndItsQuestions()
         {
+            CrosswordECONEXBathroom.Visibility = Visibility.Visible;
+
             TextBlock verticalQuestions = new TextBlock
             {
                 Margin = new Thickness(10),
@@ -199,8 +252,10 @@ namespace Renovación_LIS_Client.View
             SelectedCrosswordQuestionsStackPanel.Children.Add(horizontalQuestions);
         }
 
-        private void ShowDoctoratedInCSCrosswordQuestions()
+        private void ShowDoctoratedInCSCrosswordAndItsQuestions()
         {
+            CrosswordDoctoratedInCS.Visibility = Visibility.Visible;
+
             TextBlock verticalQuestions = new TextBlock
             {
                 Margin = new Thickness(10),
@@ -231,8 +286,10 @@ namespace Renovación_LIS_Client.View
             SelectedCrosswordQuestionsStackPanel.Children.Add(horizontalQuestions);
         }
 
-        private void ShowCrystalSaloonCrosswordQuestions()
+        private void ShowCrystalSaloonCrosswordAndItsQuestions()
         {
+            CrosswordCrystalSaloon.Visibility = Visibility.Visible;
+
             TextBlock verticalQuestions = new TextBlock
             {
                 Margin = new Thickness(10),
@@ -287,27 +344,159 @@ namespace Renovación_LIS_Client.View
             switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
             {
                 case 1:
-                    Show105CrosswordQuestions();
+                    Show105CrosswordAndItsQuestions();
                     break;
 
                 case 2:
-                    ShowCC3CrosswordQuestions();
+                    ShowCC3CrosswordAndItsQuestions();
                     break;
 
                 case 3:
-                    ShowECONEXBathroomLowLevelCrosswordQuestions();
+                    ShowECONEXBathroomLowLevelCrosswordAndItsQuestions();
                     break;
 
                 case 4:
-                    ShowDoctoratedInCSCrosswordQuestions();
+                    ShowDoctoratedInCSCrosswordAndItsQuestions();
                     break;
 
                 case 5:
-                    ShowCrystalSaloonCrosswordQuestions();
+                    ShowCrystalSaloonCrosswordAndItsQuestions();
                     break;
             }
 
             multiplayerCrosswordNonCallbackMethodsClient.Close();
+        }
+
+        private void StorageAnswersOfAllMultiplayerCrosswords()
+        {
+            #region 105Columns
+            allMultiplayerCrosswordsAnswers.Add("L105W1", "COLA");
+            allMultiplayerCrosswordsAnswers.Add("L105W2", "PYTHON");
+            allMultiplayerCrosswordsAnswers.Add("L105W3", "PROGRAMACION");
+            allMultiplayerCrosswordsAnswers.Add("L105W5", "LINUX");
+            #endregion
+
+            #region 105Rows
+            allMultiplayerCrosswordsAnswers.Add("L105W4", "ELICITACION");
+            allMultiplayerCrosswordsAnswers.Add("L105W6", "COMPUTACIONBASICA");
+            #endregion
+
+            #region CC3Columns
+            allMultiplayerCrosswordsAnswers.Add("LCC3W1", "DERECHO");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W2", "ENTIDADRELACION");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W4", "HTML");
+            #endregion
+
+            #region CC3Rows
+            allMultiplayerCrosswordsAnswers.Add("LCC3W3", "FEI");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W5", "VISUALSTUDIO");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W6", "NETBEANS");
+            #endregion
+
+            #region ECONEXBathroomColumns
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW1", "SELECT");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW3", "FOR");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW5", "OCHARAN");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW6", "GITHUB");
+            #endregion
+
+            #region ECONEXBathroomRows
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW2", "INTERFAZ");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW4", "JUANCARLOS");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW7", "ICONIX");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW8", "PHP");
+            #endregion
+
+            #region DoctoratedInCSColumns
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW1", "SMELLS");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW2", "CICLOMATICA");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW3", "SELECT");
+            #endregion
+
+            #region DoctoratedInCSRows
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW4", "ELICITACION");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW5", "WHILE");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW6", "ECLIPSE");
+            #endregion
+
+            #region CrystalSaloonColumns
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW1", "DATAPROVIDER");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW2", "POO");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW5", "ECLIPSE");
+            #endregion
+
+            #region CrystalSaloonRows
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW3", "PYTHON");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW4", "DERECHO");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW6", "COLAS");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW7", "INTERFAZ");
+            #endregion
+        }
+
+        private void StoragePointsOfAllMultiplayerCrosswords()
+        {
+            #region 105Columns
+            allMultiplayerCrosswordsPoints.Add("L105W1", 3);
+            allMultiplayerCrosswordsPoints.Add("L105W2", 2);
+            allMultiplayerCrosswordsPoints.Add("L105W3", 3);
+            allMultiplayerCrosswordsPoints.Add("L105W5", 2);
+            #endregion
+
+            #region 105Rows
+            allMultiplayerCrosswordsPoints.Add("L105W4", 4);
+            allMultiplayerCrosswordsPoints.Add("L105W6", 4);
+            #endregion
+
+            #region CC3Columns
+            allMultiplayerCrosswordsPoints.Add("LCC3W1", 2);
+            allMultiplayerCrosswordsPoints.Add("LCC3W2", 3);
+            allMultiplayerCrosswordsPoints.Add("LCC3W4", 2);
+            #endregion
+
+            #region CC3Rows
+            allMultiplayerCrosswordsPoints.Add("LCC3W3", 3);
+            allMultiplayerCrosswordsPoints.Add("LCC3W5", 3);
+            allMultiplayerCrosswordsPoints.Add("LCC3W6", 2);
+            #endregion
+
+            #region ECONEXBathroomColumns
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW1", 3);
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW3", 2);
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW5", 3);
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW6", 2);
+            #endregion
+
+            #region ECONEXBathroomRows
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW2", 3);
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW4", 3);
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW7", 4);
+            allMultiplayerCrosswordsPoints.Add("LECONEXBathroomW8", 2);
+            #endregion
+
+            #region DoctoratedInCSColumns
+            allMultiplayerCrosswordsPoints.Add("LDoctoratedInCSW1", 4);
+            allMultiplayerCrosswordsPoints.Add("LDoctoratedInCSW2", 4);
+            allMultiplayerCrosswordsPoints.Add("LDoctoratedInCSW3", 3);
+            #endregion
+
+            #region DoctoratedInCSRows
+            allMultiplayerCrosswordsPoints.Add("LDoctoratedInCSW4", 4);
+            allMultiplayerCrosswordsPoints.Add("LDoctoratedInCSW5", 2);
+            allMultiplayerCrosswordsPoints.Add("LDoctoratedInCSW6", 3);
+            #endregion
+
+            #region CrystalSaloonColumns
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW1", 5);
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW2", 2);
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW5", 2);
+            #endregion
+
+            #region CrystalSaloonRows
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW3", 2);
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW4", 3);
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW6", 3);
+            allMultiplayerCrosswordsPoints.Add("LCrystalSaloonW7", 3);
+            #endregion
         }
 
         public void UpdateGoText()
@@ -424,5 +613,6 @@ namespace Renovación_LIS_Client.View
             }
         }
         #endregion
+
     }
 }
