@@ -274,7 +274,6 @@ namespace ServicesTCP.Services
 
                 UpdateGameCountdownForAllConnectedProfiles(i);
                 await Task.Delay(1000);
-                //Thread.Sleep(1000); // Simulate time passing
 
                 if (selectedCrosswordCompleted)
                 {

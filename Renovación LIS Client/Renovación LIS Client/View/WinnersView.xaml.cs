@@ -85,15 +85,13 @@ namespace Renovación_LIS_Client.View
                 profilesAndItsPoints.Add(profileAndItsPoints.Key, profileAndItsPoints.Value);
             }
 
-            var profilesAndItsPointsOrderedByDescending = new SortedDictionary<string, int>(
-            profilesAndItsPoints.OrderByDescending(kv => kv.Value)
-                        .ToDictionary(kv => kv.Key, kv => kv.Value)
-            );
+            var profilesAndItsPointsOrderedByDescending = profilesAndItsPoints.OrderByDescending(kv => kv.Value)
+                        .ToDictionary(kv => kv.Key, kv => kv.Value);
 
-            foreach (var profileAndItsPoints in profilesAndItsPointsOrderedByDescending)
+            foreach (var profileAndItsPointsOrdered in profilesAndItsPointsOrderedByDescending)
             {
-                profiles.Add(profileAndItsPoints.Key);
-                points.Add(profileAndItsPoints.Value);
+                profiles.Add(profileAndItsPointsOrdered.Key);
+                points.Add(profileAndItsPointsOrdered.Value);
             }
 
 

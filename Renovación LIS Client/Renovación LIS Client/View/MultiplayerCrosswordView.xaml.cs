@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using Renovación_LIS_Client.AuxiliaryClasses;
@@ -104,7 +105,7 @@ namespace Renovación_LIS_Client.View
         {
             if(selectedWordKey != "")
             {
-                if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedWordKey])
+                if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedWordKey].Replace(" ", string.Empty))
                 {
                     MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
                     if (!multiplayerCrosswordNonCallbackMethodsClient.TheWordIsAnswered(selectedWordKey))
@@ -388,8 +389,8 @@ namespace Renovación_LIS_Client.View
             #endregion
 
             #region 105Rows
-            allMultiplayerCrosswordsAnswers.Add("L105W4", "ELICITACION");
-            allMultiplayerCrosswordsAnswers.Add("L105W6", "COMPUTACIONBASICA");
+            allMultiplayerCrosswordsAnswers.Add("L105W4", "E   L   I   C   I    T  A  C    I   O  N");
+            allMultiplayerCrosswordsAnswers.Add("L105W6", "C  O   M  P  U   T  A  C   I    O  N   B  A   S   I   C  A");
             #endregion
 
             #region CC3Columns
@@ -399,9 +400,9 @@ namespace Renovación_LIS_Client.View
             #endregion
 
             #region CC3Rows
-            allMultiplayerCrosswordsAnswers.Add("LCC3W3", "FEI");
-            allMultiplayerCrosswordsAnswers.Add("LCC3W5", "VISUALSTUDIO");
-            allMultiplayerCrosswordsAnswers.Add("LCC3W6", "NETBEANS");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W3", "F  E   I");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W5", "V    I   S  U  A   L   S  T  U   D   I   O");
+            allMultiplayerCrosswordsAnswers.Add("LCC3W6", "N  E   T  B  E   A  N  S");
             #endregion
 
             #region ECONEXBathroomColumns
@@ -412,10 +413,10 @@ namespace Renovación_LIS_Client.View
             #endregion
 
             #region ECONEXBathroomRows
-            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW2", "INTERFAZ");
-            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW4", "JUANCARLOS");
-            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW7", "ICONIX");
-            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW8", "PHP");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW2", "I   N   T  E   R   F  A  Z");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW4", "J   U  A  N   C  A   R   L  O  S");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW7", " I   C  O   N   I   X");
+            allMultiplayerCrosswordsAnswers.Add("LECONEXBathroomW8", "P  H  P");
             #endregion
 
             #region DoctoratedInCSColumns
@@ -425,9 +426,9 @@ namespace Renovación_LIS_Client.View
             #endregion
 
             #region DoctoratedInCSRows
-            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW4", "ELICITACION");
-            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW5", "WHILE");
-            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW6", "ECLIPSE");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW4", "E   L   I   C   I   T   A  C   I   O   N");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW5", "W  H   I   L   E");
+            allMultiplayerCrosswordsAnswers.Add("LDoctoratedInCSW6", "E  C   L   I   P   S   E");
             #endregion
 
             #region CrystalSaloonColumns
@@ -437,10 +438,10 @@ namespace Renovación_LIS_Client.View
             #endregion
 
             #region CrystalSaloonRows
-            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW3", "PYTHON");
-            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW4", "DERECHO");
-            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW6", "COLAS");
-            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW7", "INTERFAZ");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW3", "P  Y   T   H  O  N");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW4", "D  E  R  E   C   H  O");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW6", "C  O   L  A  S");
+            allMultiplayerCrosswordsAnswers.Add("LCrystalSaloonW7", "  I   N   T  E  R  F   A  Z");
             #endregion
         }
 
