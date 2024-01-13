@@ -944,6 +944,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Incorrect answer.
+        /// </summary>
+        public static string Incorrect_answer {
+            get {
+                return ResourceManager.GetString("Incorrect answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Introduce the code.
         /// </summary>
         public static string Introduce_the_code {
@@ -1304,11 +1313,29 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select a column or a row first.
+        /// </summary>
+        public static string Select_a_column_or_a_row_first {
+            get {
+                return ResourceManager.GetString("Select a column or a row first", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select an image.
         /// </summary>
         public static string Select_an_image {
             get {
                 return ResourceManager.GetString("Select an image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selected word:.
+        /// </summary>
+        public static string Selected_word_ {
+            get {
+                return ResourceManager.GetString("Selected word:", resourceCulture);
             }
         }
         
@@ -1544,6 +1571,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string The_user_you_want_to_sent_a_friend_request_doesn_t_exists {
             get {
                 return ResourceManager.GetString("The user you want to sent a friend request doesn\'t exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The word has already been answered, please select another one.
+        /// </summary>
+        public static string The_word_has_already_been_answered__please_select_another_one {
+            get {
+                return ResourceManager.GetString("The word has already been answered, please select another one", resourceCulture);
             }
         }
         

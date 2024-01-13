@@ -16,6 +16,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         "ackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethodsCallback))]
     public interface IMultiplayerCrosswordCallbackMethods {
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddCompletedWordToAllConn" +
+            "ectedProfilesCrosswords")]
+        void AddCompletedWordToAllConnectedProfilesCrosswords(string word, string answer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddCompletedWordToAllConn" +
+            "ectedProfilesCrosswords")]
+        System.Threading.Tasks.Task AddCompletedWordToAllConnectedProfilesCrosswordsAsync(string word, string answer);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddPointsToProfile")]
         void AddPointsToProfile(string userNickname, int points);
         
@@ -107,14 +115,6 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartTheCrosswordSelectio" +
             "nAlgorythm")]
         System.Threading.Tasks.Task StartTheCrosswordSelectionAlgorythmAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfile" +
-            "sToAllConnectedProfiles")]
-        void UpdateCrosswordsToProfilesToAllConnectedProfiles();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfile" +
-            "sToAllConnectedProfiles")]
-        System.Threading.Tasks.Task UpdateCrosswordsToProfilesToAllConnectedProfilesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,7 +167,7 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         void UpdateGlobalCountdown(int seconds);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrossword")]
-        void UpdateCrossword();
+        void UpdateCrossword(string word, string answer);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateProfilesPoints")]
         void UpdateProfilesPoints();
@@ -199,6 +199,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         
         public MultiplayerCrosswordCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void AddCompletedWordToAllConnectedProfilesCrosswords(string word, string answer) {
+            base.Channel.AddCompletedWordToAllConnectedProfilesCrosswords(word, answer);
+        }
+        
+        public System.Threading.Tasks.Task AddCompletedWordToAllConnectedProfilesCrosswordsAsync(string word, string answer) {
+            return base.Channel.AddCompletedWordToAllConnectedProfilesCrosswordsAsync(word, answer);
         }
         
         public void AddPointsToProfile(string userNickname, int points) {
@@ -303,14 +311,6 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
         
         public System.Threading.Tasks.Task StartTheCrosswordSelectionAlgorythmAsync() {
             return base.Channel.StartTheCrosswordSelectionAlgorythmAsync();
-        }
-        
-        public void UpdateCrosswordsToProfilesToAllConnectedProfiles() {
-            base.Channel.UpdateCrosswordsToProfilesToAllConnectedProfiles();
-        }
-        
-        public System.Threading.Tasks.Task UpdateCrosswordsToProfilesToAllConnectedProfilesAsync() {
-            return base.Channel.UpdateCrosswordsToProfilesToAllConnectedProfilesAsync();
         }
     }
 }

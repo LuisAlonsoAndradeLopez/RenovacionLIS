@@ -2,12 +2,16 @@
 using System;
 using System.ServiceModel;
 using ServicesTCP.AuxiliaryContracts;
+using System.Threading.Tasks;
 
 namespace ServicesTCP.ServiceContracts
 {
     [ServiceContract]
     public interface IMultiplayerCrosswordNonCallbackMethods
     {
+        [OperationContract]
+        void ClearAnsweredWordsList();
+
         [OperationContract]
         string GetAdmin();
 
@@ -34,6 +38,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         void SetTheCrosswordIsNotComplete();
+
+        [OperationContract]
+        bool TheWordIsAnswered(string word);
     }
 
 
@@ -41,6 +48,9 @@ namespace ServicesTCP.ServiceContracts
     [ServiceContract(CallbackContract = typeof(IMultiplayerCrosswordCallback))]
     public interface IMultiplayerCrosswordCallbackMethods
     {
+        [OperationContract(IsOneWay = true)]
+        void AddCompletedWordToAllConnectedProfilesCrosswords(string word, string answer);
+
         [OperationContract(IsOneWay = true)]
         void AddPointsToProfile(string userNickname, int points);
 
@@ -79,9 +89,6 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void StartTheCrosswordSelectionAlgorythm();
-
-        [OperationContract(IsOneWay = true)]
-        void UpdateCrosswordsToProfilesToAllConnectedProfiles();
     }
 
 
@@ -129,7 +136,7 @@ namespace ServicesTCP.ServiceContracts
         void UpdateGlobalCountdown(int seconds);
 
         [OperationContract(IsOneWay = true)]
-        void UpdateCrossword();
+        void UpdateCrossword(string word, string answer);
 
         [OperationContract(IsOneWay = true)]
         void UpdateProfilesPoints();

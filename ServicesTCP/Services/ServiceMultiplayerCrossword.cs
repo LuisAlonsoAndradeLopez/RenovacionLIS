@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Threading;
+using System.Threading.Tasks;
 using ServicesTCP.AuxiliaryContracts;
 using ServicesTCP.ServiceContracts;
 
@@ -23,6 +24,11 @@ namespace ServicesTCP.Services
 
 
         #region Non-Callback methods
+        public void ClearAnsweredWordsList()
+        {
+            serviceMultiplayerCrosswordForCallbackMethods.ClearAnsweredWordsList();
+        }
+
         public string GetAdmin()
         {
             return serviceMultiplayerCrosswordForCallbackMethods.GetAdmin();
@@ -67,6 +73,11 @@ namespace ServicesTCP.Services
         {
             serviceMultiplayerCrosswordForCallbackMethods.SetTheCrosswordIsNotComplete();
         }
+
+        public bool TheWordIsAnswered(string word)
+        {
+            return serviceMultiplayerCrosswordForCallbackMethods.TheWordIsAnswered(word);
+        }
         #endregion
 
 
@@ -86,10 +97,22 @@ namespace ServicesTCP.Services
         private static int crosswordsPlayed = 0;
         private static int crosswordNumberSelected;
         private static bool selectedCrosswordCompleted = false;
+        private static List<string> answeredWordsOfTheSelectedCrossword = new List<string>();
+        private CancellationTokenSource cancellationTokenSource;
 
 
 
         #region Callback methods
+        public void AddCompletedWordToAllConnectedProfilesCrosswords(string word, string answer)
+        {
+            answeredWordsOfTheSelectedCrossword.Add(word);
+
+            foreach (var profile in connectedProfiles.Values)
+            {
+                profile.UpdateCrossword(word, answer);
+            }
+        }
+
         public void AddPointsToProfile(string userNickname, int points)
         {
             if (profilesAndItsPoints.ContainsKey(userNickname))
@@ -179,8 +202,6 @@ namespace ServicesTCP.Services
             {
                 profile.Value.OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage();
             }
-
-            //Thread.Sleep(3000);
         }
 
         public void ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles()
@@ -221,10 +242,39 @@ namespace ServicesTCP.Services
         // Example method to start the countdown
         public void StartGameCountdown(int totalSeconds)
         {
+            cancellationTokenSource = new CancellationTokenSource();
+
+            Task.Run(async () => await CountdownAsync(totalSeconds, cancellationTokenSource.Token));
+        }
+
+        public void StartGlobalCountdown(int totalSeconds)
+        {
+            for (int i = totalSeconds; i >= 1; i--)
+            {
+                UpdateGlobalCountdownForAllConnectedProfiles(i);
+                Thread.Sleep(1000);
+            }
+
+            ShowGoTextToAllConnectedProfiles();
+            ShowTheSelectedCrosswordAndItsQustionsToAllConnectedProfiles();
+        }
+        #endregion
+
+
+
+        #region Auxiliary methods
+        private async Task CountdownAsync(int totalSeconds, CancellationToken cancellationToken)
+        {
             for (int i = totalSeconds; i >= 0; i--)
             {
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    break;
+                }
+
                 UpdateGameCountdownForAllConnectedProfiles(i);
-                Thread.Sleep(1000); // Simulate time passing
+                await Task.Delay(1000);
+                //Thread.Sleep(1000); // Simulate time passing
 
                 if (selectedCrosswordCompleted)
                 {
@@ -248,30 +298,6 @@ namespace ServicesTCP.Services
             }
         }
 
-        public void StartGlobalCountdown(int totalSeconds)
-        {
-            for (int i = totalSeconds; i >= 0; i--)
-            {
-                UpdateGlobalCountdownForAllConnectedProfiles(i);
-                Thread.Sleep(1000);
-            }
-
-            ShowGoTextToAllConnectedProfiles();
-            ShowTheSelectedCrosswordAndItsQustionsToAllConnectedProfiles();
-        }
-
-        public void UpdateCrosswordsToProfilesToAllConnectedProfiles()
-        {
-            foreach (var profile in connectedProfiles.Values)
-            {
-                profile.UpdateCrossword();
-            }
-        }
-        #endregion
-
-
-
-        #region Auxiliary methods
         private void OpenRandomMultiplayerCrosswordGeneratorViewToAllConnectedProfiles()
         {
             foreach (var profile in connectedProfiles.Values)
@@ -344,6 +370,11 @@ namespace ServicesTCP.Services
 
 
         #region Methods for use by ServiceMultiplayerCrosswordForNonCallbackMethods
+        internal void ClearAnsweredWordsList()
+        {
+            answeredWordsOfTheSelectedCrossword.Clear();
+        }
+
         internal string GetAdmin()
         {
             return admin;
@@ -405,6 +436,11 @@ namespace ServicesTCP.Services
         internal void SetTheCrosswordIsNotComplete()
         {
             selectedCrosswordCompleted = false;
+        }
+
+        internal bool TheWordIsAnswered(string word)
+        {
+            return answeredWordsOfTheSelectedCrossword.Contains(word);
         }
         #endregion
 

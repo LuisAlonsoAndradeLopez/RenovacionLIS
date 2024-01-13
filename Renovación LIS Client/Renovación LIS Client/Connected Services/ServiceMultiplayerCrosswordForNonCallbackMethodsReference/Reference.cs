@@ -79,6 +79,16 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         "nCallbackMethods")]
     public interface IMultiplayerCrosswordNonCallbackMethods {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/ClearAnsweredWordsList" +
+            "", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/ClearAnsweredWordsList" +
+            "Response")]
+        void ClearAnsweredWordsList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/ClearAnsweredWordsList" +
+            "", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/ClearAnsweredWordsList" +
+            "Response")]
+        System.Threading.Tasks.Task ClearAnsweredWordsListAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdmin", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAdminResponse")]
         string GetAdmin();
         
@@ -154,6 +164,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
             "mplete", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/SetTheCrosswordIsNotCo" +
             "mpleteResponse")]
         System.Threading.Tasks.Task SetTheCrosswordIsNotCompleteAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/TheWordIsAnswered", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/TheWordIsAnsweredRespo" +
+            "nse")]
+        bool TheWordIsAnswered(string word);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/TheWordIsAnswered", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/TheWordIsAnsweredRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<bool> TheWordIsAnsweredAsync(string word);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -181,6 +199,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         public MultiplayerCrosswordNonCallbackMethodsClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void ClearAnsweredWordsList() {
+            base.Channel.ClearAnsweredWordsList();
+        }
+        
+        public System.Threading.Tasks.Task ClearAnsweredWordsListAsync() {
+            return base.Channel.ClearAnsweredWordsListAsync();
         }
         
         public string GetAdmin() {
@@ -253,6 +279,14 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         
         public System.Threading.Tasks.Task SetTheCrosswordIsNotCompleteAsync() {
             return base.Channel.SetTheCrosswordIsNotCompleteAsync();
+        }
+        
+        public bool TheWordIsAnswered(string word) {
+            return base.Channel.TheWordIsAnswered(word);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TheWordIsAnsweredAsync(string word) {
+            return base.Channel.TheWordIsAnsweredAsync(word);
         }
     }
 }

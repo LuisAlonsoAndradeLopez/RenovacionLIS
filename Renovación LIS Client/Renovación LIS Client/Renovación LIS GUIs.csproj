@@ -486,6 +486,7 @@
     <Resource Include="images\arrowDown.png" />
     <Resource Include="images\createAccountImage.png" />
     <Resource Include="images\GameLogo.png" />
+    <Resource Include="images\GridLevels\GridECONEXBathroom.png" />
     <Resource Include="images\loginImage.png" />
     <Resource Include="images\menuImage.png" />
     <Resource Include="images\startPageImage.png" />
@@ -777,7 +778,6 @@
     <Resource Include="images\GridLevels\GridCC3.png" />
     <Resource Include="images\GridLevels\GridCrystalSaloon.png" />
     <Resource Include="images\GridLevels\GridDoctoratedInCS.png" />
-    <Resource Include="images\GridLevels\GridECONEXBathroom.png" />
     <Content Include="resources\Songs\Custom Character - Dan The Man Music.wav" />
     <Content Include="resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
     <Resource Include="images\gamemodeSelectionImage.png" />

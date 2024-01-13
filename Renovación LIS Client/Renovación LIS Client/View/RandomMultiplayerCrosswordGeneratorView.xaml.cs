@@ -45,6 +45,7 @@ namespace Renovación_LIS_Client.View
 
             if (MainWindow.loggedProfile.Player.NickName == multiplayerCrosswordNonCallbackMethodsClient.GetAdmin())
             {
+                multiplayerCrosswordNonCallbackMethodsClient.ClearAnsweredWordsList();
                 multiplayerCrosswordNonCallbackMethodsClient.SetTheCrosswordIsNotComplete();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartTheCrosswordSelectionAlgorythm();
                 RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowTheSelectedCrosswordBorderToConnectedClients();
@@ -120,11 +121,11 @@ namespace Renovación_LIS_Client.View
             }
         }
 
-        public void UpdateCrossword()
+        public void UpdateCrossword(string word, string answer)
         {
             if (PageStateManager.CurrentPage is MultiplayerCrosswordView currentPage)
             {
-                currentPage.UpdateCrosswordCompletition();
+                currentPage.UpdateCrosswordCompletition(word, answer);
             }
         }
         public void UpdateGameCountdown(int seconds)

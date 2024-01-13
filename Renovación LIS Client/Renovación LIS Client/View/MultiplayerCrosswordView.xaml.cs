@@ -23,7 +23,7 @@ namespace Renovación_LIS_Client.View
         private readonly Dictionary<string, string> allMultiplayerCrosswordsAnswers = new Dictionary<string, string>();
         private readonly Dictionary<string, int> allMultiplayerCrosswordsPoints = new Dictionary<string, int>();
 
-        private string selectedCrosswordElementKey = "";
+        private string selectedWordKey = "";
         #endregion
 
         #region Constructors
@@ -68,10 +68,12 @@ namespace Renovación_LIS_Client.View
                     break;
             }
 
+            SelectedWordTextBlock.Text = resourceManager.GetString("Selected word:", cultureInfo) + " NA";
+
             if (MainWindow.loggedProfile.Player.NickName == multiplayerCrosswordNonCallbackMethodsClient.GetAdmin())
             {
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartGlobalCountdown(10);
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartGameCountdown(25);
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartGlobalCountdown(5);
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.StartGameCountdown(45);
             }
 
 
@@ -89,34 +91,43 @@ namespace Renovación_LIS_Client.View
             textBox.CaretIndex = textBox.Text.Length;
         }
 
-        private void SelectedCrosswordElementOnClick(object sender, RoutedEventArgs e)
+        private void SelectedWordOnClick(object sender, RoutedEventArgs e)
         {
-            if (sender is TextBlock selectedColumnOrRow)
+            if (sender is TextBlock selectedWord)
             {
-                selectedCrosswordElementKey = selectedColumnOrRow.Name;
-                //agregar en la interfaz gráfica un texto de que numero de columna o fila tienes seleccionado, por que no puede tener color de borde los textblock
-
+                selectedWordKey = selectedWord.Name;
+                SelectedWordTextBlock.Text = resourceManager.GetString("Selected word:", cultureInfo) + " " + selectedWord.Name[selectedWord.Name.Length - 1];
             }
         }
 
         private void VerifyAnswerButtonOnClick(object sender, RoutedEventArgs e)
         {
-            if(selectedCrosswordElementKey != "")
+            if(selectedWordKey != "")
             {
-                if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedCrosswordElementKey])
+                if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedWordKey])
                 {
-                    //Si ya contestaron la pregunta, botar mensaje de que ya está contestado
-                    //si esta bien y no han contestado aun la pregunta, agregar puntos al jugador, agregar la palabra al
-                    //textbox seleccionado y actualizar los crucigramas de los clientes con la palabra seleccionada
+                    MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+                    if (!multiplayerCrosswordNonCallbackMethodsClient.TheWordIsAnswered(selectedWordKey))
+                    {
+                        RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.AddPointsToProfile(MainWindow.loggedProfile.Player.NickName, allMultiplayerCrosswordsPoints[selectedWordKey]);
+                        RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.AddCompletedWordToAllConnectedProfilesCrosswords(selectedWordKey, allMultiplayerCrosswordsAnswers[selectedWordKey]);
+                        SelectedCrosswordRowOrColumnWordAnswerTextBox.Text = "";
+                    }
+                    else
+                    {
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "The word has already been answered, please select another one");
+                    }
+
+                    multiplayerCrosswordNonCallbackMethodsClient.Close();
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh Oh", "Incorrect answer");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Incorrect answer");
                 }
             }
             else
             {
-                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh Oh", "Select a column or a row first");
+                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Select a column or a row first");
             }
         }
         #endregion
@@ -533,9 +544,10 @@ namespace Renovación_LIS_Client.View
             GlobalCountdownSecondsTextBlock.Text = seconds.ToString();
         }
 
-        public void UpdateCrosswordCompletition()
+        public void UpdateCrosswordCompletition(string word, string answer)
         {
-
+            TextBlock selectedWord = (TextBlock)FindName(word);
+            selectedWord.Text = answer;
         }
 
         public void UpdateProfilesPointsList()

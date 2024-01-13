@@ -675,4 +675,16 @@
   <data name="Choose a level" xml:space="preserve">
     <value>Choose a level</value>
   </data>
+  <data name="Incorrect answer" xml:space="preserve">
+    <value>Incorrect answer</value>
+  </data>
+  <data name="Select a column or a row first" xml:space="preserve">
+    <value>Select a column or a row first</value>
+  </data>
+  <data name="Selected word:" xml:space="preserve">
+    <value>Selected word:</value>
+  </data>
+  <data name="The word has already been answered, please select another one" xml:space="preserve">
+    <value>The word has already been answered, please select another one</value>
+  </data>
 </root>

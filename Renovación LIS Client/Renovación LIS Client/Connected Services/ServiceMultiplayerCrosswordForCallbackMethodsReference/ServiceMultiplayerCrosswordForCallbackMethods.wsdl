@@ -18,6 +18,9 @@
       <xsd:import schemaLocation="http://localhost:8150/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_AddCompletedWordToAllConnectedProfilesCrosswords_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompletedWordToAllConnectedProfilesCrosswords" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_AddPointsToProfile_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPointsToProfile" />
   </wsdl:message>
@@ -56,9 +59,6 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_StartTheCrosswordSelectionAlgorythm_InputMessage">
     <wsdl:part name="parameters" element="tns:StartTheCrosswordSelectionAlgorythm" />
-  </wsdl:message>
-  <wsdl:message name="IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCrosswordsToProfilesToAllConnectedProfiles" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerCrosswordCallbackMethods_ExpeltProfileToTheLobbyViewForBeingAlone_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ExpeltProfileToTheLobbyViewForBeingAlone" />
@@ -106,6 +106,9 @@
     <wsdl:part name="parameters" element="tns:UpdateProfilesPoints" />
   </wsdl:message>
   <wsdl:portType name="IMultiplayerCrosswordCallbackMethods">
+    <wsdl:operation name="AddCompletedWordToAllConnectedProfilesCrosswords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddCompletedWordToAllConnectedProfilesCrosswords" message="tns:IMultiplayerCrosswordCallbackMethods_AddCompletedWordToAllConnectedProfilesCrosswords_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddPointsToProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddPointsToProfile" message="tns:IMultiplayerCrosswordCallbackMethods_AddPointsToProfile_InputMessage" />
     </wsdl:operation>
@@ -144,9 +147,6 @@
     </wsdl:operation>
     <wsdl:operation name="StartTheCrosswordSelectionAlgorythm">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartTheCrosswordSelectionAlgorythm" message="tns:IMultiplayerCrosswordCallbackMethods_StartTheCrosswordSelectionAlgorythm_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfilesToAllConnectedProfiles" message="tns:IMultiplayerCrosswordCallbackMethods_UpdateCrosswordsToProfilesToAllConnectedProfiles_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ExpeltProfileToTheLobbyViewForBeingAlone">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/ExpeltProfileToTheLobbyViewForBeingAlone" message="tns:IMultiplayerCrosswordCallbackMethods_ExpeltProfileToTheLobbyViewForBeingAlone_OutputCallbackMessage" />
@@ -197,6 +197,12 @@
   <wsdl:binding name="NetTcpBinding_IMultiplayerCrosswordCallbackMethods" type="tns:IMultiplayerCrosswordCallbackMethods">
     <wsp:PolicyReference URI="#NetTcpBinding_IMultiplayerCrosswordCallbackMethods_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AddCompletedWordToAllConnectedProfilesCrosswords">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddCompletedWordToAllConnectedProfilesCrosswords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="AddPointsToProfile">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddPointsToProfile" style="document" />
       <wsdl:input>
@@ -271,12 +277,6 @@
     </wsdl:operation>
     <wsdl:operation name="StartTheCrosswordSelectionAlgorythm">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/StartTheCrosswordSelectionAlgorythm" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateCrosswordsToProfilesToAllConnectedProfiles">
-      <soap12:operation soapAction="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/UpdateCrosswordsToProfilesToAllConnectedProfiles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
