@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="412a8e15-3465-4518-928b-2c5e47032a59" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8170" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="af396148-d2cd-4112-b374-4cffa8cf487d" SourceId="1" SourceUrl="http://localhost:8170/?disco" />
+    <MetadataFile FileName="ServicePlayer.wsdl" MetadataType="Wsdl" ID="2b111519-20df-4738-b091-50558d784432" SourceId="1" SourceUrl="http://localhost:8170/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="6451e0fc-dd65-4ead-b87c-295e10c85733" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="22313708-9010-4c3f-8f02-dd206f9c55c5" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="48bdd950-067d-46a0-8500-61dcc34c9a0d" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd1" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6e68b4d2-2b60-4c2a-851f-eca535999f55" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

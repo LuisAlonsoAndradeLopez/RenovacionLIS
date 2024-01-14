@@ -1,96 +1,99 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ServicesTCP.Services;
+﻿using System.ServiceModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Renovación_LIS_Client.ServiceChatForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference;
+using Renovación_LIS_Client.View;
 
 namespace Tests
 {
     [TestClass]
-    public class ServiceChatTest
+    public class ServiceChatForCallbackMethodsTest
     {
-        // This method will be called once before any test method in the class is executed
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context)
-        {
-
-            // Your setup code here
-        }
-
-        // This method will be called once after all test methods in the class have been executed
-        [ClassCleanup]
-        public static void ClassCleanup()
-        {
-            // Your cleanup code here
-        }
-
+        private readonly ChatCallbackMethodsClient chatCallbackMethodsClient = new ChatCallbackMethodsClient(new InstanceContext(new LobbyView()));
 
         [TestMethod]
         public void JoinChatTest()
         {
-            string profileNicknameToTheTest = "Augusto ponche de león";
-
-            ServiceChat serviceChat = new ServiceChat();
-            serviceChat.JoinChat(profileNicknameToTheTest);
-
-            Assert.IsTrue(serviceChat.TheProfileIsConnected(profileNicknameToTheTest));
-        }
-
-        [TestMethod]
-        public void JoinChatTestFail()
-        {
-            string profileNicknameToTheTest = "Paeoidos123";
-            string profileNicknameToTheTestFail = "W29Baj";
-
-            ServiceChat serviceChat = new ServiceChat();
-            serviceChat.JoinChat(profileNicknameToTheTest);
-
-            Assert.IsFalse(serviceChat.TheProfileIsConnected(profileNicknameToTheTestFail));
-            //Assert.AreEqual();
-            //bool result = Program.JoinChat();
+            chatCallbackMethodsClient.JoinChat("W92Baj");
         }
 
         [TestMethod]
         public void LeaveChatTest()
         {
-            string profileNicknameToTheTest = "Augusto ponche de león";
-
-            ServiceChat serviceChat = new ServiceChat();
-            serviceChat.LeaveChat(profileNicknameToTheTest);
-
-            Assert.IsFalse(serviceChat.TheProfileIsConnected(profileNicknameToTheTest));
-        }
-
-        [TestMethod]
-        public void LeaveChatTestFail()
-        {
-            string profileNicknameToTheTest = "Augusto ponche de león";
-
-            ServiceChat serviceChat = new ServiceChat();
-            serviceChat.LeaveChat(profileNicknameToTheTest);
-
-            Assert.IsTrue(serviceChat.TheProfileIsConnected(profileNicknameToTheTest));
+            chatCallbackMethodsClient.LeaveChat("W92Baj");
         }
 
         [TestMethod]
         public void SendMessageTest()
         {
-            
+            chatCallbackMethodsClient.SendMessage("W92Baj", "W92Baj was slain by RubikYT");
         }
+    }
 
-        [TestMethod]
-        public void SendMessageTestFail()
+    [TestClass]
+    public class ServiceChatForNonCallbackMethodsTest
+    {
+        private readonly ChatNotCallbackMethodsClient chatNotCallbackMethodsClient = new ChatNotCallbackMethodsClient();
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
         {
-
+            ChatCallbackMethodsClient chatCallbackMethodsClient = new ChatCallbackMethodsClient(new InstanceContext(new LobbyView()));
+            chatCallbackMethodsClient.JoinChat("Usuario 1");
+            chatCallbackMethodsClient.JoinChat("Usuario 2");
+            chatCallbackMethodsClient.JoinChat("Usuario 3");
         }
+
 
         [TestMethod]
         public void GetConnectedProfilesAndTheirMessagesTest()
         {
-            //Assert.AreEqual(, );
+            bool dataFound = false;
+
+            KeyValueDataContract keyValueDataContract = new KeyValueDataContract
+            {
+                Key = "Chat Server",
+                Value = "Usuario 1 has joined to the chat"
+            };
+
+            foreach (var dataSelected in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
+            {
+                if (dataSelected.Key == keyValueDataContract.Key &&
+                    dataSelected.Value == keyValueDataContract.Value)
+                {
+                    dataFound = true;
+                    break;
+                }
+                
+            }
+
+            Assert.IsTrue(dataFound);
         }
 
         [TestMethod]
         public void GetConnectedProfilesAndTheirMessagesTestFail()
         {
+            bool dataFound = false;
 
+            KeyValueDataContract keyValueDataContract = new KeyValueDataContract
+            {
+                Key = "TheLuigi534",
+                Value = "Reprobar lectura"
+            };
+
+            foreach (var dataSelected in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
+            {
+                if (dataSelected.Key == keyValueDataContract.Key &&
+                    dataSelected.Value == keyValueDataContract.Value)
+                {
+                    dataFound = true;
+                    break;
+                }
+
+            }
+
+            Assert.IsTrue(!dataFound);
         }
     }
+
 }

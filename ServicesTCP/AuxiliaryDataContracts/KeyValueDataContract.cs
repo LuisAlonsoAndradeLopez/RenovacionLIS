@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using ServicesTCP.ServiceContracts;
+using System.Xml.Linq;
 
 namespace ServicesTCP.AuxiliaryContracts
 {
@@ -16,6 +12,29 @@ namespace ServicesTCP.AuxiliaryContracts
 
         [DataMember]
         public string Value { get; set; }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            KeyValueDataContract other = (KeyValueDataContract)obj;
+            return Key == other.Key && Value == other.Value;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Key.GetHashCode();
+                hash = hash * 23 + (Value?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
     }
 
     [DataContract]

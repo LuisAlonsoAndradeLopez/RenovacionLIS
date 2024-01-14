@@ -45,6 +45,11 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         void CancelFriendship(Profiles profiles, Profiles profiles1);
+
+
+        //Only for use in the tests
+        [OperationContract]
+        void DeleteProfile(long playerID);
     }
 
 

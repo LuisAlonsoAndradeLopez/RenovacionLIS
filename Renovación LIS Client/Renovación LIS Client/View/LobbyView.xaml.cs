@@ -34,6 +34,9 @@ namespace Renovación_LIS_Client.View
 
 
         #region Constructors
+        //This constructor is only for the tests
+        public LobbyView() { }
+
         public LobbyView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;

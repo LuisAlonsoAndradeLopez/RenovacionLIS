@@ -35,6 +35,11 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract(Name = "TheNicknameIsAlreadyRegisted")]
         bool TheNicknameIsAlreadyRegisted(String nicknameToSearch);
+
+
+        //Only for use in the tests
+        [OperationContract]
+        void DeletePlayer(string playerNickname);
     }
 
     public interface IPlayerCallback

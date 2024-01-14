@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainStatuses", "Renovación LIS Client\DomainStatuses\DomainStatuses.csproj", "{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Pruebas Unitarias\Tests.csproj", "{2E86DF00-B0D7-4A61-98F1-B4C3F4F754C3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E86DF00-B0D7-4A61-98F1-B4C3F4F754C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E86DF00-B0D7-4A61-98F1-B4C3F4F754C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E86DF00-B0D7-4A61-98F1-B4C3F4F754C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E86DF00-B0D7-4A61-98F1-B4C3F4F754C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

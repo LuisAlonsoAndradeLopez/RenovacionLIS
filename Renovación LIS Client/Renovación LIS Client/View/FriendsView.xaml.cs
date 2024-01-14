@@ -40,6 +40,9 @@ namespace Renovación_LIS_Client.View
 
 
         #region Constructors
+        //Constructor only for use in the tests
+        public FriendsView() { }
+
         public FriendsView(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;

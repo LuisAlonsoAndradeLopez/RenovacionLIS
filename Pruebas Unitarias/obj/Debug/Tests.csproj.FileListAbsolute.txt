@@ -8,27 +8,34 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\M
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Tests.dll.config
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Tests.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Tests.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DomainStatuses.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Renovación LIS Client.exe
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Memory.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Buffers.dll
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.dll.config
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DomainStatuses.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Renovación LIS Client.pdb
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Renovación LIS Client.exe.config
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Memory.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\System.Buffers.xml
+C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\es\Renovación LIS Client.resources.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.csproj.AssemblyReference.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.csproj.CoreCompileInputs.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.csproj.CopyComplete
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\ServicesTCP.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DatabaseManager.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\EntityFramework.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DomainStatuses.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\ServicesTCP.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\ServicesTCP.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DatabaseManager.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DatabaseManager.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\domain.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\EntityFramework.xml
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\bin\Debug\DomainStatuses.pdb

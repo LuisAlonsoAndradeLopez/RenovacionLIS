@@ -929,6 +929,12 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegisted", ReplyAction="http://tempuri.org/IPlayer/TheNicknameIsAlreadyRegistedResponse")]
         System.Threading.Tasks.Task<bool> TheNicknameIsAlreadyRegistedAsync(string nicknameToSearch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/DeletePlayer", ReplyAction="http://tempuri.org/IPlayer/DeletePlayerResponse")]
+        void DeletePlayer(string playerNickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/DeletePlayer", ReplyAction="http://tempuri.org/IPlayer/DeletePlayerResponse")]
+        System.Threading.Tasks.Task DeletePlayerAsync(string playerNickname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1028,6 +1034,14 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         
         public System.Threading.Tasks.Task<bool> TheNicknameIsAlreadyRegistedAsync(string nicknameToSearch) {
             return base.Channel.TheNicknameIsAlreadyRegistedAsync(nicknameToSearch);
+        }
+        
+        public void DeletePlayer(string playerNickname) {
+            base.Channel.DeletePlayer(playerNickname);
+        }
+        
+        public System.Threading.Tasks.Task DeletePlayerAsync(string playerNickname) {
+            return base.Channel.DeletePlayerAsync(playerNickname);
         }
     }
 }

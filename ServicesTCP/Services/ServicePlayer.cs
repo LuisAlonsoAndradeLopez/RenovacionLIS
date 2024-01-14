@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
+using System.Numerics;
+using System.Xml.Linq;
 using DatabaseManager;
 using domain;
+using DomainStatuses;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -15,7 +19,10 @@ namespace ServicesTCP.Services
 
             try
             {
-                player.Profiles = new Profiles();
+                player.Profiles = new Profiles
+                {
+                    LoginStatus = ProfileLoginStatuses.NotLogged.ToString()
+                };
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 databaseModelContainer.PlayersSet.Add(player);
                 databaseModelContainer.SaveChanges();
@@ -23,7 +30,7 @@ namespace ServicesTCP.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.StackTrace);
             }
 
             return generatedID;
@@ -204,6 +211,18 @@ namespace ServicesTCP.Services
                 }
             }
             return false;
+        }
+
+
+        //Only for use in the tests
+        public void DeletePlayer(string playerNickname)
+        {
+            DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+            Players playerToDelete = databaseModelContainer.PlayersSet.Where(e => e.NickName.Contains(playerNickname)).FirstOrDefault();
+
+
+            databaseModelContainer.PlayersSet.Remove(playerToDelete);
+            databaseModelContainer.SaveChanges();
         }
     }
 }

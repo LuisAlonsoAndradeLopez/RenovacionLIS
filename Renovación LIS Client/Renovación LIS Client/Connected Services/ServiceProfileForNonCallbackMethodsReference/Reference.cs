@@ -947,6 +947,12 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/CancelFriendship", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/CancelFriendshipResponse")]
         System.Threading.Tasks.Task CancelFriendshipAsync(Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/DeleteProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/DeleteProfileResponse")]
+        void DeleteProfile(long playerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/DeleteProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/DeleteProfileResponse")]
+        System.Threading.Tasks.Task DeleteProfileAsync(long playerID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1070,6 +1076,14 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         
         public System.Threading.Tasks.Task CancelFriendshipAsync(Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1) {
             return base.Channel.CancelFriendshipAsync(profiles, profiles1);
+        }
+        
+        public void DeleteProfile(long playerID) {
+            base.Channel.DeleteProfile(playerID);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProfileAsync(long playerID) {
+            return base.Channel.DeleteProfileAsync(playerID);
         }
     }
 }

@@ -42,6 +42,9 @@ namespace Renovación_LIS_Client
             NavigationService navigationService = MainFrame.NavigationService;
             navigationService.Navigate(new StartView(this));
         }
+
+        //Method for use in the tests
+        public MainWindow(string x) { }
         #endregion
 
 

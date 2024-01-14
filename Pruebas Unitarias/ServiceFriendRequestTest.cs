@@ -1,51 +1,229 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.ServiceModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceFriendRequestForNonCallbackMethodsReference;
+using Renovación_LIS_Client.View;
+//using FriendRequestNonCallbackMethodsClient = Renovación_LIS_Client;
 
 namespace Tests
 {
     [TestClass]
-    public class ServiceFriendRequestTest
+    public class ServiceFriendRequestForCallbackMethods
     {
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context)
-        {
+        private readonly FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(new FriendsView()));
 
+        [TestMethod]
+        public void ConnectTest()
+        {
+            friendRequestCallbackMethodsClient.Connect("Borstrife");
         }
 
-        [ClassCleanup]
-        public static void ClassCleanup()
+        [TestMethod]
+        public void DisconnectTest()
         {
-            
+            friendRequestCallbackMethodsClient.Disconnect("Borstrife");
+        }
+
+        [TestMethod]
+        public void UpdateFriendRequestsListsToAllConnectedClientsTest()
+        {
+            friendRequestCallbackMethodsClient.UpdateFriendRequestsListsToAllConnectedClients();
+        }
+    }
+
+    [TestClass]
+    public class ServiceFriendRequestForNonCallbackMethodsTest
+    {
+        private FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient;
+        private FriendRequests successFriendRequests;
+        private FriendRequests failureFriendRequests;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
+
+            successFriendRequests = new FriendRequests
+            {
+                IDFriendRequest = 1,
+                Message = "",
+                CreationDate = DateTime.Now,
+                SendingStatus = "Sent",
+                AceptationStatus = "Rejected",
+                Profiles = new Profiles
+                {
+                    IDProfile = 1,
+                    Coins = 0,
+                    LoginStatus = "NotLogged",
+                    Players = new Players
+                    {
+                        IDPlayer = 1,
+                        Names = "Usuario 1",
+                        Surnames = "",
+                        NickName = "Usuario 1",
+                        BirthDate = DateTime.Now,
+                        Email = "caffeinated555@gmail.com",
+                        Password = ""
+                    }
+                },
+
+                Profiles1 = new Profiles
+                {
+                    IDProfile = 2,
+                    Coins = 0,
+                    LoginStatus = "NotLogged",
+                    Players = new Players
+                    {
+                        IDPlayer = 2,
+                        Names = "Usuario 2",
+                        Surnames = "",
+                        NickName = "Usuario 2",
+                        BirthDate = DateTime.Now,
+                        Email = "caffeinated556@gmail.com",
+                        Password = ""
+                    }
+                }
+            };
+
+            failureFriendRequests = new FriendRequests
+            {
+                IDFriendRequest = 2,
+                Message = "",
+                CreationDate = DateTime.Now,
+                SendingStatus = "Sent",
+                AceptationStatus = "Rejected",
+                Profiles = new Profiles
+                {
+                    IDProfile = 1,
+                    Coins = 0,
+                    LoginStatus = "NotLogged",
+                    Players = new Players
+                    {
+                        IDPlayer = 1,
+                        Names = "Usuario 1",
+                        Surnames = "",
+                        NickName = "Usuario 1",
+                        BirthDate = DateTime.Now,
+                        Email = "caffeinated555@gmail.com",
+                        Password = ""
+                    }
+                },
+
+                Profiles1 = new Profiles
+                {
+                    IDProfile = 3,
+                    Coins = 0,
+                    LoginStatus = "NotLogged",
+                    Players = new Players
+                    {
+                        IDPlayer = 3,
+                        Names = "Usuario 3",
+                        Surnames = "",
+                        NickName = "Usuario 3",
+                        BirthDate = DateTime.Now,
+                        Email = "caffeinated556@gmail.com",
+                        Password = ""
+                    }
+                }
+            };
+
+            friendRequestNonCallbackMethodsClient.AddFriendRequest(successFriendRequests);
         }
 
 
         [TestMethod]
         public void GetFriendsRequestsByProfileIDTest()
         {
-            
+            bool dataFound = false;
+
+            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests.Profiles.IDProfile))
+            {
+                if (dataSelected.IDFriendRequest == successFriendRequests.IDFriendRequest &&
+                    dataSelected.Message == successFriendRequests.Message &&
+                    dataSelected.CreationDate == successFriendRequests.CreationDate &&
+                    dataSelected.SendingStatus == successFriendRequests.SendingStatus &&
+                    dataSelected.AceptationStatus == successFriendRequests.AceptationStatus)
+                {
+                    dataFound = true;
+                    break;
+                }
+
+            }
+
+            Assert.IsTrue(dataFound);
         }
 
         [TestMethod]
         public void GetFriendsRequestsByProfileIDTestFail()
         {
+            bool dataFound = false;
 
+            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(failureFriendRequests.Profiles.IDProfile))
+            {
+                if (dataSelected.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                    dataSelected.Message == failureFriendRequests.Message &&
+                    dataSelected.CreationDate == failureFriendRequests.CreationDate &&
+                    dataSelected.SendingStatus == failureFriendRequests.SendingStatus &&
+                    dataSelected.AceptationStatus == failureFriendRequests.AceptationStatus)
+                {
+                    dataFound = true;
+                    break;
+                }
+
+            }
+
+            Assert.IsTrue(!dataFound);
         }
 
         [TestMethod]
         public void GetFriendsRequestsByProfile1IDTest()
         {
-            
+            bool dataFound = false;
+
+            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests.Profiles1.IDProfile))
+            {
+                if (dataSelected.IDFriendRequest == successFriendRequests.IDFriendRequest &&
+                    dataSelected.Message == successFriendRequests.Message &&
+                    dataSelected.CreationDate == successFriendRequests.CreationDate &&
+                    dataSelected.SendingStatus == successFriendRequests.SendingStatus &&
+                    dataSelected.AceptationStatus == successFriendRequests.AceptationStatus)
+                {
+                    dataFound = true;
+                    break;
+                }
+
+            }
+
+            Assert.IsTrue(dataFound);
         }
 
         [TestMethod]
         public void GetFriendsRequestsByProfile1IDTestFail()
         {
+            bool dataFound = false;
 
+            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(failureFriendRequests.Profiles1.IDProfile))
+            {
+                if (dataSelected.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                    dataSelected.Message == failureFriendRequests.Message &&
+                    dataSelected.CreationDate == failureFriendRequests.CreationDate &&
+                    dataSelected.SendingStatus == failureFriendRequests.SendingStatus &&
+                    dataSelected.AceptationStatus == failureFriendRequests.AceptationStatus)
+                {
+                    dataFound = true;
+                    break;
+                }
+
+            }
+
+            Assert.IsTrue(!dataFound);
         }
 
         [TestMethod]
         public void GetFriendRequestByIDTest()
         {
-            
+
         }
 
         [TestMethod]
@@ -57,7 +235,7 @@ namespace Tests
         [TestMethod]
         public void GetPendientsForAceptationFriendsRequestsByProfile1IDTest()
         {
-            
+
         }
 
         [TestMethod]
@@ -69,7 +247,7 @@ namespace Tests
         [TestMethod]
         public void GetSentAndPendientsForAceptationFriendsRequestsByProfileIDTest()
         {
-            
+
         }
 
         [TestMethod]
@@ -81,7 +259,7 @@ namespace Tests
         [TestMethod]
         public void FriendRequestsListToFriendRequestListConverterTest()
         {
-            
+
         }
 
         [TestMethod]
@@ -93,7 +271,7 @@ namespace Tests
         [TestMethod]
         public void TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileTest()
         {
-            
+
         }
 
         [TestMethod]
@@ -105,7 +283,7 @@ namespace Tests
         [TestMethod]
         public void TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileTest()
         {
-            
+
         }
 
         [TestMethod]
@@ -114,16 +292,8 @@ namespace Tests
 
         }
 
-
-
         [TestMethod]
         public void AddFriendRequestTest()
-        {
-            
-        }
-
-        [TestMethod]
-        public void AddFriendRequestTestFail()
         {
 
         }
@@ -131,23 +301,11 @@ namespace Tests
         [TestMethod]
         public void AcceptFriendRequestTest()
         {
-            
-        }
-
-        [TestMethod]
-        public void AcceptFriendRequestTestFail()
-        {
 
         }
 
         [TestMethod]
         public void CancelFriendRequestTest()
-        {
-            
-        }
-
-        [TestMethod]
-        public void CancelFriendRequestTestFail()
         {
 
         }
@@ -155,56 +313,7 @@ namespace Tests
         [TestMethod]
         public void RejectFriendRequestTest()
         {
-            
-        }
-
-        [TestMethod]
-        public void RejectFriendRequestTestFail()
-        {
 
         }
-    }
-
-
-
-    [TestClass]
-    public class ServiceFriendRequestForCallbackMethods
-    {
-        [TestMethod]
-        public void ConnectTest()
-        {
-            
-        }
-
-        [TestMethod]
-        public void ConnectTestFail()
-        {
-
-        }
-
-        [TestMethod]
-        public void DisconnectTest()
-        {
-            
-        }
-
-        [TestMethod]
-        public void DisconnectTestFail()
-        {
-
-        }
-
-        [TestMethod]
-        public void UpdateFriendRequestsListsToAllConnectedClientsTest()
-        {
-            
-        }
-
-        [TestMethod]
-        public void UpdateFriendRequestsListsToAllConnectedClientsTestFail()
-        {
-
-        }
-
     }
 }

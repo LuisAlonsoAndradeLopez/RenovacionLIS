@@ -399,6 +399,18 @@ namespace ServicesTCP.Services
                 Console.WriteLine(ex.ToString());
             }
         }
+
+
+        //Only for use in the tests
+        public void DeleteProfile(long playerID)
+        {
+            DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+            Profiles playerToDelete = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == playerID).FirstOrDefault();
+
+
+            databaseModelContainer.ProfilesSet.Remove(playerToDelete);
+            databaseModelContainer.SaveChanges();
+        }
     }
 
 

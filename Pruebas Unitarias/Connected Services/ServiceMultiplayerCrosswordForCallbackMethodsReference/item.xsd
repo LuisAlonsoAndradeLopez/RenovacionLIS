@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AddCompletedWordToAllConnectedProfilesCrosswords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="word" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPointsToProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userNickname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="points" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Connect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Disconnect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpeltProfileForTheGameForBeingAlone">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTheLobbyViewToAllConnectedProfiles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTheMultiplayerCrosswordViewToConnectedClients">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTheSelectedCrosswordBorderToConnectedClients">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartGameCountdown">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="totalSeconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartGlobalCountdown">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="totalSeconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTheCrosswordSelectionAlgorythm">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpeltProfileToTheLobbyViewForBeingAlone">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowBlackScreenAnimationOnLobbyViewOrItsChildPages">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowGoText">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTheSelectedCrosswordAndItsQustions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTimesUpText">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenLobbyView">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenMultiplayerCrosswordView">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenRandomMultiplayerCrosswordGeneratorView">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenRandomMultiplayerCrosswordGeneratorViewInTheCurrentLobbyViewChildPage">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenWinnersView">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTheSelectedCrosswordBorder">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGameCountdown">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="seconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGlobalCountdown">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="seconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCrossword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="word" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProfilesPoints">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
