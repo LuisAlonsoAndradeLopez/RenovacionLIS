@@ -32,34 +32,5 @@ namespace DatabaseManager
 
         [DataMember]
         public virtual Profiles Profiles { get; set; }
-
-
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            Players other = (Players)obj;
-            return Names == other.Names &&
-                   Surnames == other.Surnames &&
-                   string.Equals(NickName, other.NickName, StringComparison.OrdinalIgnoreCase) &&
-                   string.Equals(Email, other.Email, StringComparison.OrdinalIgnoreCase);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 17;
-                hash = hash * 23 + Names.GetHashCode();
-                hash = hash * 23 + (Surnames?.GetHashCode() ?? 0);
-                hash = hash * 23 + (NickName?.ToLowerInvariant().GetHashCode() ?? 0);
-                hash = hash * 23 + (Email?.ToLowerInvariant().GetHashCode() ?? 0);
-                return hash;
-            }
-        }
     }
 }

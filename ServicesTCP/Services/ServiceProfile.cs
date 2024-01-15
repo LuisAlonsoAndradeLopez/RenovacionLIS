@@ -102,7 +102,7 @@ namespace ServicesTCP.Services
                 {
                     profilesHasSet = profiles.Profiles2;
 
-                    foreach(Profiles p in profilesHasSet)
+                    foreach (Profiles p in profilesHasSet)
                     {
                         Player profilePlayer = new Player
                         {
@@ -162,22 +162,18 @@ namespace ServicesTCP.Services
 
         public byte[] GetImage(string fileName)
         {
-            byte[] imageData = new byte[1048576];
-
             try
             {
                 string serverFolderPath = "C:\\Users\\wmike\\OneDrive\\Documentos\\RenovaciónLISUsersProfilePictures";
                 string filePath = Path.Combine(serverFolderPath, fileName);
-                imageData = File.ReadAllBytes(filePath);
+                byte[] imageData = File.ReadAllBytes(filePath);
 
+                return imageData;
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
-                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+                return null;
             }
-
-            return imageData;
         }
 
         public Profile GetProfileByID(long profileID)
@@ -422,7 +418,7 @@ namespace ServicesTCP.Services
                 if (profiles.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
                 {
                     return true;
-                }                
+                }
             }
             catch (DbEntityValidationException ex)
             {
@@ -469,7 +465,7 @@ namespace ServicesTCP.Services
                     fileNameWithoutExtensionToDelete = fileName.Substring(0, index);
                 }
 
-                
+
                 DirectoryInfo directoryInfo = new DirectoryInfo(serverFolderPath);
 
                 if (directoryInfo.Exists)
@@ -510,16 +506,16 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
 
                 string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
-                
+
                 var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
                 var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
-                
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);                
+
+                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
                 databaseModelContainer.SaveChanges();
-                
+
                 parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
                 parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
-                
+
                 databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
                 databaseModelContainer.SaveChanges();
 
@@ -555,16 +551,16 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
 
                 string sqlQuery = "DELETE FROM ProfilesProfiles WHERE Profiles2_IDProfile = @IDProfile AND Profiles1_IDProfile = @IDProfile1";
-                
+
                 var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
                 var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
-                
+
                 databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
                 databaseModelContainer.SaveChanges();
-                
+
                 parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
                 parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
-                
+
                 databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
                 databaseModelContainer.SaveChanges();
 
@@ -606,7 +602,7 @@ namespace ServicesTCP.Services
                 databaseModelContainer.ProfilesSet.Remove(playerToDelete);
                 databaseModelContainer.SaveChanges();
             }
-            catch(DbEntityValidationException ex)
+            catch (DbEntityValidationException ex)
             {
                 string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");

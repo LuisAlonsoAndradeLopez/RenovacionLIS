@@ -383,3 +383,43 @@ Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation
    en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
    en System.Data.Entity.DbContext.SaveChanges()
    en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 28
+Exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'.
+Nombre de archivo: 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.File.InternalReadAllBytes(String path, Boolean checkHost)
+   en System.IO.File.ReadAllBytes(String path)
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.GetImage(String fileName) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 171
+Exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'.
+Nombre de archivo: 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.File.InternalReadAllBytes(String path, Boolean checkHost)
+   en System.IO.File.ReadAllBytes(String path)
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.GetImage(String fileName) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 171
+Exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'.
+Nombre de archivo: 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.File.InternalReadAllBytes(String path, Boolean checkHost)
+   en System.IO.File.ReadAllBytes(String path)
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.GetImage(String fileName) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 171
+Exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'.
+Nombre de archivo: 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.File.InternalReadAllBytes(String path, Boolean checkHost)
+   en System.IO.File.ReadAllBytes(String path)
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.GetImage(String fileName) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 171
+Exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'.
+Nombre de archivo: 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfilePictures\Borstrife.png'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.File.InternalReadAllBytes(String path, Boolean checkHost)
+   en System.IO.File.ReadAllBytes(String path)
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.GetImage(String fileName) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 166

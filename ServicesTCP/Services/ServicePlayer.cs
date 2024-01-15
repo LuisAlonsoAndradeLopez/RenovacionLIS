@@ -102,7 +102,7 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 players = databaseModelContainer.PlayersSet.Where(e => e.IDPlayer == ID).FirstOrDefault();
 
-                if(players != null)
+                if (players != null)
                 {
                     player.IDPlayer = players.IDPlayer;
                     player.Names = players.Names;
@@ -157,7 +157,7 @@ namespace ServicesTCP.Services
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 players = databaseModelContainer.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
 
-                if(players != null)
+                if (players != null)
                 {
                     player.IDPlayer = players.IDPlayer;
                     player.Names = players.Names;
@@ -249,7 +249,7 @@ namespace ServicesTCP.Services
             {
                 DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
                 Players playerToModify = databaseModelContainer.PlayersSet.Find(modifiedPlayer.IDPlayer);
-                if(playerToModify != null)
+                if (playerToModify != null)
                 {
                     playerToModify.BirthDate = modifiedPlayer.BirthDate;
                     playerToModify.Surnames = modifiedPlayer.Surnames;

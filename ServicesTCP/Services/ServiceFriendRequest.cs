@@ -366,7 +366,7 @@ namespace ServicesTCP.Services
                     .FirstOrDefault();
                 if (friendRequests != null)
                 {
-                    return true;                    
+                    return true;
                 }
             }
             catch (DbEntityValidationException ex)

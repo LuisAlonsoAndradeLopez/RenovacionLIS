@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.ServiceModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
@@ -52,7 +53,7 @@ namespace Tests
     public class ServiceFriendRequestForNonCallbackMethodsTest
     {
         private static FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient;
-        private static FriendRequests successFriendRequests;
+        private static FriendRequests successFriendRequests1;
         private static FriendRequests failureFriendRequests;
 
         [ClassInitialize]
@@ -60,7 +61,7 @@ namespace Tests
         {
             friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
 
-            successFriendRequests = new FriendRequests
+            successFriendRequests1 = new FriendRequests
             {
                 Message = "",
                 CreationDate = DateTime.Now,
@@ -134,7 +135,7 @@ namespace Tests
                 }
             };
 
-            friendRequestNonCallbackMethodsClient.AddFriendRequest(successFriendRequests);
+            friendRequestNonCallbackMethodsClient.AddFriendRequest(successFriendRequests1);
         }
 
         [ClassCleanup]
@@ -148,125 +149,131 @@ namespace Tests
         [TestMethod]
         public void GetFriendsRequestsByProfileIDTest()
         {
-            var result = friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests.Profiles.IDProfile);
+            var result = friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests1.Profiles.IDProfile);
 
-            //Assert.IsTrue(result.Any(item =>
-            //    item.Names == failurePlayer.Names && item.Surnames == failurePlayer.Surnames &&
-            //    item.Email == failurePlayer.Email && item.NickName == failurePlayer.NickName));
+            Assert.IsTrue(result.Any(item =>
+                item.IDFriendRequest == successFriendRequests1.IDFriendRequest &&
+                item.Message == successFriendRequests1.Message &&
+                item.CreationDate == successFriendRequests1.CreationDate &&
+                item.SendingStatus == successFriendRequests1.SendingStatus &&
+                item.AceptationStatus == successFriendRequests1.AceptationStatus));
         }
 
         [TestMethod]
         public void GetFriendsRequestsByProfileIDTestFail()
         {
-            bool dataFound = false;
+            var result = friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(failureFriendRequests.Profiles.IDProfile);
 
-            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(failureFriendRequests.Profiles.IDProfile))
-            {
-                if (dataSelected.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
-                    dataSelected.Message == failureFriendRequests.Message &&
-                    dataSelected.CreationDate == failureFriendRequests.CreationDate &&
-                    dataSelected.SendingStatus == failureFriendRequests.SendingStatus &&
-                    dataSelected.AceptationStatus == failureFriendRequests.AceptationStatus)
-                {
-                    dataFound = true;
-                    break;
-                }
-
-            }
-
-            Assert.IsTrue(!dataFound);
+            Assert.IsFalse(result.Any(item =>
+                item.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                item.Message == failureFriendRequests.Message &&
+                item.CreationDate == failureFriendRequests.CreationDate &&
+                item.SendingStatus == failureFriendRequests.SendingStatus &&
+                item.AceptationStatus == failureFriendRequests.AceptationStatus));
         }
 
         [TestMethod]
         public void GetFriendsRequestsByProfile1IDTest()
         {
-            bool dataFound = false;
-
-            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests.Profiles1.IDProfile))
-            {
-                if (dataSelected.IDFriendRequest == successFriendRequests.IDFriendRequest &&
-                    dataSelected.Message == successFriendRequests.Message &&
-                    dataSelected.CreationDate == successFriendRequests.CreationDate &&
-                    dataSelected.SendingStatus == successFriendRequests.SendingStatus &&
-                    dataSelected.AceptationStatus == successFriendRequests.AceptationStatus)
-                {
-                    dataFound = true;
-                    break;
-                }
-
-            }
-
-            Assert.IsTrue(dataFound);
+            var result = friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests1.Profiles1.IDProfile);
+            
+            Assert.IsTrue(result.Any(item =>
+                item.IDFriendRequest == successFriendRequests1.IDFriendRequest &&
+                item.Message == successFriendRequests1.Message &&
+                item.CreationDate == successFriendRequests1.CreationDate &&
+                item.SendingStatus == successFriendRequests1.SendingStatus &&
+                item.AceptationStatus == successFriendRequests1.AceptationStatus));
         }
 
         [TestMethod]
         public void GetFriendsRequestsByProfile1IDTestFail()
         {
-            bool dataFound = false;
+            var result = friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(failureFriendRequests.Profiles1.IDProfile);
 
-            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(failureFriendRequests.Profiles1.IDProfile))
-            {
-                if (dataSelected.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
-                    dataSelected.Message == failureFriendRequests.Message &&
-                    dataSelected.CreationDate == failureFriendRequests.CreationDate &&
-                    dataSelected.SendingStatus == failureFriendRequests.SendingStatus &&
-                    dataSelected.AceptationStatus == failureFriendRequests.AceptationStatus)
-                {
-                    dataFound = true;
-                    break;
-                }
-
-            }
-
-            Assert.IsTrue(!dataFound);
+            Assert.IsFalse(result.Any(item =>
+                item.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                item.Message == failureFriendRequests.Message &&
+                item.CreationDate == failureFriendRequests.CreationDate &&
+                item.SendingStatus == failureFriendRequests.SendingStatus &&
+                item.AceptationStatus == failureFriendRequests.AceptationStatus));
         }
 
         [TestMethod]
         public void GetFriendRequestByIDTest()
         {
+            var result = friendRequestNonCallbackMethodsClient.GetFriendRequestByID(successFriendRequests1.Profiles.Players.IDPlayer);
 
+            Assert.IsTrue(
+                result.IDFriendRequest == successFriendRequests1.IDFriendRequest &&
+                result.Message == successFriendRequests1.Message &&
+                result.CreationDate == successFriendRequests1.CreationDate &&
+                result.SendingStatus == successFriendRequests1.SendingStatus &&
+                result.AceptationStatus == successFriendRequests1.AceptationStatus);
         }
 
         [TestMethod]
         public void GetFriendRequestByIDTestFail()
         {
+            var result = friendRequestNonCallbackMethodsClient.GetFriendRequestByID(failureFriendRequests.Profiles.Players.IDPlayer);
 
+            Assert.IsFalse(
+                result.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                result.Message == failureFriendRequests.Message &&
+                result.CreationDate == failureFriendRequests.CreationDate &&
+                result.SendingStatus == failureFriendRequests.SendingStatus &&
+                result.AceptationStatus == failureFriendRequests.AceptationStatus);
         }
 
         [TestMethod]
         public void GetPendientsForAceptationFriendsRequestsByProfile1IDTest()
         {
+            var result = friendRequestNonCallbackMethodsClient.GetPendientsForAceptationFriendsRequestsByProfile1ID(successFriendRequests1.Profiles1.IDProfile);
 
+            Assert.IsTrue(result.Any(item =>
+                item.IDFriendRequest == successFriendRequests1.IDFriendRequest &&
+                item.Message == successFriendRequests1.Message &&
+                item.CreationDate == successFriendRequests1.CreationDate &&
+                item.SendingStatus == successFriendRequests1.SendingStatus &&
+                item.AceptationStatus == successFriendRequests1.AceptationStatus));
         }
 
         [TestMethod]
         public void GetPendientsForAceptationFriendsRequestsByProfile1IDTestFail()
         {
+            var result = friendRequestNonCallbackMethodsClient.GetPendientsForAceptationFriendsRequestsByProfile1ID(failureFriendRequests.Profiles1.IDProfile);
 
+            Assert.IsFalse(result.Any(item =>
+                item.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                item.Message == failureFriendRequests.Message &&
+                item.CreationDate == failureFriendRequests.CreationDate &&
+                item.SendingStatus == failureFriendRequests.SendingStatus &&
+                item.AceptationStatus == failureFriendRequests.AceptationStatus));
         }
 
         [TestMethod]
         public void GetSentAndPendientsForAceptationFriendsRequestsByProfileIDTest()
         {
+            var result = friendRequestNonCallbackMethodsClient.GetSentAndPendientsForAceptationFriendsRequestsByProfileID(successFriendRequests1.Profiles.IDProfile);
 
+            Assert.IsTrue(result.Any(item =>
+                item.IDFriendRequest == successFriendRequests1.IDFriendRequest &&
+                item.Message == successFriendRequests1.Message &&
+                item.CreationDate == successFriendRequests1.CreationDate &&
+                item.SendingStatus == successFriendRequests1.SendingStatus &&
+                item.AceptationStatus == successFriendRequests1.AceptationStatus));
         }
 
         [TestMethod]
         public void GetSentAndPendientsForAceptationFriendsRequestsByProfileIDTestFail()
         {
+            var result = friendRequestNonCallbackMethodsClient.GetSentAndPendientsForAceptationFriendsRequestsByProfileID(failureFriendRequests.Profiles.IDProfile);
 
-        }
-
-        [TestMethod]
-        public void FriendRequestsListToFriendRequestListConverterTest()
-        {
-
-        }
-
-        [TestMethod]
-        public void FriendRequestsListToFriendRequestListConverterTestFail()
-        {
-
+            Assert.IsFalse(result.Any(item =>
+                item.IDFriendRequest == failureFriendRequests.IDFriendRequest &&
+                item.Message == failureFriendRequests.Message &&
+                item.CreationDate == failureFriendRequests.CreationDate &&
+                item.SendingStatus == failureFriendRequests.SendingStatus &&
+                item.AceptationStatus == failureFriendRequests.AceptationStatus));
         }
 
         [TestMethod]

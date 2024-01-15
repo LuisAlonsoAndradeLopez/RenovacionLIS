@@ -138,6 +138,8 @@ namespace Tests
             Assert.IsTrue(profileNonCallbackMethodsClient.UploadImage(successProfiles.Players.NickName + ".jpg", imageData));
         }
 
+
+
         [TestMethod]
         public void AddProfileTest()
         {
