@@ -1,28 +1,25 @@
 ﻿using Renovación_LIS_Client.Helpers;
-using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows;
 using System.Windows.Navigation;
 
 namespace Renovación_LIS_Client.View
 {
     public partial class LevelOneTwoView : Page
     {
-        private readonly MainWindow mainWindow;
 
         private int word = 1;
+        private int level = 1; 
         private Dictionary<int, Word> gameWords = new Dictionary<int, Word>();
 
-        public LevelOneTwoView(MainWindow mainWindow)
+        public LevelOneTwoView(int level)
         {
-            PageStateManager.CurrentPage = this;
-
-            this.mainWindow = mainWindow;
-
             InitializeComponent();
 
-            InitializeWordsLevel1();
+            this.level = level;
+            InitializeLevel();
         }
 
         private void ChangeSelectedWord(object sender, MouseButtonEventArgs e)
@@ -73,37 +70,44 @@ namespace Renovación_LIS_Client.View
 
             Txt_WordNumber.Text = currentWord.WordNumber.ToString();
             Txt_Orientation.Text = currentWord.Type;
-            Txt_Description.Text = currentWord.WordText; 
+            Txt_Description.Text = currentWord.Description; 
         }
 
         private void SetWordView()
         {
             string userWord = GetSpacingWord();
+            string textblockName = "L" + level + "W" + word;
 
-            switch (word)
-            {
-                case 1: L1W1.Text = userWord; break;
-                case 2: L1W2.Text = userWord; break;
-                case 3: L1W3.Text = userWord; break;
-                case 4: L1W4.Text = userWord; break;
-                case 5: L1W5.Text = userWord; break;
-                case 6: L1W6.Text = userWord; break;
-                case 7: L1W7.Text = userWord; break;
-                case 8: L1W8.Text = userWord; break;
-            }
+            TextBlock textBlock = (TextBlock)FindName(textblockName); 
+            textBlock.Text = userWord;
 
         }
 
-        private void InitializeWordsLevel1()
+        private void InitializeLevel()
         {
-            gameWords.Add(1, new Word(1, 10, "INTERMEDIO", "", "DOWN"));
-            gameWords.Add(2, new Word(2, 4, "TRES", "", "ACROSS"));
-            gameWords.Add(3, new Word(3, 4, "DOCE", "", "DOWN"));
-            gameWords.Add(4, new Word(4, 4, "OCHO", "", "DOWN"));
-            gameWords.Add(5, new Word(5, 12, "PROGRAMACION", "", "ACROSS"));
-            gameWords.Add(6, new Word(6, 7, "OCHARAN", "", "DOWN"));
-            gameWords.Add(7, new Word(7, 6, "ECONEX", "", "ACROSS"));
-            gameWords.Add(8, new Word(8, 6, "ARENAS", "", "ACROSS"));
+            LevelProvider levelProvider = new LevelProvider();
+            gameWords = levelProvider.GetWordsByLevel(level);
+
+            Grid_LevelOne.Visibility = Visibility.Hidden;
+            Grid_LevelTwo.Visibility = Visibility.Hidden;
+            Grid_LevelThree.Visibility = Visibility.Hidden;
+            Grid_LevelFour.Visibility = Visibility.Hidden;
+            Grid_LevelFive.Visibility = Visibility.Hidden;  
+            Grid_LevelSix.Visibility = Visibility.Hidden;
+            Grid_LevelSix.Visibility = Visibility.Hidden;
+            Grid_LevelEight.Visibility = Visibility.Hidden;
+
+            switch(level)
+            {
+                case 1: Grid_LevelOne.Visibility= Visibility.Visible; break;
+                case 2: Grid_LevelTwo.Visibility= Visibility.Visible; break;
+                case 3: Grid_LevelThree.Visibility= Visibility.Visible; break;
+                case 4: Grid_LevelFour.Visibility= Visibility.Visible; break;
+                case 5: Grid_LevelFive.Visibility= Visibility.Visible; break;
+                case 6:Grid_LevelSix.Visibility= Visibility.Visible; break;
+                case 7: Grid_LevelSeven.Visibility= Visibility.Visible; break;
+                case 8: Grid_LevelEight.Visibility= Visibility.Visible; break;
+            }
 
             SetWordInfo(); 
         }
@@ -127,7 +131,7 @@ namespace Renovación_LIS_Client.View
             return palabraConEspacios;
         }
 
-        private void ValidateWords(object sender, System.Windows.RoutedEventArgs e)
+        private void ValidateWords(object sender, RoutedEventArgs e)
         {
             bool result = true;
             int correct = 0;
@@ -154,14 +158,9 @@ namespace Renovación_LIS_Client.View
             }
             else
             {
-                Txt_WordNumber.Text = "Ganaste"; 
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new VictoryView(level));
             }
-        }
-
-        private void ExitButtonOnClick(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelView(mainWindow));
         }
     }
 }

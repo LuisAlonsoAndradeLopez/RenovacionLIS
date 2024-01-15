@@ -26,6 +26,9 @@ namespace Renovación_LIS_Client.View
             this.mainWindow = mainWindow;
 
             InitializeComponent();
+
+            ChangeLevelImage();
+            ChangeLevelName();
             
             ProfileImage.Source = new ImageLoader().GetImageByPlayerNickname(MainWindow.loggedProfile.Player.NickName);
             ProfileNickname.Content = MainWindow.loggedProfile.Player.NickName;
@@ -57,6 +60,67 @@ namespace Renovación_LIS_Client.View
             }
 
 
+
+            ChangeLevelImage(); 
+            ChangeLevelName();
+
+        }
+
+        private void PlayGameSelected(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LevelOneTwoView(SelectedLevel));
+        }
+
+        private void ChangeLevelName()
+        {
+            switch (SelectedLevel)
+            {
+                case 1:
+                    BeforeLevel.Content = "AUDITORIO";
+                    MainLevel.Content = "ECONEX";
+                    NextLevel.Content = "FEI";
+                    break;
+                case 2:
+                    BeforeLevel.Content = "ECONEX";
+                    MainLevel.Content = "FEI";
+                    NextLevel.Content = "TEATRO";
+                    break;
+                case 3:
+                    BeforeLevel.Content = "FEI";
+                    MainLevel.Content = "TEATRO";
+                    NextLevel.Content = "ESTACIONAMIENTO";
+                    break;
+                case 4:
+                    BeforeLevel.Content = "TEATRO";
+                    MainLevel.Content = "ESTACIONAMIENTO";
+                    NextLevel.Content = "ÁREA VERDE";
+                    break;
+                case 5:
+                    BeforeLevel.Content = "ESTACIONAMIENTO";
+                    MainLevel.Content = "ÁREA VERDE";
+                    NextLevel.Content = "CANCHA";
+                    break;
+                case 6:
+                    BeforeLevel.Content = "ÁREA VERDE";
+                    MainLevel.Content = "CANCHA";
+                    NextLevel.Content = "SECRETARIADO";
+                    break;
+                case 7:
+                    BeforeLevel.Content = "CANCHA";
+                    MainLevel.Content = "SECRETARIADO";
+                    NextLevel.Content = "AUDITORIO";
+                    break;
+                case 8:
+                    BeforeLevel.Content = "SECRETARIADO";
+                    MainLevel.Content = "AUDITORIO";
+                    NextLevel.Content = "ECONEX";
+                    break;
+            }
+        }
+
+        private void ChangeLevelImage()
+        {
             BitmapImage imageOne = new BitmapImage();
             string relativePathImage1 = "";
 
@@ -118,23 +182,6 @@ namespace Renovación_LIS_Client.View
             levelOneImage.Source = imageOne;
             levelTwoImage.Source = imageTwo;
             levelThreeImage.Source = imageThree;
-
-            ChangeLevelName();
-
-        }
-
-        private void FadeIn(Image image)
-        {
-            image.Opacity = 0;
-            DoubleAnimation FadeIn = new DoubleAnimation
-            {
-                To = 1,
-                Duration = TimeSpan.FromSeconds(1),
-                AutoReverse = false,
-
-            };
-
-            image.BeginAnimation(Image.OpacityProperty, FadeIn);
         }
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
@@ -152,51 +199,6 @@ namespace Renovación_LIS_Client.View
             navigationService.Navigate(new LevelOneTwoView(mainWindow));
         }
 
-        private void ChangeLevelName()
-        {
-            switch (SelectedLevel)
-            {
-                case 1:
-                    BeforeLevel.Content = "AUDITORIO";
-                    MainLevel.Content = "ECONEX";
-                    NextLevel.Content = "FEI";
-                    break;
-                case 2:
-                    BeforeLevel.Content = "ECONEX";
-                    MainLevel.Content = "FEI";
-                    NextLevel.Content = "TEATRO";
-                    break;
-                case 3:
-                    BeforeLevel.Content = "FEI";
-                    MainLevel.Content = "TEATRO";
-                    NextLevel.Content = "ESTACIONAMIENTO";
-                    break;
-                case 4:
-                    BeforeLevel.Content = "TEATRO";
-                    MainLevel.Content = "ESTACIONAMIENTO";
-                    NextLevel.Content = "ÁREA VERDE";
-                    break;
-                case 5:
-                    BeforeLevel.Content = "ESTACIONAMIENTO";
-                    MainLevel.Content = "ÁREA VERDE";
-                    NextLevel.Content = "CANCHA";
-                    break;
-                case 6:
-                    BeforeLevel.Content = "ÁREA VERDE";
-                    MainLevel.Content = "CANCHA";
-                    NextLevel.Content = "SECRETARIADO";
-                    break;
-                case 7:
-                    BeforeLevel.Content = "CANCHA";
-                    MainLevel.Content = "SECRETARIADO";
-                    NextLevel.Content = "AUDITORIO";
-                    break;
-                case 8:
-                    BeforeLevel.Content = "SECRETARIADO";
-                    MainLevel.Content = "AUDITORIO";
-                    NextLevel.Content = "ECONEX";
-                    break;
-            }
         }
     }
 
