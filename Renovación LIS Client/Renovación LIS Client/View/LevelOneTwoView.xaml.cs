@@ -9,13 +9,18 @@ namespace Renovación_LIS_Client.View
 {
     public partial class LevelOneTwoView : Page
     {
+        private readonly MainWindow mainWindow;
 
         private int word = 1;
         private int level = 1; 
         private Dictionary<int, Word> gameWords = new Dictionary<int, Word>();
 
-        public LevelOneTwoView(int level)
+        public LevelOneTwoView(MainWindow mainWindow, int level)
         {
+            PageStateManager.CurrentPage = this;
+
+            this.mainWindow = mainWindow;
+
             InitializeComponent();
 
             this.level = level;
@@ -159,8 +164,14 @@ namespace Renovación_LIS_Client.View
             else
             {
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new VictoryView(level));
+                navigationService.Navigate(new VictoryView(mainWindow, level));
             }
+        }
+
+        private void ExitButtonOnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new LevelView(mainWindow));
         }
     }
 }

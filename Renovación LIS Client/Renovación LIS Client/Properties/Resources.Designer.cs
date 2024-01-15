@@ -503,15 +503,6 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Back.
-        /// </summary>
-        public static string Back {
-            get {
-                return ResourceManager.GetString("Back", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Back to menu.
         /// </summary>
         public static string BackMenu {
@@ -1190,9 +1181,12 @@ namespace Renovación_LIS_Client.Properties {
         ///   Busca una cadena traducida similar a New password.
         /// </summary>
         public static string New_Password {
-        public static string Next {
             get {
                 return ResourceManager.GetString("New Password", resourceCulture);
+            }
+        }
+        public static string Next {
+            get {
                 return ResourceManager.GetString("Next", resourceCulture);
             }
         }

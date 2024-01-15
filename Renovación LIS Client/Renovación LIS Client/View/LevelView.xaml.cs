@@ -3,7 +3,6 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Renovación_LIS_Client.AuxiliaryClasses;
@@ -69,7 +68,7 @@ namespace Renovación_LIS_Client.View
         private void PlayGameSelected(object sender, MouseButtonEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelOneTwoView(SelectedLevel));
+            navigationService.Navigate(new LevelOneTwoView(mainWindow, SelectedLevel));
         }
 
         private void ChangeLevelName()
@@ -192,14 +191,5 @@ namespace Renovación_LIS_Client.View
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new GamemodeSelectionView(mainWindow));
         }
-
-        private void PlayGameSelected(object sender, MouseButtonEventArgs e)
-        {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelOneTwoView(mainWindow));
-        }
-
-        }
     }
-
 }

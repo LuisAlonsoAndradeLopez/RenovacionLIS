@@ -155,6 +155,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LevelProvider.cs" />
     <Compile Include="Helpers\SongManager.cs" />
     <Compile Include="Helpers\Word.cs" />
     <Compile Include="View\AnimationView.xaml.cs">
@@ -217,6 +218,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\VictoryView.xaml.cs">
+      <DependentUpon>VictoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WinnersView.xaml.cs">
       <DependentUpon>WinnersView.xaml</DependentUpon>
@@ -314,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\VictoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -778,6 +786,17 @@
     <Resource Include="images\GridLevels\GridDoctoratedInCS.png" />
     <Resource Include="images\GridLevels\GridCC3.png" />
     <Resource Include="images\GridLevels\GridECONEXBathroom.png" />
+    <Resource Include="images\GridLevels\GridLevelEight.png" />
+    <Resource Include="images\GridLevels\GridLevelFive.png" />
+    <Resource Include="images\GridLevels\GridLevelFour.png" />
+    <Resource Include="images\GridLevels\GridLevelSeven.png" />
+    <Resource Include="images\GridLevels\GridLevelSix.png" />
+    <Resource Include="images\GridLevels\GridLevelThree.png" />
+    <Resource Include="images\GridLevels\GridLevelTwo.png" />
+    <Resource Include="images\normalArrow.png" />
+    <Resource Include="images\playButtonImage.png" />
+    <Resource Include="images\storeButtonImage.png" />
+    <Resource Include="images\LevelsImage.png" />
     <Content Include="resources\Songs\Custom Character - Dan The Man Music.wav" />
     <Content Include="resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
     <Resource Include="images\gamemodeSelectionImage.png" />

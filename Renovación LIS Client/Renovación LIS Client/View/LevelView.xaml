@@ -36,13 +36,14 @@
                            Grid.Column="1"/>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="20">
-                        <Label Content="Username"
+                        <Label Name="ProfileNickname"
                                FontFamily="{StaticResource K2DRegular}"
                                FontSize="20"
                                Foreground="White"
                                VerticalAlignment="Center"
                                Margin="0,0,20,0"/>
-                        <Image Source="/images/startPageImage.png"
+                        <Image Name="ProfileImage"
+                               Source="/images/startPageImage.png"
                                Height="45"
                                Width="45"
                                Stretch="Fill"/>
@@ -156,7 +157,7 @@
                     </StackPanel>
 
 
-                    
+
 
                     <Image Name="BeforeButton"
                            Source="/images/ArrowRight.png"
@@ -168,7 +169,7 @@
 
                 </Grid>
 
-                
+
 
 
 
@@ -182,20 +183,6 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <StackPanel>
-                <Label Content="{x:Static p:Resources.Friends}"
-               FontFamily="{StaticResource K2DBold}"
-               FontSize="16"
-               Foreground="White"
-               HorizontalAlignment="Center"/>
-
-                <Image Source="/images/friendsButtonImage.png"
-                       Height="80"
-                       Width="80"/>
-                
-                
-            </StackPanel>
 
             <StackPanel Grid.Column="1">
                 <Label Content="{x:Static p:Resources.Play}"
@@ -221,11 +208,10 @@
                 <Grid
                        Height="80"
                        Width="80"
-                       Cursor="Hand"
-                       MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                       Cursor="Hand">
                     <Border Background="White" CornerRadius="10" Height="70" Width="70" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                     <Border Background="#337ccf" CornerRadius="10" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Image Source="/images/ArrowRight.png" Height="70" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Image Source="/images/ArrowRight.png" Height="70" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" MouseLeftButtonDown="ExitButtonOnClick"/>
                 </Grid>
 
 

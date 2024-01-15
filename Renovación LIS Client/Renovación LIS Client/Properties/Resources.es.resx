@@ -312,7 +312,6 @@
   <data name="Confirm your new password" xml:space="preserve">
     <value>Confirmar tu nueva contraseña</value>
   </data>
-  <data name="Create account" xml:space="preserve">
   <data name="ContinueLevel" xml:space="preserve">
     <value>Siguiente nivel:</value>
   </data>
@@ -353,6 +352,8 @@
     <value>Baño ECONEX planta baja</value>
   </data>
   <data name="Email" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Descripción</value>
   </data>

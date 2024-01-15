@@ -14,8 +14,8 @@
 
         <Border CornerRadius="20" Width="500" Background="#90000000" Margin="30">
             <Grid>
-                <Button Content="{x:Static p:Resources.Next}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="45" Width="150" Margin="20" Style="{StaticResource NormalButtom}" Click="GoToNextLevel"/>
-                <Button Content="{x:Static p:Resources.BackMenu}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="45" Width="150" Margin="20" Style="{StaticResource NormalButtom}" Click="ReturnToMenu"/>
+                <Button Content="{x:Static p:Resources.Next}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="45" Width="150" Margin="20" Style="{StaticResource GreenButton}" Click="GoToNextLevel"/>
+                <Button Content="{x:Static p:Resources.BackMenu}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="45" Width="150" Margin="20" Style="{StaticResource RedButton}" Click="ReturnToMenu"/>
 
                 <StackPanel>
                     <TextBlock Text="{x:Static p:Resources.Victory}" FontFamily="{StaticResource K2DBold}" FontSize="60" HorizontalAlignment="Center" Margin="20" Foreground="White"/>
