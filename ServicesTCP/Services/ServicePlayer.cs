@@ -204,7 +204,7 @@ namespace ServicesTCP.Services
 
         public List<Players> GetSpecifiedPlayers(string name)
         {
-            List<Players> players = null;
+            List<Players> players = new List<Players>();
 
             try
             {

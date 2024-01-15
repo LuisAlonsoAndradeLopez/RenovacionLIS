@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using BCrypt.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Renovación_LIS_Client.ServiceFriendRequestForNonCallbackMethodsReference;
 using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 using Players = Renovación_LIS_Client.ServicePlayerReference.Players;
@@ -27,8 +29,9 @@ namespace Tests
                 Names = "Usuario1",
                 Surnames = "Pipao",
                 NickName = "Usuario1",
-                Email = "caffeinated555@gmail.com",
-                Password = "Papadopulos#111"
+                BirthDate = DateTime.Now,
+                Email = "caffeinated555@gmail.com"
+                //Password = BCrypt.Net.BCrypt.HashPassword("Papadopulos#111", BCrypt.Net.BCrypt.GenerateSalt()) 
             };
 
             failurePlayer = new Players
@@ -36,8 +39,9 @@ namespace Tests
                 Names = "Usuario2",
                 Surnames = "Pipao",
                 NickName = "Usuario2",
-                Email = "caffeinated556@gmail.com",
-                Password = "Papadopulos#222"
+                BirthDate = DateTime.Now,
+                Email = "caffeinated556@gmail.com"
+                //Password = BCrypt.Net.BCrypt.HashPassword("Papadopulos#222", BCrypt.Net.BCrypt.GenerateSalt())
             };
 
             auxiliaryPlayer = new Players
@@ -45,8 +49,9 @@ namespace Tests
                 Names = "Usuario3",
                 Surnames = "Pipao",
                 NickName = "Usuario3",
-                Email = "caffeinated557@gmail.com",
-                Password = "Papadopulos#333"
+                BirthDate = DateTime.Now,
+                Email = "caffeinated557@gmail.com"
+                //Password = BCrypt.Net.BCrypt.HashPassword("Papadopulos#333", BCrypt.Net.BCrypt.GenerateSalt())
             };
 
             successPlayer.IDPlayer = playerClient.AddPlayer(successPlayer);
@@ -55,10 +60,10 @@ namespace Tests
         [ClassCleanup]
         public static void ClassCleanup()
         {
-            profileNonCallbackMethodsClient.DeleteProfile(successPlayer.IDPlayer);
-            profileNonCallbackMethodsClient.DeleteProfile(auxiliaryPlayer.IDPlayer);
-            playerClient.DeletePlayer(successPlayer.NickName);
-            playerClient.DeletePlayer(auxiliaryPlayer.NickName);
+            //profileNonCallbackMethodsClient.DeleteProfile(successPlayer.IDPlayer);
+            //profileNonCallbackMethodsClient.DeleteProfile(auxiliaryPlayer.IDPlayer);
+            //playerClient.DeletePlayer(successPlayer.NickName);
+            //playerClient.DeletePlayer(auxiliaryPlayer.NickName);
         }
 
 
@@ -122,11 +127,7 @@ namespace Tests
         [TestMethod]
         public void GetPlayerByNicknameTestFail()
         {
-            var result = playerClient.GetPlayerByNickname(failurePlayer.NickName);
-
-            Assert.IsFalse(
-                result.Names == failurePlayer.Names && result.Surnames == failurePlayer.Surnames &&
-                result.Email == failurePlayer.Email && result.NickName == failurePlayer.NickName);
+            Assert.IsNull(playerClient.GetPlayerByNickname(failurePlayer.NickName));
         }
 
         [TestMethod]

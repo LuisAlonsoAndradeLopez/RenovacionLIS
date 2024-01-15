@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.ServiceModel;
-using domain;
 using DomainStatuses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Renovación_LIS_Client;
+using Renovación_LIS_Client.ServicePlayerReference;
 using Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
+using Profiles = Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles;
 
 namespace Tests
 {
@@ -68,55 +70,65 @@ namespace Tests
         {
             profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
 
+            Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players user1 = new Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players
+            {
+                Names = "Usuariazo",
+                Surnames = "",
+                NickName = "Usuariazo",
+                BirthDate = DateTime.Now,
+                Email = "caffeinated555@gmail.com"
+            };
+
+            Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players user2 = new Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players
+            {
+                Names = "Usuariote",
+                Surnames = "",
+                NickName = "Usuariazo",
+                BirthDate = DateTime.Now,
+                Email = "caffeinated556@gmail.com"
+            };
+
+            Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players user3 = new Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players
+            {
+                Names = "UsuarioUsu",
+                Surnames = "",
+                NickName = "UsuarioUsu",
+                BirthDate = DateTime.Now,
+                Email = "caffeinated557@gmail.com"
+            };
+
+
+
+            Renovación_LIS_Client.ServicePlayerReference.Players user1ToInsertToDatabase = new Renovación_LIS_Client.ServicePlayerReference.Players
+            {
+                Names = "Usuariazo",
+                Surnames = "",
+                NickName = "Usuariazo",
+                BirthDate = DateTime.Now,
+                Email = "caffeinated555@gmail.com"
+            };
+
+            user1.IDPlayer = new PlayerClient().AddPlayer(user1ToInsertToDatabase);
+
             successProfiles = new Profiles
             {
-                IDProfile = 1,
                 Coins = 0,
                 LoginStatus = "NotLogged",
-                Players = new Players
-                {
-                    IDPlayer = 1,
-                    Names = "Usuario 1",
-                    Surnames = "",
-                    NickName = "Usuario 1",
-                    BirthDate = DateTime.Now,
-                    Email = "caffeinated555@gmail.com",
-                    Password = ""
-                }
+                Players = user1
             };
 
             successProfiles2 = new Profiles
             {
-                IDProfile = 2,
                 Coins = 0,
                 LoginStatus = "Logged",
-                Players = new Players
-                {
-                    IDPlayer = 2,
-                    Names = "Usuario 2",
-                    Surnames = "",
-                    NickName = "Usuario 2",
-                    BirthDate = DateTime.Now,
-                    Email = "caffeinated556@gmail.com",
-                    Password = ""
-                }
+                Players = user2
             };
 
             failureProfiles = new Profiles
             {
-                IDProfile = 3,
                 Coins = 0,
                 LoginStatus = "NotLogged",
-                Players = new Players
-                {
-                    IDPlayer = 3,
-                    Names = "Usuario 3",
-                    Surnames = "",
-                    NickName = "Usuario 3",
-                    BirthDate = DateTime.Now,
-                    Email = "caffeinated557@gmail.com",
-                    Password = ""
-                }
+                Players = user3
             };
 
             profileNonCallbackMethodsClient.AddProfile(successProfiles);
@@ -129,7 +141,7 @@ namespace Tests
         [TestMethod]
         public void AddProfileTest()
         {
-            profileNonCallbackMethodsClient.AddProfile(successProfiles);
+            profileNonCallbackMethodsClient.AddProfile(successProfiles2);
         }
 
         [TestMethod]
@@ -141,162 +153,107 @@ namespace Tests
         [TestMethod]
         public void GetFriendsTest()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetFriends(successProfiles.IDProfile);
 
-
-            foreach (var dataSelected in profileNonCallbackMethodsClient.GetFriends(successProfiles.IDProfile))
-            {
-                if (dataSelected.IDProfile == successProfiles2.IDProfile &&
-                    dataSelected.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
-                    dataSelected.Player.NickName == successProfiles2.Players.NickName)
-                {
-                    dataFound = true;
-                    break;
-                }
-
-            }
-
-            Assert.IsTrue(dataFound);
+            Assert.IsTrue(result.Any(item =>
+                item.IDProfile == successProfiles2.IDProfile &&
+                item.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                item.Player.NickName == successProfiles2.Players.NickName));
         }
 
         [TestMethod]
         public void GetFriendsTestFail()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetFriends(successProfiles.IDProfile);
 
-            foreach (var dataSelected in profileNonCallbackMethodsClient.GetFriends(successProfiles.IDProfile))
-            {
-                if (dataSelected.IDProfile == failureProfiles.IDProfile &&
-                    dataSelected.Player.IDPlayer == failureProfiles.Players.IDPlayer &&
-                    dataSelected.Player.NickName == failureProfiles.Players.NickName)
-                {
-                    dataFound = true;
-                    break;
-                }
-
-            }
-
-            Assert.IsTrue(!dataFound);
+            Assert.IsFalse(result.Any(item =>
+                item.IDProfile == failureProfiles.IDProfile &&
+                item.Player.IDPlayer == failureProfiles.Players.IDPlayer &&
+                item.Player.NickName == failureProfiles.Players.NickName));
         }
 
         [TestMethod]
         public void GetImageTest()
         {
-            Assert.IsNotNull(profileNonCallbackMethodsClient.GetImage("Usuario 1"));
+            Assert.IsNotNull(profileNonCallbackMethodsClient.GetImage(successProfiles.Players.NickName));
         }
 
         [TestMethod]
         public void GetImageTestFail()
         {
-            Assert.IsNotNull(profileNonCallbackMethodsClient.GetImage("Usuario 3"));
+            Assert.IsNotNull(profileNonCallbackMethodsClient.GetImage(failureProfiles.Players.NickName));
         }
 
         [TestMethod]
         public void GetProfileByIDTest()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetProfileByID(successProfiles.IDProfile);
 
-            var dataSelected = profileNonCallbackMethodsClient.GetProfileByID(successProfiles.IDProfile);
-
-            if (dataSelected.IDProfile == successProfiles.IDProfile &&
-                dataSelected.Player.IDPlayer == successProfiles.Players.IDPlayer &&
-                dataSelected.Player.NickName == successProfiles.Players.NickName)
-            {
-                dataFound = true;
-            }
-
-            Assert.IsTrue(dataFound);
+            Assert.IsTrue(
+                result.IDProfile == successProfiles2.IDProfile &&
+                result.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                result.Player.NickName == successProfiles2.Players.NickName);
         }
 
         [TestMethod]
         public void GetProfileByIDTestFail()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetProfileByID(failureProfiles.IDProfile);
 
-            var dataSelected = profileNonCallbackMethodsClient.GetProfileByID(failureProfiles.IDProfile);
-            
-            if (dataSelected.IDProfile == failureProfiles.IDProfile &&
-                dataSelected.Player.IDPlayer == failureProfiles.Players.IDPlayer &&
-                dataSelected.Player.NickName == failureProfiles.Players.NickName)
-            {
-                dataFound = true;
-            }                            
-
-            Assert.IsTrue(!dataFound);
+            Assert.IsFalse(
+                result.IDProfile == successProfiles2.IDProfile &&
+                result.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                result.Player.NickName == successProfiles2.Players.NickName);
         }
 
         [TestMethod]
         public void GetProfileByPlayerIDTest()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetProfileByPlayerID(successProfiles.Players.IDPlayer);
 
-            var dataSelected = profileNonCallbackMethodsClient.GetProfileByPlayerID(successProfiles.Players.IDPlayer);
-
-            if (dataSelected.IDProfile == successProfiles.IDProfile &&
-                dataSelected.Player.IDPlayer == successProfiles.Players.IDPlayer &&
-                dataSelected.Player.NickName == successProfiles.Players.NickName)
-            {
-                dataFound = true;
-            }
-
-            Assert.IsTrue(dataFound);
+            Assert.IsTrue(
+                result.IDProfile == successProfiles2.IDProfile &&
+                result.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                result.Player.NickName == successProfiles2.Players.NickName);
         }
 
         [TestMethod]
         public void GetProfileByPlayerIDTestFail()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetProfileByPlayerID(failureProfiles.Players.IDPlayer);
 
-            var dataSelected = profileNonCallbackMethodsClient.GetProfileByPlayerID(failureProfiles.Players.IDPlayer);
-
-            if (dataSelected.IDProfile == failureProfiles.IDProfile &&
-                dataSelected.Player.IDPlayer == failureProfiles.Players.IDPlayer &&
-                dataSelected.Player.NickName == failureProfiles.Players.NickName)
-            {
-                dataFound = true;
-            }
-
-            Assert.IsTrue(!dataFound);
+            Assert.IsFalse(
+                result.IDProfile == successProfiles2.IDProfile &&
+                result.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                result.Player.NickName == successProfiles2.Players.NickName);
         }
 
         [TestMethod]
         public void GetProfileByPlayerNicknameTest()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(successProfiles.Players.NickName);
 
-            var dataSelected = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(successProfiles.Players.NickName);
-
-            if (dataSelected.IDProfile == successProfiles.IDProfile &&
-                dataSelected.Player.IDPlayer == successProfiles.Players.IDPlayer &&
-                dataSelected.Player.NickName == successProfiles.Players.NickName)
-            {
-                dataFound = true;
-            }
-
-            Assert.IsTrue(dataFound);
+            Assert.IsTrue(
+                result.IDProfile == successProfiles2.IDProfile &&
+                result.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                result.Player.NickName == successProfiles2.Players.NickName);
         }
 
         [TestMethod]
         public void GetProfileByPlayerNicknameTestFail()
         {
-            bool dataFound = false;
+            var result = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(failureProfiles.Players.NickName);
 
-            var dataSelected = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(failureProfiles.Players.NickName);
-
-            if (dataSelected.IDProfile == failureProfiles.IDProfile &&
-                dataSelected.Player.IDPlayer == failureProfiles.Players.IDPlayer &&
-                dataSelected.Player.NickName == failureProfiles.Players.NickName)
-            {
-                dataFound = true;
-            }
-
-            Assert.IsTrue(!dataFound);
+            Assert.IsFalse(
+                result.IDProfile == successProfiles2.IDProfile &&
+                result.Player.IDPlayer == successProfiles2.Players.IDPlayer &&
+                result.Player.NickName == successProfiles2.Players.NickName);
         }
 
         [TestMethod]
         public void ModifyImageNameTest()
         {
-            Assert.IsTrue(profileNonCallbackMethodsClient.ModifyImageName("Usuario 1", "Usuario 9"));
+            Assert.IsTrue(profileNonCallbackMethodsClient.ModifyImageName(successProfiles.Players.NickName, "Usuario 9"));
         }
 
         [TestMethod]

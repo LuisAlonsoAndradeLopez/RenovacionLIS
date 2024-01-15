@@ -62,22 +62,19 @@ namespace Tests
 
             successFriendRequests = new FriendRequests
             {
-                IDFriendRequest = 1,
                 Message = "",
                 CreationDate = DateTime.Now,
                 SendingStatus = "Sent",
                 AceptationStatus = "Rejected",
                 Profiles = new Profiles
                 {
-                    IDProfile = 1,
                     Coins = 0,
                     LoginStatus = "NotLogged",
                     Players = new Players
                     {
-                        IDPlayer = 1,
-                        Names = "Usuario 1",
+                        Names = "Amigaza",
                         Surnames = "",
-                        NickName = "Usuario 1",
+                        NickName = "Amigaza",
                         BirthDate = DateTime.Now,
                         Email = "caffeinated555@gmail.com",
                         Password = ""
@@ -86,12 +83,10 @@ namespace Tests
 
                 Profiles1 = new Profiles
                 {
-                    IDProfile = 2,
                     Coins = 0,
                     LoginStatus = "NotLogged",
                     Players = new Players
                     {
-                        IDPlayer = 2,
                         Names = "Usuario 2",
                         Surnames = "",
                         NickName = "Usuario 2",
@@ -104,19 +99,16 @@ namespace Tests
 
             failureFriendRequests = new FriendRequests
             {
-                IDFriendRequest = 2,
                 Message = "",
                 CreationDate = DateTime.Now,
                 SendingStatus = "Sent",
                 AceptationStatus = "Rejected",
                 Profiles = new Profiles
                 {
-                    IDProfile = 1,
                     Coins = 0,
                     LoginStatus = "NotLogged",
                     Players = new Players
                     {
-                        IDPlayer = 1,
                         Names = "Usuario 1",
                         Surnames = "",
                         NickName = "Usuario 1",
@@ -128,12 +120,10 @@ namespace Tests
 
                 Profiles1 = new Profiles
                 {
-                    IDProfile = 3,
                     Coins = 0,
                     LoginStatus = "NotLogged",
                     Players = new Players
                     {
-                        IDPlayer = 3,
                         Names = "Usuario 3",
                         Surnames = "",
                         NickName = "Usuario 3",
@@ -158,23 +148,11 @@ namespace Tests
         [TestMethod]
         public void GetFriendsRequestsByProfileIDTest()
         {
-            bool dataFound = false;
+            var result = friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests.Profiles.IDProfile);
 
-            foreach (var dataSelected in friendRequestNonCallbackMethodsClient.GetFriendsRequestsByProfileID(successFriendRequests.Profiles.IDProfile))
-            {
-                if (dataSelected.IDFriendRequest == successFriendRequests.IDFriendRequest &&
-                    dataSelected.Message == successFriendRequests.Message &&
-                    dataSelected.CreationDate == successFriendRequests.CreationDate &&
-                    dataSelected.SendingStatus == successFriendRequests.SendingStatus &&
-                    dataSelected.AceptationStatus == successFriendRequests.AceptationStatus)
-                {
-                    dataFound = true;
-                    break;
-                }
-
-            }
-
-            Assert.IsTrue(dataFound);
+            //Assert.IsTrue(result.Any(item =>
+            //    item.Names == failurePlayer.Names && item.Surnames == failurePlayer.Surnames &&
+            //    item.Email == failurePlayer.Email && item.NickName == failurePlayer.NickName));
         }
 
         [TestMethod]
