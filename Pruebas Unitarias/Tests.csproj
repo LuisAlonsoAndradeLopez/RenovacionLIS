@@ -114,7 +114,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceFriendRequestTest.cs" />
     <Compile Include="ServiceMultiplayerCrosswordTest.cs" />
-    <Compile Include="ServiceMultiplayerGameTest.cs" />
+    <Compile Include="ServiceLobbyTest.cs" />
     <Compile Include="ServicePlayerTest.cs" />
     <Compile Include="ServiceProfileTest.cs" />
   </ItemGroup>

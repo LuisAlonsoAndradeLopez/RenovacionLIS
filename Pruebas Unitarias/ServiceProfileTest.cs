@@ -13,37 +13,58 @@ namespace Tests
     [TestClass]
     public partial class ServiceProfileForCallbackMethods
     {
-        private readonly ProfileCallbackMethodsClient profileCallbackMethodsClient = new ProfileCallbackMethodsClient(new InstanceContext(new MainWindow("")));
+        private static ProfileCallbackMethodsClient profileCallbackMethodsClient;
+        private static string successProfileNickname1;
+        private static string successProfileNickname2;
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
+        {
+            profileCallbackMethodsClient = new ProfileCallbackMethodsClient(new InstanceContext(new MainWindow("")));
+            successProfileNickname1 = "Eloquak";
+            successProfileNickname2 = "Elocraft";
+            profileCallbackMethodsClient.Connect(successProfileNickname1);
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            profileCallbackMethodsClient.Disconnect(successProfileNickname1);
+        }
+
+
 
         [TestMethod]
         public void ConnectTest()
         {
-            profileCallbackMethodsClient.Connect("Elopak");
+            profileCallbackMethodsClient.Connect(successProfileNickname2);
         }
 
         [TestMethod]
         public void DisconnectTest()
         {
-            profileCallbackMethodsClient.Disconnect("Elopak");
+            profileCallbackMethodsClient.Disconnect(successProfileNickname2);
         }
 
         [TestMethod]
         public void InviteFriendToTheLobbyTest()
         {
-            profileCallbackMethodsClient.InviteFriendToTheLobby("Elopak");
+            profileCallbackMethodsClient.InviteFriendToTheLobby(successProfileNickname1);
         }
     }
+
+
 
     [TestClass]
     public class ServiceProfileForNonCallbackMethodsTest
     {
-        private ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient;
-        private Profiles successProfiles;
-        private Profiles successProfiles2;
-        private Profiles failureProfiles;
+        private static ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient;
+        private static Profiles successProfiles;
+        private static Profiles successProfiles2;
+        private static Profiles failureProfiles;
 
-        [TestInitialize]
-        public void ClassInitialize()
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
         {
             profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
 

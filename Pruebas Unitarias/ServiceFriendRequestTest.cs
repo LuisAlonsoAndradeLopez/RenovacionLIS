@@ -4,25 +4,40 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceFriendRequestForNonCallbackMethodsReference;
 using Renovación_LIS_Client.View;
-//using FriendRequestNonCallbackMethodsClient = Renovación_LIS_Client;
 
 namespace Tests
 {
     [TestClass]
     public class ServiceFriendRequestForCallbackMethods
     {
-        private readonly FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(new FriendsView()));
+        private static FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient;
+        private static string successProfileNickname;
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
+        {
+            friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(new FriendsView()));
+            successProfileNickname = "Camu camu";
+            friendRequestCallbackMethodsClient.Connect(successProfileNickname);
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            friendRequestCallbackMethodsClient.Disconnect(successProfileNickname);
+        }
+        
 
         [TestMethod]
         public void ConnectTest()
         {
-            friendRequestCallbackMethodsClient.Connect("Borstrife");
+            friendRequestCallbackMethodsClient.Connect(successProfileNickname);
         }
 
         [TestMethod]
         public void DisconnectTest()
         {
-            friendRequestCallbackMethodsClient.Disconnect("Borstrife");
+            friendRequestCallbackMethodsClient.Disconnect(successProfileNickname);
         }
 
         [TestMethod]
@@ -32,15 +47,16 @@ namespace Tests
         }
     }
 
+
     [TestClass]
     public class ServiceFriendRequestForNonCallbackMethodsTest
     {
-        private FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient;
-        private FriendRequests successFriendRequests;
-        private FriendRequests failureFriendRequests;
+        private static FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient;
+        private static FriendRequests successFriendRequests;
+        private static FriendRequests failureFriendRequests;
 
-        [TestInitialize]
-        public void TestInitialize()
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
         {
             friendRequestNonCallbackMethodsClient = new FriendRequestNonCallbackMethodsClient();
 
@@ -130,6 +146,13 @@ namespace Tests
 
             friendRequestNonCallbackMethodsClient.AddFriendRequest(successFriendRequests);
         }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            
+        }
+
 
 
         [TestMethod]

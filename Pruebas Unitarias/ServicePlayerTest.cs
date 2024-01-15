@@ -10,44 +10,41 @@ namespace Tests
     [TestClass]
     public class ServicePlayerTest
     {
-        private PlayerClient playerClient;
-        private ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient;
-        private Players successPlayer;
-        private Players failurePlayer;
-        private Players auxiliaryPlayer;
+        private static PlayerClient playerClient;
+        private static ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient;
+        private static Players successPlayer;
+        private static Players failurePlayer;
+        private static Players auxiliaryPlayer;
 
-        [TestInitialize]
-        public void TestInitialize()
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
         {
             playerClient = new PlayerClient();
             profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
 
             successPlayer = new Players
             {
-                Names = "Usuario 1",
-                Surnames = "",
-                NickName = "Usuario 1",
-                BirthDate = DateTime.Now,
+                Names = "Usuario1",
+                Surnames = "Pipao",
+                NickName = "Usuario1",
                 Email = "caffeinated555@gmail.com",
                 Password = "Papadopulos#111"
             };
 
             failurePlayer = new Players
             {
-                Names = "Usuario 2",
-                Surnames = "",
-                NickName = "Usuario 2",
-                BirthDate = DateTime.Now,
+                Names = "Usuario2",
+                Surnames = "Pipao",
+                NickName = "Usuario2",
                 Email = "caffeinated556@gmail.com",
                 Password = "Papadopulos#222"
             };
 
             auxiliaryPlayer = new Players
             {
-                Names = "Usuario 3",
-                Surnames = "",
-                NickName = "Usuario 3",
-                BirthDate = DateTime.Now,
+                Names = "Usuario3",
+                Surnames = "Pipao",
+                NickName = "Usuario3",
                 Email = "caffeinated557@gmail.com",
                 Password = "Papadopulos#333"
             };
@@ -55,14 +52,15 @@ namespace Tests
             successPlayer.IDPlayer = playerClient.AddPlayer(successPlayer);
         }
 
-        [TestCleanup]
-        public void TestCleanup()
+        [ClassCleanup]
+        public static void ClassCleanup()
         {
-            //playerClient.DeletePlayer(successPlayer.NickName);
-            //playerClient.DeletePlayer(auxiliaryPlayer.NickName);
-            //profileNonCallbackMethodsClient.DeleteProfile(successPlayer.IDPlayer);
-            //profileNonCallbackMethodsClient.DeleteProfile(auxiliaryPlayer.IDPlayer);
+            profileNonCallbackMethodsClient.DeleteProfile(successPlayer.IDPlayer);
+            profileNonCallbackMethodsClient.DeleteProfile(auxiliaryPlayer.IDPlayer);
+            playerClient.DeletePlayer(successPlayer.NickName);
+            playerClient.DeletePlayer(auxiliaryPlayer.NickName);
         }
+
 
         [TestMethod]
         public void AddPlayerTest()
@@ -74,7 +72,10 @@ namespace Tests
         public void GetPlayersTest()
         {
             var result = playerClient.GetPlayers();
-            Assert.IsTrue(result.Contains(successPlayer));
+
+            Assert.IsTrue(result.Any(item =>
+                item.Names == successPlayer.Names && item.Surnames == successPlayer.Surnames &&
+                item.Email == successPlayer.Email && item.NickName == successPlayer.NickName));
         }
 
         [TestMethod]
@@ -82,49 +83,70 @@ namespace Tests
         public void GetPlayersTestFail()
         {
             var result = playerClient.GetPlayers();
-            Assert.IsTrue(!result.Contains(failurePlayer));
+
+            Assert.IsTrue(result.Any(item =>
+                item.Names == failurePlayer.Names && item.Surnames == failurePlayer.Surnames &&
+                item.Email == failurePlayer.Email && item.NickName == failurePlayer.NickName));
         }
 
         [TestMethod]
         public void GetPlayerByIDTest()
         {
             var result = playerClient.GetPlayerByID(successPlayer.IDPlayer);
-            Assert.IsTrue(result.Equals(successPlayer));
+
+            Assert.IsTrue(
+                result.Names == successPlayer.Names && result.Surnames == successPlayer.Surnames &&
+                result.Email == successPlayer.Email && result.NickName == successPlayer.NickName);
         }
 
         [TestMethod]
         public void GetPlayerByIDTestFail()
         {
             var result = playerClient.GetPlayerByID(successPlayer.IDPlayer);
-            Assert.IsTrue(!result.Equals(failurePlayer));
+
+            Assert.IsFalse(
+                result.Names == failurePlayer.Names && result.Surnames == failurePlayer.Surnames &&
+                result.Email == failurePlayer.Email && result.NickName == failurePlayer.NickName);
         }
 
         [TestMethod]
         public void GetPlayerByNicknameTest()
         {
-            var result = playerClient.GetPlayerByNickname("Usuario 1");
-            Assert.IsTrue(result.Equals(successPlayer));
+            var result = playerClient.GetPlayerByNickname(successPlayer.NickName);
+
+            Assert.IsTrue(
+                result.Names == successPlayer.Names && result.Surnames == successPlayer.Surnames &&
+                result.Email == successPlayer.Email && result.NickName == successPlayer.NickName);
         }
 
         [TestMethod]
         public void GetPlayerByNicknameTestFail()
         {
-            var result = playerClient.GetPlayerByNickname("Usuario 2");
-            Assert.IsTrue(!result.Equals(failurePlayer));
+            var result = playerClient.GetPlayerByNickname(failurePlayer.NickName);
+
+            Assert.IsFalse(
+                result.Names == failurePlayer.Names && result.Surnames == failurePlayer.Surnames &&
+                result.Email == failurePlayer.Email && result.NickName == failurePlayer.NickName);
         }
 
         [TestMethod]
         public void GetSpecifiedPlayersTest()
         {
-            var result = playerClient.GetSpecifiedPlayers("Usuario 1");
-            Assert.IsTrue(result.Contains(successPlayer));
+            var result = playerClient.GetSpecifiedPlayers(successPlayer.NickName);
+
+            Assert.IsTrue(result.Any(item =>
+                item.Names == successPlayer.Names && item.Surnames == successPlayer.Surnames &&
+                item.Email == successPlayer.Email && item.NickName == successPlayer.NickName));
         }
 
         [TestMethod]
         public void GetSpecifiedPlayersTestFail()
         {
-            var result = playerClient.GetSpecifiedPlayers("Usuario 2");
-            Assert.IsTrue(!result.Contains(failurePlayer));
+            var result = playerClient.GetSpecifiedPlayers(failurePlayer.NickName);
+
+            Assert.IsFalse(result.Any(item =>
+                item.Names == failurePlayer.Names && item.Surnames == failurePlayer.Surnames &&
+                item.Email == failurePlayer.Email && item.NickName == failurePlayer.NickName));
         }
 
         [TestMethod]
@@ -142,25 +164,25 @@ namespace Tests
         [TestMethod]
         public void TheEmailIsAlreadyRegistedTest()
         {
-            Assert.IsTrue(playerClient.TheEmailIsAlreadyRegisted("caffeinated555@gmail.com"));
+            Assert.IsTrue(playerClient.TheEmailIsAlreadyRegisted(successPlayer.Email));
         }
 
         [TestMethod]
         public void TheEmailIsAlreadyRegistedTestFail()
         {
-            Assert.IsTrue(!playerClient.TheEmailIsAlreadyRegisted("caffeinated556@gmail.com"));
+            Assert.IsTrue(!playerClient.TheEmailIsAlreadyRegisted(failurePlayer.Email));
         }
 
         [TestMethod]
         public void TheNicknameIsAlreadyRegistedTest()
         {
-            Assert.IsTrue(playerClient.TheNicknameIsAlreadyRegisted("Usuario 1"));
+            Assert.IsTrue(playerClient.TheNicknameIsAlreadyRegisted(successPlayer.NickName));
         }
 
         [TestMethod]
         public void TheNicknameIsAlreadyRegistedTestFail()
         {
-            Assert.IsTrue(!playerClient.TheNicknameIsAlreadyRegisted("Usuario 2"));
+            Assert.IsTrue(!playerClient.TheNicknameIsAlreadyRegisted(failurePlayer.NickName));
         }
     }
 }
