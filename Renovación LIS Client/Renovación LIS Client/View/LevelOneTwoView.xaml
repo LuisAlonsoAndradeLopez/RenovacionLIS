@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
+      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="LevelOneTwoView">
@@ -13,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+
         <Image Source="/images/WallpaperLevelOneImage.png" Stretch="Fill" Grid.RowSpan="3"/>
 
         <Grid Grid.Row="1">
@@ -27,22 +28,23 @@
                 <Button Content="Validar" Height="45" Width="150" HorizontalAlignment="Right" Style="{StaticResource NormalButtom}" Margin="20 0" Click="ValidateWords"/>
             </Grid>
         </Grid>
-        
+
         <Grid Margin="20" Grid.Row="0">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Border Background="#98000000" CornerRadius="10"
                     BorderThickness="2" BorderBrush="Black" Grid.ColumnSpan="2"/>
 
-            <Grid Margin="20" Grid.Column="1">
+            <!--Level 1-->
+            <Grid Name="Grid_LevelOne" Margin="20" Grid.Column="1" Visibility="Hidden">
                 <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
                 <Image Source="/images/GridLevels/GridLevelOne.png" Width="455" Height="390"/>
                 <Canvas Width="455" Height="390" Margin="20">
-                    <!--VERTICALES w455 h390-->
+                    <!--VERTICALES-->
                     <TextBlock Name="L1W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Center" Canvas.Left="265" VerticalAlignment="Top" Height="259" Canvas.Top="-2"/>
                     <TextBlock Name="L1W3" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Center" Canvas.Top="180"/>
                     <TextBlock Name="L1W4" Text="" Style="{StaticResource Game_TextBlock}" Width="20" HorizontalAlignment="Left" Canvas.Left="240" VerticalAlignment="Center" Canvas.Top="180"/>
@@ -55,25 +57,160 @@
                 </Canvas>
             </Grid>
 
+            <!--Level 2-->
+            <Grid Name="Grid_LevelTwo"  Margin="20" Grid.Column="1" Visibility="Hidden">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelTwo.png" Height="461" Width="339" Margin="5"/>
+                <Canvas Margin="5" Height="461" Width="339">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L2W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="124" Canvas.Top="18" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Name="L2W6" Text="" Style="{StaticResource Game_TextBlock}" Width="20"  Canvas.Left="150" Canvas.Top="382" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Name="L2W8" Text="" Style="{StaticResource Game_TextBlock}" Width="20"  Canvas.Left="292" Canvas.Top="174" Foreground="White"/>
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L2W2" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="122" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="16"/>
+                    <TextBlock Name="L2W3" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Left="41" Canvas.Top="200" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Name="L2W4" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Left="44" Canvas.Top="252" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Name="L2W5" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Left="22" Canvas.Top="304" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Name="L2W7" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Left="97" Canvas.Top="408" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Canvas>
+            </Grid>
+
+            <!--Level 3-->
+            <Grid Name="Grid_LevelThree" Margin="20" Grid.Column="1" Visibility="Hidden">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelThree.png" Height="434" Width="428" Margin="5" />
+                <Canvas Margin="5" Height="434" Width="428">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L3W1" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="261" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="20"/>
+                    <TextBlock Name="L3W5" Text="" Style="{StaticResource Game_TextBlock}" Width="16" Canvas.Left="214" Canvas.Top="228" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Name="L3W7" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="404" Canvas.Top="305" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L3W2" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="45" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="160" FontSize="20"/>
+                    <TextBlock Name="L3W3" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="124" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="149" FontSize="20"/>
+                    <TextBlock Name="L3W4" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="202" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="236" FontSize="20"/>
+                    <TextBlock Name="L3W6" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="280" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="18" FontSize="20"/>
+                    <TextBlock Name="L3W8" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="332" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="264" FontSize="20"/>
+                </Canvas>
+            </Grid>
+
+            <!--Level 4-->
+            <Grid Name="Grid_LevelFour" Margin="20" Grid.Column="1" Visibility="Hidden">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelFour.png" Height="388" Width="343"/>
+                <Canvas Margin="5" Height="388" Width="343">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L4W1" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="185" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="17"/>
+                    <TextBlock Name="L4W2" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="211" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="96"/>
+                    <TextBlock Name="L4W4" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="265" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="149"/>
+                    <TextBlock Name="L4W5" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="320" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="147"/>
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L4W3" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="122" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="20" FontSize="20"/>
+                    <TextBlock Name="L4W6" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="173" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="189" FontSize="20"/>
+                    <TextBlock Name="L4W7" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="253" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="215" FontSize="20"/>
+                    <TextBlock Name="L4W8" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="330" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="140" FontSize="20"/>
+                </Canvas>
+            </Grid>
+
+            <!--Level 5-->
+            <Grid Name="Grid_LevelFive" Margin="20" Grid.Column="1" Visibility="Hidden">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelFive.png" Height="387" Width="428"/>
+                <Canvas Margin="5" Height="388" Width="428">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L5W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="322" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="19"/>
+                    <TextBlock Name="L5W2" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="376" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="18"/>
+                    <TextBlock Name="L5W3" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="294" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="71"/>
+                    <TextBlock Name="L5W5" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="264" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="147"/>
+                    <TextBlock Name="L5W6" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="149" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="200"/>
+                    <TextBlock Name="L5W8" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="207" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="227"/>
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L5W4" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="97" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="268" FontSize="20"/>
+                    <TextBlock Name="L5W7" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="226" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="6" FontSize="20"/>
+                </Canvas>
+
+            </Grid>
+
+            <!--Level 6-->
+            <Grid Name="Grid_LevelSix" Margin="20" Grid.Column="1" Visibility="Hidden">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelSix.png" Height="439" Width="479"/>
+                <Canvas Margin="5" Height="439" Width="479">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L6W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="260" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="17"/>
+                    <TextBlock Name="L6W2" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="234" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="69"/>
+                    <TextBlock Name="L6W4" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="207" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="96"/>
+
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L6W3" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="95" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="186" FontSize="20"/>
+                    <TextBlock Name="L6W5" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="148" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10" FontSize="20"/>
+                    <TextBlock Name="L6W6" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="226" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="92" FontSize="20"/>
+                    <TextBlock Name="L6W7" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="278" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="154" FontSize="20"/>
+                    <TextBlock Name="L6W8" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="303" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="176" FontSize="20"/>
+                </Canvas>
+
+            </Grid>
+
+            <!--Level 7-->
+            <Grid Name="Grid_LevelSeven" Margin="20" Grid.Column="1" Visibility="Hidden">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelSeven.png" Height="488" Width="303"/>
+                <Canvas Margin="5" Height="488" Width="303">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L7W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="110" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="16"/>
+                    <TextBlock Name="L7W3" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="83" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="69"/>
+                    <TextBlock Name="L7W4" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="173" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="199"/>
+                    <TextBlock Name="L7W6" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="199" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="224"/>
+
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L7W2" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="70" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="26" FontSize="20"/>
+                    <TextBlock Name="L7W5" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="224" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="59" FontSize="20"/>
+                    <TextBlock Name="L7W7" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="354" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="95" FontSize="20"/>
+                    <TextBlock Name="L7W8" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="407" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="176" FontSize="20"/>
+                </Canvas>
+            </Grid>
+
+            <!--Level 8-->
+            <Grid Name="Grid_LevelEight" Margin="20" Grid.Column="1" Visibility="Visible">
+                <Border BorderBrush="White" CornerRadius="20" BorderThickness="2"/>
+                <Image Source="/images/GridLevels/GridLevelEight.png" Height="460" Width="212"/>
+                <Canvas Margin="5" Height="460" Width="212">
+                    <!--VERTICALES-->
+                    <TextBlock Name="L8W1" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="127" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="19"/>
+                    <TextBlock Name="L8W4" Text="" Style="{StaticResource Game_TextBlock}" Width="21" Canvas.Left="155" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Canvas.Top="200"/>
+                    <TextBlock Name="L8W5" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="51" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="330"/>
+                    <TextBlock Name="L8W7" Text="" Style="{StaticResource Game_TextBlock}" Width="20" Canvas.Left="100" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Canvas.Top="356"/>
+
+                    <!--HORIZONTALES-->
+                    <TextBlock Name="L8W2" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="70" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="101" FontSize="20"/>
+                    <TextBlock Name="L8W3" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="97" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="81" FontSize="20"/>
+                    <TextBlock Name="L8W6" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="356" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="30" FontSize="20"/>
+                    <TextBlock Name="L8W8" Text="" Style="{StaticResource Game_TextBlock}" Canvas.Top="382" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="23" FontSize="20"/>
+                </Canvas>
+            </Grid>
+
+
+
             <Grid Margin="20">
                 <Border BorderBrush="White" BorderThickness="2" CornerRadius="10"/>
                 <StackPanel Margin="20">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Image Name="Btn_Previuos" Source="/images/ArrowRight.png" Height="50" VerticalAlignment="Center" MouseLeftButtonDown="ChangeSelectedWord"/>
-                        <TextBlock Text="Palabra #" Foreground="#FFC436" FontSize="45" VerticalAlignment="Center" FontFamily="{StaticResource K2DBold}" Margin="15 0 0 0"/>
+                        <TextBlock Text="{x:Static p:Resources.Word}" Foreground="#FFC436" FontSize="45" VerticalAlignment="Center" FontFamily="{StaticResource K2DBold}" Margin="15 0 0 0"/>
                         <TextBlock Name="Txt_WordNumber" Text="1" Foreground="#FFC436" FontSize="45" VerticalAlignment="Center" FontFamily="{StaticResource K2DBold}" Margin="0 0 15 0"/>
                         <Image Name="Btn_Next" Source="/images/ArrowLeft.png" Height="50" VerticalAlignment="Center" MouseLeftButtonDown="ChangeSelectedWord"/>
                     </StackPanel>
                     <Border Height="2" Background="White" Margin="10 5 10 0" CornerRadius="5"/>
-                    <TextBlock Text="Orientacion" FontSize="20" FontFamily="{StaticResource K2DBold}" Foreground="#337CCF" HorizontalAlignment="Center" Margin="20"/>
+                    <TextBlock Text="{x:Static p:Resources.Orientation}" FontSize="20" FontFamily="{StaticResource K2DBold}" Foreground="#337CCF" HorizontalAlignment="Center" Margin="20"/>
                     <TextBlock Name="Txt_Orientation" Text="Vertical" FontSize="16" Foreground="White" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Descripcion" FontSize="20" FontFamily="{StaticResource K2DBold}" Foreground="#337CCF" HorizontalAlignment="Center" Margin="20"/>
-                    <TextBlock Name="Txt_Description" Text="aqui va la descripcion de la palabra a resolver" FontSize="16" Foreground="White" HorizontalAlignment="Center"/>
+                    <TextBlock Text="{x:Static p:Resources.Description}" FontSize="20" FontFamily="{StaticResource K2DBold}" Foreground="#337CCF" HorizontalAlignment="Center" Margin="20"/>
+                    <TextBlock Name="Txt_Description" Text="aqui va la descripcion de la palabra a resolver" FontSize="16" Foreground="White" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
                     <Border Height="2" Background="White" Margin="50 20 50 0" CornerRadius="5"/>
-                    <TextBlock Text="Ingresa la palabra" FontSize="20" FontFamily="{StaticResource K2DBold}" Foreground="#337CCF" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+                    <TextBlock Text="{x:Static p:Resources.WriteWord}" FontSize="20" FontFamily="{StaticResource K2DBold}" Foreground="#337CCF" HorizontalAlignment="Center" Margin="0 20 0 0"/>
                     <TextBox Name="TxtBox_Word" Height="45" Margin="25 10" Style="{StaticResource BorderTextBox}" BorderThickness="2" BorderBrush="White" TextAlignment="Center" TextChanged="TextUpdated"/>
                 </StackPanel>
             </Grid>
+
+
 
         </Grid>
 

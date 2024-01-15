@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Renovación_LIS_Client.View"
+      xmlns:p="clr-namespace:Renovación_LIS_Client.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="LevelView">
@@ -27,7 +28,7 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="Choose your level"
+                    <Label Content="{x:Static p:Resources.ChooseYourLevel}"
                            FontFamily="{StaticResource K2DBold}"
                            FontSize="50"
                            Foreground="White"
@@ -75,7 +76,7 @@
                                 Margin="0,0,-50,0">
 
                             <Image x:Name="levelOneImage" 
-                                   Source="/images/levelOneImage.png"/>
+                                   Source="/images/levelEightImage.png"/>
 
                         </Border>
 
@@ -101,7 +102,7 @@
                                 Margin="-50,0,0,0">
 
                             <Image x:Name="levelThreeImage" 
-                                   Source="/images/levelThreeImage.png"/>
+                                   Source="/images/levelTwoImage.png"/>
 
                         </Border>
 
@@ -130,7 +131,7 @@
                                 Margin="0,0,0,0">
 
                             <Image x:Name="levelTwoImage" 
-                                   Source="/images/levelTwoImage.png"/>
+                                   Source="/images/levelOneImage.png"/>
 
                         </Border>
 
@@ -183,7 +184,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel>
-                <Label Content="Friends"
+                <Label Content="{x:Static p:Resources.Friends}"
                FontFamily="{StaticResource K2DBold}"
                FontSize="16"
                Foreground="White"
@@ -197,7 +198,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <Label Content="Play"
+                <Label Content="{x:Static p:Resources.Play}"
                         FontFamily="{StaticResource K2DBold}"
                         FontSize="16"
                         Foreground="White"
@@ -211,15 +212,21 @@
             </StackPanel>
 
             <StackPanel Grid.Column="3">
-                <Label Content="Store"
+                <Label Content="{x:Static p:Resources.Back}"
                        FontFamily="{StaticResource K2DBold}"
                        FontSize="16"
                        Foreground="White"
                        HorizontalAlignment="Center"/>
 
-                <Image Source="/images/storeButtonImage.png"
+                <Grid
                        Height="80"
-                       Width="80"/>
+                       Width="80"
+                       Cursor="Hand"
+                       MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                    <Border Background="White" CornerRadius="10" Height="70" Width="70" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    <Border Background="#337ccf" CornerRadius="10" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Image Source="/images/ArrowRight.png" Height="70" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Grid>
 
 
             </StackPanel>

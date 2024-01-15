@@ -115,3 +115,5 @@ C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovac
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.baml
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.baml
 C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.baml
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\VictoryView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RenovacionLIS-main\RenovacionLIS-main\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\VictoryView.baml

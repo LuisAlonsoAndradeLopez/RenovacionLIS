@@ -123,11 +123,23 @@
   <data name="Apply" xml:space="preserve">
     <value>Aplicar</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="BackMenu" xml:space="preserve">
+    <value>Regresar al menú</value>
+  </data>
   <data name="Birth day" xml:space="preserve">
     <value>Fecha de nacimiento</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="ChooseYourLevel" xml:space="preserve">
+    <value>Elige un nivel</value>
+  </data>
+  <data name="CompleteLevel" xml:space="preserve">
+    <value>Has completado el nivel:</value>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Configuración</value>
@@ -135,8 +147,14 @@
   <data name="Confirm Password" xml:space="preserve">
     <value>Confirmar contraseña</value>
   </data>
+  <data name="ContinueLevel" xml:space="preserve">
+    <value>Siguiente nivel:</value>
+  </data>
   <data name="Create Account" xml:space="preserve">
     <value>Crear cuenta</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción</value>
   </data>
   <data name="E mail" xml:space="preserve">
     <value>Correo electrónico</value>
@@ -168,11 +186,17 @@
   <data name="Name" xml:space="preserve">
     <value>Nombre</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
   <data name="Nickname" xml:space="preserve">
     <value>Nombre de usuario</value>
   </data>
   <data name="NotregisterYet" xml:space="preserve">
     <value>¿Aún no estás registrado?</value>
+  </data>
+  <data name="Orientation" xml:space="preserve">
+    <value>Orientación</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Contraseña</value>
@@ -201,7 +225,19 @@
   <data name="Start" xml:space="preserve">
     <value>Jugar</value>
   </data>
+  <data name="Victory" xml:space="preserve">
+    <value>¡Victoria!</value>
+  </data>
+  <data name="VictoryMessage" xml:space="preserve">
+    <value>¡Felicidades! has pasado el nivel, pero no te detengas, la travesia para reconstruir la LIS todavia continua</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>¡Hola de nuevo!</value>
+  </data>
+  <data name="Word" xml:space="preserve">
+    <value>Palabra #</value>
+  </data>
+  <data name="WriteWord" xml:space="preserve">
+    <value>Ingresa la palabra</value>
   </data>
 </root>

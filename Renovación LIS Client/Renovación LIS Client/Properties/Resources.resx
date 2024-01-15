@@ -123,11 +123,23 @@
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BackMenu" xml:space="preserve">
+    <value>Back to menu</value>
+  </data>
   <data name="Birth day" xml:space="preserve">
     <value>Birth day</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="ChooseYourLevel" xml:space="preserve">
+    <value>Choose your level</value>
+  </data>
+  <data name="CompleteLevel" xml:space="preserve">
+    <value>You passed the level:</value>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Configuration</value>
@@ -135,8 +147,14 @@
   <data name="Confirm Password" xml:space="preserve">
     <value>Confirm password</value>
   </data>
+  <data name="ContinueLevel" xml:space="preserve">
+    <value>Next level:</value>
+  </data>
   <data name="Create Account" xml:space="preserve">
     <value>Create Account</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="E mail" xml:space="preserve">
     <value>E mail</value>
@@ -168,11 +186,17 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
   <data name="Nickname" xml:space="preserve">
     <value>Nickname</value>
   </data>
   <data name="NotregisterYet" xml:space="preserve">
     <value>Not register yet? Sign Up</value>
+  </data>
+  <data name="Orientation" xml:space="preserve">
+    <value>Orientation</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -201,7 +225,19 @@
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="Victory" xml:space="preserve">
+    <value>Victory!</value>
+  </data>
+  <data name="VictoryMessage" xml:space="preserve">
+    <value>Congrats! you have passed the level, but this is not the end continue renovating the LIS</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome back!</value>
+  </data>
+  <data name="Word" xml:space="preserve">
+    <value>Word #</value>
+  </data>
+  <data name="WriteWord" xml:space="preserve">
+    <value>Write the word</value>
   </data>
 </root>
