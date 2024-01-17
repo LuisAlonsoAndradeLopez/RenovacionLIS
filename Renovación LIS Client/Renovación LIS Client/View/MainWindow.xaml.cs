@@ -21,7 +21,7 @@ namespace Renovación_LIS_Client
     public partial class MainWindow : Window, IProfileCallbackMethodsCallback
     {
         #region Atributes
-        public static Profile loggedProfile = null;
+        public static Profile loggedProfile;
         public static ProfileCallbackMethodsClient profileCallbackMethodsClient;
         #endregion
 
@@ -30,12 +30,14 @@ namespace Renovación_LIS_Client
         #region Constructor
         public MainWindow()
         {
-            Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
+            loggedProfile = null;
+            //Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
             Application.Current.Exit += AppExit;
             AppDomain.CurrentDomain.ProcessExit += ProcessExit;
             this.Closing += MainWindowClosing;
 
             profileCallbackMethodsClient = new ProfileCallbackMethodsClient(new InstanceContext(this));
+            profileCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
 
             InitializeComponent();
 
@@ -54,11 +56,14 @@ namespace Renovación_LIS_Client
         {
             if (MainWindow.loggedProfile != null)
             {
-                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
-                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+                if (profileCallbackMethodsClient.State != CommunicationState.Faulted)
+                {
+                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                    profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                    MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-                profileNonCallbackMethodsClient.Close();
+                    profileNonCallbackMethodsClient.Close();
+                }
             }
         }
 
@@ -66,26 +71,32 @@ namespace Renovación_LIS_Client
         {
             if (MainWindow.loggedProfile != null)
             {
-                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
-                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+                if (profileCallbackMethodsClient.State != CommunicationState.Faulted)
+                {
+                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                    profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                    MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-                profileNonCallbackMethodsClient.Close();
+                    profileNonCallbackMethodsClient.Close();
+                }
             }
         }
 
-        private void DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            if (MainWindow.loggedProfile != null)
-            {
-                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
-                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
-
-                profileNonCallbackMethodsClient.Close();
-            }
-
-        }
+        //private void DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        //{
+        //    if (MainWindow.loggedProfile != null)
+        //    {
+        //        if (profileCallbackMethodsClient.State != CommunicationState.Faulted)
+        //        {
+        //            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+        //            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+        //            MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+        //
+        //            profileNonCallbackMethodsClient.Close();
+        //        }
+        //    }
+        //
+        //}
 
         private void MainWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -93,11 +104,14 @@ namespace Renovación_LIS_Client
             {
                 if (MainWindow.loggedProfile != null)
                 {
-                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-                    profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
-                    MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+                    if (profileCallbackMethodsClient.State != CommunicationState.Faulted)
+                    {
+                        ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+                        profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                        MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-                    profileNonCallbackMethodsClient.Close();
+                        profileNonCallbackMethodsClient.Close();
+                    }
                 }
             }
             else
@@ -110,6 +124,14 @@ namespace Renovación_LIS_Client
 
 
         #region Auxiliary methods
+        public void RestartProfileCallbackMethodsClient()
+        {
+            if (MainWindow.profileCallbackMethodsClient.State == CommunicationState.Faulted)
+            {
+                MainWindow.profileCallbackMethodsClient = new ProfileCallbackMethodsClient(new InstanceContext(this));
+            }
+        }
+
         public void SetNullTologgedProfile()
         {
             MainWindow.loggedProfile = null;

@@ -476,6 +476,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Back to menu.
+        /// </summary>
+        public static string BackMenu {
+            get {
+                return ResourceManager.GetString("BackMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ban.
         /// </summary>
         public static string Ban {
@@ -499,15 +508,6 @@ namespace Renovación_LIS_Client.Properties {
         public static string Birth_date_should_be_before_than_the_actual_date {
             get {
                 return ResourceManager.GetString("Birth date should be before than the actual date", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Back to menu.
-        /// </summary>
-        public static string BackMenu {
-            get {
-                return ResourceManager.GetString("BackMenu", resourceCulture);
             }
         }
         
@@ -593,6 +593,15 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Choose your level.
+        /// </summary>
+        public static string ChooseYourLevel {
+            get {
+                return ResourceManager.GetString("ChooseYourLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Closing....
         /// </summary>
         public static string Closing___ {
@@ -616,15 +625,6 @@ namespace Renovación_LIS_Client.Properties {
         public static string Columns {
             get {
                 return ResourceManager.GetString("Columns", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Choose your level.
-        /// </summary>
-        public static string ChooseYourLevel {
-            get {
-                return ResourceManager.GetString("ChooseYourLevel", resourceCulture);
             }
         }
         
@@ -665,6 +665,33 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Connection lost, try again later.
+        /// </summary>
+        public static string Connection_lost__try_again_later {
+            get {
+                return ResourceManager.GetString("Connection lost, try again later", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Connection lost, you will be redirected to the start page.
+        /// </summary>
+        public static string Connection_lost__you_will_be_redirected_to_the_start_page {
+            get {
+                return ResourceManager.GetString("Connection lost, you will be redirected to the start page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Continue level.
+        /// </summary>
+        public static string ContinueLevel {
+            get {
+                return ResourceManager.GetString("ContinueLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Create account.
         /// </summary>
         public static string Create_account {
@@ -697,6 +724,15 @@ namespace Renovación_LIS_Client.Properties {
         public static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
@@ -764,16 +800,16 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Next level:.
+        ///   Busca una cadena traducida similar a E mail.
         /// </summary>
-        public static string ContinueLevel {
+        public static string E_mail {
             get {
-                return ResourceManager.GetString("ContinueLevel", resourceCulture);
+                return ResourceManager.GetString("E mail", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Create Account.
+        ///   Busca una cadena traducida similar a ECONEX bathroom low level.
         /// </summary>
         public static string ECONEX_bathroom_low_level {
             get {
@@ -782,16 +818,7 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Description.
-        /// </summary>
-        public static string Description {
-            get {
-                return ResourceManager.GetString("Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a E mail.
+        ///   Busca una cadena traducida similar a Email.
         /// </summary>
         public static string Email {
             get {
@@ -1185,6 +1212,10 @@ namespace Renovación_LIS_Client.Properties {
                 return ResourceManager.GetString("New Password", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Next.
+        /// </summary>
         public static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
@@ -1498,24 +1529,6 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Victory!.
-        /// </summary>
-        public static string Victory {
-            get {
-                return ResourceManager.GetString("Victory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Congrats! you have passed the level, but this is not the end continue renovating the LIS.
-        /// </summary>
-        public static string VictoryMessage {
-            get {
-                return ResourceManager.GetString("VictoryMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Success!!!.
         /// </summary>
         public static string Success___ {
@@ -1733,6 +1746,24 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Victory!.
+        /// </summary>
+        public static string Victory {
+            get {
+                return ResourceManager.GetString("Victory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Congrats! you have passed the level, but this is not the end continue renovating the LIS.
+        /// </summary>
+        public static string VictoryMessage {
+            get {
+                return ResourceManager.GetString("VictoryMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Welcome back!.
         /// </summary>
         public static string Welcome {
@@ -1769,11 +1800,29 @@ namespace Renovación_LIS_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Word #.
+        /// </summary>
+        public static string Word {
+            get {
+                return ResourceManager.GetString("Word", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Work in progress.
         /// </summary>
         public static string Work_in_progress {
             get {
                 return ResourceManager.GetString("Work in progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write the word.
+        /// </summary>
+        public static string WriteWord {
+            get {
+                return ResourceManager.GetString("WriteWord", resourceCulture);
             }
         }
         
@@ -1846,24 +1895,6 @@ namespace Renovación_LIS_Client.Properties {
         public static string You_have_been_invitated_to_the_lobby_ {
             get {
                 return ResourceManager.GetString("You have been invitated to the lobby!", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Word #.
-        /// </summary>
-        public static string Word {
-            get {
-                return ResourceManager.GetString("Word", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Write the word.
-        /// </summary>
-        public static string WriteWord {
-            get {
-                return ResourceManager.GetString("WriteWord", resourceCulture);
             }
         }
     }

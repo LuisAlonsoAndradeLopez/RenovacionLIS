@@ -54,6 +54,7 @@ namespace Tests
     {
         private static FriendRequestNonCallbackMethodsClient friendRequestNonCallbackMethodsClient;
         private static FriendRequests successFriendRequests1;
+        private static FriendRequests successFriendRequests2;
         private static FriendRequests failureFriendRequests;
 
         [ClassInitialize]
@@ -93,6 +94,43 @@ namespace Tests
                         NickName = "Usuario 2",
                         BirthDate = DateTime.Now,
                         Email = "caffeinated556@gmail.com",
+                        Password = ""
+                    }
+                }
+            };
+
+            successFriendRequests2 = new FriendRequests
+            {
+                Message = "",
+                CreationDate = DateTime.Now,
+                SendingStatus = "Sent",
+                AceptationStatus = "Rejected",
+                Profiles = new Profiles
+                {
+                    Coins = 0,
+                    LoginStatus = "NotLogged",
+                    Players = new Players
+                    {
+                        Names = "Amigazazo",
+                        Surnames = "",
+                        NickName = "Amigazaza",
+                        BirthDate = DateTime.Now,
+                        Email = "caffeinated559@gmail.com",
+                        Password = ""
+                    }
+                },
+
+                Profiles1 = new Profiles
+                {
+                    Coins = 0,
+                    LoginStatus = "NotLogged",
+                    Players = new Players
+                    {
+                        Names = "Usuario 2",
+                        Surnames = "",
+                        NickName = "Usuario 2",
+                        BirthDate = DateTime.Now,
+                        Email = "caffeinated560@gmail.com",
                         Password = ""
                     }
                 }
@@ -277,51 +315,27 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileTest()
-        {
-
-        }
-
-        [TestMethod]
-        public void TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileTestFail()
-        {
-
-        }
-
-        [TestMethod]
-        public void TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileTest()
-        {
-
-        }
-
-        [TestMethod]
-        public void TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileTestFail()
-        {
-
-        }
-
-        [TestMethod]
         public void AddFriendRequestTest()
         {
-
+            friendRequestNonCallbackMethodsClient.AddFriendRequest(successFriendRequests2);
         }
 
         [TestMethod]
         public void AcceptFriendRequestTest()
         {
-
+            friendRequestNonCallbackMethodsClient.AcceptFriendRequest(successFriendRequests1);
         }
 
         [TestMethod]
         public void CancelFriendRequestTest()
         {
-
+            friendRequestNonCallbackMethodsClient.CancelFriendRequest(successFriendRequests1);
         }
 
         [TestMethod]
         public void RejectFriendRequestTest()
         {
-
+            friendRequestNonCallbackMethodsClient.RejectFriendRequest(successFriendRequests1);
         }
     }
 }

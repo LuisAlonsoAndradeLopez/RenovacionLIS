@@ -1,11 +1,10 @@
 ﻿using System.Globalization;
-using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Renovación_LIS_Client.Helpers;
-using Path = System.IO.Path;
 
 namespace Renovación_LIS_Client.View
 {
@@ -15,16 +14,32 @@ namespace Renovación_LIS_Client.View
     public partial class StartView : Page
     {
         #region Atributes
-        private readonly MainWindow mainWindow;
+        private MainWindow mainWindow;
         #endregion
 
         #region Constructor
+        public StartView()
+        {
+            PageStateManager.CurrentPage = this;
+
+            mainWindow = new MainWindow();
+            MainWindow.loggedProfile = null;           
+
+            SongManager.Instance.StopMusic();
+            SongManager.Instance.PlayMainSong();
+
+
+            InitializeComponent();
+            ChangeLanguageLabel();
+        }
+
         public StartView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
 
             this.mainWindow = mainWindow;
 
+            SongManager.Instance.StopMusic();
             SongManager.Instance.PlayMainSong();
 
 

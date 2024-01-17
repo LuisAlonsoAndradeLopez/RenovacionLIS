@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using System.Resources;
+using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +10,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.Helpers;
-using Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -21,9 +20,6 @@ namespace Renovación_LIS_Client.View
     {
         #region Attributes
         private readonly MainWindow mainWindow;
-        private readonly FriendRequestCallbackMethodsClient friendRequestCallbackMethodsClient;
-        private readonly CultureInfo cultureInfo;
-        private readonly ResourceManager resourceManager;
         private readonly bool entryToThisPageViaLobbyView;
         #endregion
 
@@ -33,9 +29,6 @@ namespace Renovación_LIS_Client.View
         public ConfigurationView(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-
-            cultureInfo = CultureInfo.CurrentUICulture;
-            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
             entryToThisPageViaLobbyView = false;
@@ -50,9 +43,6 @@ namespace Renovación_LIS_Client.View
         public ConfigurationView(MainWindow mainWindow, bool entryToThisPageViaLobbyView)
         {
             this.mainWindow = mainWindow;
-
-            cultureInfo = CultureInfo.CurrentUICulture;
-            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
             PageStateManager.CurrentPage = this;
             this.entryToThisPageViaLobbyView = entryToThisPageViaLobbyView;
@@ -89,15 +79,26 @@ namespace Renovación_LIS_Client.View
 
         private void CancelChangesButton(object sender, RoutedEventArgs e)
         {
-            if (entryToThisPageViaLobbyView)
+            try
             {
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LobbyView(mainWindow));
+                if (entryToThisPageViaLobbyView)
+                {
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new LobbyView(mainWindow));
+                }
+                else
+                {
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new MenuView(mainWindow));
+                }
             }
-            else
+            catch (TimeoutException)
             {
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new MenuView(mainWindow));
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
 
@@ -157,34 +158,67 @@ namespace Renovación_LIS_Client.View
 
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            if (entryToThisPageViaLobbyView)
+            try
             {
-                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+                if (entryToThisPageViaLobbyView)
+                {
+                    LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
 
-                SongManager.Instance.StopMusic();
-                SongManager.Instance.PlayMainSong();
+                    SongManager.Instance.StopMusic();
+                    SongManager.Instance.PlayMainSong();
 
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new MenuView(mainWindow));
-                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new MenuView(mainWindow));
+                    new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+                }
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
 
         public void GoToLobbyView()
         {
-            if (!entryToThisPageViaLobbyView)
+            try
             {
-                mainWindow.OpenTheLobbyView(this);
+                if (!entryToThisPageViaLobbyView)
+                {
+                    mainWindow.OpenTheLobbyView(this);
+                }
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
 
         public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
         {
-            if (entryToThisPageViaLobbyView)
+            try
             {
-                Thread.Sleep(1000);
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+                if (entryToThisPageViaLobbyView)
+                {
+                    Thread.Sleep(1000);
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+                }
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
 

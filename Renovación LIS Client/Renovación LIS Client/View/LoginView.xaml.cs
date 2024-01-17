@@ -1,6 +1,8 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Resources;
 using System.Security;
+using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -46,67 +48,85 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void OpenForgotPasswordPage(object sender, MouseButtonEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ForgotPassword(mainWindow));
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void OpenSignUpPage(object sender, MouseButtonEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new CreateAccountView(mainWindow));
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            if (InvalidValuesInTextFieldsTextGenerator() == "")
+            mainWindow.RestartProfileCallbackMethodsClient();
+
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            profileNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
-                string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
-
-                ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-                Profile profile = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextField.Text);
-
-                if (profile != null)
+                if (InvalidValuesInTextFieldsTextGenerator() == "")
                 {
-                    string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(profile.Player.Password));
+                    SecureString passwordSecurePassword = PasswordPasswordBox.SecurePassword;
+                    string password = new System.Net.NetworkCredential(string.Empty, passwordSecurePassword).Password;
 
-                    if (BCrypt.Net.BCrypt.Verify(password, storedHash))
+                    Profile profile = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextField.Text);
+
+                    if (profile != null)
                     {
-                        if (!profileNonCallbackMethodsClient.TheProfileIsLogged(profile.IDProfile))
+                        string storedHash = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(profile.Player.Password));
+
+                        if (BCrypt.Net.BCrypt.Verify(password, storedHash))
                         {
-                            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
+                            if (!profileNonCallbackMethodsClient.TheProfileIsLogged(profile.IDProfile))
+                            {
+                                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.Logged, profile.IDProfile);
 
-                            MainWindow.profileCallbackMethodsClient.Connect(profile.Player.NickName);
-                            mainWindow.SetProfileTologgedProfile(profile);
+                                MainWindow.profileCallbackMethodsClient.Connect(profile.Player.NickName);
+                                mainWindow.SetProfileTologgedProfile(profile);
 
-                            NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow));
+                                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                                navigationService.Navigate(new MenuView(mainWindow));
+
+                                SongManager.Instance.PlayClickSound();
+                            }
+                            else
+                            {
+                                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The user is already logged");
+                            }
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The user is already logged");
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The password isn't correct");
                         }
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The password isn't correct");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The introduced nickname doesn't exists");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The introduced nickname doesn't exists");
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
                 }
 
                 profileNonCallbackMethodsClient.Close();
             }
-            else
+            catch (TimeoutException)
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
+            }
+
         }
         #endregion
 
@@ -165,6 +185,4 @@ namespace Renovación_LIS_Client.View
         }
         #endregion
     }
-
-
 }

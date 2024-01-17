@@ -1,6 +1,10 @@
-﻿using System.Windows;
+﻿using System.ServiceModel;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 
 namespace Renovación_LIS_Client.View
 {
@@ -9,9 +13,14 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class VictoryView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
-        private int level; 
+        private readonly int level;
+        #endregion
 
+
+
+        #region Constructors
         public VictoryView(MainWindow mainWindow, int level)
         {
             PageStateManager.CurrentPage = this;
@@ -25,17 +34,37 @@ namespace Renovación_LIS_Client.View
             Txt_CurrentLevel.Text = level.ToString();
             Txt_NextLevel.Text = (level + 1).ToString();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements
         private void GoToNextLevel(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LevelOneTwoView(mainWindow, level + 1));
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void ReturnToMenu(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LevelView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
+        #endregion
     }
 }

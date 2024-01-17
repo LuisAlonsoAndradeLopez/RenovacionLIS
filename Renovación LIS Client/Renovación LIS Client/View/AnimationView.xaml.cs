@@ -1,6 +1,8 @@
-﻿using Renovación_LIS_Client.Helpers;
+﻿using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using System;
 using System.IO;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,8 +15,13 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class AnimationView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
+        #endregion
 
+
+
+        #region Constructors
         public AnimationView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
@@ -29,30 +36,55 @@ namespace Renovación_LIS_Client.View
 
             AnimationVideo.MediaEnded += (sender, e) =>
             {
-                SongManager.Instance.ResumeMusic();
-                SongManager.Instance.PlaySingleplayerSong();
+                try
+                {
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new LevelView(mainWindow));
 
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LevelView(mainWindow));
+                    SongManager.Instance.ResumeMusic();
+                    SongManager.Instance.PlaySingleplayerSong();
+                }
+                catch (TimeoutException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+                }
+                catch (EndpointNotFoundException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+                }
             };
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements
         private void SkipButton(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LevelView(mainWindow));
 
-            SongManager.Instance.ResumeMusic();
-            SongManager.Instance.PlaySingleplayerSong();
+                SongManager.Instance.PlayClickSound();
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelView(mainWindow));
+                SongManager.Instance.ResumeMusic();
+                SongManager.Instance.PlaySingleplayerSong();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void PlayHoverSound(object sender, MouseEventArgs e)
         {
             SongManager.Instance.PlayHoverSound();
         }
-
-
+        #endregion
     }
 }

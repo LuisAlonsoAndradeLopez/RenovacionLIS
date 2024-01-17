@@ -185,9 +185,6 @@
     <Compile Include="View\LevelOneTwoView.xaml.cs">
       <DependentUpon>LevelOneTwoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LevelOneView.xaml.cs">
-      <DependentUpon>LevelOneView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\LevelView.xaml.cs">
       <DependentUpon>LevelView.xaml</DependentUpon>
     </Compile>
@@ -278,10 +275,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LevelOneTwoView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\LevelOneView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

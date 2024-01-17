@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Resources;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -78,89 +79,117 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void CancelButton(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MenuView(mainWindow));
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow));
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void ModifyProfileButton(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
+            mainWindow.RestartProfileCallbackMethodsClient();
 
-            if (InvalidValuesInTextFieldsTextGenerator() == "")
+            PlayerClient playerClient = new PlayerClient();
+            playerClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            profileNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
+                if (InvalidValuesInTextFieldsTextGenerator() == "")
                 {
-                    PlayerClient playerClient = new PlayerClient();
-                    ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-
-                    if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == MainWindow.loggedProfile.Player.Email)
+                    if (BirthDayDatePicker.SelectedDate <= DateTime.Now)
                     {
-                        if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == MainWindow.loggedProfile.Player.NickName)
+
+                        if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text) || EmailTextBox.Text == MainWindow.loggedProfile.Player.Email)
                         {
-                            profileNonCallbackMethodsClient.ModifyImageName(MainWindow.loggedProfile.Player.NickName, NicknameTextBox.Text);
-
-
-                            ServicePlayerReference.Players players = new ServicePlayerReference.Players
+                            if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == MainWindow.loggedProfile.Player.NickName)
                             {
-                                IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
-                                Names = NamesTextBox.Text,
-                                Surnames = SurnamesTextBox.Text,
-                                Email = EmailTextBox.Text,
-                                NickName = NicknameTextBox.Text,
-                                BirthDate = (DateTime)BirthDayDatePicker.SelectedDate
-                            };
+                                profileNonCallbackMethodsClient.ModifyImageName(MainWindow.loggedProfile.Player.NickName, NicknameTextBox.Text);
 
-                            playerClient.ModifyPlayer(players);
 
-                            if (ImageRouteTextBlock.Text != "")
-                            {
-                                byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
-                                string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
-                                string fileName = NicknameTextBox.Text + fileExtension;
-
-                                if (imageData.Length <= 1048576)
+                                ServicePlayerReference.Players players = new ServicePlayerReference.Players
                                 {
-                                    profileNonCallbackMethodsClient.UploadImage(fileName, imageData);
-                                }
-                                else
+                                    IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
+                                    Names = NamesTextBox.Text,
+                                    Surnames = SurnamesTextBox.Text,
+                                    Email = EmailTextBox.Text,
+                                    NickName = NicknameTextBox.Text,
+                                    BirthDate = (DateTime)BirthDayDatePicker.SelectedDate
+                                };
+
+                                playerClient.ModifyPlayer(players);
+
+                                if (ImageRouteTextBlock.Text != "")
                                 {
-                                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The file shouldn't be larger than 1 MB");
-                                    return;
+                                    byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
+                                    string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
+                                    string fileName = NicknameTextBox.Text + fileExtension;
+
+                                    if (imageData.Length <= 1048576)
+                                    {
+                                        profileNonCallbackMethodsClient.UploadImage(fileName, imageData);
+                                    }
+                                    else
+                                    {
+                                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The file shouldn't be larger than 1 MB");
+                                        return;
+                                    }
                                 }
+                                new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Profile modified successfully!!!");
+
+                                MainWindow.loggedProfile = profileNonCallbackMethodsClient.GetProfileByPlayerID((int)MainWindow.loggedProfile.Player.IDPlayer);
+
+                                MainWindow.profileCallbackMethodsClient.UpdateFriendsListsToAllConnectedClients();
+
+                                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                                navigationService.Navigate(new MenuView(mainWindow));
+
+                                SongManager.Instance.PlayClickSound();
                             }
-                            new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Profile modified successfully!!!");
-
-                            MainWindow.loggedProfile = profileNonCallbackMethodsClient.GetProfileByPlayerID((int)MainWindow.loggedProfile.Player.IDPlayer);
-
-                            MainWindow.profileCallbackMethodsClient.UpdateFriendsListsToAllConnectedClients();
-
-                            NavigationService navigationService = NavigationService.GetNavigationService(this);
-                            navigationService.Navigate(new MenuView(mainWindow));
+                            else
+                            {
+                                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Nickname already on use");
+                            }
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Nickname already on use");
-                        }
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
+                        }                        
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
                     }
-
-                    playerClient.Close();
-                    profileNonCallbackMethodsClient.Close();
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
                 }
+
+                playerClient.Close();
+                profileNonCallbackMethodsClient.Close();
             }
-            else
+            catch (TimeoutException)
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+
         }
 
         private void SelectImageButton(object sender, RoutedEventArgs e)
@@ -287,7 +316,18 @@ namespace Renovación_LIS_Client.View
 
         public void GoToLobbyView()
         {
-            mainWindow.OpenTheLobbyView(this);
+            try
+            {
+                mainWindow.OpenTheLobbyView(this);
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
         #endregion
 

@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using Renovación_LIS_Client.AuxiliaryClasses;
+using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
@@ -103,32 +105,49 @@ namespace Renovación_LIS_Client.View
 
         private void VerifyAnswerButtonOnClick(object sender, RoutedEventArgs e)
         {
-            if(selectedWordKey != "")
+            RandomMultiplayerCrosswordGeneratorView.RestartMultiplayerCrosswordCallbackMethodsClient();
+            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+            multiplayerCrosswordNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedWordKey].Replace(" ", string.Empty))
+                if (selectedWordKey != "")
                 {
-                    MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-                    if (!multiplayerCrosswordNonCallbackMethodsClient.TheWordIsAnswered(selectedWordKey))
+                    if (SelectedCrosswordRowOrColumnWordAnswerTextBox.Text == allMultiplayerCrosswordsAnswers[selectedWordKey].Replace(" ", string.Empty))
                     {
-                        RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.AddPointsToProfile(MainWindow.loggedProfile.Player.NickName, allMultiplayerCrosswordsPoints[selectedWordKey]);
-                        RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.AddCompletedWordToAllConnectedProfilesCrosswords(selectedWordKey, allMultiplayerCrosswordsAnswers[selectedWordKey]);
-                        SelectedCrosswordRowOrColumnWordAnswerTextBox.Text = "";
+                        if (!multiplayerCrosswordNonCallbackMethodsClient.TheWordIsAnswered(selectedWordKey))
+                        {
+                            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.AddPointsToProfile(MainWindow.loggedProfile.Player.NickName, allMultiplayerCrosswordsPoints[selectedWordKey]);
+                            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.AddCompletedWordToAllConnectedProfilesCrosswords(selectedWordKey, allMultiplayerCrosswordsAnswers[selectedWordKey]);
+                            SelectedCrosswordRowOrColumnWordAnswerTextBox.Text = "";
+
+                            SongManager.Instance.PlayClickSound();
+                        }
+                        else
+                        {
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "The word has already been answered, please select another one");
+                        }
+
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "The word has already been answered, please select another one");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Incorrect answer");
                     }
-
-                    multiplayerCrosswordNonCallbackMethodsClient.Close();
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Incorrect answer");
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Select a column or a row first");
                 }
+
+                multiplayerCrosswordNonCallbackMethodsClient.Close();
             }
-            else
+            catch (TimeoutException)
             {
-                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Select a column or a row first");
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
         #endregion
@@ -339,44 +358,68 @@ namespace Renovación_LIS_Client.View
         #region Auxiliary methods
         public void ExpeltPlayerToLobbyViewForBeingAlone()
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LobbyView(mainWindow));
 
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been expelt from the game for being the unique player in the game!");
+                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been expelt from the game for being the unique player in the game!");
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void ShowTheSelectCrosswordAndItsQuestions()
         {
-            GlobalCountdownBlockScreenRectangle.Visibility = Visibility.Collapsed;
-            GlobalCountdownSecondsTextBlock.Visibility = Visibility.Collapsed;
-
-
-            SelectedCrosswordQuestionsStackPanel.Children.Clear();
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-            switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
+            multiplayerCrosswordNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                case 1:
-                    Show105CrosswordAndItsQuestions();
-                    break;
+                GlobalCountdownBlockScreenRectangle.Visibility = Visibility.Collapsed;
+                GlobalCountdownSecondsTextBlock.Visibility = Visibility.Collapsed;
 
-                case 2:
-                    ShowCC3CrosswordAndItsQuestions();
-                    break;
 
-                case 3:
-                    ShowECONEXBathroomLowLevelCrosswordAndItsQuestions();
-                    break;
+                SelectedCrosswordQuestionsStackPanel.Children.Clear();
+                switch (multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected())
+                {
+                    case 1:
+                        Show105CrosswordAndItsQuestions();
+                        break;
 
-                case 4:
-                    ShowDoctoratedInCSCrosswordAndItsQuestions();
-                    break;
+                    case 2:
+                        ShowCC3CrosswordAndItsQuestions();
+                        break;
 
-                case 5:
-                    ShowCrystalSaloonCrosswordAndItsQuestions();
-                    break;
+                    case 3:
+                        ShowECONEXBathroomLowLevelCrosswordAndItsQuestions();
+                        break;
+
+                    case 4:
+                        ShowDoctoratedInCSCrosswordAndItsQuestions();
+                        break;
+
+                    case 5:
+                        ShowCrystalSaloonCrosswordAndItsQuestions();
+                        break;
+                }
+
+                multiplayerCrosswordNonCallbackMethodsClient.Close();
             }
-
-            multiplayerCrosswordNonCallbackMethodsClient.Close();
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void StorageAnswersOfAllMultiplayerCrosswords()
@@ -525,14 +568,36 @@ namespace Renovación_LIS_Client.View
 
         public void OpenRandomMultiplayerCrosswordGeneratorView()
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void OpenWinnersView()
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new WinnersView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new WinnersView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void UpdateGameCountdown(int seconds)
@@ -553,79 +618,91 @@ namespace Renovación_LIS_Client.View
 
         public void UpdateProfilesPointsList()
         {
-            ConnectedPlayersAndItsPointsStackPanel.Children.Clear();
-
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-            foreach (var profile in multiplayerCrosswordNonCallbackMethodsClient.GetConnectedProfiles())
+            multiplayerCrosswordNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                Border connectedProfileBorder = new Border
-                {
-                    Margin = new Thickness(10, 10, 2, 10),
-                    CornerRadius = new CornerRadius(20),
-                    Height = 106,
-                    Width = 270,
-                    Background = new SolidColorBrush(Colors.Black)
-                };
+                ConnectedPlayersAndItsPointsStackPanel.Children.Clear();
 
-                connectedProfileBorder.Background.Opacity = 1;
-
-                StackPanel connectedProfileStackPanel = new StackPanel
+                foreach (var profile in multiplayerCrosswordNonCallbackMethodsClient.GetConnectedProfiles())
                 {
-                    Orientation = Orientation.Horizontal
-                };
+                    Border connectedProfileBorder = new Border
+                    {
+                        Margin = new Thickness(10, 10, 2, 10),
+                        CornerRadius = new CornerRadius(20),
+                        Height = 106,
+                        Width = 270,
+                        Background = new SolidColorBrush(Colors.Black)
+                    };
 
-                Image connectedProfileImage = new Image
-                {
-                    Source = new ImageLoader().GetImageByPlayerNickname(profile),
-                    Margin = new Thickness(10),
-                    Width = 82,
-                    Height = 82
-                };
+                    connectedProfileBorder.Background.Opacity = 1;
 
-                StackPanel nicknameAndPointsOfConnectedProfileStackPanel = new StackPanel
-                {
-                    Width = 164,
-                    Height = 96
-                };
+                    StackPanel connectedProfileStackPanel = new StackPanel
+                    {
+                        Orientation = Orientation.Horizontal
+                    };
 
-                TextBlock connectedProfileNicknameTextBlock = new TextBlock
-                {
-                    FontSize = 18,
-                    TextAlignment = TextAlignment.Center,
-                    TextWrapping = TextWrapping.Wrap,
-                    Height = 58,
-                    Foreground = new SolidColorBrush(Colors.White),
-                    Text = profile,
-                    Margin = new Thickness(4)
-                };
+                    Image connectedProfileImage = new Image
+                    {
+                        Source = new ImageLoader().GetImageByPlayerNickname(profile),
+                        Margin = new Thickness(10),
+                        Width = 82,
+                        Height = 82
+                    };
 
-                if (profile == MainWindow.loggedProfile.Player.NickName)
-                {
-                    connectedProfileNicknameTextBlock.Text = connectedProfileNicknameTextBlock.Text + " (" + resourceManager.GetString("You", cultureInfo) + ")";
+                    StackPanel nicknameAndPointsOfConnectedProfileStackPanel = new StackPanel
+                    {
+                        Width = 164,
+                        Height = 96
+                    };
+
+                    TextBlock connectedProfileNicknameTextBlock = new TextBlock
+                    {
+                        FontSize = 18,
+                        TextAlignment = TextAlignment.Center,
+                        TextWrapping = TextWrapping.Wrap,
+                        Height = 58,
+                        Foreground = new SolidColorBrush(Colors.White),
+                        Text = profile,
+                        Margin = new Thickness(4)
+                    };
+
+                    if (profile == MainWindow.loggedProfile.Player.NickName)
+                    {
+                        connectedProfileNicknameTextBlock.Text = connectedProfileNicknameTextBlock.Text + " (" + resourceManager.GetString("You", cultureInfo) + ")";
+                    }
+
+                    TextBlock connectedProfilePointsTextBlock = new TextBlock
+                    {
+                        FontSize = 18,
+                        TextAlignment = TextAlignment.Center,
+                        TextWrapping = TextWrapping.Wrap,
+                        Height = 25,
+                        Foreground = new SolidColorBrush(Colors.White),
+                        Text = multiplayerCrosswordNonCallbackMethodsClient.GetPointsFromAProfile(profile).ToString(),
+                        Margin = new Thickness(4)
+                    };
+
+                    nicknameAndPointsOfConnectedProfileStackPanel.Children.Add(connectedProfileNicknameTextBlock);
+                    nicknameAndPointsOfConnectedProfileStackPanel.Children.Add(connectedProfilePointsTextBlock);
+
+                    connectedProfileStackPanel.Children.Add(connectedProfileImage);
+                    connectedProfileStackPanel.Children.Add(nicknameAndPointsOfConnectedProfileStackPanel);
+
+                    connectedProfileBorder.Child = connectedProfileStackPanel;
+                    ConnectedPlayersAndItsPointsStackPanel.Children.Add(connectedProfileBorder);
                 }
-
-                TextBlock connectedProfilePointsTextBlock = new TextBlock
-                {
-                    FontSize = 18,
-                    TextAlignment = TextAlignment.Center,
-                    TextWrapping = TextWrapping.Wrap,
-                    Height = 25,
-                    Foreground = new SolidColorBrush(Colors.White),
-                    Text = multiplayerCrosswordNonCallbackMethodsClient.GetPointsFromAProfile(profile).ToString(),
-                    Margin = new Thickness(4)
-                };
-
-                nicknameAndPointsOfConnectedProfileStackPanel.Children.Add(connectedProfileNicknameTextBlock);
-                nicknameAndPointsOfConnectedProfileStackPanel.Children.Add(connectedProfilePointsTextBlock);
-
-                connectedProfileStackPanel.Children.Add(connectedProfileImage);
-                connectedProfileStackPanel.Children.Add(nicknameAndPointsOfConnectedProfileStackPanel);
-
-                connectedProfileBorder.Child = connectedProfileStackPanel;
-                ConnectedPlayersAndItsPointsStackPanel.Children.Add(connectedProfileBorder);
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
         #endregion
-
     }
 }

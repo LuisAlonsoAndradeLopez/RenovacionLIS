@@ -1,8 +1,10 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Resources;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference;
@@ -59,16 +61,53 @@ namespace Renovación_LIS_Client.View
         #region Auxiliary methods
         public void ExpeltPlayerToLobbyViewForBeingAlone()
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LobbyView(mainWindow));
 
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been expelt from the game for being the unique player in the game!");
+                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been expelt from the game for being the unique player in the game!");
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void GoToMultiplayerCrosswordView()
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MultiplayerCrosswordView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MultiplayerCrosswordView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+        }
+
+        public static void RestartMultiplayerCrosswordCallbackMethodsClient()
+        {
+            if (multiplayerCrosswordCallbackMethodsClient.State == CommunicationState.Faulted)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(PageStateManager.CurrentPage);
+
+                while (parent != null && !(parent is RandomMultiplayerCrosswordGeneratorView))
+                {
+                    parent = VisualTreeHelper.GetParent(parent);
+                }
+
+                multiplayerCrosswordCallbackMethodsClient = new MultiplayerCrosswordCallbackMethodsClient(new InstanceContext(parent));
+            }
         }
 
         public void SetVisibleToTheSelectedCrosswordBorder()

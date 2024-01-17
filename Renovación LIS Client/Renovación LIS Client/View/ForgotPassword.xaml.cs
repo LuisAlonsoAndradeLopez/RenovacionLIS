@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Resources;
 using System.Security;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Navigation;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServicePlayerReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -45,104 +47,133 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void CancelButton1(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void CancelButton2(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
-
             IntroduceDataBorder.Visibility = Visibility.Visible;
             IntroduceCodeBorder.Visibility = Visibility.Hidden;
             EmailTextField.Text = string.Empty;
             NewPasswordPasswordBox.Clear();
             ConfirmNewPasswordPasswordBox.Clear();
             verificationCode = new Random().Next(100001, 1000000);
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void ChangePasswordButton(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
+            PlayerClient playerClient = new PlayerClient();
+            playerClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
 
-            if (IntroduceCodeTextField.Text == verificationCode.ToString())
+            try
             {
-                PlayerClient playerClient = new PlayerClient();
-                SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
-                string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
+                if (IntroduceCodeTextField.Text == verificationCode.ToString())
+                {
+                    SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
+                    string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
 
-                string salt = BCrypt.Net.BCrypt.GenerateSalt();
-                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
+                    string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
 
-                playerClient.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
+                    playerClient.ModifyPasswordByEmail(EmailTextField.Text, hashedPassword);
 
-                new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
+                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Password changed sucessfully!!!");
 
-                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LoginView(mainWindow));
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new LoginView(mainWindow));
+
+                    SongManager.Instance.PlayClickSound();
+                }
+                else
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Invalid code");
+                }
 
                 playerClient.Close();
             }
-            else
+            catch (TimeoutException)
             {
-                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Invalid code");
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
+            }
+
         }
 
         private void SendCodeButton(object sender, RoutedEventArgs e)
         {
-            if (InvalidValuesInTextFieldsTextGenerator() == "")
+            PlayerClient playerClient = new PlayerClient();
+            playerClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                PlayerClient playerClient = new PlayerClient();
-
-                SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
-                string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
-
-                SecureString confirmNewPasswordSecurePassword = ConfirmNewPasswordPasswordBox.SecurePassword;
-                string confirmNewPassword = new System.Net.NetworkCredential(string.Empty, confirmNewPasswordSecurePassword).Password;
-
-                if (newPassword == confirmNewPassword)
+                if (InvalidValuesInTextFieldsTextGenerator() == "")
                 {
-                    if (playerClient.TheEmailIsAlreadyRegisted(EmailTextField.Text))
+
+                    SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
+                    string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
+
+                    SecureString confirmNewPasswordSecurePassword = ConfirmNewPasswordPasswordBox.SecurePassword;
+                    string confirmNewPassword = new System.Net.NetworkCredential(string.Empty, confirmNewPasswordSecurePassword).Password;
+
+                    if (newPassword == confirmNewPassword)
                     {
-                        IntroduceDataBorder.Visibility = Visibility.Hidden;
-                        IntroduceCodeBorder.Visibility = Visibility.Visible;
-
-                        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                        if (playerClient.TheEmailIsAlreadyRegisted(EmailTextField.Text))
                         {
-                            Port = 587,
-                            Credentials = new NetworkCredential("renovacionlis230@gmail.com", "vcgj qyor bews jptu"),
-                            EnableSsl = true
-                        };
+                            IntroduceDataBorder.Visibility = Visibility.Hidden;
+                            IntroduceCodeBorder.Visibility = Visibility.Visible;
 
-                        MailMessage mail = new MailMessage
+                            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                            {
+                                Port = 587,
+                                Credentials = new NetworkCredential("renovacionlis230@gmail.com", "vcgj qyor bews jptu"),
+                                EnableSsl = true
+                            };
+
+                            MailMessage mail = new MailMessage
+                            {
+                                From = new MailAddress("renovacionlis230@gmail.com")
+                            };
+                            mail.To.Add(new MailAddress(EmailTextField.Text));
+                            mail.Subject = resourceManager.GetString("Code for change your password", cultureInfo);
+                            mail.Body = resourceManager.GetString("Introduce this code for change your password", cultureInfo) + verificationCode;
+
+                            smtpClient.Send(mail);
+                        }
+                        else
                         {
-                            From = new MailAddress("renovacionlis230@gmail.com")
-                        };
-                        mail.To.Add(new MailAddress(EmailTextField.Text));
-                        mail.Subject = resourceManager.GetString("Code for change your password", cultureInfo);
-                        mail.Body = resourceManager.GetString("Introduce this code for change your password", cultureInfo) + verificationCode;
-
-                        smtpClient.Send(mail);
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email not found");
+                        }
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email not found");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The passwords aren't the same");
                     }
+
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The passwords aren't the same");
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
                 }
 
                 playerClient.Close();
             }
-            else
+            catch (TimeoutException)
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
+            }
+
         }
         #endregion
 

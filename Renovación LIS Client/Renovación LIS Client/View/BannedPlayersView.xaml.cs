@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Resources;
+using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Shapes;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -47,22 +49,50 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LobbyView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void UnbanPlayerButtonOnClick(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to unban this player?"))
+                LobbyView.RestartLobbyCallbackMethodsClient();
+
+                try
                 {
-                    StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
-                    Label playerNickname = (Label)VisualTreeHelper.GetChild(buttonParent, 1);
+                    if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to unban this player?"))
+                    {
+                        StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
+                        Label playerNickname = (Label)VisualTreeHelper.GetChild(buttonParent, 1);
 
-                    LobbyView.lobbyCallbackMethodsClient.UnbanPlayer(playerNickname.Content.ToString());
+                        LobbyView.lobbyCallbackMethodsClient.UnbanPlayer(playerNickname.Content.ToString());
 
-                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player unbanned!");
+                        new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player unbanned!");
+
+                        SongManager.Instance.PlayClickSound();
+                    }
+                }
+                catch (TimeoutException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+                }
+                catch (EndpointNotFoundException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
             }
         }
@@ -73,68 +103,93 @@ namespace Renovación_LIS_Client.View
         #region Auxiliary Methods
         public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
         {
-            Thread.Sleep(1000);
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            try
+            {
+                Thread.Sleep(1000);
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void ShowBannedPlayers()
         {
-            BannedPlayersStackPanel.Children.Clear();
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            foreach (string profile in lobbyNonCallbackMethodsClient.GetBannedProfiles())
+            lobbyNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                Border bannedPlayerBorder = new Border
+                BannedPlayersStackPanel.Children.Clear();
+                foreach (string profile in lobbyNonCallbackMethodsClient.GetBannedProfiles())
                 {
-                    CornerRadius = new CornerRadius(20),
-                    Height = 62,
-                    Margin = new Thickness(25, 11, 25, 0),
-                    Background = new SolidColorBrush(Colors.Black)
-                };
-                bannedPlayerBorder.Background.Opacity = 0.8;
-
-                StackPanel bannedPlayerStackPanel = new StackPanel
-                {
-                    Orientation = Orientation.Horizontal
-                };
-
-                Image bannedPlayerImage = new Image
-                {
-                    Source = new ImageLoader().GetImageByPlayerNickname(profile),
-                    Margin = new Thickness(30, 0, 0, 0),
-                    Height = 40,
-                    Width = 40
-                };
-                bannedPlayerStackPanel.Children.Add(bannedPlayerImage);
-
-                Label bannedPlayerNickname = new Label
-                {
-                    Content = profile,
-                    Foreground = new SolidColorBrush(Colors.White),
-                    FontSize = 14,
-                    Margin = new Thickness(15, 15, 0, 0),
-                    Width = 250
-                };
-                bannedPlayerStackPanel.Children.Add(bannedPlayerNickname);
-
-                if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
-                {
-                    Button unbanBannedPlayerButton = new Button
+                    Border bannedPlayerBorder = new Border
                     {
-                        Content = resourceManager.GetString("Unban", cultureInfo),
-                        Style = (Style)FindResource("GreenButton"),
-                        Height = 38,
-                        Width = 88
+                        CornerRadius = new CornerRadius(20),
+                        Height = 62,
+                        Margin = new Thickness(25, 11, 25, 0),
+                        Background = new SolidColorBrush(Colors.Black)
                     };
-                    unbanBannedPlayerButton.Click += UnbanPlayerButtonOnClick;
-                    bannedPlayerStackPanel.Children.Add(unbanBannedPlayerButton);
-                }
+                    bannedPlayerBorder.Background.Opacity = 0.8;
 
-                bannedPlayerBorder.Child = bannedPlayerStackPanel;
-                BannedPlayersStackPanel.Children.Add(bannedPlayerBorder);
+                    StackPanel bannedPlayerStackPanel = new StackPanel
+                    {
+                        Orientation = Orientation.Horizontal
+                    };
+
+                    Image bannedPlayerImage = new Image
+                    {
+                        Source = new ImageLoader().GetImageByPlayerNickname(profile),
+                        Margin = new Thickness(30, 0, 0, 0),
+                        Height = 40,
+                        Width = 40
+                    };
+                    bannedPlayerStackPanel.Children.Add(bannedPlayerImage);
+
+                    Label bannedPlayerNickname = new Label
+                    {
+                        Content = profile,
+                        Foreground = new SolidColorBrush(Colors.White),
+                        FontSize = 14,
+                        Margin = new Thickness(15, 15, 0, 0),
+                        Width = 250
+                    };
+                    bannedPlayerStackPanel.Children.Add(bannedPlayerNickname);
+
+                    if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
+                    {
+                        Button unbanBannedPlayerButton = new Button
+                        {
+                            Content = resourceManager.GetString("Unban", cultureInfo),
+                            Style = (Style)FindResource("GreenButton"),
+                            Height = 38,
+                            Width = 88
+                        };
+                        unbanBannedPlayerButton.Click += UnbanPlayerButtonOnClick;
+                        bannedPlayerStackPanel.Children.Add(unbanBannedPlayerButton);
+                    }
+
+                    bannedPlayerBorder.Child = bannedPlayerStackPanel;
+                    BannedPlayersStackPanel.Children.Add(bannedPlayerBorder);
+
+                    lobbyNonCallbackMethodsClient.Close();
+                }
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
 
-            lobbyNonCallbackMethodsClient.Close();
         }
 
         public void StartBlackScreenAnimation()
@@ -153,14 +208,28 @@ namespace Renovación_LIS_Client.View
 
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+            LobbyView.RestartLobbyCallbackMethodsClient();
+            LobbyView.RestartChatCallbackMethodsClient();
 
-            SongManager.Instance.StopMusic();
-            SongManager.Instance.PlayMainSong();
+            try
+            {
+                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow));
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+                SongManager.Instance.StopMusic();
+                SongManager.Instance.PlayMainSong();
+
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MenuView(mainWindow));
+                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
         #endregion
     }

@@ -75,94 +75,201 @@ namespace Renovación_LIS_Client.View
         {
             if (sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to ban this player?"))
+                RestartLobbyCallbackMethodsClient();
+
+                try
                 {
-                    StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
-                    StackPanel buttonParentParent = VisualTreeHelper.GetParent(buttonParent) as StackPanel;
-                    StackPanel playerNicknameParent = (StackPanel)VisualTreeHelper.GetChild(buttonParentParent, 1);
-                    TextBlock nickname = (TextBlock)VisualTreeHelper.GetChild(playerNicknameParent, 0);
+                    if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to ban this player?"))
+                    {
+                        StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
+                        StackPanel buttonParentParent = VisualTreeHelper.GetParent(buttonParent) as StackPanel;
+                        StackPanel playerNicknameParent = (StackPanel)VisualTreeHelper.GetChild(buttonParentParent, 1);
+                        TextBlock nickname = (TextBlock)VisualTreeHelper.GetChild(playerNicknameParent, 0);
 
-                    lobbyCallbackMethodsClient.BanPlayer(nickname.Text);
+                        lobbyCallbackMethodsClient.BanPlayer(nickname.Text);
 
-                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player banned successfully!");
+                        new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "Player banned successfully!");
+
+                        SongManager.Instance.PlayClickSound();
+                    }
+                }
+                catch (TimeoutException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+                }
+                catch (EndpointNotFoundException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
             }
         }
 
         private void BannedPlayersButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new BannedPlayersView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new BannedPlayersView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void ChatButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ChatView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new ChatView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void ConfigurationButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ConfigurationView(mainWindow, true));
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
-            lobbyCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
-            RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+            RestartChatCallbackMethodsClient();
+            RestartLobbyCallbackMethodsClient();
+            RandomMultiplayerCrosswordGeneratorView.RestartMultiplayerCrosswordCallbackMethodsClient();
 
-            SongManager.Instance.StopMusic();
-            SongManager.Instance.PlayMainSong();
+            try
+            {
+                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+                lobbyCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new GamemodeSelectionView(mainWindow));
+
+                SongManager.Instance.StopMusic();
+                SongManager.Instance.PlayMainSong();
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow, true));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new FriendsView(mainWindow, true));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void MakeAdminButtonOnClick(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
             {
-                if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to set admin to this player?"))
+                RestartLobbyCallbackMethodsClient();
+
+                try
                 {
-                    StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
-                    StackPanel buttonParentParent = VisualTreeHelper.GetParent(buttonParent) as StackPanel;
-                    StackPanel playerNicknameParent = (StackPanel)VisualTreeHelper.GetChild(buttonParentParent, 1);
-                    TextBlock nickname = (TextBlock)VisualTreeHelper.GetChild(playerNicknameParent, 0);
+                    if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Do you want to set admin to this player?"))
+                    {
+                        StackPanel buttonParent = VisualTreeHelper.GetParent(button) as StackPanel;
+                        StackPanel buttonParentParent = VisualTreeHelper.GetParent(buttonParent) as StackPanel;
+                        StackPanel playerNicknameParent = (StackPanel)VisualTreeHelper.GetChild(buttonParentParent, 1);
+                        TextBlock nickname = (TextBlock)VisualTreeHelper.GetChild(playerNicknameParent, 0);
 
-                    lobbyCallbackMethodsClient.SetAdmin(nickname.Text);
+                        lobbyCallbackMethodsClient.SetAdmin(nickname.Text);
 
-                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "That player now is admin!");
+                        new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success", "That player now is admin!");
+
+                        SongManager.Instance.PlayClickSound();
+                    }
+                }
+                catch (TimeoutException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+                }
+                catch (EndpointNotFoundException)
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
             }
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
+            RandomMultiplayerCrosswordGeneratorView.RestartMultiplayerCrosswordCallbackMethodsClient();
+
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
-                lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4)
-            {
-                lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
-                MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
-                multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
+            lobbyNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+            multiplayerCrosswordNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
 
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
-                RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
-            }
-            else
+            try
             {
-                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Should be in the lobby 2-4 players to start the game");
+                if (lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length >= 2 &&
+                    lobbyNonCallbackMethodsClient.GetConnectedProfiles().Length <= 4)
+                {
+                    multiplayerCrosswordNonCallbackMethodsClient.SetAdmin(lobbyNonCallbackMethodsClient.GetAdmin());
+                    lobbyNonCallbackMethodsClient.SetThePlayersAreInGame();
+
+                    RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.ShowBlackScreenAnimationOnLobbyViewOrItsChildPagesToAllConnectedProfiles();
+                    RandomMultiplayerCrosswordGeneratorView.multiplayerCrosswordCallbackMethodsClient.OpenTheRandomMultiplayerCrosswordGeneratorViewToConnectedClientsViaLobbyViewOrItsChildPages();
+
+                    SongManager.Instance.PlayClickSound();
+
+                    lobbyNonCallbackMethodsClient.Close();
+                }
+                else
+                {
+                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Uh oh!", "Should be in the lobby 2-4 players to start the game");
+                }
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
 
-            lobbyNonCallbackMethodsClient.Close();
         }
         #endregion
 
@@ -171,192 +278,261 @@ namespace Renovación_LIS_Client.View
         #region Auxiliary Methods
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow));
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            RestartChatCallbackMethodsClient();
+
+            try
+            {
+                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MenuView(mainWindow));
+                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
         {
-            StartBlackScreenAnimation();
+            try
+            {
+                StartBlackScreenAnimation();
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+        }
+
+        public static void RestartLobbyCallbackMethodsClient()
+        {
+            if (lobbyCallbackMethodsClient.State == CommunicationState.Faulted)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(PageStateManager.CurrentPage);
+
+                while (parent != null && !(parent is LobbyView))
+                {
+                    parent = VisualTreeHelper.GetParent(parent);
+                }
+
+                lobbyCallbackMethodsClient = new LobbyCallbackMethodsClient(new InstanceContext(parent));
+            }
+        }
+
+        public static void RestartChatCallbackMethodsClient()
+        {
+            if (chatCallbackMethodsClient.State == CommunicationState.Faulted)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(PageStateManager.CurrentPage);
+
+                while (parent != null && !(parent is LobbyView))
+                {
+                    parent = VisualTreeHelper.GetParent(parent);
+                }
+
+                chatCallbackMethodsClient = new ChatCallbackMethodsClient(new InstanceContext(parent));
+            }
         }
 
         public void ShowConnectedPlayers()
         {
-            ConnectedUsersStackPanel.Children.Clear();
-
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
-            foreach (string profile in lobbyNonCallbackMethodsClient.GetConnectedProfiles())
+            lobbyNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                Border playerBorder = new Border
+                ConnectedUsersStackPanel.Children.Clear();
+
+                foreach (string profile in lobbyNonCallbackMethodsClient.GetConnectedProfiles())
                 {
-                    Margin = new Thickness(20, 0, 0, 0),
-                    Height = 280,
-                    Width = 242,
-                    CornerRadius = new CornerRadius(20),
-                    Background = new SolidColorBrush(Colors.Black)
-                };
-                playerBorder.Background.Opacity = 0.5;
-
-                Grid playerBorderContainer = new Grid();
-
-                StackPanel playerBorderStackPanel = new StackPanel();
-
-                if (lobbyNonCallbackMethodsClient.IsAdmin(profile))
-                {
-                    TextBlock adminText = new TextBlock
+                    Border playerBorder = new Border
                     {
-                        Text = resourceManager.GetString("Admin", cultureInfo),
-                        Margin = new Thickness(0, 13, 0, 0),
-                        VerticalAlignment = VerticalAlignment.Center,
-                        Foreground = new SolidColorBrush(Colors.Gold),
-                        TextWrapping = TextWrapping.Wrap,
-                        TextAlignment = TextAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        FontSize = 30,
-                        Width = 218
+                        Margin = new Thickness(20, 0, 0, 0),
+                        Height = 280,
+                        Width = 242,
+                        CornerRadius = new CornerRadius(20),
+                        Background = new SolidColorBrush(Colors.Black)
+                    };
+                    playerBorder.Background.Opacity = 0.5;
+
+                    Grid playerBorderContainer = new Grid();
+
+                    StackPanel playerBorderStackPanel = new StackPanel();
+
+                    if (lobbyNonCallbackMethodsClient.IsAdmin(profile))
+                    {
+                        TextBlock adminText = new TextBlock
+                        {
+                            Text = resourceManager.GetString("Admin", cultureInfo),
+                            Margin = new Thickness(0, 13, 0, 0),
+                            VerticalAlignment = VerticalAlignment.Center,
+                            Foreground = new SolidColorBrush(Colors.Gold),
+                            TextWrapping = TextWrapping.Wrap,
+                            TextAlignment = TextAlignment.Center,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            FontSize = 30,
+                            Width = 218
+                        };
+
+                        playerBorderStackPanel.Children.Add(adminText);
+                    }
+
+                    if (profile == MainWindow.loggedProfile.Player.NickName)
+                    {
+                        TextBlock youText = new TextBlock
+                        {
+                            Text = resourceManager.GetString("You", cultureInfo),
+                            VerticalAlignment = VerticalAlignment.Center,
+                            Foreground = new SolidColorBrush(Colors.White),
+                            TextWrapping = TextWrapping.Wrap,
+                            TextAlignment = TextAlignment.Center,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            FontSize = 30,
+                            Width = 218
+                        };
+
+                        if (lobbyNonCallbackMethodsClient.IsAdmin(profile))
+                        {
+                            youText.Margin = new Thickness(0, 13, 0, 0);
+                        }
+                        else
+                        {
+                            youText.Margin = new Thickness(0, 0, 0, 0);
+                        }
+
+
+                        playerBorderStackPanel.Children.Add(youText);
+                    }
+
+                    Image profileImage = new Image
+                    {
+                        Source = new ImageLoader().GetImageByPlayerNickname(profile)
                     };
 
-                    playerBorderStackPanel.Children.Add(adminText);
-                }
-
-                if (profile == MainWindow.loggedProfile.Player.NickName)
-                {
-                    TextBlock youText = new TextBlock
+                    if (lobbyNonCallbackMethodsClient.IsAdmin(profile) || lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
                     {
-                        Text = resourceManager.GetString("You", cultureInfo),
+                        profileImage.Height = 110;
+                        profileImage.Width = 110;
+
+                        if (profile == MainWindow.loggedProfile.Player.NickName)
+                        {
+                            profileImage.Margin = new Thickness(0, 10, 0, 0);
+                        }
+                        else
+                        {
+                            profileImage.Margin = new Thickness(0, 20, 0, 0);
+                        }
+                    }
+
+                    if (!lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName) && !lobbyNonCallbackMethodsClient.IsAdmin(profile))
+                    {
+                        profileImage.Margin = new Thickness(0, 20, 0, 0);
+
+                        if (profile == MainWindow.loggedProfile.Player.NickName)
+                        {
+                            profileImage.Height = 110;
+                            profileImage.Width = 110;
+                        }
+                        else
+                        {
+                            profileImage.Height = 160;
+                            profileImage.Width = 160;
+                        }
+                    }
+
+                    playerBorderStackPanel.Children.Add(profileImage);
+
+                    StackPanel playerNicknameStackPanel = new StackPanel
+                    {
+                        Height = 54,
+                        Margin = new Thickness(0, 20, 0, 0)
+                    };
+
+                    TextBlock playerNickname = new TextBlock
+                    {
+                        Text = profile,
                         VerticalAlignment = VerticalAlignment.Center,
                         Foreground = new SolidColorBrush(Colors.White),
                         TextWrapping = TextWrapping.Wrap,
                         TextAlignment = TextAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Center,
-                        FontSize = 30,
+                        FontSize = 20,
                         Width = 218
                     };
 
-                    if (lobbyNonCallbackMethodsClient.IsAdmin(profile))
+                    playerNicknameStackPanel.Children.Add(playerNickname);
+                    playerBorderStackPanel.Children.Add(playerNicknameStackPanel);
+
+                    if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName) && !lobbyNonCallbackMethodsClient.IsAdmin(profile))
                     {
-                        youText.Margin = new Thickness(0, 13, 0, 0);
-                    }
-                    else
-                    {
-                        youText.Margin = new Thickness(0, 0, 0, 0);
+                        StackPanel buttonsStackPanel = new StackPanel
+                        {
+                            Margin = new Thickness(0, 15, 0, 0),
+                            Orientation = Orientation.Horizontal
+                        };
+
+                        TextBlock makeAdminButtonText = new TextBlock
+                        {
+                            TextWrapping = TextWrapping.Wrap,
+                            TextAlignment = TextAlignment.Center,
+                            Text = resourceManager.GetString("Make admin", cultureInfo)
+                        };
+
+                        Button makeAdminButton = new Button
+                        {
+                            Style = (Style)FindResource("GreenButton"),
+                            FontSize = 13,
+                            Height = 38,
+                            Width = 96,
+                            Margin = new Thickness(20, 0, 0, 0),
+                            Content = makeAdminButtonText
+                        };
+                        makeAdminButton.Click += MakeAdminButtonOnClick;
+
+                        Button banPlayerButton = new Button
+                        {
+                            Content = resourceManager.GetString("Ban", cultureInfo),
+                            Style = (Style)FindResource("RedButton"),
+                            Height = 38,
+                            Width = 96,
+                            Margin = new Thickness(10, 0, 0, 0)
+                        };
+                        banPlayerButton.Click += BanPlayerButtonOnClick;
+
+                        buttonsStackPanel.Children.Add(makeAdminButton);
+                        buttonsStackPanel.Children.Add(banPlayerButton);
+                        playerBorderStackPanel.Children.Add(buttonsStackPanel);
                     }
 
+                    playerBorderContainer.Children.Add(playerBorderStackPanel);
+                    playerBorder.Child = playerBorderContainer;
+                    ConnectedUsersStackPanel.Children.Add(playerBorder);
 
-                    playerBorderStackPanel.Children.Add(youText);
                 }
 
-                Image profileImage = new Image
-                {
-                    Source = new ImageLoader().GetImageByPlayerNickname(profile)
-                };
-
-                if (lobbyNonCallbackMethodsClient.IsAdmin(profile) || lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
-                {
-                    profileImage.Height = 110;
-                    profileImage.Width = 110;
-
-                    if (profile == MainWindow.loggedProfile.Player.NickName)
-                    {
-                        profileImage.Margin = new Thickness(0, 10, 0, 0);
-                    }
-                    else
-                    {
-                        profileImage.Margin = new Thickness(0, 20, 0, 0);
-                    }
-                }
-
-                if (!lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName) && !lobbyNonCallbackMethodsClient.IsAdmin(profile))
-                {
-                    profileImage.Margin = new Thickness(0, 20, 0, 0);
-
-                    if (profile == MainWindow.loggedProfile.Player.NickName)
-                    {
-                        profileImage.Height = 110;
-                        profileImage.Width = 110;
-                    }
-                    else
-                    {
-                        profileImage.Height = 160;
-                        profileImage.Width = 160;
-                    }
-                }
-
-                playerBorderStackPanel.Children.Add(profileImage);
-
-                StackPanel playerNicknameStackPanel = new StackPanel
-                {
-                    Height = 54,
-                    Margin = new Thickness(0, 20, 0, 0)
-                };
-
-                TextBlock playerNickname = new TextBlock
-                {
-                    Text = profile,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Foreground = new SolidColorBrush(Colors.White),
-                    TextWrapping = TextWrapping.Wrap,
-                    TextAlignment = TextAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    FontSize = 20,
-                    Width = 218
-                };
-
-                playerNicknameStackPanel.Children.Add(playerNickname);
-                playerBorderStackPanel.Children.Add(playerNicknameStackPanel);
-
-                if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName) && !lobbyNonCallbackMethodsClient.IsAdmin(profile))
-                {
-                    StackPanel buttonsStackPanel = new StackPanel
-                    {
-                        Margin = new Thickness(0, 15, 0, 0),
-                        Orientation = Orientation.Horizontal
-                    };
-
-                    TextBlock makeAdminButtonText = new TextBlock
-                    {
-                        TextWrapping = TextWrapping.Wrap,
-                        TextAlignment = TextAlignment.Center,
-                        Text = resourceManager.GetString("Make admin", cultureInfo)
-                    };
-
-                    Button makeAdminButton = new Button
-                    {
-                        Style = (Style)FindResource("GreenButton"),
-                        FontSize = 13,
-                        Height = 38,
-                        Width = 96,
-                        Margin = new Thickness(20, 0, 0, 0),
-                        Content = makeAdminButtonText
-                    };
-                    makeAdminButton.Click += MakeAdminButtonOnClick;
-
-                    Button banPlayerButton = new Button
-                    {
-                        Content = resourceManager.GetString("Ban", cultureInfo),
-                        Style = (Style)FindResource("RedButton"),
-                        Height = 38,
-                        Width = 96,
-                        Margin = new Thickness(10, 0, 0, 0)
-                    };
-                    banPlayerButton.Click += BanPlayerButtonOnClick;
-
-                    buttonsStackPanel.Children.Add(makeAdminButton);
-                    buttonsStackPanel.Children.Add(banPlayerButton);
-                    playerBorderStackPanel.Children.Add(buttonsStackPanel);
-                }
-
-                playerBorderContainer.Children.Add(playerBorderStackPanel);
-                playerBorder.Child = playerBorderContainer;
-                ConnectedUsersStackPanel.Children.Add(playerBorder);
+                lobbyNonCallbackMethodsClient.Close();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
 
-            lobbyNonCallbackMethodsClient.Close();
         }
 
         public void StartBlackScreenAnimation()

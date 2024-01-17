@@ -86,12 +86,6 @@
                                FontFamily="{StaticResource K2DBold}"
                                Foreground="White"
                                FontSize="20"/>
-
-                        <Label Content="Bloqueado" 
-                               FontFamily="{StaticResource K2DRegular}"
-                               Foreground="White"
-                               FontSize="12"/>
-
                     </StackPanel>
 
                     <StackPanel VerticalAlignment="Center" Grid.Column="3">
@@ -112,12 +106,6 @@
                                FontFamily="{StaticResource K2DBold}"
                                Foreground="White"
                                FontSize="20"
-                               HorizontalAlignment="Right"/>
-
-                        <Label Content="Bloqueado" 
-                               FontFamily="{StaticResource K2DRegular}"
-                               Foreground="White"
-                               FontSize="12"
                                HorizontalAlignment="Right"/>
                     </StackPanel>
 
@@ -147,12 +135,6 @@
                                FontFamily="{StaticResource K2DBold}"
                                Foreground="White"
                                FontSize="20"
-                               HorizontalAlignment="Center"/>
-
-                        <Label Content="Bloqueado" 
-                               FontFamily="{StaticResource K2DRegular}"
-                               Foreground="White"
-                               FontSize="12"
                                HorizontalAlignment="Center"/>
                     </StackPanel>
 

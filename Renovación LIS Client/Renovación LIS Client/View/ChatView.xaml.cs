@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Resources;
+using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Shapes;
 using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.Helpers;
 using Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference;
+using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
 
 namespace Renovación_LIS_Client.View
 {
@@ -48,23 +50,52 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LobbyView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LobbyView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void SendMessageButtonOnClick(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(MessageTextBox.Text))
+            LobbyView.RestartChatCallbackMethodsClient();
+
+            try
             {
-                if (MessageTextBox.Text.Length <= 100)
+                if (!string.IsNullOrWhiteSpace(MessageTextBox.Text))
                 {
-                    LobbyView.chatCallbackMethodsClient.SendMessage(MainWindow.loggedProfile.Player.NickName, MessageTextBox.Text);
-                    MessageTextBox.Clear();
+                    if (MessageTextBox.Text.Length <= 100)
+                    {
+                        LobbyView.chatCallbackMethodsClient.SendMessage(MainWindow.loggedProfile.Player.NickName, MessageTextBox.Text);
+                        MessageTextBox.Clear();
+
+                        SongManager.Instance.PlayClickSound();
+                    }
+                    else
+                    {
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The message shouldn't have more than 100 characters");
+                    }
                 }
-                else
-                {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The message shouldn't have more than 100 characters");
-                }
+
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
         #endregion
@@ -74,9 +105,22 @@ namespace Renovación_LIS_Client.View
         #region Auxiliary methods
         public void GoToRandomMultiplayerCrosswordGeneratorViewWithoutBeTheAdmin()
         {
-            Thread.Sleep(1000);
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+            try
+            {
+                Thread.Sleep(1000);
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         public void StartBlackScreenAnimation()
@@ -95,151 +139,178 @@ namespace Renovación_LIS_Client.View
 
         public void ShowUpdatedChat()
         {
-            MessagesStackPanel.Children.Clear();
-
             ChatNotCallbackMethodsClient chatNotCallbackMethodsClient = new ChatNotCallbackMethodsClient();
-            foreach (var profileAndMessage in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
+            chatNotCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                if (profileAndMessage.Key == "Chat Server")
-                {
-                    string message = profileAndMessage.Value;
+                MessagesStackPanel.Children.Clear();
 
-                    if (message.Contains("has joined to the chat"))
+                foreach (var profileAndMessage in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
+                {
+                    if (profileAndMessage.Key == "Chat Server")
                     {
-                        message = $"{profileAndMessage.Value.Replace("has joined to the chat", "")}" + resourceManager.GetString("Has joined to the chat", cultureInfo);
+                        string message = profileAndMessage.Value;
+
+                        if (message.Contains("has joined to the chat"))
+                        {
+                            message = $"{profileAndMessage.Value.Replace("has joined to the chat", "")}" + resourceManager.GetString("Has joined to the chat", cultureInfo);
+                        }
+
+                        if (message.Contains("left the chat"))
+                        {
+                            message = $"{profileAndMessage.Value.Replace("left the chat", "")}" + resourceManager.GetString("Left the chat", cultureInfo);
+                        }
+
+
+                        Border serviceChatMessageBorder = new Border
+                        {
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            Height = 62,
+                            MaxWidth = 3000,
+                            Margin = new Thickness(0, 5, 0, 5),
+                            CornerRadius = new CornerRadius(20),
+                            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
+                            Opacity = 0.8
+                        };
+
+                        Label serviceChatMessageLabel = new Label
+                        {
+                            Foreground = new SolidColorBrush(Colors.White),
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            FontSize = 18,
+                            Margin = new Thickness(10, 10, 10, 10),
+                            Content = message
+                        };
+
+                        serviceChatMessageBorder.Child = serviceChatMessageLabel;
+                        MessagesStackPanel.Children.Add(serviceChatMessageBorder);
+
+                        continue;
                     }
 
-                    if (message.Contains("left the chat"))
+                    if (profileAndMessage.Key != MainWindow.loggedProfile.Player.NickName && profileAndMessage.Key != "Chat Server")
                     {
-                        message = $"{profileAndMessage.Value.Replace("left the chat", "")}" + resourceManager.GetString("Left the chat", cultureInfo);
+                        Border friendMessageBorder = new Border
+                        {
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            Height = 94,
+                            MaxWidth = 3000,
+                            Margin = new Thickness(28, 5, 0, 5),
+                            CornerRadius = new CornerRadius(20),
+                            Background = new SolidColorBrush(Colors.Black),
+                            Opacity = 0.8
+                        };
+
+                        StackPanel friendBorderContentStackPanel = new StackPanel
+                        {
+                            Orientation = Orientation.Horizontal
+                        };
+
+                        Image friendProfileImage = new Image
+                        {
+                            Source = new ImageLoader().GetImageByPlayerNickname(profileAndMessage.Key),
+                            Width = 80,
+                            Margin = new Thickness(20, 20, 5, 20)
+                        };
+
+                        StackPanel friendNicknameAndMessageStackPanel = new StackPanel();
+
+                        Label friendNicknameLabel = new Label
+                        {
+                            Foreground = new SolidColorBrush(Colors.White),
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            FontSize = 18,
+                            Margin = new Thickness(5, 0, 20, 2),
+                            Content = profileAndMessage.Key
+                        };
+
+                        Label friendMessageLabel = new Label
+                        {
+                            Foreground = new SolidColorBrush(Colors.White),
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            FontSize = 18,
+                            Margin = new Thickness(5, 2, 20, 0),
+                            Content = profileAndMessage.Value
+                        };
+
+                        friendNicknameAndMessageStackPanel.Children.Add(friendNicknameLabel);
+                        friendNicknameAndMessageStackPanel.Children.Add(friendMessageLabel);
+
+                        friendBorderContentStackPanel.Children.Add(friendProfileImage);
+                        friendBorderContentStackPanel.Children.Add(friendNicknameAndMessageStackPanel);
+
+                        friendMessageBorder.Child = friendBorderContentStackPanel;
+
+                        MessagesStackPanel.Children.Add(friendMessageBorder);
+
+                        continue;
                     }
 
-
-                    Border serviceChatMessageBorder = new Border
+                    if (profileAndMessage.Key == MainWindow.loggedProfile.Player.NickName)
                     {
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        Height = 62,
-                        MaxWidth = 3000,
-                        Margin = new Thickness(0, 5, 0, 5),
-                        CornerRadius = new CornerRadius(20),
-                        Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF444444")),
-                        Opacity = 0.8
-                    };
+                        Border loggedPlayerMessageBorder = new Border
+                        {
+                            HorizontalAlignment = HorizontalAlignment.Right,
+                            Height = 62,
+                            MaxWidth = 3000,
+                            Margin = new Thickness(0, 5, 28, 5),
+                            CornerRadius = new CornerRadius(20),
+                            Background = new SolidColorBrush(Colors.Black),
+                            Opacity = 0.8
+                        };
 
-                    Label serviceChatMessageLabel = new Label
-                    {
-                        Foreground = new SolidColorBrush(Colors.White),
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        FontSize = 18,
-                        Margin = new Thickness(10, 10, 10, 10),
-                        Content = message
-                    };
+                        Label loggedPlayerMessageLabel = new Label
+                        {
+                            Foreground = new SolidColorBrush(Colors.White),
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            FontSize = 18,
+                            Margin = new Thickness(10, 10, 10, 10),
+                            Content = profileAndMessage.Value
+                        };
 
-                    serviceChatMessageBorder.Child = serviceChatMessageLabel;
-                    MessagesStackPanel.Children.Add(serviceChatMessageBorder);
+                        loggedPlayerMessageBorder.Child = loggedPlayerMessageLabel;
+                        MessagesStackPanel.Children.Add(loggedPlayerMessageBorder);
+                    }
 
-                    continue;
                 }
 
-                if (profileAndMessage.Key != MainWindow.loggedProfile.Player.NickName && profileAndMessage.Key != "Chat Server")
-                {
-                    Border friendMessageBorder = new Border
-                    {
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        Height = 94,
-                        MaxWidth = 3000,
-                        Margin = new Thickness(28, 5, 0, 5),
-                        CornerRadius = new CornerRadius(20),
-                        Background = new SolidColorBrush(Colors.Black),
-                        Opacity = 0.8
-                    };
-
-                    StackPanel friendBorderContentStackPanel = new StackPanel
-                    {
-                        Orientation = Orientation.Horizontal
-                    };
-
-                    Image friendProfileImage = new Image
-                    {
-                        Source = new ImageLoader().GetImageByPlayerNickname(profileAndMessage.Key),
-                        Width = 80,
-                        Margin = new Thickness(20, 20, 5, 20)
-                    };
-
-                    StackPanel friendNicknameAndMessageStackPanel = new StackPanel();
-
-                    Label friendNicknameLabel = new Label
-                    {
-                        Foreground = new SolidColorBrush(Colors.White),
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        FontSize = 18,
-                        Margin = new Thickness(5, 0, 20, 2),
-                        Content = profileAndMessage.Key
-                    };
-
-                    Label friendMessageLabel = new Label
-                    {
-                        Foreground = new SolidColorBrush(Colors.White),
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        FontSize = 18,
-                        Margin = new Thickness(5, 2, 20, 0),
-                        Content = profileAndMessage.Value
-                    };
-
-                    friendNicknameAndMessageStackPanel.Children.Add(friendNicknameLabel);
-                    friendNicknameAndMessageStackPanel.Children.Add(friendMessageLabel);
-
-                    friendBorderContentStackPanel.Children.Add(friendProfileImage);
-                    friendBorderContentStackPanel.Children.Add(friendNicknameAndMessageStackPanel);
-
-                    friendMessageBorder.Child = friendBorderContentStackPanel;
-
-                    MessagesStackPanel.Children.Add(friendMessageBorder);
-
-                    continue;
-                }
-
-                if (profileAndMessage.Key == MainWindow.loggedProfile.Player.NickName)
-                {
-                    Border loggedPlayerMessageBorder = new Border
-                    {
-                        HorizontalAlignment = HorizontalAlignment.Right,
-                        Height = 62,
-                        MaxWidth = 3000,
-                        Margin = new Thickness(0, 5, 28, 5),
-                        CornerRadius = new CornerRadius(20),
-                        Background = new SolidColorBrush(Colors.Black),
-                        Opacity = 0.8
-                    };
-
-                    Label loggedPlayerMessageLabel = new Label
-                    {
-                        Foreground = new SolidColorBrush(Colors.White),
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        FontSize = 18,
-                        Margin = new Thickness(10, 10, 10, 10),
-                        Content = profileAndMessage.Value
-                    };
-
-                    loggedPlayerMessageBorder.Child = loggedPlayerMessageLabel;
-                    MessagesStackPanel.Children.Add(loggedPlayerMessageBorder);
-                }
-
+                chatNotCallbackMethodsClient.Close();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
 
-            chatNotCallbackMethodsClient.Close();
         }
 
         public void ExitFromThisPageForBeingExpeltFromLobbyView()
         {
-            LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
+            LobbyView.RestartChatCallbackMethodsClient();
 
-            SongManager.Instance.StopMusic();
-            SongManager.Instance.PlayMainSong();
+            try
+            {
+                LobbyView.chatCallbackMethodsClient.LeaveChat(MainWindow.loggedProfile.Player.NickName);
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new MenuView(mainWindow));
-            new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new MenuView(mainWindow));
+                new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
+
+                SongManager.Instance.StopMusic();
+                SongManager.Instance.PlayMainSong();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
         #endregion
     }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
+using System.ServiceModel.Description;
+using ServicesTCP.Services;
 
 namespace ServerHoster
 {

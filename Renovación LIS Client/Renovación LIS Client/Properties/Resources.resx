@@ -264,9 +264,6 @@
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
   <data name="BackMenu" xml:space="preserve">
     <value>Back to menu</value>
   </data>
@@ -722,5 +719,14 @@
   </data>
   <data name="WriteWord" xml:space="preserve">
     <value>Write the word</value>
+  </data>
+  <data name="Connection lost, try again later" xml:space="preserve">
+    <value>Connection lost, try again later</value>
+  </data>
+  <data name="Connection lost, you will be redirected to the start page" xml:space="preserve">
+    <value>Connection lost, you will be redirected to the start page</value>
+  </data>
+  <data name="ContinueLevel" xml:space="preserve">
+    <value>Continue level</value>
   </data>
 </root>

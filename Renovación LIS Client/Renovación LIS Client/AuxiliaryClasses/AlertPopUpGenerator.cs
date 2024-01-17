@@ -2,18 +2,43 @@
 using System.Globalization;
 using System.Resources;
 using System.Windows;
+using System.Windows.Navigation;
+using System.Windows.Controls;
+using Renovación_LIS_Client.View;
 
 namespace Renovación_LIS_Client.AuxiliaryClasses
 {
     public class AlertPopUpGenerator
     {
-        private CultureInfo cultureInfo;
-        private ResourceManager resourceManager;
+        private readonly CultureInfo cultureInfo;
+        private readonly ResourceManager resourceManager;
 
         public AlertPopUpGenerator()
         {
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+        }
+
+        public void OpenInternationalizedInGameConnectionErrorPopUp(Page page)
+        {
+            MessageBox.Show(
+                resourceManager.GetString("Connection lost, you will be redirected to the start page", cultureInfo),
+                resourceManager.GetString("Too Bad!!!", cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
+            NavigationService navigationService = NavigationService.GetNavigationService(page);
+            navigationService.Navigate(new StartView());
+        }
+
+        public void OpenInternationalizedNotInGameConnectionErrorPopUp()
+        {
+            MessageBox.Show(
+                resourceManager.GetString("Connection lost, try again later", cultureInfo),
+                resourceManager.GetString("Too Bad!!!", cultureInfo),
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
         }
 
         public void OpenErrorPopUp(String header, String message)

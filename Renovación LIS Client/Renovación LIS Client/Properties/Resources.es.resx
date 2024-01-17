@@ -250,7 +250,7 @@
     <value>¿Estás seguro?</value>
   </data>
   <data name="Back" xml:space="preserve">
-    <value>Atrás</value>
+    <value>Regresar</value>
   </data>
   <data name="Ban" xml:space="preserve">
     <value>Banear</value>
@@ -263,9 +263,6 @@
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Aplicar</value>
-  </data>
-  <data name="Back" xml:space="preserve">
-    <value>Regresar</value>
   </data>
   <data name="BackMenu" xml:space="preserve">
     <value>Regresar al menú</value>
@@ -707,5 +704,14 @@
   </data>
   <data name="The word has already been answered, please select another one" xml:space="preserve">
     <value>La palabra ya ha sido contestada, por favor elija otra</value>
+  </data>
+  <data name="Connection lost, try again later" xml:space="preserve">
+    <value>Conexión perdida, inténtelo de nuevo más tarde</value>
+  </data>
+  <data name="Connection lost, you will be redirected to the start page" xml:space="preserve">
+    <value>Conexión perdida, serás redirigido a la página de inicio</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

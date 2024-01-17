@@ -4,17 +4,25 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Navigation;
+using Renovación_LIS_Client.AuxiliaryClasses;
+using System.ServiceModel;
+using System;
 
 namespace Renovación_LIS_Client.View
 {
     public partial class LevelOneTwoView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
 
         private int word = 1;
         private int level = 1; 
         private Dictionary<int, Word> gameWords = new Dictionary<int, Word>();
+        #endregion
 
+
+
+        #region Constructors
         public LevelOneTwoView(MainWindow mainWindow, int level)
         {
             PageStateManager.CurrentPage = this;
@@ -26,7 +34,11 @@ namespace Renovación_LIS_Client.View
             this.level = level;
             InitializeLevel();
         }
+        #endregion
 
+
+
+        #region Methods for GUIs elements
         private void ChangeSelectedWord(object sender, MouseButtonEventArgs e)
         {
 
@@ -56,6 +68,23 @@ namespace Renovación_LIS_Client.View
             SetWordInfo();
         }
 
+        private void ExitButtonOnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LevelView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+        }
+
         private void TextUpdated(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -65,7 +94,11 @@ namespace Renovación_LIS_Client.View
             gameWords[word].UserWord = textBox.Text;
             SetWordView();
         }
+        #endregion
 
+
+
+        #region Auxiliary methods
         private void SetWordInfo()
         {
             Word currentWord = gameWords[word];
@@ -137,7 +170,7 @@ namespace Renovación_LIS_Client.View
         }
 
         private void ValidateWords(object sender, RoutedEventArgs e)
-        {
+        {            
             bool result = true;
             int correct = 0;
             int incorrect = 0; 
@@ -167,11 +200,6 @@ namespace Renovación_LIS_Client.View
                 navigationService.Navigate(new VictoryView(mainWindow, level));
             }
         }
-
-        private void ExitButtonOnClick(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LevelView(mainWindow));
-        }
+        #endregion
     }
 }

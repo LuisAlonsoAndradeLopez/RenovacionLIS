@@ -209,12 +209,6 @@
                     <TextBox Name="TxtBox_Word" Height="45" Margin="25 10" Style="{StaticResource BorderTextBox}" BorderThickness="2" BorderBrush="White" TextAlignment="Center" TextChanged="TextUpdated"/>
                 </StackPanel>
             </Grid>
-
-
-
         </Grid>
-
-
-
     </Grid>
 </Page>

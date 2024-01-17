@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using System.ServiceModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using DomainStatuses;
-using Renovación_LIS_Client.AuxiliaryClasses;
 using Renovación_LIS_Client.Helpers;
-using Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference;
 using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
+using Renovación_LIS_Client.AuxiliaryClasses;
+using System;
 
 namespace Renovación_LIS_Client.View
 {
@@ -37,41 +38,97 @@ namespace Renovación_LIS_Client.View
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new ConfigurationView(mainWindow));
+
+            SongManager.Instance.PlayClickSound();
         }
 
         private void FriendsButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new FriendsView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new FriendsView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void PlayButtonOnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new GamemodeSelectionView(mainWindow));
+
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void ProfileButtonOnClick(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new ModifyProfileView(mainWindow));
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new ModifyProfileView(mainWindow));
+                SongManager.Instance.PlayClickSound();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
         }
 
         private void QuitButtonOnClick(object sender, RoutedEventArgs e)
         {
+            mainWindow.RestartProfileCallbackMethodsClient();
+
             ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-            profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+            profileNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
 
-            MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
+            try
+            {
+                profileNonCallbackMethodsClient.ChangeLoginStatus(ProfileLoginStatuses.NotLogged, MainWindow.loggedProfile.IDProfile);
+                
+                MainWindow.profileCallbackMethodsClient.Disconnect(MainWindow.loggedProfile.Player.NickName);
 
-            mainWindow.SetNullTologgedProfile();
+                mainWindow.SetNullTologgedProfile();
 
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new LoginView(mainWindow));
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new LoginView(mainWindow));
 
-            profileNonCallbackMethodsClient.Close();
+                SongManager.Instance.PlayClickSound();
+                profileNonCallbackMethodsClient.Close();
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            
         }
         #endregion
 

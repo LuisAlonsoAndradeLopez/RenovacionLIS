@@ -18,32 +18,11 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/ServiceContracts/IProfile.cs",
-                "region": {
-                  "startLine": 67,
-                  "startColumn": 22,
-                  "endLine": 67,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3597",
-          "level": "warning",
-          "message": "Add the 'ServiceContract' attribute to  this interface.",
-          "locations": [
-            {
-              "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/ServiceContracts/IPlayer.cs",
                 "region": {
-                  "startLine": 40,
+                  "startLine": 45,
                   "startColumn": 22,
-                  "endLine": 40,
+                  "endLine": 45,
                   "endColumn": 37
                 }
               }
@@ -62,9 +41,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
                 "region": {
-                  "startLine": 394,
+                  "startLine": 603,
                   "startColumn": 23,
-                  "endLine": 394,
+                  "endLine": 603,
                   "endColumn": 65
                 }
               }
@@ -83,9 +62,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
                 "region": {
-                  "startLine": 394,
+                  "startLine": 603,
                   "startColumn": 66,
-                  "endLine": 394,
+                  "endLine": 603,
                   "endColumn": 134
                 }
               }
@@ -104,10 +83,31 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
                 "region": {
-                  "startLine": 394,
+                  "startLine": 603,
                   "startColumn": 66,
-                  "endLine": 394,
+                  "endLine": 603,
                   "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3597",
+          "level": "warning",
+          "message": "Add the 'ServiceContract' attribute to  this interface.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/ServiceContracts/IProfile.cs",
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 22,
+                  "endLine": 72,
+                  "endColumn": 38
                 }
               }
             }
@@ -125,31 +125,10 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 408,
-                  "startColumn": 121,
-                  "endLine": 408,
-                  "endColumn": 244
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2223",
-          "level": "warning",
-          "message": "Change the visibility of 'connectedProfiles' or make it 'const' or 'readonly'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 408,
-                  "startColumn": 121,
-                  "endLine": 408,
-                  "endColumn": 138
+                  "startLine": 632,
+                  "startColumn": 60,
+                  "endLine": 632,
+                  "endColumn": 122
                 }
               }
             }
@@ -167,10 +146,31 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 408,
+                  "startLine": 632,
                   "startColumn": 23,
-                  "endLine": 408,
-                  "endColumn": 120
+                  "endLine": 632,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2223",
+          "level": "warning",
+          "message": "Change the visibility of 'connectedProfiles' or make it 'const' or 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 632,
+                  "startColumn": 60,
+                  "endLine": 632,
+                  "endColumn": 77
                 }
               }
             }
@@ -214,18 +214,18 @@
           }
         },
         {
-          "ruleId": "S6602",
+          "ruleId": "S3267",
           "level": "warning",
-          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "message": "Loop should be simplified by calling Select(friend => friend.Value))",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 416,
-                  "startColumn": 132,
-                  "endLine": 416,
-                  "endColumn": 146
+                  "startLine": 671,
+                  "startColumn": 36,
+                  "endLine": 671,
+                  "endColumn": 53
                 }
               }
             }
@@ -305,40 +305,6 @@
         {
           "ruleId": "S2696",
           "level": "warning",
-          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
-                "region": {
-                  "startLine": 140,
-                  "startColumn": 13,
-                  "endLine": 140,
-                  "endColumn": 20
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
-                "region": {
-                  "startLine": 50,
-                  "startColumn": 31,
-                  "endLine": 50,
-                  "endColumn": 36
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2696",
-          "level": "warning",
           "message": "Remove this set, which updates a 'static' field from an instance method.",
           "locations": [
             {
@@ -371,18 +337,31 @@
           }
         },
         {
-          "ruleId": "S6602",
+          "ruleId": "S2696",
           "level": "warning",
-          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "message": "Remove this set, which updates a 'static' field from an instance method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
                 "region": {
-                  "startLine": 433,
-                  "startColumn": 132,
-                  "endLine": 433,
-                  "endColumn": 146
+                  "startLine": 168,
+                  "startColumn": 13,
+                  "endLine": 168,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 28,
+                  "endLine": 97,
+                  "endColumn": 48
                 }
               }
             }
@@ -392,39 +371,31 @@
           }
         },
         {
-          "ruleId": "S6602",
+          "ruleId": "S2696",
           "level": "warning",
-          "message": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension method.",
+          "message": "Remove this set, which updates a 'static' field from an instance method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
                 "region": {
-                  "startLine": 449,
-                  "startColumn": 132,
-                  "endLine": 449,
-                  "endColumn": 146
+                  "startLine": 169,
+                  "startColumn": 13,
+                  "endLine": 169,
+                  "endColumn": 38
                 }
               }
             }
           ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3267",
-          "level": "warning",
-          "message": "Loop should be simplified by calling Select(friend => friend.Value))",
-          "locations": [
+          "relatedLocations": [
             {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
                 "region": {
-                  "startLine": 466,
-                  "startColumn": 36,
-                  "endLine": 466,
-                  "endColumn": 53
+                  "startLine": 98,
+                  "startColumn": 28,
+                  "endLine": 98,
+                  "endColumn": 51
                 }
               }
             }
@@ -502,18 +473,39 @@
           }
         },
         {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 231,
+                  "startColumn": 43,
+                  "endLine": 231,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S2696",
           "level": "warning",
           "message": "Remove this set, which updates a 'static' field from an instance method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
                 "region": {
-                  "startLine": 437,
+                  "startLine": 231,
                   "startColumn": 17,
-                  "endLine": 437,
-                  "endColumn": 36
+                  "endLine": 231,
+                  "endColumn": 42
                 }
               }
             }
@@ -521,12 +513,80 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
                 "region": {
-                  "startLine": 408,
-                  "startColumn": 121,
-                  "endLine": 408,
-                  "endColumn": 244
+                  "startLine": 98,
+                  "startColumn": 28,
+                  "endLine": 98,
+                  "endColumn": 51
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Remove this set, which updates a 'static' field from an instance method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 13,
+                  "endLine": 239,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 28,
+                  "endLine": 97,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 285,
+                  "startColumn": 21,
+                  "endLine": 285,
+                  "endColumn": 49
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 29,
+                  "endLine": 99,
+                  "endColumn": 63
                 }
               }
             }
@@ -544,9 +604,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 119,
+                  "startLine": 175,
                   "startColumn": 24,
-                  "endLine": 119,
+                  "endLine": 175,
                   "endColumn": 28
                 }
               }
@@ -565,9 +625,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 111,
+                  "startLine": 167,
                   "startColumn": 43,
-                  "endLine": 111,
+                  "endLine": 167,
                   "endColumn": 118
                 }
               }
@@ -586,10 +646,44 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
                 "region": {
-                  "startLine": 53,
+                  "startLine": 99,
                   "startColumn": 56,
-                  "endLine": 53,
+                  "endLine": 99,
                   "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2583",
+          "level": "warning",
+          "message": "Change this condition so that it does not always evaluate to 'True'. Some code paths are unreachable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
+                "region": {
+                  "startLine": 204,
+                  "startColumn": 21,
+                  "endLine": 204,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 21,
+                  "endLine": 210,
+                  "endColumn": 46
                 }
               }
             }
@@ -607,9 +701,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 251,
+                  "startLine": 369,
                   "startColumn": 43,
-                  "endLine": 251,
+                  "endLine": 369,
                   "endColumn": 118
                 }
               }
@@ -628,9 +722,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 257,
+                  "startLine": 375,
                   "startColumn": 54,
-                  "endLine": 257,
+                  "endLine": 375,
                   "endColumn": 59
                 }
               }
@@ -649,78 +743,10 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 281,
+                  "startLine": 418,
                   "startColumn": 21,
-                  "endLine": 281,
+                  "endLine": 418,
                   "endColumn": 29
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2583",
-          "level": "warning",
-          "message": "Change this condition so that it does not always evaluate to 'True'. Some code paths are unreachable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
-                "region": {
-                  "startLine": 169,
-                  "startColumn": 21,
-                  "endLine": 169,
-                  "endColumn": 47
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
-                "region": {
-                  "startLine": 175,
-                  "startColumn": 21,
-                  "endLine": 175,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2583",
-          "level": "warning",
-          "message": "Change this condition so that it does not always evaluate to 'True'. Some code paths are unreachable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
-                "region": {
-                  "startLine": 137,
-                  "startColumn": 21,
-                  "endLine": 137,
-                  "endColumn": 47
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
-                "region": {
-                  "startLine": 143,
-                  "startColumn": 21,
-                  "endLine": 143,
-                  "endColumn": 46
                 }
               }
             }
@@ -738,10 +764,146 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 300,
+                  "startLine": 456,
                   "startColumn": 43,
-                  "endLine": 300,
+                  "endLine": 456,
                   "endColumn": 118
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2583",
+          "level": "warning",
+          "message": "Change this condition so that it does not always evaluate to 'True'. Some code paths are unreachable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
+                "region": {
+                  "startLine": 257,
+                  "startColumn": 21,
+                  "endLine": 257,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
+                "region": {
+                  "startLine": 263,
+                  "startColumn": 21,
+                  "endLine": 263,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 427,
+                  "startColumn": 13,
+                  "endLine": 427,
+                  "endColumn": 20
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 31,
+                  "endLine": 93,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 432,
+                  "startColumn": 13,
+                  "endLine": 432,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 29,
+                  "endLine": 99,
+                  "endColumn": 63
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 437,
+                  "startColumn": 13,
+                  "endLine": 437,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 29,
+                  "endLine": 99,
+                  "endColumn": 63
                 }
               }
             }
@@ -825,6 +987,22 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2223",
           "properties": {
             "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2245": {
+          "id": "S2245",
+          "shortDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive",
+          "fullDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive. For example, it has led in the past to the following vulnerabilities:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2245",
+          "properties": {
+            "category": "Critical Security Hotspot",
             "isEnabledByDefault": true,
             "tags": [
               "C#",
@@ -922,23 +1100,6 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3597",
           "properties": {
             "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S6602": {
-          "id": "S6602",
-          "shortDescription": "\"Find\" method should be used instead of the \"FirstOrDefault\" extension",
-          "fullDescription": "Both the List.Find method and IEnumerable.FirstOrDefault method can be used to find the first element that satisfies a given condition in a collection. However, List.Find can be faster than IEnumerable.FirstOrDefault for List objects. For small collections, the performance difference may be minor, but for large collections, it can make a noticeable difference. The same applies for ImmutableList and arrays too.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6602",
-          "properties": {
-            "category": "Minor Code Smell",
             "isEnabledByDefault": true,
             "tags": [
               "C#",

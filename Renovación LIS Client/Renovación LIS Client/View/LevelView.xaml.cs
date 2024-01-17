@@ -15,9 +15,14 @@ namespace Renovación_LIS_Client.View
     /// </summary>
     public partial class LevelView : Page
     {
+        #region Atributes
         private readonly MainWindow mainWindow;
         private int SelectedLevel = 2;
+        #endregion
 
+
+
+        #region Constructors
         public LevelView(MainWindow mainWindow)
         {
             PageStateManager.CurrentPage = this;
@@ -31,6 +36,19 @@ namespace Renovación_LIS_Client.View
             
             ProfileImage.Source = new ImageLoader().GetImageByPlayerNickname(MainWindow.loggedProfile.Player.NickName);
             ProfileNickname.Content = MainWindow.loggedProfile.Player.NickName;
+        }
+        #endregion
+
+
+
+        #region Methods for GUIs elements
+        private void ExitButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            SongManager.Instance.ResumeMusic();
+            SongManager.Instance.PlayMainSong();
+
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
         }
 
         private void GoToNextLevel(object sender, MouseButtonEventArgs e)
@@ -58,11 +76,8 @@ namespace Renovación_LIS_Client.View
                 }
             }
 
-
-
             ChangeLevelImage(); 
             ChangeLevelName();
-
         }
 
         private void PlayGameSelected(object sender, MouseButtonEventArgs e)
@@ -70,7 +85,11 @@ namespace Renovación_LIS_Client.View
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LevelOneTwoView(mainWindow, SelectedLevel));
         }
+        #endregion
 
+
+
+        #region Auxiliary methods
         private void ChangeLevelName()
         {
             switch (SelectedLevel)
@@ -182,14 +201,6 @@ namespace Renovación_LIS_Client.View
             levelTwoImage.Source = imageTwo;
             levelThreeImage.Source = imageThree;
         }
-
-        private void ExitButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            SongManager.Instance.ResumeMusic();
-            SongManager.Instance.PlayMainSong();
-
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new GamemodeSelectionView(mainWindow));
-        }
+        #endregion
     }
 }

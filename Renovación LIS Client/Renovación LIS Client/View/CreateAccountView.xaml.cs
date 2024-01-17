@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Resources;
 using System.Security;
+using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -44,93 +45,104 @@ namespace Renovación_LIS_Client.View
         #region Methods for GUIs elements events
         private void CreateAccountButton(object sender, RoutedEventArgs e)
         {
-            if (InvalidValuesInTextFieldsTextGenerator() == "")
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            profileNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+            PlayerClient playerClient = new PlayerClient();
+            playerClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            try
             {
-                if (BirthdayDatePicker.SelectedDate <= DateTime.Now)
+                if (InvalidValuesInTextFieldsTextGenerator() == "")
                 {
-                    SecureString securePassword = PasswordPasswordBox.SecurePassword;
-                    string Password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
-
-                    SecureString secureConfirmPassword = ConfirmPasswordPasswordBox.SecurePassword;
-                    string ConfirmPassword = new System.Net.NetworkCredential(string.Empty, secureConfirmPassword).Password;
-
-                    if (Password == ConfirmPassword)
+                    if (BirthdayDatePicker.SelectedDate <= DateTime.Now)
                     {
-                        ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-                        PlayerClient playerClient = new PlayerClient();
-                        if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
+                        SecureString securePassword = PasswordPasswordBox.SecurePassword;
+                        string Password = new System.Net.NetworkCredential(string.Empty, securePassword).Password;
+
+                        SecureString secureConfirmPassword = ConfirmPasswordPasswordBox.SecurePassword;
+                        string ConfirmPassword = new System.Net.NetworkCredential(string.Empty, secureConfirmPassword).Password;
+
+                        if (Password == ConfirmPassword)
                         {
-                            if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
+                            if (!playerClient.TheEmailIsAlreadyRegisted(EmailTextBox.Text))
                             {
-                                ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
+                                if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                                 {
-                                    Names = NamesTextBox.Text,
-                                    Surnames = SurnamesTextBox.Text,
-                                    Email = EmailTextBox.Text,
-                                    NickName = NickNameTextBox.Text,
-                                    BirthDate = (DateTime)BirthdayDatePicker.SelectedDate
-                                };
+                                    ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
+                                    {
+                                        Names = NamesTextBox.Text,
+                                        Surnames = SurnamesTextBox.Text,
+                                        Email = EmailTextBox.Text,
+                                        NickName = NickNameTextBox.Text,
+                                        BirthDate = (DateTime)BirthdayDatePicker.SelectedDate
+                                    };
 
-                                ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
-                                {
-                                    LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
-                                    Coins = 0,
-                                    Players = players
-                                };
+                                    ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
+                                    {
+                                        LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
+                                        Coins = 0,
+                                        Players = players
+                                    };
 
-                                string salt = BCrypt.Net.BCrypt.GenerateSalt();
-                                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
-                                players.Password = hashedPassword;
+                                    string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
+                                    players.Password = hashedPassword;
 
-                                try
-                                {
                                     profileNonCallbackMethodsClient.AddProfile(profiles);
+
+                                    new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Account made successfully");
+
+                                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                                    navigationService.Navigate(new LoginView(mainWindow));
+
+                                    SongManager.Instance.PlayClickSound();
                                 }
-                                catch (Exception ex)
+                                else
                                 {
-                                    Console.WriteLine(ex.StackTrace);
+                                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Nickname already on use");
                                 }
-
-                                new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Account made successfully");
-
-                                NavigationService navigationService = NavigationService.GetNavigationService(this);
-                                navigationService.Navigate(new LoginView(mainWindow));
                             }
                             else
                             {
-                                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Nickname already on use");
+                                new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
                             }
+
                         }
                         else
                         {
-                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Email already on use");
+                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The passwords aren't the same");
                         }
-
-                        profileNonCallbackMethodsClient.Close();
-                        playerClient.Close();
                     }
                     else
                     {
-                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The passwords aren't the same");
+                        new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
                     }
                 }
                 else
                 {
-                    new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "Birth date should be before than the actual date");
+                    new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
                 }
+
+                profileNonCallbackMethodsClient.Close();
+                playerClient.Close();
             }
-            else
+            catch (TimeoutException)
             {
-                new AlertPopUpGenerator().OpenErrorPopUp("Too Bad!!!", InvalidValuesInTextFieldsTextGenerator());
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
+            }
+
         }
 
         private void GoLoginButton(object sender, MouseButtonEventArgs e)
         {
-            SongManager.Instance.PlayClickSound();
-
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));
+
+            SongManager.Instance.PlayClickSound();
         }
         #endregion
 

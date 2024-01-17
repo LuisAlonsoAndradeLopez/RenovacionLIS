@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
@@ -16,7 +17,7 @@ using ServicesTCP.ServiceContracts;
 namespace ServicesTCP.Services
 {
     public class ServiceProfileForNonCallbackMethods : IProfileNonCallbackMethods
-    {
+    {        
         public long AddProfile(Profiles profiles)
         {
             long generatedID = 0;
@@ -600,6 +601,45 @@ namespace ServicesTCP.Services
                 Profiles playerToDelete = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == playerID).FirstOrDefault();
 
                 databaseModelContainer.ProfilesSet.Remove(playerToDelete);
+                databaseModelContainer.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (DbUpdateException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (EntityCommandCompilationException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (EntityCommandExecutionException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+        }
+
+
+        public void OnClose()
+        {
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                var entitiesToUpdate = databaseModelContainer.ProfilesSet.ToList();
+
+                foreach (var entity in entitiesToUpdate)
+                {
+                    entity.LoginStatus = ProfileLoginStatuses.NotLogged.ToString();
+                    
+                    databaseModelContainer.Entry(entity).State = EntityState.Detached;
+                }
+
                 databaseModelContainer.SaveChanges();
             }
             catch (DbEntityValidationException ex)
