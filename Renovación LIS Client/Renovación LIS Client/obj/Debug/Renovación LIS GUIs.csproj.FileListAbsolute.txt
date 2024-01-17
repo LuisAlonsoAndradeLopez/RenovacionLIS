@@ -110,3 +110,87 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.pdb
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\VictoryView.g.cs
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\VictoryView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe.config
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.exe
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\Renovación LIS Client.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\es\Renovación LIS Client.resources.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\DomainStatuses.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\Intersoft.Crosslight.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\domain.dll.config
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\DomainStatuses.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Buffers.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Memory.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\ButtonStyles.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\Fonts.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\FrameStyle.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\LabelStyle.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Styles\TextBoxStyles.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\AnimationView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\BannedPlayersView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ChatView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ConfigurationView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ForgotPassword.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\FriendsView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\GamemodeSelectionView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelOneTwoView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LobbyView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LoginView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MultiplayerCrosswordView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\VictoryView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\WinnersView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\App.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_Content.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_MarkupCompile.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client_MarkupCompile.lref
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\App.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\AnimationView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\BannedPlayersView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ChatView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ConfigurationView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\CreateAccountView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ForgotPassword.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\FriendsView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\GamemodeSelectionView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelOneTwoView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LevelView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LobbyView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\LoginView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MainWindow.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MenuView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ModifyProfileView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\MultiplayerCrosswordView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\StartView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\VictoryView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\WinnersView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.g.resources
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación_LIS_Client.Properties.Resources.resources
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación_LIS_Client.Properties.Resources.es.resources
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.GenerateResource.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\es\Renovación LIS Client.resources.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS GUIs.csproj.CopyComplete
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.exe
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\Renovación LIS Client.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ScoreView.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\UserControls\UserControlScore.g.cs
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\ScoreView.baml
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\Renovación LIS Client\obj\Debug\View\UserControls\UserControlScore.baml

@@ -65,6 +65,18 @@
                 MouseLeftButtonDown="ConfigurationButtonOnClick"
                 Click="ConfigurationButtonOnClick"/>
 
+            <Button Content="{x:Static p:Resources.Score}"
+                    Foreground="White"
+                    FontSize="40"
+                    FontFamily="{StaticResource K2DRegular}"
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    HorizontalAlignment="Left"
+                    Margin="30,40,0,0"
+                    Style="{StaticResource underlineButton}" Grid.RowSpan="2"
+                    MouseLeftButtonDown="ConfigurationButtonOnClick"
+                    Click="ScoreButtonOnClick"/>
+
             <Button Content="{x:Static p:Resources.Exit}"
                 Foreground="White"
                 FontSize="40"

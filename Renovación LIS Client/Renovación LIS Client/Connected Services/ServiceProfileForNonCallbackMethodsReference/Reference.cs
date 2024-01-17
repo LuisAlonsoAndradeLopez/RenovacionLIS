@@ -835,10 +835,10 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         System.Threading.Tasks.Task<long> AddProfileAsync(Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
-        long AddScoreToProfile(int profileID, int score);
+        long AddScoreToProfile(string profileNickname, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
-        System.Threading.Tasks.Task<long> AddScoreToProfileAsync(int profileID, int score);
+        System.Threading.Tasks.Task<long> AddScoreToProfileAsync(string profileNickname, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ChangeLoginStatusResponse")]
         void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID);
@@ -954,12 +954,12 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
             return base.Channel.AddProfileAsync(profiles);
         }
         
-        public long AddScoreToProfile(int profileID, int score) {
-            return base.Channel.AddScoreToProfile(profileID, score);
+        public long AddScoreToProfile(string profileNickname, int score) {
+            return base.Channel.AddScoreToProfile(profileNickname, score);
         }
         
-        public System.Threading.Tasks.Task<long> AddScoreToProfileAsync(int profileID, int score) {
-            return base.Channel.AddScoreToProfileAsync(profileID, score);
+        public System.Threading.Tasks.Task<long> AddScoreToProfileAsync(string profileNickname, int score) {
+            return base.Channel.AddScoreToProfileAsync(profileNickname, score);
         }
         
         public void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID) {

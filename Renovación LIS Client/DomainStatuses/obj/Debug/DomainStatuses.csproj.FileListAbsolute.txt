@@ -4,3 +4,9 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Domain
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.csproj.CoreCompileInputs.cache
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\DomainStatuses\bin\Debug\DomainStatuses.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\DomainStatuses\bin\Debug\DomainStatuses.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Renovación LIS Client\DomainStatuses\obj\Debug\DomainStatuses.pdb

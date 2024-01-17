@@ -132,13 +132,28 @@ namespace Renovación_LIS_Client.View
         }
         #endregion
 
-
-
         #region Auxiliary methods
         public void GoToLobbyView()
         {
             mainWindow.OpenTheLobbyView(this);
         }
         #endregion
+
+        private void ScoreButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                NavigationService navigationService = NavigationService.GetNavigationService(this);
+                navigationService.Navigate(new ScoreView(mainWindow));
+            }
+            catch (TimeoutException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+            catch (EndpointNotFoundException)
+            {
+                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
+            }
+        }
     }
 }

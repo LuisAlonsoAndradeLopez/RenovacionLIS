@@ -39,11 +39,10 @@ namespace Renovación_LIS_Client.View
 
         public LobbyView(MainWindow mainWindow)
         {
+
             PageStateManager.CurrentPage = this;
 
             this.mainWindow = mainWindow;
-            chatCallbackMethodsClient = new ChatCallbackMethodsClient(new InstanceContext(this));
-            lobbyCallbackMethodsClient = new LobbyCallbackMethodsClient(new InstanceContext(this));
 
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
@@ -51,7 +50,10 @@ namespace Renovación_LIS_Client.View
             InitializeComponent();
             ShowConnectedPlayers();
 
+            lobbyCallbackMethodsClient = new LobbyCallbackMethodsClient(new InstanceContext(this));
+            chatCallbackMethodsClient = new ChatCallbackMethodsClient(new InstanceContext(this));
             LobbyNonCallbackMethodsClient lobbyNonCallbackMethodsClient = new LobbyNonCallbackMethodsClient();
+
 
             if (lobbyNonCallbackMethodsClient.IsAdmin(MainWindow.loggedProfile.Player.NickName))
             {

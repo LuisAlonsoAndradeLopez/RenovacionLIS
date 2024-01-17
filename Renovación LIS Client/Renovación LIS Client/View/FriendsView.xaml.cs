@@ -59,6 +59,8 @@ namespace Renovación_LIS_Client.View
             friendRequestCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
 
             InitializeComponent();
+
+
             ShowUpdatedFriendsList();
         }
 
@@ -75,8 +77,9 @@ namespace Renovación_LIS_Client.View
             friendRequestCallbackMethodsClient = new FriendRequestCallbackMethodsClient(new InstanceContext(this));
             friendRequestCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
             friendRequestCallbackMethodsClient.Connect(MainWindow.loggedProfile.Player.NickName);
-
+            
             InitializeComponent();
+
 
             FriendsBorder.Visibility = Visibility.Hidden;
             ConnectedFriendsForInviteBorder.Visibility = Visibility.Visible;

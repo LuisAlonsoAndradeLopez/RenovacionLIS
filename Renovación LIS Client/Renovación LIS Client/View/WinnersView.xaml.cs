@@ -37,11 +37,18 @@ namespace Renovación_LIS_Client.View
             cultureInfo = CultureInfo.CurrentUICulture;
             resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
 
+            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
+            profileNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
+            multiplayerCrosswordNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+
+            profileNonCallbackMethodsClient.AddScoreToProfile(MainWindow.loggedProfile.Player.NickName, multiplayerCrosswordNonCallbackMethodsClient.GetPointsFromAProfile(MainWindow.loggedProfile.Player.NickName));
+
             InitializeComponent();
 
             ShowWinners();
 
-            MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
             if (MainWindow.loggedProfile.Player.NickName == multiplayerCrosswordNonCallbackMethodsClient.GetAdmin())
             {
                 AcceptButton.Visibility = Visibility.Visible;

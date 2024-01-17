@@ -15,3 +15,20 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\es-MX\lang.res
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.csproj.CopyComplete
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\obj\Debug\lang.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\lang.dll.config
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\lang.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\lang.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\es-MX\lang.resources.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\EntityFramework.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\EntityFramework.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.Resources.en.US.resources
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.Resources.es-MX.resources
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.csproj.GenerateResource.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\es-MX\lang.resources.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.csproj.CopyComplete
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\lang\obj\Debug\lang.pdb

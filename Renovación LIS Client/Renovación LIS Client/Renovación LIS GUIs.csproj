@@ -209,12 +209,18 @@
     <Compile Include="View\RandomMultiplayerCrosswordGeneratorView.xaml.cs">
       <DependentUpon>RandomMultiplayerCrosswordGeneratorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ScoreView.xaml.cs">
+      <DependentUpon>ScoreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\UserControlScore.xaml.cs">
+      <DependentUpon>UserControlScore.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VictoryView.xaml.cs">
       <DependentUpon>VictoryView.xaml</DependentUpon>
@@ -310,9 +316,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ScoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StartView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\UserControlScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\VictoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -449,25 +463,25 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item51.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item52.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item53.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item54.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item55.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\ServiceProfileForNonCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\ServiceProfileForNonCallbackMethods.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
     <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
@@ -683,18 +697,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -770,7 +772,13 @@
     <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item1.disco" />
     <None Include="Connected Services\ServicePlayerReference\item1.disco" />
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.disco" />
-    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item.disco" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="resources\Songs\Custom Character - Dan The Man Music.wav" />
     <Content Include="resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
     <Resource Include="images\gamemodeSelectionImage.png" />

@@ -39,3 +39,7 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\T
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.csproj.CopyComplete
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.dll
 C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Pruebas Unitarias\obj\Debug\Tests.pdb
+C:\Users\kathy\OneDrive\Escritorio\RL\Pruebas Unitarias\obj\Debug\Tests.csproj.AssemblyReference.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Pruebas Unitarias\obj\Debug\Tests.csproj.CoreCompileInputs.cache
+C:\Users\kathy\OneDrive\Escritorio\RL\Pruebas Unitarias\obj\Debug\Tests.dll
+C:\Users\kathy\OneDrive\Escritorio\RL\Pruebas Unitarias\obj\Debug\Tests.pdb

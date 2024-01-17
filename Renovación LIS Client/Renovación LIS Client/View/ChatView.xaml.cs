@@ -139,11 +139,9 @@ namespace Renovación_LIS_Client.View
 
         public void ShowUpdatedChat()
         {
-            ChatNotCallbackMethodsClient chatNotCallbackMethodsClient = new ChatNotCallbackMethodsClient();
-            chatNotCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
+                ChatNotCallbackMethodsClient chatNotCallbackMethodsClient = new ChatNotCallbackMethodsClient();
+                chatNotCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
 
-            try
-            {
                 MessagesStackPanel.Children.Clear();
 
                 foreach (var profileAndMessage in chatNotCallbackMethodsClient.GetConnectedProfilesAndTheirMessages())
@@ -276,16 +274,7 @@ namespace Renovación_LIS_Client.View
                 }
 
                 chatNotCallbackMethodsClient.Close();
-            }
-            catch (TimeoutException)
-            {
-                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
-            }
-            catch (EndpointNotFoundException)
-            {
-                new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
-            }
-
+            
         }
 
         public void ExitFromThisPageForBeingExpeltFromLobbyView()

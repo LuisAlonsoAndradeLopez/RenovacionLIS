@@ -729,4 +729,7 @@
   <data name="ContinueLevel" xml:space="preserve">
     <value>Continue level</value>
   </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
 </root>
