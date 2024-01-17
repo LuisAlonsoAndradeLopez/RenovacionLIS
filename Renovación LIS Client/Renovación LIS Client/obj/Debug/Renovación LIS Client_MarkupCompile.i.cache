@@ -16,5 +16,5 @@ C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\Renova
 25-1163373748
 Styles\ButtonStyles.xaml;Styles\Fonts.xaml;Styles\FrameStyle.xaml;Styles\LabelStyle.xaml;Styles\TextBoxStyles.xaml;View\AnimationView.xaml;View\BannedPlayersView.xaml;View\ChatView.xaml;View\ConfigurationView.xaml;View\CreateAccountView.xaml;View\ForgotPassword.xaml;View\FriendsView.xaml;View\GamemodeSelectionView.xaml;View\LevelOneTwoView.xaml;View\LevelView.xaml;View\LobbyView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\ModifyProfileView.xaml;View\MultiplayerCrosswordView.xaml;View\RandomMultiplayerCrosswordGeneratorView.xaml;View\StartView.xaml;View\VictoryView.xaml;View\WinnersView.xaml;
 
-True
+False
 

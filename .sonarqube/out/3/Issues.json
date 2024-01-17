@@ -18,6 +18,27 @@
           "locations": [
             {
               "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/ServiceContracts/IProfile.cs",
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 22,
+                  "endLine": 72,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3597",
+          "level": "warning",
+          "message": "Add the 'ServiceContract' attribute to  this interface.",
+          "locations": [
+            {
+              "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/ServiceContracts/IPlayer.cs",
                 "region": {
                   "startLine": 45,
@@ -39,12 +60,54 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 603,
+                  "startLine": 672,
                   "startColumn": 23,
-                  "endLine": 603,
-                  "endColumn": 65
+                  "endLine": 672,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1104",
+          "level": "warning",
+          "message": "Make this field 'private' and encapsulate it in a 'public' property.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 672,
+                  "startColumn": 60,
+                  "endLine": 672,
+                  "endColumn": 122
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2223",
+          "level": "warning",
+          "message": "Change the visibility of 'connectedProfiles' or make it 'const' or 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 672,
+                  "startColumn": 60,
+                  "endLine": 672,
+                  "endColumn": 77
                 }
               }
             }
@@ -96,81 +159,18 @@
           }
         },
         {
-          "ruleId": "S3597",
-          "level": "warning",
-          "message": "Add the 'ServiceContract' attribute to  this interface.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/ServiceContracts/IProfile.cs",
-                "region": {
-                  "startLine": 72,
-                  "startColumn": 22,
-                  "endLine": 72,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1104",
-          "level": "warning",
-          "message": "Make this field 'private' and encapsulate it in a 'public' property.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 632,
-                  "startColumn": 60,
-                  "endLine": 632,
-                  "endColumn": 122
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S2386",
           "level": "warning",
           "message": "Use an immutable collection or reduce the accessibility of the public static field 'connectedProfiles'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceFriendRequest.cs",
                 "region": {
-                  "startLine": 632,
+                  "startLine": 603,
                   "startColumn": 23,
-                  "endLine": 632,
-                  "endColumn": 59
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2223",
-          "level": "warning",
-          "message": "Change the visibility of 'connectedProfiles' or make it 'const' or 'readonly'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 632,
-                  "startColumn": 60,
-                  "endLine": 632,
-                  "endColumn": 77
+                  "endLine": 603,
+                  "endColumn": 65
                 }
               }
             }
@@ -222,44 +222,10 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
                 "region": {
-                  "startLine": 671,
+                  "startLine": 711,
                   "startColumn": 36,
-                  "endLine": 671,
+                  "endLine": 711,
                   "endColumn": 53
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2696",
-          "level": "warning",
-          "message": "Remove this set, which updates a 'static' field from an instance method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceLobby.cs",
-                "region": {
-                  "startLine": 111,
-                  "startColumn": 21,
-                  "endLine": 111,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceLobby.cs",
-                "region": {
-                  "startLine": 80,
-                  "startColumn": 31,
-                  "endLine": 80,
-                  "endColumn": 36
                 }
               }
             }
@@ -311,9 +277,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceLobby.cs",
                 "region": {
-                  "startLine": 129,
+                  "startLine": 111,
                   "startColumn": 21,
-                  "endLine": 129,
+                  "endLine": 111,
                   "endColumn": 28
                 }
               }
@@ -343,12 +309,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceLobby.cs",
                 "region": {
-                  "startLine": 168,
-                  "startColumn": 13,
-                  "endLine": 168,
-                  "endColumn": 31
+                  "startLine": 129,
+                  "startColumn": 21,
+                  "endLine": 129,
+                  "endColumn": 28
                 }
               }
             }
@@ -356,46 +322,12 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceLobby.cs",
                 "region": {
-                  "startLine": 97,
-                  "startColumn": 28,
-                  "endLine": 97,
-                  "endColumn": 48
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2696",
-          "level": "warning",
-          "message": "Remove this set, which updates a 'static' field from an instance method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
-                "region": {
-                  "startLine": 169,
-                  "startColumn": 13,
-                  "endLine": 169,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
-                "region": {
-                  "startLine": 98,
-                  "startColumn": 28,
-                  "endLine": 98,
-                  "endColumn": 51
+                  "startLine": 80,
+                  "startColumn": 31,
+                  "endLine": 80,
+                  "endColumn": 36
                 }
               }
             }
@@ -564,6 +496,74 @@
         {
           "ruleId": "S2696",
           "level": "warning",
+          "message": "Remove this set, which updates a 'static' field from an instance method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 13,
+                  "endLine": 168,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 28,
+                  "endLine": 97,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Remove this set, which updates a 'static' field from an instance method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 169,
+                  "startColumn": 13,
+                  "endLine": 169,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 28,
+                  "endLine": 98,
+                  "endColumn": 51
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
           "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
           "locations": [
             {
@@ -587,48 +587,6 @@
                   "startColumn": 29,
                   "endLine": 99,
                   "endColumn": 63
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1168",
-          "level": "warning",
-          "message": "Return an empty collection instead of null.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 175,
-                  "startColumn": 24,
-                  "endLine": 175,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1075",
-          "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 167,
-                  "startColumn": 43,
-                  "endLine": 167,
-                  "endColumn": 118
                 }
               }
             }
@@ -693,90 +651,6 @@
           }
         },
         {
-          "ruleId": "S1075",
-          "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 369,
-                  "startColumn": 43,
-                  "endLine": 369,
-                  "endColumn": 118
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S6608",
-          "level": "warning",
-          "message": "Indexing at 0 should be used instead of the \"Enumerable\" extension method \"First\"",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 375,
-                  "startColumn": 54,
-                  "endLine": 375,
-                  "endColumn": 59
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2259",
-          "level": "warning",
-          "message": "'profiles' is null on at least one execution path.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 418,
-                  "startColumn": 21,
-                  "endLine": 418,
-                  "endColumn": 29
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1075",
-          "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
-                "region": {
-                  "startLine": 456,
-                  "startColumn": 43,
-                  "endLine": 456,
-                  "endColumn": 118
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S2583",
           "level": "warning",
           "message": "Change this condition so that it does not always evaluate to 'True'. Some code paths are unreachable.",
@@ -802,40 +676,6 @@
                   "startColumn": 21,
                   "endLine": 263,
                   "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2696",
-          "level": "warning",
-          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
-                "region": {
-                  "startLine": 427,
-                  "startColumn": 13,
-                  "endLine": 427,
-                  "endColumn": 20
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
-                "region": {
-                  "startLine": 93,
-                  "startColumn": 31,
-                  "endLine": 93,
-                  "endColumn": 36
                 }
               }
             }
@@ -904,6 +744,166 @@
                   "startColumn": 29,
                   "endLine": 99,
                   "endColumn": 63
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2696",
+          "level": "warning",
+          "message": "Make the enclosing instance method 'static' or remove this set on the 'static' field.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 427,
+                  "startColumn": 13,
+                  "endLine": 427,
+                  "endColumn": 20
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceMultiplayerCrossword.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 31,
+                  "endLine": 93,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1168",
+          "level": "warning",
+          "message": "Return an empty collection instead of null.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 176,
+                  "startColumn": 24,
+                  "endLine": 176,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 43,
+                  "endLine": 168,
+                  "endColumn": 118
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 457,
+                  "startColumn": 43,
+                  "endLine": 457,
+                  "endColumn": 118
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 370,
+                  "startColumn": 43,
+                  "endLine": 370,
+                  "endColumn": 118
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6608",
+          "level": "warning",
+          "message": "Indexing at 0 should be used instead of the \"Enumerable\" extension method \"First\"",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 376,
+                  "startColumn": 54,
+                  "endLine": 376,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2259",
+          "level": "warning",
+          "message": "'profiles' is null on at least one execution path.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/wmike/OneDrive/Documentos/Renovaci%C3%B3n%20LIS/ServicesTCP/Services/ServiceProfile.cs",
+                "region": {
+                  "startLine": 419,
+                  "startColumn": 21,
+                  "endLine": 419,
+                  "endColumn": 29
                 }
               }
             }

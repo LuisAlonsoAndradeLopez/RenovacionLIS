@@ -23,9 +23,6 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> CoinsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] CrucigramsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -50,7 +47,7 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         private Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.ProfilesProfiles[] ProfilesProfilesField;
+        private System.Nullable<long> ScoreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -59,19 +56,6 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> Coins {
-            get {
-                return this.CoinsField;
-            }
-            set {
-                if ((this.CoinsField.Equals(value) != true)) {
-                    this.CoinsField = value;
-                    this.RaisePropertyChanged("Coins");
-                }
             }
         }
         
@@ -180,14 +164,14 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.ProfilesProfiles[] ProfilesProfiles {
+        public System.Nullable<long> Score {
             get {
-                return this.ProfilesProfilesField;
+                return this.ScoreField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesProfilesField, value) != true)) {
-                    this.ProfilesProfilesField = value;
-                    this.RaisePropertyChanged("ProfilesProfiles");
+                if ((this.ScoreField.Equals(value) != true)) {
+                    this.ScoreField = value;
+                    this.RaisePropertyChanged("Score");
                 }
             }
         }
@@ -595,99 +579,6 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfilesProfiles", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class ProfilesProfiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles ProfilesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long Profiles1IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ProfilesIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles {
-            get {
-                return this.ProfilesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
-                    this.ProfilesField = value;
-                    this.RaisePropertyChanged("Profiles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles1 {
-            get {
-                return this.Profiles1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
-                    this.Profiles1Field = value;
-                    this.RaisePropertyChanged("Profiles1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Profiles1Id {
-            get {
-                return this.Profiles1IdField;
-            }
-            set {
-                if ((this.Profiles1IdField.Equals(value) != true)) {
-                    this.Profiles1IdField = value;
-                    this.RaisePropertyChanged("Profiles1Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ProfilesId {
-            get {
-                return this.ProfilesIdField;
-            }
-            set {
-                if ((this.ProfilesIdField.Equals(value) != true)) {
-                    this.ProfilesIdField = value;
-                    this.RaisePropertyChanged("ProfilesId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Levels", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class Levels : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -872,6 +763,67 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword", Namespace="http://schemas.datacontract.org/2004/07/ServicesTCP.AuxiliaryContracts")]
+    [System.SerializableAttribute()]
+    public partial class DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods")]
     public interface IProfileNonCallbackMethods {
@@ -881,6 +833,12 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddProfileResponse")]
         System.Threading.Tasks.Task<long> AddProfileAsync(Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
+        long AddScoreToProfile(int profileID, int score);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
+        System.Threading.Tasks.Task<long> AddScoreToProfileAsync(int profileID, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ChangeLoginStatusResponse")]
         void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID);
@@ -905,6 +863,12 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByID", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByIDResponse")]
         System.Threading.Tasks.Task<domain.Profile> GetProfileByIDAsync(long profileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetAllProfilesAndItsScore", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetAllProfilesAndItsScoreResponse")]
+        Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsScore();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetAllProfilesAndItsScore", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetAllProfilesAndItsScoreResponse")]
+        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsScoreAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByPlayerID", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByPlayerIDResponse")]
         domain.Profile GetProfileByPlayerID(long playerID);
@@ -990,6 +954,14 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
             return base.Channel.AddProfileAsync(profiles);
         }
         
+        public long AddScoreToProfile(int profileID, int score) {
+            return base.Channel.AddScoreToProfile(profileID, score);
+        }
+        
+        public System.Threading.Tasks.Task<long> AddScoreToProfileAsync(int profileID, int score) {
+            return base.Channel.AddScoreToProfileAsync(profileID, score);
+        }
+        
         public void ChangeLoginStatus(DomainStatuses.ProfileLoginStatuses profileLoginStatus, long profileID) {
             base.Channel.ChangeLoginStatus(profileLoginStatus, profileID);
         }
@@ -1020,6 +992,14 @@ namespace Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference {
         
         public System.Threading.Tasks.Task<domain.Profile> GetProfileByIDAsync(long profileID) {
             return base.Channel.GetProfileByIDAsync(profileID);
+        }
+        
+        public Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsScore() {
+            return base.Channel.GetAllProfilesAndItsScore();
+        }
+        
+        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsScoreAsync() {
+            return base.Channel.GetAllProfilesAndItsScoreAsync();
         }
         
         public domain.Profile GetProfileByPlayerID(long playerID) {

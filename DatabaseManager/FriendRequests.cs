@@ -11,25 +11,16 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract]
+    
     public partial class FriendRequests
     {
-        [DataMember]
         public long IDFriendRequest { get; set; }
-        [DataMember]
         public string Message { get; set; }
-        [DataMember]
         public System.DateTime CreationDate { get; set; }
-        [DataMember]
         public string SendingStatus { get; set; }
-        [DataMember]
         public string AceptationStatus { get; set; }
-
-        [DataMember]
+    
         public virtual Profiles Profiles { get; set; }
-        [DataMember]
         public virtual Profiles Profiles1 { get; set; }
     }
 }

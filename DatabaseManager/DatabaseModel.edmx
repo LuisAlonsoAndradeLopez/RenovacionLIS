@@ -78,7 +78,7 @@
       <PropertyRef Name="IDProfile" />
     </Key>
     <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Coins" Type="bigint" Nullable="true" />
+    <Property Name="Score" Type="bigint" Nullable="true" />
     <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Players_IDPlayer" Type="bigint" Nullable="false" />
   </EntityType>
@@ -338,7 +338,7 @@
             <PropertyRef Name="IDProfile" />
           </Key>
           <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Coins" Type="Int64" Nullable="true" />
+          <Property Name="Score" Type="Int64" Nullable="true" />
           <NavigationProperty Name="Players" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
           <NavigationProperty Name="Crucigrams" Relationship="DatabaseModel.ProfilesCrucigrams" FromRole="Profiles" ToRole="Crucigrams" />
           <NavigationProperty Name="FriendRequests" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="Profiles" ToRole="FriendRequests" />
@@ -437,7 +437,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Profiles)">
         <MappingFragment StoreEntitySet="ProfilesSet">
           <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
-          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
           <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
         </MappingFragment>
       </EntityTypeMapping>

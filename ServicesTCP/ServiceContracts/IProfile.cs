@@ -4,6 +4,7 @@ using System.ServiceModel;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
+using ServicesTCP.AuxiliaryContracts;
 
 namespace ServicesTCP.ServiceContracts
 {
@@ -12,6 +13,9 @@ namespace ServicesTCP.ServiceContracts
     {
         [OperationContract]
         long AddProfile(Profiles profiles);
+
+        [OperationContract]
+        long AddScoreToProfile(int profileID, int score);
 
         [OperationContract]
         void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, long profileID);
@@ -24,6 +28,9 @@ namespace ServicesTCP.ServiceContracts
 
         [OperationContract]
         Profile GetProfileByID(long profileID);
+
+        [OperationContract]
+        List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> GetAllProfilesAndItsScore();
 
         [OperationContract]
         Profile GetProfileByPlayerID(long playerID);

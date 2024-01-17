@@ -11,9 +11,7 @@ namespace DatabaseManager
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract]
+    
     public partial class Profiles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,38 +23,20 @@ namespace DatabaseManager
             this.Profiles2 = new HashSet<Profiles>();
             this.FriendRequests1 = new HashSet<FriendRequests>();
         }
-
-        [DataMember]
+    
         public long IDProfile { get; set; }
-        [DataMember]
-        public Nullable<long> Coins { get; set; }
-        [DataMember]
+        public Nullable<long> Score { get; set; }
         public string LoginStatus { get; set; }
-
-        [DataMember]
+    
         public virtual Players Players { get; set; }
-
-        [DataMember]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection <ProfilesProfiles> ProfilesProfiles { get; set; }
-
-        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Crucigrams> Crucigrams { get; set; }
-
-        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FriendRequests> FriendRequests { get; set; }
-
-        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Profiles> Profiles1 { get; set; }
-
-        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Profiles> Profiles2 { get; set; }
-
-        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FriendRequests> FriendRequests1 { get; set; }
     }

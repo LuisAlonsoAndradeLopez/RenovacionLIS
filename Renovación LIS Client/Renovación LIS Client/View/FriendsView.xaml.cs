@@ -116,7 +116,7 @@ namespace Renovación_LIS_Client.View
                         ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
                         {
                             IDProfile = MainWindow.loggedProfile.IDProfile,
-                            Coins = MainWindow.loggedProfile.Coins,
+                            Score = MainWindow.loggedProfile.Score,
                             LoginStatus = MainWindow.loggedProfile.LoginStatus,
                             Players = players
                         };
@@ -139,7 +139,7 @@ namespace Renovación_LIS_Client.View
                         ServiceProfileForNonCallbackMethodsReference.Profiles profiles1 = new ServiceProfileForNonCallbackMethodsReference.Profiles
                         {
                             IDProfile = profile1.IDProfile,
-                            Coins = profile1.Coins,
+                            Score = profile1.Score,
                             LoginStatus = profile1.LoginStatus,
                             Players = players1
                         };
@@ -401,7 +401,7 @@ namespace Renovación_LIS_Client.View
                                             ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
                                             {
                                                 IDProfile = MainWindow.loggedProfile.IDProfile,
-                                                Coins = MainWindow.loggedProfile.Coins,
+                                                Score = MainWindow.loggedProfile.Score,
                                                 LoginStatus = MainWindow.loggedProfile.LoginStatus,
                                                 Players = players
                                             };
@@ -422,7 +422,7 @@ namespace Renovación_LIS_Client.View
                                             ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles1 = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
                                             {
                                                 IDProfile = profile1.IDProfile,
-                                                Coins = profile1.Coins,
+                                                Score = profile1.Score,
                                                 LoginStatus = profile1.LoginStatus,
                                                 Players = players1
                                             };
@@ -1081,7 +1081,7 @@ namespace Renovación_LIS_Client.View
             ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
             {
                 IDProfile = friendRequest.Profile.IDProfile,
-                Coins = friendRequest.Profile.Coins,
+                Score = friendRequest.Profile.Score,
                 LoginStatus = friendRequest.Profile.LoginStatus,
                 Players = players
             };
@@ -1099,7 +1099,7 @@ namespace Renovación_LIS_Client.View
             ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles1 = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
             {
                 IDProfile = friendRequest.Profile1.IDProfile,
-                Coins = friendRequest.Profile1.Coins,
+                Score = friendRequest.Profile1.Score,
                 LoginStatus = friendRequest.Profile1.LoginStatus,
                 Players = players1
             };

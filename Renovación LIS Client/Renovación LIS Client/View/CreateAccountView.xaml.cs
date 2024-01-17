@@ -80,7 +80,7 @@ namespace Renovación_LIS_Client.View
                                     ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
                                     {
                                         LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
-                                        Coins = 0,
+                                        Score = 0,
                                         Players = players
                                     };
 

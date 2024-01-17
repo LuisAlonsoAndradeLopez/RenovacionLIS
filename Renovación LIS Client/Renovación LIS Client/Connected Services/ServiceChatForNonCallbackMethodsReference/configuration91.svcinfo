@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="F+M2nPvYITR2a3rB3JYlS5kNloTfbjimZE4AeLlpaeE=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="eq4EUBmimuBmHg6HqRlthVZG5lmCQrrBZ4xiLWdpj4g=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IChatNotCallbackMethods">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IChatNotCallbackMethods" contract="ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods" bindingType="netTcpBinding" address="net.tcp://localhost:8020/ServiceChatForNonCallbackMethods" bindingConfiguration="NetTcpBinding_IChatNotCallbackMethods">
+    <endpoint name="NetTcpBinding_IChatNotCallbackMethods" contract="ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods" bindingType="netTcpBinding" address="net.tcp://192.168.43.250:8020/ServiceChatForNonCallbackMethods" bindingConfiguration="NetTcpBinding_IChatNotCallbackMethods">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8020/ServiceChatForNonCallbackMethods</serializedValue>
+          <serializedValue>net.tcp://192.168.43.250:8020/ServiceChatForNonCallbackMethods</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -74,27 +74,6 @@ namespace Tests
         }
 
         [TestMethod]
-        public void GetPlayersTest()
-        {
-            var result = playerClient.GetPlayers();
-
-            Assert.IsTrue(result.Any(item =>
-                item.Names == successPlayer.Names && item.Surnames == successPlayer.Surnames &&
-                item.Email == successPlayer.Email && item.NickName == successPlayer.NickName));
-        }
-
-        [TestMethod]
-
-        public void GetPlayersTestFail()
-        {
-            var result = playerClient.GetPlayers();
-
-            Assert.IsTrue(result.Any(item =>
-                item.Names == failurePlayer.Names && item.Surnames == failurePlayer.Surnames &&
-                item.Email == failurePlayer.Email && item.NickName == failurePlayer.NickName));
-        }
-
-        [TestMethod]
         public void GetPlayerByIDTest()
         {
             var result = playerClient.GetPlayerByID(successPlayer.IDPlayer);
@@ -128,26 +107,6 @@ namespace Tests
         public void GetPlayerByNicknameTestFail()
         {
             Assert.IsNull(playerClient.GetPlayerByNickname(failurePlayer.NickName));
-        }
-
-        [TestMethod]
-        public void GetSpecifiedPlayersTest()
-        {
-            var result = playerClient.GetSpecifiedPlayers(successPlayer.NickName);
-
-            Assert.IsTrue(result.Any(item =>
-                item.Names == successPlayer.Names && item.Surnames == successPlayer.Surnames &&
-                item.Email == successPlayer.Email && item.NickName == successPlayer.NickName));
-        }
-
-        [TestMethod]
-        public void GetSpecifiedPlayersTestFail()
-        {
-            var result = playerClient.GetSpecifiedPlayers(failurePlayer.NickName);
-
-            Assert.IsFalse(result.Any(item =>
-                item.Names == failurePlayer.Names && item.Surnames == failurePlayer.Surnames &&
-                item.Email == failurePlayer.Email && item.NickName == failurePlayer.NickName));
         }
 
         [TestMethod]

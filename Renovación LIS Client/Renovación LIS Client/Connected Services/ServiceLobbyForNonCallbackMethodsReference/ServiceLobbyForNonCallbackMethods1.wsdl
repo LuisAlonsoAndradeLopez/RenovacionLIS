@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceLobbyForNonCallbackMethods" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ILobbyNonCallbackMethods_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.43.250:8090/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.43.250:8090/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.43.250:8090/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILobbyNonCallbackMethods_GetAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_GetAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_GetBannedProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_GetBannedProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannedProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_GetConnectedProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectedProfiles" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_GetConnectedProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectedProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_IsAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAdmin" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_IsAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_IsBanned_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsBanned" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_IsBanned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsBannedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_IsConnected_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnected" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_IsConnected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_SetThePlayersAreInGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetThePlayersAreInGame" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_SetThePlayersAreInGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetThePlayersAreInGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_SetThePlayersAreNotInGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetThePlayersAreNotInGame" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_SetThePlayersAreNotInGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetThePlayersAreNotInGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_ThePlayersAreInGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThePlayersAreInGame" />
+  </wsdl:message>
+  <wsdl:message name="ILobbyNonCallbackMethods_ThePlayersAreInGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThePlayersAreInGameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILobbyNonCallbackMethods">
+    <wsdl:operation name="GetAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/GetAdmin" message="tns:ILobbyNonCallbackMethods_GetAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/GetAdminResponse" message="tns:ILobbyNonCallbackMethods_GetAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannedProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/GetBannedProfiles" message="tns:ILobbyNonCallbackMethods_GetBannedProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/GetBannedProfilesResponse" message="tns:ILobbyNonCallbackMethods_GetBannedProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectedProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/GetConnectedProfiles" message="tns:ILobbyNonCallbackMethods_GetConnectedProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/GetConnectedProfilesResponse" message="tns:ILobbyNonCallbackMethods_GetConnectedProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/IsAdmin" message="tns:ILobbyNonCallbackMethods_IsAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/IsAdminResponse" message="tns:ILobbyNonCallbackMethods_IsAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsBanned">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/IsBanned" message="tns:ILobbyNonCallbackMethods_IsBanned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/IsBannedResponse" message="tns:ILobbyNonCallbackMethods_IsBanned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsConnected">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/IsConnected" message="tns:ILobbyNonCallbackMethods_IsConnected_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/IsConnectedResponse" message="tns:ILobbyNonCallbackMethods_IsConnected_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetThePlayersAreInGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/SetThePlayersAreInGame" message="tns:ILobbyNonCallbackMethods_SetThePlayersAreInGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/SetThePlayersAreInGameResponse" message="tns:ILobbyNonCallbackMethods_SetThePlayersAreInGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetThePlayersAreNotInGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/SetThePlayersAreNotInGame" message="tns:ILobbyNonCallbackMethods_SetThePlayersAreNotInGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/SetThePlayersAreNotInGameResponse" message="tns:ILobbyNonCallbackMethods_SetThePlayersAreNotInGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThePlayersAreInGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/ThePlayersAreInGame" message="tns:ILobbyNonCallbackMethods_ThePlayersAreInGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILobbyNonCallbackMethods/ThePlayersAreInGameResponse" message="tns:ILobbyNonCallbackMethods_ThePlayersAreInGame_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_ILobbyNonCallbackMethods" type="tns:ILobbyNonCallbackMethods">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILobbyNonCallbackMethods_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannedProfiles">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/GetBannedProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectedProfiles">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/GetConnectedProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAdmin">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/IsAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsBanned">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/IsBanned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsConnected">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/IsConnected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetThePlayersAreInGame">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/SetThePlayersAreInGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetThePlayersAreNotInGame">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/SetThePlayersAreNotInGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThePlayersAreInGame">
+      <soap12:operation soapAction="http://tempuri.org/ILobbyNonCallbackMethods/ThePlayersAreInGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceLobbyForNonCallbackMethods">
+    <wsdl:port name="NetTcpBinding_ILobbyNonCallbackMethods" binding="tns:NetTcpBinding_ILobbyNonCallbackMethods">
+      <soap12:address location="net.tcp://192.168.43.250:8100/ServiceLobbyForNonCallbackMethods" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.43.250:8100/ServiceLobbyForNonCallbackMethods</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

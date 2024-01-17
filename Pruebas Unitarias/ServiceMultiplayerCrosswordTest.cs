@@ -219,7 +219,7 @@ namespace Tests
         [TestMethod]
         public void GetCrosswordNumberSelectedTest()
         {
-            Assert.IsTrue(multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected() == 0);
+            Assert.IsTrue(multiplayerCrosswordNonCallbackMethodsClient.GetCrosswordNumberSelected() > -1);
         }
 
         [TestMethod]

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.43.250:8050/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
+  <xs:import schemaLocation="http://192.168.43.250:8050/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
+  <xs:element name="GetFriendsRequestsByProfileID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFriendsRequestsByProfileIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="GetFriendsRequestsByProfileIDResult" nillable="true" type="q1:ArrayOfFriendRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFriendsRequestsByProfile1ID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFriendsRequestsByProfile1IDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="GetFriendsRequestsByProfile1IDResult" nillable="true" type="q2:ArrayOfFriendRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFriendRequestByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDFriendRequest" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFriendRequestByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetFriendRequestByIDResult" nillable="true" type="q3:FriendRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendientsForAceptationFriendsRequestsByProfile1ID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDProfile1" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendientsForAceptationFriendsRequestsByProfile1IDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetPendientsForAceptationFriendsRequestsByProfile1IDResult" nillable="true" type="q4:ArrayOfFriendRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSentAndPendientsForAceptationFriendsRequestsByProfileID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDProfile" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResult" nillable="true" type="q5:ArrayOfFriendRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transmitterProfileID" type="xs:long" />
+        <xs:element minOccurs="0" name="receiverProfileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transmitterProfileID" type="xs:long" />
+        <xs:element minOccurs="0" name="senderProfileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFriendRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="friendRequests" nillable="true" type="q6:FriendRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFriendRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptFriendRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="friendRequests" nillable="true" type="q7:FriendRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptFriendRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelFriendRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="friendRequests" nillable="true" type="q8:FriendRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelFriendRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectFriendRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DatabaseManager" minOccurs="0" name="friendRequests" nillable="true" type="q9:FriendRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectFriendRequestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

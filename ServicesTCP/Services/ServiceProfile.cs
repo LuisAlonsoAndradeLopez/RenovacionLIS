@@ -12,6 +12,7 @@ using System.ServiceModel;
 using DatabaseManager;
 using domain;
 using DomainStatuses;
+using ServicesTCP.AuxiliaryContracts;
 using ServicesTCP.ServiceContracts;
 
 namespace ServicesTCP.Services
@@ -51,6 +52,46 @@ namespace ServicesTCP.Services
             }
 
             return generatedID;
+        }
+
+        public long AddScoreToProfile(int profileID, int score)
+        {
+            long successStatus = 0;
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                Profiles profileToModify = databaseModelContainer.ProfilesSet.Find(profileID);
+                if (profileToModify != null)
+                {
+                    profileToModify.Score += score;
+
+                    databaseModelContainer.SaveChanges();
+
+                    successStatus++;
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (DbUpdateException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (EntityCommandCompilationException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (EntityCommandExecutionException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+
+            return successStatus;
         }
 
         public void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, long profileID)
@@ -118,7 +159,7 @@ namespace ServicesTCP.Services
                         Profile profile = new Profile
                         {
                             IDProfile = p.IDProfile,
-                            Coins = (long)p.Coins,
+                            Score = (long)p.Score,
                             LoginStatus = p.LoginStatus,
                             Player = profilePlayer
                         };
@@ -199,7 +240,7 @@ namespace ServicesTCP.Services
                     player.Password = profiles.Players.Password;
 
                     profile.IDProfile = profiles.IDProfile;
-                    profile.Coins = (long)profiles.Coins;
+                    profile.Score = (long)profiles.Score;
                     profile.LoginStatus = profiles.LoginStatus;
 
                     profile.Player = player;
@@ -239,6 +280,55 @@ namespace ServicesTCP.Services
             return profile;
         }
 
+        public List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> GetAllProfilesAndItsScore()
+        {
+            List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword> profilesAndItsPointsForTransport = new List<DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword>();
+
+            try
+            {
+                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                List<Profiles> profilesList = databaseModelContainer.ProfilesSet.ToList();                
+
+                foreach (var profileAndItsPoints in profilesList)
+                {
+                    DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword dictionary = new DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword
+                    {
+                        Key = profileAndItsPoints.Players.NickName,
+                        Value = (int)profileAndItsPoints.Score
+                    };
+
+                    profilesAndItsPointsForTransport.Add(dictionary);
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (DbUpdateException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (EntityCommandCompilationException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (EntityCommandExecutionException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+            catch (SqlNullValueException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
+            }
+
+            return profilesAndItsPointsForTransport;
+        }
+
         public Profile GetProfileByPlayerID(long playerID)
         {
             Profile profile = new Profile();
@@ -261,7 +351,7 @@ namespace ServicesTCP.Services
                     player.Password = profiles.Players.Password;
 
                     profile.IDProfile = profiles.IDProfile;
-                    profile.Coins = (long)profiles.Coins;
+                    profile.Score = (long)profiles.Score;
                     profile.LoginStatus = profiles.LoginStatus;
 
                     profile.Player = player;
@@ -323,7 +413,7 @@ namespace ServicesTCP.Services
                     player.Password = profiles.Players.Password;
 
                     profile.IDProfile = profiles.IDProfile;
-                    profile.Coins = (long)profiles.Coins;
+                    profile.Score = (long)profiles.Score;
                     profile.LoginStatus = profiles.LoginStatus;
 
                     profile.Player = player;

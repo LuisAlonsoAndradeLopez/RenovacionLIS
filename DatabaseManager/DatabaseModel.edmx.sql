@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/13/2023 00:17:17
+-- Date Created: 01/17/2024 11:32:32
 -- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -105,7 +105,7 @@ GO
 -- Creating table 'ProfilesSet'
 CREATE TABLE [dbo].[ProfilesSet] (
     [IDProfile] bigint IDENTITY(1,1) NOT NULL,
-    [Coins] bigint  NULL,
+    [Score] bigint  NULL,
     [LoginStatus] nvarchar(max)  NOT NULL,
     [Players_IDPlayer] bigint  NOT NULL
 );

@@ -15,15 +15,6 @@ namespace DatabaseManager
     
     public partial class DatabaseModelContainer : DbContext
     {
-        public virtual DbSet<Players> PlayersSet { get; set; }
-        public virtual DbSet<Profiles> ProfilesSet { get; set; }
-        public virtual DbSet<Crucigrams> CrucigramsSet { get; set; }
-        public virtual DbSet<Levels> LevelsSet { get; set; }
-        public virtual DbSet<Words> WordsSet { get; set; }
-        public virtual DbSet<FriendRequests> FriendRequestsSet { get; set; }
-
-        public DbSet<ProfilesProfiles> ProfilesProfiles { get; set; }
-
         public DatabaseModelContainer()
             : base("name=DatabaseModelContainer")
         {
@@ -33,6 +24,12 @@ namespace DatabaseManager
         {
             throw new UnintentionalCodeFirstException();
         }
-        
+    
+        public virtual DbSet<Players> PlayersSet { get; set; }
+        public virtual DbSet<Profiles> ProfilesSet { get; set; }
+        public virtual DbSet<Crucigrams> CrucigramsSet { get; set; }
+        public virtual DbSet<Levels> LevelsSet { get; set; }
+        public virtual DbSet<Words> WordsSet { get; set; }
+        public virtual DbSet<FriendRequests> FriendRequestsSet { get; set; }
     }
 }

@@ -132,7 +132,7 @@ namespace ServicesTCP.Services
                     Profile profile = new Profile
                     {
                         IDProfile = friendRequests.Profiles.IDProfile,
-                        Coins = (long)friendRequests.Profiles.Coins,
+                        Score = (long)friendRequests.Profiles.Score,
                         LoginStatus = friendRequests.Profiles.LoginStatus,
                         Player = playerProfile
                     };
@@ -140,7 +140,7 @@ namespace ServicesTCP.Services
                     Profile profile1 = new Profile
                     {
                         IDProfile = friendRequests.Profiles1.IDProfile,
-                        Coins = (long)friendRequests.Profiles1.Coins,
+                        Score = (long)friendRequests.Profiles1.Score,
                         LoginStatus = friendRequests.Profiles1.LoginStatus,
                         Player = playerProfile1
                     };
@@ -324,7 +324,7 @@ namespace ServicesTCP.Services
                 Profile profile = new Profile
                 {
                     IDProfile = friendRequests.Profiles.IDProfile,
-                    Coins = (long)friendRequests.Profiles.Coins,
+                    Score = (long)friendRequests.Profiles.Score,
                     LoginStatus = friendRequests.Profiles.LoginStatus,
                     Player = playerProfile
                 };
@@ -332,7 +332,7 @@ namespace ServicesTCP.Services
                 Profile profile1 = new Profile
                 {
                     IDProfile = friendRequests.Profiles1.IDProfile,
-                    Coins = (long)friendRequests.Profiles1.Coins,
+                    Score = (long)friendRequests.Profiles1.Score,
                     LoginStatus = friendRequests.Profiles1.LoginStatus,
                     Player = playerProfile1
                 };

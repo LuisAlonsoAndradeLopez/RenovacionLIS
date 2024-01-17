@@ -73,7 +73,7 @@
       <PropertyRef Name="IDProfile" />
     </Key>
     <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Coins" Type="bigint" Nullable="true" />
+    <Property Name="Score" Type="bigint" Nullable="true" />
     <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Players_IDPlayer" Type="bigint" Nullable="false" />
   </EntityType>

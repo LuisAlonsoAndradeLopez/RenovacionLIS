@@ -423,3 +423,133 @@ Nombre de archivo: 'C:\Users\wmike\OneDrive\Documentos\RenovaciónLISUsersProfil
    en System.IO.File.InternalReadAllBytes(String path, Boolean checkHost)
    en System.IO.File.ReadAllBytes(String path)
    en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.GetImage(String fileName) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 166
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServicePlayer.AddPlayer(Players player) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServicePlayer.cs:línea 30
+Exception: System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en ServicesTCP.Services.ServiceProfileForNonCallbackMethods.AddProfile(Profiles profiles) en C:\Users\wmike\OneDrive\Documentos\Renovación LIS\ServicesTCP\Services\ServiceProfile.cs:línea 29

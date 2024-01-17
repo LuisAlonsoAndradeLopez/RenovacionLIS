@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceFriendRequestForNonCallbackMethods" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IFriendRequestNonCallbackMethods_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.43.250:8050/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.43.250:8050/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.43.250:8050/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
+      <xsd:import schemaLocation="http://192.168.43.250:8050/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfileID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfileID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfileID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfile1ID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfile1ID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfile1ID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsRequestsByProfile1IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetFriendRequestByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendRequestByID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetFriendRequestByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendRequestByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetPendientsForAceptationFriendsRequestsByProfile1ID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendientsForAceptationFriendsRequestsByProfile1ID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetPendientsForAceptationFriendsRequestsByProfile1ID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendientsForAceptationFriendsRequestsByProfile1IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentAndPendientsForAceptationFriendsRequestsByProfileID" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_AddFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_AddFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_AcceptFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_AcceptFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_CancelFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_CancelFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_RejectFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IFriendRequestNonCallbackMethods_RejectFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFriendRequestNonCallbackMethods">
+    <wsdl:operation name="GetFriendsRequestsByProfileID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendsRequestsByProfileID" message="tns:IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfileID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendsRequestsByProfileIDResponse" message="tns:IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfileID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsRequestsByProfile1ID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendsRequestsByProfile1ID" message="tns:IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfile1ID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendsRequestsByProfile1IDResponse" message="tns:IFriendRequestNonCallbackMethods_GetFriendsRequestsByProfile1ID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequestByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendRequestByID" message="tns:IFriendRequestNonCallbackMethods_GetFriendRequestByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendRequestByIDResponse" message="tns:IFriendRequestNonCallbackMethods_GetFriendRequestByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendientsForAceptationFriendsRequestsByProfile1ID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetPendientsForAceptationFriendsRequestsByProfile1ID" message="tns:IFriendRequestNonCallbackMethods_GetPendientsForAceptationFriendsRequestsByProfile1ID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetPendientsForAceptationFriendsRequestsByProfile1IDResponse" message="tns:IFriendRequestNonCallbackMethods_GetPendientsForAceptationFriendsRequestsByProfile1ID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSentAndPendientsForAceptationFriendsRequestsByProfileID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetSentAndPendientsForAceptationFriendsRequestsByProfileID" message="tns:IFriendRequestNonCallbackMethods_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/GetSentAndPendientsForAceptationFriendsRequestsByProfileIDResponse" message="tns:IFriendRequestNonCallbackMethods_GetSentAndPendientsForAceptationFriendsRequestsByProfileID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" message="tns:IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfileResponse" message="tns:IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile" message="tns:IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfileResponse" message="tns:IFriendRequestNonCallbackMethods_TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/AddFriendRequest" message="tns:IFriendRequestNonCallbackMethods_AddFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/AddFriendRequestResponse" message="tns:IFriendRequestNonCallbackMethods_AddFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/AcceptFriendRequest" message="tns:IFriendRequestNonCallbackMethods_AcceptFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/AcceptFriendRequestResponse" message="tns:IFriendRequestNonCallbackMethods_AcceptFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/CancelFriendRequest" message="tns:IFriendRequestNonCallbackMethods_CancelFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/CancelFriendRequestResponse" message="tns:IFriendRequestNonCallbackMethods_CancelFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/RejectFriendRequest" message="tns:IFriendRequestNonCallbackMethods_RejectFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFriendRequestNonCallbackMethods/RejectFriendRequestResponse" message="tns:IFriendRequestNonCallbackMethods_RejectFriendRequest_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IFriendRequestNonCallbackMethods" type="tns:IFriendRequestNonCallbackMethods">
+    <wsp:PolicyReference URI="#NetTcpBinding_IFriendRequestNonCallbackMethods_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetFriendsRequestsByProfileID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendsRequestsByProfileID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsRequestsByProfile1ID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendsRequestsByProfile1ID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequestByID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/GetFriendRequestByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendientsForAceptationFriendsRequestsByProfile1ID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/GetPendientsForAceptationFriendsRequestsByProfile1ID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentAndPendientsForAceptationFriendsRequestsByProfileID">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/GetSentAndPendientsForAceptationFriendsRequestsByProfileID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/TheLoggedPlayerAlreadyHasSentAFriendRequestToTheNicknameTextBoxProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/TheLoggedPlayerAlreadyHasReceivedAFriendRequestFromTheNicknameTextBoxProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/AddFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/AcceptFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/CancelFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectFriendRequest">
+      <soap12:operation soapAction="http://tempuri.org/IFriendRequestNonCallbackMethods/RejectFriendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceFriendRequestForNonCallbackMethods">
+    <wsdl:port name="NetTcpBinding_IFriendRequestNonCallbackMethods" binding="tns:NetTcpBinding_IFriendRequestNonCallbackMethods">
+      <soap12:address location="net.tcp://192.168.43.250:8060/ServiceFriendRequestForNonCallbackMethods" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.43.250:8060/ServiceFriendRequestForNonCallbackMethods</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

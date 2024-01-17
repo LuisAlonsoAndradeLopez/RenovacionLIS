@@ -129,7 +129,7 @@
     <Property Name="sonaranalyzer-vbnet.pluginKey">vbnet</Property>
     <Property Name="sonar.updatecenter.url">https://update.sonarsource.org/update-center.properties</Property>
     <Property Name="sonar.core.id">147B411E-AYvwUY3sPADY1UWxU36a</Property>
-    <Property Name="sonar.core.startTime">15/01/2024 05:42:01 p. m.</Property>
+    <Property Name="sonar.core.startTime">17/01/2024 12:45:20 a. m.</Property>
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">http://localhost:9000</Property>

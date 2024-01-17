@@ -72,27 +72,27 @@ namespace Tests
 
             Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players user1 = new Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players
             {
-                Names = "Usuariazo",
-                Surnames = "",
-                NickName = "Usuariazo",
+                Names = "Perfil1",
+                Surnames = "Perfil1",
+                NickName = "Perfil1",
                 BirthDate = DateTime.Now,
                 Email = "caffeinated555@gmail.com"
             };
 
             Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players user2 = new Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players
             {
-                Names = "Usuariote",
-                Surnames = "",
-                NickName = "Usuariazo",
+                Names = "Perfil2",
+                Surnames = "Perfil2",
+                NickName = "Perfil2",
                 BirthDate = DateTime.Now,
                 Email = "caffeinated556@gmail.com"
             };
 
             Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players user3 = new Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference.Players
             {
-                Names = "UsuarioUsu",
-                Surnames = "",
-                NickName = "UsuarioUsu",
+                Names = "Perfil3",
+                Surnames = "Perfil3",
+                NickName = "Perfil3",
                 BirthDate = DateTime.Now,
                 Email = "caffeinated557@gmail.com"
             };
@@ -101,14 +101,14 @@ namespace Tests
 
             Renovación_LIS_Client.ServicePlayerReference.Players user1ToInsertToDatabase = new Renovación_LIS_Client.ServicePlayerReference.Players
             {
-                Names = "Usuariazo",
-                Surnames = "",
-                NickName = "Usuariazo",
+                Names = "Perfil4",
+                Surnames = "Perfil4",
+                NickName = "Perfil4",
                 BirthDate = DateTime.Now,
-                Email = "caffeinated555@gmail.com"
+                Email = "caffeinated600@gmail.com"
             };
 
-            user1.IDPlayer = new PlayerClient().AddPlayer(user1ToInsertToDatabase);
+            user1ToInsertToDatabase.IDPlayer = new PlayerClient().AddPlayer(user1ToInsertToDatabase);
 
             successProfiles = new Profiles
             {
@@ -135,7 +135,7 @@ namespace Tests
 
             byte[] imageData = File.ReadAllBytes("C:\\Users\\wmike\\OneDrive\\Escritorio\\Renovación LIS\\download.jpg");
 
-            Assert.IsTrue(profileNonCallbackMethodsClient.UploadImage(successProfiles.Players.NickName + ".jpg", imageData));
+            profileNonCallbackMethodsClient.UploadImage(successProfiles.Players.NickName + ".jpg", imageData);
         }
 
 

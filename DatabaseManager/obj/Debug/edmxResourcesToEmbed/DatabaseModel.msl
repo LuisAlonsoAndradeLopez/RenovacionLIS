@@ -18,7 +18,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Profiles)">
         <MappingFragment StoreEntitySet="ProfilesSet">
           <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
-          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
           <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
         </MappingFragment>
       </EntityTypeMapping>

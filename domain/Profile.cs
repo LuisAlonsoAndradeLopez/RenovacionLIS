@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace domain
+﻿namespace domain
 {
     public class Profile
     {
@@ -15,7 +6,7 @@ namespace domain
 
         public byte[] ProfilePicture { get; set; }
 
-        public long Coins { get; set; }
+        public long Score { get; set; }
 
         public string LoginStatus { get; set; }
 
