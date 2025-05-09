@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="PlayersSet" EntityType="DatabaseModel.Store.PlayersSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ProfilesSet" EntityType="DatabaseModel.Store.ProfilesSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CrucigramsSet" EntityType="DatabaseModel.Store.CrucigramsSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="LevelsSet" EntityType="DatabaseModel.Store.LevelsSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="WordsSet" EntityType="DatabaseModel.Store.WordsSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="FriendRequestsSet" EntityType="DatabaseModel.Store.FriendRequestsSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CrucigramsWords" EntityType="DatabaseModel.Store.CrucigramsWords" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ProfilesCrucigrams" EntityType="DatabaseModel.Store.ProfilesCrucigrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CrucigramsLevels" EntityType="DatabaseModel.Store.CrucigramsLevels" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ProfilesProfiles" EntityType="DatabaseModel.Store.ProfilesProfiles" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="ProfilesPlayers" Association="DatabaseModel.Store.ProfilesPlayers">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="Players" EntitySet="PlayersSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsWords_Crucigrams" Association="DatabaseModel.Store.FK_CrucigramsWords_Crucigrams">
+      <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+      <End Role="CrucigramsWords" EntitySet="CrucigramsWords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsWords_Words" Association="DatabaseModel.Store.FK_CrucigramsWords_Words">
+      <End Role="Words" EntitySet="WordsSet" />
+      <End Role="CrucigramsWords" EntitySet="CrucigramsWords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesCrucigrams_Profiles" Association="DatabaseModel.Store.FK_ProfilesCrucigrams_Profiles">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="ProfilesCrucigrams" EntitySet="ProfilesCrucigrams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesCrucigrams_Crucigrams" Association="DatabaseModel.Store.FK_ProfilesCrucigrams_Crucigrams">
+      <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+      <End Role="ProfilesCrucigrams" EntitySet="ProfilesCrucigrams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsLevels_Crucigrams" Association="DatabaseModel.Store.FK_CrucigramsLevels_Crucigrams">
+      <End Role="Crucigrams" EntitySet="CrucigramsSet" />
+      <End Role="CrucigramsLevels" EntitySet="CrucigramsLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrucigramsLevels_Levels" Association="DatabaseModel.Store.FK_CrucigramsLevels_Levels">
+      <End Role="Levels" EntitySet="LevelsSet" />
+      <End Role="CrucigramsLevels" EntitySet="CrucigramsLevels" />
+    </AssociationSet>
+    <AssociationSet Name="ProfilesFriendRequests" Association="DatabaseModel.Store.ProfilesFriendRequests">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="FriendRequests" EntitySet="FriendRequestsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesProfiles_Profiles" Association="DatabaseModel.Store.FK_ProfilesProfiles_Profiles">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="ProfilesProfiles" EntitySet="ProfilesProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesProfiles_Profiles1" Association="DatabaseModel.Store.FK_ProfilesProfiles_Profiles1">
+      <End Role="Profiles1" EntitySet="ProfilesSet" />
+      <End Role="ProfilesProfiles" EntitySet="ProfilesProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="ProfilesFriendRequests1" Association="DatabaseModel.Store.ProfilesFriendRequests1">
+      <End Role="Profiles" EntitySet="ProfilesSet" />
+      <End Role="FriendRequests" EntitySet="FriendRequestsSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PlayersSet">
+    <Key>
+      <PropertyRef Name="IDPlayer" />
+    </Key>
+    <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Names" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surnames" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilesSet">
+    <Key>
+      <PropertyRef Name="IDProfile" />
+    </Key>
+    <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Score" Type="bigint" Nullable="true" />
+    <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Players_IDPlayer" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrucigramsSet">
+    <Key>
+      <PropertyRef Name="IDCrucigram" />
+    </Key>
+    <Property Name="IDCrucigram" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LevelsSet">
+    <Key>
+      <PropertyRef Name="IDLevel" />
+    </Key>
+    <Property Name="IDLevel" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LevelName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Difficulty" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="WordsSet">
+    <Key>
+      <PropertyRef Name="IDWord" />
+    </Key>
+    <Property Name="IDWord" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Word" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FriendRequestsSet">
+    <Key>
+      <PropertyRef Name="IDFriendRequest" />
+    </Key>
+    <Property Name="IDFriendRequest" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="SendingStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AceptationStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Profiles_IDProfile" Type="bigint" Nullable="false" />
+    <Property Name="Profiles1_IDProfile" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrucigramsWords">
+    <Key>
+      <PropertyRef Name="Crucigrams_IDCrucigram" />
+      <PropertyRef Name="Words_IDWord" />
+    </Key>
+    <Property Name="Crucigrams_IDCrucigram" Type="bigint" Nullable="false" />
+    <Property Name="Words_IDWord" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilesCrucigrams">
+    <Key>
+      <PropertyRef Name="Profiles_IDProfile" />
+      <PropertyRef Name="Crucigrams_IDCrucigram" />
+    </Key>
+    <Property Name="Profiles_IDProfile" Type="bigint" Nullable="false" />
+    <Property Name="Crucigrams_IDCrucigram" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrucigramsLevels">
+    <Key>
+      <PropertyRef Name="Crucigrams_IDCrucigram" />
+      <PropertyRef Name="Levels_IDLevel" />
+    </Key>
+    <Property Name="Crucigrams_IDCrucigram" Type="bigint" Nullable="false" />
+    <Property Name="Levels_IDLevel" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilesProfiles">
+    <Key>
+      <PropertyRef Name="Profiles2_IDProfile" />
+      <PropertyRef Name="Profiles1_IDProfile" />
+    </Key>
+    <Property Name="Profiles2_IDProfile" Type="bigint" Nullable="false" />
+    <Property Name="Profiles1_IDProfile" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="ProfilesPlayers">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="*" />
+    <End Role="Players" Type="DatabaseModel.Store.PlayersSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="IDPlayer" />
+      </Principal>
+      <Dependent Role="Profiles">
+        <PropertyRef Name="Players_IDPlayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfilesFriendRequests">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="1" />
+    <End Role="FriendRequests" Type="DatabaseModel.Store.FriendRequestsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="FriendRequests">
+        <PropertyRef Name="Profiles_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfilesFriendRequests1">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="1" />
+    <End Role="FriendRequests" Type="DatabaseModel.Store.FriendRequestsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="FriendRequests">
+        <PropertyRef Name="Profiles1_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsWords_Crucigrams">
+    <End Role="Crucigrams" Type="DatabaseModel.Store.CrucigramsSet" Multiplicity="1" />
+    <End Role="CrucigramsWords" Type="DatabaseModel.Store.CrucigramsWords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crucigrams">
+        <PropertyRef Name="IDCrucigram" />
+      </Principal>
+      <Dependent Role="CrucigramsWords">
+        <PropertyRef Name="Crucigrams_IDCrucigram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsWords_Words">
+    <End Role="CrucigramsWords" Type="DatabaseModel.Store.CrucigramsWords" Multiplicity="*" />
+    <End Role="Words" Type="DatabaseModel.Store.WordsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Words">
+        <PropertyRef Name="IDWord" />
+      </Principal>
+      <Dependent Role="CrucigramsWords">
+        <PropertyRef Name="Words_IDWord" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesCrucigrams_Profiles">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="1" />
+    <End Role="ProfilesCrucigrams" Type="DatabaseModel.Store.ProfilesCrucigrams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="ProfilesCrucigrams">
+        <PropertyRef Name="Profiles_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesCrucigrams_Crucigrams">
+    <End Role="ProfilesCrucigrams" Type="DatabaseModel.Store.ProfilesCrucigrams" Multiplicity="*" />
+    <End Role="Crucigrams" Type="DatabaseModel.Store.CrucigramsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Crucigrams">
+        <PropertyRef Name="IDCrucigram" />
+      </Principal>
+      <Dependent Role="ProfilesCrucigrams">
+        <PropertyRef Name="Crucigrams_IDCrucigram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsLevels_Crucigrams">
+    <End Role="Crucigrams" Type="DatabaseModel.Store.CrucigramsSet" Multiplicity="1" />
+    <End Role="CrucigramsLevels" Type="DatabaseModel.Store.CrucigramsLevels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crucigrams">
+        <PropertyRef Name="IDCrucigram" />
+      </Principal>
+      <Dependent Role="CrucigramsLevels">
+        <PropertyRef Name="Crucigrams_IDCrucigram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrucigramsLevels_Levels">
+    <End Role="CrucigramsLevels" Type="DatabaseModel.Store.CrucigramsLevels" Multiplicity="*" />
+    <End Role="Levels" Type="DatabaseModel.Store.LevelsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Levels">
+        <PropertyRef Name="IDLevel" />
+      </Principal>
+      <Dependent Role="CrucigramsLevels">
+        <PropertyRef Name="Levels_IDLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesProfiles_Profiles">
+    <End Role="Profiles" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="1" />
+    <End Role="ProfilesProfiles" Type="DatabaseModel.Store.ProfilesProfiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="ProfilesProfiles">
+        <PropertyRef Name="Profiles2_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesProfiles_Profiles1">
+    <End Role="ProfilesProfiles" Type="DatabaseModel.Store.ProfilesProfiles" Multiplicity="*" />
+    <End Role="Profiles1" Type="DatabaseModel.Store.ProfilesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles1">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="ProfilesProfiles">
+        <PropertyRef Name="Profiles1_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

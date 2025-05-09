@@ -1,0 +1,32 @@
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Styles\ButtonStyles.baml
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Styles\Fonts.baml
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Styles\FrameStyle.baml
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Styles\LabelStyle.baml
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Styles\TextBoxStyles.baml
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\AnimationView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\BannedPlayersView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\ChatView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\ConfigurationView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\CreateAccountView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\ForgotPassword.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\FriendsView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\GamemodeSelectionView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\LevelOneTwoView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\LevelView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\LobbyView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\LoginView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\MainWindow.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\MenuView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\ModifyProfileView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\MultiplayerCrosswordView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\RandomMultiplayerCrosswordGeneratorView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\ScoreView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\StartView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\UserControls\UserControlScore.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\VictoryView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\View\WinnersView.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\App.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Renovación LIS Client_Content.g.cs
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Renovación LIS Client_MarkupCompile.cache
+C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Renovación LIS Client_MarkupCompile.lref

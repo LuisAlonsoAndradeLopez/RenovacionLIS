@@ -1,7 +1,0 @@
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\bin\Debug\ServicesCallbacks.dll.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\bin\Debug\ServicesCallbacks.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\bin\Debug\ServicesCallbacks.pdb
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\obj\Debug\ServicesCallbacks.csproj.AssemblyReference.cache
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\obj\Debug\ServicesCallbacks.csproj.CoreCompileInputs.cache
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\obj\Debug\ServicesCallbacks.dll
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\Renovación LIS Client\ServicesCallbacks\obj\Debug\ServicesCallbacks.pdb

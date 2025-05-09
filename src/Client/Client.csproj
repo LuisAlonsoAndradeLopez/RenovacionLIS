@@ -1,0 +1,933 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EEA7210-1626-4A14-821B-147589BDB6E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Renovación_LIS_Client</RootNamespace>
+    <AssemblyName>Renovación LIS Client</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Renovación_LIS_Client.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="Intersoft.Crosslight, Version=6.0.5000.1, Culture=neutral, PublicKeyToken=71f3e3261ac778b5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Intersoft.Crosslight.6.0.5000.975\lib\Intersoft.Crosslight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AuxiliaryClasses\AlertPopUpGenerator.cs" />
+    <Compile Include="AuxiliaryClasses\ImageLoader.cs" />
+    <Compile Include="Connected Services\ServiceChatForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceChatForNonCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceLobbyForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServicePlayerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="DomainStatuses\FriendRequestAceptationStatuses.cs" />
+    <Compile Include="DomainStatuses\FriendRequestSendingStatuses.cs" />
+    <Compile Include="DomainStatuses\ProfileLoginStatuses.cs" />
+    <Compile Include="Domain\Crucigram.cs" />
+    <Compile Include="Domain\FriendRequest.cs" />
+    <Compile Include="Domain\Level.cs" />
+    <Compile Include="Domain\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Domain\obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Domain\Player.cs" />
+    <Compile Include="Domain\Profile.cs" />
+    <Compile Include="Domain\Properties\AssemblyInfo.cs" />
+    <Compile Include="Domain\Word.cs" />
+    <Compile Include="Helpers\LevelProvider.cs" />
+    <Compile Include="Helpers\SongManager.cs" />
+    <Compile Include="Helpers\Word.cs" />
+    <Compile Include="Lang\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Lang\obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Lang\Properties\AssemblyInfo.cs" />
+    <Compile Include="Lang\Resources.en.US.Designer.cs" />
+    <Compile Include="Lang\Resources.es-MX.Designer.cs" />
+    <Compile Include="View\AnimationView.xaml.cs">
+      <DependentUpon>AnimationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BannedPlayersView.xaml.cs">
+      <DependentUpon>BannedPlayersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChatView.xaml.cs">
+      <DependentUpon>ChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfigurationView.xaml.cs">
+      <DependentUpon>ConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateAccountView.xaml.cs">
+      <DependentUpon>CreateAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FriendsView.xaml.cs">
+      <DependentUpon>FriendsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GamemodeSelectionView.xaml.cs">
+      <DependentUpon>GamemodeSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelOneTwoView.xaml.cs">
+      <DependentUpon>LevelOneTwoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelView.xaml.cs">
+      <DependentUpon>LevelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LobbyView.xaml.cs">
+      <DependentUpon>LobbyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModifyProfileView.xaml.cs">
+      <DependentUpon>ModifyProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultiplayerCrosswordView.xaml.cs">
+      <DependentUpon>MultiplayerCrosswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RandomMultiplayerCrosswordGeneratorView.xaml.cs">
+      <DependentUpon>RandomMultiplayerCrosswordGeneratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScoreView.xaml.cs">
+      <DependentUpon>ScoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StartView.xaml.cs">
+      <DependentUpon>StartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\UserControlScore.xaml.cs">
+      <DependentUpon>UserControlScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VictoryView.xaml.cs">
+      <DependentUpon>VictoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WinnersView.xaml.cs">
+      <DependentUpon>WinnersView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Styles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\FrameStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\LabelStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TextBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AnimationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\BannedPlayersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConfigurationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateAccountView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FriendsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GamemodeSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LevelOneTwoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LevelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LobbyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ModifyProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultiplayerCrosswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RandomMultiplayerCrosswordGeneratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ScoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\UserControlScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VictoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WinnersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Lang\obj\Debug\lang.Resources.en.US.resources" />
+    <EmbeddedResource Include="Lang\obj\Debug\lang.Resources.es-MX.resources" />
+    <EmbeddedResource Include="Lang\Resources.en.US.resx" />
+    <EmbeddedResource Include="Lang\Resources.es-MX.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Fonts\K2D-Bold.ttf" />
+    <Resource Include="Fonts\K2D-Regular.ttf" />
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\ServiceChatForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\ServiceChatForNonCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\ServiceFriendRequestForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\ServiceFriendRequestForNonCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\ServiceLobbyForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\ServiceLobbyForNonCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\ServiceMultiplayerCrosswordForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\ServiceMultiplayerCrosswordForNonCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServicePlayerReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\item43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicePlayerReference\ServicePlayer1.wsdl" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\ServiceProfileForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\ServiceProfileForNonCallbackMethods.wsdl" />
+    <None Include="Domain\App.config" />
+    <None Include="Domain\bin\Debug\domain.dll.config" />
+    <None Include="Domain\domain.csproj" />
+    <None Include="Domain\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="Domain\obj\Debug\Domain.csproj.AssemblyReference.cache" />
+    <None Include="Domain\obj\Debug\Domain.csproj.CopyComplete" />
+    <None Include="Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache" />
+    <None Include="Domain\obj\Release\domain.csproj.AssemblyReference.cache" />
+    <None Include="Domain\packages.config" />
+    <None Include="Lang\App.config" />
+    <None Include="Lang\bin\Debug\lang.dll.config" />
+    <None Include="Lang\lang.csproj" />
+    <None Include="Lang\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="Lang\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="Lang\obj\Debug\lang.csproj.AssemblyReference.cache" />
+    <None Include="Lang\obj\Debug\lang.csproj.CopyComplete" />
+    <None Include="Lang\obj\Debug\lang.csproj.CoreCompileInputs.cache" />
+    <None Include="Lang\obj\Debug\lang.csproj.GenerateResource.cache" />
+    <None Include="Lang\obj\Release\lang.csproj.AssemblyReference.cache" />
+    <None Include="Lang\packages.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
+    <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
+    <None Include="Properties\DataSources\domain.Player.datasource" />
+    <None Include="Properties\DataSources\domain.Player1.datasource" />
+    <None Include="Properties\DataSources\domain.Profile.datasource" />
+    <None Include="Properties\DataSources\domain.Profile1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\changePasswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\arrowDown.png" />
+    <Resource Include="images\createAccountImage.png" />
+    <Resource Include="images\GameLogo.png" />
+    <Resource Include="images\loginImage.png" />
+    <Resource Include="images\menuImage.png" />
+    <Resource Include="images\startPageImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\modifyProfileImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Domain.csproj">
+      <Project>{1F083135-139B-42BA-91E9-B8D96CFD7D3E}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainStatuses\DomainStatuses.csproj">
+      <Project>{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}</Project>
+      <Name>DomainStatuses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\configurationImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\friendsImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\OnlineSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\OfflineSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\chatImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bannedPlayersImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lobbyImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\winnersImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bannedPlayersButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\chatButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\configurationButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\friendsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\playButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceChatForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceChatForNonCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceLobbyForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServicePlayerReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProfileForCallbackMethodsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServicePlayerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\randomMultiplayerCrosswordGeneratorImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\105MultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bañoMultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\105MultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bañoMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\CC3MultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\salónCristalMultiplayerCrosswordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\WallpaperLevelOneImage.png" />
+    <Resource Include="images\GridLevels\Grid105.png" />
+    <Resource Include="images\GridLevels\GridCrystalSaloon.png" />
+    <Resource Include="images\GridLevels\GridDoctoratedInCS.png" />
+    <Resource Include="images\GridLevels\GridCC3.png" />
+    <Resource Include="images\GridLevels\GridECONEXBathroom.png" />
+    <Resource Include="images\GridLevels\GridLevelEight.png" />
+    <Resource Include="images\GridLevels\GridLevelFive.png" />
+    <Resource Include="images\GridLevels\GridLevelFour.png" />
+    <Resource Include="images\GridLevels\GridLevelSeven.png" />
+    <Resource Include="images\GridLevels\GridLevelSix.png" />
+    <Resource Include="images\GridLevels\GridLevelThree.png" />
+    <Resource Include="images\GridLevels\GridLevelTwo.png" />
+    <Resource Include="images\normalArrow.png" />
+    <Resource Include="images\playButtonImage.png" />
+    <Resource Include="images\storeButtonImage.png" />
+    <Resource Include="images\LevelsImage.png" />
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceLobbyForNonCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceMultiplayerCrosswordForNonCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServicePlayerReference\item1.disco" />
+    <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item.disco" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Domain\bin\Debug\domain.dll" />
+    <Content Include="Domain\bin\Debug\domain.pdb" />
+    <Content Include="Domain\bin\Debug\EntityFramework.dll" />
+    <Content Include="Domain\bin\Debug\EntityFramework.SqlServer.dll" />
+    <Resource Include="Domain\bin\Debug\EntityFramework.SqlServer.xml" />
+    <Resource Include="Domain\bin\Debug\EntityFramework.xml" />
+    <Resource Include="Domain\obj\Debug\domain.csproj.FileListAbsolute.txt" />
+    <Content Include="Domain\obj\Debug\domain.dll" />
+    <Content Include="Domain\obj\Debug\domain.pdb" />
+    <Content Include="Lang\bin\Debug\EntityFramework.dll" />
+    <Content Include="Lang\bin\Debug\EntityFramework.SqlServer.dll" />
+    <Resource Include="Lang\bin\Debug\EntityFramework.SqlServer.xml" />
+    <Resource Include="Lang\bin\Debug\EntityFramework.xml" />
+    <Content Include="Lang\bin\Debug\es-MX\lang.resources.dll" />
+    <Content Include="Lang\bin\Debug\lang.dll" />
+    <Content Include="Lang\bin\Debug\lang.pdb" />
+    <Content Include="Lang\obj\Debug\es-MX\lang.resources.dll" />
+    <Resource Include="Lang\obj\Debug\lang.csproj.FileListAbsolute.txt" />
+    <Content Include="Lang\obj\Debug\lang.dll" />
+    <Content Include="Lang\obj\Debug\lang.pdb" />
+    <Content Include="Lang\obj\Debug\TempPE\Resources.en.US.Designer.cs.dll" />
+    <Content Include="Lang\obj\Debug\TempPE\Resources.es-MX.Designer.cs.dll" />
+    <Resource Include="resources\Images\105MultiplayerCrosswordImage.png" />
+    <Resource Include="resources\Images\105MultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="resources\Images\arrowDown.png" />
+    <Resource Include="resources\Images\ArrowLeft.png" />
+    <Resource Include="resources\Images\ArrowRight.png" />
+    <Resource Include="resources\Images\bannedPlayersButton.png" />
+    <Resource Include="resources\Images\bannedPlayersImage.png" />
+    <Resource Include="resources\Images\bañoMultiplayerCrosswordImage.png" />
+    <Resource Include="resources\Images\bañoMultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="resources\Images\CC3MultiplayerCrosswordImage.png" />
+    <Resource Include="resources\Images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="resources\Images\changePasswordImage.png" />
+    <Resource Include="resources\Images\chatButton.png" />
+    <Resource Include="resources\Images\chatImage.png" />
+    <Resource Include="resources\Images\configurationButton.png" />
+    <Resource Include="resources\Images\configurationImage.png" />
+    <Resource Include="resources\Images\createAccountImage.png" />
+    <Resource Include="resources\Images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
+    <Resource Include="resources\Images\doctoradoENCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="resources\Images\friendsButton.png" />
+    <Resource Include="resources\Images\friendsButtonImage.png" />
+    <Resource Include="resources\Images\friendsImage.png" />
+    <Resource Include="resources\Images\GameLogo.ico" />
+    <Resource Include="resources\Images\GameLogo.png" />
+    <Resource Include="resources\Images\gamemodeSelectionImage.png" />
+    <Resource Include="resources\Images\GridLevels\Grid105.png" />
+    <Resource Include="resources\Images\GridLevels\GridCC3.png" />
+    <Resource Include="resources\Images\GridLevels\GridCrystalSaloon.png" />
+    <Resource Include="resources\Images\GridLevels\GridDoctoratedInCS.png" />
+    <Resource Include="resources\Images\GridLevels\GridECONEXBathroom.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelEight.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelFive.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelFour.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelOne.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelSeven.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelSix.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelThree.png" />
+    <Resource Include="resources\Images\GridLevels\GridLevelTwo.png" />
+    <Resource Include="resources\Images\levelEightImage.png" />
+    <Resource Include="resources\Images\levelFiveImage.png" />
+    <Resource Include="resources\Images\levelFourImage.png" />
+    <Resource Include="resources\Images\levelOneImage.png" />
+    <Resource Include="resources\Images\levelSevenImage.png" />
+    <Resource Include="resources\Images\LevelsImage.png" />
+    <Resource Include="resources\Images\levelSixImage.png" />
+    <Resource Include="resources\Images\levelThreeImage.png" />
+    <Resource Include="resources\Images\levelTwoImage.png" />
+    <Resource Include="resources\Images\lobbyImage.png" />
+    <Resource Include="resources\Images\loginImage.png" />
+    <Resource Include="resources\Images\menuImage.png" />
+    <Resource Include="resources\Images\modifyProfileImage.png" />
+    <Resource Include="resources\Images\normalArrow.png" />
+    <Resource Include="resources\Images\OfflineSymbol.png" />
+    <Resource Include="resources\Images\OnlineSymbol.png" />
+    <Resource Include="resources\Images\playButton.png" />
+    <Resource Include="resources\Images\playButtonImage.png" />
+    <Resource Include="resources\Images\randomMultiplayerCrosswordGeneratorImage.png" />
+    <Resource Include="resources\Images\salónCristalMultiplayerCrosswordImage.png" />
+    <Resource Include="resources\Images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="resources\Images\startPageImage.png" />
+    <Resource Include="resources\Images\storeButtonImage.png" />
+    <Resource Include="resources\Images\WallpaperLevelOneImage.png" />
+    <Resource Include="resources\Images\winnersImage.png" />
+    <Content Include="resources\Songs\Custom Character - Dan The Man Music.wav" />
+    <Content Include="resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
+    <Resource Include="images\gamemodeSelectionImage.png" />
+    <Resource Include="images\levelTwoImage.png" />
+    <Resource Include="images\levelThreeImage.png" />
+    <Resource Include="images\levelSixImage.png" />
+    <Resource Include="images\levelSevenImage.png" />
+    <Resource Include="images\levelOneImage.png" />
+    <Resource Include="images\levelFourImage.png" />
+    <Resource Include="images\levelFiveImage.png" />
+    <Resource Include="images\levelEightImage.png" />
+    <Resource Include="images\GameLogo.ico" />
+    <Resource Include="images\friendsButtonImage.png" />
+    <Resource Include="images\ArrowRight.png" />
+    <Resource Include="images\ArrowLeft.png" />
+    <Resource Include="images\GridLevels\GridLevelOne.png" />
+    <Content Include="resources\Songs\Apprentice %28Instrumental%29 - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav" />
+    <Content Include="resources\SoundEffects\Beep_SoundEffect.wav" />
+    <Content Include="resources\SoundEffects\Start_SoundEffect.wav" />
+    <Content Include="resources\Videos\AnimationVideo.mp4" />
+    <Content Include="Videos\AnimationVideo.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\bin\Release\" />
+    <Folder Include="Domain\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

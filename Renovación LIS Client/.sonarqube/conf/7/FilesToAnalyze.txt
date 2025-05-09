@@ -1,5 +1,0 @@
-﻿C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\Properties\AssemblyInfo.cs
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\Resources.en.US.resx
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\Resources.es-MX.resx
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\App.config
-C:\Users\wmike\OneDrive\Documentos\Renovación LIS\lang\packages.config

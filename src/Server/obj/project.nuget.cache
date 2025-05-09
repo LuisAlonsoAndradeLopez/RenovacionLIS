@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4ciUFq7LQxA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\wmike69\\Documents\\Coding Projects\\Renovación LIS\\src\\Server\\Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wmike69\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512"
+  ],
+  "logs": []
+}

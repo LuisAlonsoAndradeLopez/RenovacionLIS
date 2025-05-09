@@ -1,42 +1,0 @@
-๙
-C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\AuxiliaryClasses\AlertPopUpGenerator.cs
- 8rC	
- !"#$%'()*,-/012345679:;<=>?@ACDEFGHIJKLMx !"#$'),12345;<=>?EFGHIว
-€C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\AuxiliaryClasses\ImageLoader.cs 8r(	!#%&'()*,-./x!%'(),
-uC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\Properties\Class1.csr	
-ฌ
-C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\BannedPlayersView.xaml.cs# 8	jrp
- !#$%+,-./12345678:<=>?EFGHIJKLMNOPQRTUVWYZ[\]^_`bcdefghijlmnopqrstuvwyz{}~€…x' !#$-.3578:<GIPRV[`ejlpquvyz}…ั
-vC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\ChatView.xaml.cs3 8jrํ
-!"$%&,-./023456789:;<=>?@FGHJKLMNOQRSTVWXY\]^_`abcdeghijklmnpqstvwxyz{|}~€…‘’“”•–— กฃคฆงฉซญฎฐฑฒณดตถทธนบปฝพฟภมยรฤฦวศสฬอฯะัาำิีืุxW!"$%./4689=HKMOQSVX^cijpqsvz…“”— ฃคฆงฉซญฐดนฟภรฦวฬัาำิฒ
-C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\ConfigurationView.xaml.cs 8jr	
-!"$%&ื
-C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\CreateAccountView.xaml.cs^ 8jrพ	
- !"#%&,-./01235689:;<=>?@ABCDEFGIJKLMNPQRTUVWXYZ[]_`abcdefghijlmnopqrstuvwxyz{|}€‘’“”–— ขฃฅฆจฉซฌญฎฏฑฒณดตทธนบปผฝพฟภมรฤฦวศษสหฬอฮฯะาำีึืุูฺÛÜÝÞ฿แโไๅๆ็่้๊๋์ํ๎๐๑๓๔๕๖๗๘๙๚๛üýþ€x1!"#%.023568<>BCDEFKPQRVZ]_`dilmqv{ ขฃฅฆจฉซฌฎฑณดทนปผภรฦศสหฯาีืูฺÞแไๆ่้ํ๐๓๕๗๘ü€ิ
-|C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\ForgotPassword.xaml.csM 8jrๅ	
- !"#%&'-./013456789:;=>?@ABCEFHJLMOPQRSTUWXYZ[]^`acdefghjklmnoqrstuvwyz{|}~€…‘’“•—กขคฅงจชซฌญฏฐฑฒณตถทธนบปผฝพฟมยฤลฦวศษสหฬอฮฯัาิีx\!"#%&/056789:?BCEFHJLMOSY]^`aceghuvwy}…กขคฅงจชฌฏฑฒตทนบพมฤฦศษอั”
-yC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\FriendsView.xaml.cs๛ 8?jrฏ
-	
- !"#$*+,./1245789;<=?@BCEFHJKMNTUVWXYZ[\]^_`abcefghijkmnoprstuvwxyz{}~€…‘’“•–— กขฃคฆงจฉซฌญฎฏฐฑฒณดถทธนปผฝพฟมยรฤลฦวษสหฬอฮฯะัาิีึืุูฺÛÜÞเแโใๅ็่้๊์ํ๎๏๑๓๔๚๛üýþÿ…‘’“”•–— กขฃคฅฆงจฉชซญฎฏฐฑฒณดตถธนบปผฝพภยรฤลฦวศษสหอฮฯะัาำีึุฺÜÝÞเแโใไๅๆ็่้๊๋์ํ๎๏๑๒๓๔๕๗๘๙๚๛ýÿ€…‘’“”•— ขคฆงจฉซฌญฎฏฐฑฒณตถทธนบปผฝพฟภยรฤลฦวศษสหอฮฯะัาำิีึืุูÛÜÝ฿เแโไๅๆ็่้๊๋์ํ๎๐๑๒๓๕๖๗๘๙๛üýþÿ€‘’“”•–— กฃฅฆฉชซฌญฎฏฐฑณดตถธนบปผพฟภมยรฤลฦวษสหฬอฮฯะัาิีึืุูฺÛÜÞเแโใๅ็่๊๋๑๒๓๔๕๖๘๚๛üýþ€…‘’“”–— กขฃฉชซฌญฏฐฑฒณดตถทธนบปฝพฟภมรฤลฦวศษสหฬอฮฯะัำิีึุูฺÛÜÝÞเแโใไๅๆ็่้๋์ํ๎๏๐๑๒๓๕๗๘๙๛üýþÿ‘’“•–— กขฃคฅฆงจชซฌญฎฏฐฒณดตถทธนบผฝพฟภมยฤลวศสหฬอฮฯัาำิึืูฺÛÜÝÞ฿ไๅๆ็่้๊์ํxqำ,./124578=?@BCEFHJKMVX\]^_`abghinoptuvwxyz€…“•–กขฃจฉฌณธฝพฦหฮะัึูฺÞเแโใๅ็้์๎๓üýþ…‘•— กขงจฉชฏฐฑฒณดตบปผภฤลฦวศษสฯะัีึุฺÜÝÞใ่ํ๏๔๚ý’“” คฆงจฉฌฎฐฒณตทธนบปผยฤฦศสหอฯะัาำิÛแโๆํ๒๗๘ý€“– กฃฅฉฐตบปภรลฦหฮะัึฺÞเแโใๅ็๊๓๖๘๚๛ü‘’ กซฌฑณตถทธฟมลวษะีÝโๅ็่ํ๐๑๕๗๘๙๛ü‘ขฃคฅฆงฌญฎดตถทธนพฟภฤลวฯัำึÛÝๆ่ฑ
-wC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\LobbyView.xaml.csx 8+j‘“–rซ	
-!"()*,-.01346789:;<=>?@BCIJKLMNOPQRTVWXY[\]^_abcdeghijlmnopqrtuvwxz{|}~€… กขฃคฅฆจฉชฌญฎฏฐฑฒณดตถทนปฝพฟภมยรฤลฦวศษสฬอฯะัาำิีึืุูฺÛÝÞ฿เแโใไ็่๊๋์ํ๏๐๑๒๔๕๖๗๘๙๚๛üþÿ€…‘’“”–— ขฃฅฆงจฉชซญฎฏฐฑฒดตถทธนบปผฝฟภมยรฤลฦวษสหฬฮฯะัำิฺÛÜÝÞ฿เโใไๅๆ็่๊๋์ํ๎๏๑๒๓๔๕๖๗๘๙๚๛ýþ€…‘’“”•–— กx.ใ*,-.013479:>?BKMOPQRTV]^cdinopqvw|~€…ขฃคฅชญตทฝมรฤลฦวฬฯำิีึืุÝ฿ใ็์๏๑๒๔๖๚þ€…ขฃฅชฏฐฑถฝมยวษสหฮฯะำÜÞไๆํ๏๑๓๔๘๙ý’”–ำ
-wC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\LoginView.xaml.cs1 8jr	
- !#$&'(./01245678:;<=>?ABDEFHIJKLNOQRSTUVWXYZ[\]^_`acdefghiopqsuvxy{}~€…‘’“”•–—x6!#$&'0167<>?BDFHJLNOQRV[`cg{}~€‘’–ธ
-xC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\MainWindow.xaml.cs8 8jภr฿	
-!"#$%&(*,-.456789:<=>@ABCDEFHIJLMNOPQRTUWYZ[\]^_`acdefghijpqrsuvwxy{|}~€…‘’“”•–— กขฃคฅฆจฉชซฌญฎฐฑฒณดตถทธนบปผฝพฟมยฤฦวศษสxH#$%&(*,-69:<BEFHNQRT[]`achrwx}€’—ขคชฌฒดถธบผพ๒
-vC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\MenuView.xaml.cs 8	jrL	
-#$%&')*+,-./0123456789:;<=>?@ABCDEGHJKLMNPQRSUWYZ\]cdefhix	%&,.03456:?DGLMSUWYZ\e
-C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\ModifyProfileView.xaml.csg 8jrํ	
-$%&()+-./01356789:;<>?@ABCDEFGHIOPQRSUVWXYZ[\^_`abefghijklmoqrstuwxyz{|}~€…‘’”•–— ขฃคฅฆงจชซฌญฎฏฐถทธบผฝพฟมยรฤฦวศษหฬอฮฯัาำิีืุูฺÛÜÝÞ฿เแใไๆ็่้๊๋์ํ๎๏๐๒๓๕๖๗๘๙๚๛üýþÿ€…‘’“”•—กขx2•&()+-./0135:;<>BGQRWY^`bghijkloqstuwy}~…‘”•งชฌญฎฦวศษหฬฮัำิืูÛÜเใๆ่๊๋๏๒๕๗๙๚þ‘“”—ฐ
-C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\MultiplayerCrosswordView.xaml.cs 8j	
-r !฿
-•C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\RandomMultiplayerCrosswordGeneratorView.xaml.cs 8j+
-!"#%&(*+,.238:;<=?@BDFGHJNOr	467PQRแ
-wC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\StartView.xaml.cs 8jr?	
-!"#)*+,-/01245679:;=>?ABCEFGMNOQRSTUVWXY[\x!"+,16;=>CEFOQSW
-lC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\App.xaml.csjr	
-ฌ
-yC:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\View\WinnersView.xaml.cs 8jr	
-!"$%&ฐ
-{C:\Users\wmike\OneDrive\Documentos\Renovaciรณn LIS\Renovaciรณn LIS Client\Renovaciรณn LIS Client\Properties\AssemblyInfo.csj	#$%&'(,./01345r
-"#&)67
