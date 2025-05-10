@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using Server.AuxiliaryDataContracts;
 using Server.DatabaseManager;
-using domain;
-using DomainStatuses;
+using Server.Domain;
+using Server.DomainStatuses;
 
 namespace Server.ServiceContracts
 {

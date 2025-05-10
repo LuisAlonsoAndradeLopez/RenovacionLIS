@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/17/2024 11:32:32
--- Generated from EDMX file: C:\Users\wmike\OneDrive\Documentos\Renovación LIS\DatabaseManager\DatabaseModel.edmx
+-- Date Created: 05/09/2025 17:26:29
+-- Generated from EDMX file: C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\DatabaseManager\DatabaseModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -19,24 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_ProfilesPlayers]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProfilesSet] DROP CONSTRAINT [FK_ProfilesPlayers];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CrucigramsWords_Crucigrams]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CrucigramsWords] DROP CONSTRAINT [FK_CrucigramsWords_Crucigrams];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CrucigramsWords_Words]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CrucigramsWords] DROP CONSTRAINT [FK_CrucigramsWords_Words];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ProfilesCrucigrams_Profiles]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProfilesCrucigrams] DROP CONSTRAINT [FK_ProfilesCrucigrams_Profiles];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ProfilesCrucigrams_Crucigrams]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProfilesCrucigrams] DROP CONSTRAINT [FK_ProfilesCrucigrams_Crucigrams];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CrucigramsLevels_Crucigrams]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CrucigramsLevels] DROP CONSTRAINT [FK_CrucigramsLevels_Crucigrams];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CrucigramsLevels_Levels]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CrucigramsLevels] DROP CONSTRAINT [FK_CrucigramsLevels_Levels];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ProfilesFriendRequests]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[FriendRequestsSet] DROP CONSTRAINT [FK_ProfilesFriendRequests];
@@ -61,26 +43,8 @@ GO
 IF OBJECT_ID(N'[dbo].[ProfilesSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProfilesSet];
 GO
-IF OBJECT_ID(N'[dbo].[CrucigramsSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CrucigramsSet];
-GO
-IF OBJECT_ID(N'[dbo].[LevelsSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[LevelsSet];
-GO
-IF OBJECT_ID(N'[dbo].[WordsSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[WordsSet];
-GO
 IF OBJECT_ID(N'[dbo].[FriendRequestsSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[FriendRequestsSet];
-GO
-IF OBJECT_ID(N'[dbo].[CrucigramsWords]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CrucigramsWords];
-GO
-IF OBJECT_ID(N'[dbo].[ProfilesCrucigrams]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ProfilesCrucigrams];
-GO
-IF OBJECT_ID(N'[dbo].[CrucigramsLevels]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CrucigramsLevels];
 GO
 IF OBJECT_ID(N'[dbo].[ProfilesProfiles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProfilesProfiles];
@@ -111,28 +75,6 @@ CREATE TABLE [dbo].[ProfilesSet] (
 );
 GO
 
--- Creating table 'CrucigramsSet'
-CREATE TABLE [dbo].[CrucigramsSet] (
-    [IDCrucigram] bigint IDENTITY(1,1) NOT NULL
-);
-GO
-
--- Creating table 'LevelsSet'
-CREATE TABLE [dbo].[LevelsSet] (
-    [IDLevel] bigint IDENTITY(1,1) NOT NULL,
-    [LevelName] nvarchar(max)  NULL,
-    [Difficulty] nvarchar(max)  NULL
-);
-GO
-
--- Creating table 'WordsSet'
-CREATE TABLE [dbo].[WordsSet] (
-    [IDWord] bigint IDENTITY(1,1) NOT NULL,
-    [Word] nvarchar(max)  NULL,
-    [Description] nvarchar(max)  NULL
-);
-GO
-
 -- Creating table 'FriendRequestsSet'
 CREATE TABLE [dbo].[FriendRequestsSet] (
     [IDFriendRequest] bigint IDENTITY(1,1) NOT NULL,
@@ -142,27 +84,6 @@ CREATE TABLE [dbo].[FriendRequestsSet] (
     [AceptationStatus] nvarchar(max)  NOT NULL,
     [Profiles_IDProfile] bigint  NOT NULL,
     [Profiles1_IDProfile] bigint  NOT NULL
-);
-GO
-
--- Creating table 'CrucigramsWords'
-CREATE TABLE [dbo].[CrucigramsWords] (
-    [Crucigrams_IDCrucigram] bigint  NOT NULL,
-    [Words_IDWord] bigint  NOT NULL
-);
-GO
-
--- Creating table 'ProfilesCrucigrams'
-CREATE TABLE [dbo].[ProfilesCrucigrams] (
-    [Profiles_IDProfile] bigint  NOT NULL,
-    [Crucigrams_IDCrucigram] bigint  NOT NULL
-);
-GO
-
--- Creating table 'CrucigramsLevels'
-CREATE TABLE [dbo].[CrucigramsLevels] (
-    [Crucigrams_IDCrucigram] bigint  NOT NULL,
-    [Levels_IDLevel] bigint  NOT NULL
 );
 GO
 
@@ -189,46 +110,10 @@ ADD CONSTRAINT [PK_ProfilesSet]
     PRIMARY KEY CLUSTERED ([IDProfile] ASC);
 GO
 
--- Creating primary key on [IDCrucigram] in table 'CrucigramsSet'
-ALTER TABLE [dbo].[CrucigramsSet]
-ADD CONSTRAINT [PK_CrucigramsSet]
-    PRIMARY KEY CLUSTERED ([IDCrucigram] ASC);
-GO
-
--- Creating primary key on [IDLevel] in table 'LevelsSet'
-ALTER TABLE [dbo].[LevelsSet]
-ADD CONSTRAINT [PK_LevelsSet]
-    PRIMARY KEY CLUSTERED ([IDLevel] ASC);
-GO
-
--- Creating primary key on [IDWord] in table 'WordsSet'
-ALTER TABLE [dbo].[WordsSet]
-ADD CONSTRAINT [PK_WordsSet]
-    PRIMARY KEY CLUSTERED ([IDWord] ASC);
-GO
-
 -- Creating primary key on [IDFriendRequest] in table 'FriendRequestsSet'
 ALTER TABLE [dbo].[FriendRequestsSet]
 ADD CONSTRAINT [PK_FriendRequestsSet]
     PRIMARY KEY CLUSTERED ([IDFriendRequest] ASC);
-GO
-
--- Creating primary key on [Crucigrams_IDCrucigram], [Words_IDWord] in table 'CrucigramsWords'
-ALTER TABLE [dbo].[CrucigramsWords]
-ADD CONSTRAINT [PK_CrucigramsWords]
-    PRIMARY KEY CLUSTERED ([Crucigrams_IDCrucigram], [Words_IDWord] ASC);
-GO
-
--- Creating primary key on [Profiles_IDProfile], [Crucigrams_IDCrucigram] in table 'ProfilesCrucigrams'
-ALTER TABLE [dbo].[ProfilesCrucigrams]
-ADD CONSTRAINT [PK_ProfilesCrucigrams]
-    PRIMARY KEY CLUSTERED ([Profiles_IDProfile], [Crucigrams_IDCrucigram] ASC);
-GO
-
--- Creating primary key on [Crucigrams_IDCrucigram], [Levels_IDLevel] in table 'CrucigramsLevels'
-ALTER TABLE [dbo].[CrucigramsLevels]
-ADD CONSTRAINT [PK_CrucigramsLevels]
-    PRIMARY KEY CLUSTERED ([Crucigrams_IDCrucigram], [Levels_IDLevel] ASC);
 GO
 
 -- Creating primary key on [Profiles2_IDProfile], [Profiles1_IDProfile] in table 'ProfilesProfiles'
@@ -254,78 +139,6 @@ GO
 CREATE INDEX [IX_FK_ProfilesPlayers]
 ON [dbo].[ProfilesSet]
     ([Players_IDPlayer]);
-GO
-
--- Creating foreign key on [Crucigrams_IDCrucigram] in table 'CrucigramsWords'
-ALTER TABLE [dbo].[CrucigramsWords]
-ADD CONSTRAINT [FK_CrucigramsWords_Crucigrams]
-    FOREIGN KEY ([Crucigrams_IDCrucigram])
-    REFERENCES [dbo].[CrucigramsSet]
-        ([IDCrucigram])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Words_IDWord] in table 'CrucigramsWords'
-ALTER TABLE [dbo].[CrucigramsWords]
-ADD CONSTRAINT [FK_CrucigramsWords_Words]
-    FOREIGN KEY ([Words_IDWord])
-    REFERENCES [dbo].[WordsSet]
-        ([IDWord])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CrucigramsWords_Words'
-CREATE INDEX [IX_FK_CrucigramsWords_Words]
-ON [dbo].[CrucigramsWords]
-    ([Words_IDWord]);
-GO
-
--- Creating foreign key on [Profiles_IDProfile] in table 'ProfilesCrucigrams'
-ALTER TABLE [dbo].[ProfilesCrucigrams]
-ADD CONSTRAINT [FK_ProfilesCrucigrams_Profiles]
-    FOREIGN KEY ([Profiles_IDProfile])
-    REFERENCES [dbo].[ProfilesSet]
-        ([IDProfile])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Crucigrams_IDCrucigram] in table 'ProfilesCrucigrams'
-ALTER TABLE [dbo].[ProfilesCrucigrams]
-ADD CONSTRAINT [FK_ProfilesCrucigrams_Crucigrams]
-    FOREIGN KEY ([Crucigrams_IDCrucigram])
-    REFERENCES [dbo].[CrucigramsSet]
-        ([IDCrucigram])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ProfilesCrucigrams_Crucigrams'
-CREATE INDEX [IX_FK_ProfilesCrucigrams_Crucigrams]
-ON [dbo].[ProfilesCrucigrams]
-    ([Crucigrams_IDCrucigram]);
-GO
-
--- Creating foreign key on [Crucigrams_IDCrucigram] in table 'CrucigramsLevels'
-ALTER TABLE [dbo].[CrucigramsLevels]
-ADD CONSTRAINT [FK_CrucigramsLevels_Crucigrams]
-    FOREIGN KEY ([Crucigrams_IDCrucigram])
-    REFERENCES [dbo].[CrucigramsSet]
-        ([IDCrucigram])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Levels_IDLevel] in table 'CrucigramsLevels'
-ALTER TABLE [dbo].[CrucigramsLevels]
-ADD CONSTRAINT [FK_CrucigramsLevels_Levels]
-    FOREIGN KEY ([Levels_IDLevel])
-    REFERENCES [dbo].[LevelsSet]
-        ([IDLevel])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CrucigramsLevels_Levels'
-CREATE INDEX [IX_FK_CrucigramsLevels_Levels]
-ON [dbo].[CrucigramsLevels]
-    ([Levels_IDLevel]);
 GO
 
 -- Creating foreign key on [Profiles_IDProfile] in table 'FriendRequestsSet'

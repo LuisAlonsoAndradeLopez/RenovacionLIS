@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 using Server.DatabaseManager;
-using domain;
+using Server.Domain;
 
 namespace Server.ServiceContracts
 {

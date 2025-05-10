@@ -17,7 +17,6 @@ namespace Server.DatabaseManager
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profiles()
         {
-            this.Crucigrams = new HashSet<Crucigrams>();
             this.FriendRequests = new HashSet<FriendRequests>();
             this.Profiles1 = new HashSet<Profiles>();
             this.Profiles2 = new HashSet<Profiles>();
@@ -29,8 +28,6 @@ namespace Server.DatabaseManager
         public string LoginStatus { get; set; }
     
         public virtual Players Players { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Crucigrams> Crucigrams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FriendRequests> FriendRequests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

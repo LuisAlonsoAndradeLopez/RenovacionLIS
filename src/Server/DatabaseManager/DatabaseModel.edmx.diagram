@@ -8,13 +8,6 @@
         <EntityTypeShape EntityType="DatabaseModel.Players" Width="1.5" PointX="6.625" PointY="6.5" />
         <EntityTypeShape EntityType="DatabaseModel.Profiles" Width="1.5" PointX="10.625" PointY="6.75" />
         <AssociationConnector Association="DatabaseModel.ProfilesPlayers" />
-        <EntityTypeShape EntityType="DatabaseModel.Crucigrams" Width="1.5" PointX="15.5" PointY="6.625" />
-        <EntityTypeShape EntityType="DatabaseModel.Levels" Width="1.5" PointX="15.5" PointY="9.875" />
-        <EntityTypeShape EntityType="DatabaseModel.Words" Width="1.5" PointX="18.5" PointY="7.625" />
-        <AssociationConnector Association="DatabaseModel.CrucigramsWords" />
-        <AssociationConnector Association="DatabaseModel.ProfilesCrucigrams" ManuallyRouted="false" >
-        </AssociationConnector>
-        <AssociationConnector Association="DatabaseModel.CrucigramsLevels" />
         <EntityTypeShape EntityType="DatabaseModel.FriendRequests" Width="1.5" PointX="10.625" PointY="10.375" />
         <AssociationConnector Association="DatabaseModel.ProfilesFriendRequests" />
         <AssociationConnector Association="DatabaseModel.ProfilesProfiles" />

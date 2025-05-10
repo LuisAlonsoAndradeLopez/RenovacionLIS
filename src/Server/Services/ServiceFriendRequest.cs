@@ -9,9 +9,9 @@ using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using Server.DatabaseManager;
+using Server.Domain;
+using Server.DomainStatuses;
 using Server.ServiceContracts;
-using domain;
-using DomainStatuses;
 
 namespace Server.Services
 {
