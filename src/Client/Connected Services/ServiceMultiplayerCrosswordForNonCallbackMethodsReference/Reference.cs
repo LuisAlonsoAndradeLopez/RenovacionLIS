@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference {
+namespace Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -98,12 +98,12 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
             "ints", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
             "intsResponse")]
-        Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsPoints();
+        Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsPoints();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
             "ints", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetAllProfilesAndItsPo" +
             "intsResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsPointsAsync();
+        System.Threading.Tasks.Task<Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsPointsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfiles", ReplyAction="http://tempuri.org/IMultiplayerCrosswordNonCallbackMethods/GetConnectedProfilesRe" +
             "sponse")]
@@ -175,12 +175,12 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMultiplayerCrosswordNonCallbackMethodsChannel : Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IMultiplayerCrosswordNonCallbackMethodsChannel : Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MultiplayerCrosswordNonCallbackMethodsClient : System.ServiceModel.ClientBase<Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods>, Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods {
+    public partial class MultiplayerCrosswordNonCallbackMethodsClient : System.ServiceModel.ClientBase<Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods>, Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods {
         
         public MultiplayerCrosswordNonCallbackMethodsClient() {
         }
@@ -217,11 +217,11 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethod
             return base.Channel.GetAdminAsync();
         }
         
-        public Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsPoints() {
+        public Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[] GetAllProfilesAndItsPoints() {
             return base.Channel.GetAllProfilesAndItsPoints();
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsPointsAsync() {
+        public System.Threading.Tasks.Task<Client.ServiceMultiplayerCrosswordForNonCallbackMethodsReference.DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword[]> GetAllProfilesAndItsPointsAsync() {
             return base.Channel.GetAllProfilesAndItsPointsAsync();
         }
         

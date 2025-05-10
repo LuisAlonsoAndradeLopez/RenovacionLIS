@@ -1,0 +1,194 @@
+﻿<Page x:Class="Client.Views.CreateAccountView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client.Views"
+      xmlns:p="clr-namespace:Client.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="CreateAccountView">
+
+    <Grid>
+        <Image Source="/Resources/Images/createAccountImage.png" Stretch="Fill"/>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+                
+            </Grid.ColumnDefinitions>
+
+            <Border Margin="50" 
+                    Grid.Column="0" 
+                    Background= "#80000000"
+                    CornerRadius="20">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        
+                    </Grid.RowDefinitions>
+
+                    <Label Content="{x:Static p:Resources.Create_account}"
+                           Grid.Column="1"
+                           
+                           Margin="0,0,0,10"
+                           FontFamily="{StaticResource K2DBold}" 
+                           FontSize="50"
+                           Foreground="White"
+                           HorizontalAlignment="Center">
+                        
+                    </Label>
+
+                    <Label Background="#337CCF"
+                           Height="2"
+                           Margin="0,0,20,0"/>
+
+                    <Label Content="{x:Static p:Resources.Name}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="1"
+                           Margin="20,0"/>
+
+                    <Label Content="{x:Static p:Resources.First_Last_Name}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           Margin="20,0"/>
+
+                    <Label Content="{x:Static p:Resources.Email}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="3"
+                           Grid.Column="0"
+                           Margin="20,20,0,0"/>
+
+                    <Label Content="{x:Static p:Resources.Nickname}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="5"
+                           Grid.Column="0"
+                           Margin="20,20,0,0"/>
+
+                    <Label Content="{x:Static p:Resources.Birth_day}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="5"
+                           Grid.Column="1"
+                           Margin="20,20,0,0"/>
+
+                    <Label Content="{x:Static p:Resources.Password}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="7"
+                           Grid.Column="0"
+                           Margin="20,20,0,0"/>
+
+                    <Label Content="{x:Static p:Resources.Confirm_password}"
+                           FontFamily="{StaticResource K2DRegular}"
+                           FontSize="16"
+                           Foreground="White"
+                           Grid.Row="7"
+                           Grid.Column="1"
+                           Margin="20,20,0,0"/>
+
+
+                    <TextBox x:Name="NamesTextBox" 
+                             Style="{StaticResource BorderTextBox}"
+                                 Grid.Row="2"
+                                 Height="45"
+                                 Margin="20,0"/>
+
+                    <TextBox x:Name="SurnamesTextBox" Style="{StaticResource BorderTextBox}"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             Height="45"
+                             Margin="20,0"/>
+
+                    <TextBox x:Name="EmailTextBox" Style="{StaticResource BorderTextBox}"
+                             Grid.Row="4"
+                             Grid.Column="0"
+                             Height="45"
+                             Margin="20,0"
+                             Grid.ColumnSpan="2"/>
+
+                    <TextBox x:Name="NickNameTextBox" Style="{StaticResource BorderTextBox}"
+                             Grid.Row="6"
+                             Grid.Column="0"
+                             Height="45"
+                             Margin="20,0"/>
+
+                    <DatePicker x:Name="BirthdayDatePicker"
+                             Style="{StaticResource DatePicker}"
+                             Grid.Row="6"
+                             Grid.Column="1"
+                             Height="45"
+                             Margin="20,0"/>
+
+                    <PasswordBox x:Name="PasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
+                             Grid.Row="8"
+                             Grid.Column="0"
+                             Height="45"
+                             Margin="20,0"/>
+
+                    <PasswordBox x:Name="ConfirmPasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
+                             Grid.Row="8"
+                             Grid.Column="1"
+                             Height="45"
+                             Margin="20,0"/>
+
+                    <Button Content="{x:Static p:Resources.Create_account}" 
+                            Style="{StaticResource GreenButton}"
+                            Grid.Row="9"
+                            Height="45"
+                            Width="200"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="30" Click="CreateAccountButton"
+                            MouseEnter="PlayHoverSound"/>
+
+                    <TextBlock x:Name="GoLogInButton"
+                               Text="{x:Static p:Resources.Have_you_already_have_an_account}"
+                               Style="{StaticResource TransparentLabel}"
+                               Grid.Row="9"
+                               Grid.Column="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Margin="30"
+                               MouseLeftButtonDown="GoLoginButton"
+                               MouseEnter="PlayHoverSound"/>
+
+
+
+
+                </Grid>
+
+            </Border>
+
+            
+        </Grid>
+    </Grid>
+</Page>

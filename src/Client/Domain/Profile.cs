@@ -1,4 +1,4 @@
-﻿namespace domain
+﻿namespace Client.Domain
 {
     public class Profile
     {

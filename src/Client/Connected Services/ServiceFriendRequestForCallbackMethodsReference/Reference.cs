@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference {
+namespace Client.ServiceFriendRequestForCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethodsCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods", CallbackContract=typeof(Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethodsCallback))]
     public interface IFriendRequestCallbackMethods {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFriendRequestCallbackMethods/Connect")]
@@ -44,12 +44,12 @@ namespace Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IFriendRequestCallbackMethodsChannel : Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IFriendRequestCallbackMethodsChannel : Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FriendRequestCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods>, Renovación_LIS_Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods {
+    public partial class FriendRequestCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods>, Client.ServiceFriendRequestForCallbackMethodsReference.IFriendRequestCallbackMethods {
         
         public FriendRequestCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {

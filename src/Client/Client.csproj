@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8EEA7210-1626-4A14-821B-147589BDB6E6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Renovación_LIS_Client</RootNamespace>
-    <AssemblyName>Renovación LIS Client</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Renovación_LIS_Client.App</StartupObject>
+    <StartupObject>Client.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
@@ -159,91 +159,82 @@
     <Compile Include="DomainStatuses\FriendRequestAceptationStatuses.cs" />
     <Compile Include="DomainStatuses\FriendRequestSendingStatuses.cs" />
     <Compile Include="DomainStatuses\ProfileLoginStatuses.cs" />
-    <Compile Include="Domain\Crucigram.cs" />
     <Compile Include="Domain\FriendRequest.cs" />
-    <Compile Include="Domain\Level.cs" />
-    <Compile Include="Domain\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="Domain\obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Domain\Player.cs" />
     <Compile Include="Domain\Profile.cs" />
-    <Compile Include="Domain\Properties\AssemblyInfo.cs" />
-    <Compile Include="Domain\Word.cs" />
     <Compile Include="Helpers\LevelProvider.cs" />
     <Compile Include="Helpers\SongManager.cs" />
     <Compile Include="Helpers\Word.cs" />
-    <Compile Include="Lang\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="Lang\obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="Lang\Properties\AssemblyInfo.cs" />
     <Compile Include="Lang\Resources.en.US.Designer.cs" />
     <Compile Include="Lang\Resources.es-MX.Designer.cs" />
-    <Compile Include="View\AnimationView.xaml.cs">
+    <Compile Include="Views\AnimationView.xaml.cs">
       <DependentUpon>AnimationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BannedPlayersView.xaml.cs">
+    <Compile Include="Views\BannedPlayersView.xaml.cs">
       <DependentUpon>BannedPlayersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ChatView.xaml.cs">
+    <Compile Include="Views\ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ConfigurationView.xaml.cs">
+    <Compile Include="Views\ConfigurationView.xaml.cs">
       <DependentUpon>ConfigurationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CreateAccountView.xaml.cs">
+    <Compile Include="Views\CreateAccountView.xaml.cs">
       <DependentUpon>CreateAccountView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ForgotPassword.xaml.cs">
+    <Compile Include="Views\ForgotPassword.xaml.cs">
       <DependentUpon>ForgotPassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FriendsView.xaml.cs">
+    <Compile Include="Views\FriendsView.xaml.cs">
       <DependentUpon>FriendsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GamemodeSelectionView.xaml.cs">
+    <Compile Include="Views\GamemodeSelectionView.xaml.cs">
       <DependentUpon>GamemodeSelectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LevelOneTwoView.xaml.cs">
+    <Compile Include="Views\LevelOneTwoView.xaml.cs">
       <DependentUpon>LevelOneTwoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LevelView.xaml.cs">
+    <Compile Include="Views\LevelView.xaml.cs">
       <DependentUpon>LevelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LobbyView.xaml.cs">
+    <Compile Include="Views\LobbyView.xaml.cs">
       <DependentUpon>LobbyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginView.xaml.cs">
+    <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuView.xaml.cs">
+    <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ModifyProfileView.xaml.cs">
+    <Compile Include="Views\ModifyProfileView.xaml.cs">
       <DependentUpon>ModifyProfileView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MultiplayerCrosswordView.xaml.cs">
+    <Compile Include="Views\MultiplayerCrosswordView.xaml.cs">
       <DependentUpon>MultiplayerCrosswordView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RandomMultiplayerCrosswordGeneratorView.xaml.cs">
+    <Compile Include="Views\RandomMultiplayerCrosswordGeneratorView.xaml.cs">
       <DependentUpon>RandomMultiplayerCrosswordGeneratorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ScoreView.xaml.cs">
+    <Compile Include="Views\ScoreView.xaml.cs">
       <DependentUpon>ScoreView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\StartView.xaml.cs">
+    <Compile Include="Views\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\UserControls\UserControlScore.xaml.cs">
+    <Compile Include="Views\UserControls\UserControlScore.xaml.cs">
       <DependentUpon>UserControlScore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\VictoryView.xaml.cs">
+    <Compile Include="Views\VictoryView.xaml.cs">
       <DependentUpon>VictoryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WinnersView.xaml.cs">
+    <Compile Include="Views\WinnersView.xaml.cs">
       <DependentUpon>WinnersView.xaml</DependentUpon>
     </Compile>
     <Page Include="Styles\ButtonStyles.xaml">
@@ -266,91 +257,91 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\AnimationView.xaml">
+    <Page Include="Views\AnimationView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\BannedPlayersView.xaml">
+    <Page Include="Views\BannedPlayersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ChatView.xaml">
+    <Page Include="Views\ChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ConfigurationView.xaml">
+    <Page Include="Views\ConfigurationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CreateAccountView.xaml">
+    <Page Include="Views\CreateAccountView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ForgotPassword.xaml">
+    <Page Include="Views\ForgotPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FriendsView.xaml">
+    <Page Include="Views\FriendsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GamemodeSelectionView.xaml">
+    <Page Include="Views\GamemodeSelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LevelOneTwoView.xaml">
+    <Page Include="Views\LevelOneTwoView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\LevelView.xaml">
+    <Page Include="Views\LevelView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\LobbyView.xaml">
+    <Page Include="Views\LobbyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoginView.xaml">
+    <Page Include="Views\LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MenuView.xaml">
+    <Page Include="Views\MenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ModifyProfileView.xaml">
+    <Page Include="Views\ModifyProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MultiplayerCrosswordView.xaml">
+    <Page Include="Views\MultiplayerCrosswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RandomMultiplayerCrosswordGeneratorView.xaml">
+    <Page Include="Views\RandomMultiplayerCrosswordGeneratorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ScoreView.xaml">
+    <Page Include="Views\ScoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\StartView.xaml">
+    <Page Include="Views\StartView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\UserControls\UserControlScore.xaml">
+    <Page Include="Views\UserControls\UserControlScore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\VictoryView.xaml">
+    <Page Include="Views\VictoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\WinnersView.xaml">
+    <Page Include="Views\WinnersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -374,8 +365,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Lang\obj\Debug\lang.Resources.en.US.resources" />
-    <EmbeddedResource Include="Lang\obj\Debug\lang.Resources.es-MX.resources" />
     <EmbeddedResource Include="Lang\Resources.en.US.resx" />
     <EmbeddedResource Include="Lang\Resources.es-MX.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -415,6 +404,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\ServiceFriendRequestForCallbackMethods1.wsdl" />
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Client.ServiceFriendRequestForNonCallbackMethodsReference.FriendRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Client.ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -504,26 +499,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\ServiceProfileForNonCallbackMethods.wsdl" />
-    <None Include="Domain\App.config" />
-    <None Include="Domain\bin\Debug\domain.dll.config" />
-    <None Include="Domain\domain.csproj" />
-    <None Include="Domain\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Domain\obj\Debug\Domain.csproj.AssemblyReference.cache" />
-    <None Include="Domain\obj\Debug\Domain.csproj.CopyComplete" />
-    <None Include="Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache" />
-    <None Include="Domain\obj\Release\domain.csproj.AssemblyReference.cache" />
-    <None Include="Domain\packages.config" />
-    <None Include="Lang\App.config" />
-    <None Include="Lang\bin\Debug\lang.dll.config" />
-    <None Include="Lang\lang.csproj" />
-    <None Include="Lang\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="Lang\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Lang\obj\Debug\lang.csproj.AssemblyReference.cache" />
-    <None Include="Lang\obj\Debug\lang.csproj.CopyComplete" />
-    <None Include="Lang\obj\Debug\lang.csproj.CoreCompileInputs.cache" />
-    <None Include="Lang\obj\Debug\lang.csproj.GenerateResource.cache" />
-    <None Include="Lang\obj\Release\lang.csproj.AssemblyReference.cache" />
-    <None Include="Lang\packages.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\domain.FriendRequest.datasource" />
     <None Include="Properties\DataSources\domain.FriendRequest1.datasource" />
@@ -540,49 +515,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\changePasswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\arrowDown.png" />
-    <Resource Include="images\createAccountImage.png" />
-    <Resource Include="images\GameLogo.png" />
-    <Resource Include="images\loginImage.png" />
-    <Resource Include="images\menuImage.png" />
-    <Resource Include="images\startPageImage.png" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\modifyProfileImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Domain\Domain.csproj">
-      <Project>{1F083135-139B-42BA-91E9-B8D96CFD7D3E}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DomainStatuses\DomainStatuses.csproj">
-      <Project>{0D6EB50D-9CA2-4BD9-BA8D-39E8E3F96FEF}</Project>
-      <Name>DomainStatuses</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\configurationImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\friendsImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\OnlineSymbol.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\OfflineSymbol.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\chatImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\bannedPlayersImage.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -595,27 +528,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\lobbyImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\winnersImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\bannedPlayersButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\chatButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\configurationButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\friendsButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\playButton.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceChatForCallbackMethodsReference\" />
@@ -751,56 +663,75 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\randomMultiplayerCrosswordGeneratorImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\105MultiplayerCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\bañoMultiplayerCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\105MultiplayerCrosswordSelectionImage.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\bañoMultiplayerCrosswordSelectionImage.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\CC3MultiplayerCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\salónCristalMultiplayerCrosswordImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\WallpaperLevelOneImage.png" />
-    <Resource Include="images\GridLevels\Grid105.png" />
-    <Resource Include="images\GridLevels\GridCrystalSaloon.png" />
-    <Resource Include="images\GridLevels\GridDoctoratedInCS.png" />
-    <Resource Include="images\GridLevels\GridCC3.png" />
-    <Resource Include="images\GridLevels\GridECONEXBathroom.png" />
-    <Resource Include="images\GridLevels\GridLevelEight.png" />
-    <Resource Include="images\GridLevels\GridLevelFive.png" />
-    <Resource Include="images\GridLevels\GridLevelFour.png" />
-    <Resource Include="images\GridLevels\GridLevelSeven.png" />
-    <Resource Include="images\GridLevels\GridLevelSix.png" />
-    <Resource Include="images\GridLevels\GridLevelThree.png" />
-    <Resource Include="images\GridLevels\GridLevelTwo.png" />
-    <Resource Include="images\normalArrow.png" />
-    <Resource Include="images\playButtonImage.png" />
-    <Resource Include="images\storeButtonImage.png" />
-    <Resource Include="images\LevelsImage.png" />
+    <Resource Include="Resources\Images\105MultiplayerCrosswordImage.png" />
+    <Resource Include="Resources\Images\105MultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="Resources\Images\arrowDown.png" />
+    <Resource Include="Resources\Images\ArrowLeft.png" />
+    <Resource Include="Resources\Images\ArrowRight.png" />
+    <Resource Include="Resources\Images\bannedPlayersButton.png" />
+    <Resource Include="Resources\Images\bannedPlayersImage.png" />
+    <Resource Include="Resources\Images\bañoMultiplayerCrosswordImage.png" />
+    <Resource Include="Resources\Images\bañoMultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="Resources\Images\CC3MultiplayerCrosswordImage.png" />
+    <Resource Include="Resources\Images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="Resources\Images\changePasswordImage.png" />
+    <Resource Include="Resources\Images\chatButton.png" />
+    <Resource Include="Resources\Images\chatImage.png" />
+    <Resource Include="Resources\Images\configurationButton.png" />
+    <Resource Include="Resources\Images\configurationImage.png" />
+    <Resource Include="Resources\Images\createAccountImage.png" />
+    <Resource Include="Resources\Images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
+    <Resource Include="Resources\Images\doctoradoENCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="Resources\Images\friendsButton.png" />
+    <Resource Include="Resources\Images\friendsButtonImage.png" />
+    <Resource Include="Resources\Images\friendsImage.png" />
+    <Resource Include="Resources\Images\GameLogo.ico" />
+    <Resource Include="Resources\Images\GameLogo.png" />
+    <Resource Include="Resources\Images\gamemodeSelectionImage.png" />
+    <Resource Include="Resources\Images\GridLevels\Grid105.png" />
+    <Resource Include="Resources\Images\GridLevels\GridCC3.png" />
+    <Resource Include="Resources\Images\GridLevels\GridCrystalSaloon.png" />
+    <Resource Include="Resources\Images\GridLevels\GridDoctoratedInCS.png" />
+    <Resource Include="Resources\Images\GridLevels\GridECONEXBathroom.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelEight.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelFive.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelFour.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelOne.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelSeven.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelSix.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelThree.png" />
+    <Resource Include="Resources\Images\GridLevels\GridLevelTwo.png" />
+    <Resource Include="Resources\Images\levelEightImage.png" />
+    <Resource Include="Resources\Images\levelFiveImage.png" />
+    <Resource Include="Resources\Images\levelFourImage.png" />
+    <Resource Include="Resources\Images\levelOneImage.png" />
+    <Resource Include="Resources\Images\levelSevenImage.png" />
+    <Resource Include="Resources\Images\LevelsImage.png" />
+    <Resource Include="Resources\Images\levelSixImage.png" />
+    <Resource Include="Resources\Images\levelThreeImage.png" />
+    <Resource Include="Resources\Images\levelTwoImage.png" />
+    <Resource Include="Resources\Images\lobbyImage.png" />
+    <Resource Include="Resources\Images\loginImage.png" />
+    <Resource Include="Resources\Images\menuImage.png" />
+    <Resource Include="Resources\Images\modifyProfileImage.png" />
+    <Resource Include="Resources\Images\normalArrow.png" />
+    <Resource Include="Resources\Images\OfflineSymbol.png" />
+    <Resource Include="Resources\Images\OnlineSymbol.png" />
+    <Resource Include="Resources\Images\playButton.png" />
+    <Resource Include="Resources\Images\playButtonImage.png" />
+    <Resource Include="Resources\Images\randomMultiplayerCrosswordGeneratorImage.png" />
+    <Resource Include="Resources\Images\salónCristalMultiplayerCrosswordImage.png" />
+    <Resource Include="Resources\Images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
+    <Resource Include="Resources\Images\startPageImage.png" />
+    <Resource Include="Resources\Images\storeButtonImage.png" />
+    <Resource Include="Resources\Images\WallpaperLevelOneImage.png" />
+    <Resource Include="Resources\Images\winnersImage.png" />
+    <Content Include="Resources\Songs\Apprentice %28Instrumental%29 - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav" />
+    <Content Include="Resources\Songs\Custom Character - Dan The Man Music.wav" />
+    <Content Include="Resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
+    <Content Include="Resources\SoundEffects\Beep_SoundEffect.wav" />
+    <Content Include="Resources\SoundEffects\Start_SoundEffect.wav" />
+    <Content Include="Resources\Videos\AnimationVideo.mp4" />
     <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item1.disco" />
     <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item1.disco" />
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item1.disco" />
@@ -818,116 +749,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Domain\bin\Debug\domain.dll" />
-    <Content Include="Domain\bin\Debug\domain.pdb" />
-    <Content Include="Domain\bin\Debug\EntityFramework.dll" />
-    <Content Include="Domain\bin\Debug\EntityFramework.SqlServer.dll" />
-    <Resource Include="Domain\bin\Debug\EntityFramework.SqlServer.xml" />
-    <Resource Include="Domain\bin\Debug\EntityFramework.xml" />
-    <Resource Include="Domain\obj\Debug\domain.csproj.FileListAbsolute.txt" />
-    <Content Include="Domain\obj\Debug\domain.dll" />
-    <Content Include="Domain\obj\Debug\domain.pdb" />
-    <Content Include="Lang\bin\Debug\EntityFramework.dll" />
-    <Content Include="Lang\bin\Debug\EntityFramework.SqlServer.dll" />
-    <Resource Include="Lang\bin\Debug\EntityFramework.SqlServer.xml" />
-    <Resource Include="Lang\bin\Debug\EntityFramework.xml" />
-    <Content Include="Lang\bin\Debug\es-MX\lang.resources.dll" />
-    <Content Include="Lang\bin\Debug\lang.dll" />
-    <Content Include="Lang\bin\Debug\lang.pdb" />
-    <Content Include="Lang\obj\Debug\es-MX\lang.resources.dll" />
-    <Resource Include="Lang\obj\Debug\lang.csproj.FileListAbsolute.txt" />
-    <Content Include="Lang\obj\Debug\lang.dll" />
-    <Content Include="Lang\obj\Debug\lang.pdb" />
-    <Content Include="Lang\obj\Debug\TempPE\Resources.en.US.Designer.cs.dll" />
-    <Content Include="Lang\obj\Debug\TempPE\Resources.es-MX.Designer.cs.dll" />
-    <Resource Include="resources\Images\105MultiplayerCrosswordImage.png" />
-    <Resource Include="resources\Images\105MultiplayerCrosswordSelectionImage.jpeg" />
-    <Resource Include="resources\Images\arrowDown.png" />
-    <Resource Include="resources\Images\ArrowLeft.png" />
-    <Resource Include="resources\Images\ArrowRight.png" />
-    <Resource Include="resources\Images\bannedPlayersButton.png" />
-    <Resource Include="resources\Images\bannedPlayersImage.png" />
-    <Resource Include="resources\Images\bañoMultiplayerCrosswordImage.png" />
-    <Resource Include="resources\Images\bañoMultiplayerCrosswordSelectionImage.jpeg" />
-    <Resource Include="resources\Images\CC3MultiplayerCrosswordImage.png" />
-    <Resource Include="resources\Images\CC3MultiplayerCrosswordSelectionImage.jpeg" />
-    <Resource Include="resources\Images\changePasswordImage.png" />
-    <Resource Include="resources\Images\chatButton.png" />
-    <Resource Include="resources\Images\chatImage.png" />
-    <Resource Include="resources\Images\configurationButton.png" />
-    <Resource Include="resources\Images\configurationImage.png" />
-    <Resource Include="resources\Images\createAccountImage.png" />
-    <Resource Include="resources\Images\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png" />
-    <Resource Include="resources\Images\doctoradoENCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg" />
-    <Resource Include="resources\Images\friendsButton.png" />
-    <Resource Include="resources\Images\friendsButtonImage.png" />
-    <Resource Include="resources\Images\friendsImage.png" />
-    <Resource Include="resources\Images\GameLogo.ico" />
-    <Resource Include="resources\Images\GameLogo.png" />
-    <Resource Include="resources\Images\gamemodeSelectionImage.png" />
-    <Resource Include="resources\Images\GridLevels\Grid105.png" />
-    <Resource Include="resources\Images\GridLevels\GridCC3.png" />
-    <Resource Include="resources\Images\GridLevels\GridCrystalSaloon.png" />
-    <Resource Include="resources\Images\GridLevels\GridDoctoratedInCS.png" />
-    <Resource Include="resources\Images\GridLevels\GridECONEXBathroom.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelEight.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelFive.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelFour.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelOne.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelSeven.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelSix.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelThree.png" />
-    <Resource Include="resources\Images\GridLevels\GridLevelTwo.png" />
-    <Resource Include="resources\Images\levelEightImage.png" />
-    <Resource Include="resources\Images\levelFiveImage.png" />
-    <Resource Include="resources\Images\levelFourImage.png" />
-    <Resource Include="resources\Images\levelOneImage.png" />
-    <Resource Include="resources\Images\levelSevenImage.png" />
-    <Resource Include="resources\Images\LevelsImage.png" />
-    <Resource Include="resources\Images\levelSixImage.png" />
-    <Resource Include="resources\Images\levelThreeImage.png" />
-    <Resource Include="resources\Images\levelTwoImage.png" />
-    <Resource Include="resources\Images\lobbyImage.png" />
-    <Resource Include="resources\Images\loginImage.png" />
-    <Resource Include="resources\Images\menuImage.png" />
-    <Resource Include="resources\Images\modifyProfileImage.png" />
-    <Resource Include="resources\Images\normalArrow.png" />
-    <Resource Include="resources\Images\OfflineSymbol.png" />
-    <Resource Include="resources\Images\OnlineSymbol.png" />
-    <Resource Include="resources\Images\playButton.png" />
-    <Resource Include="resources\Images\playButtonImage.png" />
-    <Resource Include="resources\Images\randomMultiplayerCrosswordGeneratorImage.png" />
-    <Resource Include="resources\Images\salónCristalMultiplayerCrosswordImage.png" />
-    <Resource Include="resources\Images\salónCristalMultiplayerCrosswordSelectionImage.jpeg" />
-    <Resource Include="resources\Images\startPageImage.png" />
-    <Resource Include="resources\Images\storeButtonImage.png" />
-    <Resource Include="resources\Images\WallpaperLevelOneImage.png" />
-    <Resource Include="resources\Images\winnersImage.png" />
-    <Content Include="resources\Songs\Custom Character - Dan The Man Music.wav" />
-    <Content Include="resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />
-    <Resource Include="images\gamemodeSelectionImage.png" />
-    <Resource Include="images\levelTwoImage.png" />
-    <Resource Include="images\levelThreeImage.png" />
-    <Resource Include="images\levelSixImage.png" />
-    <Resource Include="images\levelSevenImage.png" />
-    <Resource Include="images\levelOneImage.png" />
-    <Resource Include="images\levelFourImage.png" />
-    <Resource Include="images\levelFiveImage.png" />
-    <Resource Include="images\levelEightImage.png" />
-    <Resource Include="images\GameLogo.ico" />
-    <Resource Include="images\friendsButtonImage.png" />
-    <Resource Include="images\ArrowRight.png" />
-    <Resource Include="images\ArrowLeft.png" />
-    <Resource Include="images\GridLevels\GridLevelOne.png" />
-    <Content Include="resources\Songs\Apprentice %28Instrumental%29 - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav" />
-    <Content Include="resources\SoundEffects\Beep_SoundEffect.wav" />
-    <Content Include="resources\SoundEffects\Start_SoundEffect.wav" />
-    <Content Include="resources\Videos\AnimationVideo.mp4" />
-    <Content Include="Videos\AnimationVideo.mp4" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\bin\Release\" />
-    <Folder Include="Domain\obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

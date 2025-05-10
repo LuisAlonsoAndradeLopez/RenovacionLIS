@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Media;
 
-namespace Renovación_LIS_Client.Helpers
+namespace Client.Helpers
 {
     public class SongManager
     {

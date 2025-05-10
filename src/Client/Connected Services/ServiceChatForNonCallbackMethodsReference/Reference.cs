@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference {
+namespace Client.ServiceChatForNonCallbackMethodsReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -80,20 +80,20 @@ namespace Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatNotCallbackMethods/GetConnectedProfilesAndTheirMessages", ReplyAction="http://tempuri.org/IChatNotCallbackMethods/GetConnectedProfilesAndTheirMessagesRe" +
             "sponse")]
-        Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[] GetConnectedProfilesAndTheirMessages();
+        Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[] GetConnectedProfilesAndTheirMessages();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatNotCallbackMethods/GetConnectedProfilesAndTheirMessages", ReplyAction="http://tempuri.org/IChatNotCallbackMethods/GetConnectedProfilesAndTheirMessagesRe" +
             "sponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[]> GetConnectedProfilesAndTheirMessagesAsync();
+        System.Threading.Tasks.Task<Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[]> GetConnectedProfilesAndTheirMessagesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IChatNotCallbackMethodsChannel : Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IChatNotCallbackMethodsChannel : Client.ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ChatNotCallbackMethodsClient : System.ServiceModel.ClientBase<Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods>, Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods {
+    public partial class ChatNotCallbackMethodsClient : System.ServiceModel.ClientBase<Client.ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods>, Client.ServiceChatForNonCallbackMethodsReference.IChatNotCallbackMethods {
         
         public ChatNotCallbackMethodsClient() {
         }
@@ -114,11 +114,11 @@ namespace Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference {
                 base(binding, remoteAddress) {
         }
         
-        public Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[] GetConnectedProfilesAndTheirMessages() {
+        public Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[] GetConnectedProfilesAndTheirMessages() {
             return base.Channel.GetConnectedProfilesAndTheirMessages();
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[]> GetConnectedProfilesAndTheirMessagesAsync() {
+        public System.Threading.Tasks.Task<Client.ServiceChatForNonCallbackMethodsReference.KeyValueDataContract[]> GetConnectedProfilesAndTheirMessagesAsync() {
             return base.Channel.GetConnectedProfilesAndTheirMessagesAsync();
         }
     }

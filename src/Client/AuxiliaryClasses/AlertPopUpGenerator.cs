@@ -4,9 +4,9 @@ using System.Resources;
 using System.Windows;
 using System.Windows.Navigation;
 using System.Windows.Controls;
-using Renovación_LIS_Client.View;
+using Client.Views;
 
-namespace Renovación_LIS_Client.AuxiliaryClasses
+namespace Client.AuxiliaryClasses
 {
     public class AlertPopUpGenerator
     {
@@ -16,7 +16,7 @@ namespace Renovación_LIS_Client.AuxiliaryClasses
         public AlertPopUpGenerator()
         {
             cultureInfo = CultureInfo.CurrentUICulture;
-            resourceManager = new ResourceManager("Renovación_LIS_Client.Properties.Resources", typeof(MainWindow).Assembly);
+            resourceManager = new ResourceManager("Client.Properties.Resources", typeof(MainWindow).Assembly);
         }
 
         public void OpenInternationalizedInGameConnectionErrorPopUp(Page page)

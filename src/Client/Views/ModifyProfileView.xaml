@@ -1,0 +1,155 @@
+﻿<Page x:Class="Client.Views.ModifyProfileView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Client.Properties"
+      xmlns:local="clr-namespace:Client.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="ModifyProfileView" Width="1200" Height="700">
+
+    <Grid Width="1200" Height="700">
+        <Image Source="/Resources/Images/modifyProfileImage.png"/>
+
+        <Border Margin="10,28,511,56" 
+        Name="IntroduceDataBorder"
+        Grid.Column="0" 
+        Background= "#80000000"
+        CornerRadius="20">
+
+            <StackPanel>
+                <Label Content="{x:Static p:Resources.Modify_profile}"
+                FontFamily="{StaticResource K2DBold}"
+                Foreground="White"
+                HorizontalAlignment="Center" FontSize="43"/>
+
+                <Label Background="#337CCF"
+                Margin="0 5 0 15"
+                Height="2"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Static p:Resources.Profile_picture}"
+                    FontFamily="{StaticResource K2DBold}"
+                    Foreground="White" FontSize="43" Width="189"
+                    TextWrapping="Wrap" 
+                    TextAlignment="Left"
+                    Margin="25,45,0,0"/>
+
+                    <Image Width="200" Height="200" Name="ProfilePictureImage"/>
+
+                    <StackPanel Width="240">
+                        <Button Content="{x:Static p:Resources.Select_an_image}" 
+                        Style="{StaticResource RedButton}"
+                        Height="45"
+                        Width="200"
+                        HorizontalAlignment="Left"
+                        Margin="25,20,0,0" Click="SelectImageButton"/>
+
+                        <TextBlock TextWrapping="Wrap" Text=""
+                        Margin="10,20,0,0" Foreground="White" Height="92"
+                        Name="ImageRouteTextBlock"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Label Content="{x:Static p:Resources.Name_s_}"
+                        FontFamily="{StaticResource K2DRegular}"
+                        FontSize="16"
+                        Foreground="White"
+                        Margin="25,15,0,0"/>
+
+                        <TextBox x:Name="NamesTextBox"
+                        Style="{StaticResource BorderTextBox}"
+                        Height="37"
+                        Width="308"
+                        HorizontalAlignment="Left"
+                        Margin="25,5,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Label Content="{x:Static p:Resources.Surname_s_}"
+                        FontFamily="{StaticResource K2DRegular}"
+                        FontSize="16"
+                        Foreground="White"
+                        Margin="15,15,0,0"/>
+
+                        <TextBox x:Name="SurnamesTextBox"
+                        Style="{StaticResource BorderTextBox}"
+                        Height="37"
+                        Width="308"
+                        HorizontalAlignment="Left"
+                        Margin="15,5,0,0"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <Label Content="{x:Static p:Resources.Email}"
+                FontFamily="{StaticResource K2DRegular}"
+                FontSize="16"
+                Foreground="White"
+                Margin="25,20,0,0"/>
+
+                <TextBox x:Name="EmailTextBox" 
+                Height="38"
+                Width="632"
+                HorizontalAlignment="Left"
+                Margin="25,5,0,0"
+                Style="{StaticResource BorderTextBox}"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Label Content="{x:Static p:Resources.Nickname}"
+                        FontFamily="{StaticResource K2DRegular}"
+                        FontSize="16"
+                        Foreground="White"
+                        Margin="25,15,0,0"/>
+
+                        <TextBox x:Name="NicknameTextBox"
+                        Style="{StaticResource BorderTextBox}"
+                        Height="37"
+                        Width="308"
+                        HorizontalAlignment="Left"
+                        Margin="25,5,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Label Content="{x:Static p:Resources.Birth_day}"
+                        FontFamily="{StaticResource K2DRegular}"
+                        FontSize="16"
+                        Foreground="White"
+                        Margin="15,15,0,0"/>
+
+                        <DatePicker x:Name="BirthDayDatePicker"
+                        Height="37"
+                        Width="308"
+                        HorizontalAlignment="Left"
+                        Margin="15,5,0,0"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+
+                    <Button Content="{x:Static p:Resources.Modify_profile}" 
+                    Style="{StaticResource GreenButton}"
+                    Height="45"
+                    Width="200"
+                    HorizontalAlignment="Left"
+                    Margin="40,0,0,0" Click="ModifyProfileButton"
+                    />
+
+                    <Button Content="{x:Static p:Resources.Cancel}" 
+                    Style="{StaticResource BlackButton}"
+                    Height="45"
+                    Width="200"
+                    Margin="200,0,0,0" Click="CancelButton"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>

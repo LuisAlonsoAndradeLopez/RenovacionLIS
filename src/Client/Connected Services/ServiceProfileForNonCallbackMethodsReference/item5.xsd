@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://192.168.43.250:8190/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DatabaseManager" />
-  <xs:import schemaLocation="http://192.168.43.250:8190/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainStatuses" />
-  <xs:import schemaLocation="http://192.168.43.250:8190/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/domain" />
+  <xs:import schemaLocation="http://192.168.43.250:8190/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Client.DomainStatuses" />
+  <xs:import schemaLocation="http://192.168.43.250:8190/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Client.Domain" />
   <xs:import schemaLocation="http://192.168.43.250:8190/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ServicesTCP.AuxiliaryContracts" />
   <xs:element name="AddProfile">
     <xs:complexType>
@@ -36,7 +36,7 @@
   <xs:element name="ChangeLoginStatus">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DomainStatuses" minOccurs="0" name="profileLoginStatus" type="q2:ProfileLoginStatuses" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Client.DomainStatuses" minOccurs="0" name="profileLoginStatus" type="q2:ProfileLoginStatuses" />
         <xs:element minOccurs="0" name="profileID" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
@@ -56,7 +56,7 @@
   <xs:element name="GetFriendsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetFriendsResult" nillable="true" type="q3:ArrayOfProfile" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Client.Domain" minOccurs="0" name="GetFriendsResult" nillable="true" type="q3:ArrayOfProfile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -84,7 +84,7 @@
   <xs:element name="GetProfileByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByIDResult" nillable="true" type="q4:Profile" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Client.Domain" minOccurs="0" name="GetProfileByIDResult" nillable="true" type="q4:Profile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -110,7 +110,7 @@
   <xs:element name="GetProfileByPlayerIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByPlayerIDResult" nillable="true" type="q6:Profile" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Client.Domain" minOccurs="0" name="GetProfileByPlayerIDResult" nillable="true" type="q6:Profile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +124,7 @@
   <xs:element name="GetProfileByPlayerNicknameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/domain" minOccurs="0" name="GetProfileByPlayerNicknameResult" nillable="true" type="q7:Profile" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Client.Domain" minOccurs="0" name="GetProfileByPlayerNicknameResult" nillable="true" type="q7:Profile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

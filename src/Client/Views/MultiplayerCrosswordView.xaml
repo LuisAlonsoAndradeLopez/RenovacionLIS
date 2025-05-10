@@ -1,0 +1,218 @@
+﻿<Page x:Class="Client.Views.MultiplayerCrosswordView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Client.Properties"
+      xmlns:local="clr-namespace:Client.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="MultiplayerCrosswordView">
+
+    <Grid>
+        <Image Name="SelectedCrosswordBackgroundImage" VerticalAlignment="Center"/>
+
+        <StackPanel>
+            <Border
+                Margin="0,10,0,0"
+                Visibility="Visible"
+                HorizontalAlignment="Center"
+                CornerRadius="20"
+                Height="44" Width="136">
+
+                <Border.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.8"/>
+                </Border.Background>
+
+                <StackPanel>
+                    <TextBlock
+                        Name="GameCountdownSecondsTextBlock"
+                        FontSize="30"
+                        Foreground="White"
+                        HorizontalAlignment="Center"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,10,0,0"
+                Visibility="Visible"
+                CornerRadius="20"
+                Height="512" Width="1166">
+
+
+                <Border.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Border.Background>
+
+                <StackPanel Margin="10,10,10,10">
+                    <Border
+                        VerticalAlignment="Top"
+                        Visibility="Visible"
+                        CornerRadius="20"
+                        Height="128" Width="1136">
+
+                        <Border.Background>
+                            <SolidColorBrush Color="Black" Opacity="0.5"/>
+                        </Border.Background>
+
+                        <StackPanel Name="ConnectedPlayersAndItsPointsStackPanel" Orientation="Horizontal"/>
+                    </Border>
+
+                    <StackPanel Orientation="Horizontal" Width="1138" Margin="0,10,0,0" Height="353">
+                        <Border
+                            Visibility="Visible"
+                            CornerRadius="20"
+                            Height="342" Width="623">
+
+                            <Border.Background>
+                                <SolidColorBrush Color="Black" Opacity="0.5"/>
+                            </Border.Background>
+
+                            <StackPanel Name="SelectedCrosswordQuestionsStackPanel" Margin="0,0,0,2" />
+                        </Border>
+
+                        <Border
+                            Margin="10,0,0,0"
+                            Visibility="Visible"
+                            CornerRadius="20"
+                            Height="344" Width="502">
+
+                            <Border.Background>
+                                <SolidColorBrush Color="Black" Opacity="0.5"/>
+                            </Border.Background>
+
+                            <StackPanel>
+                                <Grid Name="Crossword105" Visibility="Collapsed">
+                                    <Image Margin="10" Source="/Resources/Images/GridLevels/Grid105.png" Width="480" Height="320" />
+                                    <Canvas Height="344" Width="502" Margin="0">
+                                        <!--VERTICALES-->
+                                        <TextBlock Name="L105W1" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="15.65" Text="" Style="{StaticResource Game_TextBlock}" Width="12" HorizontalAlignment="Left" Canvas.Left="207" VerticalAlignment="Center" Height="82" Canvas.Top="24"/>
+                                        <TextBlock Name="L105W2" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="15.65" Text="" Style="{StaticResource Game_TextBlock}" Width="13" HorizontalAlignment="Left" Canvas.Left="186" VerticalAlignment="Center" Canvas.Top="45" Height="123"/>
+                                        <TextBlock Name="L105W3" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="15.65" Text="" Style="{StaticResource Game_TextBlock}" Width="13" HorizontalAlignment="Left" Canvas.Left="268" VerticalAlignment="Center" Canvas.Top="45" Height="245"/>
+                                        <TextBlock Name="L105W5" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="15.65" Text="" Style="{StaticResource Game_TextBlock}" Width="12" HorizontalAlignment="Center" Canvas.Left="371" VerticalAlignment="Top" Canvas.Top="229" Height="101"/>
+                                        <!--HORIZONTALES-->
+
+                                        <TextBlock Name="L105W4" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="15.65" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Center" Canvas.Left="80" VerticalAlignment="Top" Canvas.Top="85" Width="224" Height="21"/>
+                                        <TextBlock Name="L105W6" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="15.65" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Center" Canvas.Left="80" VerticalAlignment="Top" Canvas.Top="249" Width="348" Height="20"/>
+                                    </Canvas>
+                                </Grid>
+
+                                <Grid Name="CrosswordCC3" Visibility="Collapsed">
+                                    <Image Source="/Resources/Images/GridLevels/GridCC3.png" Width="480" Height="320" Margin="10"/>
+                                    <Canvas Height="344" Width="502" Margin="0">
+                                        <!--VERTICALES-->
+                                        <TextBlock Name="LCC3W1" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="14.7" Text="" Style="{StaticResource Game_TextBlock}" Width="16" HorizontalAlignment="Left" Canvas.Left="352" VerticalAlignment="Center" Height="133" Canvas.Top="25"/>
+                                        <TextBlock Name="LCC3W2" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="14.7" Text="" Style="{StaticResource Game_TextBlock}" Width="12" HorizontalAlignment="Left" Canvas.Left="219" VerticalAlignment="Center" Canvas.Top="44" Height="287"/>
+                                        <TextBlock Name="LCC3W4" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="14.7" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Center" Canvas.Left="273" VerticalAlignment="Top" Canvas.Top="121" Width="18" Height="76"/>
+                                        <!--HORIZONTALES-->
+                                        <TextBlock Name="LCC3W3" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="14.7" Text="" Style="{StaticResource Game_TextBlock}" Width="57" HorizontalAlignment="Center" Canvas.Left="331" VerticalAlignment="Top" Canvas.Top="44" Height="18"/>
+                                        <TextBlock Name="LCC3W5" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="14.7" Text="" Style="{StaticResource Game_TextBlock}" Width="231" HorizontalAlignment="Center" Canvas.Left="138" VerticalAlignment="Top" Canvas.Top="140" Height="19"/>
+                                        <TextBlock Name="LCC3W6" MouseLeftButtonDown="SelectedWordOnClick" Cursor="Hand" FontSize="14.7" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Center" Canvas.Left="119" VerticalAlignment="Top" Canvas.Top="235" Width="153" Height="18"/>
+                                    </Canvas>
+                                </Grid>
+
+                                <Grid Name="CrosswordECONEXBathroom" Visibility="Collapsed">
+                                    <Image Source="/Resources/Images/GridLevels/GridEconexBathroom.png" Width="480" Height="320" Margin="10"/>
+                                    <Canvas Height="344" Width="502" Margin="0">
+                                        <!--VERTICALES-->
+                                        <TextBlock Name="LECONEXBathroomW1" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="19" HorizontalAlignment="Left" Canvas.Left="181" VerticalAlignment="Center" Height="130" Canvas.Top="26"/>
+                                        <TextBlock Name="LECONEXBathroomW3" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="19" HorizontalAlignment="Left" Canvas.Left="247" VerticalAlignment="Center" Canvas.Top="135" Height="65"/>
+                                        <TextBlock Name="LECONEXBathroomW5" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="289" VerticalAlignment="Center" Canvas.Top="179" Width="22" Height="152"/>
+                                        <TextBlock Name="LECONEXBathroomW6" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="357" VerticalAlignment="Center" Canvas.Top="179" Width="16" Height="130"/>
+                                        <!--HORIZONTALES-->
+                                        <TextBlock Name="LECONEXBathroomW2" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="175" HorizontalAlignment="Left" Canvas.Left="136" VerticalAlignment="Center" Canvas.Top="135" Height="21"/>
+                                        <TextBlock Name="LECONEXBathroomW4" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="219" HorizontalAlignment="Left" Canvas.Left="113" VerticalAlignment="Center" Canvas.Top="179" Height="21"/>
+                                        <TextBlock Name="LECONEXBathroomW7" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="267" VerticalAlignment="Center" Canvas.Top="201" Width="131" Height="21"/>
+                                        <TextBlock Name="LECONEXBathroomW8" MouseLeftButtonDown="SelectedWordOnClick" FontSize="16.8" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="267" VerticalAlignment="Center" Canvas.Top="222" Width="65" Height="22"/>
+                                    </Canvas>
+                                </Grid>
+
+                                <Grid Name="CrosswordDoctoratedInCS" Visibility="Collapsed">
+                                    <Image Source="/Resources/Images/GridLevels/GridDoctoratedInCS.png" Width="480" Height="320" Margin="10"/>
+                                    <Canvas Height="344" Width="502" Margin="0">
+                                        <!--VERTICALES-->
+                                        <TextBlock Name="LDoctoratedInCSW1" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.1" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="17" HorizontalAlignment="Left" Canvas.Left="234" VerticalAlignment="Center" Height="140" Canvas.Top="50"/>
+                                        <TextBlock Name="LDoctoratedInCSW2" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.1" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="16" HorizontalAlignment="Left" Canvas.Left="305" VerticalAlignment="Center" Canvas.Top="50" Height="258"/>
+                                        <TextBlock Name="LDoctoratedInCSW3" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.1" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="115" VerticalAlignment="Center" Canvas.Top="97" Width="20" Height="141"/>
+                                        <!--HORIZONTALES-->
+                                        <TextBlock Name="LDoctoratedInCSW4" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.1" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="259" HorizontalAlignment="Left" Canvas.Left="231" VerticalAlignment="Center" Canvas.Top="97" Height="23"/>
+                                        <TextBlock Name="LDoctoratedInCSW5" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.1" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="117" HorizontalAlignment="Left" Canvas.Left="19" VerticalAlignment="Center" Canvas.Top="120" Height="23"/>
+                                        <TextBlock Name="LDoctoratedInCSW6" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.1" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="113" VerticalAlignment="Center" Canvas.Top="167" Width="165" Height="23"/>
+                                    </Canvas>
+                                </Grid>
+
+                                <Grid Name="CrosswordCrystalSaloon" Visibility="Collapsed">
+                                    <Image Source="/Resources/Images/GridLevels/GridCrystalSaloon.png" Width="480" Height="320" Margin="11,12,11,12"/>
+                                    <Canvas Height="344" Width="502" Margin="0">
+                                        <!--VERTICALES-->
+                                        <TextBlock Name="LCrystalSaloonW1" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="18" HorizontalAlignment="Center" Canvas.Left="230" VerticalAlignment="Top" Height="290" Canvas.Top="28"/>
+                                        <TextBlock Name="LCrystalSaloonW2" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="23" HorizontalAlignment="Center" Canvas.Left="324" VerticalAlignment="Top" Canvas.Top="101" Height="72"/>
+                                        <TextBlock Name="LCrystalSaloonW5" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Left" Canvas.Left="209" VerticalAlignment="Center" Canvas.Top="149" Width="16" Height="168"/>
+                                        <!--HORIZONTALES-->
+                                        <TextBlock Name="LCrystalSaloonW3" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="145" HorizontalAlignment="Center" Canvas.Left="226" VerticalAlignment="Top" Canvas.Top="125" Height="23"/>
+                                        <TextBlock Name="LCrystalSaloonW4" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" Width="169" HorizontalAlignment="Center" Canvas.Left="181" VerticalAlignment="Top" Canvas.Top="149" Height="24"/>
+                                        <TextBlock Name="LCrystalSaloonW6" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Center" Canvas.Left="203" VerticalAlignment="Center" Canvas.Top="173" Width="120" Height="24"/>
+                                        <TextBlock Name="LCrystalSaloonW7" MouseLeftButtonDown="SelectedWordOnClick" FontSize="18.55" Cursor="Hand" Text="" Style="{StaticResource Game_TextBlock}" HorizontalAlignment="Center" Canvas.Left="127" VerticalAlignment="Top" Canvas.Top="293" Width="193" Height="23"/>
+                                    </Canvas>
+                                </Grid>
+                            </StackPanel>
+
+                        </Border>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,10,0,0"
+                Visibility="Visible"
+                CornerRadius="20"
+                Height="69" Width="1166">
+
+
+                <Border.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Border.Background>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                        Name="SelectedWordTextBlock"
+                        Text="{x:Static p:Resources.Verify_answer}"
+                        Margin="10"
+                        FontSize="34"
+                        Foreground="White" Width="394"/>
+
+                    <TextBox
+                        Margin="20,10,10,10"
+                        Height="42"
+                        Width="548"
+                        Name="SelectedCrosswordRowOrColumnWordAnswerTextBox"
+                        TextChanged="ChangeTextToOnlyUpperCase"
+                        Style="{StaticResource BorderTextBox}"/>
+
+                    <Button
+                        Content="{x:Static p:Resources.Verify_answer}"
+                        Style="{StaticResource GreenButton}"
+                        Grid.Row="9"
+                        Height="45"
+                        Width="149"
+                        VerticalAlignment="Bottom"
+                        Margin="10" 
+                        Click="VerifyAnswerButtonOnClick"/>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+
+        <Rectangle x:Name="GlobalCountdownBlockScreenRectangle" Fill="Black" Opacity="0" Visibility="Visible"/>
+
+        <TextBlock
+            Visibility="Visible"
+            Name="GlobalCountdownSecondsTextBlock"
+            FontSize="200"
+            Foreground="White"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+    </Grid>
+</Page>

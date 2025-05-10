@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Renovación_LIS_Client
+namespace Client
 {
     /// <summary>
     /// Lógica de interacción para App.xaml

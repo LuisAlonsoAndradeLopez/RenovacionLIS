@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
+namespace Client.ServiceProfileForCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethodsCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods", CallbackContract=typeof(Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethodsCallback))]
     public interface IProfileCallbackMethods {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IProfileCallbackMethods/Connect")]
@@ -56,12 +56,12 @@ namespace Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProfileCallbackMethodsChannel : Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IProfileCallbackMethodsChannel : Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProfileCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods>, Renovación_LIS_Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods {
+    public partial class ProfileCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods>, Client.ServiceProfileForCallbackMethodsReference.IProfileCallbackMethods {
         
         public ProfileCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {

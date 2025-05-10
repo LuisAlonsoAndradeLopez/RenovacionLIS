@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
-using Renovación_LIS_Client.ServiceProfileForNonCallbackMethodsReference;
+using Client.ServiceProfileForNonCallbackMethodsReference;
 
-namespace Renovación_LIS_Client.AuxiliaryClasses
+namespace Client.AuxiliaryClasses
 {
     public class ImageLoader
     {

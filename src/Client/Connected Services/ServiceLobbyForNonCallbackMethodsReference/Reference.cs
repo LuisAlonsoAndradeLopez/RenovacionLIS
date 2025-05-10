@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference {
+namespace Client.ServiceLobbyForNonCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -71,12 +71,12 @@ namespace Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ILobbyNonCallbackMethodsChannel : Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference.ILobbyNonCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface ILobbyNonCallbackMethodsChannel : Client.ServiceLobbyForNonCallbackMethodsReference.ILobbyNonCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class LobbyNonCallbackMethodsClient : System.ServiceModel.ClientBase<Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference.ILobbyNonCallbackMethods>, Renovación_LIS_Client.ServiceLobbyForNonCallbackMethodsReference.ILobbyNonCallbackMethods {
+    public partial class LobbyNonCallbackMethodsClient : System.ServiceModel.ClientBase<Client.ServiceLobbyForNonCallbackMethodsReference.ILobbyNonCallbackMethods>, Client.ServiceLobbyForNonCallbackMethodsReference.ILobbyNonCallbackMethods {
         
         public LobbyNonCallbackMethodsClient() {
         }

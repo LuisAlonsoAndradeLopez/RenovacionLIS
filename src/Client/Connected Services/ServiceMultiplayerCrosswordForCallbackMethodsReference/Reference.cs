@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference {
+namespace Client.ServiceMultiplayerCrosswordForCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallb" +
-        "ackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethodsCallback))]
+        "ackMethods", CallbackContract=typeof(Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethodsCallback))]
     public interface IMultiplayerCrosswordCallbackMethods {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerCrosswordCallbackMethods/AddCompletedWordToAllConn" +
@@ -174,12 +174,12 @@ namespace Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsRe
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMultiplayerCrosswordCallbackMethodsChannel : Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IMultiplayerCrosswordCallbackMethodsChannel : Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MultiplayerCrosswordCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethods>, Renovación_LIS_Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethods {
+    public partial class MultiplayerCrosswordCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethods>, Client.ServiceMultiplayerCrosswordForCallbackMethodsReference.IMultiplayerCrosswordCallbackMethods {
         
         public MultiplayerCrosswordCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {

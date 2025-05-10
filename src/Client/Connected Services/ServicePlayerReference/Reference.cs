@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServicePlayerReference {
+namespace Client.ServicePlayerReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -41,7 +41,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Profiles ProfilesField;
+        private Client.ServicePlayerReference.Profiles ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SurnamesField;
@@ -135,7 +135,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Profiles Profiles {
+        public Client.ServicePlayerReference.Profiles Profiles {
             get {
                 return this.ProfilesField;
             }
@@ -180,13 +180,13 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
+        private Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.FriendRequests[] FriendRequestsField;
+        private Client.ServicePlayerReference.FriendRequests[] FriendRequestsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.FriendRequests[] FriendRequests1Field;
+        private Client.ServicePlayerReference.FriendRequests[] FriendRequests1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IDProfileField;
@@ -195,13 +195,13 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private string LoginStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Players PlayersField;
+        private Client.ServicePlayerReference.Players PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Profiles[] Profiles1Field;
+        private Client.ServicePlayerReference.Profiles[] Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Profiles[] Profiles2Field;
+        private Client.ServicePlayerReference.Profiles[] Profiles2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> ScoreField;
@@ -217,7 +217,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Crucigrams[] Crucigrams {
+        public Client.ServicePlayerReference.Crucigrams[] Crucigrams {
             get {
                 return this.CrucigramsField;
             }
@@ -230,7 +230,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.FriendRequests[] FriendRequests {
+        public Client.ServicePlayerReference.FriendRequests[] FriendRequests {
             get {
                 return this.FriendRequestsField;
             }
@@ -243,7 +243,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.FriendRequests[] FriendRequests1 {
+        public Client.ServicePlayerReference.FriendRequests[] FriendRequests1 {
             get {
                 return this.FriendRequests1Field;
             }
@@ -282,7 +282,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Players Players {
+        public Client.ServicePlayerReference.Players Players {
             get {
                 return this.PlayersField;
             }
@@ -295,7 +295,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Profiles[] Profiles1 {
+        public Client.ServicePlayerReference.Profiles[] Profiles1 {
             get {
                 return this.Profiles1Field;
             }
@@ -308,7 +308,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Profiles[] Profiles2 {
+        public Client.ServicePlayerReference.Profiles[] Profiles2 {
             get {
                 return this.Profiles2Field;
             }
@@ -356,13 +356,13 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private long IDCrucigramField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Levels[] LevelsField;
+        private Client.ServicePlayerReference.Levels[] LevelsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Profiles[] ProfilesField;
+        private Client.ServicePlayerReference.Profiles[] ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Words[] WordsField;
+        private Client.ServicePlayerReference.Words[] WordsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -388,7 +388,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Levels[] Levels {
+        public Client.ServicePlayerReference.Levels[] Levels {
             get {
                 return this.LevelsField;
             }
@@ -401,7 +401,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Profiles[] Profiles {
+        public Client.ServicePlayerReference.Profiles[] Profiles {
             get {
                 return this.ProfilesField;
             }
@@ -414,7 +414,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Words[] Words {
+        public Client.ServicePlayerReference.Words[] Words {
             get {
                 return this.WordsField;
             }
@@ -458,10 +458,10 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private string MessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Profiles ProfilesField;
+        private Client.ServicePlayerReference.Profiles ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Profiles Profiles1Field;
+        private Client.ServicePlayerReference.Profiles Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SendingStatusField;
@@ -529,7 +529,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Profiles Profiles {
+        public Client.ServicePlayerReference.Profiles Profiles {
             get {
                 return this.ProfilesField;
             }
@@ -542,7 +542,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Profiles Profiles1 {
+        public Client.ServicePlayerReference.Profiles Profiles1 {
             get {
                 return this.Profiles1Field;
             }
@@ -587,7 +587,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
+        private Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DifficultyField;
@@ -609,7 +609,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Crucigrams[] Crucigrams {
+        public Client.ServicePlayerReference.Crucigrams[] Crucigrams {
             get {
                 return this.CrucigramsField;
             }
@@ -680,7 +680,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Renovación_LIS_Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
+        private Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -702,7 +702,7 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Renovación_LIS_Client.ServicePlayerReference.Crucigrams[] Crucigrams {
+        public Client.ServicePlayerReference.Crucigrams[] Crucigrams {
             get {
                 return this.CrucigramsField;
             }
@@ -763,45 +763,311 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/Client.Domain")]
+    [System.SerializableAttribute()]
+    public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> BirthDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDPlayerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NickNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServicePlayerReference.Profile ProfileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnamesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> BirthDate {
+            get {
+                return this.BirthDateField;
+            }
+            set {
+                if ((this.BirthDateField.Equals(value) != true)) {
+                    this.BirthDateField = value;
+                    this.RaisePropertyChanged("BirthDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDPlayer {
+            get {
+                return this.IDPlayerField;
+            }
+            set {
+                if ((this.IDPlayerField.Equals(value) != true)) {
+                    this.IDPlayerField = value;
+                    this.RaisePropertyChanged("IDPlayer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Names {
+            get {
+                return this.NamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
+                    this.NamesField = value;
+                    this.RaisePropertyChanged("Names");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NickName {
+            get {
+                return this.NickNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NickNameField, value) != true)) {
+                    this.NickNameField = value;
+                    this.RaisePropertyChanged("NickName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServicePlayerReference.Profile Profile {
+            get {
+                return this.ProfileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfileField, value) != true)) {
+                    this.ProfileField = value;
+                    this.RaisePropertyChanged("Profile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surnames {
+            get {
+                return this.SurnamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnamesField, value) != true)) {
+                    this.SurnamesField = value;
+                    this.RaisePropertyChanged("Surnames");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profile", Namespace="http://schemas.datacontract.org/2004/07/Client.Domain")]
+    [System.SerializableAttribute()]
+    public partial class Profile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDProfileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServicePlayerReference.Player PlayerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ProfilePictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long ScoreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long IDProfile {
+            get {
+                return this.IDProfileField;
+            }
+            set {
+                if ((this.IDProfileField.Equals(value) != true)) {
+                    this.IDProfileField = value;
+                    this.RaisePropertyChanged("IDProfile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LoginStatus {
+            get {
+                return this.LoginStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginStatusField, value) != true)) {
+                    this.LoginStatusField = value;
+                    this.RaisePropertyChanged("LoginStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServicePlayerReference.Player Player {
+            get {
+                return this.PlayerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerField, value) != true)) {
+                    this.PlayerField = value;
+                    this.RaisePropertyChanged("Player");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] ProfilePicture {
+            get {
+                return this.ProfilePictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfilePictureField, value) != true)) {
+                    this.ProfilePictureField = value;
+                    this.RaisePropertyChanged("ProfilePicture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Score {
+            get {
+                return this.ScoreField;
+            }
+            set {
+                if ((this.ScoreField.Equals(value) != true)) {
+                    this.ScoreField = value;
+                    this.RaisePropertyChanged("Score");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePlayerReference.IPlayer")]
     public interface IPlayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        long AddPlayer(Renovación_LIS_Client.ServicePlayerReference.Players player);
+        long AddPlayer(Client.ServicePlayerReference.Players player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        System.Threading.Tasks.Task<long> AddPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players player);
+        System.Threading.Tasks.Task<long> AddPlayerAsync(Client.ServicePlayerReference.Players player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
-        Renovación_LIS_Client.ServicePlayerReference.Players[] GetPlayers();
+        Client.ServicePlayerReference.Players[] GetPlayers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetPlayersAsync();
+        System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetPlayersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        domain.Player GetPlayerByID(long ID);
+        Client.ServicePlayerReference.Player GetPlayerByID(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
-        System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(long ID);
+        System.Threading.Tasks.Task<Client.ServicePlayerReference.Player> GetPlayerByIDAsync(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
-        Renovación_LIS_Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
+        Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
-        System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
+        System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
-        domain.Player GetPlayerByNickname(string nickname);
+        Client.ServicePlayerReference.Player GetPlayerByNickname(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
-        System.Threading.Tasks.Task<domain.Player> GetPlayerByNicknameAsync(string nickname);
+        System.Threading.Tasks.Task<Client.ServicePlayerReference.Player> GetPlayerByNicknameAsync(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
-        long ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
+        long ModifyPlayer(Client.ServicePlayerReference.Players modifiedPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
-        System.Threading.Tasks.Task<long> ModifyPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer);
+        System.Threading.Tasks.Task<long> ModifyPlayerAsync(Client.ServicePlayerReference.Players modifiedPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPasswordByEmail", ReplyAction="http://tempuri.org/IPlayer/ModifyPasswordByEmailResponse")]
         void ModifyPasswordByEmail(string originalEmail, string newPassword);
@@ -829,12 +1095,12 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPlayerChannel : Renovación_LIS_Client.ServicePlayerReference.IPlayer, System.ServiceModel.IClientChannel {
+    public interface IPlayerChannel : Client.ServicePlayerReference.IPlayer, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlayerClient : System.ServiceModel.ClientBase<Renovación_LIS_Client.ServicePlayerReference.IPlayer>, Renovación_LIS_Client.ServicePlayerReference.IPlayer {
+    public partial class PlayerClient : System.ServiceModel.ClientBase<Client.ServicePlayerReference.IPlayer>, Client.ServicePlayerReference.IPlayer {
         
         public PlayerClient() {
         }
@@ -855,51 +1121,51 @@ namespace Renovación_LIS_Client.ServicePlayerReference {
                 base(binding, remoteAddress) {
         }
         
-        public long AddPlayer(Renovación_LIS_Client.ServicePlayerReference.Players player) {
+        public long AddPlayer(Client.ServicePlayerReference.Players player) {
             return base.Channel.AddPlayer(player);
         }
         
-        public System.Threading.Tasks.Task<long> AddPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players player) {
+        public System.Threading.Tasks.Task<long> AddPlayerAsync(Client.ServicePlayerReference.Players player) {
             return base.Channel.AddPlayerAsync(player);
         }
         
-        public Renovación_LIS_Client.ServicePlayerReference.Players[] GetPlayers() {
+        public Client.ServicePlayerReference.Players[] GetPlayers() {
             return base.Channel.GetPlayers();
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetPlayersAsync() {
+        public System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetPlayersAsync() {
             return base.Channel.GetPlayersAsync();
         }
         
-        public domain.Player GetPlayerByID(long ID) {
+        public Client.ServicePlayerReference.Player GetPlayerByID(long ID) {
             return base.Channel.GetPlayerByID(ID);
         }
         
-        public System.Threading.Tasks.Task<domain.Player> GetPlayerByIDAsync(long ID) {
+        public System.Threading.Tasks.Task<Client.ServicePlayerReference.Player> GetPlayerByIDAsync(long ID) {
             return base.Channel.GetPlayerByIDAsync(ID);
         }
         
-        public Renovación_LIS_Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name) {
+        public Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name) {
             return base.Channel.GetSpecifiedPlayers(name);
         }
         
-        public System.Threading.Tasks.Task<Renovación_LIS_Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name) {
+        public System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name) {
             return base.Channel.GetSpecifiedPlayersAsync(name);
         }
         
-        public domain.Player GetPlayerByNickname(string nickname) {
+        public Client.ServicePlayerReference.Player GetPlayerByNickname(string nickname) {
             return base.Channel.GetPlayerByNickname(nickname);
         }
         
-        public System.Threading.Tasks.Task<domain.Player> GetPlayerByNicknameAsync(string nickname) {
+        public System.Threading.Tasks.Task<Client.ServicePlayerReference.Player> GetPlayerByNicknameAsync(string nickname) {
             return base.Channel.GetPlayerByNicknameAsync(nickname);
         }
         
-        public long ModifyPlayer(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
+        public long ModifyPlayer(Client.ServicePlayerReference.Players modifiedPlayer) {
             return base.Channel.ModifyPlayer(modifiedPlayer);
         }
         
-        public System.Threading.Tasks.Task<long> ModifyPlayerAsync(Renovación_LIS_Client.ServicePlayerReference.Players modifiedPlayer) {
+        public System.Threading.Tasks.Task<long> ModifyPlayerAsync(Client.ServicePlayerReference.Players modifiedPlayer) {
             return base.Channel.ModifyPlayerAsync(modifiedPlayer);
         }
         

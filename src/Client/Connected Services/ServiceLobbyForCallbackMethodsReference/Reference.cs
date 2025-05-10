@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference {
+namespace Client.ServiceLobbyForCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethodsCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods", CallbackContract=typeof(Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethodsCallback))]
     public interface ILobbyCallbackMethods {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ILobbyCallbackMethods/BanPlayer")]
@@ -64,12 +64,12 @@ namespace Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ILobbyCallbackMethodsChannel : Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface ILobbyCallbackMethodsChannel : Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class LobbyCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods>, Renovación_LIS_Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods {
+    public partial class LobbyCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods>, Client.ServiceLobbyForCallbackMethodsReference.ILobbyCallbackMethods {
         
         public LobbyCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {

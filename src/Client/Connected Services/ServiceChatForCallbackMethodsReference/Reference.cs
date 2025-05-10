@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Renovación_LIS_Client.ServiceChatForCallbackMethodsReference {
+namespace Client.ServiceChatForCallbackMethodsReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceChatForCallbackMethodsReference.IChatCallbackMethods", CallbackContract=typeof(Renovación_LIS_Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethodsCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceChatForCallbackMethodsReference.IChatCallbackMethods", CallbackContract=typeof(Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethodsCallback))]
     public interface IChatCallbackMethods {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatCallbackMethods/JoinChat")]
@@ -42,12 +42,12 @@ namespace Renovación_LIS_Client.ServiceChatForCallbackMethodsReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IChatCallbackMethodsChannel : Renovación_LIS_Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethods, System.ServiceModel.IClientChannel {
+    public interface IChatCallbackMethodsChannel : Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethods, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ChatCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Renovación_LIS_Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethods>, Renovación_LIS_Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethods {
+    public partial class ChatCallbackMethodsClient : System.ServiceModel.DuplexClientBase<Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethods>, Client.ServiceChatForCallbackMethodsReference.IChatCallbackMethods {
         
         public ChatCallbackMethodsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
