@@ -123,6 +123,7 @@
     <EntityDeploy Include="DatabaseManager\DatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DatabaseModel1.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Server.DatabaseManager</CustomToolNamespace>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

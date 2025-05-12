@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="DatabaseModelStoreContainer">
-    <EntitySet Name="PlayersSet" EntityType="DatabaseModel.Store.PlayersSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="ProfilesSet" EntityType="DatabaseModel.Store.ProfilesSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="FriendRequestsSet" EntityType="DatabaseModel.Store.FriendRequestsSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-    <EntitySet Name="ProfilesProfiles" EntityType="DatabaseModel.Store.ProfilesProfiles" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PlayersSet" EntityType="DatabaseModel.Store.PlayersSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilesSet" EntityType="DatabaseModel.Store.ProfilesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FriendRequestsSet" EntityType="DatabaseModel.Store.FriendRequestsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilesProfiles" EntityType="DatabaseModel.Store.ProfilesProfiles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="ProfilesPlayers" Association="DatabaseModel.Store.ProfilesPlayers">
       <End Role="Profiles" EntitySet="ProfilesSet" />
       <End Role="Players" EntitySet="PlayersSet" />
@@ -45,6 +45,7 @@
     <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Score" Type="bigint" Nullable="true" />
     <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProfileImage" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Players_IDPlayer" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="FriendRequestsSet">

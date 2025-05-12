@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a8814c607b30404ba26844c83054d272" Name="Diagram1" ZoomLevel="100" >
-        <EntityTypeShape EntityType="DatabaseModel.Players" Width="1.5" PointX="6.625" PointY="6.5" />
-        <EntityTypeShape EntityType="DatabaseModel.Profiles" Width="1.5" PointX="10.625" PointY="6.75" />
-        <AssociationConnector Association="DatabaseModel.ProfilesPlayers" />
-        <EntityTypeShape EntityType="DatabaseModel.FriendRequests" Width="1.5" PointX="10.625" PointY="10.375" />
-        <AssociationConnector Association="DatabaseModel.ProfilesFriendRequests" />
-        <AssociationConnector Association="DatabaseModel.ProfilesProfiles" />
-        <AssociationConnector Association="DatabaseModel.ProfilesFriendRequests1" />
+      <Diagram DiagramId="a8814c607b30404ba26844c83054d272" Name="Diagram1" ZoomLevel="97" >
+        <EntityTypeShape EntityType="Server.DatabaseManager.Players" Width="1.5" PointX="6.625" PointY="6.5" />
+        <EntityTypeShape EntityType="Server.DatabaseManager.Profiles" Width="1.5" PointX="10.625" PointY="6.75" />
+        <AssociationConnector Association="Server.DatabaseManager.ProfilesPlayers" />
+        <EntityTypeShape EntityType="Server.DatabaseManager.FriendRequests" Width="1.5" PointX="10.625" PointY="10.375" />
+        <AssociationConnector Association="Server.DatabaseManager.ProfilesFriendRequests" />
+        <AssociationConnector Association="Server.DatabaseManager.ProfilesProfiles" />
+        <AssociationConnector Association="Server.DatabaseManager.ProfilesFriendRequests1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

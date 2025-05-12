@@ -15,15 +15,12 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class Profiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] CrucigramsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServiceProfileForNonCallbackMethodsReference.FriendRequests[] FriendRequestsField;
@@ -41,6 +38,9 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         private Client.ServiceProfileForNonCallbackMethodsReference.Players PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProfileImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -56,19 +56,6 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
             }
         }
         
@@ -138,6 +125,19 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProfileImage {
+            get {
+                return this.ProfileImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfileImageField, value) != true)) {
+                    this.ProfileImageField = value;
+                    this.RaisePropertyChanged("ProfileImage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles1 {
             get {
                 return this.Profiles1Field;
@@ -188,7 +188,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class Players : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -345,100 +345,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Crucigrams", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Crucigrams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDCrucigramField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.Levels[] LevelsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] ProfilesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.Words[] WordsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDCrucigram {
-            get {
-                return this.IDCrucigramField;
-            }
-            set {
-                if ((this.IDCrucigramField.Equals(value) != true)) {
-                    this.IDCrucigramField = value;
-                    this.RaisePropertyChanged("IDCrucigram");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.Levels[] Levels {
-            get {
-                return this.LevelsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelsField, value) != true)) {
-                    this.LevelsField = value;
-                    this.RaisePropertyChanged("Levels");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles {
-            get {
-                return this.ProfilesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
-                    this.ProfilesField = value;
-                    this.RaisePropertyChanged("Profiles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.Words[] Words {
-            get {
-                return this.WordsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WordsField, value) != true)) {
-                    this.WordsField = value;
-                    this.RaisePropertyChanged("Words");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class FriendRequests : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -577,194 +484,8 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Levels", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Levels : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DifficultyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDLevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LevelNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Difficulty {
-            get {
-                return this.DifficultyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DifficultyField, value) != true)) {
-                    this.DifficultyField = value;
-                    this.RaisePropertyChanged("Difficulty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDLevel {
-            get {
-                return this.IDLevelField;
-            }
-            set {
-                if ((this.IDLevelField.Equals(value) != true)) {
-                    this.IDLevelField = value;
-                    this.RaisePropertyChanged("IDLevel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LevelName {
-            get {
-                return this.LevelNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelNameField, value) != true)) {
-                    this.LevelNameField = value;
-                    this.RaisePropertyChanged("LevelName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Words", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Words : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDWordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string WordField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDWord {
-            get {
-                return this.IDWordField;
-            }
-            set {
-                if ((this.IDWordField.Equals(value) != true)) {
-                    this.IDWordField = value;
-                    this.RaisePropertyChanged("IDWord");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Word {
-            get {
-                return this.WordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WordField, value) != true)) {
-                    this.WordField = value;
-                    this.RaisePropertyChanged("Word");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfileLoginStatuses", Namespace="http://schemas.datacontract.org/2004/07/Client.DomainStatuses")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfileLoginStatuses", Namespace="http://schemas.datacontract.org/2004/07/Server.DomainStatuses")]
     public enum ProfileLoginStatuses : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -776,7 +497,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Profile", Namespace="http://schemas.datacontract.org/2004/07/Client.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profile", Namespace="http://schemas.datacontract.org/2004/07/Server.Domain")]
     [System.SerializableAttribute()]
     public partial class Profile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -793,7 +514,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         private Client.ServiceProfileForNonCallbackMethodsReference.Player PlayerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] ProfilePictureField;
+        private string ProfileImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ScoreField;
@@ -848,14 +569,14 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] ProfilePicture {
+        public string ProfileImage {
             get {
-                return this.ProfilePictureField;
+                return this.ProfileImageField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilePictureField, value) != true)) {
-                    this.ProfilePictureField = value;
-                    this.RaisePropertyChanged("ProfilePicture");
+                if ((object.ReferenceEquals(this.ProfileImageField, value) != true)) {
+                    this.ProfileImageField = value;
+                    this.RaisePropertyChanged("ProfileImage");
                 }
             }
         }
@@ -885,7 +606,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/Client.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/Server.Domain")]
     [System.SerializableAttribute()]
     public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1042,7 +763,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword", Namespace="http://schemas.datacontract.org/2004/07/ServicesTCP.AuxiliaryContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword", Namespace="http://schemas.datacontract.org/2004/07/Server.AuxiliaryDataContracts")]
     [System.SerializableAttribute()]
     public partial class DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1112,10 +833,10 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         System.Threading.Tasks.Task<long> AddProfileAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
-        long AddScoreToProfile(string profileNickname, int score);
+        long AddScoreToProfile(long profileID, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
-        System.Threading.Tasks.Task<long> AddScoreToProfileAsync(string profileNickname, int score);
+        System.Threading.Tasks.Task<long> AddScoreToProfileAsync(long profileID, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ChangeLoginStatus", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ChangeLoginStatusResponse")]
         void ChangeLoginStatus(Client.ServiceProfileForNonCallbackMethodsReference.ProfileLoginStatuses profileLoginStatus, long profileID);
@@ -1129,11 +850,11 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetFriends", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetFriendsResponse")]
         System.Threading.Tasks.Task<Client.ServiceProfileForNonCallbackMethodsReference.Profile[]> GetFriendsAsync(long profileID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetImage", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetImageResponse")]
-        byte[] GetImage(string fileName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetImageByPlayerNickname", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetImageByPlayerNicknameResponse")]
+        string GetImageByPlayerNickname(string playerNickname);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetImage", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetImageResponse")]
-        System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetImageByPlayerNickname", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetImageByPlayerNicknameResponse")]
+        System.Threading.Tasks.Task<string> GetImageByPlayerNicknameAsync(string playerNickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByID", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByIDResponse")]
         Client.ServiceProfileForNonCallbackMethodsReference.Profile GetProfileByID(long profileID);
@@ -1159,23 +880,17 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByPlayerNickname", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/GetProfileByPlayerNicknameResponse")]
         System.Threading.Tasks.Task<Client.ServiceProfileForNonCallbackMethodsReference.Profile> GetProfileByPlayerNicknameAsync(string nickname);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ModifyImageName", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ModifyImageNameResponse")]
-        bool ModifyImageName(string fileName, string newName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ModifyProfileImage", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ModifyProfileImageResponse")]
+        void ModifyProfileImage(long profileID, string newProfileImage);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ModifyImageName", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ModifyImageNameResponse")]
-        System.Threading.Tasks.Task<bool> ModifyImageNameAsync(string fileName, string newName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/ModifyProfileImage", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/ModifyProfileImageResponse")]
+        System.Threading.Tasks.Task ModifyProfileImageAsync(long profileID, string newProfileImage);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/TheProfileIsLogged", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/TheProfileIsLoggedResponse")]
         bool TheProfileIsLogged(long profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/TheProfileIsLogged", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/TheProfileIsLoggedResponse")]
         System.Threading.Tasks.Task<bool> TheProfileIsLoggedAsync(long profileID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/UploadImage", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/UploadImageResponse")]
-        bool UploadImage(string fileName, byte[] imageData);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/UploadImage", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/UploadImageResponse")]
-        System.Threading.Tasks.Task<bool> UploadImageAsync(string fileName, byte[] imageData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddFriendship", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddFriendshipResponse")]
         void AddFriendship(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1);
@@ -1231,12 +946,12 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
             return base.Channel.AddProfileAsync(profiles);
         }
         
-        public long AddScoreToProfile(string profileNickname, int score) {
-            return base.Channel.AddScoreToProfile(profileNickname, score);
+        public long AddScoreToProfile(long profileID, int score) {
+            return base.Channel.AddScoreToProfile(profileID, score);
         }
         
-        public System.Threading.Tasks.Task<long> AddScoreToProfileAsync(string profileNickname, int score) {
-            return base.Channel.AddScoreToProfileAsync(profileNickname, score);
+        public System.Threading.Tasks.Task<long> AddScoreToProfileAsync(long profileID, int score) {
+            return base.Channel.AddScoreToProfileAsync(profileID, score);
         }
         
         public void ChangeLoginStatus(Client.ServiceProfileForNonCallbackMethodsReference.ProfileLoginStatuses profileLoginStatus, long profileID) {
@@ -1255,12 +970,12 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
             return base.Channel.GetFriendsAsync(profileID);
         }
         
-        public byte[] GetImage(string fileName) {
-            return base.Channel.GetImage(fileName);
+        public string GetImageByPlayerNickname(string playerNickname) {
+            return base.Channel.GetImageByPlayerNickname(playerNickname);
         }
         
-        public System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName) {
-            return base.Channel.GetImageAsync(fileName);
+        public System.Threading.Tasks.Task<string> GetImageByPlayerNicknameAsync(string playerNickname) {
+            return base.Channel.GetImageByPlayerNicknameAsync(playerNickname);
         }
         
         public Client.ServiceProfileForNonCallbackMethodsReference.Profile GetProfileByID(long profileID) {
@@ -1295,12 +1010,12 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
             return base.Channel.GetProfileByPlayerNicknameAsync(nickname);
         }
         
-        public bool ModifyImageName(string fileName, string newName) {
-            return base.Channel.ModifyImageName(fileName, newName);
+        public void ModifyProfileImage(long profileID, string newProfileImage) {
+            base.Channel.ModifyProfileImage(profileID, newProfileImage);
         }
         
-        public System.Threading.Tasks.Task<bool> ModifyImageNameAsync(string fileName, string newName) {
-            return base.Channel.ModifyImageNameAsync(fileName, newName);
+        public System.Threading.Tasks.Task ModifyProfileImageAsync(long profileID, string newProfileImage) {
+            return base.Channel.ModifyProfileImageAsync(profileID, newProfileImage);
         }
         
         public bool TheProfileIsLogged(long profileID) {
@@ -1309,14 +1024,6 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         
         public System.Threading.Tasks.Task<bool> TheProfileIsLoggedAsync(long profileID) {
             return base.Channel.TheProfileIsLoggedAsync(profileID);
-        }
-        
-        public bool UploadImage(string fileName, byte[] imageData) {
-            return base.Channel.UploadImage(fileName, imageData);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UploadImageAsync(string fileName, byte[] imageData) {
-            return base.Channel.UploadImageAsync(fileName, imageData);
         }
         
         public void AddFriendship(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1) {

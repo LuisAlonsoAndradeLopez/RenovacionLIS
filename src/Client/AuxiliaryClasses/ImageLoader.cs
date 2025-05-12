@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows.Media.Imaging;
 using Client.ServiceProfileForNonCallbackMethodsReference;
 
@@ -6,23 +7,10 @@ namespace Client.AuxiliaryClasses
 {
     public class ImageLoader
     {
-        public BitmapImage GetImageByPlayerNickname(string profileNickname)
+        public BitmapImage GetImageByPlayerNickname(string playerNickname)
         {
             ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-            string fileName = profileNickname + ".png";
-            byte[] imageData = profileNonCallbackMethodsClient.GetImage(fileName);
-
-            if (imageData == null)
-            {
-                fileName = profileNickname + ".jpg";
-                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
-            }
-
-            if (imageData == null)
-            {
-                fileName = profileNickname + ".jpeg";
-                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
-            }
+            byte[] imageData = Convert.FromBase64String(profileNonCallbackMethodsClient.GetImageByPlayerNickname(playerNickname));
 
             profileNonCallbackMethodsClient.Close();
 

@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:8170" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="dfac9031-1dfd-4a03-b6bc-041b1bd7de3e" SourceId="1" SourceUrl="http://192.168.43.250:8170/?xsd=xsd3" />
-    <MetadataFile FileName="ServicePlayer1.wsdl" MetadataType="Wsdl" ID="2c8b9be7-542d-4f2d-8780-530cc43c544c" SourceId="1" SourceUrl="http://192.168.43.250:8170/?wsdl" />
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="035c10ec-f880-43a0-8e4e-ac5a87735d72" SourceId="1" SourceUrl="http://192.168.43.250:8170/?disco" />
-    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="8ada5b07-24ad-44ff-a7ac-ec3ad3fd9930" SourceId="1" SourceUrl="http://192.168.43.250:8170/?xsd=xsd2" />
-    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="58d32306-0aa3-448f-be2e-857db1da3074" SourceId="1" SourceUrl="http://192.168.43.250:8170/?xsd=xsd0" />
-    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="e40979bf-55e4-4af3-beb7-d830bcea20e8" SourceId="1" SourceUrl="http://192.168.43.250:8170/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="836e2aa7-b6d7-4ee8-993c-56f0feddff26" SourceId="1" SourceUrl="http://localhost:8170/?disco" />
+    <MetadataFile FileName="ServicePlayer.wsdl" MetadataType="Wsdl" ID="05658e21-1b03-47a4-b679-17b561bf05e7" SourceId="1" SourceUrl="http://localhost:8170/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="10624003-b467-4bec-ba73-0e6f1bc16a1c" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="17c43fb8-b51e-4299-85c6-3c63990ee1fb" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="2c47f7f5-8def-49d0-bbfa-422556ad4998" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd1" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="bf9ecba2-eaae-45f9-9f03-ac99a2d2a9df" SourceId="1" SourceUrl="http://localhost:8170/?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

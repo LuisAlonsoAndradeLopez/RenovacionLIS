@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="dWL8tZOgcadtPG2VNIjiC7kREcyMx3f8jD364XPo0b4=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="EJ48DziO/oB6Frn/kNhyQ42v4fdGin++OTWNskvZgdU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods" contract="ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods" bindingType="netTcpBinding" address="net.tcp://192.168.43.250:8140/ServiceMultiplayerCrosswordForNonCallbackMethods" bindingConfiguration="NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods">
+    <endpoint name="NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods" contract="ServiceMultiplayerCrosswordForNonCallbackMethodsReference.IMultiplayerCrosswordNonCallbackMethods" bindingType="netTcpBinding" address="net.tcp://localhost:8140/ServiceMultiplayerCrosswordForNonCallbackMethods" bindingConfiguration="NetTcpBinding_IMultiplayerCrosswordNonCallbackMethods">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.250:8140/ServiceMultiplayerCrosswordForNonCallbackMethods</serializedValue>
+          <serializedValue>net.tcp://localhost:8140/ServiceMultiplayerCrosswordForNonCallbackMethods</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

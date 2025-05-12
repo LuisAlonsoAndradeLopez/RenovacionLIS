@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseModelContainer">
     <EntitySetMapping Name="PlayersSet">
-      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Players)">
+      <EntityTypeMapping TypeName="IsTypeOf(Server.DatabaseManager.Players)">
         <MappingFragment StoreEntitySet="PlayersSet">
           <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
           <ScalarProperty Name="Names" ColumnName="Names" />
@@ -15,16 +15,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProfilesSet">
-      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Profiles)">
+      <EntityTypeMapping TypeName="IsTypeOf(Server.DatabaseManager.Profiles)">
         <MappingFragment StoreEntitySet="ProfilesSet">
           <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
           <ScalarProperty Name="Score" ColumnName="Score" />
           <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+          <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FriendRequestsSet">
-      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.FriendRequests)">
+      <EntityTypeMapping TypeName="IsTypeOf(Server.DatabaseManager.FriendRequests)">
         <MappingFragment StoreEntitySet="FriendRequestsSet">
           <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
           <ScalarProperty Name="Message" ColumnName="Message" />
@@ -34,7 +35,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ProfilesPlayers" TypeName="DatabaseModel.ProfilesPlayers" StoreEntitySet="ProfilesSet">
+    <AssociationSetMapping Name="ProfilesPlayers" TypeName="Server.DatabaseManager.ProfilesPlayers" StoreEntitySet="ProfilesSet">
       <EndProperty Name="Players">
         <ScalarProperty Name="IDPlayer" ColumnName="Players_IDPlayer" />
       </EndProperty>
@@ -42,7 +43,7 @@
         <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ProfilesFriendRequests" TypeName="DatabaseModel.ProfilesFriendRequests" StoreEntitySet="FriendRequestsSet">
+    <AssociationSetMapping Name="ProfilesFriendRequests" TypeName="Server.DatabaseManager.ProfilesFriendRequests" StoreEntitySet="FriendRequestsSet">
       <EndProperty Name="Profiles">
         <ScalarProperty Name="IDProfile" ColumnName="Profiles_IDProfile" />
       </EndProperty>
@@ -50,7 +51,7 @@
         <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ProfilesProfiles" TypeName="DatabaseModel.ProfilesProfiles" StoreEntitySet="ProfilesProfiles">
+    <AssociationSetMapping Name="ProfilesProfiles" TypeName="Server.DatabaseManager.ProfilesProfiles" StoreEntitySet="ProfilesProfiles">
       <EndProperty Name="Profiles">
         <ScalarProperty Name="IDProfile" ColumnName="Profiles2_IDProfile" />
       </EndProperty>
@@ -58,7 +59,7 @@
         <ScalarProperty Name="IDProfile" ColumnName="Profiles1_IDProfile" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ProfilesFriendRequests1" TypeName="DatabaseModel.ProfilesFriendRequests1" StoreEntitySet="FriendRequestsSet">
+    <AssociationSetMapping Name="ProfilesFriendRequests1" TypeName="Server.DatabaseManager.ProfilesFriendRequests1" StoreEntitySet="FriendRequestsSet">
       <EndProperty Name="Profiles">
         <ScalarProperty Name="IDProfile" ColumnName="Profiles1_IDProfile" />
       </EndProperty>

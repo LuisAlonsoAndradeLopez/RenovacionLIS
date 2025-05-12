@@ -15,7 +15,7 @@ namespace Server.ServiceContracts
         long AddProfile(Profiles profiles);
 
         [OperationContract]
-        long AddScoreToProfile(int profileID, int score);
+        long AddScoreToProfile(long profileID, int score);
 
         [OperationContract]
         void ChangeLoginStatus(ProfileLoginStatuses profileLoginStatus, long profileID);
@@ -24,7 +24,7 @@ namespace Server.ServiceContracts
         List<Profile> GetFriends(long profileID);
 
         [OperationContract]
-        byte[] GetImage(string fileName);
+        string GetImageByPlayerNickname(string playerNickname);
 
         [OperationContract]
         Profile GetProfileByID(long profileID);
@@ -39,13 +39,10 @@ namespace Server.ServiceContracts
         Profile GetProfileByPlayerNickname(string nickname);
 
         [OperationContract]
-        bool ModifyImageName(string fileName, string newName);
+        void ModifyProfileImage(long profileID, string newProfileImage);
 
         [OperationContract]
         bool TheProfileIsLogged(long profileID);
-
-        [OperationContract]
-        bool UploadImage(string fileName, byte[] imageData);
 
         [OperationContract]
         void AddFriendship(Profiles profiles, Profiles profiles1);

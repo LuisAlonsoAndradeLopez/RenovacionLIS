@@ -49,15 +49,15 @@ namespace Client.Views
             NicknameTextBox.Text = MainWindow.loggedProfile.Player.NickName;
             BirthDayDatePicker.SelectedDate = MainWindow.loggedProfile.Player.BirthDate;
 
-            byte[] imageData = GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions();
+            byte[] profileImageData = Convert.FromBase64String(MainWindow.loggedProfile.ProfileImage);
 
-            if (imageData != null)
+            if (profileImageData != null)
             {
                 try
                 {
                     BitmapImage imageSource = new BitmapImage();
                     imageSource.BeginInit();
-                    imageSource.StreamSource = new MemoryStream(imageData);
+                    imageSource.StreamSource = new MemoryStream(profileImageData);
                     imageSource.EndInit();
 
                     ProfilePictureImage.Source = imageSource;
@@ -66,10 +66,6 @@ namespace Client.Views
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-            }
-            else
-            {
-                ImageRouteTextBlock.Text = "";
             }
         }
         #endregion
@@ -116,9 +112,6 @@ namespace Client.Views
                         {
                             if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == MainWindow.loggedProfile.Player.NickName)
                             {
-                                profileNonCallbackMethodsClient.ModifyImageName(MainWindow.loggedProfile.Player.NickName, NicknameTextBox.Text);
-
-
                                 ServicePlayerReference.Players players = new ServicePlayerReference.Players
                                 {
                                     IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
@@ -134,12 +127,10 @@ namespace Client.Views
                                 if (ImageRouteTextBlock.Text != "")
                                 {
                                     byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
-                                    string fileExtension = Path.GetExtension(ImageRouteTextBlock.Text);
-                                    string fileName = NicknameTextBox.Text + fileExtension;
 
                                     if (imageData.Length <= 1048576)
                                     {
-                                        profileNonCallbackMethodsClient.UploadImage(fileName, imageData);
+                                        profileNonCallbackMethodsClient.ModifyProfileImage(MainWindow.loggedProfile.IDProfile, Convert.ToBase64String(imageData));
                                     }
                                     else
                                     {
@@ -289,29 +280,6 @@ namespace Client.Views
             }
 
             return finalText;
-        }
-
-        private byte[] GetProfileImageFromServerOnByteArrayCheckingAllValidExtensions()
-        {
-            ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
-            string fileName = MainWindow.loggedProfile.Player.NickName + ".png";
-            byte[] imageData = profileNonCallbackMethodsClient.GetImage(fileName);
-
-            if (imageData == null)
-            {
-                fileName = MainWindow.loggedProfile.Player.NickName + ".jpg";
-                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
-            }
-
-            if (imageData == null)
-            {
-                fileName = MainWindow.loggedProfile.Player.NickName + ".jpeg";
-                imageData = profileNonCallbackMethodsClient.GetImage(fileName);
-            }
-
-            profileNonCallbackMethodsClient.Close();
-
-            return imageData;
         }
 
         public void GoToLobbyView()

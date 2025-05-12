@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="Z0K5gTRcpogJB0IT5kPx5mQyrtxAPhGUKsAS6bcz3wM=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="ij6pjS6ZC8sNmHdr7O1seVjWChKkB1aJeQlDIyxZeTM=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IChatCallbackMethods">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IChatCallbackMethods" contract="ServiceChatForCallbackMethodsReference.IChatCallbackMethods" bindingType="netTcpBinding" address="net.tcp://192.168.43.250:8040/ServiceChatForCallbackMethods" bindingConfiguration="NetTcpBinding_IChatCallbackMethods">
+    <endpoint name="NetTcpBinding_IChatCallbackMethods" contract="ServiceChatForCallbackMethodsReference.IChatCallbackMethods" bindingType="netTcpBinding" address="net.tcp://localhost:8040/ServiceChatForCallbackMethods" bindingConfiguration="NetTcpBinding_IChatCallbackMethods">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.250:8040/ServiceChatForCallbackMethods</serializedValue>
+          <serializedValue>net.tcp://localhost:8040/ServiceChatForCallbackMethods</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

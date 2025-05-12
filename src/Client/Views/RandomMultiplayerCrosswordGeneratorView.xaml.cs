@@ -118,27 +118,27 @@ namespace Client.Views
             {
                 case 1:
                     SelectedCrosswordName.Text = "105";
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\105MultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\105MultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 2:
                     SelectedCrosswordName.Text = "CC3";
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\CC3MultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 3:
                     SelectedCrosswordName.Text = resourceManager.GetString("ECONEX bathroom low level", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\bañoMultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 4:
                     SelectedCrosswordName.Text = resourceManager.GetString("Doctorated in CS", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
                 case 5:
                     SelectedCrosswordName.Text = resourceManager.GetString("Crystal saloon", cultureInfo);
-                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\salónCristalMultiplayerCrosswordSelectionImage.jpeg");
+                    SelectedCrosswordImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\salónCristalMultiplayerCrosswordSelectionImage.jpeg");
                     break;
 
             }

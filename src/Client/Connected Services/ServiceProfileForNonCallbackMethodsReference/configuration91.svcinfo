@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="S2yKaZy+bh16TScrUB80k+IzZGEmDDAGi9VZTtlLB+U=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="LkkqU+OSooXa2xq62X+6XrdnQM+j7OkrgV3hilLu+ps=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IProfileNonCallbackMethods">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IProfileNonCallbackMethods" contract="ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods" bindingType="netTcpBinding" address="net.tcp://192.168.43.250:8200/ServiceProfileForNonCallbackMethods" bindingConfiguration="NetTcpBinding_IProfileNonCallbackMethods">
+    <endpoint name="NetTcpBinding_IProfileNonCallbackMethods" contract="ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods" bindingType="netTcpBinding" address="net.tcp://localhost:8200/ServiceProfileForNonCallbackMethods" bindingConfiguration="NetTcpBinding_IProfileNonCallbackMethods">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.250:8200/ServiceProfileForNonCallbackMethods</serializedValue>
+          <serializedValue>net.tcp://localhost:8200/ServiceProfileForNonCallbackMethods</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -1,12 +1,13 @@
 TODO:
-*Configurar los servicios del servidor con el cliente
-*Verificar si aun funciona el correo electrónico para crear cuenta.
-*Ver si se pueden pasar las referencias de la misma manera que con el entity framework. (creo que no se puede). 
-*Las imagenes de perfil se deben guardar en la base de datos en base64.
-*Los archivos de logs cuando se genera una excepción, deben de guardarse en la carpeta raíz del proyecto en donde se esté generando.
-*Si es posible, reparar el bug del login que me dijo Armando.
-*Color rojo cuando queden 5 segundos de tiempo.
-*Agregar en el readme también el procedimiento para cambiar el dataset de la base de datos, la dirección ip de los servicios y su configuración con el cliente.
+* .edmx no funciona, debe generar los archivos para que el connection string funcione.
+* Configurar los servicios del servidor con el cliente.
+* Verificar si aun funciona el correo electrónico para crear cuenta.
+* Ver si se pueden pasar las referencias de la misma manera que con el entity framework. (creo que no se puede). 
+* Las imagenes de perfil se deben guardar en la base de datos en base64.
+* Los archivos de logs cuando se genera una excepción, deben de guardarse en la carpeta raíz del proyecto en donde se esté generando.
+* Si es posible, reparar el bug del login que me dijo Armando.
+* Color rojo cuando queden 5 segundos de tiempo.
+* Agregar en el readme también el procedimiento para cambiar el dataset de la base de datos, la dirección ip de los servicios y su configuración con el cliente.
 
 
 ## Renovación LIS

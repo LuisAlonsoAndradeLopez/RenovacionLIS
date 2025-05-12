@@ -15,7 +15,7 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class Players : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -172,15 +172,12 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class Profiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServicePlayerReference.FriendRequests[] FriendRequestsField;
@@ -198,6 +195,9 @@ namespace Client.ServicePlayerReference {
         private Client.ServicePlayerReference.Players PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProfileImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.ServicePlayerReference.Profiles[] Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -213,19 +213,6 @@ namespace Client.ServicePlayerReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
             }
         }
         
@@ -295,6 +282,19 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProfileImage {
+            get {
+                return this.ProfileImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProfileImageField, value) != true)) {
+                    this.ProfileImageField = value;
+                    this.RaisePropertyChanged("ProfileImage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Client.ServicePlayerReference.Profiles[] Profiles1 {
             get {
                 return this.Profiles1Field;
@@ -345,100 +345,7 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Crucigrams", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Crucigrams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDCrucigramField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.Levels[] LevelsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.Profiles[] ProfilesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.Words[] WordsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDCrucigram {
-            get {
-                return this.IDCrucigramField;
-            }
-            set {
-                if ((this.IDCrucigramField.Equals(value) != true)) {
-                    this.IDCrucigramField = value;
-                    this.RaisePropertyChanged("IDCrucigram");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.Levels[] Levels {
-            get {
-                return this.LevelsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelsField, value) != true)) {
-                    this.LevelsField = value;
-                    this.RaisePropertyChanged("Levels");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.Profiles[] Profiles {
-            get {
-                return this.ProfilesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
-                    this.ProfilesField = value;
-                    this.RaisePropertyChanged("Profiles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.Words[] Words {
-            get {
-                return this.WordsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WordsField, value) != true)) {
-                    this.WordsField = value;
-                    this.RaisePropertyChanged("Words");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
     public partial class FriendRequests : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -579,193 +486,7 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Levels", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Levels : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DifficultyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDLevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LevelNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Difficulty {
-            get {
-                return this.DifficultyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DifficultyField, value) != true)) {
-                    this.DifficultyField = value;
-                    this.RaisePropertyChanged("Difficulty");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDLevel {
-            get {
-                return this.IDLevelField;
-            }
-            set {
-                if ((this.IDLevelField.Equals(value) != true)) {
-                    this.IDLevelField = value;
-                    this.RaisePropertyChanged("IDLevel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LevelName {
-            get {
-                return this.LevelNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LevelNameField, value) != true)) {
-                    this.LevelNameField = value;
-                    this.RaisePropertyChanged("LevelName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Words", Namespace="http://schemas.datacontract.org/2004/07/DatabaseManager")]
-    [System.SerializableAttribute()]
-    public partial class Words : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.Crucigrams[] CrucigramsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IDWordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string WordField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.Crucigrams[] Crucigrams {
-            get {
-                return this.CrucigramsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CrucigramsField, value) != true)) {
-                    this.CrucigramsField = value;
-                    this.RaisePropertyChanged("Crucigrams");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IDWord {
-            get {
-                return this.IDWordField;
-            }
-            set {
-                if ((this.IDWordField.Equals(value) != true)) {
-                    this.IDWordField = value;
-                    this.RaisePropertyChanged("IDWord");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Word {
-            get {
-                return this.WordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.WordField, value) != true)) {
-                    this.WordField = value;
-                    this.RaisePropertyChanged("Word");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/Client.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/Server.Domain")]
     [System.SerializableAttribute()]
     public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -922,7 +643,7 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Profile", Namespace="http://schemas.datacontract.org/2004/07/Client.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profile", Namespace="http://schemas.datacontract.org/2004/07/Server.Domain")]
     [System.SerializableAttribute()]
     public partial class Profile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -939,7 +660,7 @@ namespace Client.ServicePlayerReference {
         private Client.ServicePlayerReference.Player PlayerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] ProfilePictureField;
+        private string ProfileImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ScoreField;
@@ -994,14 +715,14 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] ProfilePicture {
+        public string ProfileImage {
             get {
-                return this.ProfilePictureField;
+                return this.ProfileImageField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilePictureField, value) != true)) {
-                    this.ProfilePictureField = value;
-                    this.RaisePropertyChanged("ProfilePicture");
+                if ((object.ReferenceEquals(this.ProfileImageField, value) != true)) {
+                    this.ProfileImageField = value;
+                    this.RaisePropertyChanged("ProfileImage");
                 }
             }
         }

@@ -156,27 +156,27 @@ namespace Client.Views
         #region Crosswords, questions and background selection methods
         private void Show105Background()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\105MultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\105MultiplayerCrosswordImage.png");
         }
 
         private void ShowCC3Background()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\CC3MultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\CC3MultiplayerCrosswordImage.png");
         }
 
         private void ShowECONEXBathroomLowLevelBackground()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\bañoMultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\bañoMultiplayerCrosswordImage.png");
         }
 
         private void ShowDoctoratedInCSBackground()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png");
         }
 
         private void ShowCrystalSaloonBackground()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("images\\salónCristalMultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\salónCristalMultiplayerCrosswordImage.png");
         }
 
         private void Show105CrosswordAndItsQuestions()

@@ -43,7 +43,7 @@ namespace Client.Views
             MultiplayerCrosswordNonCallbackMethodsClient multiplayerCrosswordNonCallbackMethodsClient = new MultiplayerCrosswordNonCallbackMethodsClient();
             multiplayerCrosswordNonCallbackMethodsClient.InnerChannel.OperationTimeout = TimeSpan.FromSeconds(10);
 
-            profileNonCallbackMethodsClient.AddScoreToProfile(MainWindow.loggedProfile.Player.NickName, multiplayerCrosswordNonCallbackMethodsClient.GetPointsFromAProfile(MainWindow.loggedProfile.Player.NickName));
+            profileNonCallbackMethodsClient.AddScoreToProfile(MainWindow.loggedProfile.IDProfile, multiplayerCrosswordNonCallbackMethodsClient.GetPointsFromAProfile(MainWindow.loggedProfile.Player.NickName));
 
             InitializeComponent();
 

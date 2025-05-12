@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DatabaseModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+<Schema Namespace="Server.DatabaseManager" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
   <EntityContainer Name="DatabaseModelContainer" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-    <EntitySet Name="PlayersSet" EntityType="DatabaseModel.Players" />
-    <EntitySet Name="ProfilesSet" EntityType="DatabaseModel.Profiles" />
-    <AssociationSet Name="ProfilesPlayers" Association="DatabaseModel.ProfilesPlayers">
+    <EntitySet Name="PlayersSet" EntityType="Server.DatabaseManager.Players" />
+    <EntitySet Name="ProfilesSet" EntityType="Server.DatabaseManager.Profiles" />
+    <AssociationSet Name="ProfilesPlayers" Association="Server.DatabaseManager.ProfilesPlayers">
       <End Role="Profiles" EntitySet="ProfilesSet" />
       <End Role="Players" EntitySet="PlayersSet" />
     </AssociationSet>
-    <EntitySet Name="FriendRequestsSet" EntityType="DatabaseModel.FriendRequests" />
-    <AssociationSet Name="ProfilesFriendRequests" Association="DatabaseModel.ProfilesFriendRequests">
+    <EntitySet Name="FriendRequestsSet" EntityType="Server.DatabaseManager.FriendRequests" />
+    <AssociationSet Name="ProfilesFriendRequests" Association="Server.DatabaseManager.ProfilesFriendRequests">
       <End Role="Profiles" EntitySet="ProfilesSet" />
       <End Role="FriendRequests" EntitySet="FriendRequestsSet" />
     </AssociationSet>
-    <AssociationSet Name="ProfilesProfiles" Association="DatabaseModel.ProfilesProfiles">
+    <AssociationSet Name="ProfilesProfiles" Association="Server.DatabaseManager.ProfilesProfiles">
       <End Role="Profiles" EntitySet="ProfilesSet" />
       <End Role="Profiles1" EntitySet="ProfilesSet" />
     </AssociationSet>
-    <AssociationSet Name="ProfilesFriendRequests1" Association="DatabaseModel.ProfilesFriendRequests1">
+    <AssociationSet Name="ProfilesFriendRequests1" Association="Server.DatabaseManager.ProfilesFriendRequests1">
       <End Role="Profiles" EntitySet="ProfilesSet" />
       <End Role="FriendRequests" EntitySet="FriendRequestsSet" />
     </AssociationSet>
@@ -32,7 +32,7 @@
     <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
+    <NavigationProperty Name="Profiles" Relationship="Server.DatabaseManager.ProfilesPlayers" FromRole="Players" ToRole="Profiles" />
   </EntityType>
   <EntityType Name="Profiles">
     <Key>
@@ -40,16 +40,17 @@
     </Key>
     <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Score" Type="Int64" Nullable="true" />
-    <NavigationProperty Name="Players" Relationship="DatabaseModel.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
-    <NavigationProperty Name="FriendRequests" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="Profiles" ToRole="FriendRequests" />
-    <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesProfiles" FromRole="Profiles" ToRole="Profiles1" />
-    <NavigationProperty Name="Profiles2" Relationship="DatabaseModel.ProfilesProfiles" FromRole="Profiles1" ToRole="Profiles" />
-    <NavigationProperty Name="FriendRequests1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="Profiles" ToRole="FriendRequests" />
+    <NavigationProperty Name="Players" Relationship="Server.DatabaseManager.ProfilesPlayers" FromRole="Profiles" ToRole="Players" />
+    <NavigationProperty Name="FriendRequests" Relationship="Server.DatabaseManager.ProfilesFriendRequests" FromRole="Profiles" ToRole="FriendRequests" />
+    <NavigationProperty Name="Profiles1" Relationship="Server.DatabaseManager.ProfilesProfiles" FromRole="Profiles" ToRole="Profiles1" />
+    <NavigationProperty Name="Profiles2" Relationship="Server.DatabaseManager.ProfilesProfiles" FromRole="Profiles1" ToRole="Profiles" />
+    <NavigationProperty Name="FriendRequests1" Relationship="Server.DatabaseManager.ProfilesFriendRequests1" FromRole="Profiles" ToRole="FriendRequests" />
     <Property Name="LoginStatus" Type="String" Nullable="false" />
+    <Property Name="ProfileImage" Type="String" Nullable="true" MaxLength="Max" />
   </EntityType>
   <Association Name="ProfilesPlayers">
-    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
-    <End Type="DatabaseModel.Players" Role="Players" Multiplicity="1" />
+    <End Type="Server.DatabaseManager.Profiles" Role="Profiles" Multiplicity="1" />
+    <End Type="Server.DatabaseManager.Players" Role="Players" Multiplicity="1" />
   </Association>
   <EntityType Name="FriendRequests">
     <Key>
@@ -57,22 +58,22 @@
     </Key>
     <Property Name="IDFriendRequest" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Name="Message" Type="String" Nullable="true" />
-    <NavigationProperty Name="Profiles" Relationship="DatabaseModel.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
-    <NavigationProperty Name="Profiles1" Relationship="DatabaseModel.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />
+    <NavigationProperty Name="Profiles" Relationship="Server.DatabaseManager.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
+    <NavigationProperty Name="Profiles1" Relationship="Server.DatabaseManager.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" />
     <Property Name="SendingStatus" Type="String" Nullable="false" />
     <Property Name="AceptationStatus" Type="String" Nullable="false" />
   </EntityType>
   <Association Name="ProfilesFriendRequests">
-    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
-    <End Type="DatabaseModel.FriendRequests" Role="FriendRequests" Multiplicity="*" />
+    <End Type="Server.DatabaseManager.Profiles" Role="Profiles" Multiplicity="1" />
+    <End Type="Server.DatabaseManager.FriendRequests" Role="FriendRequests" Multiplicity="*" />
   </Association>
   <Association Name="ProfilesProfiles">
-    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="*" />
-    <End Type="DatabaseModel.Profiles" Role="Profiles1" Multiplicity="*" />
+    <End Type="Server.DatabaseManager.Profiles" Role="Profiles" Multiplicity="*" />
+    <End Type="Server.DatabaseManager.Profiles" Role="Profiles1" Multiplicity="*" />
   </Association>
   <Association Name="ProfilesFriendRequests1">
-    <End Type="DatabaseModel.Profiles" Role="Profiles" Multiplicity="1" />
-    <End Type="DatabaseModel.FriendRequests" Role="FriendRequests" Multiplicity="*" />
+    <End Type="Server.DatabaseManager.Profiles" Role="Profiles" Multiplicity="1" />
+    <End Type="Server.DatabaseManager.FriendRequests" Role="FriendRequests" Multiplicity="*" />
   </Association>
 </Schema>

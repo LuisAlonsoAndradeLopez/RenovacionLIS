@@ -26,6 +26,7 @@ namespace Server.DatabaseManager
         public long IDProfile { get; set; }
         public Nullable<long> Score { get; set; }
         public string LoginStatus { get; set; }
+        public string ProfileImage { get; set; }
     
         public virtual Players Players { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
