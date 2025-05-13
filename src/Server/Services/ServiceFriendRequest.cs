@@ -18,14 +18,14 @@ namespace Server.Services
 
     public class ServiceFriendRequestForNonCallbackMethods : IFriendRequestNonCallbackMethods
     {
-        public List<FriendRequests> GetFriendsRequestsByProfileID(long ID)
+        public List<FriendRequestsSet> GetFriendsRequestsByProfileID(long ID)
         {
-            List<FriendRequests> friendRequests = new List<FriendRequests>();
+            List<FriendRequestsSet> friendRequests = new List<FriendRequestsSet>();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                friendRequests = databaseModelContainer.FriendRequestsSet.Where(e => e.Profiles.IDProfile == ID).ToList();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                friendRequests = renovaciónLISDatabase.FriendRequestsSet.Where(e => e.ProfilesSet.IDProfile == ID).ToList();
 
             }
             catch (DbEntityValidationException ex)
@@ -57,14 +57,14 @@ namespace Server.Services
             return friendRequests;
         }
 
-        public List<FriendRequests> GetFriendsRequestsByProfile1ID(long ID)
+        public List<FriendRequestsSet> GetFriendsRequestsByProfile1ID(long ID)
         {
-            List<FriendRequests> friendRequests = new List<FriendRequests>();
+            List<FriendRequestsSet> friendRequests = new List<FriendRequestsSet>();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                friendRequests = databaseModelContainer.FriendRequestsSet.Where(e => e.Profiles1.IDProfile == ID).ToList();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                friendRequests = renovaciónLISDatabase.FriendRequestsSet.Where(e => e.ProfilesSet1.IDProfile == ID).ToList();
 
             }
             catch (DbEntityValidationException ex)
@@ -98,60 +98,60 @@ namespace Server.Services
 
         public FriendRequest GetFriendRequestByID(long ID)
         {
-            FriendRequests friendRequests = new FriendRequests();
+            FriendRequestsSet friendRequestsSet = new FriendRequestsSet();
             FriendRequest friendRequest = new FriendRequest();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                friendRequests = databaseModelContainer.FriendRequestsSet.Where(fr => fr.IDFriendRequest == ID).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                friendRequestsSet = renovaciónLISDatabase.FriendRequestsSet.Where(fr => fr.IDFriendRequest == ID).FirstOrDefault();
 
-                if (friendRequests != null)
+                if (friendRequestsSet != null)
                 {
 
                     Player playerProfile = new Player
                     {
-                        IDPlayer = friendRequests.Profiles.Players.IDPlayer,
-                        Names = friendRequests.Profiles.Players.Names,
-                        Surnames = friendRequests.Profiles.Players.Surnames,
-                        Email = friendRequests.Profiles.Players.Email,
-                        NickName = friendRequests.Profiles.Players.NickName,
-                        BirthDate = friendRequests.Profiles.Players.BirthDate
+                        IDPlayer = friendRequestsSet.ProfilesSet.PlayersSet.IDPlayer,
+                        Names = friendRequestsSet.ProfilesSet.PlayersSet.Names,
+                        Surnames = friendRequestsSet.ProfilesSet.PlayersSet.Surnames,
+                        Email = friendRequestsSet.ProfilesSet.PlayersSet.Email,
+                        NickName = friendRequestsSet.ProfilesSet.PlayersSet.NickName,
+                        BirthDate = friendRequestsSet.ProfilesSet.PlayersSet.BirthDate
                     };
 
                     Player playerProfile1 = new Player
                     {
-                        IDPlayer = friendRequests.Profiles1.Players.IDPlayer,
-                        Names = friendRequests.Profiles1.Players.Names,
-                        Surnames = friendRequests.Profiles1.Players.Surnames,
-                        Email = friendRequests.Profiles1.Players.Email,
-                        NickName = friendRequests.Profiles1.Players.NickName,
-                        BirthDate = friendRequests.Profiles1.Players.BirthDate
+                        IDPlayer = friendRequestsSet.ProfilesSet1.PlayersSet.IDPlayer,
+                        Names = friendRequestsSet.ProfilesSet1.PlayersSet.Names,
+                        Surnames = friendRequestsSet.ProfilesSet1.PlayersSet.Surnames,
+                        Email = friendRequestsSet.ProfilesSet1.PlayersSet.Email,
+                        NickName = friendRequestsSet.ProfilesSet1.PlayersSet.NickName,
+                        BirthDate = friendRequestsSet.ProfilesSet1.PlayersSet.BirthDate
                     };
 
                     Profile profile = new Profile
                     {
-                        IDProfile = friendRequests.Profiles.IDProfile,
-                        Score = (long)friendRequests.Profiles.Score,
-                        LoginStatus = friendRequests.Profiles.LoginStatus,
-                        ProfileImage = friendRequests.Profiles.ProfileImage,
+                        IDProfile = friendRequestsSet.ProfilesSet.IDProfile,
+                        Score = (long)friendRequestsSet.ProfilesSet.Score,
+                        LoginStatus = friendRequestsSet.ProfilesSet.LoginStatus,
+                        ProfileImage = friendRequestsSet.ProfilesSet.ProfileImage,
                         Player = playerProfile
                     };
 
                     Profile profile1 = new Profile
                     {
-                        IDProfile = friendRequests.Profiles1.IDProfile,
-                        Score = (long)friendRequests.Profiles1.Score,
-                        LoginStatus = friendRequests.Profiles1.LoginStatus,
-                        ProfileImage = friendRequests.Profiles1.ProfileImage,
+                        IDProfile = friendRequestsSet.ProfilesSet1.IDProfile,
+                        Score = (long)friendRequestsSet.ProfilesSet1.Score,
+                        LoginStatus = friendRequestsSet.ProfilesSet1.LoginStatus,
+                        ProfileImage = friendRequestsSet.ProfilesSet1.ProfileImage,
                         Player = playerProfile1
                     };
 
-                    friendRequest.IDFriendRequest = friendRequests.IDFriendRequest;
-                    friendRequest.CreationDate = friendRequests.CreationDate;
-                    friendRequest.Message = friendRequests.Message;
-                    friendRequest.AceptationStatus = friendRequests.AceptationStatus;
-                    friendRequest.SendingStatus = friendRequests.SendingStatus;
+                    friendRequest.IDFriendRequest = friendRequestsSet.IDFriendRequest;
+                    friendRequest.CreationDate = friendRequestsSet.CreationDate;
+                    friendRequest.Message = friendRequestsSet.Message;
+                    friendRequest.AceptationStatus = friendRequestsSet.AceptationStatus;
+                    friendRequest.SendingStatus = friendRequestsSet.SendingStatus;
                     friendRequest.Profile = profile;
                     friendRequest.Profile1 = profile1;
                 }
@@ -192,13 +192,13 @@ namespace Server.Services
         public List<FriendRequest> GetPendientsForAceptationFriendsRequestsByProfile1ID(long IDProfile1)
         {
             List<FriendRequest> friendRequestList = new List<FriendRequest>();
-            List<FriendRequests> friendRequestsList = new List<FriendRequests>();
+            List<FriendRequestsSet> friendRequestsList = new List<FriendRequestsSet>();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                friendRequestsList = databaseModelContainer.FriendRequestsSet
-                .Where(fr => fr.Profiles1.IDProfile == IDProfile1)
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                friendRequestsList = renovaciónLISDatabase.FriendRequestsSet
+                .Where(fr => fr.ProfilesSet1.IDProfile == IDProfile1)
                 .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
                 .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                 .ToList();
@@ -245,13 +245,13 @@ namespace Server.Services
         public List<FriendRequest> GetSentAndPendientsForAceptationFriendsRequestsByProfileID(long IDProfile)
         {
             List<FriendRequest> friendRequestList = new List<FriendRequest>();
-            List<FriendRequests> friendRequestsList = new List<FriendRequests>();
+            List<FriendRequestsSet> friendRequestsList = new List<FriendRequestsSet>();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                friendRequestsList = databaseModelContainer.FriendRequestsSet
-                .Where(fr => fr.Profiles.IDProfile == IDProfile)
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                friendRequestsList = renovaciónLISDatabase.FriendRequestsSet
+                .Where(fr => fr.ProfilesSet.IDProfile == IDProfile)
                 .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
                 .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                 .ToList();
@@ -296,58 +296,58 @@ namespace Server.Services
         }
 
 
-        private List<FriendRequest> FriendRequestsListToFriendRequestListConverter(List<FriendRequests> friendRequestsList)
+        private List<FriendRequest> FriendRequestsListToFriendRequestListConverter(List<FriendRequestsSet> friendRequestsList)
         {
             List<FriendRequest> friendRequestList = new List<FriendRequest>();
 
-            foreach (FriendRequests friendRequests in friendRequestsList)
+            foreach (FriendRequestsSet friendRequestsSet in friendRequestsList)
             {
 
                 Player playerProfile = new Player
                 {
-                    IDPlayer = friendRequests.Profiles.Players.IDPlayer,
-                    Names = friendRequests.Profiles.Players.Names,
-                    Surnames = friendRequests.Profiles.Players.Surnames,
-                    Email = friendRequests.Profiles.Players.Email,
-                    NickName = friendRequests.Profiles.Players.NickName,
-                    BirthDate = friendRequests.Profiles.Players.BirthDate
+                    IDPlayer = friendRequestsSet.ProfilesSet.PlayersSet.IDPlayer,
+                    Names = friendRequestsSet.ProfilesSet.PlayersSet.Names,
+                    Surnames = friendRequestsSet.ProfilesSet.PlayersSet.Surnames,
+                    Email = friendRequestsSet.ProfilesSet.PlayersSet.Email,
+                    NickName = friendRequestsSet.ProfilesSet.PlayersSet.NickName,
+                    BirthDate = friendRequestsSet.ProfilesSet.PlayersSet.BirthDate
                 };
 
                 Player playerProfile1 = new Player
                 {
-                    IDPlayer = friendRequests.Profiles1.Players.IDPlayer,
-                    Names = friendRequests.Profiles1.Players.Names,
-                    Surnames = friendRequests.Profiles1.Players.Surnames,
-                    Email = friendRequests.Profiles1.Players.Email,
-                    NickName = friendRequests.Profiles1.Players.NickName,
-                    BirthDate = friendRequests.Profiles1.Players.BirthDate
+                    IDPlayer = friendRequestsSet.ProfilesSet1.PlayersSet.IDPlayer,
+                    Names = friendRequestsSet.ProfilesSet1.PlayersSet.Names,
+                    Surnames = friendRequestsSet.ProfilesSet1.PlayersSet.Surnames,
+                    Email = friendRequestsSet.ProfilesSet1.PlayersSet.Email,
+                    NickName = friendRequestsSet.ProfilesSet1.PlayersSet.NickName,
+                    BirthDate = friendRequestsSet.ProfilesSet1.PlayersSet.BirthDate
                 };
 
                 Profile profile = new Profile
                 {
-                    IDProfile = friendRequests.Profiles.IDProfile,
-                    Score = (long)friendRequests.Profiles.Score,
-                    LoginStatus = friendRequests.Profiles.LoginStatus,
-                    ProfileImage = friendRequests.Profiles.ProfileImage,
+                    IDProfile = friendRequestsSet.ProfilesSet.IDProfile,
+                    Score = (long)friendRequestsSet.ProfilesSet.Score,
+                    LoginStatus = friendRequestsSet.ProfilesSet.LoginStatus,
+                    ProfileImage = friendRequestsSet.ProfilesSet.ProfileImage,
                     Player = playerProfile
                 };
 
                 Profile profile1 = new Profile
                 {
-                    IDProfile = friendRequests.Profiles1.IDProfile,
-                    Score = (long)friendRequests.Profiles1.Score,
-                    LoginStatus = friendRequests.Profiles1.LoginStatus,
-                    ProfileImage = friendRequests.Profiles1.ProfileImage,
+                    IDProfile = friendRequestsSet.ProfilesSet1.IDProfile,
+                    Score = (long)friendRequestsSet.ProfilesSet1.Score,
+                    LoginStatus = friendRequestsSet.ProfilesSet1.LoginStatus,
+                    ProfileImage = friendRequestsSet.ProfilesSet1.ProfileImage,
                     Player = playerProfile1
                 };
 
                 FriendRequest friendRequest = new FriendRequest
                 {
-                    IDFriendRequest = friendRequests.IDFriendRequest,
-                    CreationDate = friendRequests.CreationDate,
-                    Message = friendRequests.Message,
-                    AceptationStatus = friendRequests.AceptationStatus,
-                    SendingStatus = friendRequests.SendingStatus,
+                    IDFriendRequest = friendRequestsSet.IDFriendRequest,
+                    CreationDate = friendRequestsSet.CreationDate,
+                    Message = friendRequestsSet.Message,
+                    AceptationStatus = friendRequestsSet.AceptationStatus,
+                    SendingStatus = friendRequestsSet.SendingStatus,
                     Profile = profile,
                     Profile1 = profile1
                 };
@@ -362,13 +362,13 @@ namespace Server.Services
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                FriendRequests friendRequests = databaseModelContainer.FriendRequestsSet.Where(fr => fr.Profiles.IDProfile == transmitterProfileID)
-                    .Where(fr => fr.Profiles1.IDProfile == receiverProfileID)
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                FriendRequestsSet friendRequestsSet = renovaciónLISDatabase.FriendRequestsSet.Where(fr => fr.ProfilesSet.IDProfile == transmitterProfileID)
+                    .Where(fr => fr.ProfilesSet1.IDProfile == receiverProfileID)
                     .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
                     .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                     .FirstOrDefault();
-                if (friendRequests != null)
+                if (friendRequestsSet != null)
                 {
                     return true;
                 }
@@ -406,13 +406,13 @@ namespace Server.Services
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                FriendRequests friendRequests = databaseModelContainer.FriendRequestsSet.Where(fr => fr.Profiles.IDProfile == senderProfileID)
-                    .Where(fr => fr.Profiles1.IDProfile == transmitterProfileID)
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                FriendRequestsSet friendRequestsSet = renovaciónLISDatabase.FriendRequestsSet.Where(fr => fr.ProfilesSet.IDProfile == senderProfileID)
+                    .Where(fr => fr.ProfilesSet1.IDProfile == transmitterProfileID)
                     .Where(fr => fr.AceptationStatus == FriendRequestAceptationStatuses.Pendient.ToString())
                     .Where(fr => fr.SendingStatus == FriendRequestSendingStatuses.Sent.ToString())
                     .FirstOrDefault();
-                if (friendRequests != null)
+                if (friendRequestsSet != null)
                 {
                     return true;
                 }
@@ -448,14 +448,14 @@ namespace Server.Services
 
 
 
-        public void AddFriendRequest(FriendRequests friendRequests)
+        public void AddFriendRequest(FriendRequestsSet friendRequestsSet)
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                databaseModelContainer.Entry(friendRequests).State = EntityState.Unchanged;
-                databaseModelContainer.FriendRequestsSet.Add(friendRequests);
-                databaseModelContainer.SaveChanges();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                renovaciónLISDatabase.Entry(friendRequestsSet).State = EntityState.Unchanged;
+                renovaciónLISDatabase.FriendRequestsSet.Add(friendRequestsSet);
+                renovaciónLISDatabase.SaveChanges();
 
 
                 ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
@@ -483,19 +483,19 @@ namespace Server.Services
             }
         }
 
-        public void AcceptFriendRequest(FriendRequests friendRequests)
+        public void AcceptFriendRequest(FriendRequestsSet friendRequestsSet)
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                FriendRequestsSet friendRequestsToModify = renovaciónLISDatabase.FriendRequestsSet.Find(friendRequestsSet.IDFriendRequest);
                 if (friendRequestsToModify != null)
                 {
                     friendRequestsToModify.AceptationStatus = Enum.GetName(typeof(FriendRequestAceptationStatuses), FriendRequestAceptationStatuses.Accepted);
-                    databaseModelContainer.SaveChanges();
+                    renovaciónLISDatabase.SaveChanges();
 
                     ServiceProfileForNonCallbackMethods serviceProfileForNonCallbackMethods = new ServiceProfileForNonCallbackMethods();
-                    serviceProfileForNonCallbackMethods.AddFriendship(friendRequests.Profiles, friendRequests.Profiles1);
+                    serviceProfileForNonCallbackMethods.AddFriendship(friendRequestsSet.ProfilesSet, friendRequestsSet.ProfilesSet1);
 
                     ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
                     serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();
@@ -523,16 +523,16 @@ namespace Server.Services
             }
         }
 
-        public void CancelFriendRequest(FriendRequests friendRequests)
+        public void CancelFriendRequest(FriendRequestsSet friendRequestsSet)
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                FriendRequestsSet friendRequestsToModify = renovaciónLISDatabase.FriendRequestsSet.Find(friendRequestsSet.IDFriendRequest);
                 if (friendRequestsToModify != null)
                 {
                     friendRequestsToModify.SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Canceled);
-                    databaseModelContainer.SaveChanges();
+                    renovaciónLISDatabase.SaveChanges();
 
 
                     ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
@@ -561,16 +561,16 @@ namespace Server.Services
             }
         }
 
-        public void RejectFriendRequest(FriendRequests friendRequests)
+        public void RejectFriendRequest(FriendRequestsSet friendRequestsSet)
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                FriendRequests friendRequestsToModify = databaseModelContainer.FriendRequestsSet.Find(friendRequests.IDFriendRequest);
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                FriendRequestsSet friendRequestsToModify = renovaciónLISDatabase.FriendRequestsSet.Find(friendRequestsSet.IDFriendRequest);
                 if (friendRequestsToModify != null)
                 {
                     friendRequestsToModify.AceptationStatus = FriendRequestAceptationStatuses.Rejected.ToString();
-                    databaseModelContainer.SaveChanges();
+                    renovaciónLISDatabase.SaveChanges();
 
                     ServiceFriendRequestForCallbackMethods serviceFriendRequestForCallbackMethods = new ServiceFriendRequestForCallbackMethods();
                     serviceFriendRequestForCallbackMethods.UpdateFriendRequestsListsToAllConnectedClients();

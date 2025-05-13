@@ -1,5 +1,5 @@
 TODO:
-* .edmx no funciona, debe generar los archivos para que el connection string funcione.
+* Puto EntityFramework y sus versiones y el .edmx.
 * Configurar los servicios del servidor con el cliente.
 * Verificar si aun funciona el correo electrónico para crear cuenta.
 * Ver si se pueden pasar las referencias de la misma manera que con el entity framework. (creo que no se puede). 

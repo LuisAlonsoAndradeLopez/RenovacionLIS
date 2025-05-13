@@ -68,7 +68,7 @@ namespace Client.Views
                             {
                                 if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                                 {
-                                    ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
+                                    ServiceProfileForNonCallbackMethodsReference.PlayersSet playersSet = new ServiceProfileForNonCallbackMethodsReference.PlayersSet
                                     {
                                         Names = NamesTextBox.Text,
                                         Surnames = SurnamesTextBox.Text,
@@ -77,18 +77,18 @@ namespace Client.Views
                                         BirthDate = (DateTime)BirthdayDatePicker.SelectedDate
                                     };
 
-                                    ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
+                                    ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet = new ServiceProfileForNonCallbackMethodsReference.ProfilesSet
                                     {
                                         LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
                                         Score = 0,
-                                        Players = players
+                                        PlayersSet = playersSet
                                     };
 
                                     string salt = BCrypt.Net.BCrypt.GenerateSalt();
                                     string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
-                                    players.Password = hashedPassword;
+                                    playersSet.Password = hashedPassword;
 
-                                    profileNonCallbackMethodsClient.AddProfile(profiles);
+                                    profileNonCallbackMethodsClient.AddProfile(profilesSet);
 
                                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Account made successfully");
 

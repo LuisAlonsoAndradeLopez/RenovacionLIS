@@ -36,29 +36,29 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AuxiliaryDataContracts\KeyValueDataContract.cs" />
-    <Compile Include="DatabaseManager\DatabaseModel.Context1.cs">
-      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
+    <Compile Include="DatabaseManager\FriendRequestsSet.cs">
+      <DependentUpon>RenovaciónLISDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseManager\PlayersSet.cs">
+      <DependentUpon>RenovaciónLISDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseManager\ProfilesSet.cs">
+      <DependentUpon>RenovaciónLISDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseManager\RenovaciónLISDatabase.Context.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RenovaciónLISDatabase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseManager\DatabaseModel1.cs">
+    <Compile Include="DatabaseManager\RenovaciónLISDatabase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DependentUpon>RenovaciónLISDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseManager\DatabaseModel1.Designer.cs">
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
-      <DesignTime>True</DesignTime>
+    <Compile Include="DatabaseManager\RenovaciónLISDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="DatabaseManager\FriendRequests.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseManager\Players.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseManager\Profiles.cs">
-      <DependentUpon>DatabaseModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RenovaciónLISDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataContracts\Crucigram.cs" />
     <Compile Include="DataContracts\DataPlayer.cs" />
@@ -89,8 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="DatabaseManager\DatabaseModel.edmx.diagram">
-      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    <EntityDeploy Include="DatabaseManager\RenovaciónLISDatabase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RenovaciónLISDatabase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DatabaseManager\RenovaciónLISDatabase.edmx.diagram">
+      <DependentUpon>RenovaciónLISDatabase.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -103,28 +107,25 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseManager\DatabaseModel.Context.tt">
+    <Content Include="DatabaseManager\RenovaciónLISDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DatabaseModel.Context1.cs</LastGenOutput>
+      <DependentUpon>RenovaciónLISDatabase.edmx</DependentUpon>
+      <LastGenOutput>RenovaciónLISDatabase.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DatabaseManager\DatabaseModel.edmx.sql" />
-    <Content Include="DatabaseManager\DatabaseModel.tt">
+    <Content Include="DatabaseManager\RenovaciónLISDatabase.edmx.sql" />
+    <Content Include="DatabaseManager\RenovaciónLISDatabase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DatabaseModel1.cs</LastGenOutput>
+      <DependentUpon>RenovaciónLISDatabase.edmx</DependentUpon>
+      <LastGenOutput>RenovaciónLISDatabase.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="DatabaseManager\DatabaseModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DatabaseModel1.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Server.DatabaseManager</CustomToolNamespace>
-    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

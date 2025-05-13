@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RenovaciónLISDatabase.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RenovaciónLISDatabaseStoreContainer">
+    <EntitySet Name="FriendRequestsSetSet" EntityType="RenovaciónLISDatabase.Store.FriendRequestsSetSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilesSetSet" EntityType="RenovaciónLISDatabase.Store.ProfilesSetSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlayersSetSet" EntityType="RenovaciónLISDatabase.Store.PlayersSetSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilesSetProfilesSet" EntityType="RenovaciónLISDatabase.Store.ProfilesSetProfilesSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ProfilesSetProfilesSet_ProfilesSet" Association="RenovaciónLISDatabase.Store.FK_ProfilesSetProfilesSet_ProfilesSet">
+      <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+      <End Role="ProfilesSetProfilesSet" EntitySet="ProfilesSetProfilesSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfilesSetProfilesSet_ProfilesSet1" Association="RenovaciónLISDatabase.Store.FK_ProfilesSetProfilesSet_ProfilesSet1">
+      <End Role="ProfilesSet1" EntitySet="ProfilesSetSet" />
+      <End Role="ProfilesSetProfilesSet" EntitySet="ProfilesSetProfilesSet" />
+    </AssociationSet>
+    <AssociationSet Name="PlayersSetProfilesSet" Association="RenovaciónLISDatabase.Store.PlayersSetProfilesSet">
+      <End Role="PlayersSet" EntitySet="PlayersSetSet" />
+      <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+    </AssociationSet>
+    <AssociationSet Name="FriendRequestsSetProfilesSet" Association="RenovaciónLISDatabase.Store.FriendRequestsSetProfilesSet">
+      <End Role="FriendRequestsSet" EntitySet="FriendRequestsSetSet" />
+      <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+    </AssociationSet>
+    <AssociationSet Name="FriendRequestsSetProfilesSet1" Association="RenovaciónLISDatabase.Store.FriendRequestsSetProfilesSet1">
+      <End Role="FriendRequestsSet" EntitySet="FriendRequestsSetSet" />
+      <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FriendRequestsSetSet">
+    <Key>
+      <PropertyRef Name="IDFriendRequest" />
+    </Key>
+    <Property Name="IDFriendRequest" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="SendingStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AceptationStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProfilesSet_IDProfile" Type="bigint" Nullable="false" />
+    <Property Name="ProfilesSet1_IDProfile" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilesSetSet">
+    <Key>
+      <PropertyRef Name="IDProfile" />
+    </Key>
+    <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Score" Type="bigint" Nullable="true" />
+    <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProfileImage" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PlayersSetSet">
+    <Key>
+      <PropertyRef Name="IDPlayer" />
+    </Key>
+    <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Names" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surnames" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProfilesSet_IDProfile" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilesSetProfilesSet">
+    <Key>
+      <PropertyRef Name="ProfilesSet2_IDProfile" />
+      <PropertyRef Name="ProfilesSet1_IDProfile" />
+    </Key>
+    <Property Name="ProfilesSet2_IDProfile" Type="bigint" Nullable="false" />
+    <Property Name="ProfilesSet1_IDProfile" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="PlayersSetProfilesSet">
+    <End Role="PlayersSet" Type="RenovaciónLISDatabase.Store.PlayersSetSet" Multiplicity="*" />
+    <End Role="ProfilesSet" Type="RenovaciónLISDatabase.Store.ProfilesSetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilesSet">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="PlayersSet">
+        <PropertyRef Name="ProfilesSet_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FriendRequestsSetProfilesSet">
+    <End Role="FriendRequestsSet" Type="RenovaciónLISDatabase.Store.FriendRequestsSetSet" Multiplicity="*" />
+    <End Role="ProfilesSet" Type="RenovaciónLISDatabase.Store.ProfilesSetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilesSet">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="FriendRequestsSet">
+        <PropertyRef Name="ProfilesSet_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FriendRequestsSetProfilesSet1">
+    <End Role="FriendRequestsSet" Type="RenovaciónLISDatabase.Store.FriendRequestsSetSet" Multiplicity="*" />
+    <End Role="ProfilesSet" Type="RenovaciónLISDatabase.Store.ProfilesSetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilesSet">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="FriendRequestsSet">
+        <PropertyRef Name="ProfilesSet1_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesSetProfilesSet_ProfilesSet">
+    <End Role="ProfilesSet" Type="RenovaciónLISDatabase.Store.ProfilesSetSet" Multiplicity="1" />
+    <End Role="ProfilesSetProfilesSet" Type="RenovaciónLISDatabase.Store.ProfilesSetProfilesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilesSet">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="ProfilesSetProfilesSet">
+        <PropertyRef Name="ProfilesSet2_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfilesSetProfilesSet_ProfilesSet1">
+    <End Role="ProfilesSetProfilesSet" Type="RenovaciónLISDatabase.Store.ProfilesSetProfilesSet" Multiplicity="*" />
+    <End Role="ProfilesSet1" Type="RenovaciónLISDatabase.Store.ProfilesSetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilesSet1">
+        <PropertyRef Name="IDProfile" />
+      </Principal>
+      <Dependent Role="ProfilesSetProfilesSet">
+        <PropertyRef Name="ProfilesSet1_IDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="RenovaciónLISDatabase" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="RenovaciónLISDatabaseContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FriendRequestsSetSet" EntityType="RenovaciónLISDatabase.FriendRequestsSet" />
+          <EntitySet Name="ProfilesSetSet" EntityType="RenovaciónLISDatabase.ProfilesSet" />
+          <EntitySet Name="PlayersSetSet" EntityType="RenovaciónLISDatabase.PlayersSet" />
+          <AssociationSet Name="ProfilesSetProfilesSet" Association="RenovaciónLISDatabase.ProfilesSetProfilesSet">
+            <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+            <End Role="ProfilesSet1" EntitySet="ProfilesSetSet" />
+          </AssociationSet>
+          <AssociationSet Name="PlayersSetProfilesSet" Association="RenovaciónLISDatabase.PlayersSetProfilesSet">
+            <End Role="PlayersSet" EntitySet="PlayersSetSet" />
+            <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+          </AssociationSet>
+          <AssociationSet Name="FriendRequestsSetProfilesSet" Association="RenovaciónLISDatabase.FriendRequestsSetProfilesSet">
+            <End Role="FriendRequestsSet" EntitySet="FriendRequestsSetSet" />
+            <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+          </AssociationSet>
+          <AssociationSet Name="FriendRequestsSetProfilesSet1" Association="RenovaciónLISDatabase.FriendRequestsSetProfilesSet1">
+            <End Role="FriendRequestsSet" EntitySet="FriendRequestsSetSet" />
+            <End Role="ProfilesSet" EntitySet="ProfilesSetSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FriendRequestsSet">
+          <Key>
+            <PropertyRef Name="IDFriendRequest" />
+          </Key>
+          <Property Name="IDFriendRequest" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="SendingStatus" Type="String" Nullable="false" />
+          <Property Name="AceptationStatus" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProfilesSet" Relationship="RenovaciónLISDatabase.FriendRequestsSetProfilesSet" FromRole="FriendRequestsSet" ToRole="ProfilesSet" />
+          <NavigationProperty Name="ProfilesSet1" Relationship="RenovaciónLISDatabase.FriendRequestsSetProfilesSet1" FromRole="FriendRequestsSet" ToRole="ProfilesSet" />
+        </EntityType>
+        <EntityType Name="ProfilesSet">
+          <Key>
+            <PropertyRef Name="IDProfile" />
+          </Key>
+          <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int64" Nullable="true" />
+          <Property Name="LoginStatus" Type="String" Nullable="false" />
+          <Property Name="ProfileImage" Type="String" Nullable="true" />
+          <NavigationProperty Name="ProfilesSet1" Relationship="RenovaciónLISDatabase.ProfilesSetProfilesSet" FromRole="ProfilesSet" ToRole="ProfilesSet1" />
+          <NavigationProperty Name="ProfilesSet2" Relationship="RenovaciónLISDatabase.ProfilesSetProfilesSet" FromRole="ProfilesSet1" ToRole="ProfilesSet" />
+          <NavigationProperty Name="PlayersSet" Relationship="RenovaciónLISDatabase.PlayersSetProfilesSet" FromRole="ProfilesSet" ToRole="PlayersSet" />
+          <NavigationProperty Name="FriendRequestsSet" Relationship="RenovaciónLISDatabase.FriendRequestsSetProfilesSet" FromRole="ProfilesSet" ToRole="FriendRequestsSet" />
+          <NavigationProperty Name="FriendRequestsSet1" Relationship="RenovaciónLISDatabase.FriendRequestsSetProfilesSet1" FromRole="ProfilesSet" ToRole="FriendRequestsSet" />
+        </EntityType>
+        <EntityType Name="PlayersSet">
+          <Key>
+            <PropertyRef Name="IDPlayer" />
+          </Key>
+          <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Names" Type="String" Nullable="false" />
+          <Property Name="Surnames" Type="String" Nullable="false" />
+          <Property Name="NickName" Type="String" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="ProfilesSet" Relationship="RenovaciónLISDatabase.PlayersSetProfilesSet" FromRole="PlayersSet" ToRole="ProfilesSet" />
+        </EntityType>
+        <Association Name="ProfilesSetProfilesSet">
+          <End Type="RenovaciónLISDatabase.ProfilesSet" Role="ProfilesSet" Multiplicity="*" />
+          <End Type="RenovaciónLISDatabase.ProfilesSet" Role="ProfilesSet1" Multiplicity="*" />
+        </Association>
+        <Association Name="PlayersSetProfilesSet">
+          <End Type="RenovaciónLISDatabase.PlayersSet" Role="PlayersSet" Multiplicity="1" />
+          <End Type="RenovaciónLISDatabase.ProfilesSet" Role="ProfilesSet" Multiplicity="1" />
+        </Association>
+        <Association Name="FriendRequestsSetProfilesSet">
+          <End Type="RenovaciónLISDatabase.FriendRequestsSet" Role="FriendRequestsSet" Multiplicity="*" />
+          <End Type="RenovaciónLISDatabase.ProfilesSet" Role="ProfilesSet" Multiplicity="1" />
+        </Association>
+        <Association Name="FriendRequestsSetProfilesSet1">
+          <End Type="RenovaciónLISDatabase.FriendRequestsSet" Role="FriendRequestsSet" Multiplicity="*" />
+          <End Type="RenovaciónLISDatabase.ProfilesSet" Role="ProfilesSet" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RenovaciónLISDatabaseStoreContainer" CdmEntityContainer="RenovaciónLISDatabaseContainer">
+    <EntitySetMapping Name="FriendRequestsSetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(RenovaciónLISDatabase.FriendRequestsSet)">
+        <MappingFragment StoreEntitySet="FriendRequestsSetSet">
+          <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="SendingStatus" ColumnName="SendingStatus" />
+          <ScalarProperty Name="AceptationStatus" ColumnName="AceptationStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfilesSetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(RenovaciónLISDatabase.ProfilesSet)">
+        <MappingFragment StoreEntitySet="ProfilesSetSet">
+          <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+          <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayersSetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(RenovaciónLISDatabase.PlayersSet)">
+        <MappingFragment StoreEntitySet="PlayersSetSet">
+          <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProfilesSetProfilesSet" TypeName="RenovaciónLISDatabase.ProfilesSetProfilesSet" StoreEntitySet="ProfilesSetProfilesSet">
+      <EndProperty Name="ProfilesSet">
+        <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet2_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="ProfilesSet1">
+        <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet1_IDProfile" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlayersSetProfilesSet" TypeName="RenovaciónLISDatabase.PlayersSetProfilesSet" StoreEntitySet="PlayersSetSet">
+      <EndProperty Name="ProfilesSet">
+        <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="PlayersSet">
+        <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FriendRequestsSetProfilesSet" TypeName="RenovaciónLISDatabase.FriendRequestsSetProfilesSet" StoreEntitySet="FriendRequestsSetSet">
+      <EndProperty Name="ProfilesSet">
+        <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="FriendRequestsSet">
+        <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FriendRequestsSetProfilesSet1" TypeName="RenovaciónLISDatabase.FriendRequestsSetProfilesSet1" StoreEntitySet="FriendRequestsSetSet">
+      <EndProperty Name="ProfilesSet">
+        <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet1_IDProfile" />
+      </EndProperty>
+      <EndProperty Name="FriendRequestsSet">
+        <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

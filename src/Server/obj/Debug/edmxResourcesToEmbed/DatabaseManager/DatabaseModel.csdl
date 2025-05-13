@@ -45,8 +45,8 @@
     <NavigationProperty Name="Profiles1" Relationship="Server.DatabaseManager.ProfilesProfiles" FromRole="Profiles" ToRole="Profiles1" />
     <NavigationProperty Name="Profiles2" Relationship="Server.DatabaseManager.ProfilesProfiles" FromRole="Profiles1" ToRole="Profiles" />
     <NavigationProperty Name="FriendRequests1" Relationship="Server.DatabaseManager.ProfilesFriendRequests1" FromRole="Profiles" ToRole="FriendRequests" />
-    <Property Name="LoginStatus" Type="String" Nullable="false" />
-    <Property Name="ProfileImage" Type="String" Nullable="true" MaxLength="Max" />
+    <Property Name="LoginStatus" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ProfileImage" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <Association Name="ProfilesPlayers">
     <End Type="Server.DatabaseManager.Profiles" Role="Profiles" Multiplicity="1" />
@@ -57,12 +57,12 @@
       <PropertyRef Name="IDFriendRequest" />
     </Key>
     <Property Name="IDFriendRequest" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Name="Message" Type="String" Nullable="true" />
+    <Property Name="Message" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Profiles" Relationship="Server.DatabaseManager.ProfilesFriendRequests" FromRole="FriendRequests" ToRole="Profiles" />
     <NavigationProperty Name="Profiles1" Relationship="Server.DatabaseManager.ProfilesFriendRequests1" FromRole="FriendRequests" ToRole="Profiles" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
-    <Property Name="SendingStatus" Type="String" Nullable="false" />
-    <Property Name="AceptationStatus" Type="String" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SendingStatus" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="AceptationStatus" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <Association Name="ProfilesFriendRequests">
     <End Type="Server.DatabaseManager.Profiles" Role="Profiles" Multiplicity="1" />

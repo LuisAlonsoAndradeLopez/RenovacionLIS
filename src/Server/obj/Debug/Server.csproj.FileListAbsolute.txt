@@ -30,13 +30,5 @@ C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\Server\obj\Debug\Serv
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\Server\obj\Debug\Server.exe
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\Server\obj\Debug\Server.pdb
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\bin\Debug\Server.exe.config
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\bin\Debug\Server.exe
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\bin\Debug\Server.pdb
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\bin\Debug\EntityFramework.dll
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\obj\Debug\Server.csproj.AssemblyReference.cache
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\obj\Debug\Server.csproj.Up2Date
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\obj\Debug\Server.exe
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Server\obj\Debug\Server.pdb

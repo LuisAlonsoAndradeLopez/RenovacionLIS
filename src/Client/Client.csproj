@@ -407,7 +407,7 @@
     <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Client.ServiceFriendRequestForNonCallbackMethodsReference.FriendRequest.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Client.ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests.datasource">
+    <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\Client.ServiceFriendRequestForNonCallbackMethodsReference.FriendRequestsSet.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item.xsd">

@@ -9,10 +9,10 @@ namespace Server.ServiceContracts
     public interface IFriendRequestNonCallbackMethods
     {
         [OperationContract]
-        List<FriendRequests> GetFriendsRequestsByProfileID(long ID);
+        List<FriendRequestsSet> GetFriendsRequestsByProfileID(long ID);
 
         [OperationContract]
-        List<FriendRequests> GetFriendsRequestsByProfile1ID(long ID);
+        List<FriendRequestsSet> GetFriendsRequestsByProfile1ID(long ID);
 
         [OperationContract]
         FriendRequest GetFriendRequestByID(long IDFriendRequest);
@@ -31,16 +31,16 @@ namespace Server.ServiceContracts
 
 
         [OperationContract]
-        void AddFriendRequest(FriendRequests friendRequests);
+        void AddFriendRequest(FriendRequestsSet friendRequestsSet);
 
         [OperationContract]
-        void AcceptFriendRequest(FriendRequests friendRequests);
+        void AcceptFriendRequest(FriendRequestsSet friendRequestsSet);
 
         [OperationContract]
-        void CancelFriendRequest(FriendRequests friendRequests);
+        void CancelFriendRequest(FriendRequestsSet friendRequestsSet);
 
         [OperationContract]
-        void RejectFriendRequest(FriendRequests friendRequests);
+        void RejectFriendRequest(FriendRequestsSet friendRequestsSet);
     }
 
 

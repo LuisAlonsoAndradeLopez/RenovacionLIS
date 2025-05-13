@@ -18,16 +18,16 @@ namespace Server.Services
 {
     public class ServiceProfileForNonCallbackMethods : IProfileNonCallbackMethods
     {        
-        public long AddProfile(Profiles profiles)
+        public long AddProfile(ProfilesSet profilesSet)
         {
             long generatedID = 0;
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                databaseModelContainer.ProfilesSet.Add(profiles);
-                databaseModelContainer.SaveChanges();
-                generatedID = profiles.IDProfile;
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                renovaciónLISDatabase.ProfilesSet.Add(profilesSet);
+                renovaciónLISDatabase.SaveChanges();
+                generatedID = profilesSet.IDProfile;
             }
             catch (DbEntityValidationException ex)
             {
@@ -58,13 +58,13 @@ namespace Server.Services
             long successStatus = 0;
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                Profiles profileToModify = databaseModelContainer.ProfilesSet.Find(profileID);
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                ProfilesSet profileToModify = renovaciónLISDatabase.ProfilesSet.Find(profileID);
                 if (profileToModify != null)
                 {
                     profileToModify.Score += score;
 
-                    databaseModelContainer.SaveChanges();
+                    renovaciónLISDatabase.SaveChanges();
 
                     successStatus++;
                 }
@@ -97,13 +97,13 @@ namespace Server.Services
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                Profiles profileToModify = databaseModelContainer.ProfilesSet.Find(profileID);
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                ProfilesSet profileToModify = renovaciónLISDatabase.ProfilesSet.Find(profileID);
                 if (profileToModify != null)
                 {
                     profileToModify.LoginStatus = profileLoginStatus.ToString();
 
-                    databaseModelContainer.SaveChanges();
+                    renovaciónLISDatabase.SaveChanges();
                 }
             }
             catch (DbEntityValidationException ex)
@@ -131,28 +131,28 @@ namespace Server.Services
         public List<Profile> GetFriends(long profileID)
         {
             List<Profile> profileList = new List<Profile>();
-            Profiles profiles = new Profiles();
-            ICollection<Profiles> profilesHasSet = new HashSet<Profiles>();
+            ProfilesSet profilesSet = new ProfilesSet();
+            ICollection<ProfilesSet> profilesHasSet = new HashSet<ProfilesSet>();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                profiles = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                profilesSet = renovaciónLISDatabase.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
 
-                if (profiles != null)
+                if (profilesSet != null)
                 {
-                    profilesHasSet = profiles.Profiles2;
+                    profilesHasSet = profilesSet.ProfilesSet2;
 
-                    foreach (Profiles p in profilesHasSet)
+                    foreach (ProfilesSet p in profilesHasSet)
                     {
                         Player profilePlayer = new Player
                         {
-                            IDPlayer = p.Players.IDPlayer,
-                            Names = p.Players.Names,
-                            Surnames = p.Players.Surnames,
-                            Email = p.Players.Email,
-                            NickName = p.Players.NickName,
-                            BirthDate = p.Players.BirthDate
+                            IDPlayer = p.PlayersSet.IDPlayer,
+                            Names = p.PlayersSet.Names,
+                            Surnames = p.PlayersSet.Surnames,
+                            Email = p.PlayersSet.Email,
+                            NickName = p.PlayersSet.NickName,
+                            BirthDate = p.PlayersSet.BirthDate
                         };
 
                         Profile profile = new Profile
@@ -206,27 +206,27 @@ namespace Server.Services
         {
             Profile profile = new Profile();
             Player player = new Player();
-            Profiles profiles = new Profiles();
+            ProfilesSet profilesSet = new ProfilesSet();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                profiles = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                profilesSet = renovaciónLISDatabase.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
 
-                if (profiles != null)
+                if (profilesSet != null)
                 {
-                    player.IDPlayer = profiles.Players.IDPlayer;
-                    player.Names = profiles.Players.Names;
-                    player.Surnames = profiles.Players.Surnames;
-                    player.Email = profiles.Players.Email;
-                    player.NickName = profiles.Players.NickName;
-                    player.BirthDate = profiles.Players.BirthDate;
-                    player.Password = profiles.Players.Password;
+                    player.IDPlayer = profilesSet.PlayersSet.IDPlayer;
+                    player.Names = profilesSet.PlayersSet.Names;
+                    player.Surnames = profilesSet.PlayersSet.Surnames;
+                    player.Email = profilesSet.PlayersSet.Email;
+                    player.NickName = profilesSet.PlayersSet.NickName;
+                    player.BirthDate = profilesSet.PlayersSet.BirthDate;
+                    player.Password = profilesSet.PlayersSet.Password;
 
-                    profile.IDProfile = profiles.IDProfile;
-                    profile.Score = (long)profiles.Score;
-                    profile.LoginStatus = profiles.LoginStatus;
-                    profile.ProfileImage = profiles.ProfileImage;
+                    profile.IDProfile = profilesSet.IDProfile;
+                    profile.Score = (long)profilesSet.Score;
+                    profile.LoginStatus = profilesSet.LoginStatus;
+                    profile.ProfileImage = profilesSet.ProfileImage;
 
                     profile.Player = player;
                 }
@@ -271,14 +271,14 @@ namespace Server.Services
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                List<Profiles> profilesList = databaseModelContainer.ProfilesSet.ToList();                
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                List<ProfilesSet> profilesList = renovaciónLISDatabase.ProfilesSet.ToList();                
 
                 foreach (var profileAndItsPoints in profilesList)
                 {
                     DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword dictionary = new DictionaryForGetConnectedProfilesAndItsPointsFromServiceMultiplayerCrossword
                     {
-                        Key = profileAndItsPoints.Players.NickName,
+                        Key = profileAndItsPoints.PlayersSet.NickName,
                         Value = (int)profileAndItsPoints.Score
                     };
 
@@ -316,17 +316,17 @@ namespace Server.Services
 
         public string GetImageByPlayerNickname(string playerNickname)
         {
-            Profiles profiles = new Profiles();
+            ProfilesSet profilesSet = new ProfilesSet();
             string profileImage = "";
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                profiles = databaseModelContainer.ProfilesSet.Where(e => e.Players.NickName == playerNickname).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                profilesSet = renovaciónLISDatabase.ProfilesSet.Where(e => e.PlayersSet.NickName == playerNickname).FirstOrDefault();
 
-                if (profiles != null)
+                if (profilesSet != null)
                 {
-                    profileImage = profiles.ProfileImage;
+                    profileImage = profilesSet.ProfileImage;
                 }
             }
             catch (DbEntityValidationException ex)
@@ -362,27 +362,27 @@ namespace Server.Services
         {
             Profile profile = new Profile();
             Player player = new Player();
-            Profiles profiles = new Profiles();
+            ProfilesSet profilesSet = new ProfilesSet();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                profiles = databaseModelContainer.ProfilesSet.Where(e => e.Players.IDPlayer == playerID).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                profilesSet = renovaciónLISDatabase.ProfilesSet.Where(e => e.PlayersSet.IDPlayer == playerID).FirstOrDefault();
 
-                if (profiles != null)
+                if (profilesSet != null)
                 {
-                    player.IDPlayer = profiles.Players.IDPlayer;
-                    player.Names = profiles.Players.Names;
-                    player.Surnames = profiles.Players.Surnames;
-                    player.Email = profiles.Players.Email;
-                    player.NickName = profiles.Players.NickName;
-                    player.BirthDate = profiles.Players.BirthDate;
-                    player.Password = profiles.Players.Password;
+                    player.IDPlayer = profilesSet.PlayersSet.IDPlayer;
+                    player.Names = profilesSet.PlayersSet.Names;
+                    player.Surnames = profilesSet.PlayersSet.Surnames;
+                    player.Email = profilesSet.PlayersSet.Email;
+                    player.NickName = profilesSet.PlayersSet.NickName;
+                    player.BirthDate = profilesSet.PlayersSet.BirthDate;
+                    player.Password = profilesSet.PlayersSet.Password;
 
-                    profile.IDProfile = profiles.IDProfile;
-                    profile.Score = (long)profiles.Score;
-                    profile.LoginStatus = profiles.LoginStatus;
-                    profile.ProfileImage = profiles.ProfileImage;
+                    profile.IDProfile = profilesSet.IDProfile;
+                    profile.Score = (long)profilesSet.Score;
+                    profile.LoginStatus = profilesSet.LoginStatus;
+                    profile.ProfileImage = profilesSet.ProfileImage;
 
                     profile.Player = player;
                 }
@@ -425,27 +425,27 @@ namespace Server.Services
         {
             Profile profile = new Profile();
             Player player = new Player();
-            Profiles profiles = new Profiles();
+            ProfilesSet profilesSet = new ProfilesSet();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                profiles = databaseModelContainer.ProfilesSet.Where(e => e.Players.NickName == nickname).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                profilesSet = renovaciónLISDatabase.ProfilesSet.Where(e => e.PlayersSet.NickName == nickname).FirstOrDefault();
 
-                if (profiles != null)
+                if (profilesSet != null)
                 {
-                    player.IDPlayer = profiles.Players.IDPlayer;
-                    player.Names = profiles.Players.Names;
-                    player.Surnames = profiles.Players.Surnames;
-                    player.Email = profiles.Players.Email;
-                    player.NickName = profiles.Players.NickName;
-                    player.BirthDate = profiles.Players.BirthDate;
-                    player.Password = profiles.Players.Password;
+                    player.IDPlayer = profilesSet.PlayersSet.IDPlayer;
+                    player.Names = profilesSet.PlayersSet.Names;
+                    player.Surnames = profilesSet.PlayersSet.Surnames;
+                    player.Email = profilesSet.PlayersSet.Email;
+                    player.NickName = profilesSet.PlayersSet.NickName;
+                    player.BirthDate = profilesSet.PlayersSet.BirthDate;
+                    player.Password = profilesSet.PlayersSet.Password;
 
-                    profile.IDProfile = profiles.IDProfile;
-                    profile.Score = (long)profiles.Score;
-                    profile.LoginStatus = profiles.LoginStatus;
-                    profile.ProfileImage = profiles.ProfileImage;
+                    profile.IDProfile = profilesSet.IDProfile;
+                    profile.Score = (long)profilesSet.Score;
+                    profile.LoginStatus = profilesSet.LoginStatus;
+                    profile.ProfileImage = profilesSet.ProfileImage;
 
                     profile.Player = player;
 
@@ -488,15 +488,15 @@ namespace Server.Services
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                Profiles profileToModify = databaseModelContainer.ProfilesSet.FirstOrDefault(e => e.IDProfile == profileID);
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                ProfilesSet profileToModify = renovaciónLISDatabase.ProfilesSet.FirstOrDefault(e => e.IDProfile == profileID);
 
                 if (profileToModify != null)
                 {
                     profileToModify.ProfileImage = newProfileImage;
                 }
 
-                databaseModelContainer.SaveChanges();
+                renovaciónLISDatabase.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {
@@ -522,14 +522,14 @@ namespace Server.Services
 
         public bool TheProfileIsLogged(long profileID)
         {
-            Profiles profiles = new Profiles();
+            ProfilesSet profilesSet = new ProfilesSet();
 
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                profiles = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                profilesSet = renovaciónLISDatabase.ProfilesSet.Where(e => e.IDProfile == profileID).FirstOrDefault();
 
-                if (profiles.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
+                if (profilesSet.LoginStatus == Enum.GetName(typeof(ProfileLoginStatuses), ProfileLoginStatuses.Logged))
                 {
                     return true;
                 }
@@ -563,25 +563,25 @@ namespace Server.Services
             return false;
         }
 
-        public void AddFriendship(Profiles profiles, Profiles profiles1)
+        public void AddFriendship(ProfilesSet profilesSet, ProfilesSet profilesSet1)
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
 
                 string sqlQuery = "INSERT INTO ProfilesProfiles (Profiles2_IDProfile, Profiles1_IDProfile) VALUES (@IDProfile, @IDProfile1)";
 
-                var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
-                var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+                var parameter1 = new SqlParameter("IDProfile", profilesSet.IDProfile);
+                var parameter2 = new SqlParameter("IDProfile1", profilesSet1.IDProfile);
 
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
-                databaseModelContainer.SaveChanges();
+                renovaciónLISDatabase.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                renovaciónLISDatabase.SaveChanges();
 
-                parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
-                parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
+                parameter1 = new SqlParameter("IDProfile", profilesSet1.IDProfile);
+                parameter2 = new SqlParameter("IDProfile1", profilesSet.IDProfile);
 
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
-                databaseModelContainer.SaveChanges();
+                renovaciónLISDatabase.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                renovaciónLISDatabase.SaveChanges();
 
                 ServiceProfileForCallbackMethods serviceProfileForCallbackMethods = new ServiceProfileForCallbackMethods();
                 serviceProfileForCallbackMethods.UpdateFriendsListsToAllConnectedClients();
@@ -608,25 +608,25 @@ namespace Server.Services
             }
         }
 
-        public void CancelFriendship(Profiles profiles, Profiles profiles1)
+        public void CancelFriendship(ProfilesSet profilesSet, ProfilesSet profilesSet1)
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
 
                 string sqlQuery = "DELETE FROM ProfilesProfiles WHERE Profiles2_IDProfile = @IDProfile AND Profiles1_IDProfile = @IDProfile1";
 
-                var parameter1 = new SqlParameter("IDProfile", profiles.IDProfile);
-                var parameter2 = new SqlParameter("IDProfile1", profiles1.IDProfile);
+                var parameter1 = new SqlParameter("IDProfile", profilesSet.IDProfile);
+                var parameter2 = new SqlParameter("IDProfile1", profilesSet1.IDProfile);
 
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
-                databaseModelContainer.SaveChanges();
+                renovaciónLISDatabase.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                renovaciónLISDatabase.SaveChanges();
 
-                parameter1 = new SqlParameter("IDProfile", profiles1.IDProfile);
-                parameter2 = new SqlParameter("IDProfile1", profiles.IDProfile);
+                parameter1 = new SqlParameter("IDProfile", profilesSet1.IDProfile);
+                parameter2 = new SqlParameter("IDProfile1", profilesSet.IDProfile);
 
-                databaseModelContainer.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
-                databaseModelContainer.SaveChanges();
+                renovaciónLISDatabase.Database.ExecuteSqlCommand(sqlQuery, parameter1, parameter2);
+                renovaciónLISDatabase.SaveChanges();
 
 
                 ServiceProfileForCallbackMethods serviceProfileForCallbackMethods = new ServiceProfileForCallbackMethods();
@@ -660,11 +660,11 @@ namespace Server.Services
         {
             try
             {
-                DatabaseModelContainer databaseModelContainer = new DatabaseModelContainer();
-                Profiles playerToDelete = databaseModelContainer.ProfilesSet.Where(e => e.IDProfile == playerID).FirstOrDefault();
+                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
+                ProfilesSet playerToDelete = renovaciónLISDatabase.ProfilesSet.Where(e => e.IDProfile == playerID).FirstOrDefault();
 
-                databaseModelContainer.ProfilesSet.Remove(playerToDelete);
-                databaseModelContainer.SaveChanges();
+                renovaciónLISDatabase.ProfilesSet.Remove(playerToDelete);
+                renovaciónLISDatabase.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {

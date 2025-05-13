@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Server.DatabaseManager.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FriendRequestsSet">
+          <Key>
+            <PropertyRef Name="IDFriendRequest" />
+          </Key>
+          <Property Name="IDFriendRequest" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="SendingStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AceptationStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Profiles_IDProfile" Type="bigint" Nullable="false" />
+          <Property Name="Profiles1_IDProfile" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayersSet">
+          <Key>
+            <PropertyRef Name="IDPlayer" />
+          </Key>
+          <Property Name="IDPlayer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Names" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surnames" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProfilesSet_IDProfile" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfilesProfiles">
+          <Key>
+            <PropertyRef Name="ProfilesSet2_IDProfile" />
+            <PropertyRef Name="ProfilesSet1_IDProfile" />
+          </Key>
+          <Property Name="ProfilesSet2_IDProfile" Type="bigint" Nullable="false" />
+          <Property Name="ProfilesSet1_IDProfile" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfilesSet">
+          <Key>
+            <PropertyRef Name="IDProfile" />
+          </Key>
+          <Property Name="IDProfile" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="bigint" />
+          <Property Name="LoginStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProfileImage" Type="nvarchar(max)" />
+          <Property Name="PlayersSet_IDPlayer" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PlayersProfiles">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="PlayersSet" Type="Self.PlayersSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="PlayersSet">
+              <PropertyRef Name="ProfilesSet_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesFriendRequests">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="FriendRequestsSet" Type="Self.FriendRequestsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="FriendRequestsSet">
+              <PropertyRef Name="Profiles_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesFriendRequests1">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="FriendRequestsSet" Type="Self.FriendRequestsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="FriendRequestsSet">
+              <PropertyRef Name="Profiles1_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesPlayers">
+          <End Role="PlayersSet" Type="Self.PlayersSet" Multiplicity="1" />
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayersSet">
+              <PropertyRef Name="IDPlayer" />
+            </Principal>
+            <Dependent Role="ProfilesSet">
+              <PropertyRef Name="PlayersSet_IDPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesProfiles_ProfilesSet">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="ProfilesProfiles" Type="Self.ProfilesProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="ProfilesProfiles">
+              <PropertyRef Name="ProfilesSet2_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesProfiles_ProfilesSet1">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="ProfilesProfiles" Type="Self.ProfilesProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="ProfilesProfiles">
+              <PropertyRef Name="ProfilesSet1_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServerDatabaseManagerStoreContainer">
+          <EntitySet Name="FriendRequestsSet" EntityType="Self.FriendRequestsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayersSet" EntityType="Self.PlayersSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfilesProfiles" EntityType="Self.ProfilesProfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfilesSet" EntityType="Self.ProfilesSet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PlayersProfiles" Association="Self.FK_PlayersProfiles">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="PlayersSet" EntitySet="PlayersSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesFriendRequests" Association="Self.FK_ProfilesFriendRequests">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="FriendRequestsSet" EntitySet="FriendRequestsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesFriendRequests1" Association="Self.FK_ProfilesFriendRequests1">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="FriendRequestsSet" EntitySet="FriendRequestsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesPlayers" Association="Self.FK_ProfilesPlayers">
+            <End Role="PlayersSet" EntitySet="PlayersSet" />
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesProfiles_ProfilesSet" Association="Self.FK_ProfilesProfiles_ProfilesSet">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="ProfilesProfiles" EntitySet="ProfilesProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesProfiles_ProfilesSet1" Association="Self.FK_ProfilesProfiles_ProfilesSet1">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="ProfilesProfiles" EntitySet="ProfilesProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Server.DatabaseManager" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FriendRequestsSet">
+          <Key>
+            <PropertyRef Name="IDFriendRequest" />
+          </Key>
+          <Property Name="IDFriendRequest" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SendingStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AceptationStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Profiles_IDProfile" Type="Int64" Nullable="false" />
+          <Property Name="Profiles1_IDProfile" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ProfilesSet" Relationship="Self.FK_ProfilesFriendRequests" FromRole="FriendRequestsSet" ToRole="ProfilesSet" />
+          <NavigationProperty Name="ProfilesSet1" Relationship="Self.FK_ProfilesFriendRequests1" FromRole="FriendRequestsSet" ToRole="ProfilesSet" />
+        </EntityType>
+        <EntityType Name="PlayersSet">
+          <Key>
+            <PropertyRef Name="IDPlayer" />
+          </Key>
+          <Property Name="IDPlayer" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Names" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surnames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NickName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfilesSet_IDProfile" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ProfilesSet" Relationship="Self.FK_PlayersProfiles" FromRole="PlayersSet" ToRole="ProfilesSet" />
+          <NavigationProperty Name="ProfilesSet1" Relationship="Self.FK_ProfilesPlayers" FromRole="PlayersSet" ToRole="ProfilesSet" />
+        </EntityType>
+        <EntityType Name="ProfilesSet">
+          <Key>
+            <PropertyRef Name="IDProfile" />
+          </Key>
+          <Property Name="IDProfile" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int64" />
+          <Property Name="LoginStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PlayersSet_IDPlayer" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="FriendRequestsSet" Relationship="Self.FK_ProfilesFriendRequests" FromRole="ProfilesSet" ToRole="FriendRequestsSet" />
+          <NavigationProperty Name="FriendRequestsSet1" Relationship="Self.FK_ProfilesFriendRequests1" FromRole="ProfilesSet" ToRole="FriendRequestsSet" />
+          <NavigationProperty Name="PlayersSet" Relationship="Self.FK_PlayersProfiles" FromRole="ProfilesSet" ToRole="PlayersSet" />
+          <NavigationProperty Name="PlayersSet1" Relationship="Self.FK_ProfilesPlayers" FromRole="ProfilesSet" ToRole="PlayersSet" />
+          <NavigationProperty Name="ProfilesSet1" Relationship="Self.ProfilesProfiles" FromRole="ProfilesSet" ToRole="ProfilesSet1" />
+          <NavigationProperty Name="ProfilesSet2" Relationship="Self.ProfilesProfiles" FromRole="ProfilesSet1" ToRole="ProfilesSet" />
+        </EntityType>
+        <Association Name="FK_ProfilesFriendRequests">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="FriendRequestsSet" Type="Self.FriendRequestsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="FriendRequestsSet">
+              <PropertyRef Name="Profiles_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesFriendRequests1">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="FriendRequestsSet" Type="Self.FriendRequestsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="FriendRequestsSet">
+              <PropertyRef Name="Profiles1_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayersProfiles">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="1" />
+          <End Role="PlayersSet" Type="Self.PlayersSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilesSet">
+              <PropertyRef Name="IDProfile" />
+            </Principal>
+            <Dependent Role="PlayersSet">
+              <PropertyRef Name="ProfilesSet_IDProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfilesPlayers">
+          <End Role="PlayersSet" Type="Self.PlayersSet" Multiplicity="1" />
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayersSet">
+              <PropertyRef Name="IDPlayer" />
+            </Principal>
+            <Dependent Role="ProfilesSet">
+              <PropertyRef Name="PlayersSet_IDPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfilesProfiles">
+          <End Role="ProfilesSet" Type="Self.ProfilesSet" Multiplicity="*" />
+          <End Role="ProfilesSet1" Type="Self.ProfilesSet" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="RenovaciónLISDatabase" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FriendRequestsSet" EntityType="Self.FriendRequestsSet" />
+          <EntitySet Name="PlayersSet" EntityType="Self.PlayersSet" />
+          <EntitySet Name="ProfilesSet" EntityType="Self.ProfilesSet" />
+          <AssociationSet Name="FK_ProfilesFriendRequests" Association="Self.FK_ProfilesFriendRequests">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="FriendRequestsSet" EntitySet="FriendRequestsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesFriendRequests1" Association="Self.FK_ProfilesFriendRequests1">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="FriendRequestsSet" EntitySet="FriendRequestsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayersProfiles" Association="Self.FK_PlayersProfiles">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="PlayersSet" EntitySet="PlayersSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfilesPlayers" Association="Self.FK_ProfilesPlayers">
+            <End Role="PlayersSet" EntitySet="PlayersSet" />
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfilesProfiles" Association="Self.ProfilesProfiles">
+            <End Role="ProfilesSet" EntitySet="ProfilesSet" />
+            <End Role="ProfilesSet1" EntitySet="ProfilesSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServerDatabaseManagerStoreContainer" CdmEntityContainer="RenovaciónLISDatabase">
+          <EntitySetMapping Name="FriendRequestsSet">
+            <EntityTypeMapping TypeName="Server.DatabaseManager.FriendRequestsSet">
+              <MappingFragment StoreEntitySet="FriendRequestsSet">
+                <ScalarProperty Name="IDFriendRequest" ColumnName="IDFriendRequest" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="SendingStatus" ColumnName="SendingStatus" />
+                <ScalarProperty Name="AceptationStatus" ColumnName="AceptationStatus" />
+                <ScalarProperty Name="Profiles_IDProfile" ColumnName="Profiles_IDProfile" />
+                <ScalarProperty Name="Profiles1_IDProfile" ColumnName="Profiles1_IDProfile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayersSet">
+            <EntityTypeMapping TypeName="Server.DatabaseManager.PlayersSet">
+              <MappingFragment StoreEntitySet="PlayersSet">
+                <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+                <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ProfilesSet_IDProfile" ColumnName="ProfilesSet_IDProfile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfilesSet">
+            <EntityTypeMapping TypeName="Server.DatabaseManager.ProfilesSet">
+              <MappingFragment StoreEntitySet="ProfilesSet">
+                <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+                <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+                <ScalarProperty Name="PlayersSet_IDPlayer" ColumnName="PlayersSet_IDPlayer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ProfilesProfiles" TypeName="Server.DatabaseManager.ProfilesProfiles" StoreEntitySet="ProfilesProfiles">
+            <EndProperty Name="ProfilesSet">
+              <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet2_IDProfile" />
+            </EndProperty>
+            <EndProperty Name="ProfilesSet1">
+              <ScalarProperty Name="IDProfile" ColumnName="ProfilesSet1_IDProfile" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
