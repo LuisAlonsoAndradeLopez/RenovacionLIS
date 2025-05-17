@@ -1,26 +1,28 @@
 TODO:
-* Puto EntityFramework y sus versiones y el .edmx.
-* Configurar los servicios del servidor con el cliente.
-* Verificar si aun funciona el correo electrónico para crear cuenta.
+* Problemas de i18n con los botones
+* Verificar si aun funciona el correo electrónico para modificar contraseña.
 * Ver si se pueden pasar las referencias de la misma manera que con el entity framework. (creo que no se puede). 
-* Las imagenes de perfil se deben guardar en la base de datos en base64.
 * Los archivos de logs cuando se genera una excepción, deben de guardarse en la carpeta raíz del proyecto en donde se esté generando.
 * Si es posible, reparar el bug del login que me dijo Armando.
-* Color rojo cuando queden 5 segundos de tiempo.
 * Agregar en el readme también el procedimiento para cambiar el dataset de la base de datos, la dirección ip de los servicios y su configuración con el cliente.
 
 
-## Renovación LIS
+# Renovación LIS
 Proyecto Final de la Experiencia Educativa de Tecnologías para Construir Software
 
 
-# Pasos para ejecutar el servidor de Renovación LIS
-1. Crear una base de datos con el siguiente nombre: "Renovación LIS".
-2. Con Visual Studio o directamente en SQL Server Manager, ejecutar el archivo "DatabaseModel.edmx.sql" ubicado en la carpeta "DatabaseManager" dentro del proyecto "Server".
-3. En Visual Studio (Abierto en modo administrador), ejecutar el archivo ServerHoster.cs.
-4. ¡Listo!, el servidor está siendo ejecutado.
+# Pasos para poder ejecutar Renovación LIS (localhost)
+## Pasos para ejecutar el servidor de Renovación LIS
+1. Crear una base de datos con el nombre "Renovación LIS" en SQL Server.
+2. Abrir la solución "Renovación LIS" en Visual Studio (Modo Administrador)
+3. Abrir el archivo "RenovaciónLISDatabase.edmx" ubicado en la carpeta "DatabaseManager" del proyecto "Server".
+4. Dar click derecho en el modelo, y seleccionar la opción "Generar base de datos desde modelo...".
+5. Cuando el "Asistente para generar bases de datos" termine de generar el DDL, dar click en "Finalizar".
+6. Abrir el archivo sql generado por el "Asistente para generar bases de datos", y ejecutarlo con Visual Studio haciendo referencia a la base de datos creada en el punto 1.
+7. Ejecutar el archivo ServerHoster.cs.
+8. ¡Listo!, el servidor está siendo ejecutado.
 
-# Pasos para ejecutar el cliente de Renovación LIS (el servidor tiene que estar en ejecución)
+## Pasos para ejecutar el cliente de Renovación LIS (el servidor tiene que estar en ejecución)
 
 
 # Solución de problemas

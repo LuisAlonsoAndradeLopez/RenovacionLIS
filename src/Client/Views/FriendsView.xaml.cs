@@ -107,7 +107,7 @@ namespace Client.Views
                 {
                     if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friendship?"))
                     {
-                        ServiceProfileForNonCallbackMethodsReference.PlayersSet playersSet = new ServiceProfileForNonCallbackMethodsReference.PlayersSet
+                        ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
                         {
                             IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
                             Names = MainWindow.loggedProfile.Player.Names,
@@ -118,19 +118,19 @@ namespace Client.Views
                             Password = MainWindow.loggedProfile.Player.Password
                         };
 
-                        ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet = new ServiceProfileForNonCallbackMethodsReference.ProfilesSet
+                        ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
                         {
                             IDProfile = MainWindow.loggedProfile.IDProfile,
                             Score = MainWindow.loggedProfile.Score,
                             LoginStatus = MainWindow.loggedProfile.LoginStatus,
-                            PlayersSet = playersSet
+                            Players = players
                         };
 
                         StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
                         TextBlock IDTextBlock = (TextBlock)VisualTreeHelper.GetChild(parent, 0);
                         Profile profile1 = profileNonCallbackMethodsClient.GetProfileByPlayerID(long.Parse(IDTextBlock.Text));
 
-                        ServiceProfileForNonCallbackMethodsReference.PlayersSet playersSet1 = new ServiceProfileForNonCallbackMethodsReference.PlayersSet
+                        ServiceProfileForNonCallbackMethodsReference.Players players1 = new ServiceProfileForNonCallbackMethodsReference.Players
                         {
                             IDPlayer = profile1.Player.IDPlayer,
                             Names = profile1.Player.Names,
@@ -141,17 +141,17 @@ namespace Client.Views
                             Password = profile1.Player.Password
                         };
 
-                        ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1 = new ServiceProfileForNonCallbackMethodsReference.ProfilesSet
+                        ServiceProfileForNonCallbackMethodsReference.Profiles profiles1 = new ServiceProfileForNonCallbackMethodsReference.Profiles
                         {
                             IDProfile = profile1.IDProfile,
                             Score = profile1.Score,
                             LoginStatus = profile1.LoginStatus,
-                            PlayersSet = playersSet1
+                            Players = players1
                         };
 
                         profileNonCallbackMethodsClient.CancelFriendship(
-                            profilesSet,
-                            profilesSet1
+                            profiles,
+                            profiles1
                         );
 
                         new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friendship cancellation made successfully");
@@ -207,7 +207,7 @@ namespace Client.Views
         {
             try
             {
-                ShowUpdatedFriendRequestsSetList();
+                ShowUpdatedFriendRequestsList();
                 FriendsBorder.Visibility = Visibility.Hidden;
                 FriendsRequestsBorder.Visibility = Visibility.Visible;
 
@@ -384,7 +384,7 @@ namespace Client.Views
                                             profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text).IDProfile
                                             ))
                                         {
-                                            ServiceFriendRequestForNonCallbackMethodsReference.FriendRequestsSet friendRequestsSet = new ServiceFriendRequestForNonCallbackMethodsReference.FriendRequestsSet
+                                            ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests friendRequests = new ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests
                                             {
                                                 Message = new TextRange(MessageRichTextBox.Document.ContentStart, MessageRichTextBox.Document.ContentEnd).Text,
                                                 CreationDate = DateTime.Now,
@@ -392,7 +392,7 @@ namespace Client.Views
                                                 SendingStatus = Enum.GetName(typeof(FriendRequestSendingStatuses), FriendRequestSendingStatuses.Sent)
                                             };
 
-                                            ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet playersSet = new ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet
+                                            ServiceFriendRequestForNonCallbackMethodsReference.Players players = new ServiceFriendRequestForNonCallbackMethodsReference.Players
                                             {
                                                 IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
                                                 Names = MainWindow.loggedProfile.Player.Names,
@@ -403,17 +403,17 @@ namespace Client.Views
                                                 Password = MainWindow.loggedProfile.Player.Password
                                             };
 
-                                            ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet profilesSet = new ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet
+                                            ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
                                             {
                                                 IDProfile = MainWindow.loggedProfile.IDProfile,
                                                 Score = MainWindow.loggedProfile.Score,
                                                 LoginStatus = MainWindow.loggedProfile.LoginStatus,
-                                                PlayersSet = playersSet
+                                                Players = players
                                             };
 
                                             Profile profile1 = profileNonCallbackMethodsClient.GetProfileByPlayerNickname(NicknameTextBox.Text);
 
-                                            ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet playersSet1 = new ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet
+                                            ServiceFriendRequestForNonCallbackMethodsReference.Players players1 = new ServiceFriendRequestForNonCallbackMethodsReference.Players
                                             {
                                                 IDPlayer = profile1.Player.IDPlayer,
                                                 Names = profile1.Player.Names,
@@ -424,18 +424,18 @@ namespace Client.Views
                                                 Password = profile1.Player.Password
                                             };
 
-                                            ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet profilesSet1 = new ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet
+                                            ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles1 = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
                                             {
                                                 IDProfile = profile1.IDProfile,
                                                 Score = profile1.Score,
                                                 LoginStatus = profile1.LoginStatus,
-                                                PlayersSet = playersSet1
+                                                Players = players1
                                             };
 
-                                            friendRequestsSet.ProfilesSet = profilesSet;
-                                            friendRequestsSet.ProfilesSet1 = profilesSet1;
+                                            friendRequests.Profiles = profiles;
+                                            friendRequests.Profiles1 = profiles1;
 
-                                            friendRequestNonCallbackMethodsClient.AddFriendRequest(friendRequestsSet);
+                                            friendRequestNonCallbackMethodsClient.AddFriendRequest(friendRequests);
 
                                             new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request sent succesfully");
 
@@ -499,7 +499,7 @@ namespace Client.Views
 
 
 
-        #region FriendRequestsSetList methods
+        #region FriendRequestsList methods
         private void BackButtonOnClick(object sender, RoutedEventArgs e)
         {
             try
@@ -607,7 +607,7 @@ namespace Client.Views
             }
         }
 
-        public void ShowUpdatedFriendRequestsSetList()
+        public void ShowUpdatedFriendRequestsList()
         {
             RestartFriendRequestCallbackMethodsClient();
 
@@ -780,7 +780,7 @@ namespace Client.Views
             {
                 if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to accept the friend request?"))
                 {
-                    friendRequestNonCallbackMethodsClient.AcceptFriendRequest(FriendRequestToFriendRequestsSetConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
+                    friendRequestNonCallbackMethodsClient.AcceptFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(int.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request successfully accepted");
 
@@ -807,7 +807,7 @@ namespace Client.Views
         {
             try
             {
-                ShowUpdatedFriendRequestsSetList();
+                ShowUpdatedFriendRequestsList();
                 FriendRequestDetailsBorder.Visibility = Visibility.Hidden;
                 FriendsRequestsBorder.Visibility = Visibility.Visible;
 
@@ -832,7 +832,7 @@ namespace Client.Views
             {
                 if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to cancel the friend request sending?"))
                 {
-                    friendRequestNonCallbackMethodsClient.CancelFriendRequest(FriendRequestToFriendRequestsSetConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+                    friendRequestNonCallbackMethodsClient.CancelFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Cancellation of sending friend request made successfully");
 
@@ -864,7 +864,7 @@ namespace Client.Views
             {
                 if (new AlertPopUpGenerator().OpenInternationalizedDesicionPopUp("Are you sure?", "Are you sure you want to reject the friend request?"))
                 {
-                    friendRequestNonCallbackMethodsClient.RejectFriendRequest(FriendRequestToFriendRequestsSetConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
+                    friendRequestNonCallbackMethodsClient.RejectFriendRequest(FriendRequestToFriendRequestsConverter(friendRequestNonCallbackMethodsClient.GetFriendRequestByID(long.Parse(IDFriendRequestLabel.Content.ToString()))));
 
                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Friend request rejected");
 
@@ -1062,9 +1062,9 @@ namespace Client.Views
             }
         }
 
-        private ServiceFriendRequestForNonCallbackMethodsReference.FriendRequestsSet FriendRequestToFriendRequestsSetConverter(FriendRequest friendRequest)
+        private ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests FriendRequestToFriendRequestsConverter(FriendRequest friendRequest)
         {
-            ServiceFriendRequestForNonCallbackMethodsReference.FriendRequestsSet friendRequestsSet = new ServiceFriendRequestForNonCallbackMethodsReference.FriendRequestsSet
+            ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests friendRequests = new ServiceFriendRequestForNonCallbackMethodsReference.FriendRequests
             {
                 IDFriendRequest = (int)friendRequest.IDFriendRequest,
                 Message = friendRequest.Message,
@@ -1073,7 +1073,7 @@ namespace Client.Views
                 SendingStatus = friendRequest.SendingStatus
             };
 
-            ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet playersSet = new ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet
+            ServiceFriendRequestForNonCallbackMethodsReference.Players players = new ServiceFriendRequestForNonCallbackMethodsReference.Players
             {
                 IDPlayer = friendRequest.Profile.Player.IDPlayer,
                 Names = friendRequest.Profile.Player.Names,
@@ -1083,15 +1083,15 @@ namespace Client.Views
                 BirthDate = (DateTime)friendRequest.Profile.Player.BirthDate
             };
 
-            ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet profilesSet = new ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet
+            ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
             {
                 IDProfile = friendRequest.Profile.IDProfile,
                 Score = friendRequest.Profile.Score,
                 LoginStatus = friendRequest.Profile.LoginStatus,
-                PlayersSet = playersSet
+                Players = players
             };
 
-            ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet playersSet1 = new ServiceFriendRequestForNonCallbackMethodsReference.PlayersSet
+            ServiceFriendRequestForNonCallbackMethodsReference.Players players1 = new ServiceFriendRequestForNonCallbackMethodsReference.Players
             {
                 IDPlayer = friendRequest.Profile1.Player.IDPlayer,
                 Names = friendRequest.Profile1.Player.Names,
@@ -1101,18 +1101,18 @@ namespace Client.Views
                 BirthDate = (DateTime)friendRequest.Profile1.Player.BirthDate
             };
 
-            ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet profilesSet1 = new ServiceFriendRequestForNonCallbackMethodsReference.ProfilesSet
+            ServiceFriendRequestForNonCallbackMethodsReference.Profiles profiles1 = new ServiceFriendRequestForNonCallbackMethodsReference.Profiles
             {
                 IDProfile = friendRequest.Profile1.IDProfile,
                 Score = friendRequest.Profile1.Score,
                 LoginStatus = friendRequest.Profile1.LoginStatus,
-                PlayersSet = playersSet1
+                Players = players1
             };
 
-            friendRequestsSet.ProfilesSet = profilesSet;
-            friendRequestsSet.ProfilesSet1 = profilesSet1;
+            friendRequests.Profiles = profiles;
+            friendRequests.Profiles1 = profiles1;
 
-            return friendRequestsSet;
+            return friendRequests;
         }
 
         private string InvalidNicknameInSendFriendRequestTextFieldsTextGenerator()
@@ -1199,7 +1199,7 @@ namespace Client.Views
         {
             if (PageStateManager.CurrentPage is FriendsView currentPage)
             {
-                currentPage.ShowUpdatedFriendRequestsSetList();
+                currentPage.ShowUpdatedFriendRequestsList();
             }
         }
         #endregion

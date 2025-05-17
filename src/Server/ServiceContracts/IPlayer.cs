@@ -10,22 +10,22 @@ namespace Server.ServiceContracts
     public interface IPlayer
     {
         [OperationContract (Name = "AddPlayer")]
-        long AddPlayer(PlayersSet playersSet);
+        long AddPlayer(Players players);
 
         [OperationContract (Name = "GetPlayers")]
-        List<PlayersSet> GetPlayers();
+        List<Players> GetPlayers();
 
         [OperationContract (Name = "GetPlayerByID")]
         Player GetPlayerByID(long ID);
 
         [OperationContract (Name = "GetSpecifiedPlayers")]
-        List<PlayersSet> GetSpecifiedPlayers(string name);
+        List<Players> GetSpecifiedPlayers(string name);
 
         [OperationContract(Name = "GetPlayerByNickname")]
         Player GetPlayerByNickname(String nickname);
 
         [OperationContract(Name = "ModifyPlayer")]
-        long ModifyPlayer(PlayersSet modifiedPlayerSet);
+        long ModifyPlayer(Players modifiedPlayerSet);
 
         [OperationContract(Name = "ModifyPasswordByEmail")]
         void ModifyPasswordByEmail(String originalEmail, String newPassword);

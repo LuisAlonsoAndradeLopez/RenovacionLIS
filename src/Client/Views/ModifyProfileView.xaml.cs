@@ -112,7 +112,7 @@ namespace Client.Views
                         {
                             if (!playerClient.TheNicknameIsAlreadyRegisted(NicknameTextBox.Text) || NicknameTextBox.Text == MainWindow.loggedProfile.Player.NickName)
                             {
-                                ServicePlayerReference.PlayersSet playersSet = new ServicePlayerReference.PlayersSet
+                                ServicePlayerReference.Players players = new ServicePlayerReference.Players
                                 {
                                     IDPlayer = MainWindow.loggedProfile.Player.IDPlayer,
                                     Names = NamesTextBox.Text,
@@ -122,7 +122,7 @@ namespace Client.Views
                                     BirthDate = (DateTime)BirthDayDatePicker.SelectedDate
                                 };
 
-                                playerClient.ModifyPlayer(playersSet);
+                                playerClient.ModifyPlayer(players);
 
                                 if (ImageRouteTextBlock.Text != "")
                                 {

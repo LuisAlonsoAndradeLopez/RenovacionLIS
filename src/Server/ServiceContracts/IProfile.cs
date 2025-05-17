@@ -12,7 +12,7 @@ namespace Server.ServiceContracts
     public interface IProfileNonCallbackMethods
     {
         [OperationContract]
-        long AddProfile(ProfilesSet profilesSet);
+        long AddProfile(Profiles profiles);
 
         [OperationContract]
         long AddScoreToProfile(long profileID, int score);
@@ -45,10 +45,10 @@ namespace Server.ServiceContracts
         bool TheProfileIsLogged(long profileID);
 
         [OperationContract]
-        void AddFriendship(ProfilesSet profilesSet, ProfilesSet profilesSet1);
+        void AddFriendship(Profiles profiles, Profiles profiles1);
 
         [OperationContract]
-        void CancelFriendship(ProfilesSet profilesSet, ProfilesSet profilesSet1);
+        void CancelFriendship(Profiles profiles, Profiles profiles1);
 
 
         //Only for use in the tests

@@ -123,6 +123,7 @@
                         Margin="15,15,0,0"/>
 
                         <DatePicker x:Name="BirthDayDatePicker"
+                        Style="{StaticResource DatePicker}"
                         Height="37"
                         Width="308"
                         HorizontalAlignment="Left"

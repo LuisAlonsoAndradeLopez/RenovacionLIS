@@ -10,26 +10,26 @@ using Server.DatabaseManager;
 using Server.Domain;
 using Server.DomainStatuses;
 using Server.ServiceContracts;
-using ProfilesSet = Server.DatabaseManager.ProfilesSet;
+using Profiles = Server.DatabaseManager.Profiles;
 
 namespace Server.Services
 {
     public class ServicePlayer : IPlayer
     {
-        public long AddPlayer(PlayersSet playersSet)
+        public long AddPlayer(Players players)
         {
             long generatedID = 0;
 
             try
             {
-                playersSet.ProfilesSet = new ProfilesSet
+                players.Profiles = new Profiles
                 {
                     LoginStatus = ProfileLoginStatuses.NotLogged.ToString()
                 };
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                renovaciónLISDatabase.PlayersSet.Add(playersSet);
-                renovaciónLISDatabase.SaveChanges();
-                generatedID = playersSet.IDPlayer;
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                renovaciónLISDatabaseContainer.PlayersSet.Add(players);
+                renovaciónLISDatabaseContainer.SaveChanges();
+                generatedID = players.IDPlayer;
             }
             catch (DbEntityValidationException ex)
             {
@@ -55,14 +55,14 @@ namespace Server.Services
             return generatedID;
         }
 
-        public List<PlayersSet> GetPlayers()
+        public List<Players> GetPlayers()
         {
-            List<PlayersSet> players = null;
+            List<Players> players = null;
 
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                players = renovaciónLISDatabase.PlayersSet.ToList();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                players = renovaciónLISDatabaseContainer.PlayersSet.ToList();
             }
             catch (DbEntityValidationException ex)
             {
@@ -96,22 +96,22 @@ namespace Server.Services
         public Player GetPlayerByID(long ID)
         {
             Player player = new Player();
-            PlayersSet playersSet = new PlayersSet();
+            Players players = new Players();
 
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                playersSet = renovaciónLISDatabase.PlayersSet.Where(e => e.IDPlayer == ID).FirstOrDefault();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                players = renovaciónLISDatabaseContainer.PlayersSet.Where(e => e.IDPlayer == ID).FirstOrDefault();
 
-                if (playersSet != null)
+                if (players != null)
                 {
-                    player.IDPlayer = playersSet.IDPlayer;
-                    player.Names = playersSet.Names;
-                    player.Surnames = playersSet.Surnames;
-                    player.Email = playersSet.Email;
-                    player.NickName = playersSet.NickName;
-                    player.BirthDate = playersSet.BirthDate;
-                    player.Password = playersSet.Password;
+                    player.IDPlayer = players.IDPlayer;
+                    player.Names = players.Names;
+                    player.Surnames = players.Surnames;
+                    player.Email = players.Email;
+                    player.NickName = players.NickName;
+                    player.BirthDate = players.BirthDate;
+                    player.Password = players.Password;
                 }
                 else
                 {
@@ -151,22 +151,22 @@ namespace Server.Services
         public Player GetPlayerByNickname(string nickname)
         {
             Player player = new Player();
-            PlayersSet playersSet = new PlayersSet();
+            Players players = new Players();
 
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                playersSet = renovaciónLISDatabase.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                players = renovaciónLISDatabaseContainer.PlayersSet.Where(e => e.NickName == nickname).FirstOrDefault();
 
-                if (playersSet != null)
+                if (players != null)
                 {
-                    player.IDPlayer = playersSet.IDPlayer;
-                    player.Names = playersSet.Names;
-                    player.Surnames = playersSet.Surnames;
-                    player.Email = playersSet.Email;
-                    player.NickName = playersSet.NickName;
-                    player.BirthDate = playersSet.BirthDate;
-                    player.Password = playersSet.Password;
+                    player.IDPlayer = players.IDPlayer;
+                    player.Names = players.Names;
+                    player.Surnames = players.Surnames;
+                    player.Email = players.Email;
+                    player.NickName = players.NickName;
+                    player.BirthDate = players.BirthDate;
+                    player.Password = players.Password;
                 }
                 else
                 {
@@ -203,14 +203,14 @@ namespace Server.Services
             return player;
         }
 
-        public List<PlayersSet> GetSpecifiedPlayers(string name)
+        public List<Players> GetSpecifiedPlayers(string name)
         {
-            List<PlayersSet> players = new List<PlayersSet>();
+            List<Players> players = new List<Players>();
 
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                players = renovaciónLISDatabase.PlayersSet.Where(e => e.Names.Contains(name)).ToList();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                players = renovaciónLISDatabaseContainer.PlayersSet.Where(e => e.Names.Contains(name)).ToList();
             }
             catch (DbEntityValidationException ex)
             {
@@ -242,14 +242,14 @@ namespace Server.Services
 
         }
 
-        public long ModifyPlayer(PlayersSet modifiedPlayer)
+        public long ModifyPlayer(Players modifiedPlayer)
         {
             long generatedID = 0;
 
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                PlayersSet playerToModify = renovaciónLISDatabase.PlayersSet.Find(modifiedPlayer.IDPlayer);
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                Players playerToModify = renovaciónLISDatabaseContainer.PlayersSet.Find(modifiedPlayer.IDPlayer);
                 if (playerToModify != null)
                 {
                     playerToModify.BirthDate = modifiedPlayer.BirthDate;
@@ -257,7 +257,7 @@ namespace Server.Services
                     playerToModify.Email = modifiedPlayer.Email;
                     playerToModify.Names = modifiedPlayer.Names;
                     playerToModify.NickName = modifiedPlayer.NickName;
-                    renovaciónLISDatabase.SaveChanges();
+                    renovaciónLISDatabaseContainer.SaveChanges();
                     generatedID = (int)playerToModify.IDPlayer;
                 }
             }
@@ -289,15 +289,15 @@ namespace Server.Services
         {
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                PlayersSet playerToModify = renovaciónLISDatabase.PlayersSet.FirstOrDefault(e => e.Email == originalEmail);
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                Players playerToModify = renovaciónLISDatabaseContainer.PlayersSet.FirstOrDefault(e => e.Email == originalEmail);
 
                 if (playerToModify != null)
                 {
                     playerToModify.Password = newPassword;
                 }
 
-                renovaciónLISDatabase.SaveChanges();
+                renovaciónLISDatabaseContainer.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {
@@ -326,8 +326,8 @@ namespace Server.Services
         {
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                List<String> emails = renovaciónLISDatabase.PlayersSet.Select(row => row.Email).ToList();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                List<String> emails = renovaciónLISDatabaseContainer.PlayersSet.Select(row => row.Email).ToList();
                 foreach (String email in emails)
                 {
                     if (email == emailToSearch)
@@ -369,8 +369,8 @@ namespace Server.Services
         {
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                List<String> nicknames = renovaciónLISDatabase.PlayersSet.Select(row => row.NickName).ToList();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                List<String> nicknames = renovaciónLISDatabaseContainer.PlayersSet.Select(row => row.NickName).ToList();
                 foreach (String nickname in nicknames)
                 {
                     if (nickname == nicknameToSearch)
@@ -414,11 +414,11 @@ namespace Server.Services
         {
             try
             {
-                RenovaciónLISDatabase renovaciónLISDatabase = new RenovaciónLISDatabase();
-                PlayersSet playerToDelete = renovaciónLISDatabase.PlayersSet.Where(e => e.NickName.Contains(playerNickname)).FirstOrDefault();
+                RenovaciónLISDatabaseContainer renovaciónLISDatabaseContainer = new RenovaciónLISDatabaseContainer();
+                Players playerToDelete = renovaciónLISDatabaseContainer.PlayersSet.Where(e => e.NickName.Contains(playerNickname)).FirstOrDefault();
 
-                renovaciónLISDatabase.PlayersSet.Remove(playerToDelete);
-                renovaciónLISDatabase.SaveChanges();
+                renovaciónLISDatabaseContainer.PlayersSet.Remove(playerToDelete);
+                renovaciónLISDatabaseContainer.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {

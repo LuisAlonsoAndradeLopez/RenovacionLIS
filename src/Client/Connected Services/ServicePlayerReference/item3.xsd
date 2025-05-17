@@ -5,7 +5,7 @@
   <xs:element name="AddPlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="playersSet" nillable="true" type="q1:PlayersSet" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="players" nillable="true" type="q1:Players" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -24,7 +24,7 @@
   <xs:element name="GetPlayersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="GetPlayersResult" nillable="true" type="q2:ArrayOfPlayersSet" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="GetPlayersResult" nillable="true" type="q2:ArrayOfPlayers" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -52,7 +52,7 @@
   <xs:element name="GetSpecifiedPlayersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="GetSpecifiedPlayersResult" nillable="true" type="q4:ArrayOfPlayersSet" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="GetSpecifiedPlayersResult" nillable="true" type="q4:ArrayOfPlayers" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -73,7 +73,7 @@
   <xs:element name="ModifyPlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="modifiedPlayerSet" nillable="true" type="q6:PlayersSet" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="modifiedPlayerSet" nillable="true" type="q6:Players" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

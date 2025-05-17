@@ -1,7 +1,6 @@
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\Client.exe.config
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\Client.exe
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\Client.pdb
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\es-MX\Client.resources.dll
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\es\Client.resources.dll
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\System.Buffers.dll
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\bin\Debug\System.Numerics.Vectors.dll
@@ -61,13 +60,10 @@ C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\VictoryView.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\WinnersView.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.g.resources
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.Lang.Resources.en.US.resources
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.Properties.Resources.resources
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.Lang.Resources.es-MX.resources
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.Properties.Resources.es.resources
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.csproj.GenerateResource.cache
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\es-MX\Client.resources.dll
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\es\Client.resources.dll
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.csproj.Up2Date
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.exe

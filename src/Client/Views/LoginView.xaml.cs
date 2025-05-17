@@ -117,6 +117,7 @@ namespace Client.Views
                 }
 
                 profileNonCallbackMethodsClient.Close();
+
             }
             catch (TimeoutException)
             {
@@ -126,7 +127,6 @@ namespace Client.Views
             {
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
-
         }
         #endregion
 

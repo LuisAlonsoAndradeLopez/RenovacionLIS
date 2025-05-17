@@ -25,8 +25,8 @@ namespace Server.DatabaseManager
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<FriendRequestsSet> FriendRequestsSetSet { get; set; }
-        public virtual DbSet<ProfilesSet> ProfilesSetSet { get; set; }
-        public virtual DbSet<PlayersSet> PlayersSetSet { get; set; }
+        public virtual DbSet<Players> PlayersSet { get; set; }
+        public virtual DbSet<Profiles> ProfilesSet { get; set; }
+        public virtual DbSet<FriendRequests> FriendRequestsSet { get; set; }
     }
 }

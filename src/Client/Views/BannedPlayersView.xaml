@@ -10,7 +10,7 @@
       Title="BannedPlayersView">
 
     <Grid>
-        <Image Source="/Resources/Resources/Images/bannedPlayersImage.png" VerticalAlignment="Center"/>
+        <Image Source="/Resources/Images/bannedPlayersImage.png" VerticalAlignment="Center"/>
 
         <Border Margin="40,56,619,56" 
             Name="FriendsBorder"

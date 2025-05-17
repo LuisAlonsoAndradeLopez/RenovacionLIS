@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Resources;
 using System.Security;
 using System.ServiceModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Client.AuxiliaryClasses;
 using Client.Helpers;
 using Client.ServicePlayerReference;
 using Client.ServiceProfileForNonCallbackMethodsReference;
 using ProfileLoginStatuses = Client.DomainStatuses.ProfileLoginStatuses;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
 namespace Client.Views
 {
@@ -43,6 +47,22 @@ namespace Client.Views
 
 
         #region Methods for GUIs elements events
+        private void SelectImageButton(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files (*.jpg, *.png, *jpeg)|*.jpg;*.png;*.jpeg",
+                Title = resourceManager.GetString("Select an image", cultureInfo)
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                BitmapImage imageSource = new BitmapImage(new Uri(openFileDialog.FileName));
+                ProfilePictureImage.Source = imageSource;
+                ImageRouteTextBlock.Text = openFileDialog.FileName;
+            }
+        }
+
         private void CreateAccountButton(object sender, RoutedEventArgs e)
         {
             ProfileNonCallbackMethodsClient profileNonCallbackMethodsClient = new ProfileNonCallbackMethodsClient();
@@ -68,7 +88,7 @@ namespace Client.Views
                             {
                                 if (!playerClient.TheNicknameIsAlreadyRegisted(NickNameTextBox.Text))
                                 {
-                                    ServiceProfileForNonCallbackMethodsReference.PlayersSet playersSet = new ServiceProfileForNonCallbackMethodsReference.PlayersSet
+                                    ServiceProfileForNonCallbackMethodsReference.Players players = new ServiceProfileForNonCallbackMethodsReference.Players
                                     {
                                         Names = NamesTextBox.Text,
                                         Surnames = SurnamesTextBox.Text,
@@ -77,18 +97,33 @@ namespace Client.Views
                                         BirthDate = (DateTime)BirthdayDatePicker.SelectedDate
                                     };
 
-                                    ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet = new ServiceProfileForNonCallbackMethodsReference.ProfilesSet
+                                    ServiceProfileForNonCallbackMethodsReference.Profiles profiles = new ServiceProfileForNonCallbackMethodsReference.Profiles
                                     {
                                         LoginStatus = ProfileLoginStatuses.NotLogged.ToString(),
                                         Score = 0,
-                                        PlayersSet = playersSet
+                                        Players = players
                                     };
+
+                                    if (ImageRouteTextBlock.Text != "")
+                                    {
+                                        byte[] imageData = File.ReadAllBytes(ImageRouteTextBlock.Text);
+
+                                        if (imageData.Length <= 1048576)
+                                        {
+                                            profiles.ProfileImage = Convert.ToBase64String(imageData);
+                                        }
+                                        else
+                                        {
+                                            new AlertPopUpGenerator().OpenInternationalizedErrorPopUp("Too Bad!!!", "The file shouldn't be larger than 1 MB");
+                                            return;
+                                        }
+                                    }
 
                                     string salt = BCrypt.Net.BCrypt.GenerateSalt();
                                     string hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password, salt);
-                                    playersSet.Password = hashedPassword;
+                                    players.Password = hashedPassword;
 
-                                    profileNonCallbackMethodsClient.AddProfile(profilesSet);
+                                    profileNonCallbackMethodsClient.AddProfile(profiles);
 
                                     new AlertPopUpGenerator().OpenInternationalizedSuccessPopUp("Success!!!", "Account made successfully");
 
@@ -137,7 +172,7 @@ namespace Client.Views
 
         }
 
-        private void GoLoginButton(object sender, MouseButtonEventArgs e)
+        private void GoLoginButton(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             navigationService.Navigate(new LoginView(mainWindow));

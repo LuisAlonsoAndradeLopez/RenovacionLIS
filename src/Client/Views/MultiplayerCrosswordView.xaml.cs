@@ -156,27 +156,27 @@ namespace Client.Views
         #region Crosswords, questions and background selection methods
         private void Show105Background()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\105MultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Resources\\Images\\105MultiplayerCrosswordImage.png");
         }
 
         private void ShowCC3Background()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\CC3MultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Resources\\Images\\CC3MultiplayerCrosswordImage.png");
         }
 
         private void ShowECONEXBathroomLowLevelBackground()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\bañoMultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Resources\\Images\\bañoMultiplayerCrosswordImage.png");
         }
 
         private void ShowDoctoratedInCSBackground()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Resources\\Images\\doctoradoEnCienciasDeLaComputaciónMultiplayerCrosswordImage.png");
         }
 
         private void ShowCrystalSaloonBackground()
         {
-            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Images\\salónCristalMultiplayerCrosswordImage.png");
+            SelectedCrosswordBackgroundImage.Source = new ImageLoader().GetImageByRenovaciónLISStoragedImagePath("Resources\\Images\\salónCristalMultiplayerCrosswordImage.png");
         }
 
         private void Show105CrosswordAndItsQuestions()
@@ -603,6 +603,21 @@ namespace Client.Views
         public void UpdateGameCountdown(int seconds)
         {
             GameCountdownSecondsTextBlock.Text = seconds.ToString();
+
+            if (seconds > 15)
+            {
+                GameCountdownSecondsTextBlock.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+            if (seconds > 5 && seconds <= 15)
+            {
+                GameCountdownSecondsTextBlock.Foreground = new SolidColorBrush(Colors.Yellow);
+            }
+            
+            if (seconds <= 5)
+            {
+                GameCountdownSecondsTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+            }
         }
 
         public void UpdateGlobalCountdown(int seconds)

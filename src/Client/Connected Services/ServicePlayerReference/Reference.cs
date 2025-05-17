@@ -15,9 +15,9 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PlayersSet", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
-    public partial class PlayersSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Players : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -41,13 +41,7 @@ namespace Client.ServicePlayerReference {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.ProfilesSet ProfilesSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.ProfilesSet[] ProfilesSet1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ProfilesSet_IDProfileField;
+        private Client.ServicePlayerReference.Profiles ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SurnamesField;
@@ -141,40 +135,14 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.ProfilesSet ProfilesSet {
+        public Client.ServicePlayerReference.Profiles Profiles {
             get {
-                return this.ProfilesSetField;
+                return this.ProfilesField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSetField, value) != true)) {
-                    this.ProfilesSetField = value;
-                    this.RaisePropertyChanged("ProfilesSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.ProfilesSet[] ProfilesSet1 {
-            get {
-                return this.ProfilesSet1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilesSet1Field, value) != true)) {
-                    this.ProfilesSet1Field = value;
-                    this.RaisePropertyChanged("ProfilesSet1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ProfilesSet_IDProfile {
-            get {
-                return this.ProfilesSet_IDProfileField;
-            }
-            set {
-                if ((this.ProfilesSet_IDProfileField.Equals(value) != true)) {
-                    this.ProfilesSet_IDProfileField = value;
-                    this.RaisePropertyChanged("ProfilesSet_IDProfile");
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
                 }
             }
         }
@@ -204,18 +172,18 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfilesSet", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
-    public partial class ProfilesSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Profiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.FriendRequestsSet[] FriendRequestsSetField;
+        private Client.ServicePlayerReference.FriendRequests[] FriendRequestsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.FriendRequestsSet[] FriendRequestsSet1Field;
+        private Client.ServicePlayerReference.FriendRequests[] FriendRequests1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IDProfileField;
@@ -224,25 +192,19 @@ namespace Client.ServicePlayerReference {
         private string LoginStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.PlayersSet PlayersSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.PlayersSet[] PlayersSet1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long PlayersSet_IDPlayerField;
+        private Client.ServicePlayerReference.Players PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProfileImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.ProfilesSet[] ProfilesSet1Field;
+        private Client.ServicePlayerReference.Profiles[] Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.ProfilesSet[] ProfilesSet2Field;
+        private Client.ServicePlayerReference.Profiles[] Profiles2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> ScoreField;
+        private long ScoreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -255,27 +217,27 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.FriendRequestsSet[] FriendRequestsSet {
+        public Client.ServicePlayerReference.FriendRequests[] FriendRequests {
             get {
-                return this.FriendRequestsSetField;
+                return this.FriendRequestsField;
             }
             set {
-                if ((object.ReferenceEquals(this.FriendRequestsSetField, value) != true)) {
-                    this.FriendRequestsSetField = value;
-                    this.RaisePropertyChanged("FriendRequestsSet");
+                if ((object.ReferenceEquals(this.FriendRequestsField, value) != true)) {
+                    this.FriendRequestsField = value;
+                    this.RaisePropertyChanged("FriendRequests");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.FriendRequestsSet[] FriendRequestsSet1 {
+        public Client.ServicePlayerReference.FriendRequests[] FriendRequests1 {
             get {
-                return this.FriendRequestsSet1Field;
+                return this.FriendRequests1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.FriendRequestsSet1Field, value) != true)) {
-                    this.FriendRequestsSet1Field = value;
-                    this.RaisePropertyChanged("FriendRequestsSet1");
+                if ((object.ReferenceEquals(this.FriendRequests1Field, value) != true)) {
+                    this.FriendRequests1Field = value;
+                    this.RaisePropertyChanged("FriendRequests1");
                 }
             }
         }
@@ -307,40 +269,14 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.PlayersSet PlayersSet {
+        public Client.ServicePlayerReference.Players Players {
             get {
-                return this.PlayersSetField;
+                return this.PlayersField;
             }
             set {
-                if ((object.ReferenceEquals(this.PlayersSetField, value) != true)) {
-                    this.PlayersSetField = value;
-                    this.RaisePropertyChanged("PlayersSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.PlayersSet[] PlayersSet1 {
-            get {
-                return this.PlayersSet1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlayersSet1Field, value) != true)) {
-                    this.PlayersSet1Field = value;
-                    this.RaisePropertyChanged("PlayersSet1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long PlayersSet_IDPlayer {
-            get {
-                return this.PlayersSet_IDPlayerField;
-            }
-            set {
-                if ((this.PlayersSet_IDPlayerField.Equals(value) != true)) {
-                    this.PlayersSet_IDPlayerField = value;
-                    this.RaisePropertyChanged("PlayersSet_IDPlayer");
+                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
+                    this.PlayersField = value;
+                    this.RaisePropertyChanged("Players");
                 }
             }
         }
@@ -359,33 +295,33 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.ProfilesSet[] ProfilesSet1 {
+        public Client.ServicePlayerReference.Profiles[] Profiles1 {
             get {
-                return this.ProfilesSet1Field;
+                return this.Profiles1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSet1Field, value) != true)) {
-                    this.ProfilesSet1Field = value;
-                    this.RaisePropertyChanged("ProfilesSet1");
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.ProfilesSet[] ProfilesSet2 {
+        public Client.ServicePlayerReference.Profiles[] Profiles2 {
             get {
-                return this.ProfilesSet2Field;
+                return this.Profiles2Field;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSet2Field, value) != true)) {
-                    this.ProfilesSet2Field = value;
-                    this.RaisePropertyChanged("ProfilesSet2");
+                if ((object.ReferenceEquals(this.Profiles2Field, value) != true)) {
+                    this.Profiles2Field = value;
+                    this.RaisePropertyChanged("Profiles2");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> Score {
+        public long Score {
             get {
                 return this.ScoreField;
             }
@@ -409,9 +345,9 @@ namespace Client.ServicePlayerReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequestsSet", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
-    public partial class FriendRequestsSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class FriendRequests : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -429,16 +365,16 @@ namespace Client.ServicePlayerReference {
         private string MessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long Profiles1_IDProfileField;
+        private Client.ServicePlayerReference.Profiles ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.ProfilesSet ProfilesSetField;
+        private Client.ServicePlayerReference.Profiles Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServicePlayerReference.ProfilesSet ProfilesSet1Field;
+        private long ProfilesIDProfileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long Profiles_IDProfileField;
+        private long ProfilesIDProfile1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SendingStatusField;
@@ -506,53 +442,53 @@ namespace Client.ServicePlayerReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Profiles1_IDProfile {
+        public Client.ServicePlayerReference.Profiles Profiles {
             get {
-                return this.Profiles1_IDProfileField;
+                return this.ProfilesField;
             }
             set {
-                if ((this.Profiles1_IDProfileField.Equals(value) != true)) {
-                    this.Profiles1_IDProfileField = value;
-                    this.RaisePropertyChanged("Profiles1_IDProfile");
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.ProfilesSet ProfilesSet {
+        public Client.ServicePlayerReference.Profiles Profiles1 {
             get {
-                return this.ProfilesSetField;
+                return this.Profiles1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSetField, value) != true)) {
-                    this.ProfilesSetField = value;
-                    this.RaisePropertyChanged("ProfilesSet");
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServicePlayerReference.ProfilesSet ProfilesSet1 {
+        public long ProfilesIDProfile {
             get {
-                return this.ProfilesSet1Field;
+                return this.ProfilesIDProfileField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSet1Field, value) != true)) {
-                    this.ProfilesSet1Field = value;
-                    this.RaisePropertyChanged("ProfilesSet1");
+                if ((this.ProfilesIDProfileField.Equals(value) != true)) {
+                    this.ProfilesIDProfileField = value;
+                    this.RaisePropertyChanged("ProfilesIDProfile");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Profiles_IDProfile {
+        public long ProfilesIDProfile1 {
             get {
-                return this.Profiles_IDProfileField;
+                return this.ProfilesIDProfile1Field;
             }
             set {
-                if ((this.Profiles_IDProfileField.Equals(value) != true)) {
-                    this.Profiles_IDProfileField = value;
-                    this.RaisePropertyChanged("Profiles_IDProfile");
+                if ((this.ProfilesIDProfile1Field.Equals(value) != true)) {
+                    this.ProfilesIDProfile1Field = value;
+                    this.RaisePropertyChanged("ProfilesIDProfile1");
                 }
             }
         }
@@ -851,16 +787,16 @@ namespace Client.ServicePlayerReference {
     public interface IPlayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        long AddPlayer(Client.ServicePlayerReference.PlayersSet playersSet);
+        long AddPlayer(Client.ServicePlayerReference.Players players);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/AddPlayer", ReplyAction="http://tempuri.org/IPlayer/AddPlayerResponse")]
-        System.Threading.Tasks.Task<long> AddPlayerAsync(Client.ServicePlayerReference.PlayersSet playersSet);
+        System.Threading.Tasks.Task<long> AddPlayerAsync(Client.ServicePlayerReference.Players players);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
-        Client.ServicePlayerReference.PlayersSet[] GetPlayers();
+        Client.ServicePlayerReference.Players[] GetPlayers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayers", ReplyAction="http://tempuri.org/IPlayer/GetPlayersResponse")]
-        System.Threading.Tasks.Task<Client.ServicePlayerReference.PlayersSet[]> GetPlayersAsync();
+        System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetPlayersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByID", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByIDResponse")]
         Client.ServicePlayerReference.Player GetPlayerByID(long ID);
@@ -869,10 +805,10 @@ namespace Client.ServicePlayerReference {
         System.Threading.Tasks.Task<Client.ServicePlayerReference.Player> GetPlayerByIDAsync(long ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
-        Client.ServicePlayerReference.PlayersSet[] GetSpecifiedPlayers(string name);
+        Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetSpecifiedPlayers", ReplyAction="http://tempuri.org/IPlayer/GetSpecifiedPlayersResponse")]
-        System.Threading.Tasks.Task<Client.ServicePlayerReference.PlayersSet[]> GetSpecifiedPlayersAsync(string name);
+        System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/GetPlayerByNickname", ReplyAction="http://tempuri.org/IPlayer/GetPlayerByNicknameResponse")]
         Client.ServicePlayerReference.Player GetPlayerByNickname(string nickname);
@@ -881,10 +817,10 @@ namespace Client.ServicePlayerReference {
         System.Threading.Tasks.Task<Client.ServicePlayerReference.Player> GetPlayerByNicknameAsync(string nickname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
-        long ModifyPlayer(Client.ServicePlayerReference.PlayersSet modifiedPlayerSet);
+        long ModifyPlayer(Client.ServicePlayerReference.Players modifiedPlayerSet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPlayer", ReplyAction="http://tempuri.org/IPlayer/ModifyPlayerResponse")]
-        System.Threading.Tasks.Task<long> ModifyPlayerAsync(Client.ServicePlayerReference.PlayersSet modifiedPlayerSet);
+        System.Threading.Tasks.Task<long> ModifyPlayerAsync(Client.ServicePlayerReference.Players modifiedPlayerSet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayer/ModifyPasswordByEmail", ReplyAction="http://tempuri.org/IPlayer/ModifyPasswordByEmailResponse")]
         void ModifyPasswordByEmail(string originalEmail, string newPassword);
@@ -938,19 +874,19 @@ namespace Client.ServicePlayerReference {
                 base(binding, remoteAddress) {
         }
         
-        public long AddPlayer(Client.ServicePlayerReference.PlayersSet playersSet) {
-            return base.Channel.AddPlayer(playersSet);
+        public long AddPlayer(Client.ServicePlayerReference.Players players) {
+            return base.Channel.AddPlayer(players);
         }
         
-        public System.Threading.Tasks.Task<long> AddPlayerAsync(Client.ServicePlayerReference.PlayersSet playersSet) {
-            return base.Channel.AddPlayerAsync(playersSet);
+        public System.Threading.Tasks.Task<long> AddPlayerAsync(Client.ServicePlayerReference.Players players) {
+            return base.Channel.AddPlayerAsync(players);
         }
         
-        public Client.ServicePlayerReference.PlayersSet[] GetPlayers() {
+        public Client.ServicePlayerReference.Players[] GetPlayers() {
             return base.Channel.GetPlayers();
         }
         
-        public System.Threading.Tasks.Task<Client.ServicePlayerReference.PlayersSet[]> GetPlayersAsync() {
+        public System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetPlayersAsync() {
             return base.Channel.GetPlayersAsync();
         }
         
@@ -962,11 +898,11 @@ namespace Client.ServicePlayerReference {
             return base.Channel.GetPlayerByIDAsync(ID);
         }
         
-        public Client.ServicePlayerReference.PlayersSet[] GetSpecifiedPlayers(string name) {
+        public Client.ServicePlayerReference.Players[] GetSpecifiedPlayers(string name) {
             return base.Channel.GetSpecifiedPlayers(name);
         }
         
-        public System.Threading.Tasks.Task<Client.ServicePlayerReference.PlayersSet[]> GetSpecifiedPlayersAsync(string name) {
+        public System.Threading.Tasks.Task<Client.ServicePlayerReference.Players[]> GetSpecifiedPlayersAsync(string name) {
             return base.Channel.GetSpecifiedPlayersAsync(name);
         }
         
@@ -978,11 +914,11 @@ namespace Client.ServicePlayerReference {
             return base.Channel.GetPlayerByNicknameAsync(nickname);
         }
         
-        public long ModifyPlayer(Client.ServicePlayerReference.PlayersSet modifiedPlayerSet) {
+        public long ModifyPlayer(Client.ServicePlayerReference.Players modifiedPlayerSet) {
             return base.Channel.ModifyPlayer(modifiedPlayerSet);
         }
         
-        public System.Threading.Tasks.Task<long> ModifyPlayerAsync(Client.ServicePlayerReference.PlayersSet modifiedPlayerSet) {
+        public System.Threading.Tasks.Task<long> ModifyPlayerAsync(Client.ServicePlayerReference.Players modifiedPlayerSet) {
             return base.Channel.ModifyPlayerAsync(modifiedPlayerSet);
         }
         

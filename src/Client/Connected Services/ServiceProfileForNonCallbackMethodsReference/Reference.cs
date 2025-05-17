@@ -15,18 +15,18 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfilesSet", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profiles", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
-    public partial class ProfilesSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Profiles : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.FriendRequestsSet[] FriendRequestsSetField;
+        private Client.ServiceProfileForNonCallbackMethodsReference.FriendRequests[] FriendRequestsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.FriendRequestsSet[] FriendRequestsSet1Field;
+        private Client.ServiceProfileForNonCallbackMethodsReference.FriendRequests[] FriendRequests1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IDProfileField;
@@ -35,25 +35,19 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         private string LoginStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.PlayersSet PlayersSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.PlayersSet[] PlayersSet1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long PlayersSet_IDPlayerField;
+        private Client.ServiceProfileForNonCallbackMethodsReference.Players PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProfileImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet[] ProfilesSet1Field;
+        private Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet[] ProfilesSet2Field;
+        private Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> ScoreField;
+        private long ScoreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -66,27 +60,27 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.FriendRequestsSet[] FriendRequestsSet {
+        public Client.ServiceProfileForNonCallbackMethodsReference.FriendRequests[] FriendRequests {
             get {
-                return this.FriendRequestsSetField;
+                return this.FriendRequestsField;
             }
             set {
-                if ((object.ReferenceEquals(this.FriendRequestsSetField, value) != true)) {
-                    this.FriendRequestsSetField = value;
-                    this.RaisePropertyChanged("FriendRequestsSet");
+                if ((object.ReferenceEquals(this.FriendRequestsField, value) != true)) {
+                    this.FriendRequestsField = value;
+                    this.RaisePropertyChanged("FriendRequests");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.FriendRequestsSet[] FriendRequestsSet1 {
+        public Client.ServiceProfileForNonCallbackMethodsReference.FriendRequests[] FriendRequests1 {
             get {
-                return this.FriendRequestsSet1Field;
+                return this.FriendRequests1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.FriendRequestsSet1Field, value) != true)) {
-                    this.FriendRequestsSet1Field = value;
-                    this.RaisePropertyChanged("FriendRequestsSet1");
+                if ((object.ReferenceEquals(this.FriendRequests1Field, value) != true)) {
+                    this.FriendRequests1Field = value;
+                    this.RaisePropertyChanged("FriendRequests1");
                 }
             }
         }
@@ -118,40 +112,14 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.PlayersSet PlayersSet {
+        public Client.ServiceProfileForNonCallbackMethodsReference.Players Players {
             get {
-                return this.PlayersSetField;
+                return this.PlayersField;
             }
             set {
-                if ((object.ReferenceEquals(this.PlayersSetField, value) != true)) {
-                    this.PlayersSetField = value;
-                    this.RaisePropertyChanged("PlayersSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.PlayersSet[] PlayersSet1 {
-            get {
-                return this.PlayersSet1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlayersSet1Field, value) != true)) {
-                    this.PlayersSet1Field = value;
-                    this.RaisePropertyChanged("PlayersSet1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long PlayersSet_IDPlayer {
-            get {
-                return this.PlayersSet_IDPlayerField;
-            }
-            set {
-                if ((this.PlayersSet_IDPlayerField.Equals(value) != true)) {
-                    this.PlayersSet_IDPlayerField = value;
-                    this.RaisePropertyChanged("PlayersSet_IDPlayer");
+                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
+                    this.PlayersField = value;
+                    this.RaisePropertyChanged("Players");
                 }
             }
         }
@@ -170,33 +138,33 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet[] ProfilesSet1 {
+        public Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles1 {
             get {
-                return this.ProfilesSet1Field;
+                return this.Profiles1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSet1Field, value) != true)) {
-                    this.ProfilesSet1Field = value;
-                    this.RaisePropertyChanged("ProfilesSet1");
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet[] ProfilesSet2 {
+        public Client.ServiceProfileForNonCallbackMethodsReference.Profiles[] Profiles2 {
             get {
-                return this.ProfilesSet2Field;
+                return this.Profiles2Field;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSet2Field, value) != true)) {
-                    this.ProfilesSet2Field = value;
-                    this.RaisePropertyChanged("ProfilesSet2");
+                if ((object.ReferenceEquals(this.Profiles2Field, value) != true)) {
+                    this.Profiles2Field = value;
+                    this.RaisePropertyChanged("Profiles2");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> Score {
+        public long Score {
             get {
                 return this.ScoreField;
             }
@@ -220,9 +188,9 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PlayersSet", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Players", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
-    public partial class PlayersSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Players : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -246,13 +214,7 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet ProfilesSetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet[] ProfilesSet1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ProfilesSet_IDProfileField;
+        private Client.ServiceProfileForNonCallbackMethodsReference.Profiles ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SurnamesField;
@@ -346,40 +308,14 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet ProfilesSet {
+        public Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles {
             get {
-                return this.ProfilesSetField;
+                return this.ProfilesField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSetField, value) != true)) {
-                    this.ProfilesSetField = value;
-                    this.RaisePropertyChanged("ProfilesSet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet[] ProfilesSet1 {
-            get {
-                return this.ProfilesSet1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProfilesSet1Field, value) != true)) {
-                    this.ProfilesSet1Field = value;
-                    this.RaisePropertyChanged("ProfilesSet1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ProfilesSet_IDProfile {
-            get {
-                return this.ProfilesSet_IDProfileField;
-            }
-            set {
-                if ((this.ProfilesSet_IDProfileField.Equals(value) != true)) {
-                    this.ProfilesSet_IDProfileField = value;
-                    this.RaisePropertyChanged("ProfilesSet_IDProfile");
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
                 }
             }
         }
@@ -409,9 +345,9 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequestsSet", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FriendRequests", Namespace="http://schemas.datacontract.org/2004/07/Server.DatabaseManager")]
     [System.SerializableAttribute()]
-    public partial class FriendRequestsSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class FriendRequests : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -429,16 +365,16 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         private string MessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long Profiles1_IDProfileField;
+        private Client.ServiceProfileForNonCallbackMethodsReference.Profiles ProfilesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet ProfilesSetField;
+        private Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet ProfilesSet1Field;
+        private long ProfilesIDProfileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long Profiles_IDProfileField;
+        private long ProfilesIDProfile1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SendingStatusField;
@@ -506,53 +442,53 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Profiles1_IDProfile {
+        public Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles {
             get {
-                return this.Profiles1_IDProfileField;
+                return this.ProfilesField;
             }
             set {
-                if ((this.Profiles1_IDProfileField.Equals(value) != true)) {
-                    this.Profiles1_IDProfileField = value;
-                    this.RaisePropertyChanged("Profiles1_IDProfile");
+                if ((object.ReferenceEquals(this.ProfilesField, value) != true)) {
+                    this.ProfilesField = value;
+                    this.RaisePropertyChanged("Profiles");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet ProfilesSet {
+        public Client.ServiceProfileForNonCallbackMethodsReference.Profiles Profiles1 {
             get {
-                return this.ProfilesSetField;
+                return this.Profiles1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSetField, value) != true)) {
-                    this.ProfilesSetField = value;
-                    this.RaisePropertyChanged("ProfilesSet");
+                if ((object.ReferenceEquals(this.Profiles1Field, value) != true)) {
+                    this.Profiles1Field = value;
+                    this.RaisePropertyChanged("Profiles1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet ProfilesSet1 {
+        public long ProfilesIDProfile {
             get {
-                return this.ProfilesSet1Field;
+                return this.ProfilesIDProfileField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProfilesSet1Field, value) != true)) {
-                    this.ProfilesSet1Field = value;
-                    this.RaisePropertyChanged("ProfilesSet1");
+                if ((this.ProfilesIDProfileField.Equals(value) != true)) {
+                    this.ProfilesIDProfileField = value;
+                    this.RaisePropertyChanged("ProfilesIDProfile");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Profiles_IDProfile {
+        public long ProfilesIDProfile1 {
             get {
-                return this.Profiles_IDProfileField;
+                return this.ProfilesIDProfile1Field;
             }
             set {
-                if ((this.Profiles_IDProfileField.Equals(value) != true)) {
-                    this.Profiles_IDProfileField = value;
-                    this.RaisePropertyChanged("Profiles_IDProfile");
+                if ((this.ProfilesIDProfile1Field.Equals(value) != true)) {
+                    this.ProfilesIDProfile1Field = value;
+                    this.RaisePropertyChanged("ProfilesIDProfile1");
                 }
             }
         }
@@ -923,10 +859,10 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
     public interface IProfileNonCallbackMethods {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddProfileResponse")]
-        long AddProfile(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet);
+        long AddProfile(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddProfileResponse")]
-        System.Threading.Tasks.Task<long> AddProfileAsync(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet);
+        System.Threading.Tasks.Task<long> AddProfileAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddScoreToProfileResponse")]
         long AddScoreToProfile(long profileID, int score);
@@ -989,16 +925,16 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
         System.Threading.Tasks.Task<bool> TheProfileIsLoggedAsync(long profileID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddFriendship", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddFriendshipResponse")]
-        void AddFriendship(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1);
+        void AddFriendship(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/AddFriendship", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/AddFriendshipResponse")]
-        System.Threading.Tasks.Task AddFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1);
+        System.Threading.Tasks.Task AddFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/CancelFriendship", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/CancelFriendshipResponse")]
-        void CancelFriendship(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1);
+        void CancelFriendship(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/CancelFriendship", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/CancelFriendshipResponse")]
-        System.Threading.Tasks.Task CancelFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1);
+        System.Threading.Tasks.Task CancelFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProfileNonCallbackMethods/DeleteProfile", ReplyAction="http://tempuri.org/IProfileNonCallbackMethods/DeleteProfileResponse")]
         void DeleteProfile(long playerID);
@@ -1034,12 +970,12 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
                 base(binding, remoteAddress) {
         }
         
-        public long AddProfile(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet) {
-            return base.Channel.AddProfile(profilesSet);
+        public long AddProfile(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles) {
+            return base.Channel.AddProfile(profiles);
         }
         
-        public System.Threading.Tasks.Task<long> AddProfileAsync(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet) {
-            return base.Channel.AddProfileAsync(profilesSet);
+        public System.Threading.Tasks.Task<long> AddProfileAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles) {
+            return base.Channel.AddProfileAsync(profiles);
         }
         
         public long AddScoreToProfile(long profileID, int score) {
@@ -1122,20 +1058,20 @@ namespace Client.ServiceProfileForNonCallbackMethodsReference {
             return base.Channel.TheProfileIsLoggedAsync(profileID);
         }
         
-        public void AddFriendship(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1) {
-            base.Channel.AddFriendship(profilesSet, profilesSet1);
+        public void AddFriendship(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1) {
+            base.Channel.AddFriendship(profiles, profiles1);
         }
         
-        public System.Threading.Tasks.Task AddFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1) {
-            return base.Channel.AddFriendshipAsync(profilesSet, profilesSet1);
+        public System.Threading.Tasks.Task AddFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1) {
+            return base.Channel.AddFriendshipAsync(profiles, profiles1);
         }
         
-        public void CancelFriendship(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1) {
-            base.Channel.CancelFriendship(profilesSet, profilesSet1);
+        public void CancelFriendship(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1) {
+            base.Channel.CancelFriendship(profiles, profiles1);
         }
         
-        public System.Threading.Tasks.Task CancelFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet, Client.ServiceProfileForNonCallbackMethodsReference.ProfilesSet profilesSet1) {
-            return base.Channel.CancelFriendshipAsync(profilesSet, profilesSet1);
+        public System.Threading.Tasks.Task CancelFriendshipAsync(Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles, Client.ServiceProfileForNonCallbackMethodsReference.Profiles profiles1) {
+            return base.Channel.CancelFriendshipAsync(profiles, profiles1);
         }
         
         public void DeleteProfile(long playerID) {

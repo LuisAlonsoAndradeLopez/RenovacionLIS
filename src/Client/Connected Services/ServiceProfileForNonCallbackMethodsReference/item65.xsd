@@ -7,7 +7,7 @@
   <xs:element name="AddProfile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profilesSet" nillable="true" type="q1:ProfilesSet" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profiles" nillable="true" type="q1:Profiles" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -158,8 +158,8 @@
   <xs:element name="AddFriendship">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profilesSet" nillable="true" type="q8:ProfilesSet" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profilesSet1" nillable="true" type="q9:ProfilesSet" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profiles" nillable="true" type="q8:Profiles" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profiles1" nillable="true" type="q9:Profiles" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -171,8 +171,8 @@
   <xs:element name="CancelFriendship">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profilesSet" nillable="true" type="q10:ProfilesSet" />
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profilesSet1" nillable="true" type="q11:ProfilesSet" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profiles" nillable="true" type="q10:Profiles" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Server.DatabaseManager" minOccurs="0" name="profiles1" nillable="true" type="q11:Profiles" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

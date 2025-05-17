@@ -13,182 +13,162 @@
         <Image Source="/Resources/Images/createAccountImage.png" Stretch="Fill"/>
 
         <Grid>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
-                
-            </Grid.ColumnDefinitions>
-
-            <Border Margin="50" 
+            <Border Margin="50,50,50,50" 
                     Grid.Column="0" 
                     Background= "#80000000"
                     CornerRadius="20">
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Label Content="{x:Static p:Resources.Create_account}"    
+                        FontFamily="{StaticResource K2DBold}" 
+                        FontSize="50"
+                        Foreground="White"
+                        HorizontalAlignment="Center">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
-                        
-                    </Grid.RowDefinitions>
-
-                    <Label Content="{x:Static p:Resources.Create_account}"
-                           Grid.Column="1"
-                           
-                           Margin="0,0,0,10"
-                           FontFamily="{StaticResource K2DBold}" 
-                           FontSize="50"
-                           Foreground="White"
-                           HorizontalAlignment="Center">
-                        
                     </Label>
 
                     <Label Background="#337CCF"
-                           Height="2"
-                           Margin="0,0,20,0"/>
+                        Height="2"/>
 
-                    <Label Content="{x:Static p:Resources.Name}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="1"
-                           Margin="20,0"/>
+                    <StackPanel Orientation="Horizontal" Height="449">
+                        <StackPanel Orientation="Vertical" Margin="25,0,25,0" Width="340" Height="428">
+                            <TextBlock Text="{x:Static p:Resources.Profile_picture}"
+                                FontFamily="{StaticResource K2DBold}"
+                                Foreground="White" FontSize="35" Width="320"
+                                TextWrapping="Wrap" 
+                                TextAlignment="Center"
+                                Margin="0,15,0,0"/>
 
-                    <Label Content="{x:Static p:Resources.First_Last_Name}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="1"
-                           Grid.Column="1"
-                           Margin="20,0"/>
+                            <Image Width="200" Height="200" Name="ProfilePictureImage"/>
 
-                    <Label Content="{x:Static p:Resources.Email}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="3"
-                           Grid.Column="0"
-                           Margin="20,20,0,0"/>
+                            <StackPanel>
+                                <Button Content="{x:Static p:Resources.Select_an_image}" 
+                                    Style="{StaticResource RedButton}"
+                                    Height="45"
+                                    Width="200"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,20,0,0" Click="SelectImageButton"/>
 
-                    <Label Content="{x:Static p:Resources.Nickname}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="5"
-                           Grid.Column="0"
-                           Margin="20,20,0,0"/>
+                                <TextBlock TextWrapping="Wrap" Text=""
+                                    Margin="10,20,10,20" Foreground="White" Height="62"
+                                    Name="ImageRouteTextBlock"/>
+                            </StackPanel>
 
-                    <Label Content="{x:Static p:Resources.Birth_day}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="5"
-                           Grid.Column="1"
-                           Margin="20,20,0,0"/>
+                        </StackPanel>
 
-                    <Label Content="{x:Static p:Resources.Password}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="7"
-                           Grid.Column="0"
-                           Margin="20,20,0,0"/>
+                        <StackPanel Orientation="Vertical" Width="700" Height="433">
+                            <Label Content="{x:Static p:Resources.Name}"
+                                FontFamily="{StaticResource K2DRegular}"
+                                FontSize="16"
+                                Foreground="White"
+                                Margin="20,10,0,0"/>
 
-                    <Label Content="{x:Static p:Resources.Confirm_password}"
-                           FontFamily="{StaticResource K2DRegular}"
-                           FontSize="16"
-                           Foreground="White"
-                           Grid.Row="7"
-                           Grid.Column="1"
-                           Margin="20,20,0,0"/>
+                            <TextBox x:Name="NamesTextBox" 
+                                Style="{StaticResource BorderTextBox}"
+                                Height="45"
+                                Margin="20,0"/>
 
+                            <Label Content="{x:Static p:Resources.First_Last_Name}"
+                                FontFamily="{StaticResource K2DRegular}"
+                                FontSize="16"
+                                Foreground="White"
+                                Margin="20,10,0,0"/>
 
-                    <TextBox x:Name="NamesTextBox" 
-                             Style="{StaticResource BorderTextBox}"
-                                 Grid.Row="2"
-                                 Height="45"
-                                 Margin="20,0"/>
+                            <TextBox x:Name="SurnamesTextBox" Style="{StaticResource BorderTextBox}"
+                                Height="45"
+                                Margin="20,0"/>
 
-                    <TextBox x:Name="SurnamesTextBox" Style="{StaticResource BorderTextBox}"
-                             Grid.Row="2"
-                             Grid.Column="1"
-                             Height="45"
-                             Margin="20,0"/>
+                            <Label Content="{x:Static p:Resources.Email}"
+                                FontFamily="{StaticResource K2DRegular}"
+                                FontSize="16"
+                                Foreground="White"
+                                Margin="20,10,0,0"/>
 
-                    <TextBox x:Name="EmailTextBox" Style="{StaticResource BorderTextBox}"
-                             Grid.Row="4"
-                             Grid.Column="0"
-                             Height="45"
-                             Margin="20,0"
-                             Grid.ColumnSpan="2"/>
+                            <TextBox x:Name="EmailTextBox" Style="{StaticResource BorderTextBox}"
+                                Height="45"
+                                Margin="20,0"/>
 
-                    <TextBox x:Name="NickNameTextBox" Style="{StaticResource BorderTextBox}"
-                             Grid.Row="6"
-                             Grid.Column="0"
-                             Height="45"
-                             Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                <StackPanel Orientation="Vertical" Width="350">
+                                    <Label Content="{x:Static p:Resources.Nickname}"
+                                        FontFamily="{StaticResource K2DRegular}"
+                                        FontSize="16"
+                                        Foreground="White"
+                                        Margin="20,0,0,0"/>
 
-                    <DatePicker x:Name="BirthdayDatePicker"
-                             Style="{StaticResource DatePicker}"
-                             Grid.Row="6"
-                             Grid.Column="1"
-                             Height="45"
-                             Margin="20,0"/>
+                                    <TextBox x:Name="NickNameTextBox" Style="{StaticResource BorderTextBox}"
+                                        Height="45"
+                                        Margin="20,0"/>                                    
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Vertical" Width="350">
+                                    <Label Content="{x:Static p:Resources.Birth_day}"
+                                        FontFamily="{StaticResource K2DRegular}"
+                                        FontSize="16"
+                                        Foreground="White"
+                                        Margin="20,0,0,0"/>
 
-                    <PasswordBox x:Name="PasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
-                             Grid.Row="8"
-                             Grid.Column="0"
-                             Height="45"
-                             Margin="20,0"/>
+                                    <DatePicker x:Name="BirthdayDatePicker"
+                                        Style="{StaticResource DatePicker}"
+                                        Height="45"
+                                        Margin="20,0"/>
+                                    
+                                </StackPanel>
+                            </StackPanel>
 
-                    <PasswordBox x:Name="ConfirmPasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
-                             Grid.Row="8"
-                             Grid.Column="1"
-                             Height="45"
-                             Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                <StackPanel Orientation="Vertical" Width="350">
+                                    <Label Content="{x:Static p:Resources.Password}"
+                                        FontFamily="{StaticResource K2DRegular}"
+                                        FontSize="16"
+                                        Foreground="White"
+                                        Margin="20,0,0,0"/>
 
-                    <Button Content="{x:Static p:Resources.Create_account}" 
+                                    <PasswordBox x:Name="PasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
+                                        Height="45"
+                                        Margin="20,0"/>                                    
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Width="350">
+                                    <Label Content="{x:Static p:Resources.Confirm_password}"
+                                        FontFamily="{StaticResource K2DRegular}"
+                                        FontSize="16"
+                                        Foreground="White"
+                                        Margin="20,0,0,0"/>
+
+                                    <PasswordBox x:Name="ConfirmPasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
+                                        Height="45"
+                                        Margin="20,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="{x:Static p:Resources.Have_you_already_have_an_account}"
+                            x:Name="GoLogInButton"
+                            Style="{StaticResource BlackButton}"
+                            Height="45"
+                            Margin="80,10" 
+                            Click="GoLoginButton"
+                            MouseEnter="PlayHoverSound"/>
+
+                        <Button Content="{x:Static p:Resources.Create_account}" 
                             Style="{StaticResource GreenButton}"
-                            Grid.Row="9"
                             Height="45"
                             Width="200"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Left"
-                            Margin="30" Click="CreateAccountButton"
+                            Margin="80,10" 
+                            Click="CreateAccountButton"
                             MouseEnter="PlayHoverSound"/>
+                    </StackPanel>
 
-                    <TextBlock x:Name="GoLogInButton"
-                               Text="{x:Static p:Resources.Have_you_already_have_an_account}"
-                               Style="{StaticResource TransparentLabel}"
-                               Grid.Row="9"
-                               Grid.Column="2"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Bottom"
-                               Margin="30"
-                               MouseLeftButtonDown="GoLoginButton"
-                               MouseEnter="PlayHoverSound"/>
-
-
-
-
-                </Grid>
+                </StackPanel>
 
             </Border>
 
-            
+
         </Grid>
     </Grid>
 </Page>
