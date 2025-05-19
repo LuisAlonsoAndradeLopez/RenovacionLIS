@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using System.ServiceModel;
 using Client.AuxiliaryClasses;
 using Client.Helpers;
+using System.IO;
 
 namespace Client.Views
 {
@@ -75,12 +76,16 @@ namespace Client.Views
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new LevelView(mainWindow));
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }

@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Client.AuxiliaryClasses;
@@ -161,12 +160,16 @@ namespace Client.Views
                 profileNonCallbackMethodsClient.Close();
                 playerClient.Close();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
 
@@ -221,7 +224,7 @@ namespace Client.Views
             if (!namesMatch.Success || !surnamesMatch.Success || !emailMatch.Success ||
                 !nickNameMatch.Success || !passwordMatch.Success || !confirmPasswordMatch.Success)
             {
-                finalText = finalText + resourceManager.GetString("The text fields with invalid values are", cultureInfo);
+                finalText += resourceManager.GetString("The text fields with invalid values are", cultureInfo);
             }
 
             if (!namesMatch.Success)

@@ -11,7 +11,7 @@
 
     <Grid>
         <MediaElement Name="AnimationVideo"
-                      Source="/Resouurces/Videos/AnimationVideo.mp4"
+                      Source="/Resources/Videos/AnimationVideo.mp4"
                       Stretch="Fill"
                       LoadedBehavior="Play"
                       UnloadedBehavior="Manual"/>

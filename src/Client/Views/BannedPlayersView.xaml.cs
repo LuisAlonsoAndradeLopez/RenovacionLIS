@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Resources;
 using System.ServiceModel;
 using System.Threading;
@@ -12,6 +13,7 @@ using System.Windows.Shapes;
 using Client.AuxiliaryClasses;
 using Client.Helpers;
 using Client.ServiceLobbyForNonCallbackMethodsReference;
+using Path = System.IO.Path;
 
 namespace Client.Views
 {
@@ -55,12 +57,16 @@ namespace Client.Views
 
                 SongManager.Instance.PlayClickSound();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
@@ -85,12 +91,16 @@ namespace Client.Views
                         SongManager.Instance.PlayClickSound();
                     }
                 }
-                catch (TimeoutException)
+                catch (TimeoutException ex)
                 {
+                    string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                    File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                     new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
-                catch (EndpointNotFoundException)
+                catch (EndpointNotFoundException ex)
                 {
+                    string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                    File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                     new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
             }
@@ -108,12 +118,16 @@ namespace Client.Views
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new RandomMultiplayerCrosswordGeneratorView(mainWindow));
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }
@@ -180,12 +194,16 @@ namespace Client.Views
                     lobbyNonCallbackMethodsClient.Close();
                 }
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
 
@@ -221,12 +239,16 @@ namespace Client.Views
                 navigationService.Navigate(new MenuView(mainWindow));
                 new AlertPopUpGenerator().OpenInternationalizedWarningPopUp("Uh oh!", "You have been banned!!!!!");
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }

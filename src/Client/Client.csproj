@@ -236,9 +236,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\UserControls\UserControlScore.xaml.cs">
-      <DependentUpon>UserControlScore.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\VictoryView.xaml.cs">
       <DependentUpon>VictoryView.xaml</DependentUpon>
     </Compile>
@@ -341,10 +338,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\UserControls\UserControlScore.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\VictoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -370,6 +363,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Resource Include="Fonts\K2D-Bold.ttf" />
     <Resource Include="Fonts\K2D-Regular.ttf" />
@@ -725,8 +719,6 @@
     <Resource Include="Resources\Images\storeButtonImage.png" />
     <Resource Include="Resources\Images\WallpaperLevelOneImage.png" />
     <Resource Include="Resources\Images\winnersImage.png" />
-    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item.disco" />
-    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item.disco" />
     <None Include="Connected Services\ServiceFriendRequestForCallbackMethodsReference\item.disco" />
     <None Include="Connected Services\ServiceFriendRequestForNonCallbackMethodsReference\item.disco" />
     <None Include="Connected Services\ServiceLobbyForCallbackMethodsReference\item.disco" />
@@ -736,6 +728,8 @@
     <None Include="Connected Services\ServicePlayerReference\item.disco" />
     <None Include="Connected Services\ServiceProfileForCallbackMethodsReference\item.disco" />
     <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.disco" />
+    <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item.disco" />
+    <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item.disco" />
     <Content Include="Resources\Songs\Apprentice %28Instrumental%29 - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav" />
     <Content Include="Resources\Songs\Custom Character - Dan The Man Music.wav" />
     <Content Include="Resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />

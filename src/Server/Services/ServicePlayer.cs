@@ -33,22 +33,22 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -66,27 +66,27 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (SqlNullValueException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -121,27 +121,27 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (SqlNullValueException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -176,27 +176,27 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (SqlNullValueException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -214,27 +214,27 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (SqlNullValueException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -263,22 +263,22 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -301,22 +301,22 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -338,27 +338,27 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (SqlNullValueException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -381,27 +381,27 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (SqlNullValueException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
@@ -422,22 +422,22 @@ namespace Server.Services
             }
             catch (DbEntityValidationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (DbUpdateException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandCompilationException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
             catch (EntityCommandExecutionException ex)
             {
-                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../log.txt");
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../../log.txt");
                 File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
         }

@@ -31,7 +31,7 @@ namespace Client.Views
             InitializeComponent();
             SongManager.Instance.PauseMusic();
 
-            string path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "../../Videos/AnimationVideo.mp4");
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "../../Videos/AnimationVideo.mp4");
             AnimationVideo.Source = new Uri(path);
 
             AnimationVideo.MediaEnded += (sender, e) =>
@@ -44,12 +44,16 @@ namespace Client.Views
                     SongManager.Instance.ResumeMusic();
                     SongManager.Instance.PlaySingleplayerSong();
                 }
-                catch (TimeoutException)
+                catch (TimeoutException ex)
                 {
+                    string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                    File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                     new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
-                catch (EndpointNotFoundException)
+                catch (EndpointNotFoundException ex)
                 {
+                    string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                    File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                     new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
                 }
             };
@@ -71,12 +75,16 @@ namespace Client.Views
                 SongManager.Instance.ResumeMusic();
                 SongManager.Instance.PlaySingleplayerSong();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedInGameConnectionErrorPopUp(this);
             }
         }

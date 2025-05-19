@@ -18,7 +18,7 @@
                     Background= "#80000000"
                     CornerRadius="20">
 
-                <StackPanel>
+                <StackPanel Height="600">
                     <Label Content="{x:Static p:Resources.Create_account}"    
                         FontFamily="{StaticResource K2DBold}" 
                         FontSize="50"
@@ -30,8 +30,8 @@
                     <Label Background="#337CCF"
                         Height="2"/>
 
-                    <StackPanel Orientation="Horizontal" Height="449">
-                        <StackPanel Orientation="Vertical" Margin="25,0,25,0" Width="340" Height="428">
+                    <StackPanel Orientation="Horizontal" Height="416">
+                        <StackPanel Orientation="Vertical" Margin="25,0,25,0" Width="340" Height="385">
                             <TextBlock Text="{x:Static p:Resources.Profile_picture}"
                                 FontFamily="{StaticResource K2DBold}"
                                 Foreground="White" FontSize="35" Width="320"
@@ -39,18 +39,18 @@
                                 TextAlignment="Center"
                                 Margin="0,15,0,0"/>
 
-                            <Image Width="200" Height="200" Name="ProfilePictureImage"/>
+                            <Image Width="180" Height="180" Name="ProfilePictureImage"/>
 
                             <StackPanel>
                                 <Button Content="{x:Static p:Resources.Select_an_image}" 
                                     Style="{StaticResource RedButton}"
-                                    Height="45"
+                                    Height="41"
                                     Width="200"
                                     HorizontalAlignment="Center"
                                     Margin="0,20,0,0" Click="SelectImageButton"/>
 
                                 <TextBlock TextWrapping="Wrap" Text=""
-                                    Margin="10,20,10,20" Foreground="White" Height="62"
+                                    Margin="10,20,10,20" Foreground="White" Height="44"
                                     Name="ImageRouteTextBlock"/>
                             </StackPanel>
 
@@ -65,7 +65,7 @@
 
                             <TextBox x:Name="NamesTextBox" 
                                 Style="{StaticResource BorderTextBox}"
-                                Height="45"
+                                Height="41"
                                 Margin="20,0"/>
 
                             <Label Content="{x:Static p:Resources.First_Last_Name}"
@@ -75,7 +75,7 @@
                                 Margin="20,10,0,0"/>
 
                             <TextBox x:Name="SurnamesTextBox" Style="{StaticResource BorderTextBox}"
-                                Height="45"
+                                Height="41"
                                 Margin="20,0"/>
 
                             <Label Content="{x:Static p:Resources.Email}"
@@ -85,7 +85,7 @@
                                 Margin="20,10,0,0"/>
 
                             <TextBox x:Name="EmailTextBox" Style="{StaticResource BorderTextBox}"
-                                Height="45"
+                                Height="41"
                                 Margin="20,0"/>
 
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
@@ -97,7 +97,7 @@
                                         Margin="20,0,0,0"/>
 
                                     <TextBox x:Name="NickNameTextBox" Style="{StaticResource BorderTextBox}"
-                                        Height="45"
+                                        Height="41"
                                         Margin="20,0"/>                                    
                                 </StackPanel>
                                 
@@ -110,7 +110,7 @@
 
                                     <DatePicker x:Name="BirthdayDatePicker"
                                         Style="{StaticResource DatePicker}"
-                                        Height="45"
+                                        Height="41"
                                         Margin="20,0"/>
                                     
                                 </StackPanel>
@@ -125,7 +125,7 @@
                                         Margin="20,0,0,0"/>
 
                                     <PasswordBox x:Name="PasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
-                                        Height="45"
+                                        Height="41"
                                         Margin="20,0"/>                                    
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Width="350">
@@ -136,7 +136,7 @@
                                         Margin="20,0,0,0"/>
 
                                     <PasswordBox x:Name="ConfirmPasswordPasswordBox" Style="{StaticResource PasswordBorderTextBox}"
-                                        Height="45"
+                                        Height="41"
                                         Margin="20,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -148,14 +148,14 @@
                         <Button Content="{x:Static p:Resources.Have_you_already_have_an_account}"
                             x:Name="GoLogInButton"
                             Style="{StaticResource BlackButton}"
-                            Height="45"
+                            Height="41"
                             Margin="80,10" 
                             Click="GoLoginButton"
                             MouseEnter="PlayHoverSound"/>
 
                         <Button Content="{x:Static p:Resources.Create_account}" 
                             Style="{StaticResource GreenButton}"
-                            Height="45"
+                            Height="41"
                             Width="200"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Left"

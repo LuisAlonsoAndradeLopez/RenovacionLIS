@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Resources;
 using System.Security;
 using System.ServiceModel;
@@ -119,12 +120,16 @@ namespace Client.Views
                 profileNonCallbackMethodsClient.Close();
 
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
         }

@@ -1,0 +1,144 @@
+Exception: System.ServiceModel.EndpointNotFoundException: No se pudo conectar a net.tcp://localhost:8200/ServiceProfileForNonCallbackMethods. La duración del intento de conexión fue de 00:00:04.0989773. Código de error TCP 10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200.  ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200
+   en System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   en System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+
+Server stack trace: 
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryGetChannel()
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryWait(TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.TryGetChannel(Boolean canGetChannel, Boolean canCauseFault, TimeSpan timeout, MaskingMode maskingMode, TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.Send(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   en System.ServiceModel.Channels.SendReceiveReliableRequestor.OnRequest(Message request, TimeSpan timeout, Boolean last)
+   en System.ServiceModel.Channels.ReliableRequestor.Request(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableSession.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   en System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   en Client.ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods.GetProfileByPlayerNickname(String nickname)
+   en Client.ServiceProfileForNonCallbackMethodsReference.ProfileNonCallbackMethodsClient.GetProfileByPlayerNickname(String nickname) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.cs:línea 1038
+   en Client.Views.LoginView.LoginButton(Object sender, RoutedEventArgs e) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Views\LoginView.xaml.cs:línea 80
+Exception: System.ServiceModel.EndpointNotFoundException: No se pudo conectar a net.tcp://localhost:8200/ServiceProfileForNonCallbackMethods. La duración del intento de conexión fue de 00:00:04.0703785. Código de error TCP 10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200.  ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200
+   en System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   en System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+
+Server stack trace: 
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryGetChannel()
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryWait(TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.TryGetChannel(Boolean canGetChannel, Boolean canCauseFault, TimeSpan timeout, MaskingMode maskingMode, TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.Send(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   en System.ServiceModel.Channels.SendReceiveReliableRequestor.OnRequest(Message request, TimeSpan timeout, Boolean last)
+   en System.ServiceModel.Channels.ReliableRequestor.Request(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableSession.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   en System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   en Client.ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods.GetProfileByPlayerNickname(String nickname)
+   en Client.ServiceProfileForNonCallbackMethodsReference.ProfileNonCallbackMethodsClient.GetProfileByPlayerNickname(String nickname) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.cs:línea 1038
+   en Client.Views.LoginView.LoginButton(Object sender, RoutedEventArgs e) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Views\LoginView.xaml.cs:línea 80
+Exception: System.ServiceModel.EndpointNotFoundException: No se pudo conectar a net.tcp://localhost:8200/ServiceProfileForNonCallbackMethods. La duración del intento de conexión fue de 00:00:04.0941210. Código de error TCP 10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200.  ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200
+   en System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   en System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+
+Server stack trace: 
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryGetChannel()
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryWait(TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.TryGetChannel(Boolean canGetChannel, Boolean canCauseFault, TimeSpan timeout, MaskingMode maskingMode, TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.Send(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   en System.ServiceModel.Channels.SendReceiveReliableRequestor.OnRequest(Message request, TimeSpan timeout, Boolean last)
+   en System.ServiceModel.Channels.ReliableRequestor.Request(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableSession.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   en System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   en Client.ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods.GetProfileByPlayerNickname(String nickname)
+   en Client.ServiceProfileForNonCallbackMethodsReference.ProfileNonCallbackMethodsClient.GetProfileByPlayerNickname(String nickname) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.cs:línea 1038
+   en Client.Views.LoginView.LoginButton(Object sender, RoutedEventArgs e) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Views\LoginView.xaml.cs:línea 80
+Exception: System.ServiceModel.EndpointNotFoundException: No se pudo conectar a net.tcp://localhost:8200/ServiceProfileForNonCallbackMethods. La duración del intento de conexión fue de 00:00:04.0798365. Código de error TCP 10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200.  ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:8200
+   en System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   en System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+
+Server stack trace: 
+   en System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+   en System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryGetChannel()
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.SyncWaiter.TryWait(TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.ChannelSynchronizer.TryGetChannel(Boolean canGetChannel, Boolean canCauseFault, TimeSpan timeout, MaskingMode maskingMode, TChannel& channel)
+   en System.ServiceModel.Channels.ReliableChannelBinder`1.Send(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   en System.ServiceModel.Channels.SendReceiveReliableRequestor.OnRequest(Message request, TimeSpan timeout, Boolean last)
+   en System.ServiceModel.Channels.ReliableRequestor.Request(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableSession.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ClientReliableDuplexSessionChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   en System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)
+   en System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   en Client.ServiceProfileForNonCallbackMethodsReference.IProfileNonCallbackMethods.GetProfileByPlayerNickname(String nickname)
+   en Client.ServiceProfileForNonCallbackMethodsReference.ProfileNonCallbackMethodsClient.GetProfileByPlayerNickname(String nickname) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Connected Services\ServiceProfileForNonCallbackMethodsReference\Reference.cs:línea 1038
+   en Client.Views.LoginView.LoginButton(Object sender, RoutedEventArgs e) en C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\Views\LoginView.xaml.cs:línea 80

@@ -27,6 +27,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            
             <Label Content="{x:Static p:Resources.LogIn}" 
                    FontFamily="{StaticResource K2DBold}" 
                    FontSize="50"
@@ -112,6 +113,8 @@
 
 
             </Border>
+            
+            
         </Grid>
 
     </Grid>

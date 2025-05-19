@@ -29,7 +29,6 @@ C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\RandomMultiplayerCrosswordGeneratorView.g.cs
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\ScoreView.g.cs
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\StartView.g.cs
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\UserControls\UserControlScore.g.cs
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\VictoryView.g.cs
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\WinnersView.g.cs
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\App.g.cs
@@ -56,7 +55,6 @@ C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\RandomMultiplayerCrosswordGeneratorView.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\ScoreView.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\StartView.baml
-C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\UserControls\UserControlScore.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\VictoryView.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Views\WinnersView.baml
 C:\Users\wmike69\Documents\Coding Projects\Renovación LIS\src\Client\obj\Debug\Client.g.resources

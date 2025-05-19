@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Resources;
@@ -74,7 +75,7 @@ namespace Client.Views
                 if (IntroduceCodeTextField.Text == verificationCode.ToString())
                 {
                     SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
-                    string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
+                    string newPassword = new NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
 
                     string salt = BCrypt.Net.BCrypt.GenerateSalt();
                     string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
@@ -95,12 +96,16 @@ namespace Client.Views
 
                 playerClient.Close();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
 
@@ -117,10 +122,10 @@ namespace Client.Views
                 {
 
                     SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
-                    string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
+                    string newPassword = new NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
 
                     SecureString confirmNewPasswordSecurePassword = ConfirmNewPasswordPasswordBox.SecurePassword;
-                    string confirmNewPassword = new System.Net.NetworkCredential(string.Empty, confirmNewPasswordSecurePassword).Password;
+                    string confirmNewPassword = new NetworkCredential(string.Empty, confirmNewPasswordSecurePassword).Password;
 
                     if (newPassword == confirmNewPassword)
                     {
@@ -164,13 +169,22 @@ namespace Client.Views
 
                 playerClient.Close();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException ex)
             {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
                 new AlertPopUpGenerator().OpenInternationalizedNotInGameConnectionErrorPopUp();
+            }
+            catch (SmtpException ex)
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "../../log.txt");
+                File.AppendAllText(logFilePath, $"Exception: {ex}\n");
             }
 
         }
@@ -196,10 +210,10 @@ namespace Client.Views
             Match emailMatch = emailRegex.Match(EmailTextField.Text);
 
             SecureString newPasswordSecurePassword = NewPasswordPasswordBox.SecurePassword;
-            string newPassword = new System.Net.NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
+            string newPassword = new NetworkCredential(string.Empty, newPasswordSecurePassword).Password;
 
             SecureString confirmNewPasswordSecurePassword = ConfirmNewPasswordPasswordBox.SecurePassword;
-            string confirmNewPassword = new System.Net.NetworkCredential(string.Empty, confirmNewPasswordSecurePassword).Password;
+            string confirmNewPassword = new NetworkCredential(string.Empty, confirmNewPasswordSecurePassword).Password;
 
             Match newPasswordMatch = newPasswordRegex.Match(newPassword);
             Match confirmNewPasswordMatch = confirmNewPasswordRegex.Match(confirmNewPassword);
