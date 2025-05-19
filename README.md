@@ -1,6 +1,7 @@
 # Renovación LIS
 Proyecto Final de la Experiencia Educativa de Tecnologías para la Construcción de Software.
 Renovación LIS es un videojuego de crucigramas con temática de la Licenciatura en Ingeniería de Software de la Facultad de Estadística e Informática de la  Universidad Veracruzana.
+
 Las funcionalidades que Renovación LIS ofrece son las siguientes:
 * Internacionalización en idiomas español e inglés.
 * Registro de perfil.
@@ -14,7 +15,14 @@ Las funcionalidades que Renovación LIS ofrece son las siguientes:
 * Cinco crucigramas jugables para el multijugador (accedible desde el Lobby, el jugador administrador es el que puede empezar las partidas).
 * Visualización de puntuaciones de todos los perfiles.
 
-## Tecnologías requeridas
+Para el desarrollo de Renovación LIS se ocuparon las siguientes tecnologías:
+* .Net Framework 4.7.2.
+* Windows Presentation Foundation (WPF).
+* Entity Framework 6.
+* Windows Communication Foundation (WCF).
+* SQL Server 2022.
+
+## Tecnologías requeridas para la ejecución
 * Visual Studio 2022.
 * .Net Framework 4.7.2 o versiones posteriores.
 * SQL Server 2022.
