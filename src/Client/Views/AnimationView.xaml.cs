@@ -31,18 +31,19 @@ namespace Client.Views
             InitializeComponent();
             SongManager.Instance.PauseMusic();
 
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "../../Videos/AnimationVideo.mp4");
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "../../Resources/Videos/AnimationVideo.mp4");
             AnimationVideo.Source = new Uri(path);
+            Console.WriteLine(path);
 
             AnimationVideo.MediaEnded += (sender, e) =>
             {
                 try
                 {
                     NavigationService navigationService = NavigationService.GetNavigationService(this);
-                    navigationService.Navigate(new LevelView(mainWindow));
+                    navigationService.Navigate(new GamemodeSelectionView(mainWindow));
 
                     SongManager.Instance.ResumeMusic();
-                    SongManager.Instance.PlaySingleplayerSong();
+                    SongManager.Instance.PlayMainSong();
                 }
                 catch (TimeoutException ex)
                 {
@@ -68,12 +69,12 @@ namespace Client.Views
             try
             {
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new LevelView(mainWindow));
+                navigationService.Navigate(new GamemodeSelectionView(mainWindow));
 
                 SongManager.Instance.PlayClickSound();
 
                 SongManager.Instance.ResumeMusic();
-                SongManager.Instance.PlaySingleplayerSong();
+                SongManager.Instance.PlayMainSong();
             }
             catch (TimeoutException ex)
             {

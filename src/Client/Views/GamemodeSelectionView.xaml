@@ -14,7 +14,6 @@
 
         <StackPanel>
             <Button Content="{x:Static p:Resources.Exit}"
-                Foreground="Black"
                 FontSize="20"
                 FontFamily="{StaticResource K2DRegular}"
                 HorizontalAlignment="Left"
@@ -23,7 +22,7 @@
                 Click = "ExitButtonOnClick" Height="43" Width="105"/>
 
             <Image 
-                Source="/Resources/Images/GameLogo.png"
+                Source="/Resources/Images/renovaciónLISLogo.png"
                 Height="200"
                 Width="666"
                 Margin="0,30,0,70"/>

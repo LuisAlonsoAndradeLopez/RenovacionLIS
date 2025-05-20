@@ -53,8 +53,7 @@
     <StartupObject>Client.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>renovaciónLISLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
@@ -678,8 +677,6 @@
     <Resource Include="Resources\Images\friendsButton.png" />
     <Resource Include="Resources\Images\friendsButtonImage.png" />
     <Resource Include="Resources\Images\friendsImage.png" />
-    <Resource Include="Resources\Images\GameLogo.ico" />
-    <Resource Include="Resources\Images\GameLogo.png" />
     <Resource Include="Resources\Images\gamemodeSelectionImage.png" />
     <Resource Include="Resources\Images\GridLevels\Grid105.png" />
     <Resource Include="Resources\Images\GridLevels\GridCC3.png" />
@@ -730,6 +727,9 @@
     <None Include="Connected Services\ServiceProfileForNonCallbackMethodsReference\item1.disco" />
     <None Include="Connected Services\ServiceChatForCallbackMethodsReference\item.disco" />
     <None Include="Connected Services\ServiceChatForNonCallbackMethodsReference\item.disco" />
+    <Resource Include="renovaciónLISLogo.ico" />
+    <Resource Include="Resources\Images\renovaciónLISLogo.ico" />
+    <Resource Include="Resources\Images\renovaciónLISLogo.png" />
     <Content Include="Resources\Songs\Apprentice %28Instrumental%29 - Friday Night Funkin vs Dave and Bambi Golden Apple OST.wav" />
     <Content Include="Resources\Songs\Custom Character - Dan The Man Music.wav" />
     <Content Include="Resources\Songs\smile.dk - Butterfly %28Last Word Karaoke%29.wav" />

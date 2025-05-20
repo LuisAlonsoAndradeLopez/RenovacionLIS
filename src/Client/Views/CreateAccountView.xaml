@@ -57,7 +57,7 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical" Width="700" Height="433">
-                            <Label Content="{x:Static p:Resources.Name}"
+                            <Label Content="{x:Static p:Resources.Name_s__}"
                                 FontFamily="{StaticResource K2DRegular}"
                                 FontSize="16"
                                 Foreground="White"
@@ -68,7 +68,7 @@
                                 Height="41"
                                 Margin="20,0"/>
 
-                            <Label Content="{x:Static p:Resources.First_Last_Name}"
+                            <Label Content="{x:Static p:Resources.Surname_s__}"
                                 FontFamily="{StaticResource K2DRegular}"
                                 FontSize="16"
                                 Foreground="White"
@@ -78,7 +78,7 @@
                                 Height="41"
                                 Margin="20,0"/>
 
-                            <Label Content="{x:Static p:Resources.Email}"
+                            <Label Content="{x:Static p:Resources.Email_}"
                                 FontFamily="{StaticResource K2DRegular}"
                                 FontSize="16"
                                 Foreground="White"
@@ -90,7 +90,7 @@
 
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                 <StackPanel Orientation="Vertical" Width="350">
-                                    <Label Content="{x:Static p:Resources.Nickname}"
+                                    <Label Content="{x:Static p:Resources.Nickname_}"
                                         FontFamily="{StaticResource K2DRegular}"
                                         FontSize="16"
                                         Foreground="White"
@@ -102,7 +102,7 @@
                                 </StackPanel>
                                 
                                 <StackPanel Orientation="Vertical" Width="350">
-                                    <Label Content="{x:Static p:Resources.Birth_day}"
+                                    <Label Content="{x:Static p:Resources.Birth_date_}"
                                         FontFamily="{StaticResource K2DRegular}"
                                         FontSize="16"
                                         Foreground="White"
@@ -118,7 +118,7 @@
 
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                 <StackPanel Orientation="Vertical" Width="350">
-                                    <Label Content="{x:Static p:Resources.Password}"
+                                    <Label Content="{x:Static p:Resources.Password_}"
                                         FontFamily="{StaticResource K2DRegular}"
                                         FontSize="16"
                                         Foreground="White"
@@ -129,7 +129,7 @@
                                         Margin="20,0"/>                                    
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Width="350">
-                                    <Label Content="{x:Static p:Resources.Confirm_password}"
+                                    <Label Content="{x:Static p:Resources.Confirm_password_}"
                                         FontFamily="{StaticResource K2DRegular}"
                                         FontSize="16"
                                         Foreground="White"

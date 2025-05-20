@@ -71,7 +71,7 @@ namespace Client.Views
             try
             {
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
-                navigationService.Navigate(new GamemodeSelectionView(mainWindow));
+                navigationService.Navigate(new AnimationView(mainWindow));
 
                 SongManager.Instance.PlayClickSound();
             }

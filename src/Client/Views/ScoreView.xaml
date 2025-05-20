@@ -12,7 +12,7 @@
     <Grid>
         <Image Source="/Resources/Images/WallpaperLevelOneImage.png" Stretch="Fill"/>
 
-        <TextBlock Text="Puntuaciones" FontFamily="{StaticResource K2DBold}" Foreground="White" FontSize="40" Margin="0,66,0,320" HorizontalAlignment="Center"/>
+        <TextBlock Text="{x:Static p:Resources.Scores}" FontFamily="{StaticResource K2DBold}" Foreground="White" FontSize="40" Margin="0,66,0,320" HorizontalAlignment="Center"/>
 
         <ScrollViewer Margin="0,132,0,23">
             <Border Background="#50000000" Margin="20,0,0,0" CornerRadius="20">

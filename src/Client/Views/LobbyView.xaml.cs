@@ -181,10 +181,10 @@ namespace Client.Views
                 NavigationService navigationService = NavigationService.GetNavigationService(this);
                 navigationService.Navigate(new GamemodeSelectionView(mainWindow));
 
+                SongManager.Instance.PlayClickSound();
+
                 SongManager.Instance.StopMusic();
                 SongManager.Instance.PlayMainSong();
-
-                SongManager.Instance.PlayClickSound();
             }
             catch (TimeoutException ex)
             {

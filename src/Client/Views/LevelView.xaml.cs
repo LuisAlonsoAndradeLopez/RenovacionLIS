@@ -44,7 +44,9 @@ namespace Client.Views
         #region Methods for GUIs elements
         private void ExitButtonOnClick(object sender, RoutedEventArgs e)
         {
-            SongManager.Instance.ResumeMusic();
+            SongManager.Instance.PlayClickSound();
+
+            SongManager.Instance.StopMusic();
             SongManager.Instance.PlayMainSong();
 
             NavigationService navigationService = NavigationService.GetNavigationService(this);

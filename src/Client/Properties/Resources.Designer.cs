@@ -503,20 +503,20 @@ namespace Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Birth date*.
+        /// </summary>
+        public static string Birth_date_ {
+            get {
+                return ResourceManager.GetString("Birth date*", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Birth date should be before than the actual date.
         /// </summary>
         public static string Birth_date_should_be_before_than_the_actual_date {
             get {
                 return ResourceManager.GetString("Birth date should be before than the actual date", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Birth day.
-        /// </summary>
-        public static string Birth_day {
-            get {
-                return ResourceManager.GetString("Birth day", resourceCulture);
             }
         }
         
@@ -647,20 +647,20 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirm password.
+        ///   Busca una cadena traducida similar a Confirm password*.
         /// </summary>
-        public static string Confirm_password {
+        public static string Confirm_password_ {
             get {
-                return ResourceManager.GetString("Confirm password", resourceCulture);
+                return ResourceManager.GetString("Confirm password*", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirm your new password.
+        ///   Busca una cadena traducida similar a Confirm your new password*.
         /// </summary>
-        public static string Confirm_your_new_password {
+        public static string Confirm_your_new_password_ {
             get {
-                return ResourceManager.GetString("Confirm your new password", resourceCulture);
+                return ResourceManager.GetString("Confirm your new password*", resourceCulture);
             }
         }
         
@@ -800,15 +800,6 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a E mail.
-        /// </summary>
-        public static string E_mail {
-            get {
-                return ResourceManager.GetString("E mail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a ECONEX bathroom low level.
         /// </summary>
         public static string ECONEX_bathroom_low_level {
@@ -818,11 +809,11 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Email.
+        ///   Busca una cadena traducida similar a Email*.
         /// </summary>
-        public static string Email {
+        public static string Email_ {
             get {
-                return ResourceManager.GetString("Email", resourceCulture);
+                return ResourceManager.GetString("Email*", resourceCulture);
             }
         }
         
@@ -859,15 +850,6 @@ namespace Client.Properties {
         public static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a First Last Name.
-        /// </summary>
-        public static string First_Last_Name {
-            get {
-                return ResourceManager.GetString("First Last Name", resourceCulture);
             }
         }
         
@@ -1043,11 +1025,11 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Introduce your email.
+        ///   Busca una cadena traducida similar a Introduce your email*.
         /// </summary>
-        public static string Introduce_your_email {
+        public static string Introduce_your_email_ {
             get {
-                return ResourceManager.GetString("Introduce your email", resourceCulture);
+                return ResourceManager.GetString("Introduce your email*", resourceCulture);
             }
         }
         
@@ -1196,20 +1178,20 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Name(s).
+        ///   Busca una cadena traducida similar a Name(s)*.
         /// </summary>
-        public static string Name_s_ {
+        public static string Name_s__ {
             get {
-                return ResourceManager.GetString("Name(s)", resourceCulture);
+                return ResourceManager.GetString("Name(s)*", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a New password.
+        ///   Busca una cadena traducida similar a New password*.
         /// </summary>
-        public static string New_Password {
+        public static string New_Password_ {
             get {
-                return ResourceManager.GetString("New Password", resourceCulture);
+                return ResourceManager.GetString("New Password*", resourceCulture);
             }
         }
         
@@ -1228,6 +1210,15 @@ namespace Client.Properties {
         public static string Nickname {
             get {
                 return ResourceManager.GetString("Nickname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nickname*.
+        /// </summary>
+        public static string Nickname_ {
+            get {
+                return ResourceManager.GetString("Nickname*", resourceCulture);
             }
         }
         
@@ -1282,6 +1273,15 @@ namespace Client.Properties {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password*.
+        /// </summary>
+        public static string Password_ {
+            get {
+                return ResourceManager.GetString("Password*", resourceCulture);
             }
         }
         
@@ -1399,6 +1399,15 @@ namespace Client.Properties {
         public static string Score {
             get {
                 return ResourceManager.GetString("Score", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Scores.
+        /// </summary>
+        public static string Scores {
+            get {
+                return ResourceManager.GetString("Scores", resourceCulture);
             }
         }
         
@@ -1547,11 +1556,11 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Surname(s).
+        ///   Busca una cadena traducida similar a Surname(s)*.
         /// </summary>
-        public static string Surname_s_ {
+        public static string Surname_s__ {
             get {
-                return ResourceManager.GetString("Surname(s)", resourceCulture);
+                return ResourceManager.GetString("Surname(s)*", resourceCulture);
             }
         }
         

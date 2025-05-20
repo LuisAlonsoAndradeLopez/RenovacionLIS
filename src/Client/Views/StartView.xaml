@@ -18,7 +18,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
-            <Image Source="/Resources/Images/GameLogo.png" Height="180" />
+            <Image Source="/Resources/Images/renovaciónLisLogo.png" Height="180" />
             
             <Button Grid.Row="1" 
                     Width="200" 

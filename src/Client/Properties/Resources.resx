@@ -267,8 +267,8 @@
   <data name="BackMenu" xml:space="preserve">
     <value>Back to menu</value>
   </data>
-  <data name="Birth day" xml:space="preserve">
-    <value>Birth day</value>
+  <data name="Birth date*" xml:space="preserve">
+    <value>Birth date*</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -309,11 +309,11 @@
   <data name="Configuration" xml:space="preserve">
     <value>Configuration</value>
   </data>
-  <data name="Confirm password" xml:space="preserve">
-    <value>Confirm password</value>
+  <data name="Confirm password*" xml:space="preserve">
+    <value>Confirm password*</value>
   </data>
-  <data name="Confirm your new password" xml:space="preserve">
-    <value>Confirm your new password</value>
+  <data name="Confirm your new password*" xml:space="preserve">
+    <value>Confirm your new password*</value>
   </data>
   <data name="Create account" xml:space="preserve">
     <value>Create account</value>
@@ -354,11 +354,8 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="E mail" xml:space="preserve">
-    <value>E mail</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
+  <data name="Email*" xml:space="preserve">
+    <value>Email*</value>
   </data>
   <data name="Email already on use" xml:space="preserve">
     <value>Email already on use</value>
@@ -371,9 +368,6 @@
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
-  </data>
-  <data name="First Last Name" xml:space="preserve">
-    <value>First Last Name</value>
   </data>
   <data name="First place" xml:space="preserve">
     <value>First place</value>
@@ -429,8 +423,8 @@
   <data name="Introduce this code for change your password" xml:space="preserve">
     <value>Introduce this code for change your password: </value>
   </data>
-  <data name="Introduce your email" xml:space="preserve">
-    <value>Introduce your email</value>
+  <data name="Introduce your email*" xml:space="preserve">
+    <value>Introduce your email*</value>
   </data>
   <data name="Invalid code" xml:space="preserve">
     <value>Invalid code</value>
@@ -477,17 +471,17 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="Name(s)" xml:space="preserve">
-    <value>Name(s)</value>
+  <data name="Name(s)*" xml:space="preserve">
+    <value>Name(s)*</value>
   </data>
-  <data name="New Password" xml:space="preserve">
-    <value>New password</value>
+  <data name="New Password*" xml:space="preserve">
+    <value>New password*</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
   </data>
-  <data name="Nickname" xml:space="preserve">
-    <value>Nickname</value>
+  <data name="Nickname*" xml:space="preserve">
+    <value>Nickname*</value>
   </data>
   <data name="Nickname already on use" xml:space="preserve">
     <value>Nickname already on use</value>
@@ -504,8 +498,8 @@
   <data name="Orientation" xml:space="preserve">
     <value>Orientation</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="Password*" xml:space="preserve">
+    <value>Password*</value>
   </data>
   <data name="Password changed sucessfully!!!" xml:space="preserve">
     <value>Password changed sucessfully!!!</value>
@@ -582,8 +576,8 @@
   <data name="Success!!!" xml:space="preserve">
     <value>Success!!!</value>
   </data>
-  <data name="Surname(s)" xml:space="preserve">
-    <value>Surname(s)</value>
+  <data name="Surname(s)*" xml:space="preserve">
+    <value>Surname(s)*</value>
   </data>
   <data name="That player now is admin!" xml:space="preserve">
     <value>That player now is admin!</value>
@@ -731,5 +725,15 @@
   </data>
   <data name="Score" xml:space="preserve">
     <value>Score</value>
+  </data>
+  <data name="Nickname" xml:space="preserve">
+    <value>Nickname</value>
+    <comment>Nombre de usuario</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Scores" xml:space="preserve">
+    <value>Scores</value>
   </data>
 </root>

@@ -55,7 +55,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Label Content="{x:Static p:Resources.Name_s_}"
+                        <Label Content="{x:Static p:Resources.Name_s__}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -70,7 +70,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Label Content="{x:Static p:Resources.Surname_s_}"
+                        <Label Content="{x:Static p:Resources.Surname_s__}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -86,7 +86,7 @@
 
                 </StackPanel>
 
-                <Label Content="{x:Static p:Resources.Email}"
+                <Label Content="{x:Static p:Resources.Email_}"
                 FontFamily="{StaticResource K2DRegular}"
                 FontSize="16"
                 Foreground="White"
@@ -101,7 +101,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Label Content="{x:Static p:Resources.Nickname}"
+                        <Label Content="{x:Static p:Resources.Nickname_}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"
@@ -116,7 +116,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Label Content="{x:Static p:Resources.Birth_day}"
+                        <Label Content="{x:Static p:Resources.Birth_date_}"
                         FontFamily="{StaticResource K2DRegular}"
                         FontSize="16"
                         Foreground="White"

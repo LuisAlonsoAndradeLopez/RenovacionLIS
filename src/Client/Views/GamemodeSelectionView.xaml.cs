@@ -38,9 +38,12 @@ namespace Client.Views
         private void SingleplayerButtonOnClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(new AnimationView(mainWindow));
+            navigationService.Navigate(new LevelView(mainWindow));
+
+            SongManager.Instance.PlayClickSound();
 
             SongManager.Instance.StopMusic();
+            SongManager.Instance.PlaySingleplayerSong();
         }
 
         private void MultiplayerButtonOnClick(object sender, RoutedEventArgs e)
@@ -80,6 +83,8 @@ namespace Client.Views
 
                             NavigationService navigationService = NavigationService.GetNavigationService(this);
                             navigationService.Navigate(lobbyView);
+
+                            SongManager.Instance.PlayClickSound();
 
                             SongManager.Instance.StopMusic();
                             SongManager.Instance.PlayMultiplayerSong();
